@@ -18,6 +18,7 @@ tags:
 - name: DuckDuckGo
 - name: eBay
 - name: Facebook
+- name: Gemini
 - name: Google
 - name: Idealista
 - name: Immobiliare
@@ -25,6 +26,7 @@ tags:
 - name: Leboncoin
 - name: LinkedIn
 - name: LoopNet
+- name: Perplexity
 - name: Realtor
 - name: Reddit
 - name: Redfin
@@ -4169,6 +4171,210 @@ paths:
       summary: Search posts
       tags:
       - Facebook
+  /v1/gemini/ask:
+    get:
+      description: Send a prompt to Gemini and get the answer plus the web sources
+        it cited.
+      operationId: gemini_ask_gemini_a_question
+      parameters:
+      - description: The prompt to send to Gemini (max 4096 characters).
+        explode: true
+        in: query
+        name: prompt
+        required: true
+        schema:
+          description: The prompt to send to Gemini (max 4096 characters).
+          title: Prompt
+          type: string
+        style: form
+      - description: "ISO-3166 alpha-2 egress country, e.g. 'US', 'GB', 'DE'."
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: auto (let Gemini decide) | force (ask it to browse) | off (answer
+          from memory). `web_search_triggered` in the response always reports what
+          actually happened.
+        explode: true
+        in: query
+        name: web_search
+        required: false
+        schema:
+          default: auto
+          description: auto (let Gemini decide) | force (ask it to browse) | off (answer
+            from memory). `web_search_triggered` in the response always reports what
+            actually happened.
+          title: Web Search
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Ask Gemini a question
+      tags:
+      - Gemini
+    post:
+      description: "POST form of `/ask`, for prompts too long for a query string."
+      operationId: gemini_ask_gemini_a_question_post
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Ask Gemini a question (POST)
+      tags:
+      - Gemini
+  /v1/gemini/brand-visibility:
+    get:
+      description: "Ask Gemini, then report whether the brand is mentioned, cited\
+        \ and how prominently."
+      operationId: gemini_measure_a_brand_s_visibility_in_a_gemini_answer
+      parameters:
+      - description: The prompt to ask Gemini.
+        explode: true
+        in: query
+        name: prompt
+        required: true
+        schema:
+          description: The prompt to ask Gemini.
+          title: Prompt
+          type: string
+        style: form
+      - description: Brand name to look for in the answer.
+        explode: true
+        in: query
+        name: brand
+        required: true
+        schema:
+          description: Brand name to look for in the answer.
+          title: Brand
+          type: string
+        style: form
+      - description: "Brand domain, for citation matching."
+        explode: true
+        in: query
+        name: domain
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Comma-separated alternative names.
+        explode: true
+        in: query
+        name: aliases
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Comma-separated competitor names.
+        explode: true
+        in: query
+        name: competitors
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: ISO-3166 alpha-2 egress country.
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: auto | force | off
+        explode: true
+        in: query
+        name: web_search
+        required: false
+        schema:
+          default: force
+          description: auto | force | off
+          title: Web Search
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Measure a brand's visibility in a Gemini answer
+      tags:
+      - Gemini
+    post:
+      description: "POST form, for longer prompts and larger competitor sets."
+      operationId: gemini_measure_a_brand_s_visibility_in_a_gemini_answer_post
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Measure a brand's visibility in a Gemini answer (POST)
+      tags:
+      - Gemini
+  /v1/gemini/health:
+    get:
+      description: Check health of the Gemini scraper service (accepts HEAD).
+      operationId: gemini_gemini_scraper_health_check
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Gemini scraper health check
+      tags:
+      - Gemini
+    head:
+      description: Check health of the Gemini scraper service (accepts HEAD).
+      operationId: gemini_gemini_scraper_health_check_head
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Gemini scraper health check
+      tags:
+      - Gemini
   /v1/google/ai-mode/search:
     get:
       description: |-
@@ -10343,6 +10549,184 @@ paths:
       summary: Search commercial real estate
       tags:
       - LoopNet
+  /v1/perplexity/ask:
+    get:
+      description: Send a prompt to Perplexity and get the answer plus the web sources
+        it cited.
+      operationId: perplexity_ask_perplexity_a_question
+      parameters:
+      - description: The prompt to send to Perplexity (max 4096 characters).
+        explode: true
+        in: query
+        name: prompt
+        required: true
+        schema:
+          description: The prompt to send to Perplexity (max 4096 characters).
+          title: Prompt
+          type: string
+        style: form
+      - description: "ISO-3166 alpha-2 egress country, e.g. 'US', 'GB', 'DE'."
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Ask Perplexity a question
+      tags:
+      - Perplexity
+    post:
+      description: "POST form of `/ask`, for prompts too long for a query string."
+      operationId: perplexity_ask_perplexity_a_question_post
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Ask Perplexity a question (POST)
+      tags:
+      - Perplexity
+  /v1/perplexity/brand-visibility:
+    get:
+      description: "Ask Perplexity, then report whether the brand is mentioned, cited\
+        \ and how prominently."
+      operationId: perplexity_measure_a_brand_s_visibility_in_a_perplexity_answer
+      parameters:
+      - description: The prompt to ask Perplexity.
+        explode: true
+        in: query
+        name: prompt
+        required: true
+        schema:
+          description: The prompt to ask Perplexity.
+          title: Prompt
+          type: string
+        style: form
+      - description: Brand name to look for in the answer.
+        explode: true
+        in: query
+        name: brand
+        required: true
+        schema:
+          description: Brand name to look for in the answer.
+          title: Brand
+          type: string
+        style: form
+      - description: "Brand domain, for citation matching."
+        explode: true
+        in: query
+        name: domain
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Comma-separated alternative names.
+        explode: true
+        in: query
+        name: aliases
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Comma-separated competitor names.
+        explode: true
+        in: query
+        name: competitors
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: ISO-3166 alpha-2 egress country.
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Measure a brand's visibility in a Perplexity answer
+      tags:
+      - Perplexity
+    post:
+      description: "POST form, for longer prompts and larger competitor sets."
+      operationId: perplexity_measure_a_brand_s_visibility_in_a_perplexity_answer_post
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Measure a brand's visibility in a Perplexity answer (POST)
+      tags:
+      - Perplexity
+  /v1/perplexity/health:
+    get:
+      description: Check health of the Perplexity scraper service (accepts HEAD).
+      operationId: perplexity_perplexity_scraper_health_check
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Perplexity scraper health check
+      tags:
+      - Perplexity
+    head:
+      description: Check health of the Perplexity scraper service (accepts HEAD).
+      operationId: perplexity_perplexity_scraper_health_check_head
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Perplexity scraper health check
+      tags:
+      - Perplexity
   /v1/realtor/autocomplete:
     get:
       description: Resolve a location query into candidate places to feed /search.

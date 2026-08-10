@@ -25,6 +25,7 @@ docs/FilterRuleResponse.md
 docs/FilterRuleUpdate.md
 docs/FilterRuleValidateRequest.md
 docs/FilterRuleValidateResponse.md
+docs/GeminiApi.md
 docs/GoogleApi.md
 docs/HTTPValidationError.md
 docs/IdealistaApi.md
@@ -33,6 +34,7 @@ docs/InstagramApi.md
 docs/LeboncoinApi.md
 docs/LinkedInApi.md
 docs/LoopNetApi.md
+docs/PerplexityApi.md
 docs/PortalApiRoutersV1TwitterFilterRulesFilterRulePricingResponse.md
 docs/RealtorApi.md
 docs/RedditApi.md
@@ -72,6 +74,7 @@ src/ScrapeBadger.Test/Api/DepopApiTests.cs
 src/ScrapeBadger.Test/Api/DuckDuckGoApiTests.cs
 src/ScrapeBadger.Test/Api/EBayApiTests.cs
 src/ScrapeBadger.Test/Api/FacebookApiTests.cs
+src/ScrapeBadger.Test/Api/GeminiApiTests.cs
 src/ScrapeBadger.Test/Api/GoogleApiTests.cs
 src/ScrapeBadger.Test/Api/IdealistaApiTests.cs
 src/ScrapeBadger.Test/Api/ImmobiliareApiTests.cs
@@ -79,6 +82,7 @@ src/ScrapeBadger.Test/Api/InstagramApiTests.cs
 src/ScrapeBadger.Test/Api/LeboncoinApiTests.cs
 src/ScrapeBadger.Test/Api/LinkedInApiTests.cs
 src/ScrapeBadger.Test/Api/LoopNetApiTests.cs
+src/ScrapeBadger.Test/Api/PerplexityApiTests.cs
 src/ScrapeBadger.Test/Api/RealtorApiTests.cs
 src/ScrapeBadger.Test/Api/RedditApiTests.cs
 src/ScrapeBadger.Test/Api/RedfinApiTests.cs
@@ -130,6 +134,7 @@ src/ScrapeBadger/Api/DepopApi.cs
 src/ScrapeBadger/Api/DuckDuckGoApi.cs
 src/ScrapeBadger/Api/EBayApi.cs
 src/ScrapeBadger/Api/FacebookApi.cs
+src/ScrapeBadger/Api/GeminiApi.cs
 src/ScrapeBadger/Api/GoogleApi.cs
 src/ScrapeBadger/Api/IdealistaApi.cs
 src/ScrapeBadger/Api/ImmobiliareApi.cs
@@ -137,6 +142,7 @@ src/ScrapeBadger/Api/InstagramApi.cs
 src/ScrapeBadger/Api/LeboncoinApi.cs
 src/ScrapeBadger/Api/LinkedInApi.cs
 src/ScrapeBadger/Api/LoopNetApi.cs
+src/ScrapeBadger/Api/PerplexityApi.cs
 src/ScrapeBadger/Api/RealtorApi.cs
 src/ScrapeBadger/Api/RedditApi.cs
 src/ScrapeBadger/Api/RedfinApi.cs
