@@ -5,11 +5,16 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write  # NuGet Trusted Publishing (OIDC)
+      contents: read
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4
         with: { dotnet-version: "8.0.x" }
+      - uses: NuGet/login@v1
+        id: nuget-login
+        with:
+          user: kasparas12
       - run: dotnet pack src/ScrapeBadger/ScrapeBadger.csproj -c Release -o out
-      - run: dotnet nuget push "out/*.nupkg" -k "$NUGET_API_KEY" -s https://api.nuget.org/v3/index.json
-        env:
-          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+      - run: dotnet nuget push "out/*.nupkg" -k "${{ steps.nuget-login.outputs.NUGET_API_KEY }}" -s https://api.nuget.org/v3/index.json
