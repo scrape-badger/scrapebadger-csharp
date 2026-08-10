@@ -1,3 +1,48 @@
+# ScrapeBadger C# SDK
+
+[![version](https://img.shields.io/nuget/v/ScrapeBadger)](https://www.nuget.org/packages/ScrapeBadger) [![CI](https://img.shields.io/github/actions/workflow/status/scrape-badger/scrapebadger-csharp/ci.yml?label=CI)](https://github.com/scrape-badger/scrapebadger-csharp/actions) [![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+Official **C#** SDK for [ScrapeBadger](https://scrapebadger.com) — one API key for
+30+ scraping APIs: Twitter/X, Reddit, Facebook, Instagram, TikTok, YouTube, Amazon, eBay,
+Walmart, Vinted, Google (18 products), Bing, Yahoo, ChatGPT, Perplexity, real estate, and
+any URL via the general Web Scraping API. Generated from the ScrapeBadger OpenAPI spec —
+always in sync with the API. ⚠️ This repository is regenerated automatically; don't send
+PRs here, request changes via the [roadmap](https://github.com/scrape-badger/roadmap).
+
+📚 [API docs](https://docs.scrapebadger.com) · 🧰 [All SDKs](https://scrapebadger.com/sdks) · 🔑 [Get an API key](https://scrapebadger.com/auth/signup) — 1,000 free credits
+
+## 🚀 Install
+
+```
+dotnet add package ScrapeBadger
+```
+
+## ⚡ Quick start
+
+```csharp
+using ScrapeBadger.Api;
+using ScrapeBadger.Client;
+
+var config = new Configuration();
+config.ApiKey.Add("X-API-Key", "YOUR_API_KEY");
+
+var twitter = new TwitterApi(config);
+var user = await twitter.TwitterGetUserByUsernameAsync("elonmusk");
+Console.WriteLine(user);
+```
+
+Every scraper is available as its own API class (`TwitterApi`, `AmazonApi`, `GoogleApi`, …)
+with one method per endpoint — the full list is in the reference below.
+
+## 🛠 Development
+
+```sh
+dotnet build src/ScrapeBadger/ScrapeBadger.csproj   # compile
+dotnet test                                          # tests
+```
+
+---
+
 # ScrapeBadger - the C# library for the ScrapeBadger API
 
 Unified credit-based scraping API. https://docs.scrapebadger.com
