@@ -1,6 +1,14 @@
-# ScrapeBadger C# SDK
+<p align="center">
+  <img src="https://scrapebadger.com/logo-dark.png" alt="ScrapeBadger" width="400">
+</p>
 
-[![version](https://img.shields.io/nuget/v/ScrapeBadger)](https://www.nuget.org/packages/ScrapeBadger) [![CI](https://img.shields.io/github/actions/workflow/status/scrape-badger/scrapebadger-csharp/ci.yml?label=CI)](https://github.com/scrape-badger/scrapebadger-csharp/actions) [![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+<h1 align="center">ScrapeBadger C# SDK</h1>
+
+<p align="center">
+  <a href="https://www.nuget.org/packages/ScrapeBadger"><img src="https://img.shields.io/nuget/v/ScrapeBadger" alt="version"></a>
+  <a href="https://github.com/scrape-badger/scrapebadger-csharp/actions"><img src="https://img.shields.io/github/actions/workflow/status/scrape-badger/scrapebadger-csharp/ci.yml?label=CI" alt="CI"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="license"></a>
+</p>
 
 Official **C#** SDK for [ScrapeBadger](https://scrapebadger.com) — one API key for
 30+ scraping APIs: Twitter/X, Reddit, Facebook, Instagram, TikTok, YouTube, Amazon, eBay,
