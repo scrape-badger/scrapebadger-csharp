@@ -11,6 +11,7 @@ tags:
 - name: Account
 - name: Amazon
 - name: Apartments
+- name: App-Store
 - name: Baidu
 - name: Bing
 - name: ChatGPT
@@ -19,6 +20,7 @@ tags:
 - name: eBay
 - name: Facebook
 - name: Gemini
+- name: Google-Play
 - name: Google
 - name: Idealista
 - name: Immobiliare
@@ -1001,6 +1003,364 @@ paths:
       summary: Search rental listings
       tags:
       - Apartments
+  /v1/app-store/apps/{app_id}:
+    get:
+      description: |-
+        App detail: bundle id, version, pricing, ratings, genres, min OS, size,
+        languages, screenshots, in-app purchases and version history.
+      operationId: app-store_get_app_detail
+      parameters:
+      - description: Numeric trackId (e.g. '310633997') or bundle id (e.g. 'net.whatsapp.WhatsApp').
+        explode: false
+        in: path
+        name: app_id
+        required: true
+        schema:
+          description: Numeric trackId (e.g. '310633997') or bundle id (e.g. 'net.whatsapp.WhatsApp').
+          title: App Id
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: us
+          title: Country
+          type: string
+        style: form
+      - description: "Result language, e.g. 'en_us'"
+        explode: true
+        in: query
+        name: lang
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "Fetch the storefront page for rating histogram, IAP list, full-res\
+          \ screenshots and App Privacy. Set false to skip the 2nd fetch."
+        explode: true
+        in: query
+        name: include_extras
+        required: false
+        schema:
+          default: true
+          description: "Fetch the storefront page for rating histogram, IAP list,\
+            \ full-res screenshots and App Privacy. Set false to skip the 2nd fetch."
+          title: Include Extras
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get app detail
+      tags:
+      - App-Store
+  /v1/app-store/apps/{app_id}/reviews:
+    get:
+      description: "Paginated customer reviews (50 per page, up to 10 pages)."
+      operationId: app-store_get_app_reviews
+      parameters:
+      - description: "Numeric trackId, e.g. '310633997'"
+        explode: false
+        in: path
+        name: app_id
+        required: true
+        schema:
+          description: "Numeric trackId, e.g. '310633997'"
+          title: App Id
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: us
+          title: Country
+          type: string
+        style: form
+      - description: Apple caps reviews at 10 pages
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          description: Apple caps reviews at 10 pages
+          maximum: 10
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - description: mostRecent | mostHelpful
+        explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          default: mostRecent
+          description: mostRecent | mostHelpful
+          title: Sort
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get app reviews
+      tags:
+      - App-Store
+  /v1/app-store/charts:
+    get:
+      description: "Top charts, optionally scoped to a genre."
+      operationId: app-store_top_charts
+      parameters:
+      - explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: us
+          title: Country
+          type: string
+        style: form
+      - description: top-free | top-paid | top-grossing
+        explode: true
+        in: query
+        name: type
+        required: false
+        schema:
+          default: top-free
+          description: top-free | top-paid | top-grossing
+          title: Type
+          type: string
+        style: form
+      - description: "Apple genre id (optional), e.g. 6014"
+        explode: true
+        in: query
+        name: genre
+        required: false
+        schema:
+          nullable: true
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 50
+          maximum: 200
+          minimum: 1
+          title: Limit
+          type: integer
+        style: form
+      - description: apps (iPhone) | ipad
+        explode: true
+        in: query
+        name: entity
+        required: false
+        schema:
+          default: apps
+          description: apps (iPhone) | ipad
+          title: Entity
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Top charts
+      tags:
+      - App-Store
+  /v1/app-store/developers/{artist_id}:
+    get:
+      description: Developer info and their published apps.
+      operationId: app-store_get_developer_apps
+      parameters:
+      - description: Numeric artistId (developer id)
+        explode: false
+        in: path
+        name: artist_id
+        required: true
+        schema:
+          description: Numeric artistId (developer id)
+          title: Artist Id
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: us
+          title: Country
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get developer apps
+      tags:
+      - App-Store
+  /v1/app-store/genres:
+    get:
+      description: The Apple App Store genre/category ids.
+      operationId: app-store_list_genres
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: List genres
+      tags:
+      - App-Store
+  /v1/app-store/markets:
+    get:
+      description: Supported App Store country codes.
+      operationId: app-store_list_markets
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: List markets
+      tags:
+      - App-Store
+  /v1/app-store/search:
+    get:
+      description: Search the Apple App Store.
+      operationId: app-store_search_apps
+      parameters:
+      - description: "Search term, e.g. 'chat'"
+        explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          description: "Search term, e.g. 'chat'"
+          title: Query
+          type: string
+        style: form
+      - description: App Store country code
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: us
+          description: App Store country code
+          title: Country
+          type: string
+        style: form
+      - description: software | iPadSoftware | macSoftware
+        explode: true
+        in: query
+        name: entity
+        required: false
+        schema:
+          default: software
+          description: software | iPadSoftware | macSoftware
+          title: Entity
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 25
+          maximum: 200
+          minimum: 1
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          default: 0
+          minimum: 0
+          title: Offset
+          type: integer
+        style: form
+      - description: "Language, e.g. 'en_us'"
+        explode: true
+        in: query
+        name: lang
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Search apps
+      tags:
+      - App-Store
   /v1/baidu/autocomplete:
     get:
       description: Baidu search-box suggestions.
@@ -4375,6 +4735,512 @@ paths:
       summary: Gemini scraper health check
       tags:
       - Gemini
+  /v1/google-play/apps/{app_id}:
+    get:
+      description: |-
+        Full app detail: ratings histogram, installs, pricing, IAP, developer,
+        screenshots, version metadata and what's-new.
+      operationId: google-play_get_app_detail
+      parameters:
+      - description: "Android package id, e.g. 'com.whatsapp'."
+        explode: false
+        in: path
+        name: app_id
+        required: true
+        schema:
+          description: "Android package id, e.g. 'com.whatsapp'."
+          title: App Id
+          type: string
+        style: simple
+      - description: "Play storefront country (gl), ISO 3166-1 alpha-2, e.g. 'US'"
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: US
+          description: "Play storefront country (gl), ISO 3166-1 alpha-2, e.g. 'US'"
+          title: Country
+          type: string
+        style: form
+      - description: "Play content language (hl), e.g. 'en' or 'pt-BR'"
+        explode: true
+        in: query
+        name: lang
+        required: false
+        schema:
+          default: en
+          description: "Play content language (hl), e.g. 'en' or 'pt-BR'"
+          title: Lang
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get app detail
+      tags:
+      - Google-Play
+  /v1/google-play/apps/{app_id}/permissions:
+    get:
+      description: "The app's requested Android permissions, grouped."
+      operationId: google-play_get_app_permissions
+      parameters:
+      - description: "Android package id, e.g. 'com.whatsapp'."
+        explode: false
+        in: path
+        name: app_id
+        required: true
+        schema:
+          description: "Android package id, e.g. 'com.whatsapp'."
+          title: App Id
+          type: string
+        style: simple
+      - description: "Play content language (hl), e.g. 'en' or 'pt-BR'"
+        explode: true
+        in: query
+        name: lang
+        required: false
+        schema:
+          default: en
+          description: "Play content language (hl), e.g. 'en' or 'pt-BR'"
+          title: Lang
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get app permissions
+      tags:
+      - Google-Play
+  /v1/google-play/apps/{app_id}/reviews:
+    get:
+      description: Paginated app reviews via the Play batchexecute RPC.
+      operationId: google-play_get_app_reviews
+      parameters:
+      - description: "Android package id, e.g. 'com.whatsapp'."
+        explode: false
+        in: path
+        name: app_id
+        required: true
+        schema:
+          description: "Android package id, e.g. 'com.whatsapp'."
+          title: App Id
+          type: string
+        style: simple
+      - description: "Play storefront country (gl), ISO 3166-1 alpha-2, e.g. 'US'"
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: US
+          description: "Play storefront country (gl), ISO 3166-1 alpha-2, e.g. 'US'"
+          title: Country
+          type: string
+        style: form
+      - description: "Play content language (hl), e.g. 'en' or 'pt-BR'"
+        explode: true
+        in: query
+        name: lang
+        required: false
+        schema:
+          default: en
+          description: "Play content language (hl), e.g. 'en' or 'pt-BR'"
+          title: Lang
+          type: string
+        style: form
+      - description: newest | rating | helpfulness
+        explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          default: newest
+          description: newest | rating | helpfulness
+          title: Sort
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          default: 40
+          maximum: 150
+          minimum: 1
+          title: Count
+          type: integer
+        style: form
+      - description: Pagination token
+        explode: true
+        in: query
+        name: page_token
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get app reviews
+      tags:
+      - Google-Play
+  /v1/google-play/apps/{app_id}/similar:
+    get:
+      description: Apps Google Play lists as similar to this one.
+      operationId: google-play_get_similar_apps
+      parameters:
+      - description: "Android package id, e.g. 'com.whatsapp'."
+        explode: false
+        in: path
+        name: app_id
+        required: true
+        schema:
+          description: "Android package id, e.g. 'com.whatsapp'."
+          title: App Id
+          type: string
+        style: simple
+      - description: "Play storefront country (gl), ISO 3166-1 alpha-2, e.g. 'US'"
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: US
+          description: "Play storefront country (gl), ISO 3166-1 alpha-2, e.g. 'US'"
+          title: Country
+          type: string
+        style: form
+      - description: "Play content language (hl), e.g. 'en' or 'pt-BR'"
+        explode: true
+        in: query
+        name: lang
+        required: false
+        schema:
+          default: en
+          description: "Play content language (hl), e.g. 'en' or 'pt-BR'"
+          title: Lang
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get similar apps
+      tags:
+      - Google-Play
+  /v1/google-play/categories:
+    get:
+      description: The Google Play app/game category ids.
+      operationId: google-play_list_categories
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: List categories
+      tags:
+      - Google-Play
+  /v1/google-play/categories/{category_id}:
+    get:
+      description: The top apps within a Play category.
+      operationId: google-play_browse_a_category
+      parameters:
+      - description: "Play category id, e.g. 'GAME_PUZZLE' or 'SOCIAL'"
+        explode: false
+        in: path
+        name: category_id
+        required: true
+        schema:
+          description: "Play category id, e.g. 'GAME_PUZZLE' or 'SOCIAL'"
+          title: Category Id
+          type: string
+        style: simple
+      - description: "Play storefront country (gl), ISO 3166-1 alpha-2, e.g. 'US'"
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: US
+          description: "Play storefront country (gl), ISO 3166-1 alpha-2, e.g. 'US'"
+          title: Country
+          type: string
+        style: form
+      - description: "Play content language (hl), e.g. 'en' or 'pt-BR'"
+        explode: true
+        in: query
+        name: lang
+        required: false
+        schema:
+          default: en
+          description: "Play content language (hl), e.g. 'en' or 'pt-BR'"
+          title: Lang
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Browse a category
+      tags:
+      - Google-Play
+  /v1/google-play/collections/{collection}:
+    get:
+      description: "Top charts for a collection, optionally scoped to a category."
+      operationId: google-play_top_charts
+      parameters:
+      - description: topselling_free | topselling_paid | topgrossing
+        explode: false
+        in: path
+        name: collection
+        required: true
+        schema:
+          description: topselling_free | topselling_paid | topgrossing
+          title: Collection
+          type: string
+        style: simple
+      - description: "Play category, e.g. 'GAME'"
+        explode: true
+        in: query
+        name: category
+        required: false
+        schema:
+          default: APPLICATION
+          description: "Play category, e.g. 'GAME'"
+          title: Category
+          type: string
+        style: form
+      - description: "Play storefront country (gl), ISO 3166-1 alpha-2, e.g. 'US'"
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: US
+          description: "Play storefront country (gl), ISO 3166-1 alpha-2, e.g. 'US'"
+          title: Country
+          type: string
+        style: form
+      - description: "Play content language (hl), e.g. 'en' or 'pt-BR'"
+        explode: true
+        in: query
+        name: lang
+        required: false
+        schema:
+          default: en
+          description: "Play content language (hl), e.g. 'en' or 'pt-BR'"
+          title: Lang
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Top charts
+      tags:
+      - Google-Play
+  /v1/google-play/developers/{developer}:
+    get:
+      description: A developer's published apps.
+      operationId: google-play_get_developer_apps
+      parameters:
+      - description: Developer name or numeric id
+        explode: false
+        in: path
+        name: developer
+        required: true
+        schema:
+          description: Developer name or numeric id
+          title: Developer
+          type: string
+        style: simple
+      - description: "Play storefront country (gl), ISO 3166-1 alpha-2, e.g. 'US'"
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: US
+          description: "Play storefront country (gl), ISO 3166-1 alpha-2, e.g. 'US'"
+          title: Country
+          type: string
+        style: form
+      - description: "Play content language (hl), e.g. 'en' or 'pt-BR'"
+        explode: true
+        in: query
+        name: lang
+        required: false
+        schema:
+          default: en
+          description: "Play content language (hl), e.g. 'en' or 'pt-BR'"
+          title: Lang
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get developer apps
+      tags:
+      - Google-Play
+  /v1/google-play/markets:
+    get:
+      description: Supported Google Play store countries and languages.
+      operationId: google-play_list_markets
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: List markets
+      tags:
+      - Google-Play
+  /v1/google-play/search:
+    get:
+      description: |-
+        Search Google Play for apps and games (the ~30 server-rendered results;
+        Play exposes no page parameter).
+      operationId: google-play_search_apps
+      parameters:
+      - description: "Search keywords, e.g. 'puzzle'"
+        explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          description: "Search keywords, e.g. 'puzzle'"
+          title: Query
+          type: string
+        style: form
+      - description: "Play storefront country (gl), ISO 3166-1 alpha-2, e.g. 'US'"
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: US
+          description: "Play storefront country (gl), ISO 3166-1 alpha-2, e.g. 'US'"
+          title: Country
+          type: string
+        style: form
+      - description: "Play content language (hl), e.g. 'en' or 'pt-BR'"
+        explode: true
+        in: query
+        name: lang
+        required: false
+        schema:
+          default: en
+          description: "Play content language (hl), e.g. 'en' or 'pt-BR'"
+          title: Lang
+          type: string
+        style: form
+      - description: free | paid | all
+        explode: true
+        in: query
+        name: price
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Search apps
+      tags:
+      - Google-Play
   /v1/google/ai-mode/search:
     get:
       description: |-
