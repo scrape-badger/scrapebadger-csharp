@@ -4262,6 +4262,91 @@ paths:
       summary: Get seller listings
       tags:
       - eBay
+  /v1/facebook/ads/pages/search:
+    get:
+      description: |-
+        Search advertiser Pages in the Ad Library — returns page ids, categories,
+        likes/followers, verification and Instagram handles.
+      operationId: facebook_search_advertiser_pages
+      parameters:
+      - description: Advertiser name or keyword
+        explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          description: Advertiser name or keyword
+          title: Query
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: US
+          title: Country
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Search advertiser pages
+      tags:
+      - Facebook
+  /v1/facebook/ads/pages/{page_id}:
+    get:
+      description: |-
+        Get advertiser page info: category, followers, page transparency (creation
+        date, name history, managing organization, admin-account locations), related
+        pages, and ad spend (for political/issue advertisers).
+      operationId: facebook_get_advertiser_page_info
+      parameters:
+      - explode: false
+        in: path
+        name: page_id
+        required: true
+        schema:
+          title: Page Id
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: US
+          title: Country
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get advertiser page info
+      tags:
+      - Facebook
   /v1/facebook/ads/search:
     get:
       description: Search the Facebook Ad Library.
@@ -4331,7 +4416,10 @@ paths:
       - Facebook
   /v1/facebook/ads/{ad_archive_id}:
     get:
-      description: Get a single Ad Library ad by its archive id.
+      description: |-
+        Get a single Ad Library ad by its archive id. For EU/UK-targeted ads the
+        response also includes transparency insights (payer/beneficiary, total EU
+        reach, and age/gender/country reach breakdowns).
       operationId: facebook_get_an_ad
       parameters:
       - explode: false
@@ -4342,6 +4430,17 @@ paths:
           title: Ad Archive Id
           type: string
         style: simple
+      - description: ISO country code (an EU code returns EU transparency)
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: US
+          description: ISO country code (an EU code returns EU transparency)
+          title: Country
+          type: string
+        style: form
       responses:
         "200":
           content:

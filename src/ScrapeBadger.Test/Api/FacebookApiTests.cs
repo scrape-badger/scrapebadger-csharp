@@ -83,6 +83,19 @@ namespace ScrapeBadger.Test.Api
         }
 
         /// <summary>
+        /// Test FacebookGetAdvertiserPageInfo
+        /// </summary>
+        [Fact]
+        public void FacebookGetAdvertiserPageInfoTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string pageId = null;
+            //string country = null;
+            //var response = instance.FacebookGetAdvertiserPageInfo(pageId, country);
+            //Assert.IsType<Object>(response);
+        }
+
+        /// <summary>
         /// Test FacebookGetAnAd
         /// </summary>
         [Fact]
@@ -90,7 +103,8 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string adArchiveId = null;
-            //var response = instance.FacebookGetAnAd(adArchiveId);
+            //string country = null;
+            //var response = instance.FacebookGetAnAd(adArchiveId, country);
             //Assert.IsType<Object>(response);
         }
 
@@ -214,6 +228,19 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //var response = instance.FacebookListLocations();
+            //Assert.IsType<Object>(response);
+        }
+
+        /// <summary>
+        /// Test FacebookSearchAdvertiserPages
+        /// </summary>
+        [Fact]
+        public void FacebookSearchAdvertiserPagesTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string query = null;
+            //string country = null;
+            //var response = instance.FacebookSearchAdvertiserPages(query, country);
             //Assert.IsType<Object>(response);
         }
 

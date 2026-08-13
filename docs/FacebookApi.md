@@ -6,6 +6,7 @@ All URIs are relative to *https://scrapebadger.com*
 |--------|--------------|-------------|
 | [**FacebookBrowseAMarketplaceCategory**](FacebookApi.md#facebookbrowseamarketplacecategory) | **GET** /v1/facebook/marketplace/category/{category} | Browse a Marketplace category |
 | [**FacebookGetAMarketplaceItem**](FacebookApi.md#facebookgetamarketplaceitem) | **GET** /v1/facebook/marketplace/item/{item_id} | Get a Marketplace item |
+| [**FacebookGetAdvertiserPageInfo**](FacebookApi.md#facebookgetadvertiserpageinfo) | **GET** /v1/facebook/ads/pages/{page_id} | Get advertiser page info |
 | [**FacebookGetAnAd**](FacebookApi.md#facebookgetanad) | **GET** /v1/facebook/ads/{ad_archive_id} | Get an ad |
 | [**FacebookGetGroupDetail**](FacebookApi.md#facebookgetgroupdetail) | **GET** /v1/facebook/groups/{group_id} | Get group detail |
 | [**FacebookGetGroupPosts**](FacebookApi.md#facebookgetgroupposts) | **GET** /v1/facebook/groups/{group_id}/posts | Get group posts |
@@ -17,6 +18,7 @@ All URIs are relative to *https://scrapebadger.com*
 | [**FacebookGetProfilePosts**](FacebookApi.md#facebookgetprofileposts) | **GET** /v1/facebook/profiles/{identifier}/posts | Get profile posts |
 | [**FacebookListCategories**](FacebookApi.md#facebooklistcategories) | **GET** /v1/facebook/marketplace/categories | List categories |
 | [**FacebookListLocations**](FacebookApi.md#facebooklistlocations) | **GET** /v1/facebook/marketplace/locations | List locations |
+| [**FacebookSearchAdvertiserPages**](FacebookApi.md#facebooksearchadvertiserpages) | **GET** /v1/facebook/ads/pages/search | Search advertiser pages |
 | [**FacebookSearchEvents**](FacebookApi.md#facebooksearchevents) | **GET** /v1/facebook/search/events | Search events |
 | [**FacebookSearchEverything**](FacebookApi.md#facebooksearcheverything) | **GET** /v1/facebook/search | Search everything |
 | [**FacebookSearchGroups**](FacebookApi.md#facebooksearchgroups) | **GET** /v1/facebook/search/groups | Search groups |
@@ -239,13 +241,116 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="facebookgetadvertiserpageinfo"></a>
+# **FacebookGetAdvertiserPageInfo**
+> Object FacebookGetAdvertiserPageInfo (string pageId, string country = null)
+
+Get advertiser page info
+
+Get advertiser page info: category, followers, page transparency (creation date, name history, managing organization, admin-account locations), related pages, and ad spend (for political/issue advertisers).
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using ScrapeBadger.Api;
+using ScrapeBadger.Client;
+using ScrapeBadger.Model;
+
+namespace Example
+{
+    public class FacebookGetAdvertiserPageInfoExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://scrapebadger.com";
+            // Configure API key authorization: ApiKeyAuth
+            config.AddApiKey("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("X-API-Key", "Bearer");
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FacebookApi(httpClient, config, httpClientHandler);
+            var pageId = "pageId_example";  // string | 
+            var country = "\"US\"";  // string |  (optional)  (default to "US")
+
+            try
+            {
+                // Get advertiser page info
+                Object result = apiInstance.FacebookGetAdvertiserPageInfo(pageId, country);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FacebookApi.FacebookGetAdvertiserPageInfo: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the FacebookGetAdvertiserPageInfoWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get advertiser page info
+    ApiResponse<Object> response = apiInstance.FacebookGetAdvertiserPageInfoWithHttpInfo(pageId, country);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FacebookApi.FacebookGetAdvertiserPageInfoWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **pageId** | **string** |  |  |
+| **country** | **string** |  | [optional] [default to &quot;US&quot;] |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="facebookgetanad"></a>
 # **FacebookGetAnAd**
-> Object FacebookGetAnAd (string adArchiveId)
+> Object FacebookGetAnAd (string adArchiveId, string country = null)
 
 Get an ad
 
-Get a single Ad Library ad by its archive id.
+Get a single Ad Library ad by its archive id. For EU/UK-targeted ads the response also includes transparency insights (payer/beneficiary, total EU reach, and age/gender/country reach breakdowns).
 
 ### Example
 ```csharp
@@ -274,11 +379,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FacebookApi(httpClient, config, httpClientHandler);
             var adArchiveId = "adArchiveId_example";  // string | 
+            var country = "\"US\"";  // string | ISO country code (an EU code returns EU transparency) (optional)  (default to "US")
 
             try
             {
                 // Get an ad
-                Object result = apiInstance.FacebookGetAnAd(adArchiveId);
+                Object result = apiInstance.FacebookGetAnAd(adArchiveId, country);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -299,7 +405,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get an ad
-    ApiResponse<Object> response = apiInstance.FacebookGetAnAdWithHttpInfo(adArchiveId);
+    ApiResponse<Object> response = apiInstance.FacebookGetAnAdWithHttpInfo(adArchiveId, country);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -317,6 +423,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **adArchiveId** | **string** |  |  |
+| **country** | **string** | ISO country code (an EU code returns EU transparency) | [optional] [default to &quot;US&quot;] |
 
 ### Return type
 
@@ -1345,6 +1452,109 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="facebooksearchadvertiserpages"></a>
+# **FacebookSearchAdvertiserPages**
+> Object FacebookSearchAdvertiserPages (string query, string country = null)
+
+Search advertiser pages
+
+Search advertiser Pages in the Ad Library — returns page ids, categories, likes/followers, verification and Instagram handles.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using ScrapeBadger.Api;
+using ScrapeBadger.Client;
+using ScrapeBadger.Model;
+
+namespace Example
+{
+    public class FacebookSearchAdvertiserPagesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://scrapebadger.com";
+            // Configure API key authorization: ApiKeyAuth
+            config.AddApiKey("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("X-API-Key", "Bearer");
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FacebookApi(httpClient, config, httpClientHandler);
+            var query = "query_example";  // string | Advertiser name or keyword
+            var country = "\"US\"";  // string |  (optional)  (default to "US")
+
+            try
+            {
+                // Search advertiser pages
+                Object result = apiInstance.FacebookSearchAdvertiserPages(query, country);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FacebookApi.FacebookSearchAdvertiserPages: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the FacebookSearchAdvertiserPagesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Search advertiser pages
+    ApiResponse<Object> response = apiInstance.FacebookSearchAdvertiserPagesWithHttpInfo(query, country);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FacebookApi.FacebookSearchAdvertiserPagesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **query** | **string** | Advertiser name or keyword |  |
+| **country** | **string** |  | [optional] [default to &quot;US&quot;] |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

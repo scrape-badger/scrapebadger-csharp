@@ -80,26 +80,51 @@ namespace ScrapeBadger.Api
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> FacebookGetAMarketplaceItemWithHttpInfo(string itemId);
         /// <summary>
+        /// Get advertiser page info
+        /// </summary>
+        /// <remarks>
+        /// Get advertiser page info: category, followers, page transparency (creation date, name history, managing organization, admin-account locations), related pages, and ad spend (for political/issue advertisers).
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageId"></param>
+        /// <param name="country"> (optional, default to &quot;US&quot;)</param>
+        /// <returns>Object</returns>
+        Object FacebookGetAdvertiserPageInfo(string pageId, string country = default(string));
+
+        /// <summary>
+        /// Get advertiser page info
+        /// </summary>
+        /// <remarks>
+        /// Get advertiser page info: category, followers, page transparency (creation date, name history, managing organization, admin-account locations), related pages, and ad spend (for political/issue advertisers).
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageId"></param>
+        /// <param name="country"> (optional, default to &quot;US&quot;)</param>
+        /// <returns>ApiResponse of Object</returns>
+        ApiResponse<Object> FacebookGetAdvertiserPageInfoWithHttpInfo(string pageId, string country = default(string));
+        /// <summary>
         /// Get an ad
         /// </summary>
         /// <remarks>
-        /// Get a single Ad Library ad by its archive id.
+        /// Get a single Ad Library ad by its archive id. For EU/UK-targeted ads the response also includes transparency insights (payer/beneficiary, total EU reach, and age/gender/country reach breakdowns).
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="adArchiveId"></param>
+        /// <param name="country">ISO country code (an EU code returns EU transparency) (optional, default to &quot;US&quot;)</param>
         /// <returns>Object</returns>
-        Object FacebookGetAnAd(string adArchiveId);
+        Object FacebookGetAnAd(string adArchiveId, string country = default(string));
 
         /// <summary>
         /// Get an ad
         /// </summary>
         /// <remarks>
-        /// Get a single Ad Library ad by its archive id.
+        /// Get a single Ad Library ad by its archive id. For EU/UK-targeted ads the response also includes transparency insights (payer/beneficiary, total EU reach, and age/gender/country reach breakdowns).
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="adArchiveId"></param>
+        /// <param name="country">ISO country code (an EU code returns EU transparency) (optional, default to &quot;US&quot;)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> FacebookGetAnAdWithHttpInfo(string adArchiveId);
+        ApiResponse<Object> FacebookGetAnAdWithHttpInfo(string adArchiveId, string country = default(string));
         /// <summary>
         /// Get group detail
         /// </summary>
@@ -316,6 +341,29 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> FacebookListLocationsWithHttpInfo();
+        /// <summary>
+        /// Search advertiser pages
+        /// </summary>
+        /// <remarks>
+        /// Search advertiser Pages in the Ad Library — returns page ids, categories, likes/followers, verification and Instagram handles.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">Advertiser name or keyword</param>
+        /// <param name="country"> (optional, default to &quot;US&quot;)</param>
+        /// <returns>Object</returns>
+        Object FacebookSearchAdvertiserPages(string query, string country = default(string));
+
+        /// <summary>
+        /// Search advertiser pages
+        /// </summary>
+        /// <remarks>
+        /// Search advertiser Pages in the Ad Library — returns page ids, categories, likes/followers, verification and Instagram handles.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">Advertiser name or keyword</param>
+        /// <param name="country"> (optional, default to &quot;US&quot;)</param>
+        /// <returns>ApiResponse of Object</returns>
+        ApiResponse<Object> FacebookSearchAdvertiserPagesWithHttpInfo(string query, string country = default(string));
         /// <summary>
         /// Search events
         /// </summary>
@@ -609,28 +657,55 @@ namespace ScrapeBadger.Api
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> FacebookGetAMarketplaceItemWithHttpInfoAsync(string itemId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
+        /// Get advertiser page info
+        /// </summary>
+        /// <remarks>
+        /// Get advertiser page info: category, followers, page transparency (creation date, name history, managing organization, admin-account locations), related pages, and ad spend (for political/issue advertisers).
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageId"></param>
+        /// <param name="country"> (optional, default to &quot;US&quot;)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        System.Threading.Tasks.Task<Object> FacebookGetAdvertiserPageInfoAsync(string pageId, string country = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get advertiser page info
+        /// </summary>
+        /// <remarks>
+        /// Get advertiser page info: category, followers, page transparency (creation date, name history, managing organization, admin-account locations), related pages, and ad spend (for political/issue advertisers).
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageId"></param>
+        /// <param name="country"> (optional, default to &quot;US&quot;)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> FacebookGetAdvertiserPageInfoWithHttpInfoAsync(string pageId, string country = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
         /// Get an ad
         /// </summary>
         /// <remarks>
-        /// Get a single Ad Library ad by its archive id.
+        /// Get a single Ad Library ad by its archive id. For EU/UK-targeted ads the response also includes transparency insights (payer/beneficiary, total EU reach, and age/gender/country reach breakdowns).
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="adArchiveId"></param>
+        /// <param name="country">ISO country code (an EU code returns EU transparency) (optional, default to &quot;US&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> FacebookGetAnAdAsync(string adArchiveId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> FacebookGetAnAdAsync(string adArchiveId, string country = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get an ad
         /// </summary>
         /// <remarks>
-        /// Get a single Ad Library ad by its archive id.
+        /// Get a single Ad Library ad by its archive id. For EU/UK-targeted ads the response also includes transparency insights (payer/beneficiary, total EU reach, and age/gender/country reach breakdowns).
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="adArchiveId"></param>
+        /// <param name="country">ISO country code (an EU code returns EU transparency) (optional, default to &quot;US&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> FacebookGetAnAdWithHttpInfoAsync(string adArchiveId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> FacebookGetAnAdWithHttpInfoAsync(string adArchiveId, string country = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get group detail
         /// </summary>
@@ -867,6 +942,31 @@ namespace ScrapeBadger.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> FacebookListLocationsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Search advertiser pages
+        /// </summary>
+        /// <remarks>
+        /// Search advertiser Pages in the Ad Library — returns page ids, categories, likes/followers, verification and Instagram handles.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">Advertiser name or keyword</param>
+        /// <param name="country"> (optional, default to &quot;US&quot;)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        System.Threading.Tasks.Task<Object> FacebookSearchAdvertiserPagesAsync(string query, string country = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Search advertiser pages
+        /// </summary>
+        /// <remarks>
+        /// Search advertiser Pages in the Ad Library — returns page ids, categories, likes/followers, verification and Instagram handles.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">Advertiser name or keyword</param>
+        /// <param name="country"> (optional, default to &quot;US&quot;)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> FacebookSearchAdvertiserPagesWithHttpInfoAsync(string query, string country = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Search events
         /// </summary>
@@ -1636,24 +1736,163 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get an ad Get a single Ad Library ad by its archive id.
+        /// Get advertiser page info Get advertiser page info: category, followers, page transparency (creation date, name history, managing organization, admin-account locations), related pages, and ad spend (for political/issue advertisers).
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="adArchiveId"></param>
+        /// <param name="pageId"></param>
+        /// <param name="country"> (optional, default to &quot;US&quot;)</param>
         /// <returns>Object</returns>
-        public Object FacebookGetAnAd(string adArchiveId)
+        public Object FacebookGetAdvertiserPageInfo(string pageId, string country = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = FacebookGetAnAdWithHttpInfo(adArchiveId);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = FacebookGetAdvertiserPageInfoWithHttpInfo(pageId, country);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get an ad Get a single Ad Library ad by its archive id.
+        /// Get advertiser page info Get advertiser page info: category, followers, page transparency (creation date, name history, managing organization, admin-account locations), related pages, and ad spend (for political/issue advertisers).
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageId"></param>
+        /// <param name="country"> (optional, default to &quot;US&quot;)</param>
+        /// <returns>ApiResponse of Object</returns>
+        public ScrapeBadger.Client.ApiResponse<Object> FacebookGetAdvertiserPageInfoWithHttpInfo(string pageId, string country = default(string))
+        {
+            // verify the required parameter 'pageId' is set
+            if (pageId == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'pageId' when calling FacebookApi->FacebookGetAdvertiserPageInfo");
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("page_id", ScrapeBadger.Client.ClientUtils.ParameterToString(pageId)); // path parameter
+            if (country != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "country", country));
+            }
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Object>("/v1/facebook/ads/pages/{page_id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("FacebookGetAdvertiserPageInfo", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get advertiser page info Get advertiser page info: category, followers, page transparency (creation date, name history, managing organization, admin-account locations), related pages, and ad spend (for political/issue advertisers).
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageId"></param>
+        /// <param name="country"> (optional, default to &quot;US&quot;)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        public async System.Threading.Tasks.Task<Object> FacebookGetAdvertiserPageInfoAsync(string pageId, string country = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await FacebookGetAdvertiserPageInfoWithHttpInfoAsync(pageId, country, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get advertiser page info Get advertiser page info: category, followers, page transparency (creation date, name history, managing organization, admin-account locations), related pages, and ad spend (for political/issue advertisers).
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="pageId"></param>
+        /// <param name="country"> (optional, default to &quot;US&quot;)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> FacebookGetAdvertiserPageInfoWithHttpInfoAsync(string pageId, string country = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'pageId' is set
+            if (pageId == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'pageId' when calling FacebookApi->FacebookGetAdvertiserPageInfo");
+
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("page_id", ScrapeBadger.Client.ClientUtils.ParameterToString(pageId)); // path parameter
+            if (country != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "country", country));
+            }
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/facebook/ads/pages/{page_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("FacebookGetAdvertiserPageInfo", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get an ad Get a single Ad Library ad by its archive id. For EU/UK-targeted ads the response also includes transparency insights (payer/beneficiary, total EU reach, and age/gender/country reach breakdowns).
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="adArchiveId"></param>
+        /// <param name="country">ISO country code (an EU code returns EU transparency) (optional, default to &quot;US&quot;)</param>
+        /// <returns>Object</returns>
+        public Object FacebookGetAnAd(string adArchiveId, string country = default(string))
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = FacebookGetAnAdWithHttpInfo(adArchiveId, country);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get an ad Get a single Ad Library ad by its archive id. For EU/UK-targeted ads the response also includes transparency insights (payer/beneficiary, total EU reach, and age/gender/country reach breakdowns).
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="adArchiveId"></param>
+        /// <param name="country">ISO country code (an EU code returns EU transparency) (optional, default to &quot;US&quot;)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> FacebookGetAnAdWithHttpInfo(string adArchiveId)
+        public ScrapeBadger.Client.ApiResponse<Object> FacebookGetAnAdWithHttpInfo(string adArchiveId, string country = default(string))
         {
             // verify the required parameter 'adArchiveId' is set
             if (adArchiveId == null)
@@ -1676,6 +1915,10 @@ namespace ScrapeBadger.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("ad_archive_id", ScrapeBadger.Client.ClientUtils.ParameterToString(adArchiveId)); // path parameter
+            if (country != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "country", country));
+            }
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
@@ -1696,26 +1939,28 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get an ad Get a single Ad Library ad by its archive id.
+        /// Get an ad Get a single Ad Library ad by its archive id. For EU/UK-targeted ads the response also includes transparency insights (payer/beneficiary, total EU reach, and age/gender/country reach breakdowns).
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="adArchiveId"></param>
+        /// <param name="country">ISO country code (an EU code returns EU transparency) (optional, default to &quot;US&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> FacebookGetAnAdAsync(string adArchiveId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> FacebookGetAnAdAsync(string adArchiveId, string country = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await FacebookGetAnAdWithHttpInfoAsync(adArchiveId, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await FacebookGetAnAdWithHttpInfoAsync(adArchiveId, country, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get an ad Get a single Ad Library ad by its archive id.
+        /// Get an ad Get a single Ad Library ad by its archive id. For EU/UK-targeted ads the response also includes transparency insights (payer/beneficiary, total EU reach, and age/gender/country reach breakdowns).
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="adArchiveId"></param>
+        /// <param name="country">ISO country code (an EU code returns EU transparency) (optional, default to &quot;US&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> FacebookGetAnAdWithHttpInfoAsync(string adArchiveId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> FacebookGetAnAdWithHttpInfoAsync(string adArchiveId, string country = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'adArchiveId' is set
             if (adArchiveId == null)
@@ -1740,6 +1985,10 @@ namespace ScrapeBadger.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("ad_archive_id", ScrapeBadger.Client.ClientUtils.ParameterToString(adArchiveId)); // path parameter
+            if (country != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "country", country));
+            }
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
@@ -3036,6 +3285,143 @@ namespace ScrapeBadger.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("FacebookListLocations", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Search advertiser pages Search advertiser Pages in the Ad Library — returns page ids, categories, likes/followers, verification and Instagram handles.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">Advertiser name or keyword</param>
+        /// <param name="country"> (optional, default to &quot;US&quot;)</param>
+        /// <returns>Object</returns>
+        public Object FacebookSearchAdvertiserPages(string query, string country = default(string))
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = FacebookSearchAdvertiserPagesWithHttpInfo(query, country);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search advertiser pages Search advertiser Pages in the Ad Library — returns page ids, categories, likes/followers, verification and Instagram handles.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">Advertiser name or keyword</param>
+        /// <param name="country"> (optional, default to &quot;US&quot;)</param>
+        /// <returns>ApiResponse of Object</returns>
+        public ScrapeBadger.Client.ApiResponse<Object> FacebookSearchAdvertiserPagesWithHttpInfo(string query, string country = default(string))
+        {
+            // verify the required parameter 'query' is set
+            if (query == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'query' when calling FacebookApi->FacebookSearchAdvertiserPages");
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "query", query));
+            if (country != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "country", country));
+            }
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Object>("/v1/facebook/ads/pages/search", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("FacebookSearchAdvertiserPages", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Search advertiser pages Search advertiser Pages in the Ad Library — returns page ids, categories, likes/followers, verification and Instagram handles.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">Advertiser name or keyword</param>
+        /// <param name="country"> (optional, default to &quot;US&quot;)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        public async System.Threading.Tasks.Task<Object> FacebookSearchAdvertiserPagesAsync(string query, string country = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await FacebookSearchAdvertiserPagesWithHttpInfoAsync(query, country, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search advertiser pages Search advertiser Pages in the Ad Library — returns page ids, categories, likes/followers, verification and Instagram handles.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">Advertiser name or keyword</param>
+        /// <param name="country"> (optional, default to &quot;US&quot;)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> FacebookSearchAdvertiserPagesWithHttpInfoAsync(string query, string country = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'query' is set
+            if (query == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'query' when calling FacebookApi->FacebookSearchAdvertiserPages");
+
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "query", query));
+            if (country != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "country", country));
+            }
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/facebook/ads/pages/search", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("FacebookSearchAdvertiserPages", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
