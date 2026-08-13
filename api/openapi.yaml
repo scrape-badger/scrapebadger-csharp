@@ -9,6 +9,7 @@ security:
 - ApiKeyAuth: []
 tags:
 - name: Account
+- name: Airbnb
 - name: Amazon
 - name: Apartments
 - name: App-Store
@@ -62,6 +63,614 @@ paths:
       summary: Get account info
       tags:
       - Account
+  /v1/airbnb/experiences:
+    get:
+      description: Search Airbnb Experiences by location.
+      operationId: airbnb_search_experiences
+      parameters:
+      - description: "Free-text place, e.g. 'Rome, Italy'"
+        explode: true
+        in: query
+        name: location
+        required: true
+        schema:
+          description: "Free-text place, e.g. 'Rome, Italy'"
+          title: Location
+          type: string
+        style: form
+      - description: next_page_cursor from a prior response
+        explode: true
+        in: query
+        name: cursor
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: locale
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Search experiences
+      tags:
+      - Airbnb
+  /v1/airbnb/experiences/{experience_id}:
+    get:
+      description: |-
+        Full detail for one experience: description, rating, host, location and
+        photos.
+      operationId: airbnb_get_experience_detail
+      parameters:
+      - explode: false
+        in: path
+        name: experience_id
+        required: true
+        schema:
+          title: Experience Id
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: adults
+        required: false
+        schema:
+          default: 1
+          minimum: 1
+          title: Adults
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: children
+        required: false
+        schema:
+          default: 0
+          minimum: 0
+          title: Children
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: infants
+        required: false
+        schema:
+          default: 0
+          minimum: 0
+          title: Infants
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: locale
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get experience detail
+      tags:
+      - Airbnb
+  /v1/airbnb/health:
+    get:
+      description: Check health of the Airbnb scraper service (accepts HEAD).
+      operationId: airbnb_airbnb_scraper_health_check
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Airbnb scraper health check
+      tags:
+      - Airbnb
+    head:
+      description: Check health of the Airbnb scraper service (accepts HEAD).
+      operationId: airbnb_airbnb_scraper_health_check_head
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Airbnb scraper health check
+      tags:
+      - Airbnb
+  /v1/airbnb/listings/{room_id}:
+    get:
+      description: |-
+        Full detail for one listing: amenities, house rules, host, ratings,
+        coordinates and photos.
+      operationId: airbnb_get_listing_detail
+      parameters:
+      - explode: false
+        in: path
+        name: room_id
+        required: true
+        schema:
+          title: Room Id
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: adults
+        required: false
+        schema:
+          default: 1
+          minimum: 1
+          title: Adults
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: locale
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get listing detail
+      tags:
+      - Airbnb
+  /v1/airbnb/listings/{room_id}/calendar:
+    get:
+      description: |-
+        Day-by-day availability for up to 12 months: bookable, check-in/out
+        windows and min/max nights per date.
+      operationId: airbnb_get_availability_calendar
+      parameters:
+      - explode: false
+        in: path
+        name: room_id
+        required: true
+        schema:
+          title: Room Id
+          type: string
+        style: simple
+      - description: Start month (1-12)
+        explode: true
+        in: query
+        name: month
+        required: false
+        schema:
+          default: 1
+          description: Start month (1-12)
+          maximum: 12
+          minimum: 1
+          title: Month
+          type: integer
+        style: form
+      - description: Start year
+        explode: true
+        in: query
+        name: year
+        required: false
+        schema:
+          default: 2026
+          description: Start year
+          maximum: 2100
+          minimum: 2020
+          title: Year
+          type: integer
+        style: form
+      - description: Number of months (max 12)
+        explode: true
+        in: query
+        name: months
+        required: false
+        schema:
+          default: 12
+          description: Number of months (max 12)
+          maximum: 12
+          minimum: 1
+          title: Months
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: locale
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get availability calendar
+      tags:
+      - Airbnb
+  /v1/airbnb/listings/{room_id}/reviews:
+    get:
+      description: |-
+        Paginated guest reviews with reviewer, rating, date, text and host
+        response.
+      operationId: airbnb_get_listing_reviews
+      parameters:
+      - explode: false
+        in: path
+        name: room_id
+        required: true
+        schema:
+          title: Room Id
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 24
+          maximum: 50
+          minimum: 1
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          default: 0
+          minimum: 0
+          title: Offset
+          type: integer
+        style: form
+      - description: MOST_RECENT | RATING_DESC | RATING_ASC
+        explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          default: MOST_RECENT
+          description: MOST_RECENT | RATING_DESC | RATING_ASC
+          title: Sort
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: locale
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get listing reviews
+      tags:
+      - Airbnb
+  /v1/airbnb/search:
+    get:
+      description: |-
+        Search Airbnb stays by place name and/or map bounding box, with dates,
+        guests, price and property filters. Paginate with the `cursor`.
+      operationId: airbnb_search_stays
+      parameters:
+      - description: "Free-text place, e.g. 'Paris, France'"
+        explode: true
+        in: query
+        name: location
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Map bounding-box NE latitude
+        explode: true
+        in: query
+        name: ne_lat
+        required: false
+        schema:
+          nullable: true
+          type: number
+        style: form
+      - description: Map bounding-box NE longitude
+        explode: true
+        in: query
+        name: ne_lng
+        required: false
+        schema:
+          nullable: true
+          type: number
+        style: form
+      - description: Map bounding-box SW latitude
+        explode: true
+        in: query
+        name: sw_lat
+        required: false
+        schema:
+          nullable: true
+          type: number
+        style: form
+      - description: Map bounding-box SW longitude
+        explode: true
+        in: query
+        name: sw_lng
+        required: false
+        schema:
+          nullable: true
+          type: number
+        style: form
+      - description: Check-in date YYYY-MM-DD
+        explode: true
+        in: query
+        name: check_in
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Check-out date YYYY-MM-DD
+        explode: true
+        in: query
+        name: check_out
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: adults
+        required: false
+        schema:
+          default: 1
+          minimum: 0
+          title: Adults
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: children
+        required: false
+        schema:
+          default: 0
+          minimum: 0
+          title: Children
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: infants
+        required: false
+        schema:
+          default: 0
+          minimum: 0
+          title: Infants
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: pets
+        required: false
+        schema:
+          default: 0
+          minimum: 0
+          title: Pets
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: price_min
+        required: false
+        schema:
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: price_max
+        required: false
+        schema:
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: min_bedrooms
+        required: false
+        schema:
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: min_beds
+        required: false
+        schema:
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: min_bathrooms
+        required: false
+        schema:
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "e.g. 'Entire home/apt', 'Private room'"
+        explode: true
+        in: query
+        name: room_type
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: next_page_cursor from a prior response
+        explode: true
+        in: query
+        name: cursor
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 18
+          maximum: 50
+          minimum: 1
+          title: Limit
+          type: integer
+        style: form
+      - description: "ISO currency, e.g. USD, EUR"
+        explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "Locale, e.g. en, fr"
+        explode: true
+        in: query
+        name: locale
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Search stays
+      tags:
+      - Airbnb
   /v1/amazon/autocomplete:
     get:
       description: Get Amazon search autocomplete suggestions for keyword research.

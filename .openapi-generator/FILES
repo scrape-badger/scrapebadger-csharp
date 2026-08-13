@@ -6,6 +6,7 @@ api/openapi.yaml
 appveyor.yml
 docs/AccountApi.md
 docs/AccountInfo.md
+docs/AirbnbApi.md
 docs/AmazonApi.md
 docs/ApartmentsApi.md
 docs/AppStoreApi.md
@@ -67,6 +68,7 @@ docs/YouTubeApi.md
 docs/ZillowApi.md
 git_push.sh
 src/ScrapeBadger.Test/Api/AccountApiTests.cs
+src/ScrapeBadger.Test/Api/AirbnbApiTests.cs
 src/ScrapeBadger.Test/Api/AmazonApiTests.cs
 src/ScrapeBadger.Test/Api/ApartmentsApiTests.cs
 src/ScrapeBadger.Test/Api/AppStoreApiTests.cs
@@ -129,6 +131,7 @@ src/ScrapeBadger.Test/Model/WebhookTestRequestTests.cs
 src/ScrapeBadger.Test/Model/WebhookTestResponseTests.cs
 src/ScrapeBadger.Test/ScrapeBadger.Test.csproj
 src/ScrapeBadger/Api/AccountApi.cs
+src/ScrapeBadger/Api/AirbnbApi.cs
 src/ScrapeBadger/Api/AmazonApi.cs
 src/ScrapeBadger/Api/ApartmentsApi.cs
 src/ScrapeBadger/Api/AppStoreApi.cs
