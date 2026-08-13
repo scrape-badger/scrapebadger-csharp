@@ -17,7 +17,7 @@ All URIs are relative to *https://scrapebadger.com*
 
 <a id="googleplaybrowseacategory"></a>
 # **GooglePlayBrowseACategory**
-> Object GooglePlayBrowseACategory (string categoryId, string country = null, string lang = null)
+> Object GooglePlayBrowseACategory (string categoryId, string country = null, string lang = null, int? num = null)
 
 Browse a category
 
@@ -52,11 +52,12 @@ namespace Example
             var categoryId = "categoryId_example";  // string | Play category id, e.g. 'GAME_PUZZLE' or 'SOCIAL'
             var country = "\"US\"";  // string | Play storefront country (gl), ISO 3166-1 alpha-2, e.g. 'US' (optional)  (default to "US")
             var lang = "\"en\"";  // string | Play content language (hl), e.g. 'en' or 'pt-BR' (optional)  (default to "en")
+            var num = 100;  // int? | Max apps; follows each rail's 'see more' continuation above the ~40-120 the page renders directly (optional)  (default to 100)
 
             try
             {
                 // Browse a category
-                Object result = apiInstance.GooglePlayBrowseACategory(categoryId, country, lang);
+                Object result = apiInstance.GooglePlayBrowseACategory(categoryId, country, lang, num);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -77,7 +78,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Browse a category
-    ApiResponse<Object> response = apiInstance.GooglePlayBrowseACategoryWithHttpInfo(categoryId, country, lang);
+    ApiResponse<Object> response = apiInstance.GooglePlayBrowseACategoryWithHttpInfo(categoryId, country, lang, num);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -97,6 +98,7 @@ catch (ApiException e)
 | **categoryId** | **string** | Play category id, e.g. &#39;GAME_PUZZLE&#39; or &#39;SOCIAL&#39; |  |
 | **country** | **string** | Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; | [optional] [default to &quot;US&quot;] |
 | **lang** | **string** | Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; | [optional] [default to &quot;en&quot;] |
+| **num** | **int?** | Max apps; follows each rail&#39;s &#39;see more&#39; continuation above the ~40-120 the page renders directly | [optional] [default to 100] |
 
 ### Return type
 
@@ -441,7 +443,7 @@ catch (ApiException e)
 
 <a id="googleplaygetdeveloperapps"></a>
 # **GooglePlayGetDeveloperApps**
-> Object GooglePlayGetDeveloperApps (string developer, string country = null, string lang = null)
+> Object GooglePlayGetDeveloperApps (string developer, string country = null, string lang = null, int? num = null)
 
 Get developer apps
 
@@ -476,11 +478,12 @@ namespace Example
             var developer = "developer_example";  // string | Developer name or numeric id
             var country = "\"US\"";  // string | Play storefront country (gl), ISO 3166-1 alpha-2, e.g. 'US' (optional)  (default to "US")
             var lang = "\"en\"";  // string | Play content language (hl), e.g. 'en' or 'pt-BR' (optional)  (default to "en")
+            var num = 100;  // int? | Max apps; follows rail continuations above the page's directly-rendered slice (optional)  (default to 100)
 
             try
             {
                 // Get developer apps
-                Object result = apiInstance.GooglePlayGetDeveloperApps(developer, country, lang);
+                Object result = apiInstance.GooglePlayGetDeveloperApps(developer, country, lang, num);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -501,7 +504,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get developer apps
-    ApiResponse<Object> response = apiInstance.GooglePlayGetDeveloperAppsWithHttpInfo(developer, country, lang);
+    ApiResponse<Object> response = apiInstance.GooglePlayGetDeveloperAppsWithHttpInfo(developer, country, lang, num);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -521,6 +524,7 @@ catch (ApiException e)
 | **developer** | **string** | Developer name or numeric id |  |
 | **country** | **string** | Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; | [optional] [default to &quot;US&quot;] |
 | **lang** | **string** | Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; | [optional] [default to &quot;en&quot;] |
+| **num** | **int?** | Max apps; follows rail continuations above the page&#39;s directly-rendered slice | [optional] [default to 100] |
 
 ### Return type
 

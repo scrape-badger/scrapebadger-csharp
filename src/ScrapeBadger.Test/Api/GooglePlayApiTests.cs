@@ -63,7 +63,8 @@ namespace ScrapeBadger.Test.Api
             //string categoryId = null;
             //string country = null;
             //string lang = null;
-            //var response = instance.GooglePlayBrowseACategory(categoryId, country, lang);
+            //int? num = null;
+            //var response = instance.GooglePlayBrowseACategory(categoryId, country, lang, num);
             //Assert.IsType<Object>(response);
         }
 
@@ -121,7 +122,8 @@ namespace ScrapeBadger.Test.Api
             //string developer = null;
             //string country = null;
             //string lang = null;
-            //var response = instance.GooglePlayGetDeveloperApps(developer, country, lang);
+            //int? num = null;
+            //var response = instance.GooglePlayGetDeveloperApps(developer, country, lang, num);
             //Assert.IsType<Object>(response);
         }
 

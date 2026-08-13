@@ -37,8 +37,9 @@ namespace ScrapeBadger.Api
         /// <param name="categoryId">Play category id, e.g. &#39;GAME_PUZZLE&#39; or &#39;SOCIAL&#39;</param>
         /// <param name="country">Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; (optional, default to &quot;US&quot;)</param>
         /// <param name="lang">Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; (optional, default to &quot;en&quot;)</param>
+        /// <param name="num">Max apps; follows each rail&#39;s &#39;see more&#39; continuation above the ~40-120 the page renders directly (optional, default to 100)</param>
         /// <returns>Object</returns>
-        Object GooglePlayBrowseACategory(string categoryId, string country = default(string), string lang = default(string));
+        Object GooglePlayBrowseACategory(string categoryId, string country = default(string), string lang = default(string), int? num = default(int?));
 
         /// <summary>
         /// Browse a category
@@ -50,8 +51,9 @@ namespace ScrapeBadger.Api
         /// <param name="categoryId">Play category id, e.g. &#39;GAME_PUZZLE&#39; or &#39;SOCIAL&#39;</param>
         /// <param name="country">Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; (optional, default to &quot;US&quot;)</param>
         /// <param name="lang">Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; (optional, default to &quot;en&quot;)</param>
+        /// <param name="num">Max apps; follows each rail&#39;s &#39;see more&#39; continuation above the ~40-120 the page renders directly (optional, default to 100)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> GooglePlayBrowseACategoryWithHttpInfo(string categoryId, string country = default(string), string lang = default(string));
+        ApiResponse<Object> GooglePlayBrowseACategoryWithHttpInfo(string categoryId, string country = default(string), string lang = default(string), int? num = default(int?));
         /// <summary>
         /// Get app detail
         /// </summary>
@@ -141,8 +143,9 @@ namespace ScrapeBadger.Api
         /// <param name="developer">Developer name or numeric id</param>
         /// <param name="country">Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; (optional, default to &quot;US&quot;)</param>
         /// <param name="lang">Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; (optional, default to &quot;en&quot;)</param>
+        /// <param name="num">Max apps; follows rail continuations above the page&#39;s directly-rendered slice (optional, default to 100)</param>
         /// <returns>Object</returns>
-        Object GooglePlayGetDeveloperApps(string developer, string country = default(string), string lang = default(string));
+        Object GooglePlayGetDeveloperApps(string developer, string country = default(string), string lang = default(string), int? num = default(int?));
 
         /// <summary>
         /// Get developer apps
@@ -154,8 +157,9 @@ namespace ScrapeBadger.Api
         /// <param name="developer">Developer name or numeric id</param>
         /// <param name="country">Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; (optional, default to &quot;US&quot;)</param>
         /// <param name="lang">Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; (optional, default to &quot;en&quot;)</param>
+        /// <param name="num">Max apps; follows rail continuations above the page&#39;s directly-rendered slice (optional, default to 100)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> GooglePlayGetDeveloperAppsWithHttpInfo(string developer, string country = default(string), string lang = default(string));
+        ApiResponse<Object> GooglePlayGetDeveloperAppsWithHttpInfo(string developer, string country = default(string), string lang = default(string), int? num = default(int?));
         /// <summary>
         /// Get similar apps
         /// </summary>
@@ -292,9 +296,10 @@ namespace ScrapeBadger.Api
         /// <param name="categoryId">Play category id, e.g. &#39;GAME_PUZZLE&#39; or &#39;SOCIAL&#39;</param>
         /// <param name="country">Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; (optional, default to &quot;US&quot;)</param>
         /// <param name="lang">Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; (optional, default to &quot;en&quot;)</param>
+        /// <param name="num">Max apps; follows each rail&#39;s &#39;see more&#39; continuation above the ~40-120 the page renders directly (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> GooglePlayBrowseACategoryAsync(string categoryId, string country = default(string), string lang = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> GooglePlayBrowseACategoryAsync(string categoryId, string country = default(string), string lang = default(string), int? num = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Browse a category
@@ -306,9 +311,10 @@ namespace ScrapeBadger.Api
         /// <param name="categoryId">Play category id, e.g. &#39;GAME_PUZZLE&#39; or &#39;SOCIAL&#39;</param>
         /// <param name="country">Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; (optional, default to &quot;US&quot;)</param>
         /// <param name="lang">Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; (optional, default to &quot;en&quot;)</param>
+        /// <param name="num">Max apps; follows each rail&#39;s &#39;see more&#39; continuation above the ~40-120 the page renders directly (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GooglePlayBrowseACategoryWithHttpInfoAsync(string categoryId, string country = default(string), string lang = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> GooglePlayBrowseACategoryWithHttpInfoAsync(string categoryId, string country = default(string), string lang = default(string), int? num = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get app detail
         /// </summary>
@@ -404,9 +410,10 @@ namespace ScrapeBadger.Api
         /// <param name="developer">Developer name or numeric id</param>
         /// <param name="country">Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; (optional, default to &quot;US&quot;)</param>
         /// <param name="lang">Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; (optional, default to &quot;en&quot;)</param>
+        /// <param name="num">Max apps; follows rail continuations above the page&#39;s directly-rendered slice (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> GooglePlayGetDeveloperAppsAsync(string developer, string country = default(string), string lang = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> GooglePlayGetDeveloperAppsAsync(string developer, string country = default(string), string lang = default(string), int? num = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get developer apps
@@ -418,9 +425,10 @@ namespace ScrapeBadger.Api
         /// <param name="developer">Developer name or numeric id</param>
         /// <param name="country">Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; (optional, default to &quot;US&quot;)</param>
         /// <param name="lang">Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; (optional, default to &quot;en&quot;)</param>
+        /// <param name="num">Max apps; follows rail continuations above the page&#39;s directly-rendered slice (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GooglePlayGetDeveloperAppsWithHttpInfoAsync(string developer, string country = default(string), string lang = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> GooglePlayGetDeveloperAppsWithHttpInfoAsync(string developer, string country = default(string), string lang = default(string), int? num = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get similar apps
         /// </summary>
@@ -768,10 +776,11 @@ namespace ScrapeBadger.Api
         /// <param name="categoryId">Play category id, e.g. &#39;GAME_PUZZLE&#39; or &#39;SOCIAL&#39;</param>
         /// <param name="country">Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; (optional, default to &quot;US&quot;)</param>
         /// <param name="lang">Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; (optional, default to &quot;en&quot;)</param>
+        /// <param name="num">Max apps; follows each rail&#39;s &#39;see more&#39; continuation above the ~40-120 the page renders directly (optional, default to 100)</param>
         /// <returns>Object</returns>
-        public Object GooglePlayBrowseACategory(string categoryId, string country = default(string), string lang = default(string))
+        public Object GooglePlayBrowseACategory(string categoryId, string country = default(string), string lang = default(string), int? num = default(int?))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GooglePlayBrowseACategoryWithHttpInfo(categoryId, country, lang);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GooglePlayBrowseACategoryWithHttpInfo(categoryId, country, lang, num);
             return localVarResponse.Data;
         }
 
@@ -782,8 +791,9 @@ namespace ScrapeBadger.Api
         /// <param name="categoryId">Play category id, e.g. &#39;GAME_PUZZLE&#39; or &#39;SOCIAL&#39;</param>
         /// <param name="country">Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; (optional, default to &quot;US&quot;)</param>
         /// <param name="lang">Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; (optional, default to &quot;en&quot;)</param>
+        /// <param name="num">Max apps; follows each rail&#39;s &#39;see more&#39; continuation above the ~40-120 the page renders directly (optional, default to 100)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> GooglePlayBrowseACategoryWithHttpInfo(string categoryId, string country = default(string), string lang = default(string))
+        public ScrapeBadger.Client.ApiResponse<Object> GooglePlayBrowseACategoryWithHttpInfo(string categoryId, string country = default(string), string lang = default(string), int? num = default(int?))
         {
             // verify the required parameter 'categoryId' is set
             if (categoryId == null)
@@ -813,6 +823,10 @@ namespace ScrapeBadger.Api
             if (lang != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "lang", lang));
+            }
+            if (num != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "num", num));
             }
 
             // authentication (ApiKeyAuth) required
@@ -840,11 +854,12 @@ namespace ScrapeBadger.Api
         /// <param name="categoryId">Play category id, e.g. &#39;GAME_PUZZLE&#39; or &#39;SOCIAL&#39;</param>
         /// <param name="country">Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; (optional, default to &quot;US&quot;)</param>
         /// <param name="lang">Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; (optional, default to &quot;en&quot;)</param>
+        /// <param name="num">Max apps; follows each rail&#39;s &#39;see more&#39; continuation above the ~40-120 the page renders directly (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> GooglePlayBrowseACategoryAsync(string categoryId, string country = default(string), string lang = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> GooglePlayBrowseACategoryAsync(string categoryId, string country = default(string), string lang = default(string), int? num = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GooglePlayBrowseACategoryWithHttpInfoAsync(categoryId, country, lang, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GooglePlayBrowseACategoryWithHttpInfoAsync(categoryId, country, lang, num, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -855,9 +870,10 @@ namespace ScrapeBadger.Api
         /// <param name="categoryId">Play category id, e.g. &#39;GAME_PUZZLE&#39; or &#39;SOCIAL&#39;</param>
         /// <param name="country">Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; (optional, default to &quot;US&quot;)</param>
         /// <param name="lang">Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; (optional, default to &quot;en&quot;)</param>
+        /// <param name="num">Max apps; follows each rail&#39;s &#39;see more&#39; continuation above the ~40-120 the page renders directly (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GooglePlayBrowseACategoryWithHttpInfoAsync(string categoryId, string country = default(string), string lang = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GooglePlayBrowseACategoryWithHttpInfoAsync(string categoryId, string country = default(string), string lang = default(string), int? num = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'categoryId' is set
             if (categoryId == null)
@@ -889,6 +905,10 @@ namespace ScrapeBadger.Api
             if (lang != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "lang", lang));
+            }
+            if (num != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "num", num));
             }
 
             // authentication (ApiKeyAuth) required
@@ -1388,10 +1408,11 @@ namespace ScrapeBadger.Api
         /// <param name="developer">Developer name or numeric id</param>
         /// <param name="country">Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; (optional, default to &quot;US&quot;)</param>
         /// <param name="lang">Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; (optional, default to &quot;en&quot;)</param>
+        /// <param name="num">Max apps; follows rail continuations above the page&#39;s directly-rendered slice (optional, default to 100)</param>
         /// <returns>Object</returns>
-        public Object GooglePlayGetDeveloperApps(string developer, string country = default(string), string lang = default(string))
+        public Object GooglePlayGetDeveloperApps(string developer, string country = default(string), string lang = default(string), int? num = default(int?))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GooglePlayGetDeveloperAppsWithHttpInfo(developer, country, lang);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GooglePlayGetDeveloperAppsWithHttpInfo(developer, country, lang, num);
             return localVarResponse.Data;
         }
 
@@ -1402,8 +1423,9 @@ namespace ScrapeBadger.Api
         /// <param name="developer">Developer name or numeric id</param>
         /// <param name="country">Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; (optional, default to &quot;US&quot;)</param>
         /// <param name="lang">Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; (optional, default to &quot;en&quot;)</param>
+        /// <param name="num">Max apps; follows rail continuations above the page&#39;s directly-rendered slice (optional, default to 100)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> GooglePlayGetDeveloperAppsWithHttpInfo(string developer, string country = default(string), string lang = default(string))
+        public ScrapeBadger.Client.ApiResponse<Object> GooglePlayGetDeveloperAppsWithHttpInfo(string developer, string country = default(string), string lang = default(string), int? num = default(int?))
         {
             // verify the required parameter 'developer' is set
             if (developer == null)
@@ -1433,6 +1455,10 @@ namespace ScrapeBadger.Api
             if (lang != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "lang", lang));
+            }
+            if (num != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "num", num));
             }
 
             // authentication (ApiKeyAuth) required
@@ -1460,11 +1486,12 @@ namespace ScrapeBadger.Api
         /// <param name="developer">Developer name or numeric id</param>
         /// <param name="country">Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; (optional, default to &quot;US&quot;)</param>
         /// <param name="lang">Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; (optional, default to &quot;en&quot;)</param>
+        /// <param name="num">Max apps; follows rail continuations above the page&#39;s directly-rendered slice (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> GooglePlayGetDeveloperAppsAsync(string developer, string country = default(string), string lang = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> GooglePlayGetDeveloperAppsAsync(string developer, string country = default(string), string lang = default(string), int? num = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GooglePlayGetDeveloperAppsWithHttpInfoAsync(developer, country, lang, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GooglePlayGetDeveloperAppsWithHttpInfoAsync(developer, country, lang, num, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1475,9 +1502,10 @@ namespace ScrapeBadger.Api
         /// <param name="developer">Developer name or numeric id</param>
         /// <param name="country">Play storefront country (gl), ISO 3166-1 alpha-2, e.g. &#39;US&#39; (optional, default to &quot;US&quot;)</param>
         /// <param name="lang">Play content language (hl), e.g. &#39;en&#39; or &#39;pt-BR&#39; (optional, default to &quot;en&quot;)</param>
+        /// <param name="num">Max apps; follows rail continuations above the page&#39;s directly-rendered slice (optional, default to 100)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GooglePlayGetDeveloperAppsWithHttpInfoAsync(string developer, string country = default(string), string lang = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GooglePlayGetDeveloperAppsWithHttpInfoAsync(string developer, string country = default(string), string lang = default(string), int? num = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'developer' is set
             if (developer == null)
@@ -1509,6 +1537,10 @@ namespace ScrapeBadger.Api
             if (lang != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "lang", lang));
+            }
+            if (num != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "num", num));
             }
 
             // authentication (ApiKeyAuth) required

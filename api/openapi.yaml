@@ -5025,6 +5025,21 @@ paths:
           title: Lang
           type: string
         style: form
+      - description: Max apps; follows each rail's 'see more' continuation above the
+          ~40-120 the page renders directly
+        explode: true
+        in: query
+        name: num
+        required: false
+        schema:
+          default: 100
+          description: Max apps; follows each rail's 'see more' continuation above
+            the ~40-120 the page renders directly
+          maximum: 500
+          minimum: 1
+          title: Num
+          type: integer
+        style: form
       responses:
         "200":
           content:
@@ -5143,6 +5158,21 @@ paths:
           description: "Play content language (hl), e.g. 'en' or 'pt-BR'"
           title: Lang
           type: string
+        style: form
+      - description: Max apps; follows rail continuations above the page's directly-rendered
+          slice
+        explode: true
+        in: query
+        name: num
+        required: false
+        schema:
+          default: 100
+          description: Max apps; follows rail continuations above the page's directly-rendered
+            slice
+          maximum: 500
+          minimum: 1
+          title: Num
+          type: integer
         style: form
       responses:
         "200":
