@@ -365,6 +365,29 @@ namespace ScrapeBadger.Api
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> TiktokGetRepostsWithHttpInfo(string username, string region = default(string), int? count = default(int?));
         /// <summary>
+        /// Get TikTok ad detail
+        /// </summary>
+        /// <remarks>
+        /// Get a single ad&#39;s advertiser, creatives, and targeting/impression breakdown.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="adId"></param>
+        /// <param name="region">EU region code (the Ad Library is EU-only) (optional, default to &quot;DE&quot;)</param>
+        /// <returns>Object</returns>
+        Object TiktokGetTiktokAdDetail(string adId, string region = default(string));
+
+        /// <summary>
+        /// Get TikTok ad detail
+        /// </summary>
+        /// <remarks>
+        /// Get a single ad&#39;s advertiser, creatives, and targeting/impression breakdown.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="adId"></param>
+        /// <param name="region">EU region code (the Ad Library is EU-only) (optional, default to &quot;DE&quot;)</param>
+        /// <returns>ApiResponse of Object</returns>
+        ApiResponse<Object> TiktokGetTiktokAdDetailWithHttpInfo(string adId, string region = default(string));
+        /// <summary>
         /// Get transcript
         /// </summary>
         /// <remarks>
@@ -581,6 +604,31 @@ namespace ScrapeBadger.Api
         /// <param name="count"> (optional, default to 20)</param>
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> TiktokSearchTheTiktokAdLibraryWithHttpInfo(string query = default(string), string advertiserId = default(string), string region = default(string), int? days = default(int?), string sort = default(string), int? offset = default(int?), string searchId = default(string), int? count = default(int?));
+        /// <summary>
+        /// Search TikTok advertisers
+        /// </summary>
+        /// <remarks>
+        /// Look up TikTok advertiser business ids by name (feeds ads/search?advertiser_id&#x3D;).
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">Advertiser name (or partial) to look up</param>
+        /// <param name="region">EU region code (the Ad Library is EU-only) (optional, default to &quot;DE&quot;)</param>
+        /// <param name="count"> (optional, default to 10)</param>
+        /// <returns>Object</returns>
+        Object TiktokSearchTiktokAdvertisers(string query, string region = default(string), int? count = default(int?));
+
+        /// <summary>
+        /// Search TikTok advertisers
+        /// </summary>
+        /// <remarks>
+        /// Look up TikTok advertiser business ids by name (feeds ads/search?advertiser_id&#x3D;).
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">Advertiser name (or partial) to look up</param>
+        /// <param name="region">EU region code (the Ad Library is EU-only) (optional, default to &quot;DE&quot;)</param>
+        /// <param name="count"> (optional, default to 10)</param>
+        /// <returns>ApiResponse of Object</returns>
+        ApiResponse<Object> TiktokSearchTiktokAdvertisersWithHttpInfo(string query, string region = default(string), int? count = default(int?));
         /// <summary>
         /// Search users
         /// </summary>
@@ -1081,6 +1129,31 @@ namespace ScrapeBadger.Api
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> TiktokGetRepostsWithHttpInfoAsync(string username, string region = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
+        /// Get TikTok ad detail
+        /// </summary>
+        /// <remarks>
+        /// Get a single ad&#39;s advertiser, creatives, and targeting/impression breakdown.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="adId"></param>
+        /// <param name="region">EU region code (the Ad Library is EU-only) (optional, default to &quot;DE&quot;)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        System.Threading.Tasks.Task<Object> TiktokGetTiktokAdDetailAsync(string adId, string region = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get TikTok ad detail
+        /// </summary>
+        /// <remarks>
+        /// Get a single ad&#39;s advertiser, creatives, and targeting/impression breakdown.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="adId"></param>
+        /// <param name="region">EU region code (the Ad Library is EU-only) (optional, default to &quot;DE&quot;)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> TiktokGetTiktokAdDetailWithHttpInfoAsync(string adId, string region = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
         /// Get transcript
         /// </summary>
         /// <remarks>
@@ -1315,6 +1388,33 @@ namespace ScrapeBadger.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> TiktokSearchTheTiktokAdLibraryWithHttpInfoAsync(string query = default(string), string advertiserId = default(string), string region = default(string), int? days = default(int?), string sort = default(string), int? offset = default(int?), string searchId = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Search TikTok advertisers
+        /// </summary>
+        /// <remarks>
+        /// Look up TikTok advertiser business ids by name (feeds ads/search?advertiser_id&#x3D;).
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">Advertiser name (or partial) to look up</param>
+        /// <param name="region">EU region code (the Ad Library is EU-only) (optional, default to &quot;DE&quot;)</param>
+        /// <param name="count"> (optional, default to 10)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        System.Threading.Tasks.Task<Object> TiktokSearchTiktokAdvertisersAsync(string query, string region = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Search TikTok advertisers
+        /// </summary>
+        /// <remarks>
+        /// Look up TikTok advertiser business ids by name (feeds ads/search?advertiser_id&#x3D;).
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">Advertiser name (or partial) to look up</param>
+        /// <param name="region">EU region code (the Ad Library is EU-only) (optional, default to &quot;DE&quot;)</param>
+        /// <param name="count"> (optional, default to 10)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> TiktokSearchTiktokAdvertisersWithHttpInfoAsync(string query, string region = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Search users
         /// </summary>
@@ -3653,6 +3753,143 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
+        /// Get TikTok ad detail Get a single ad&#39;s advertiser, creatives, and targeting/impression breakdown.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="adId"></param>
+        /// <param name="region">EU region code (the Ad Library is EU-only) (optional, default to &quot;DE&quot;)</param>
+        /// <returns>Object</returns>
+        public Object TiktokGetTiktokAdDetail(string adId, string region = default(string))
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = TiktokGetTiktokAdDetailWithHttpInfo(adId, region);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get TikTok ad detail Get a single ad&#39;s advertiser, creatives, and targeting/impression breakdown.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="adId"></param>
+        /// <param name="region">EU region code (the Ad Library is EU-only) (optional, default to &quot;DE&quot;)</param>
+        /// <returns>ApiResponse of Object</returns>
+        public ScrapeBadger.Client.ApiResponse<Object> TiktokGetTiktokAdDetailWithHttpInfo(string adId, string region = default(string))
+        {
+            // verify the required parameter 'adId' is set
+            if (adId == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'adId' when calling TikTokApi->TiktokGetTiktokAdDetail");
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("ad_id", ScrapeBadger.Client.ClientUtils.ParameterToString(adId)); // path parameter
+            if (region != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "region", region));
+            }
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Object>("/v1/tiktok/ads/{ad_id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TiktokGetTiktokAdDetail", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get TikTok ad detail Get a single ad&#39;s advertiser, creatives, and targeting/impression breakdown.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="adId"></param>
+        /// <param name="region">EU region code (the Ad Library is EU-only) (optional, default to &quot;DE&quot;)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        public async System.Threading.Tasks.Task<Object> TiktokGetTiktokAdDetailAsync(string adId, string region = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await TiktokGetTiktokAdDetailWithHttpInfoAsync(adId, region, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get TikTok ad detail Get a single ad&#39;s advertiser, creatives, and targeting/impression breakdown.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="adId"></param>
+        /// <param name="region">EU region code (the Ad Library is EU-only) (optional, default to &quot;DE&quot;)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> TiktokGetTiktokAdDetailWithHttpInfoAsync(string adId, string region = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'adId' is set
+            if (adId == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'adId' when calling TikTokApi->TiktokGetTiktokAdDetail");
+
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("ad_id", ScrapeBadger.Client.ClientUtils.ParameterToString(adId)); // path parameter
+            if (region != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "region", region));
+            }
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/tiktok/ads/{ad_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TiktokGetTiktokAdDetail", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Get transcript Get subtitle/caption tracks for a TikTok video.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4931,6 +5168,155 @@ namespace ScrapeBadger.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TiktokSearchTheTiktokAdLibrary", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Search TikTok advertisers Look up TikTok advertiser business ids by name (feeds ads/search?advertiser_id&#x3D;).
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">Advertiser name (or partial) to look up</param>
+        /// <param name="region">EU region code (the Ad Library is EU-only) (optional, default to &quot;DE&quot;)</param>
+        /// <param name="count"> (optional, default to 10)</param>
+        /// <returns>Object</returns>
+        public Object TiktokSearchTiktokAdvertisers(string query, string region = default(string), int? count = default(int?))
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = TiktokSearchTiktokAdvertisersWithHttpInfo(query, region, count);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search TikTok advertisers Look up TikTok advertiser business ids by name (feeds ads/search?advertiser_id&#x3D;).
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">Advertiser name (or partial) to look up</param>
+        /// <param name="region">EU region code (the Ad Library is EU-only) (optional, default to &quot;DE&quot;)</param>
+        /// <param name="count"> (optional, default to 10)</param>
+        /// <returns>ApiResponse of Object</returns>
+        public ScrapeBadger.Client.ApiResponse<Object> TiktokSearchTiktokAdvertisersWithHttpInfo(string query, string region = default(string), int? count = default(int?))
+        {
+            // verify the required parameter 'query' is set
+            if (query == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'query' when calling TikTokApi->TiktokSearchTiktokAdvertisers");
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "query", query));
+            if (region != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "region", region));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Object>("/v1/tiktok/ads/advertisers", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TiktokSearchTiktokAdvertisers", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Search TikTok advertisers Look up TikTok advertiser business ids by name (feeds ads/search?advertiser_id&#x3D;).
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">Advertiser name (or partial) to look up</param>
+        /// <param name="region">EU region code (the Ad Library is EU-only) (optional, default to &quot;DE&quot;)</param>
+        /// <param name="count"> (optional, default to 10)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        public async System.Threading.Tasks.Task<Object> TiktokSearchTiktokAdvertisersAsync(string query, string region = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await TiktokSearchTiktokAdvertisersWithHttpInfoAsync(query, region, count, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search TikTok advertisers Look up TikTok advertiser business ids by name (feeds ads/search?advertiser_id&#x3D;).
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">Advertiser name (or partial) to look up</param>
+        /// <param name="region">EU region code (the Ad Library is EU-only) (optional, default to &quot;DE&quot;)</param>
+        /// <param name="count"> (optional, default to 10)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> TiktokSearchTiktokAdvertisersWithHttpInfoAsync(string query, string region = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'query' is set
+            if (query == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'query' when calling TikTokApi->TiktokSearchTiktokAdvertisers");
+
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "query", query));
+            if (region != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "region", region));
+            }
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/tiktok/ads/advertisers", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TiktokSearchTiktokAdvertisers", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

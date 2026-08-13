@@ -17,6 +17,7 @@ All URIs are relative to *https://scrapebadger.com*
 | [**TiktokGetOembedMetadata**](TikTokApi.md#tiktokgetoembedmetadata) | **GET** /v1/tiktok/oembed | Get oEmbed metadata |
 | [**TiktokGetRelatedVideos**](TikTokApi.md#tiktokgetrelatedvideos) | **GET** /v1/tiktok/videos/{video_id}/related | Get related videos |
 | [**TiktokGetReposts**](TikTokApi.md#tiktokgetreposts) | **GET** /v1/tiktok/users/{username}/reposts | Get reposts |
+| [**TiktokGetTiktokAdDetail**](TikTokApi.md#tiktokgettiktokaddetail) | **GET** /v1/tiktok/ads/{ad_id} | Get TikTok ad detail |
 | [**TiktokGetTranscript**](TikTokApi.md#tiktokgettranscript) | **GET** /v1/tiktok/videos/{video_id}/transcript | Get transcript |
 | [**TiktokGetUserProfile**](TikTokApi.md#tiktokgetuserprofile) | **GET** /v1/tiktok/users/{username} | Get user profile |
 | [**TiktokGetUserVideos**](TikTokApi.md#tiktokgetuservideos) | **GET** /v1/tiktok/users/{username}/videos | Get user videos |
@@ -26,6 +27,7 @@ All URIs are relative to *https://scrapebadger.com*
 | [**TiktokListRegions**](TikTokApi.md#tiktoklistregions) | **GET** /v1/tiktok/regions | List regions |
 | [**TiktokSearchHashtags**](TikTokApi.md#tiktoksearchhashtags) | **GET** /v1/tiktok/search/hashtags | Search hashtags |
 | [**TiktokSearchTheTiktokAdLibrary**](TikTokApi.md#tiktoksearchthetiktokadlibrary) | **GET** /v1/tiktok/ads/search | Search the TikTok Ad Library |
+| [**TiktokSearchTiktokAdvertisers**](TikTokApi.md#tiktoksearchtiktokadvertisers) | **GET** /v1/tiktok/ads/advertisers | Search TikTok advertisers |
 | [**TiktokSearchUsers**](TikTokApi.md#tiktoksearchusers) | **GET** /v1/tiktok/search/users | Search users |
 | [**TiktokSearchVideos**](TikTokApi.md#tiktoksearchvideos) | **GET** /v1/tiktok/search/videos | Search videos |
 | [**TiktokTrendingHashtags**](TikTokApi.md#tiktoktrendinghashtags) | **GET** /v1/tiktok/trending/hashtags | Trending hashtags |
@@ -1403,6 +1405,109 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="tiktokgettiktokaddetail"></a>
+# **TiktokGetTiktokAdDetail**
+> Object TiktokGetTiktokAdDetail (string adId, string region = null)
+
+Get TikTok ad detail
+
+Get a single ad's advertiser, creatives, and targeting/impression breakdown.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using ScrapeBadger.Api;
+using ScrapeBadger.Client;
+using ScrapeBadger.Model;
+
+namespace Example
+{
+    public class TiktokGetTiktokAdDetailExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://scrapebadger.com";
+            // Configure API key authorization: ApiKeyAuth
+            config.AddApiKey("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("X-API-Key", "Bearer");
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new TikTokApi(httpClient, config, httpClientHandler);
+            var adId = "adId_example";  // string | 
+            var region = "\"DE\"";  // string | EU region code (the Ad Library is EU-only) (optional)  (default to "DE")
+
+            try
+            {
+                // Get TikTok ad detail
+                Object result = apiInstance.TiktokGetTiktokAdDetail(adId, region);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TikTokApi.TiktokGetTiktokAdDetail: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the TiktokGetTiktokAdDetailWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get TikTok ad detail
+    ApiResponse<Object> response = apiInstance.TiktokGetTiktokAdDetailWithHttpInfo(adId, region);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TikTokApi.TiktokGetTiktokAdDetailWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **adId** | **string** |  |  |
+| **region** | **string** | EU region code (the Ad Library is EU-only) | [optional] [default to &quot;DE&quot;] |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="tiktokgettranscript"></a>
 # **TiktokGetTranscript**
 > Object TiktokGetTranscript (string videoId, string region = null)
@@ -2305,6 +2410,111 @@ catch (ApiException e)
 | **offset** | **int?** |  | [optional] [default to 0] |
 | **searchId** | **string** |  | [optional] [default to &quot;&quot;] |
 | **count** | **int?** |  | [optional] [default to 20] |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="tiktoksearchtiktokadvertisers"></a>
+# **TiktokSearchTiktokAdvertisers**
+> Object TiktokSearchTiktokAdvertisers (string query, string region = null, int? count = null)
+
+Search TikTok advertisers
+
+Look up TikTok advertiser business ids by name (feeds ads/search?advertiser_id=).
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using ScrapeBadger.Api;
+using ScrapeBadger.Client;
+using ScrapeBadger.Model;
+
+namespace Example
+{
+    public class TiktokSearchTiktokAdvertisersExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://scrapebadger.com";
+            // Configure API key authorization: ApiKeyAuth
+            config.AddApiKey("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("X-API-Key", "Bearer");
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new TikTokApi(httpClient, config, httpClientHandler);
+            var query = "query_example";  // string | Advertiser name (or partial) to look up
+            var region = "\"DE\"";  // string | EU region code (the Ad Library is EU-only) (optional)  (default to "DE")
+            var count = 10;  // int? |  (optional)  (default to 10)
+
+            try
+            {
+                // Search TikTok advertisers
+                Object result = apiInstance.TiktokSearchTiktokAdvertisers(query, region, count);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TikTokApi.TiktokSearchTiktokAdvertisers: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the TiktokSearchTiktokAdvertisersWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Search TikTok advertisers
+    ApiResponse<Object> response = apiInstance.TiktokSearchTiktokAdvertisersWithHttpInfo(query, region, count);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TikTokApi.TiktokSearchTiktokAdvertisersWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **query** | **string** | Advertiser name (or partial) to look up |  |
+| **region** | **string** | EU region code (the Ad Library is EU-only) | [optional] [default to &quot;DE&quot;] |
+| **count** | **int?** |  | [optional] [default to 10] |
 
 ### Return type
 

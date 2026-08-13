@@ -13308,6 +13308,61 @@ paths:
       summary: Search properties
       tags:
       - Redfin
+  /v1/tiktok/ads/advertisers:
+    get:
+      description: Look up TikTok advertiser business ids by name (feeds ads/search?advertiser_id=).
+      operationId: tiktok_search_tiktok_advertisers
+      parameters:
+      - description: Advertiser name (or partial) to look up
+        explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          description: Advertiser name (or partial) to look up
+          minLength: 1
+          title: Query
+          type: string
+        style: form
+      - description: EU region code (the Ad Library is EU-only)
+        explode: true
+        in: query
+        name: region
+        required: false
+        schema:
+          default: DE
+          description: EU region code (the Ad Library is EU-only)
+          title: Region
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          default: 10
+          maximum: 50
+          minimum: 1
+          title: Count
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Search TikTok advertisers
+      tags:
+      - TikTok
   /v1/tiktok/ads/search:
     get:
       description: Search TikTok's Commercial Content Library (ad transparency) by
@@ -13412,6 +13467,48 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: Search the TikTok Ad Library
+      tags:
+      - TikTok
+  /v1/tiktok/ads/{ad_id}:
+    get:
+      description: "Get a single ad's advertiser, creatives, and targeting/impression\
+        \ breakdown."
+      operationId: tiktok_get_tiktok_ad_detail
+      parameters:
+      - explode: false
+        in: path
+        name: ad_id
+        required: true
+        schema:
+          title: Ad Id
+          type: string
+        style: simple
+      - description: EU region code (the Ad Library is EU-only)
+        explode: true
+        in: query
+        name: region
+        required: false
+        schema:
+          default: DE
+          description: EU region code (the Ad Library is EU-only)
+          title: Region
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get TikTok ad detail
       tags:
       - TikTok
   /v1/tiktok/comments/{comment_id}/replies:

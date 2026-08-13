@@ -239,6 +239,19 @@ namespace ScrapeBadger.Test.Api
         }
 
         /// <summary>
+        /// Test TiktokGetTiktokAdDetail
+        /// </summary>
+        [Fact]
+        public void TiktokGetTiktokAdDetailTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string adId = null;
+            //string region = null;
+            //var response = instance.TiktokGetTiktokAdDetail(adId, region);
+            //Assert.IsType<Object>(response);
+        }
+
+        /// <summary>
         /// Test TiktokGetTranscript
         /// </summary>
         [Fact]
@@ -357,6 +370,20 @@ namespace ScrapeBadger.Test.Api
             //string searchId = null;
             //int? count = null;
             //var response = instance.TiktokSearchTheTiktokAdLibrary(query, advertiserId, region, days, sort, offset, searchId, count);
+            //Assert.IsType<Object>(response);
+        }
+
+        /// <summary>
+        /// Test TiktokSearchTiktokAdvertisers
+        /// </summary>
+        [Fact]
+        public void TiktokSearchTiktokAdvertisersTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string query = null;
+            //string region = null;
+            //int? count = null;
+            //var response = instance.TiktokSearchTiktokAdvertisers(query, region, count);
             //Assert.IsType<Object>(response);
         }
 
