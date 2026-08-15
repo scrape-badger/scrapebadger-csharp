@@ -592,9 +592,9 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GoogleApi(httpClient, config, httpClientHandler);
             var dataId = "dataId_example";  // string | Maps data ID
-            var sortBy = "\"qualityScore\"";  // string |  (optional)  (default to "qualityScore")
+            var sortBy = "\"qualityScore\"";  // string | qualityScore | newestFirst | ratingHigh | ratingLow (optional)  (default to "qualityScore")
             var hl = "\"en\"";  // string |  (optional)  (default to "en")
-            var nextPageToken = "nextPageToken_example";  // string |  (optional) 
+            var nextPageToken = "nextPageToken_example";  // string | Cursor from the previous response's pagination.next; omit for page 1. (optional) 
             var results = 10;  // int? |  (optional)  (default to 10)
 
             try
@@ -639,9 +639,9 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **dataId** | **string** | Maps data ID |  |
-| **sortBy** | **string** |  | [optional] [default to &quot;qualityScore&quot;] |
+| **sortBy** | **string** | qualityScore | newestFirst | ratingHigh | ratingLow | [optional] [default to &quot;qualityScore&quot;] |
 | **hl** | **string** |  | [optional] [default to &quot;en&quot;] |
-| **nextPageToken** | **string** |  | [optional]  |
+| **nextPageToken** | **string** | Cursor from the previous response&#39;s pagination.next; omit for page 1. | [optional]  |
 | **results** | **int?** |  | [optional] [default to 10] |
 
 ### Return type

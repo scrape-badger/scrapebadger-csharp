@@ -144,9 +144,9 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataId">Maps data ID</param>
-        /// <param name="sortBy"> (optional, default to &quot;qualityScore&quot;)</param>
+        /// <param name="sortBy">qualityScore | newestFirst | ratingHigh | ratingLow (optional, default to &quot;qualityScore&quot;)</param>
         /// <param name="hl"> (optional, default to &quot;en&quot;)</param>
-        /// <param name="nextPageToken"> (optional)</param>
+        /// <param name="nextPageToken">Cursor from the previous response&#39;s pagination.next; omit for page 1. (optional)</param>
         /// <param name="results"> (optional, default to 10)</param>
         /// <returns>Object</returns>
         Object GoogleGetPlaceReviews(string dataId, string sortBy = default(string), string hl = default(string), string nextPageToken = default(string), int? results = default(int?));
@@ -159,9 +159,9 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataId">Maps data ID</param>
-        /// <param name="sortBy"> (optional, default to &quot;qualityScore&quot;)</param>
+        /// <param name="sortBy">qualityScore | newestFirst | ratingHigh | ratingLow (optional, default to &quot;qualityScore&quot;)</param>
         /// <param name="hl"> (optional, default to &quot;en&quot;)</param>
-        /// <param name="nextPageToken"> (optional)</param>
+        /// <param name="nextPageToken">Cursor from the previous response&#39;s pagination.next; omit for page 1. (optional)</param>
         /// <param name="results"> (optional, default to 10)</param>
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> GoogleGetPlaceReviewsWithHttpInfo(string dataId, string sortBy = default(string), string hl = default(string), string nextPageToken = default(string), int? results = default(int?));
@@ -1268,9 +1268,9 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataId">Maps data ID</param>
-        /// <param name="sortBy"> (optional, default to &quot;qualityScore&quot;)</param>
+        /// <param name="sortBy">qualityScore | newestFirst | ratingHigh | ratingLow (optional, default to &quot;qualityScore&quot;)</param>
         /// <param name="hl"> (optional, default to &quot;en&quot;)</param>
-        /// <param name="nextPageToken"> (optional)</param>
+        /// <param name="nextPageToken">Cursor from the previous response&#39;s pagination.next; omit for page 1. (optional)</param>
         /// <param name="results"> (optional, default to 10)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
@@ -1284,9 +1284,9 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataId">Maps data ID</param>
-        /// <param name="sortBy"> (optional, default to &quot;qualityScore&quot;)</param>
+        /// <param name="sortBy">qualityScore | newestFirst | ratingHigh | ratingLow (optional, default to &quot;qualityScore&quot;)</param>
         /// <param name="hl"> (optional, default to &quot;en&quot;)</param>
-        /// <param name="nextPageToken"> (optional)</param>
+        /// <param name="nextPageToken">Cursor from the previous response&#39;s pagination.next; omit for page 1. (optional)</param>
         /// <param name="results"> (optional, default to 10)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
@@ -3291,9 +3291,9 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataId">Maps data ID</param>
-        /// <param name="sortBy"> (optional, default to &quot;qualityScore&quot;)</param>
+        /// <param name="sortBy">qualityScore | newestFirst | ratingHigh | ratingLow (optional, default to &quot;qualityScore&quot;)</param>
         /// <param name="hl"> (optional, default to &quot;en&quot;)</param>
-        /// <param name="nextPageToken"> (optional)</param>
+        /// <param name="nextPageToken">Cursor from the previous response&#39;s pagination.next; omit for page 1. (optional)</param>
         /// <param name="results"> (optional, default to 10)</param>
         /// <returns>Object</returns>
         public Object GoogleGetPlaceReviews(string dataId, string sortBy = default(string), string hl = default(string), string nextPageToken = default(string), int? results = default(int?))
@@ -3307,9 +3307,9 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataId">Maps data ID</param>
-        /// <param name="sortBy"> (optional, default to &quot;qualityScore&quot;)</param>
+        /// <param name="sortBy">qualityScore | newestFirst | ratingHigh | ratingLow (optional, default to &quot;qualityScore&quot;)</param>
         /// <param name="hl"> (optional, default to &quot;en&quot;)</param>
-        /// <param name="nextPageToken"> (optional)</param>
+        /// <param name="nextPageToken">Cursor from the previous response&#39;s pagination.next; omit for page 1. (optional)</param>
         /// <param name="results"> (optional, default to 10)</param>
         /// <returns>ApiResponse of Object</returns>
         public ScrapeBadger.Client.ApiResponse<Object> GoogleGetPlaceReviewsWithHttpInfo(string dataId, string sortBy = default(string), string hl = default(string), string nextPageToken = default(string), int? results = default(int?))
@@ -3375,9 +3375,9 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataId">Maps data ID</param>
-        /// <param name="sortBy"> (optional, default to &quot;qualityScore&quot;)</param>
+        /// <param name="sortBy">qualityScore | newestFirst | ratingHigh | ratingLow (optional, default to &quot;qualityScore&quot;)</param>
         /// <param name="hl"> (optional, default to &quot;en&quot;)</param>
-        /// <param name="nextPageToken"> (optional)</param>
+        /// <param name="nextPageToken">Cursor from the previous response&#39;s pagination.next; omit for page 1. (optional)</param>
         /// <param name="results"> (optional, default to 10)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
@@ -3392,9 +3392,9 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="dataId">Maps data ID</param>
-        /// <param name="sortBy"> (optional, default to &quot;qualityScore&quot;)</param>
+        /// <param name="sortBy">qualityScore | newestFirst | ratingHigh | ratingLow (optional, default to &quot;qualityScore&quot;)</param>
         /// <param name="hl"> (optional, default to &quot;en&quot;)</param>
-        /// <param name="nextPageToken"> (optional)</param>
+        /// <param name="nextPageToken">Cursor from the previous response&#39;s pagination.next; omit for page 1. (optional)</param>
         /// <param name="results"> (optional, default to 10)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>

@@ -7205,12 +7205,14 @@ paths:
           title: Data Id
           type: string
         style: form
-      - explode: true
+      - description: qualityScore | newestFirst | ratingHigh | ratingLow
+        explode: true
         in: query
         name: sort_by
         required: false
         schema:
           default: qualityScore
+          description: qualityScore | newestFirst | ratingHigh | ratingLow
           title: Sort By
           type: string
         style: form
@@ -7223,7 +7225,9 @@ paths:
           title: Hl
           type: string
         style: form
-      - explode: true
+      - description: Cursor from the previous response's pagination.next; omit for
+          page 1.
+        explode: true
         in: query
         name: next_page_token
         required: false
