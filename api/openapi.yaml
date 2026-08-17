@@ -15,6 +15,7 @@ tags:
 - name: App-Store
 - name: Baidu
 - name: Bing
+- name: Booking
 - name: ChatGPT
 - name: Depop
 - name: DuckDuckGo
@@ -2527,6 +2528,442 @@ paths:
       summary: Video search
       tags:
       - Bing
+  /v1/booking/destinations:
+    get:
+      description: |-
+        Resolve a place name to Booking's `dest_id`/`dest_type`, with coordinates
+        and country — feed the pair back into /search for an exact match.
+      operationId: booking_search_destinations
+      parameters:
+      - description: "Free-text place, e.g. 'amsterd'"
+        explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          description: "Free-text place, e.g. 'amsterd'"
+          title: Query
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 8
+          maximum: 20
+          minimum: 1
+          title: Limit
+          type: integer
+        style: form
+      - description: "Locale, e.g. en-us, fr"
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Search destinations
+      tags:
+      - Booking
+  /v1/booking/health:
+    get:
+      description: Check health of the Booking scraper service (accepts HEAD).
+      operationId: booking_booking_scraper_health_check
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Booking scraper health check
+      tags:
+      - Booking
+    head:
+      description: Check health of the Booking scraper service (accepts HEAD).
+      operationId: booking_booking_scraper_health_check_head
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Booking scraper health check
+      tags:
+      - Booking
+  /v1/booking/properties/{country_code}/{slug}:
+    get:
+      description: |-
+        Full detail for one property: description, address and coordinates, star
+        rating, review score with per-category breakdown, facilities, house rules,
+        room types with occupancy and beds, photos and guest Q&A.
+      operationId: booking_get_property_detail
+      parameters:
+      - description: "Two-letter country code, e.g. 'it'"
+        explode: false
+        in: path
+        name: country_code
+        required: true
+        schema:
+          description: "Two-letter country code, e.g. 'it'"
+          maxLength: 2
+          minLength: 2
+          title: Country Code
+          type: string
+        style: simple
+      - description: "Booking page name, e.g. 'hotel-artemide'"
+        explode: false
+        in: path
+        name: slug
+        required: true
+        schema:
+          description: "Booking page name, e.g. 'hotel-artemide'"
+          minLength: 1
+          title: Slug
+          type: string
+        style: simple
+      - description: Gallery photos to return
+        explode: true
+        in: query
+        name: photos
+        required: false
+        schema:
+          default: 40
+          description: Gallery photos to return
+          maximum: 100
+          minimum: 1
+          title: Photos
+          type: integer
+        style: form
+      - description: Guest Q&A pairs to return
+        explode: true
+        in: query
+        name: questions
+        required: false
+        schema:
+          default: 10
+          description: Guest Q&A pairs to return
+          maximum: 50
+          minimum: 0
+          title: Questions
+          type: integer
+        style: form
+      - description: "Locale, e.g. en-us, fr"
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get property detail
+      tags:
+      - Booking
+  /v1/booking/properties/{country_code}/{slug}/reviews:
+    get:
+      description: |-
+        Paginated guest reviews with score, positive and negative text, stay
+        dates, room type, guest country and type, photos and the partner's reply.
+      operationId: booking_get_property_reviews
+      parameters:
+      - description: "Two-letter country code, e.g. 'it'"
+        explode: false
+        in: path
+        name: country_code
+        required: true
+        schema:
+          description: "Two-letter country code, e.g. 'it'"
+          maxLength: 2
+          minLength: 2
+          title: Country Code
+          type: string
+        style: simple
+      - description: "Booking page name, e.g. 'hotel-artemide'"
+        explode: false
+        in: path
+        name: slug
+        required: true
+        schema:
+          description: "Booking page name, e.g. 'hotel-artemide'"
+          minLength: 1
+          title: Slug
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 25
+          maximum: 100
+          minimum: 1
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          default: 0
+          minimum: 0
+          title: Offset
+          type: integer
+        style: form
+      - description: MOST_RELEVANT | NEWEST_FIRST | OLDEST_FIRST | SCORE_DESC | SCORE_ASC
+        explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          default: MOST_RELEVANT
+          description: MOST_RELEVANT | NEWEST_FIRST | OLDEST_FIRST | SCORE_DESC |
+            SCORE_ASC
+          title: Sort
+          type: string
+        style: form
+      - description: "Only reviews written in this language, e.g. 'fr'"
+        explode: true
+        in: query
+        name: review_language
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: FAMILIES | COUPLES | GROUP_OF_FRIENDS | SOLO_TRAVELLERS | BUSINESS_TRAVELLERS
+        explode: true
+        in: query
+        name: guest_type
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "Locale for labels, e.g. en-us"
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get property reviews
+      tags:
+      - Booking
+  /v1/booking/search:
+    get:
+      description: |-
+        Search Booking.com properties by destination, with dates, occupancy,
+        sorting and filters. Returns prices, review scores, coordinates, room
+        configuration and photos. Paginate with `offset`.
+      operationId: booking_search_properties
+      parameters:
+      - description: "Free-text destination, e.g. 'Rome'"
+        explode: true
+        in: query
+        name: location
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Exact destination id (ufi) from /destinations
+        explode: true
+        in: query
+        name: dest_id
+        required: false
+        schema:
+          nullable: true
+          type: integer
+        style: form
+      - description: "Destination type, e.g. CITY"
+        explode: true
+        in: query
+        name: dest_type
+        required: false
+        schema:
+          default: NO_DEST_TYPE
+          description: "Destination type, e.g. CITY"
+          title: Dest Type
+          type: string
+        style: form
+      - description: Check-in date YYYY-MM-DD
+        explode: true
+        in: query
+        name: checkin
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Check-out date YYYY-MM-DD
+        explode: true
+        in: query
+        name: checkout
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: adults
+        required: false
+        schema:
+          default: 2
+          maximum: 30
+          minimum: 1
+          title: Adults
+          type: integer
+        style: form
+      - description: "Comma-separated children ages, e.g. '4,9'"
+        explode: true
+        in: query
+        name: children
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: rooms
+        required: false
+        schema:
+          default: 1
+          maximum: 30
+          minimum: 1
+          title: Rooms
+          type: integer
+        style: form
+      - description: Result offset for pagination
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          default: 0
+          description: Result offset for pagination
+          minimum: 0
+          title: Offset
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 25
+          maximum: 100
+          minimum: 1
+          title: Limit
+          type: integer
+        style: form
+      - description: popularity | price | class_descending | class_ascending | distance_from_search
+          | bayesian_review_score | review_score_and_price | upsort_bh
+        explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "Semicolon-separated Booking filter ids, e.g. 'class=4'"
+        explode: true
+        in: query
+        name: filters
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "ISO currency, e.g. EUR, USD, GBP"
+        explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "Locale, e.g. en-us, fr, de, es"
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Search properties
+      tags:
+      - Booking
   /v1/chatgpt/ask:
     get:
       description: Send a prompt to ChatGPT and get the answer plus the web sources
