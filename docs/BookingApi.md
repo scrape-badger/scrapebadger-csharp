@@ -8,6 +8,7 @@ All URIs are relative to *https://scrapebadger.com*
 | [**BookingBookingScraperHealthCheckHead**](BookingApi.md#bookingbookingscraperhealthcheckhead) | **HEAD** /v1/booking/health | Booking scraper health check |
 | [**BookingGetPropertyDetail**](BookingApi.md#bookinggetpropertydetail) | **GET** /v1/booking/properties/{country_code}/{slug} | Get property detail |
 | [**BookingGetPropertyReviews**](BookingApi.md#bookinggetpropertyreviews) | **GET** /v1/booking/properties/{country_code}/{slug}/reviews | Get property reviews |
+| [**BookingGetRoomTypesAndLiveRates**](BookingApi.md#bookinggetroomtypesandliverates) | **GET** /v1/booking/properties/{country_code}/{slug}/rooms | Get room types and live rates |
 | [**BookingSearchDestinations**](BookingApi.md#bookingsearchdestinations) | **GET** /v1/booking/destinations | Search destinations |
 | [**BookingSearchProperties**](BookingApi.md#bookingsearchproperties) | **GET** /v1/booking/search | Search properties |
 
@@ -402,6 +403,123 @@ catch (ApiException e)
 | **reviewLanguage** | **string** | Only reviews written in this language, e.g. &#39;fr&#39; | [optional]  |
 | **guestType** | **string** | FAMILIES | COUPLES | GROUP_OF_FRIENDS | SOLO_TRAVELLERS | BUSINESS_TRAVELLERS | [optional]  |
 | **language** | **string** | Locale for labels, e.g. en-us | [optional]  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="bookinggetroomtypesandliverates"></a>
+# **BookingGetRoomTypesAndLiveRates**
+> Object BookingGetRoomTypesAndLiveRates (string countryCode, string slug, string checkin, string checkout, int? adults = null, string children = null, int? rooms = null, string currency = null, string language = null)
+
+Get room types and live rates
+
+Every room type at one property with every rate bookable on it for the given dates — price, price before discount, price per night, discounts and badges — plus per-room facilities, bed layouts, occupancy and photos. /search returns only the cheapest rate per property; this returns the whole table.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using ScrapeBadger.Api;
+using ScrapeBadger.Client;
+using ScrapeBadger.Model;
+
+namespace Example
+{
+    public class BookingGetRoomTypesAndLiveRatesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://scrapebadger.com";
+            // Configure API key authorization: ApiKeyAuth
+            config.AddApiKey("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("X-API-Key", "Bearer");
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new BookingApi(httpClient, config, httpClientHandler);
+            var countryCode = "countryCode_example";  // string | Two-letter country code, e.g. 'it'
+            var slug = "slug_example";  // string | Booking page name, e.g. 'hotel-artemide'
+            var checkin = "checkin_example";  // string | Check-in date YYYY-MM-DD
+            var checkout = "checkout_example";  // string | Check-out date YYYY-MM-DD
+            var adults = 2;  // int? |  (optional)  (default to 2)
+            var children = "children_example";  // string | Comma-separated children ages, e.g. '4,9' (optional) 
+            var rooms = 1;  // int? |  (optional)  (default to 1)
+            var currency = "currency_example";  // string | ISO currency, e.g. EUR, USD, GBP (optional) 
+            var language = "language_example";  // string | Locale, e.g. en-us, fr, de (optional) 
+
+            try
+            {
+                // Get room types and live rates
+                Object result = apiInstance.BookingGetRoomTypesAndLiveRates(countryCode, slug, checkin, checkout, adults, children, rooms, currency, language);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling BookingApi.BookingGetRoomTypesAndLiveRates: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the BookingGetRoomTypesAndLiveRatesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get room types and live rates
+    ApiResponse<Object> response = apiInstance.BookingGetRoomTypesAndLiveRatesWithHttpInfo(countryCode, slug, checkin, checkout, adults, children, rooms, currency, language);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling BookingApi.BookingGetRoomTypesAndLiveRatesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **countryCode** | **string** | Two-letter country code, e.g. &#39;it&#39; |  |
+| **slug** | **string** | Booking page name, e.g. &#39;hotel-artemide&#39; |  |
+| **checkin** | **string** | Check-in date YYYY-MM-DD |  |
+| **checkout** | **string** | Check-out date YYYY-MM-DD |  |
+| **adults** | **int?** |  | [optional] [default to 2] |
+| **children** | **string** | Comma-separated children ages, e.g. &#39;4,9&#39; | [optional]  |
+| **rooms** | **int?** |  | [optional] [default to 1] |
+| **currency** | **string** | ISO currency, e.g. EUR, USD, GBP | [optional]  |
+| **language** | **string** | Locale, e.g. en-us, fr, de | [optional]  |
 
 ### Return type
 

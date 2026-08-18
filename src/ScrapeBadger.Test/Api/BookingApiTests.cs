@@ -111,6 +111,26 @@ namespace ScrapeBadger.Test.Api
         }
 
         /// <summary>
+        /// Test BookingGetRoomTypesAndLiveRates
+        /// </summary>
+        [Fact]
+        public void BookingGetRoomTypesAndLiveRatesTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string countryCode = null;
+            //string slug = null;
+            //string checkin = null;
+            //string checkout = null;
+            //int? adults = null;
+            //string children = null;
+            //int? rooms = null;
+            //string currency = null;
+            //string language = null;
+            //var response = instance.BookingGetRoomTypesAndLiveRates(countryCode, slug, checkin, checkout, adults, children, rooms, currency, language);
+            //Assert.IsType<Object>(response);
+        }
+
+        /// <summary>
         /// Test BookingSearchDestinations
         /// </summary>
         [Fact]

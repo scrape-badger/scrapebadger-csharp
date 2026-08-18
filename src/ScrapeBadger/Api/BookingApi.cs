@@ -130,6 +130,43 @@ namespace ScrapeBadger.Api
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> BookingGetPropertyReviewsWithHttpInfo(string countryCode, string slug, int? limit = default(int?), int? offset = default(int?), string sort = default(string), string reviewLanguage = default(string), string guestType = default(string), string language = default(string));
         /// <summary>
+        /// Get room types and live rates
+        /// </summary>
+        /// <remarks>
+        /// Every room type at one property with every rate bookable on it for the given dates — price, price before discount, price per night, discounts and badges — plus per-room facilities, bed layouts, occupancy and photos. /search returns only the cheapest rate per property; this returns the whole table.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countryCode">Two-letter country code, e.g. &#39;it&#39;</param>
+        /// <param name="slug">Booking page name, e.g. &#39;hotel-artemide&#39;</param>
+        /// <param name="checkin">Check-in date YYYY-MM-DD</param>
+        /// <param name="checkout">Check-out date YYYY-MM-DD</param>
+        /// <param name="adults"> (optional, default to 2)</param>
+        /// <param name="children">Comma-separated children ages, e.g. &#39;4,9&#39; (optional)</param>
+        /// <param name="rooms"> (optional, default to 1)</param>
+        /// <param name="currency">ISO currency, e.g. EUR, USD, GBP (optional)</param>
+        /// <param name="language">Locale, e.g. en-us, fr, de (optional)</param>
+        /// <returns>Object</returns>
+        Object BookingGetRoomTypesAndLiveRates(string countryCode, string slug, string checkin, string checkout, int? adults = default(int?), string children = default(string), int? rooms = default(int?), string currency = default(string), string language = default(string));
+
+        /// <summary>
+        /// Get room types and live rates
+        /// </summary>
+        /// <remarks>
+        /// Every room type at one property with every rate bookable on it for the given dates — price, price before discount, price per night, discounts and badges — plus per-room facilities, bed layouts, occupancy and photos. /search returns only the cheapest rate per property; this returns the whole table.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countryCode">Two-letter country code, e.g. &#39;it&#39;</param>
+        /// <param name="slug">Booking page name, e.g. &#39;hotel-artemide&#39;</param>
+        /// <param name="checkin">Check-in date YYYY-MM-DD</param>
+        /// <param name="checkout">Check-out date YYYY-MM-DD</param>
+        /// <param name="adults"> (optional, default to 2)</param>
+        /// <param name="children">Comma-separated children ages, e.g. &#39;4,9&#39; (optional)</param>
+        /// <param name="rooms"> (optional, default to 1)</param>
+        /// <param name="currency">ISO currency, e.g. EUR, USD, GBP (optional)</param>
+        /// <param name="language">Locale, e.g. en-us, fr, de (optional)</param>
+        /// <returns>ApiResponse of Object</returns>
+        ApiResponse<Object> BookingGetRoomTypesAndLiveRatesWithHttpInfo(string countryCode, string slug, string checkin, string checkout, int? adults = default(int?), string children = default(string), int? rooms = default(int?), string currency = default(string), string language = default(string));
+        /// <summary>
         /// Search destinations
         /// </summary>
         /// <remarks>
@@ -320,6 +357,45 @@ namespace ScrapeBadger.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> BookingGetPropertyReviewsWithHttpInfoAsync(string countryCode, string slug, int? limit = default(int?), int? offset = default(int?), string sort = default(string), string reviewLanguage = default(string), string guestType = default(string), string language = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Get room types and live rates
+        /// </summary>
+        /// <remarks>
+        /// Every room type at one property with every rate bookable on it for the given dates — price, price before discount, price per night, discounts and badges — plus per-room facilities, bed layouts, occupancy and photos. /search returns only the cheapest rate per property; this returns the whole table.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countryCode">Two-letter country code, e.g. &#39;it&#39;</param>
+        /// <param name="slug">Booking page name, e.g. &#39;hotel-artemide&#39;</param>
+        /// <param name="checkin">Check-in date YYYY-MM-DD</param>
+        /// <param name="checkout">Check-out date YYYY-MM-DD</param>
+        /// <param name="adults"> (optional, default to 2)</param>
+        /// <param name="children">Comma-separated children ages, e.g. &#39;4,9&#39; (optional)</param>
+        /// <param name="rooms"> (optional, default to 1)</param>
+        /// <param name="currency">ISO currency, e.g. EUR, USD, GBP (optional)</param>
+        /// <param name="language">Locale, e.g. en-us, fr, de (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        System.Threading.Tasks.Task<Object> BookingGetRoomTypesAndLiveRatesAsync(string countryCode, string slug, string checkin, string checkout, int? adults = default(int?), string children = default(string), int? rooms = default(int?), string currency = default(string), string language = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get room types and live rates
+        /// </summary>
+        /// <remarks>
+        /// Every room type at one property with every rate bookable on it for the given dates — price, price before discount, price per night, discounts and badges — plus per-room facilities, bed layouts, occupancy and photos. /search returns only the cheapest rate per property; this returns the whole table.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countryCode">Two-letter country code, e.g. &#39;it&#39;</param>
+        /// <param name="slug">Booking page name, e.g. &#39;hotel-artemide&#39;</param>
+        /// <param name="checkin">Check-in date YYYY-MM-DD</param>
+        /// <param name="checkout">Check-out date YYYY-MM-DD</param>
+        /// <param name="adults"> (optional, default to 2)</param>
+        /// <param name="children">Comma-separated children ages, e.g. &#39;4,9&#39; (optional)</param>
+        /// <param name="rooms"> (optional, default to 1)</param>
+        /// <param name="currency">ISO currency, e.g. EUR, USD, GBP (optional)</param>
+        /// <param name="language">Locale, e.g. en-us, fr, de (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> BookingGetRoomTypesAndLiveRatesWithHttpInfoAsync(string countryCode, string slug, string checkin, string checkout, int? adults = default(int?), string children = default(string), int? rooms = default(int?), string currency = default(string), string language = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Search destinations
         /// </summary>
@@ -1211,6 +1287,233 @@ namespace ScrapeBadger.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("BookingGetPropertyReviews", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get room types and live rates Every room type at one property with every rate bookable on it for the given dates — price, price before discount, price per night, discounts and badges — plus per-room facilities, bed layouts, occupancy and photos. /search returns only the cheapest rate per property; this returns the whole table.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countryCode">Two-letter country code, e.g. &#39;it&#39;</param>
+        /// <param name="slug">Booking page name, e.g. &#39;hotel-artemide&#39;</param>
+        /// <param name="checkin">Check-in date YYYY-MM-DD</param>
+        /// <param name="checkout">Check-out date YYYY-MM-DD</param>
+        /// <param name="adults"> (optional, default to 2)</param>
+        /// <param name="children">Comma-separated children ages, e.g. &#39;4,9&#39; (optional)</param>
+        /// <param name="rooms"> (optional, default to 1)</param>
+        /// <param name="currency">ISO currency, e.g. EUR, USD, GBP (optional)</param>
+        /// <param name="language">Locale, e.g. en-us, fr, de (optional)</param>
+        /// <returns>Object</returns>
+        public Object BookingGetRoomTypesAndLiveRates(string countryCode, string slug, string checkin, string checkout, int? adults = default(int?), string children = default(string), int? rooms = default(int?), string currency = default(string), string language = default(string))
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = BookingGetRoomTypesAndLiveRatesWithHttpInfo(countryCode, slug, checkin, checkout, adults, children, rooms, currency, language);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get room types and live rates Every room type at one property with every rate bookable on it for the given dates — price, price before discount, price per night, discounts and badges — plus per-room facilities, bed layouts, occupancy and photos. /search returns only the cheapest rate per property; this returns the whole table.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countryCode">Two-letter country code, e.g. &#39;it&#39;</param>
+        /// <param name="slug">Booking page name, e.g. &#39;hotel-artemide&#39;</param>
+        /// <param name="checkin">Check-in date YYYY-MM-DD</param>
+        /// <param name="checkout">Check-out date YYYY-MM-DD</param>
+        /// <param name="adults"> (optional, default to 2)</param>
+        /// <param name="children">Comma-separated children ages, e.g. &#39;4,9&#39; (optional)</param>
+        /// <param name="rooms"> (optional, default to 1)</param>
+        /// <param name="currency">ISO currency, e.g. EUR, USD, GBP (optional)</param>
+        /// <param name="language">Locale, e.g. en-us, fr, de (optional)</param>
+        /// <returns>ApiResponse of Object</returns>
+        public ScrapeBadger.Client.ApiResponse<Object> BookingGetRoomTypesAndLiveRatesWithHttpInfo(string countryCode, string slug, string checkin, string checkout, int? adults = default(int?), string children = default(string), int? rooms = default(int?), string currency = default(string), string language = default(string))
+        {
+            // verify the required parameter 'countryCode' is set
+            if (countryCode == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'countryCode' when calling BookingApi->BookingGetRoomTypesAndLiveRates");
+
+            // verify the required parameter 'slug' is set
+            if (slug == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'slug' when calling BookingApi->BookingGetRoomTypesAndLiveRates");
+
+            // verify the required parameter 'checkin' is set
+            if (checkin == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'checkin' when calling BookingApi->BookingGetRoomTypesAndLiveRates");
+
+            // verify the required parameter 'checkout' is set
+            if (checkout == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'checkout' when calling BookingApi->BookingGetRoomTypesAndLiveRates");
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("country_code", ScrapeBadger.Client.ClientUtils.ParameterToString(countryCode)); // path parameter
+            localVarRequestOptions.PathParameters.Add("slug", ScrapeBadger.Client.ClientUtils.ParameterToString(slug)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "checkin", checkin));
+            localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "checkout", checkout));
+            if (adults != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "adults", adults));
+            }
+            if (children != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "children", children));
+            }
+            if (rooms != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "rooms", rooms));
+            }
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+            if (language != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "language", language));
+            }
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Object>("/v1/booking/properties/{country_code}/{slug}/rooms", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BookingGetRoomTypesAndLiveRates", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get room types and live rates Every room type at one property with every rate bookable on it for the given dates — price, price before discount, price per night, discounts and badges — plus per-room facilities, bed layouts, occupancy and photos. /search returns only the cheapest rate per property; this returns the whole table.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countryCode">Two-letter country code, e.g. &#39;it&#39;</param>
+        /// <param name="slug">Booking page name, e.g. &#39;hotel-artemide&#39;</param>
+        /// <param name="checkin">Check-in date YYYY-MM-DD</param>
+        /// <param name="checkout">Check-out date YYYY-MM-DD</param>
+        /// <param name="adults"> (optional, default to 2)</param>
+        /// <param name="children">Comma-separated children ages, e.g. &#39;4,9&#39; (optional)</param>
+        /// <param name="rooms"> (optional, default to 1)</param>
+        /// <param name="currency">ISO currency, e.g. EUR, USD, GBP (optional)</param>
+        /// <param name="language">Locale, e.g. en-us, fr, de (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        public async System.Threading.Tasks.Task<Object> BookingGetRoomTypesAndLiveRatesAsync(string countryCode, string slug, string checkin, string checkout, int? adults = default(int?), string children = default(string), int? rooms = default(int?), string currency = default(string), string language = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await BookingGetRoomTypesAndLiveRatesWithHttpInfoAsync(countryCode, slug, checkin, checkout, adults, children, rooms, currency, language, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get room types and live rates Every room type at one property with every rate bookable on it for the given dates — price, price before discount, price per night, discounts and badges — plus per-room facilities, bed layouts, occupancy and photos. /search returns only the cheapest rate per property; this returns the whole table.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="countryCode">Two-letter country code, e.g. &#39;it&#39;</param>
+        /// <param name="slug">Booking page name, e.g. &#39;hotel-artemide&#39;</param>
+        /// <param name="checkin">Check-in date YYYY-MM-DD</param>
+        /// <param name="checkout">Check-out date YYYY-MM-DD</param>
+        /// <param name="adults"> (optional, default to 2)</param>
+        /// <param name="children">Comma-separated children ages, e.g. &#39;4,9&#39; (optional)</param>
+        /// <param name="rooms"> (optional, default to 1)</param>
+        /// <param name="currency">ISO currency, e.g. EUR, USD, GBP (optional)</param>
+        /// <param name="language">Locale, e.g. en-us, fr, de (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> BookingGetRoomTypesAndLiveRatesWithHttpInfoAsync(string countryCode, string slug, string checkin, string checkout, int? adults = default(int?), string children = default(string), int? rooms = default(int?), string currency = default(string), string language = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'countryCode' is set
+            if (countryCode == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'countryCode' when calling BookingApi->BookingGetRoomTypesAndLiveRates");
+
+            // verify the required parameter 'slug' is set
+            if (slug == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'slug' when calling BookingApi->BookingGetRoomTypesAndLiveRates");
+
+            // verify the required parameter 'checkin' is set
+            if (checkin == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'checkin' when calling BookingApi->BookingGetRoomTypesAndLiveRates");
+
+            // verify the required parameter 'checkout' is set
+            if (checkout == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'checkout' when calling BookingApi->BookingGetRoomTypesAndLiveRates");
+
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("country_code", ScrapeBadger.Client.ClientUtils.ParameterToString(countryCode)); // path parameter
+            localVarRequestOptions.PathParameters.Add("slug", ScrapeBadger.Client.ClientUtils.ParameterToString(slug)); // path parameter
+            localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "checkin", checkin));
+            localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "checkout", checkout));
+            if (adults != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "adults", adults));
+            }
+            if (children != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "children", children));
+            }
+            if (rooms != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "rooms", rooms));
+            }
+            if (currency != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "currency", currency));
+            }
+            if (language != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "language", language));
+            }
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/booking/properties/{country_code}/{slug}/rooms", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("BookingGetRoomTypesAndLiveRates", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
