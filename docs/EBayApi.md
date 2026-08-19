@@ -5,7 +5,7 @@ All URIs are relative to *https://scrapebadger.com*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**EbayBrowseACategory**](EBayApi.md#ebaybrowseacategory) | **GET** /v1/ebay/categories/{category_id}/items | Browse a category |
-| [**EbayCompletedSoldListings**](EBayApi.md#ebaycompletedsoldlistings) | **GET** /v1/ebay/completed | Completed / sold listings |
+| [**EbayCompletedSoldListingsDeprecated**](EBayApi.md#ebaycompletedsoldlistingsdeprecated) | **GET** /v1/ebay/completed | Completed / sold listings (deprecated) |
 | [**EbayEbayScraperHealthCheck**](EBayApi.md#ebayebayscraperhealthcheck) | **GET** /v1/ebay/health | eBay scraper health check |
 | [**EbayEbayScraperHealthCheckHead**](EBayApi.md#ebayebayscraperhealthcheckhead) | **HEAD** /v1/ebay/health | eBay scraper health check |
 | [**EbayGetItemDetail**](EBayApi.md#ebaygetitemdetail) | **GET** /v1/ebay/items/{item_id} | Get item detail |
@@ -131,13 +131,13 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="ebaycompletedsoldlistings"></a>
-# **EbayCompletedSoldListings**
-> Object EbayCompletedSoldListings (string query, string domain = null, string categoryId = null, int? page = null, int? perPage = null, string sortBy = null, string condition = null, decimal? minPrice = null, decimal? maxPrice = null)
+<a id="ebaycompletedsoldlistingsdeprecated"></a>
+# **EbayCompletedSoldListingsDeprecated**
+> Object EbayCompletedSoldListingsDeprecated (string query, string domain = null, string categoryId = null, int? page = null, int? perPage = null, string sortBy = null, string condition = null, decimal? minPrice = null, decimal? maxPrice = null)
 
-Completed / sold listings
+Completed / sold listings (deprecated)
 
-Search completed/sold listings — eBay's sold-price history.
+Deprecated — eBay requires a signed-in account for sold listings. Returns 410.
 
 ### Example
 ```csharp
@@ -150,7 +150,7 @@ using ScrapeBadger.Model;
 
 namespace Example
 {
-    public class EbayCompletedSoldListingsExample
+    public class EbayCompletedSoldListingsDeprecatedExample
     {
         public static void Main()
         {
@@ -177,13 +177,13 @@ namespace Example
 
             try
             {
-                // Completed / sold listings
-                Object result = apiInstance.EbayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice);
+                // Completed / sold listings (deprecated)
+                Object result = apiInstance.EbayCompletedSoldListingsDeprecated(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling EBayApi.EbayCompletedSoldListings: " + e.Message);
+                Debug.Print("Exception when calling EBayApi.EbayCompletedSoldListingsDeprecated: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -192,21 +192,21 @@ namespace Example
 }
 ```
 
-#### Using the EbayCompletedSoldListingsWithHttpInfo variant
+#### Using the EbayCompletedSoldListingsDeprecatedWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Completed / sold listings
-    ApiResponse<Object> response = apiInstance.EbayCompletedSoldListingsWithHttpInfo(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice);
+    // Completed / sold listings (deprecated)
+    ApiResponse<Object> response = apiInstance.EbayCompletedSoldListingsDeprecatedWithHttpInfo(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling EBayApi.EbayCompletedSoldListingsWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling EBayApi.EbayCompletedSoldListingsDeprecatedWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

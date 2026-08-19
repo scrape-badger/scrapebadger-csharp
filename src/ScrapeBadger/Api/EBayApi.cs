@@ -61,10 +61,10 @@ namespace ScrapeBadger.Api
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> EbayBrowseACategoryWithHttpInfo(string categoryId, string domain = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?));
         /// <summary>
-        /// Completed / sold listings
+        /// Completed / sold listings (deprecated)
         /// </summary>
         /// <remarks>
-        /// Search completed/sold listings — eBay&#39;s sold-price history.
+        /// Deprecated — eBay requires a signed-in account for sold listings. Returns 410.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords</param>
@@ -77,13 +77,14 @@ namespace ScrapeBadger.Api
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <returns>Object</returns>
-        Object EbayCompletedSoldListings(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?));
+        [Obsolete]
+        Object EbayCompletedSoldListingsDeprecated(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?));
 
         /// <summary>
-        /// Completed / sold listings
+        /// Completed / sold listings (deprecated)
         /// </summary>
         /// <remarks>
-        /// Search completed/sold listings — eBay&#39;s sold-price history.
+        /// Deprecated — eBay requires a signed-in account for sold listings. Returns 410.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords</param>
@@ -96,7 +97,8 @@ namespace ScrapeBadger.Api
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> EbayCompletedSoldListingsWithHttpInfo(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?));
+        [Obsolete]
+        ApiResponse<Object> EbayCompletedSoldListingsDeprecatedWithHttpInfo(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?));
         /// <summary>
         /// eBay scraper health check
         /// </summary>
@@ -407,10 +409,10 @@ namespace ScrapeBadger.Api
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> EbayBrowseACategoryWithHttpInfoAsync(string categoryId, string domain = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
-        /// Completed / sold listings
+        /// Completed / sold listings (deprecated)
         /// </summary>
         /// <remarks>
-        /// Search completed/sold listings — eBay&#39;s sold-price history.
+        /// Deprecated — eBay requires a signed-in account for sold listings. Returns 410.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords</param>
@@ -424,13 +426,14 @@ namespace ScrapeBadger.Api
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> EbayCompletedSoldListingsAsync(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        [Obsolete]
+        System.Threading.Tasks.Task<Object> EbayCompletedSoldListingsDeprecatedAsync(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
-        /// Completed / sold listings
+        /// Completed / sold listings (deprecated)
         /// </summary>
         /// <remarks>
-        /// Search completed/sold listings — eBay&#39;s sold-price history.
+        /// Deprecated — eBay requires a signed-in account for sold listings. Returns 410.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords</param>
@@ -444,7 +447,8 @@ namespace ScrapeBadger.Api
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> EbayCompletedSoldListingsWithHttpInfoAsync(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        [Obsolete]
+        System.Threading.Tasks.Task<ApiResponse<Object>> EbayCompletedSoldListingsDeprecatedWithHttpInfoAsync(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// eBay scraper health check
         /// </summary>
@@ -1143,7 +1147,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Completed / sold listings Search completed/sold listings — eBay&#39;s sold-price history.
+        /// Completed / sold listings (deprecated) Deprecated — eBay requires a signed-in account for sold listings. Returns 410.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords</param>
@@ -1156,14 +1160,15 @@ namespace ScrapeBadger.Api
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <returns>Object</returns>
-        public Object EbayCompletedSoldListings(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?))
+        [Obsolete]
+        public Object EbayCompletedSoldListingsDeprecated(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = EbayCompletedSoldListingsWithHttpInfo(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = EbayCompletedSoldListingsDeprecatedWithHttpInfo(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Completed / sold listings Search completed/sold listings — eBay&#39;s sold-price history.
+        /// Completed / sold listings (deprecated) Deprecated — eBay requires a signed-in account for sold listings. Returns 410.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords</param>
@@ -1176,11 +1181,12 @@ namespace ScrapeBadger.Api
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> EbayCompletedSoldListingsWithHttpInfo(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?))
+        [Obsolete]
+        public ScrapeBadger.Client.ApiResponse<Object> EbayCompletedSoldListingsDeprecatedWithHttpInfo(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?))
         {
             // verify the required parameter 'query' is set
             if (query == null)
-                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'query' when calling EBayApi->EbayCompletedSoldListings");
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'query' when calling EBayApi->EbayCompletedSoldListingsDeprecated");
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
 
@@ -1243,7 +1249,7 @@ namespace ScrapeBadger.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("EbayCompletedSoldListings", localVarResponse);
+                Exception _exception = this.ExceptionFactory("EbayCompletedSoldListingsDeprecated", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -1251,7 +1257,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Completed / sold listings Search completed/sold listings — eBay&#39;s sold-price history.
+        /// Completed / sold listings (deprecated) Deprecated — eBay requires a signed-in account for sold listings. Returns 410.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords</param>
@@ -1265,14 +1271,15 @@ namespace ScrapeBadger.Api
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> EbayCompletedSoldListingsAsync(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        [Obsolete]
+        public async System.Threading.Tasks.Task<Object> EbayCompletedSoldListingsDeprecatedAsync(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await EbayCompletedSoldListingsWithHttpInfoAsync(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await EbayCompletedSoldListingsDeprecatedWithHttpInfoAsync(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Completed / sold listings Search completed/sold listings — eBay&#39;s sold-price history.
+        /// Completed / sold listings (deprecated) Deprecated — eBay requires a signed-in account for sold listings. Returns 410.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords</param>
@@ -1286,11 +1293,12 @@ namespace ScrapeBadger.Api
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> EbayCompletedSoldListingsWithHttpInfoAsync(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        [Obsolete]
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> EbayCompletedSoldListingsDeprecatedWithHttpInfoAsync(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'query' is set
             if (query == null)
-                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'query' when calling EBayApi->EbayCompletedSoldListings");
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'query' when calling EBayApi->EbayCompletedSoldListingsDeprecated");
 
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
@@ -1356,7 +1364,7 @@ namespace ScrapeBadger.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("EbayCompletedSoldListings", localVarResponse);
+                Exception _exception = this.ExceptionFactory("EbayCompletedSoldListingsDeprecated", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

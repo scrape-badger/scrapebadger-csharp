@@ -4292,8 +4292,10 @@ paths:
       - eBay
   /v1/ebay/completed:
     get:
-      description: Search completed/sold listings — eBay's sold-price history.
-      operationId: ebay_completed_sold_listings
+      deprecated: true
+      description: Deprecated — eBay requires a signed-in account for sold listings.
+        Returns 410.
+      operationId: ebay_completed_sold_listings_deprecated
       parameters:
       - description: Search keywords
         explode: true
@@ -4395,7 +4397,7 @@ paths:
           description: Validation Error
       security:
       - ApiKeyAuth: []
-      summary: Completed / sold listings
+      summary: Completed / sold listings (deprecated)
       tags:
       - eBay
   /v1/ebay/health:
