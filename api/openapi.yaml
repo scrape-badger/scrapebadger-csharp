@@ -4292,10 +4292,8 @@ paths:
       - eBay
   /v1/ebay/completed:
     get:
-      deprecated: true
-      description: Deprecated — eBay requires a signed-in account for sold listings.
-        Returns 410.
-      operationId: ebay_completed_sold_listings_deprecated
+      description: Search completed/sold listings — eBay's sold-price history.
+      operationId: ebay_completed_sold_listings
       parameters:
       - description: Search keywords
         explode: true
@@ -4307,16 +4305,19 @@ paths:
           title: Query
           type: string
         style: form
-      - explode: true
+      - description: "Marketplace domain (com, co.uk, de …)"
+        explode: true
         in: query
         name: domain
         required: false
         schema:
           default: com
+          description: "Marketplace domain (com, co.uk, de …)"
           title: Domain
           type: string
         style: form
-      - explode: true
+      - description: Restrict to a category id
+        explode: true
         in: query
         name: category_id
         required: false
@@ -4335,7 +4336,8 @@ paths:
           title: Page
           type: integer
         style: form
-      - explode: true
+      - description: "60, 120 or 240"
+        explode: true
         in: query
         name: per_page
         required: false
@@ -4397,7 +4399,7 @@ paths:
           description: Validation Error
       security:
       - ApiKeyAuth: []
-      summary: Completed / sold listings (deprecated)
+      summary: Completed / sold listings
       tags:
       - eBay
   /v1/ebay/health:

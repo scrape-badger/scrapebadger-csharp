@@ -5,7 +5,7 @@ All URIs are relative to *https://scrapebadger.com*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**EbayBrowseACategory**](EBayApi.md#ebaybrowseacategory) | **GET** /v1/ebay/categories/{category_id}/items | Browse a category |
-| [**EbayCompletedSoldListingsDeprecated**](EBayApi.md#ebaycompletedsoldlistingsdeprecated) | **GET** /v1/ebay/completed | Completed / sold listings (deprecated) |
+| [**EbayCompletedSoldListings**](EBayApi.md#ebaycompletedsoldlistings) | **GET** /v1/ebay/completed | Completed / sold listings |
 | [**EbayEbayScraperHealthCheck**](EBayApi.md#ebayebayscraperhealthcheck) | **GET** /v1/ebay/health | eBay scraper health check |
 | [**EbayEbayScraperHealthCheckHead**](EBayApi.md#ebayebayscraperhealthcheckhead) | **HEAD** /v1/ebay/health | eBay scraper health check |
 | [**EbayGetItemDetail**](EBayApi.md#ebaygetitemdetail) | **GET** /v1/ebay/items/{item_id} | Get item detail |
@@ -131,13 +131,13 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="ebaycompletedsoldlistingsdeprecated"></a>
-# **EbayCompletedSoldListingsDeprecated**
-> Object EbayCompletedSoldListingsDeprecated (string query, string domain = null, string categoryId = null, int? page = null, int? perPage = null, string sortBy = null, string condition = null, decimal? minPrice = null, decimal? maxPrice = null)
+<a id="ebaycompletedsoldlistings"></a>
+# **EbayCompletedSoldListings**
+> Object EbayCompletedSoldListings (string query, string domain = null, string categoryId = null, int? page = null, int? perPage = null, string sortBy = null, string condition = null, decimal? minPrice = null, decimal? maxPrice = null)
 
-Completed / sold listings (deprecated)
+Completed / sold listings
 
-Deprecated — eBay requires a signed-in account for sold listings. Returns 410.
+Search completed/sold listings — eBay's sold-price history.
 
 ### Example
 ```csharp
@@ -150,7 +150,7 @@ using ScrapeBadger.Model;
 
 namespace Example
 {
-    public class EbayCompletedSoldListingsDeprecatedExample
+    public class EbayCompletedSoldListingsExample
     {
         public static void Main()
         {
@@ -166,10 +166,10 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new EBayApi(httpClient, config, httpClientHandler);
             var query = "query_example";  // string | Search keywords
-            var domain = "\"com\"";  // string |  (optional)  (default to "com")
-            var categoryId = "categoryId_example";  // string |  (optional) 
+            var domain = "\"com\"";  // string | Marketplace domain (com, co.uk, de …) (optional)  (default to "com")
+            var categoryId = "categoryId_example";  // string | Restrict to a category id (optional) 
             var page = 1;  // int? |  (optional)  (default to 1)
-            var perPage = 56;  // int? |  (optional) 
+            var perPage = 56;  // int? | 60, 120 or 240 (optional) 
             var sortBy = "\"best_match\"";  // string | best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low (optional)  (default to "best_match")
             var condition = "condition_example";  // string | new|open_box|refurbished|used|for_parts (optional) 
             var minPrice = 8.14D;  // decimal? |  (optional) 
@@ -177,13 +177,13 @@ namespace Example
 
             try
             {
-                // Completed / sold listings (deprecated)
-                Object result = apiInstance.EbayCompletedSoldListingsDeprecated(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice);
+                // Completed / sold listings
+                Object result = apiInstance.EbayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling EBayApi.EbayCompletedSoldListingsDeprecated: " + e.Message);
+                Debug.Print("Exception when calling EBayApi.EbayCompletedSoldListings: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -192,21 +192,21 @@ namespace Example
 }
 ```
 
-#### Using the EbayCompletedSoldListingsDeprecatedWithHttpInfo variant
+#### Using the EbayCompletedSoldListingsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Completed / sold listings (deprecated)
-    ApiResponse<Object> response = apiInstance.EbayCompletedSoldListingsDeprecatedWithHttpInfo(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice);
+    // Completed / sold listings
+    ApiResponse<Object> response = apiInstance.EbayCompletedSoldListingsWithHttpInfo(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling EBayApi.EbayCompletedSoldListingsDeprecatedWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling EBayApi.EbayCompletedSoldListingsWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -217,10 +217,10 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **query** | **string** | Search keywords |  |
-| **domain** | **string** |  | [optional] [default to &quot;com&quot;] |
-| **categoryId** | **string** |  | [optional]  |
+| **domain** | **string** | Marketplace domain (com, co.uk, de …) | [optional] [default to &quot;com&quot;] |
+| **categoryId** | **string** | Restrict to a category id | [optional]  |
 | **page** | **int?** |  | [optional] [default to 1] |
-| **perPage** | **int?** |  | [optional]  |
+| **perPage** | **int?** | 60, 120 or 240 | [optional]  |
 | **sortBy** | **string** | best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low | [optional] [default to &quot;best_match&quot;] |
 | **condition** | **string** | new|open_box|refurbished|used|for_parts | [optional]  |
 | **minPrice** | **decimal?** |  | [optional]  |

@@ -72,10 +72,10 @@ namespace ScrapeBadger.Test.Api
         }
 
         /// <summary>
-        /// Test EbayCompletedSoldListingsDeprecated
+        /// Test EbayCompletedSoldListings
         /// </summary>
         [Fact]
-        public void EbayCompletedSoldListingsDeprecatedTest()
+        public void EbayCompletedSoldListingsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string query = null;
@@ -87,7 +87,7 @@ namespace ScrapeBadger.Test.Api
             //string condition = null;
             //decimal? minPrice = null;
             //decimal? maxPrice = null;
-            //var response = instance.EbayCompletedSoldListingsDeprecated(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice);
+            //var response = instance.EbayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice);
             //Assert.IsType<Object>(response);
         }
 
