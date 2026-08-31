@@ -73,11 +73,12 @@ namespace ScrapeBadger.Api
         /// <param name="page"> (optional, default to 1)</param>
         /// <param name="perPage">60, 120 or 240 (optional)</param>
         /// <param name="sortBy">best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low (optional, default to &quot;best_match&quot;)</param>
-        /// <param name="condition">new|open_box|refurbished|used|for_parts (optional)</param>
+        /// <param name="condition">new|open_box|refurbished|used|for_parts|graded|ungraded (optional)</param>
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
+        /// <param name="location">domestic|worldwide (optional)</param>
         /// <returns>Object</returns>
-        Object EbayCompletedSoldListings(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?));
+        Object EbayCompletedSoldListings(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), string location = default(string));
 
         /// <summary>
         /// Completed / sold listings
@@ -92,11 +93,12 @@ namespace ScrapeBadger.Api
         /// <param name="page"> (optional, default to 1)</param>
         /// <param name="perPage">60, 120 or 240 (optional)</param>
         /// <param name="sortBy">best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low (optional, default to &quot;best_match&quot;)</param>
-        /// <param name="condition">new|open_box|refurbished|used|for_parts (optional)</param>
+        /// <param name="condition">new|open_box|refurbished|used|for_parts|graded|ungraded (optional)</param>
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
+        /// <param name="location">domestic|worldwide (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> EbayCompletedSoldListingsWithHttpInfo(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?));
+        ApiResponse<Object> EbayCompletedSoldListingsWithHttpInfo(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), string location = default(string));
         /// <summary>
         /// eBay scraper health check
         /// </summary>
@@ -334,13 +336,14 @@ namespace ScrapeBadger.Api
         /// <param name="page"> (optional, default to 1)</param>
         /// <param name="perPage">60, 120 or 240 (optional)</param>
         /// <param name="sortBy">best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low (optional, default to &quot;best_match&quot;)</param>
-        /// <param name="condition">new|open_box|refurbished|used|for_parts (optional)</param>
+        /// <param name="condition">new|open_box|refurbished|used|for_parts|graded|ungraded (optional)</param>
         /// <param name="buyingFormat">auction|buy_it_now|best_offer (optional)</param>
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="freeShipping"> (optional, default to false)</param>
+        /// <param name="location">domestic|worldwide (optional)</param>
         /// <returns>Object</returns>
-        Object EbaySearchListings(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), string buyingFormat = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), bool? freeShipping = default(bool?));
+        Object EbaySearchListings(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), string buyingFormat = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), bool? freeShipping = default(bool?), string location = default(string));
 
         /// <summary>
         /// Search listings
@@ -355,13 +358,14 @@ namespace ScrapeBadger.Api
         /// <param name="page"> (optional, default to 1)</param>
         /// <param name="perPage">60, 120 or 240 (optional)</param>
         /// <param name="sortBy">best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low (optional, default to &quot;best_match&quot;)</param>
-        /// <param name="condition">new|open_box|refurbished|used|for_parts (optional)</param>
+        /// <param name="condition">new|open_box|refurbished|used|for_parts|graded|ungraded (optional)</param>
         /// <param name="buyingFormat">auction|buy_it_now|best_offer (optional)</param>
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="freeShipping"> (optional, default to false)</param>
+        /// <param name="location">domestic|worldwide (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> EbaySearchListingsWithHttpInfo(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), string buyingFormat = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), bool? freeShipping = default(bool?));
+        ApiResponse<Object> EbaySearchListingsWithHttpInfo(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), string buyingFormat = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), bool? freeShipping = default(bool?), string location = default(string));
         #endregion Synchronous Operations
     }
 
@@ -419,12 +423,13 @@ namespace ScrapeBadger.Api
         /// <param name="page"> (optional, default to 1)</param>
         /// <param name="perPage">60, 120 or 240 (optional)</param>
         /// <param name="sortBy">best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low (optional, default to &quot;best_match&quot;)</param>
-        /// <param name="condition">new|open_box|refurbished|used|for_parts (optional)</param>
+        /// <param name="condition">new|open_box|refurbished|used|for_parts|graded|ungraded (optional)</param>
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
+        /// <param name="location">domestic|worldwide (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> EbayCompletedSoldListingsAsync(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> EbayCompletedSoldListingsAsync(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), string location = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Completed / sold listings
@@ -439,12 +444,13 @@ namespace ScrapeBadger.Api
         /// <param name="page"> (optional, default to 1)</param>
         /// <param name="perPage">60, 120 or 240 (optional)</param>
         /// <param name="sortBy">best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low (optional, default to &quot;best_match&quot;)</param>
-        /// <param name="condition">new|open_box|refurbished|used|for_parts (optional)</param>
+        /// <param name="condition">new|open_box|refurbished|used|for_parts|graded|ungraded (optional)</param>
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
+        /// <param name="location">domestic|worldwide (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> EbayCompletedSoldListingsWithHttpInfoAsync(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> EbayCompletedSoldListingsWithHttpInfoAsync(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), string location = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// eBay scraper health check
         /// </summary>
@@ -702,14 +708,15 @@ namespace ScrapeBadger.Api
         /// <param name="page"> (optional, default to 1)</param>
         /// <param name="perPage">60, 120 or 240 (optional)</param>
         /// <param name="sortBy">best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low (optional, default to &quot;best_match&quot;)</param>
-        /// <param name="condition">new|open_box|refurbished|used|for_parts (optional)</param>
+        /// <param name="condition">new|open_box|refurbished|used|for_parts|graded|ungraded (optional)</param>
         /// <param name="buyingFormat">auction|buy_it_now|best_offer (optional)</param>
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="freeShipping"> (optional, default to false)</param>
+        /// <param name="location">domestic|worldwide (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> EbaySearchListingsAsync(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), string buyingFormat = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), bool? freeShipping = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> EbaySearchListingsAsync(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), string buyingFormat = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), bool? freeShipping = default(bool?), string location = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Search listings
@@ -724,14 +731,15 @@ namespace ScrapeBadger.Api
         /// <param name="page"> (optional, default to 1)</param>
         /// <param name="perPage">60, 120 or 240 (optional)</param>
         /// <param name="sortBy">best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low (optional, default to &quot;best_match&quot;)</param>
-        /// <param name="condition">new|open_box|refurbished|used|for_parts (optional)</param>
+        /// <param name="condition">new|open_box|refurbished|used|for_parts|graded|ungraded (optional)</param>
         /// <param name="buyingFormat">auction|buy_it_now|best_offer (optional)</param>
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="freeShipping"> (optional, default to false)</param>
+        /// <param name="location">domestic|worldwide (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> EbaySearchListingsWithHttpInfoAsync(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), string buyingFormat = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), bool? freeShipping = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> EbaySearchListingsWithHttpInfoAsync(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), string buyingFormat = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), bool? freeShipping = default(bool?), string location = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -1152,13 +1160,14 @@ namespace ScrapeBadger.Api
         /// <param name="page"> (optional, default to 1)</param>
         /// <param name="perPage">60, 120 or 240 (optional)</param>
         /// <param name="sortBy">best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low (optional, default to &quot;best_match&quot;)</param>
-        /// <param name="condition">new|open_box|refurbished|used|for_parts (optional)</param>
+        /// <param name="condition">new|open_box|refurbished|used|for_parts|graded|ungraded (optional)</param>
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
+        /// <param name="location">domestic|worldwide (optional)</param>
         /// <returns>Object</returns>
-        public Object EbayCompletedSoldListings(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?))
+        public Object EbayCompletedSoldListings(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), string location = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = EbayCompletedSoldListingsWithHttpInfo(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = EbayCompletedSoldListingsWithHttpInfo(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location);
             return localVarResponse.Data;
         }
 
@@ -1172,11 +1181,12 @@ namespace ScrapeBadger.Api
         /// <param name="page"> (optional, default to 1)</param>
         /// <param name="perPage">60, 120 or 240 (optional)</param>
         /// <param name="sortBy">best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low (optional, default to &quot;best_match&quot;)</param>
-        /// <param name="condition">new|open_box|refurbished|used|for_parts (optional)</param>
+        /// <param name="condition">new|open_box|refurbished|used|for_parts|graded|ungraded (optional)</param>
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
+        /// <param name="location">domestic|worldwide (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> EbayCompletedSoldListingsWithHttpInfo(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?))
+        public ScrapeBadger.Client.ApiResponse<Object> EbayCompletedSoldListingsWithHttpInfo(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), string location = default(string))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1230,6 +1240,10 @@ namespace ScrapeBadger.Api
             if (maxPrice != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "max_price", maxPrice));
+            }
+            if (location != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "location", location));
             }
 
             // authentication (ApiKeyAuth) required
@@ -1260,14 +1274,15 @@ namespace ScrapeBadger.Api
         /// <param name="page"> (optional, default to 1)</param>
         /// <param name="perPage">60, 120 or 240 (optional)</param>
         /// <param name="sortBy">best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low (optional, default to &quot;best_match&quot;)</param>
-        /// <param name="condition">new|open_box|refurbished|used|for_parts (optional)</param>
+        /// <param name="condition">new|open_box|refurbished|used|for_parts|graded|ungraded (optional)</param>
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
+        /// <param name="location">domestic|worldwide (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> EbayCompletedSoldListingsAsync(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> EbayCompletedSoldListingsAsync(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), string location = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await EbayCompletedSoldListingsWithHttpInfoAsync(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await EbayCompletedSoldListingsWithHttpInfoAsync(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1281,12 +1296,13 @@ namespace ScrapeBadger.Api
         /// <param name="page"> (optional, default to 1)</param>
         /// <param name="perPage">60, 120 or 240 (optional)</param>
         /// <param name="sortBy">best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low (optional, default to &quot;best_match&quot;)</param>
-        /// <param name="condition">new|open_box|refurbished|used|for_parts (optional)</param>
+        /// <param name="condition">new|open_box|refurbished|used|for_parts|graded|ungraded (optional)</param>
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
+        /// <param name="location">domestic|worldwide (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> EbayCompletedSoldListingsWithHttpInfoAsync(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> EbayCompletedSoldListingsWithHttpInfoAsync(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), string location = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1342,6 +1358,10 @@ namespace ScrapeBadger.Api
             if (maxPrice != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "max_price", maxPrice));
+            }
+            if (location != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "location", location));
             }
 
             // authentication (ApiKeyAuth) required
@@ -2699,15 +2719,16 @@ namespace ScrapeBadger.Api
         /// <param name="page"> (optional, default to 1)</param>
         /// <param name="perPage">60, 120 or 240 (optional)</param>
         /// <param name="sortBy">best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low (optional, default to &quot;best_match&quot;)</param>
-        /// <param name="condition">new|open_box|refurbished|used|for_parts (optional)</param>
+        /// <param name="condition">new|open_box|refurbished|used|for_parts|graded|ungraded (optional)</param>
         /// <param name="buyingFormat">auction|buy_it_now|best_offer (optional)</param>
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="freeShipping"> (optional, default to false)</param>
+        /// <param name="location">domestic|worldwide (optional)</param>
         /// <returns>Object</returns>
-        public Object EbaySearchListings(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), string buyingFormat = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), bool? freeShipping = default(bool?))
+        public Object EbaySearchListings(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), string buyingFormat = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), bool? freeShipping = default(bool?), string location = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = EbaySearchListingsWithHttpInfo(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = EbaySearchListingsWithHttpInfo(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping, location);
             return localVarResponse.Data;
         }
 
@@ -2721,13 +2742,14 @@ namespace ScrapeBadger.Api
         /// <param name="page"> (optional, default to 1)</param>
         /// <param name="perPage">60, 120 or 240 (optional)</param>
         /// <param name="sortBy">best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low (optional, default to &quot;best_match&quot;)</param>
-        /// <param name="condition">new|open_box|refurbished|used|for_parts (optional)</param>
+        /// <param name="condition">new|open_box|refurbished|used|for_parts|graded|ungraded (optional)</param>
         /// <param name="buyingFormat">auction|buy_it_now|best_offer (optional)</param>
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="freeShipping"> (optional, default to false)</param>
+        /// <param name="location">domestic|worldwide (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> EbaySearchListingsWithHttpInfo(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), string buyingFormat = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), bool? freeShipping = default(bool?))
+        public ScrapeBadger.Client.ApiResponse<Object> EbaySearchListingsWithHttpInfo(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), string buyingFormat = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), bool? freeShipping = default(bool?), string location = default(string))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -2789,6 +2811,10 @@ namespace ScrapeBadger.Api
             if (freeShipping != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "free_shipping", freeShipping));
+            }
+            if (location != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "location", location));
             }
 
             // authentication (ApiKeyAuth) required
@@ -2819,16 +2845,17 @@ namespace ScrapeBadger.Api
         /// <param name="page"> (optional, default to 1)</param>
         /// <param name="perPage">60, 120 or 240 (optional)</param>
         /// <param name="sortBy">best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low (optional, default to &quot;best_match&quot;)</param>
-        /// <param name="condition">new|open_box|refurbished|used|for_parts (optional)</param>
+        /// <param name="condition">new|open_box|refurbished|used|for_parts|graded|ungraded (optional)</param>
         /// <param name="buyingFormat">auction|buy_it_now|best_offer (optional)</param>
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="freeShipping"> (optional, default to false)</param>
+        /// <param name="location">domestic|worldwide (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> EbaySearchListingsAsync(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), string buyingFormat = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), bool? freeShipping = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> EbaySearchListingsAsync(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), string buyingFormat = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), bool? freeShipping = default(bool?), string location = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await EbaySearchListingsWithHttpInfoAsync(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await EbaySearchListingsWithHttpInfoAsync(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping, location, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2842,14 +2869,15 @@ namespace ScrapeBadger.Api
         /// <param name="page"> (optional, default to 1)</param>
         /// <param name="perPage">60, 120 or 240 (optional)</param>
         /// <param name="sortBy">best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low (optional, default to &quot;best_match&quot;)</param>
-        /// <param name="condition">new|open_box|refurbished|used|for_parts (optional)</param>
+        /// <param name="condition">new|open_box|refurbished|used|for_parts|graded|ungraded (optional)</param>
         /// <param name="buyingFormat">auction|buy_it_now|best_offer (optional)</param>
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="freeShipping"> (optional, default to false)</param>
+        /// <param name="location">domestic|worldwide (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> EbaySearchListingsWithHttpInfoAsync(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), string buyingFormat = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), bool? freeShipping = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> EbaySearchListingsWithHttpInfoAsync(string query, string domain = default(string), string categoryId = default(string), int? page = default(int?), int? perPage = default(int?), string sortBy = default(string), string condition = default(string), string buyingFormat = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), bool? freeShipping = default(bool?), string location = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -2913,6 +2941,10 @@ namespace ScrapeBadger.Api
             if (freeShipping != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "free_shipping", freeShipping));
+            }
+            if (location != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "location", location));
             }
 
             // authentication (ApiKeyAuth) required

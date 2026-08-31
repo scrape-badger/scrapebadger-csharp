@@ -4358,7 +4358,7 @@ paths:
           title: Sort By
           type: string
         style: form
-      - description: new|open_box|refurbished|used|for_parts
+      - description: new|open_box|refurbished|used|for_parts|graded|ungraded
         explode: true
         in: query
         name: condition
@@ -4384,6 +4384,15 @@ paths:
           minimum: 0
           nullable: true
           type: number
+        style: form
+      - description: domestic|worldwide
+        explode: true
+        in: query
+        name: location
+        required: false
+        schema:
+          nullable: true
+          type: string
         style: form
       responses:
         "200":
@@ -4603,7 +4612,7 @@ paths:
           title: Sort By
           type: string
         style: form
-      - description: new|open_box|refurbished|used|for_parts
+      - description: new|open_box|refurbished|used|for_parts|graded|ungraded
         explode: true
         in: query
         name: condition
@@ -4647,6 +4656,15 @@ paths:
           default: false
           title: Free Shipping
           type: boolean
+        style: form
+      - description: domestic|worldwide
+        explode: true
+        in: query
+        name: location
+        required: false
+        schema:
+          nullable: true
+          type: string
         style: form
       responses:
         "200":

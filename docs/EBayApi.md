@@ -133,7 +133,7 @@ catch (ApiException e)
 
 <a id="ebaycompletedsoldlistings"></a>
 # **EbayCompletedSoldListings**
-> Object EbayCompletedSoldListings (string query, string domain = null, string categoryId = null, int? page = null, int? perPage = null, string sortBy = null, string condition = null, decimal? minPrice = null, decimal? maxPrice = null)
+> Object EbayCompletedSoldListings (string query, string domain = null, string categoryId = null, int? page = null, int? perPage = null, string sortBy = null, string condition = null, decimal? minPrice = null, decimal? maxPrice = null, string location = null)
 
 Completed / sold listings
 
@@ -171,14 +171,15 @@ namespace Example
             var page = 1;  // int? |  (optional)  (default to 1)
             var perPage = 56;  // int? | 60, 120 or 240 (optional) 
             var sortBy = "\"best_match\"";  // string | best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low (optional)  (default to "best_match")
-            var condition = "condition_example";  // string | new|open_box|refurbished|used|for_parts (optional) 
+            var condition = "condition_example";  // string | new|open_box|refurbished|used|for_parts|graded|ungraded (optional) 
             var minPrice = 8.14D;  // decimal? |  (optional) 
             var maxPrice = 8.14D;  // decimal? |  (optional) 
+            var location = "location_example";  // string | domestic|worldwide (optional) 
 
             try
             {
                 // Completed / sold listings
-                Object result = apiInstance.EbayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice);
+                Object result = apiInstance.EbayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -199,7 +200,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Completed / sold listings
-    ApiResponse<Object> response = apiInstance.EbayCompletedSoldListingsWithHttpInfo(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice);
+    ApiResponse<Object> response = apiInstance.EbayCompletedSoldListingsWithHttpInfo(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -222,9 +223,10 @@ catch (ApiException e)
 | **page** | **int?** |  | [optional] [default to 1] |
 | **perPage** | **int?** | 60, 120 or 240 | [optional]  |
 | **sortBy** | **string** | best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low | [optional] [default to &quot;best_match&quot;] |
-| **condition** | **string** | new|open_box|refurbished|used|for_parts | [optional]  |
+| **condition** | **string** | new|open_box|refurbished|used|for_parts|graded|ungraded | [optional]  |
 | **minPrice** | **decimal?** |  | [optional]  |
 | **maxPrice** | **decimal?** |  | [optional]  |
+| **location** | **string** | domestic|worldwide | [optional]  |
 
 ### Return type
 
@@ -1258,7 +1260,7 @@ This endpoint does not need any parameter.
 
 <a id="ebaysearchlistings"></a>
 # **EbaySearchListings**
-> Object EbaySearchListings (string query, string domain = null, string categoryId = null, int? page = null, int? perPage = null, string sortBy = null, string condition = null, string buyingFormat = null, decimal? minPrice = null, decimal? maxPrice = null, bool? freeShipping = null)
+> Object EbaySearchListings (string query, string domain = null, string categoryId = null, int? page = null, int? perPage = null, string sortBy = null, string condition = null, string buyingFormat = null, decimal? minPrice = null, decimal? maxPrice = null, bool? freeShipping = null, string location = null)
 
 Search listings
 
@@ -1296,16 +1298,17 @@ namespace Example
             var page = 1;  // int? |  (optional)  (default to 1)
             var perPage = 56;  // int? | 60, 120 or 240 (optional) 
             var sortBy = "\"best_match\"";  // string | best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low (optional)  (default to "best_match")
-            var condition = "condition_example";  // string | new|open_box|refurbished|used|for_parts (optional) 
+            var condition = "condition_example";  // string | new|open_box|refurbished|used|for_parts|graded|ungraded (optional) 
             var buyingFormat = "buyingFormat_example";  // string | auction|buy_it_now|best_offer (optional) 
             var minPrice = 8.14D;  // decimal? |  (optional) 
             var maxPrice = 8.14D;  // decimal? |  (optional) 
             var freeShipping = false;  // bool? |  (optional)  (default to false)
+            var location = "location_example";  // string | domestic|worldwide (optional) 
 
             try
             {
                 // Search listings
-                Object result = apiInstance.EbaySearchListings(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping);
+                Object result = apiInstance.EbaySearchListings(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping, location);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1326,7 +1329,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search listings
-    ApiResponse<Object> response = apiInstance.EbaySearchListingsWithHttpInfo(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping);
+    ApiResponse<Object> response = apiInstance.EbaySearchListingsWithHttpInfo(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping, location);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1349,11 +1352,12 @@ catch (ApiException e)
 | **page** | **int?** |  | [optional] [default to 1] |
 | **perPage** | **int?** | 60, 120 or 240 | [optional]  |
 | **sortBy** | **string** | best_match|ending_soonest|newly_listed|price_low_to_high|price_high_to_low | [optional] [default to &quot;best_match&quot;] |
-| **condition** | **string** | new|open_box|refurbished|used|for_parts | [optional]  |
+| **condition** | **string** | new|open_box|refurbished|used|for_parts|graded|ungraded | [optional]  |
 | **buyingFormat** | **string** | auction|buy_it_now|best_offer | [optional]  |
 | **minPrice** | **decimal?** |  | [optional]  |
 | **maxPrice** | **decimal?** |  | [optional]  |
 | **freeShipping** | **bool?** |  | [optional] [default to false] |
+| **location** | **string** | domestic|worldwide | [optional]  |
 
 ### Return type
 
