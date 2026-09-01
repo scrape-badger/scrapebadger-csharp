@@ -114,7 +114,8 @@ namespace ScrapeBadger.Test.Api
             //string asin = null;
             //string domain = null;
             //string zip = null;
-            //var response = instance.AmazonGetAllSellerOffersBuybox(asin, domain, zip);
+            //int? page = null;
+            //var response = instance.AmazonGetAllSellerOffersBuybox(asin, domain, zip, page);
             //Assert.IsType<Object>(response);
         }
 

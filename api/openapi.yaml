@@ -1085,6 +1085,18 @@ paths:
           nullable: true
           type: string
         style: form
+      - description: "Offer page, 10 rows each"
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          description: "Offer page, 10 rows each"
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
       responses:
         "200":
           content:

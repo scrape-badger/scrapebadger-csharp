@@ -425,7 +425,7 @@ catch (ApiException e)
 
 <a id="amazongetallselleroffersbuybox"></a>
 # **AmazonGetAllSellerOffersBuybox**
-> Object AmazonGetAllSellerOffersBuybox (string asin, string domain = null, string zip = null)
+> Object AmazonGetAllSellerOffersBuybox (string asin, string domain = null, string zip = null, int? page = null)
 
 Get all seller offers (buybox)
 
@@ -460,11 +460,12 @@ namespace Example
             var asin = "asin_example";  // string | 
             var domain = "\"com\"";  // string |  (optional)  (default to "com")
             var zip = "zip_example";  // string |  (optional) 
+            var page = 1;  // int? | Offer page, 10 rows each (optional)  (default to 1)
 
             try
             {
                 // Get all seller offers (buybox)
-                Object result = apiInstance.AmazonGetAllSellerOffersBuybox(asin, domain, zip);
+                Object result = apiInstance.AmazonGetAllSellerOffersBuybox(asin, domain, zip, page);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -485,7 +486,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get all seller offers (buybox)
-    ApiResponse<Object> response = apiInstance.AmazonGetAllSellerOffersBuyboxWithHttpInfo(asin, domain, zip);
+    ApiResponse<Object> response = apiInstance.AmazonGetAllSellerOffersBuyboxWithHttpInfo(asin, domain, zip, page);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -505,6 +506,7 @@ catch (ApiException e)
 | **asin** | **string** |  |  |
 | **domain** | **string** |  | [optional] [default to &quot;com&quot;] |
 | **zip** | **string** |  | [optional]  |
+| **page** | **int?** | Offer page, 10 rows each | [optional] [default to 1] |
 
 ### Return type
 

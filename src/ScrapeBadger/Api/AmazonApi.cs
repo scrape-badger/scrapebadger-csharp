@@ -127,8 +127,9 @@ namespace ScrapeBadger.Api
         /// <param name="asin"></param>
         /// <param name="domain"> (optional, default to &quot;com&quot;)</param>
         /// <param name="zip"> (optional)</param>
+        /// <param name="page">Offer page, 10 rows each (optional, default to 1)</param>
         /// <returns>Object</returns>
-        Object AmazonGetAllSellerOffersBuybox(string asin, string domain = default(string), string zip = default(string));
+        Object AmazonGetAllSellerOffersBuybox(string asin, string domain = default(string), string zip = default(string), int? page = default(int?));
 
         /// <summary>
         /// Get all seller offers (buybox)
@@ -140,8 +141,9 @@ namespace ScrapeBadger.Api
         /// <param name="asin"></param>
         /// <param name="domain"> (optional, default to &quot;com&quot;)</param>
         /// <param name="zip"> (optional)</param>
+        /// <param name="page">Offer page, 10 rows each (optional, default to 1)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> AmazonGetAllSellerOffersBuyboxWithHttpInfo(string asin, string domain = default(string), string zip = default(string));
+        ApiResponse<Object> AmazonGetAllSellerOffersBuyboxWithHttpInfo(string asin, string domain = default(string), string zip = default(string), int? page = default(int?));
         /// <summary>
         /// Get product detail
         /// </summary>
@@ -542,9 +544,10 @@ namespace ScrapeBadger.Api
         /// <param name="asin"></param>
         /// <param name="domain"> (optional, default to &quot;com&quot;)</param>
         /// <param name="zip"> (optional)</param>
+        /// <param name="page">Offer page, 10 rows each (optional, default to 1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> AmazonGetAllSellerOffersBuyboxAsync(string asin, string domain = default(string), string zip = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> AmazonGetAllSellerOffersBuyboxAsync(string asin, string domain = default(string), string zip = default(string), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get all seller offers (buybox)
@@ -556,9 +559,10 @@ namespace ScrapeBadger.Api
         /// <param name="asin"></param>
         /// <param name="domain"> (optional, default to &quot;com&quot;)</param>
         /// <param name="zip"> (optional)</param>
+        /// <param name="page">Offer page, 10 rows each (optional, default to 1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> AmazonGetAllSellerOffersBuyboxWithHttpInfoAsync(string asin, string domain = default(string), string zip = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> AmazonGetAllSellerOffersBuyboxWithHttpInfoAsync(string asin, string domain = default(string), string zip = default(string), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get product detail
         /// </summary>
@@ -1614,10 +1618,11 @@ namespace ScrapeBadger.Api
         /// <param name="asin"></param>
         /// <param name="domain"> (optional, default to &quot;com&quot;)</param>
         /// <param name="zip"> (optional)</param>
+        /// <param name="page">Offer page, 10 rows each (optional, default to 1)</param>
         /// <returns>Object</returns>
-        public Object AmazonGetAllSellerOffersBuybox(string asin, string domain = default(string), string zip = default(string))
+        public Object AmazonGetAllSellerOffersBuybox(string asin, string domain = default(string), string zip = default(string), int? page = default(int?))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = AmazonGetAllSellerOffersBuyboxWithHttpInfo(asin, domain, zip);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = AmazonGetAllSellerOffersBuyboxWithHttpInfo(asin, domain, zip, page);
             return localVarResponse.Data;
         }
 
@@ -1628,8 +1633,9 @@ namespace ScrapeBadger.Api
         /// <param name="asin"></param>
         /// <param name="domain"> (optional, default to &quot;com&quot;)</param>
         /// <param name="zip"> (optional)</param>
+        /// <param name="page">Offer page, 10 rows each (optional, default to 1)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> AmazonGetAllSellerOffersBuyboxWithHttpInfo(string asin, string domain = default(string), string zip = default(string))
+        public ScrapeBadger.Client.ApiResponse<Object> AmazonGetAllSellerOffersBuyboxWithHttpInfo(string asin, string domain = default(string), string zip = default(string), int? page = default(int?))
         {
             // verify the required parameter 'asin' is set
             if (asin == null)
@@ -1659,6 +1665,10 @@ namespace ScrapeBadger.Api
             if (zip != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "zip", zip));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "page", page));
             }
 
             // authentication (ApiKeyAuth) required
@@ -1686,11 +1696,12 @@ namespace ScrapeBadger.Api
         /// <param name="asin"></param>
         /// <param name="domain"> (optional, default to &quot;com&quot;)</param>
         /// <param name="zip"> (optional)</param>
+        /// <param name="page">Offer page, 10 rows each (optional, default to 1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> AmazonGetAllSellerOffersBuyboxAsync(string asin, string domain = default(string), string zip = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> AmazonGetAllSellerOffersBuyboxAsync(string asin, string domain = default(string), string zip = default(string), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await AmazonGetAllSellerOffersBuyboxWithHttpInfoAsync(asin, domain, zip, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await AmazonGetAllSellerOffersBuyboxWithHttpInfoAsync(asin, domain, zip, page, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1701,9 +1712,10 @@ namespace ScrapeBadger.Api
         /// <param name="asin"></param>
         /// <param name="domain"> (optional, default to &quot;com&quot;)</param>
         /// <param name="zip"> (optional)</param>
+        /// <param name="page">Offer page, 10 rows each (optional, default to 1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> AmazonGetAllSellerOffersBuyboxWithHttpInfoAsync(string asin, string domain = default(string), string zip = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> AmazonGetAllSellerOffersBuyboxWithHttpInfoAsync(string asin, string domain = default(string), string zip = default(string), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'asin' is set
             if (asin == null)
@@ -1735,6 +1747,10 @@ namespace ScrapeBadger.Api
             if (zip != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "zip", zip));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "page", page));
             }
 
             // authentication (ApiKeyAuth) required
