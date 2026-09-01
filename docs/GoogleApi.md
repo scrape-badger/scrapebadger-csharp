@@ -2448,11 +2448,11 @@ catch (ApiException e)
 
 <a id="googlemultiselleroffersbybarcode"></a>
 # **GoogleMultiSellerOffersByBarcode**
-> Object GoogleMultiSellerOffersByBarcode (string barcode, string gl = null, string hl = null)
+> Object GoogleMultiSellerOffersByBarcode (string barcode = null, string catalogId = null, string gl = null, string hl = null, string domain = null)
 
 Multi-seller offers by barcode
 
-Resolve a barcode to a product via Google web search, then return its Google Shopping seller offers (source + price per merchant).
+Google Shopping seller offers (source + price + link per merchant) for a product identified either by ``barcode`` (resolved via Google web search) or by its Google Shopping ``catalog_id`` (read straight off Google's product page, all seller pages fetched in parallel).
 
 ### Example
 ```csharp
@@ -2480,14 +2480,16 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GoogleApi(httpClient, config, httpClientHandler);
-            var barcode = "barcode_example";  // string | Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14
+            var barcode = "barcode_example";  // string | Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14 (optional) 
+            var catalogId = "catalogId_example";  // string | Google Shopping catalogid (the `catalog_id` on /shopping/search tiles, or `prds=catalogid:<id>` in a Google Shopping URL). Alternative to `barcode`; exactly one of the two is required (optional) 
             var gl = "gl_example";  // string | Country code (ISO 3166 alpha-2) (optional) 
             var hl = "\"en\"";  // string | Language code (optional)  (default to "en")
+            var domain = "\"google.com\"";  // string | Google domain (optional)  (default to "google.com")
 
             try
             {
                 // Multi-seller offers by barcode
-                Object result = apiInstance.GoogleMultiSellerOffersByBarcode(barcode, gl, hl);
+                Object result = apiInstance.GoogleMultiSellerOffersByBarcode(barcode, catalogId, gl, hl, domain);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2508,7 +2510,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Multi-seller offers by barcode
-    ApiResponse<Object> response = apiInstance.GoogleMultiSellerOffersByBarcodeWithHttpInfo(barcode, gl, hl);
+    ApiResponse<Object> response = apiInstance.GoogleMultiSellerOffersByBarcodeWithHttpInfo(barcode, catalogId, gl, hl, domain);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2525,9 +2527,11 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **barcode** | **string** | Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14 |  |
+| **barcode** | **string** | Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14 | [optional]  |
+| **catalogId** | **string** | Google Shopping catalogid (the &#x60;catalog_id&#x60; on /shopping/search tiles, or &#x60;prds&#x3D;catalogid:&lt;id&gt;&#x60; in a Google Shopping URL). Alternative to &#x60;barcode&#x60;; exactly one of the two is required | [optional]  |
 | **gl** | **string** | Country code (ISO 3166 alpha-2) | [optional]  |
 | **hl** | **string** | Language code | [optional] [default to &quot;en&quot;] |
+| **domain** | **string** | Google domain | [optional] [default to &quot;google.com&quot;] |
 
 ### Return type
 

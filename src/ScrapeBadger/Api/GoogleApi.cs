@@ -674,27 +674,31 @@ namespace ScrapeBadger.Api
         /// Multi-seller offers by barcode
         /// </summary>
         /// <remarks>
-        /// Resolve a barcode to a product via Google web search, then return its Google Shopping seller offers (source + price per merchant).
+        /// Google Shopping seller offers (source + price + link per merchant) for a product identified either by &#x60;&#x60;barcode&#x60;&#x60; (resolved via Google web search) or by its Google Shopping &#x60;&#x60;catalog_id&#x60;&#x60; (read straight off Google&#39;s product page, all seller pages fetched in parallel).
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="barcode">Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14</param>
+        /// <param name="barcode">Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14 (optional)</param>
+        /// <param name="catalogId">Google Shopping catalogid (the &#x60;catalog_id&#x60; on /shopping/search tiles, or &#x60;prds&#x3D;catalogid:&lt;id&gt;&#x60; in a Google Shopping URL). Alternative to &#x60;barcode&#x60;; exactly one of the two is required (optional)</param>
         /// <param name="gl">Country code (ISO 3166 alpha-2) (optional)</param>
         /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
+        /// <param name="domain">Google domain (optional, default to &quot;google.com&quot;)</param>
         /// <returns>Object</returns>
-        Object GoogleMultiSellerOffersByBarcode(string barcode, string gl = default(string), string hl = default(string));
+        Object GoogleMultiSellerOffersByBarcode(string barcode = default(string), string catalogId = default(string), string gl = default(string), string hl = default(string), string domain = default(string));
 
         /// <summary>
         /// Multi-seller offers by barcode
         /// </summary>
         /// <remarks>
-        /// Resolve a barcode to a product via Google web search, then return its Google Shopping seller offers (source + price per merchant).
+        /// Google Shopping seller offers (source + price + link per merchant) for a product identified either by &#x60;&#x60;barcode&#x60;&#x60; (resolved via Google web search) or by its Google Shopping &#x60;&#x60;catalog_id&#x60;&#x60; (read straight off Google&#39;s product page, all seller pages fetched in parallel).
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="barcode">Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14</param>
+        /// <param name="barcode">Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14 (optional)</param>
+        /// <param name="catalogId">Google Shopping catalogid (the &#x60;catalog_id&#x60; on /shopping/search tiles, or &#x60;prds&#x3D;catalogid:&lt;id&gt;&#x60; in a Google Shopping URL). Alternative to &#x60;barcode&#x60;; exactly one of the two is required (optional)</param>
         /// <param name="gl">Country code (ISO 3166 alpha-2) (optional)</param>
         /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
+        /// <param name="domain">Google domain (optional, default to &quot;google.com&quot;)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> GoogleMultiSellerOffersByBarcodeWithHttpInfo(string barcode, string gl = default(string), string hl = default(string));
+        ApiResponse<Object> GoogleMultiSellerOffersByBarcodeWithHttpInfo(string barcode = default(string), string catalogId = default(string), string gl = default(string), string hl = default(string), string domain = default(string));
         /// <summary>
         /// News by topic
         /// </summary>
@@ -1841,29 +1845,33 @@ namespace ScrapeBadger.Api
         /// Multi-seller offers by barcode
         /// </summary>
         /// <remarks>
-        /// Resolve a barcode to a product via Google web search, then return its Google Shopping seller offers (source + price per merchant).
+        /// Google Shopping seller offers (source + price + link per merchant) for a product identified either by &#x60;&#x60;barcode&#x60;&#x60; (resolved via Google web search) or by its Google Shopping &#x60;&#x60;catalog_id&#x60;&#x60; (read straight off Google&#39;s product page, all seller pages fetched in parallel).
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="barcode">Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14</param>
+        /// <param name="barcode">Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14 (optional)</param>
+        /// <param name="catalogId">Google Shopping catalogid (the &#x60;catalog_id&#x60; on /shopping/search tiles, or &#x60;prds&#x3D;catalogid:&lt;id&gt;&#x60; in a Google Shopping URL). Alternative to &#x60;barcode&#x60;; exactly one of the two is required (optional)</param>
         /// <param name="gl">Country code (ISO 3166 alpha-2) (optional)</param>
         /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
+        /// <param name="domain">Google domain (optional, default to &quot;google.com&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> GoogleMultiSellerOffersByBarcodeAsync(string barcode, string gl = default(string), string hl = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> GoogleMultiSellerOffersByBarcodeAsync(string barcode = default(string), string catalogId = default(string), string gl = default(string), string hl = default(string), string domain = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Multi-seller offers by barcode
         /// </summary>
         /// <remarks>
-        /// Resolve a barcode to a product via Google web search, then return its Google Shopping seller offers (source + price per merchant).
+        /// Google Shopping seller offers (source + price + link per merchant) for a product identified either by &#x60;&#x60;barcode&#x60;&#x60; (resolved via Google web search) or by its Google Shopping &#x60;&#x60;catalog_id&#x60;&#x60; (read straight off Google&#39;s product page, all seller pages fetched in parallel).
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="barcode">Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14</param>
+        /// <param name="barcode">Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14 (optional)</param>
+        /// <param name="catalogId">Google Shopping catalogid (the &#x60;catalog_id&#x60; on /shopping/search tiles, or &#x60;prds&#x3D;catalogid:&lt;id&gt;&#x60; in a Google Shopping URL). Alternative to &#x60;barcode&#x60;; exactly one of the two is required (optional)</param>
         /// <param name="gl">Country code (ISO 3166 alpha-2) (optional)</param>
         /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
+        /// <param name="domain">Google domain (optional, default to &quot;google.com&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GoogleMultiSellerOffersByBarcodeWithHttpInfoAsync(string barcode, string gl = default(string), string hl = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> GoogleMultiSellerOffersByBarcodeWithHttpInfoAsync(string barcode = default(string), string catalogId = default(string), string gl = default(string), string hl = default(string), string domain = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// News by topic
         /// </summary>
@@ -6540,33 +6548,33 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Multi-seller offers by barcode Resolve a barcode to a product via Google web search, then return its Google Shopping seller offers (source + price per merchant).
+        /// Multi-seller offers by barcode Google Shopping seller offers (source + price + link per merchant) for a product identified either by &#x60;&#x60;barcode&#x60;&#x60; (resolved via Google web search) or by its Google Shopping &#x60;&#x60;catalog_id&#x60;&#x60; (read straight off Google&#39;s product page, all seller pages fetched in parallel).
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="barcode">Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14</param>
+        /// <param name="barcode">Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14 (optional)</param>
+        /// <param name="catalogId">Google Shopping catalogid (the &#x60;catalog_id&#x60; on /shopping/search tiles, or &#x60;prds&#x3D;catalogid:&lt;id&gt;&#x60; in a Google Shopping URL). Alternative to &#x60;barcode&#x60;; exactly one of the two is required (optional)</param>
         /// <param name="gl">Country code (ISO 3166 alpha-2) (optional)</param>
         /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
+        /// <param name="domain">Google domain (optional, default to &quot;google.com&quot;)</param>
         /// <returns>Object</returns>
-        public Object GoogleMultiSellerOffersByBarcode(string barcode, string gl = default(string), string hl = default(string))
+        public Object GoogleMultiSellerOffersByBarcode(string barcode = default(string), string catalogId = default(string), string gl = default(string), string hl = default(string), string domain = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GoogleMultiSellerOffersByBarcodeWithHttpInfo(barcode, gl, hl);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GoogleMultiSellerOffersByBarcodeWithHttpInfo(barcode, catalogId, gl, hl, domain);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Multi-seller offers by barcode Resolve a barcode to a product via Google web search, then return its Google Shopping seller offers (source + price per merchant).
+        /// Multi-seller offers by barcode Google Shopping seller offers (source + price + link per merchant) for a product identified either by &#x60;&#x60;barcode&#x60;&#x60; (resolved via Google web search) or by its Google Shopping &#x60;&#x60;catalog_id&#x60;&#x60; (read straight off Google&#39;s product page, all seller pages fetched in parallel).
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="barcode">Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14</param>
+        /// <param name="barcode">Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14 (optional)</param>
+        /// <param name="catalogId">Google Shopping catalogid (the &#x60;catalog_id&#x60; on /shopping/search tiles, or &#x60;prds&#x3D;catalogid:&lt;id&gt;&#x60; in a Google Shopping URL). Alternative to &#x60;barcode&#x60;; exactly one of the two is required (optional)</param>
         /// <param name="gl">Country code (ISO 3166 alpha-2) (optional)</param>
         /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
+        /// <param name="domain">Google domain (optional, default to &quot;google.com&quot;)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> GoogleMultiSellerOffersByBarcodeWithHttpInfo(string barcode, string gl = default(string), string hl = default(string))
+        public ScrapeBadger.Client.ApiResponse<Object> GoogleMultiSellerOffersByBarcodeWithHttpInfo(string barcode = default(string), string catalogId = default(string), string gl = default(string), string hl = default(string), string domain = default(string))
         {
-            // verify the required parameter 'barcode' is set
-            if (barcode == null)
-                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'barcode' when calling GoogleApi->GoogleMultiSellerOffersByBarcode");
-
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
@@ -6583,7 +6591,14 @@ namespace ScrapeBadger.Api
             var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "barcode", barcode));
+            if (barcode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "barcode", barcode));
+            }
+            if (catalogId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "catalog_id", catalogId));
+            }
             if (gl != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "gl", gl));
@@ -6591,6 +6606,10 @@ namespace ScrapeBadger.Api
             if (hl != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "hl", hl));
+            }
+            if (domain != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "domain", domain));
             }
 
             // authentication (ApiKeyAuth) required
@@ -6612,35 +6631,35 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Multi-seller offers by barcode Resolve a barcode to a product via Google web search, then return its Google Shopping seller offers (source + price per merchant).
+        /// Multi-seller offers by barcode Google Shopping seller offers (source + price + link per merchant) for a product identified either by &#x60;&#x60;barcode&#x60;&#x60; (resolved via Google web search) or by its Google Shopping &#x60;&#x60;catalog_id&#x60;&#x60; (read straight off Google&#39;s product page, all seller pages fetched in parallel).
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="barcode">Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14</param>
+        /// <param name="barcode">Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14 (optional)</param>
+        /// <param name="catalogId">Google Shopping catalogid (the &#x60;catalog_id&#x60; on /shopping/search tiles, or &#x60;prds&#x3D;catalogid:&lt;id&gt;&#x60; in a Google Shopping URL). Alternative to &#x60;barcode&#x60;; exactly one of the two is required (optional)</param>
         /// <param name="gl">Country code (ISO 3166 alpha-2) (optional)</param>
         /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
+        /// <param name="domain">Google domain (optional, default to &quot;google.com&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> GoogleMultiSellerOffersByBarcodeAsync(string barcode, string gl = default(string), string hl = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> GoogleMultiSellerOffersByBarcodeAsync(string barcode = default(string), string catalogId = default(string), string gl = default(string), string hl = default(string), string domain = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GoogleMultiSellerOffersByBarcodeWithHttpInfoAsync(barcode, gl, hl, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GoogleMultiSellerOffersByBarcodeWithHttpInfoAsync(barcode, catalogId, gl, hl, domain, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Multi-seller offers by barcode Resolve a barcode to a product via Google web search, then return its Google Shopping seller offers (source + price per merchant).
+        /// Multi-seller offers by barcode Google Shopping seller offers (source + price + link per merchant) for a product identified either by &#x60;&#x60;barcode&#x60;&#x60; (resolved via Google web search) or by its Google Shopping &#x60;&#x60;catalog_id&#x60;&#x60; (read straight off Google&#39;s product page, all seller pages fetched in parallel).
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="barcode">Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14</param>
+        /// <param name="barcode">Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14 (optional)</param>
+        /// <param name="catalogId">Google Shopping catalogid (the &#x60;catalog_id&#x60; on /shopping/search tiles, or &#x60;prds&#x3D;catalogid:&lt;id&gt;&#x60; in a Google Shopping URL). Alternative to &#x60;barcode&#x60;; exactly one of the two is required (optional)</param>
         /// <param name="gl">Country code (ISO 3166 alpha-2) (optional)</param>
         /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
+        /// <param name="domain">Google domain (optional, default to &quot;google.com&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GoogleMultiSellerOffersByBarcodeWithHttpInfoAsync(string barcode, string gl = default(string), string hl = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GoogleMultiSellerOffersByBarcodeWithHttpInfoAsync(string barcode = default(string), string catalogId = default(string), string gl = default(string), string hl = default(string), string domain = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            // verify the required parameter 'barcode' is set
-            if (barcode == null)
-                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'barcode' when calling GoogleApi->GoogleMultiSellerOffersByBarcode");
-
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
 
@@ -6659,7 +6678,14 @@ namespace ScrapeBadger.Api
             var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "barcode", barcode));
+            if (barcode != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "barcode", barcode));
+            }
+            if (catalogId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "catalog_id", catalogId));
+            }
             if (gl != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "gl", gl));
@@ -6667,6 +6693,10 @@ namespace ScrapeBadger.Api
             if (hl != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "hl", hl));
+            }
+            if (domain != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "domain", domain));
             }
 
             // authentication (ApiKeyAuth) required

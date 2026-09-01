@@ -426,9 +426,11 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string barcode = null;
+            //string catalogId = null;
             //string gl = null;
             //string hl = null;
-            //var response = instance.GoogleMultiSellerOffersByBarcode(barcode, gl, hl);
+            //string domain = null;
+            //var response = instance.GoogleMultiSellerOffersByBarcode(barcode, catalogId, gl, hl, domain);
             //Assert.IsType<Object>(response);
         }
 

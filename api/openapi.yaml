@@ -8971,18 +8971,30 @@ paths:
   /v1/google/shopping/offers:
     get:
       description: |-
-        Resolve a barcode to a product via Google web search, then return its
-        Google Shopping seller offers (source + price per merchant).
+        Google Shopping seller offers (source + price + link per merchant) for a
+        product identified either by ``barcode`` (resolved via Google web search) or
+        by its Google Shopping ``catalog_id`` (read straight off Google's product
+        page, all seller pages fetched in parallel).
       operationId: google_multi_seller_offers_by_barcode
       parameters:
       - description: Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14
         explode: true
         in: query
         name: barcode
-        required: true
+        required: false
         schema:
-          description: Product barcode — GTIN-8 / UPC-A / EAN-13 / GTIN-14
-          title: Barcode
+          nullable: true
+          type: string
+        style: form
+      - description: "Google Shopping catalogid (the `catalog_id` on /shopping/search\
+          \ tiles, or `prds=catalogid:<id>` in a Google Shopping URL). Alternative\
+          \ to `barcode`; exactly one of the two is required"
+        explode: true
+        in: query
+        name: catalog_id
+        required: false
+        schema:
+          nullable: true
           type: string
         style: form
       - description: Country code (ISO 3166 alpha-2)
@@ -9003,6 +9015,17 @@ paths:
           default: en
           description: Language code
           title: Hl
+          type: string
+        style: form
+      - description: Google domain
+        explode: true
+        in: query
+        name: domain
+        required: false
+        schema:
+          default: google.com
+          description: Google domain
+          title: Domain
           type: string
         style: form
       responses:
