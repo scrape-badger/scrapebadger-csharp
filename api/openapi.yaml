@@ -15434,6 +15434,155 @@ paths:
       summary: Search videos
       tags:
       - TikTok
+  /v1/tiktok/shop/categories:
+    get:
+      description: "Top-level TikTok Shop categories (US). Drill down with /shop/categories/{category_id}."
+      operationId: tiktok_tiktok_shop_root_categories
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: TikTok Shop root categories
+      tags:
+      - TikTok
+  /v1/tiktok/shop/categories/{category_id}:
+    get:
+      description: A category's subcategories and its top products as TikTok Shop
+        ranks them (US).
+      operationId: tiktok_tiktok_shop_category_subcategories_top_products
+      parameters:
+      - explode: false
+        in: path
+        name: category_id
+        required: true
+        schema:
+          title: Category Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: "TikTok Shop category: subcategories + top products"
+      tags:
+      - TikTok
+  /v1/tiktok/shop/products/{product_id}:
+    get:
+      description: |-
+        Full TikTok Shop product page (US): description, images, price, SKUs with stock, reviews,
+        shop and TikTok's AI summary.
+      operationId: tiktok_tiktok_shop_product_detail
+      parameters:
+      - explode: false
+        in: path
+        name: product_id
+        required: true
+        schema:
+          title: Product Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: TikTok Shop product detail
+      tags:
+      - TikTok
+  /v1/tiktok/shop/ranking:
+    get:
+      description: TikTok Shop's own ranking of the best-selling products of the past
+        30 days (US).
+      operationId: tiktok_tiktok_shop_best_sellers
+      parameters:
+      - description: Max products to return
+        explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          default: 20
+          description: Max products to return
+          maximum: 50
+          minimum: 1
+          title: Count
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: TikTok Shop best sellers
+      tags:
+      - TikTok
+  /v1/tiktok/shop/search:
+    get:
+      description: |-
+        Keyword search over TikTok Shop products (US): products with their bound video, matching
+        shops, related searches and categories.
+      operationId: tiktok_search_tiktok_shop_products
+      parameters:
+      - description: "Keyword, e.g. 'wireless earbuds'"
+        explode: true
+        in: query
+        name: q
+        required: true
+        schema:
+          description: "Keyword, e.g. 'wireless earbuds'"
+          minLength: 1
+          title: Q
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Search TikTok Shop products
+      tags:
+      - TikTok
   /v1/tiktok/trending/hashtags:
     get:
       description: Get trending hashtags (mobile Discover surface — view_count + creators).

@@ -630,6 +630,27 @@ namespace ScrapeBadger.Api
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> TiktokSearchTiktokAdvertisersWithHttpInfo(string query, string region = default(string), int? count = default(int?));
         /// <summary>
+        /// Search TikTok Shop products
+        /// </summary>
+        /// <remarks>
+        /// Keyword search over TikTok Shop products (US): products with their bound video, matching shops, related searches and categories.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Keyword, e.g. &#39;wireless earbuds&#39;</param>
+        /// <returns>Object</returns>
+        Object TiktokSearchTiktokShopProducts(string q);
+
+        /// <summary>
+        /// Search TikTok Shop products
+        /// </summary>
+        /// <remarks>
+        /// Keyword search over TikTok Shop products (US): products with their bound video, matching shops, related searches and categories.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Keyword, e.g. &#39;wireless earbuds&#39;</param>
+        /// <returns>ApiResponse of Object</returns>
+        ApiResponse<Object> TiktokSearchTiktokShopProductsWithHttpInfo(string q);
+        /// <summary>
         /// Search users
         /// </summary>
         /// <remarks>
@@ -683,6 +704,88 @@ namespace ScrapeBadger.Api
         /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> TiktokSearchVideosWithHttpInfo(string query, string region = default(string), int? count = default(int?), string cursor = default(string));
+        /// <summary>
+        /// TikTok Shop best sellers
+        /// </summary>
+        /// <remarks>
+        /// TikTok Shop&#39;s own ranking of the best-selling products of the past 30 days (US).
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="count">Max products to return (optional, default to 20)</param>
+        /// <returns>Object</returns>
+        Object TiktokTiktokShopBestSellers(int? count = default(int?));
+
+        /// <summary>
+        /// TikTok Shop best sellers
+        /// </summary>
+        /// <remarks>
+        /// TikTok Shop&#39;s own ranking of the best-selling products of the past 30 days (US).
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="count">Max products to return (optional, default to 20)</param>
+        /// <returns>ApiResponse of Object</returns>
+        ApiResponse<Object> TiktokTiktokShopBestSellersWithHttpInfo(int? count = default(int?));
+        /// <summary>
+        /// TikTok Shop category: subcategories + top products
+        /// </summary>
+        /// <remarks>
+        /// A category&#39;s subcategories and its top products as TikTok Shop ranks them (US).
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="categoryId"></param>
+        /// <returns>Object</returns>
+        Object TiktokTiktokShopCategorySubcategoriesTopProducts(string categoryId);
+
+        /// <summary>
+        /// TikTok Shop category: subcategories + top products
+        /// </summary>
+        /// <remarks>
+        /// A category&#39;s subcategories and its top products as TikTok Shop ranks them (US).
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="categoryId"></param>
+        /// <returns>ApiResponse of Object</returns>
+        ApiResponse<Object> TiktokTiktokShopCategorySubcategoriesTopProductsWithHttpInfo(string categoryId);
+        /// <summary>
+        /// TikTok Shop product detail
+        /// </summary>
+        /// <remarks>
+        /// Full TikTok Shop product page (US): description, images, price, SKUs with stock, reviews, shop and TikTok&#39;s AI summary.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId"></param>
+        /// <returns>Object</returns>
+        Object TiktokTiktokShopProductDetail(string productId);
+
+        /// <summary>
+        /// TikTok Shop product detail
+        /// </summary>
+        /// <remarks>
+        /// Full TikTok Shop product page (US): description, images, price, SKUs with stock, reviews, shop and TikTok&#39;s AI summary.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId"></param>
+        /// <returns>ApiResponse of Object</returns>
+        ApiResponse<Object> TiktokTiktokShopProductDetailWithHttpInfo(string productId);
+        /// <summary>
+        /// TikTok Shop root categories
+        /// </summary>
+        /// <remarks>
+        /// Top-level TikTok Shop categories (US). Drill down with /shop/categories/{category_id}.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Object</returns>
+        Object TiktokTiktokShopRootCategories();
+
+        /// <summary>
+        /// TikTok Shop root categories
+        /// </summary>
+        /// <remarks>
+        /// Top-level TikTok Shop categories (US). Drill down with /shop/categories/{category_id}.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Object</returns>
+        ApiResponse<Object> TiktokTiktokShopRootCategoriesWithHttpInfo();
         /// <summary>
         /// Trending hashtags
         /// </summary>
@@ -1416,6 +1519,29 @@ namespace ScrapeBadger.Api
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> TiktokSearchTiktokAdvertisersWithHttpInfoAsync(string query, string region = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
+        /// Search TikTok Shop products
+        /// </summary>
+        /// <remarks>
+        /// Keyword search over TikTok Shop products (US): products with their bound video, matching shops, related searches and categories.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Keyword, e.g. &#39;wireless earbuds&#39;</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        System.Threading.Tasks.Task<Object> TiktokSearchTiktokShopProductsAsync(string q, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Search TikTok Shop products
+        /// </summary>
+        /// <remarks>
+        /// Keyword search over TikTok Shop products (US): products with their bound video, matching shops, related searches and categories.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Keyword, e.g. &#39;wireless earbuds&#39;</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> TiktokSearchTiktokShopProductsWithHttpInfoAsync(string q, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
         /// Search users
         /// </summary>
         /// <remarks>
@@ -1473,6 +1599,96 @@ namespace ScrapeBadger.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> TiktokSearchVideosWithHttpInfoAsync(string query, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// TikTok Shop best sellers
+        /// </summary>
+        /// <remarks>
+        /// TikTok Shop&#39;s own ranking of the best-selling products of the past 30 days (US).
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="count">Max products to return (optional, default to 20)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        System.Threading.Tasks.Task<Object> TiktokTiktokShopBestSellersAsync(int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// TikTok Shop best sellers
+        /// </summary>
+        /// <remarks>
+        /// TikTok Shop&#39;s own ranking of the best-selling products of the past 30 days (US).
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="count">Max products to return (optional, default to 20)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> TiktokTiktokShopBestSellersWithHttpInfoAsync(int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// TikTok Shop category: subcategories + top products
+        /// </summary>
+        /// <remarks>
+        /// A category&#39;s subcategories and its top products as TikTok Shop ranks them (US).
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="categoryId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        System.Threading.Tasks.Task<Object> TiktokTiktokShopCategorySubcategoriesTopProductsAsync(string categoryId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// TikTok Shop category: subcategories + top products
+        /// </summary>
+        /// <remarks>
+        /// A category&#39;s subcategories and its top products as TikTok Shop ranks them (US).
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="categoryId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> TiktokTiktokShopCategorySubcategoriesTopProductsWithHttpInfoAsync(string categoryId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// TikTok Shop product detail
+        /// </summary>
+        /// <remarks>
+        /// Full TikTok Shop product page (US): description, images, price, SKUs with stock, reviews, shop and TikTok&#39;s AI summary.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        System.Threading.Tasks.Task<Object> TiktokTiktokShopProductDetailAsync(string productId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// TikTok Shop product detail
+        /// </summary>
+        /// <remarks>
+        /// Full TikTok Shop product page (US): description, images, price, SKUs with stock, reviews, shop and TikTok&#39;s AI summary.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> TiktokTiktokShopProductDetailWithHttpInfoAsync(string productId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// TikTok Shop root categories
+        /// </summary>
+        /// <remarks>
+        /// Top-level TikTok Shop categories (US). Drill down with /shop/categories/{category_id}.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        System.Threading.Tasks.Task<Object> TiktokTiktokShopRootCategoriesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// TikTok Shop root categories
+        /// </summary>
+        /// <remarks>
+        /// Top-level TikTok Shop categories (US). Drill down with /shop/categories/{category_id}.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> TiktokTiktokShopRootCategoriesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Trending hashtags
         /// </summary>
@@ -5324,6 +5540,131 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
+        /// Search TikTok Shop products Keyword search over TikTok Shop products (US): products with their bound video, matching shops, related searches and categories.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Keyword, e.g. &#39;wireless earbuds&#39;</param>
+        /// <returns>Object</returns>
+        public Object TiktokSearchTiktokShopProducts(string q)
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = TiktokSearchTiktokShopProductsWithHttpInfo(q);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search TikTok Shop products Keyword search over TikTok Shop products (US): products with their bound video, matching shops, related searches and categories.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Keyword, e.g. &#39;wireless earbuds&#39;</param>
+        /// <returns>ApiResponse of Object</returns>
+        public ScrapeBadger.Client.ApiResponse<Object> TiktokSearchTiktokShopProductsWithHttpInfo(string q)
+        {
+            // verify the required parameter 'q' is set
+            if (q == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'q' when calling TikTokApi->TiktokSearchTiktokShopProducts");
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "q", q));
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Object>("/v1/tiktok/shop/search", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TiktokSearchTiktokShopProducts", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Search TikTok Shop products Keyword search over TikTok Shop products (US): products with their bound video, matching shops, related searches and categories.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Keyword, e.g. &#39;wireless earbuds&#39;</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        public async System.Threading.Tasks.Task<Object> TiktokSearchTiktokShopProductsAsync(string q, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await TiktokSearchTiktokShopProductsWithHttpInfoAsync(q, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search TikTok Shop products Keyword search over TikTok Shop products (US): products with their bound video, matching shops, related searches and categories.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Keyword, e.g. &#39;wireless earbuds&#39;</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> TiktokSearchTiktokShopProductsWithHttpInfoAsync(string q, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'q' is set
+            if (q == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'q' when calling TikTokApi->TiktokSearchTiktokShopProducts");
+
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "q", q));
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/tiktok/shop/search", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TiktokSearchTiktokShopProducts", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Search users Search TikTok users by keyword.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
@@ -5639,6 +5980,490 @@ namespace ScrapeBadger.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("TiktokSearchVideos", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// TikTok Shop best sellers TikTok Shop&#39;s own ranking of the best-selling products of the past 30 days (US).
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="count">Max products to return (optional, default to 20)</param>
+        /// <returns>Object</returns>
+        public Object TiktokTiktokShopBestSellers(int? count = default(int?))
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = TiktokTiktokShopBestSellersWithHttpInfo(count);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// TikTok Shop best sellers TikTok Shop&#39;s own ranking of the best-selling products of the past 30 days (US).
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="count">Max products to return (optional, default to 20)</param>
+        /// <returns>ApiResponse of Object</returns>
+        public ScrapeBadger.Client.ApiResponse<Object> TiktokTiktokShopBestSellersWithHttpInfo(int? count = default(int?))
+        {
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Object>("/v1/tiktok/shop/ranking", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TiktokTiktokShopBestSellers", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// TikTok Shop best sellers TikTok Shop&#39;s own ranking of the best-selling products of the past 30 days (US).
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="count">Max products to return (optional, default to 20)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        public async System.Threading.Tasks.Task<Object> TiktokTiktokShopBestSellersAsync(int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await TiktokTiktokShopBestSellersWithHttpInfoAsync(count, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// TikTok Shop best sellers TikTok Shop&#39;s own ranking of the best-selling products of the past 30 days (US).
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="count">Max products to return (optional, default to 20)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> TiktokTiktokShopBestSellersWithHttpInfoAsync(int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (count != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/tiktok/shop/ranking", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TiktokTiktokShopBestSellers", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// TikTok Shop category: subcategories + top products A category&#39;s subcategories and its top products as TikTok Shop ranks them (US).
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="categoryId"></param>
+        /// <returns>Object</returns>
+        public Object TiktokTiktokShopCategorySubcategoriesTopProducts(string categoryId)
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = TiktokTiktokShopCategorySubcategoriesTopProductsWithHttpInfo(categoryId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// TikTok Shop category: subcategories + top products A category&#39;s subcategories and its top products as TikTok Shop ranks them (US).
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="categoryId"></param>
+        /// <returns>ApiResponse of Object</returns>
+        public ScrapeBadger.Client.ApiResponse<Object> TiktokTiktokShopCategorySubcategoriesTopProductsWithHttpInfo(string categoryId)
+        {
+            // verify the required parameter 'categoryId' is set
+            if (categoryId == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'categoryId' when calling TikTokApi->TiktokTiktokShopCategorySubcategoriesTopProducts");
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("category_id", ScrapeBadger.Client.ClientUtils.ParameterToString(categoryId)); // path parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Object>("/v1/tiktok/shop/categories/{category_id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TiktokTiktokShopCategorySubcategoriesTopProducts", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// TikTok Shop category: subcategories + top products A category&#39;s subcategories and its top products as TikTok Shop ranks them (US).
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="categoryId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        public async System.Threading.Tasks.Task<Object> TiktokTiktokShopCategorySubcategoriesTopProductsAsync(string categoryId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await TiktokTiktokShopCategorySubcategoriesTopProductsWithHttpInfoAsync(categoryId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// TikTok Shop category: subcategories + top products A category&#39;s subcategories and its top products as TikTok Shop ranks them (US).
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="categoryId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> TiktokTiktokShopCategorySubcategoriesTopProductsWithHttpInfoAsync(string categoryId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'categoryId' is set
+            if (categoryId == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'categoryId' when calling TikTokApi->TiktokTiktokShopCategorySubcategoriesTopProducts");
+
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("category_id", ScrapeBadger.Client.ClientUtils.ParameterToString(categoryId)); // path parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/tiktok/shop/categories/{category_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TiktokTiktokShopCategorySubcategoriesTopProducts", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// TikTok Shop product detail Full TikTok Shop product page (US): description, images, price, SKUs with stock, reviews, shop and TikTok&#39;s AI summary.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId"></param>
+        /// <returns>Object</returns>
+        public Object TiktokTiktokShopProductDetail(string productId)
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = TiktokTiktokShopProductDetailWithHttpInfo(productId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// TikTok Shop product detail Full TikTok Shop product page (US): description, images, price, SKUs with stock, reviews, shop and TikTok&#39;s AI summary.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId"></param>
+        /// <returns>ApiResponse of Object</returns>
+        public ScrapeBadger.Client.ApiResponse<Object> TiktokTiktokShopProductDetailWithHttpInfo(string productId)
+        {
+            // verify the required parameter 'productId' is set
+            if (productId == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'productId' when calling TikTokApi->TiktokTiktokShopProductDetail");
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("product_id", ScrapeBadger.Client.ClientUtils.ParameterToString(productId)); // path parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Object>("/v1/tiktok/shop/products/{product_id}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TiktokTiktokShopProductDetail", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// TikTok Shop product detail Full TikTok Shop product page (US): description, images, price, SKUs with stock, reviews, shop and TikTok&#39;s AI summary.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        public async System.Threading.Tasks.Task<Object> TiktokTiktokShopProductDetailAsync(string productId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await TiktokTiktokShopProductDetailWithHttpInfoAsync(productId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// TikTok Shop product detail Full TikTok Shop product page (US): description, images, price, SKUs with stock, reviews, shop and TikTok&#39;s AI summary.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="productId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> TiktokTiktokShopProductDetailWithHttpInfoAsync(string productId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'productId' is set
+            if (productId == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'productId' when calling TikTokApi->TiktokTiktokShopProductDetail");
+
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("product_id", ScrapeBadger.Client.ClientUtils.ParameterToString(productId)); // path parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/tiktok/shop/products/{product_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TiktokTiktokShopProductDetail", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// TikTok Shop root categories Top-level TikTok Shop categories (US). Drill down with /shop/categories/{category_id}.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Object</returns>
+        public Object TiktokTiktokShopRootCategories()
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = TiktokTiktokShopRootCategoriesWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// TikTok Shop root categories Top-level TikTok Shop categories (US). Drill down with /shop/categories/{category_id}.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Object</returns>
+        public ScrapeBadger.Client.ApiResponse<Object> TiktokTiktokShopRootCategoriesWithHttpInfo()
+        {
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Object>("/v1/tiktok/shop/categories", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TiktokTiktokShopRootCategories", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// TikTok Shop root categories Top-level TikTok Shop categories (US). Drill down with /shop/categories/{category_id}.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        public async System.Threading.Tasks.Task<Object> TiktokTiktokShopRootCategoriesAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await TiktokTiktokShopRootCategoriesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// TikTok Shop root categories Top-level TikTok Shop categories (US). Drill down with /shop/categories/{category_id}.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> TiktokTiktokShopRootCategoriesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/tiktok/shop/categories", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("TiktokTiktokShopRootCategories", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
