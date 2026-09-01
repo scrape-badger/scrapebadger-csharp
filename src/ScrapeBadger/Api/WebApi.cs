@@ -149,7 +149,7 @@ namespace ScrapeBadger.Api
         /// Take a screenshot
         /// </summary>
         /// <remarks>
-        /// Take a screenshot of a URL. (Phase 2 — patchright engine)
+        /// Take a screenshot of a URL. (browser engine)
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Object</returns>
@@ -159,7 +159,7 @@ namespace ScrapeBadger.Api
         /// Take a screenshot
         /// </summary>
         /// <remarks>
-        /// Take a screenshot of a URL. (Phase 2 — patchright engine)
+        /// Take a screenshot of a URL. (browser engine)
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object</returns>
@@ -345,7 +345,7 @@ namespace ScrapeBadger.Api
         /// Take a screenshot
         /// </summary>
         /// <remarks>
-        /// Take a screenshot of a URL. (Phase 2 — patchright engine)
+        /// Take a screenshot of a URL. (browser engine)
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -356,7 +356,7 @@ namespace ScrapeBadger.Api
         /// Take a screenshot
         /// </summary>
         /// <remarks>
-        /// Take a screenshot of a URL. (Phase 2 — patchright engine)
+        /// Take a screenshot of a URL. (browser engine)
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1312,7 +1312,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Take a screenshot Take a screenshot of a URL. (Phase 2 — patchright engine)
+        /// Take a screenshot Take a screenshot of a URL. (browser engine)
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Object</returns>
@@ -1323,7 +1323,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Take a screenshot Take a screenshot of a URL. (Phase 2 — patchright engine)
+        /// Take a screenshot Take a screenshot of a URL. (browser engine)
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object</returns>
@@ -1365,7 +1365,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Take a screenshot Take a screenshot of a URL. (Phase 2 — patchright engine)
+        /// Take a screenshot Take a screenshot of a URL. (browser engine)
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1377,7 +1377,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Take a screenshot Take a screenshot of a URL. (Phase 2 — patchright engine)
+        /// Take a screenshot Take a screenshot of a URL. (browser engine)
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

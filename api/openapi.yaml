@@ -19142,7 +19142,7 @@ paths:
       - Web
   /v1/web/screenshot:
     post:
-      description: Take a screenshot of a URL. (Phase 2 — patchright engine)
+      description: Take a screenshot of a URL. (browser engine)
       operationId: web_take_a_screenshot
       responses:
         "200":
