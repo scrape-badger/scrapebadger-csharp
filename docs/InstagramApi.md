@@ -34,7 +34,7 @@ All URIs are relative to *https://scrapebadger.com*
 
 About this account
 
-Country, join date and former usernames.
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns `503 temporarily_unavailable` (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview. Country, join date and former usernames.
 
 ### Example
 ```csharp
@@ -135,6 +135,8 @@ catch (ApiException e)
 
 Blended top search
 
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns `503 temporarily_unavailable` (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview.
+
 ### Example
 ```csharp
 using System.Collections.Generic;
@@ -234,7 +236,7 @@ catch (ApiException e)
 
 Get active stories
 
-Active stories (account pool only).
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns `503 temporarily_unavailable` (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview. Active stories (account pool only).
 
 ### Example
 ```csharp
@@ -334,6 +336,8 @@ catch (ApiException e)
 > Object InstagramGetAudioTrack (string audioId)
 
 Get audio track
+
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns `503 temporarily_unavailable` (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview.
 
 ### Example
 ```csharp
@@ -537,7 +541,7 @@ catch (ApiException e)
 
 Get followers
 
-Followers list, paginated (account pool).
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns `503 temporarily_unavailable` (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview. Followers list, paginated (account pool).
 
 ### Example
 ```csharp
@@ -644,6 +648,8 @@ catch (ApiException e)
 
 Get following
 
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns `503 temporarily_unavailable` (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview.
+
 ### Example
 ```csharp
 using System.Collections.Generic;
@@ -747,6 +753,8 @@ catch (ApiException e)
 
 Get hashtag info
 
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns `503 temporarily_unavailable` (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview.
+
 ### Example
 ```csharp
 using System.Collections.Generic;
@@ -845,6 +853,8 @@ catch (ApiException e)
 > Object InstagramGetHighlights (string username)
 
 Get highlights
+
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns `503 temporarily_unavailable` (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview.
 
 ### Example
 ```csharp
@@ -945,6 +955,8 @@ catch (ApiException e)
 
 Get likers
 
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns `503 temporarily_unavailable` (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview.
+
 ### Example
 ```csharp
 using System.Collections.Generic;
@@ -1043,6 +1055,8 @@ catch (ApiException e)
 > Object InstagramGetLocation (int locationPk)
 
 Get location
+
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns `503 temporarily_unavailable` (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview.
 
 ### Example
 ```csharp
@@ -1345,6 +1359,8 @@ catch (ApiException e)
 
 Get tagged posts
 
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns `503 temporarily_unavailable` (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview.
+
 ### Example
 ```csharp
 using System.Collections.Generic;
@@ -1552,6 +1568,8 @@ catch (ApiException e)
 > Object InstagramGetUserReels (string username, int? amount = null, string cursor = null)
 
 Get user reels
+
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns `503 temporarily_unavailable` (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview.
 
 ### Example
 ```csharp
@@ -1842,6 +1860,8 @@ This endpoint does not need any parameter.
 
 Recent hashtag posts
 
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns `503 temporarily_unavailable` (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview.
+
 ### Example
 ```csharp
 using System.Collections.Generic;
@@ -1945,6 +1965,8 @@ catch (ApiException e)
 
 Related profiles
 
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns `503 temporarily_unavailable` (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview.
+
 ### Example
 ```csharp
 using System.Collections.Generic;
@@ -2043,6 +2065,8 @@ catch (ApiException e)
 > Object InstagramSearchHashtags (string query)
 
 Search hashtags
+
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns `503 temporarily_unavailable` (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview.
 
 ### Example
 ```csharp
@@ -2143,6 +2167,8 @@ catch (ApiException e)
 
 Search users
 
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns `503 temporarily_unavailable` (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview.
+
 ### Example
 ```csharp
 using System.Collections.Generic;
@@ -2241,6 +2267,8 @@ catch (ApiException e)
 > Object InstagramTopHashtagPosts (string tag, int? amount = null, string cursor = null)
 
 Top hashtag posts
+
+**Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns `503 temporarily_unavailable` (not billed, `Retry-After` set) — see https://docs.scrapebadger.com/instagram/overview.
 
 ### Example
 ```csharp
