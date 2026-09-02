@@ -395,7 +395,9 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string q = null;
-            //var response = instance.TiktokSearchTiktokShopProducts(q);
+            //string region = null;
+            //int? offset = null;
+            //var response = instance.TiktokSearchTiktokShopProducts(q, region, offset);
             //Assert.IsType<Object>(response);
         }
 
@@ -436,8 +438,9 @@ namespace ScrapeBadger.Test.Api
         public void TiktokTiktokShopBestSellersTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
+            //string region = null;
             //int? count = null;
-            //var response = instance.TiktokTiktokShopBestSellers(count);
+            //var response = instance.TiktokTiktokShopBestSellers(region, count);
             //Assert.IsType<Object>(response);
         }
 
@@ -449,7 +452,21 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string categoryId = null;
-            //var response = instance.TiktokTiktokShopCategorySubcategoriesTopProducts(categoryId);
+            //string region = null;
+            //var response = instance.TiktokTiktokShopCategorySubcategoriesTopProducts(categoryId, region);
+            //Assert.IsType<Object>(response);
+        }
+
+        /// <summary>
+        /// Test TiktokTiktokShopDealsFeed
+        /// </summary>
+        [Fact]
+        public void TiktokTiktokShopDealsFeedTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string deal = null;
+            //string region = null;
+            //var response = instance.TiktokTiktokShopDealsFeed(deal, region);
             //Assert.IsType<Object>(response);
         }
 
@@ -461,7 +478,27 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string productId = null;
-            //var response = instance.TiktokTiktokShopProductDetail(productId);
+            //string region = null;
+            //var response = instance.TiktokTiktokShopProductDetail(productId, region);
+            //Assert.IsType<Object>(response);
+        }
+
+        /// <summary>
+        /// Test TiktokTiktokShopProductReviews
+        /// </summary>
+        [Fact]
+        public void TiktokTiktokShopProductReviewsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string productId = null;
+            //string region = null;
+            //int? page = null;
+            //int? count = null;
+            //string sort = null;
+            //int? rating = null;
+            //bool? withMedia = null;
+            //bool? verified = null;
+            //var response = instance.TiktokTiktokShopProductReviews(productId, region, page, count, sort, rating, withMedia, verified);
             //Assert.IsType<Object>(response);
         }
 
@@ -472,7 +509,23 @@ namespace ScrapeBadger.Test.Api
         public void TiktokTiktokShopRootCategoriesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.TiktokTiktokShopRootCategories();
+            //string region = null;
+            //var response = instance.TiktokTiktokShopRootCategories(region);
+            //Assert.IsType<Object>(response);
+        }
+
+        /// <summary>
+        /// Test TiktokTiktokShopStoreProducts
+        /// </summary>
+        [Fact]
+        public void TiktokTiktokShopStoreProductsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string sellerId = null;
+            //string region = null;
+            //string cursor = null;
+            //int? count = null;
+            //var response = instance.TiktokTiktokShopStoreProducts(sellerId, region, cursor, count);
             //Assert.IsType<Object>(response);
         }
 

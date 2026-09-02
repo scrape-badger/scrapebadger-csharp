@@ -33,8 +33,11 @@ All URIs are relative to *https://scrapebadger.com*
 | [**TiktokSearchVideos**](TikTokApi.md#tiktoksearchvideos) | **GET** /v1/tiktok/search/videos | Search videos |
 | [**TiktokTiktokShopBestSellers**](TikTokApi.md#tiktoktiktokshopbestsellers) | **GET** /v1/tiktok/shop/ranking | TikTok Shop best sellers |
 | [**TiktokTiktokShopCategorySubcategoriesTopProducts**](TikTokApi.md#tiktoktiktokshopcategorysubcategoriestopproducts) | **GET** /v1/tiktok/shop/categories/{category_id} | TikTok Shop category: subcategories + top products |
+| [**TiktokTiktokShopDealsFeed**](TikTokApi.md#tiktoktiktokshopdealsfeed) | **GET** /v1/tiktok/shop/deals/{deal} | TikTok Shop deals feed |
 | [**TiktokTiktokShopProductDetail**](TikTokApi.md#tiktoktiktokshopproductdetail) | **GET** /v1/tiktok/shop/products/{product_id} | TikTok Shop product detail |
+| [**TiktokTiktokShopProductReviews**](TikTokApi.md#tiktoktiktokshopproductreviews) | **GET** /v1/tiktok/shop/products/{product_id}/reviews | TikTok Shop product reviews |
 | [**TiktokTiktokShopRootCategories**](TikTokApi.md#tiktoktiktokshoprootcategories) | **GET** /v1/tiktok/shop/categories | TikTok Shop root categories |
+| [**TiktokTiktokShopStoreProducts**](TikTokApi.md#tiktoktiktokshopstoreproducts) | **GET** /v1/tiktok/shop/stores/{seller_id} | TikTok Shop store + products |
 | [**TiktokTrendingHashtags**](TikTokApi.md#tiktoktrendinghashtags) | **GET** /v1/tiktok/trending/hashtags | Trending hashtags |
 | [**TiktokTrendingSongs**](TikTokApi.md#tiktoktrendingsongs) | **GET** /v1/tiktok/trending/songs | Trending songs |
 | [**TiktokTrendingVideos**](TikTokApi.md#tiktoktrendingvideos) | **GET** /v1/tiktok/trending/videos | Trending videos |
@@ -2545,11 +2548,11 @@ catch (ApiException e)
 
 <a id="tiktoksearchtiktokshopproducts"></a>
 # **TiktokSearchTiktokShopProducts**
-> Object TiktokSearchTiktokShopProducts (string q)
+> Object TiktokSearchTiktokShopProducts (string q, string region = null, int? offset = null)
 
 Search TikTok Shop products
 
-Keyword search over TikTok Shop products (US): products with their bound video, matching shops, related searches and categories.
+Keyword search over TikTok Shop products: 30 per page with offset pagination (US); the first page also carries matching shops and related searches.
 
 ### Example
 ```csharp
@@ -2578,11 +2581,13 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new TikTokApi(httpClient, config, httpClientHandler);
             var q = "q_example";  // string | Keyword, e.g. 'wireless earbuds'
+            var region = "\"US\"";  // string | Market: US, GB, ID (optional)  (default to "US")
+            var offset = 0;  // int? | Pass back next_offset for the next page (US) (optional)  (default to 0)
 
             try
             {
                 // Search TikTok Shop products
-                Object result = apiInstance.TiktokSearchTiktokShopProducts(q);
+                Object result = apiInstance.TiktokSearchTiktokShopProducts(q, region, offset);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2603,7 +2608,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search TikTok Shop products
-    ApiResponse<Object> response = apiInstance.TiktokSearchTiktokShopProductsWithHttpInfo(q);
+    ApiResponse<Object> response = apiInstance.TiktokSearchTiktokShopProductsWithHttpInfo(q, region, offset);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2621,6 +2626,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **q** | **string** | Keyword, e.g. &#39;wireless earbuds&#39; |  |
+| **region** | **string** | Market: US, GB, ID | [optional] [default to &quot;US&quot;] |
+| **offset** | **int?** | Pass back next_offset for the next page (US) | [optional] [default to 0] |
 
 ### Return type
 
@@ -2860,11 +2867,11 @@ catch (ApiException e)
 
 <a id="tiktoktiktokshopbestsellers"></a>
 # **TiktokTiktokShopBestSellers**
-> Object TiktokTiktokShopBestSellers (int? count = null)
+> Object TiktokTiktokShopBestSellers (string region = null, int? count = null)
 
 TikTok Shop best sellers
 
-TikTok Shop's own ranking of the best-selling products of the past 30 days (US).
+TikTok Shop's own ranking of the best-selling products of the past 30 days (US only).
 
 ### Example
 ```csharp
@@ -2892,12 +2899,13 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new TikTokApi(httpClient, config, httpClientHandler);
+            var region = "\"US\"";  // string | Market: US, GB, ID (optional)  (default to "US")
             var count = 20;  // int? | Max products to return (optional)  (default to 20)
 
             try
             {
                 // TikTok Shop best sellers
-                Object result = apiInstance.TiktokTiktokShopBestSellers(count);
+                Object result = apiInstance.TiktokTiktokShopBestSellers(region, count);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2918,7 +2926,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // TikTok Shop best sellers
-    ApiResponse<Object> response = apiInstance.TiktokTiktokShopBestSellersWithHttpInfo(count);
+    ApiResponse<Object> response = apiInstance.TiktokTiktokShopBestSellersWithHttpInfo(region, count);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2935,6 +2943,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
+| **region** | **string** | Market: US, GB, ID | [optional] [default to &quot;US&quot;] |
 | **count** | **int?** | Max products to return | [optional] [default to 20] |
 
 ### Return type
@@ -2961,11 +2970,11 @@ catch (ApiException e)
 
 <a id="tiktoktiktokshopcategorysubcategoriestopproducts"></a>
 # **TiktokTiktokShopCategorySubcategoriesTopProducts**
-> Object TiktokTiktokShopCategorySubcategoriesTopProducts (string categoryId)
+> Object TiktokTiktokShopCategorySubcategoriesTopProducts (string categoryId, string region = null)
 
 TikTok Shop category: subcategories + top products
 
-A category's subcategories and its top products as TikTok Shop ranks them (US).
+A category's subcategories and its top products as TikTok Shop ranks them.
 
 ### Example
 ```csharp
@@ -2994,11 +3003,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new TikTokApi(httpClient, config, httpClientHandler);
             var categoryId = "categoryId_example";  // string | 
+            var region = "\"US\"";  // string | Market: US, GB, ID (optional)  (default to "US")
 
             try
             {
                 // TikTok Shop category: subcategories + top products
-                Object result = apiInstance.TiktokTiktokShopCategorySubcategoriesTopProducts(categoryId);
+                Object result = apiInstance.TiktokTiktokShopCategorySubcategoriesTopProducts(categoryId, region);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -3019,7 +3029,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // TikTok Shop category: subcategories + top products
-    ApiResponse<Object> response = apiInstance.TiktokTiktokShopCategorySubcategoriesTopProductsWithHttpInfo(categoryId);
+    ApiResponse<Object> response = apiInstance.TiktokTiktokShopCategorySubcategoriesTopProductsWithHttpInfo(categoryId, region);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -3037,6 +3047,110 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **categoryId** | **string** |  |  |
+| **region** | **string** | Market: US, GB, ID | [optional] [default to &quot;US&quot;] |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="tiktoktiktokshopdealsfeed"></a>
+# **TiktokTiktokShopDealsFeed**
+> Object TiktokTiktokShopDealsFeed (string deal, string region = null)
+
+TikTok Shop deals feed
+
+A curated storefront feed: recommended-for-you, or premium-offers (US only).
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using ScrapeBadger.Api;
+using ScrapeBadger.Client;
+using ScrapeBadger.Model;
+
+namespace Example
+{
+    public class TiktokTiktokShopDealsFeedExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://scrapebadger.com";
+            // Configure API key authorization: ApiKeyAuth
+            config.AddApiKey("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("X-API-Key", "Bearer");
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new TikTokApi(httpClient, config, httpClientHandler);
+            var deal = "deal_example";  // string | 
+            var region = "\"US\"";  // string | Market: US, GB, ID (optional)  (default to "US")
+
+            try
+            {
+                // TikTok Shop deals feed
+                Object result = apiInstance.TiktokTiktokShopDealsFeed(deal, region);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TikTokApi.TiktokTiktokShopDealsFeed: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the TiktokTiktokShopDealsFeedWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // TikTok Shop deals feed
+    ApiResponse<Object> response = apiInstance.TiktokTiktokShopDealsFeedWithHttpInfo(deal, region);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TikTokApi.TiktokTiktokShopDealsFeedWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **deal** | **string** |  |  |
+| **region** | **string** | Market: US, GB, ID | [optional] [default to &quot;US&quot;] |
 
 ### Return type
 
@@ -3062,11 +3176,11 @@ catch (ApiException e)
 
 <a id="tiktoktiktokshopproductdetail"></a>
 # **TiktokTiktokShopProductDetail**
-> Object TiktokTiktokShopProductDetail (string productId)
+> Object TiktokTiktokShopProductDetail (string productId, string region = null)
 
 TikTok Shop product detail
 
-Full TikTok Shop product page (US): description, images, price, SKUs with stock, reviews, shop and TikTok's AI summary.
+Full TikTok Shop product page: description, images, price, SKUs with stock, first reviews, shop and TikTok's AI summary.
 
 ### Example
 ```csharp
@@ -3095,11 +3209,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new TikTokApi(httpClient, config, httpClientHandler);
             var productId = "productId_example";  // string | 
+            var region = "\"US\"";  // string | Market: US, GB, ID (optional)  (default to "US")
 
             try
             {
                 // TikTok Shop product detail
-                Object result = apiInstance.TiktokTiktokShopProductDetail(productId);
+                Object result = apiInstance.TiktokTiktokShopProductDetail(productId, region);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -3120,7 +3235,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // TikTok Shop product detail
-    ApiResponse<Object> response = apiInstance.TiktokTiktokShopProductDetailWithHttpInfo(productId);
+    ApiResponse<Object> response = apiInstance.TiktokTiktokShopProductDetailWithHttpInfo(productId, region);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -3138,6 +3253,122 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **productId** | **string** |  |  |
+| **region** | **string** | Market: US, GB, ID | [optional] [default to &quot;US&quot;] |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="tiktoktiktokshopproductreviews"></a>
+# **TiktokTiktokShopProductReviews**
+> Object TiktokTiktokShopProductReviews (string productId, string region = null, int? page = null, int? count = null, string sort = null, int? rating = null, bool? withMedia = null, bool? verified = null)
+
+TikTok Shop product reviews
+
+Paginated product reviews with the rating breakdown (US).
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using ScrapeBadger.Api;
+using ScrapeBadger.Client;
+using ScrapeBadger.Model;
+
+namespace Example
+{
+    public class TiktokTiktokShopProductReviewsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://scrapebadger.com";
+            // Configure API key authorization: ApiKeyAuth
+            config.AddApiKey("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("X-API-Key", "Bearer");
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new TikTokApi(httpClient, config, httpClientHandler);
+            var productId = "productId_example";  // string | 
+            var region = "\"US\"";  // string | Market: US, GB, ID (optional)  (default to "US")
+            var page = 1;  // int? |  (optional)  (default to 1)
+            var count = 20;  // int? |  (optional)  (default to 20)
+            var sort = "\"recommended\"";  // string | recommended | recent (optional)  (default to "recommended")
+            var rating = 56;  // int? | Only this star rating (optional) 
+            var withMedia = false;  // bool? | Only reviews with photos/videos (optional)  (default to false)
+            var verified = false;  // bool? | Only verified purchases (optional)  (default to false)
+
+            try
+            {
+                // TikTok Shop product reviews
+                Object result = apiInstance.TiktokTiktokShopProductReviews(productId, region, page, count, sort, rating, withMedia, verified);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TikTokApi.TiktokTiktokShopProductReviews: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the TiktokTiktokShopProductReviewsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // TikTok Shop product reviews
+    ApiResponse<Object> response = apiInstance.TiktokTiktokShopProductReviewsWithHttpInfo(productId, region, page, count, sort, rating, withMedia, verified);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TikTokApi.TiktokTiktokShopProductReviewsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **productId** | **string** |  |  |
+| **region** | **string** | Market: US, GB, ID | [optional] [default to &quot;US&quot;] |
+| **page** | **int?** |  | [optional] [default to 1] |
+| **count** | **int?** |  | [optional] [default to 20] |
+| **sort** | **string** | recommended | recent | [optional] [default to &quot;recommended&quot;] |
+| **rating** | **int?** | Only this star rating | [optional]  |
+| **withMedia** | **bool?** | Only reviews with photos/videos | [optional] [default to false] |
+| **verified** | **bool?** | Only verified purchases | [optional] [default to false] |
 
 ### Return type
 
@@ -3163,11 +3394,11 @@ catch (ApiException e)
 
 <a id="tiktoktiktokshoprootcategories"></a>
 # **TiktokTiktokShopRootCategories**
-> Object TiktokTiktokShopRootCategories ()
+> Object TiktokTiktokShopRootCategories (string region = null)
 
 TikTok Shop root categories
 
-Top-level TikTok Shop categories (US). Drill down with /shop/categories/{category_id}.
+Top-level TikTok Shop categories of a market. Drill down with /shop/categories/{id}.
 
 ### Example
 ```csharp
@@ -3195,11 +3426,12 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new TikTokApi(httpClient, config, httpClientHandler);
+            var region = "\"US\"";  // string | Market: US, GB, ID (optional)  (default to "US")
 
             try
             {
                 // TikTok Shop root categories
-                Object result = apiInstance.TiktokTiktokShopRootCategories();
+                Object result = apiInstance.TiktokTiktokShopRootCategories(region);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -3220,7 +3452,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // TikTok Shop root categories
-    ApiResponse<Object> response = apiInstance.TiktokTiktokShopRootCategoriesWithHttpInfo();
+    ApiResponse<Object> response = apiInstance.TiktokTiktokShopRootCategoriesWithHttpInfo(region);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -3234,7 +3466,11 @@ catch (ApiException e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **region** | **string** | Market: US, GB, ID | [optional] [default to &quot;US&quot;] |
+
 ### Return type
 
 **Object**
@@ -3253,6 +3489,114 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="tiktoktiktokshopstoreproducts"></a>
+# **TiktokTiktokShopStoreProducts**
+> Object TiktokTiktokShopStoreProducts (string sellerId, string region = null, string cursor = null, int? count = null)
+
+TikTok Shop store + products
+
+A store's stats and its cursor-paginated product catalogue (US).
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using ScrapeBadger.Api;
+using ScrapeBadger.Client;
+using ScrapeBadger.Model;
+
+namespace Example
+{
+    public class TiktokTiktokShopStoreProductsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://scrapebadger.com";
+            // Configure API key authorization: ApiKeyAuth
+            config.AddApiKey("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("X-API-Key", "Bearer");
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new TikTokApi(httpClient, config, httpClientHandler);
+            var sellerId = "sellerId_example";  // string | 
+            var region = "\"US\"";  // string | Market: US, GB, ID (optional)  (default to "US")
+            var cursor = "\"\"";  // string | Pass back next_cursor for the next page (optional)  (default to "")
+            var count = 20;  // int? |  (optional)  (default to 20)
+
+            try
+            {
+                // TikTok Shop store + products
+                Object result = apiInstance.TiktokTiktokShopStoreProducts(sellerId, region, cursor, count);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling TikTokApi.TiktokTiktokShopStoreProducts: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the TiktokTiktokShopStoreProductsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // TikTok Shop store + products
+    ApiResponse<Object> response = apiInstance.TiktokTiktokShopStoreProductsWithHttpInfo(sellerId, region, cursor, count);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling TikTokApi.TiktokTiktokShopStoreProductsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **sellerId** | **string** |  |  |
+| **region** | **string** | Market: US, GB, ID | [optional] [default to &quot;US&quot;] |
+| **cursor** | **string** | Pass back next_cursor for the next page | [optional] [default to &quot;&quot;] |
+| **count** | **int?** |  | [optional] [default to 20] |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

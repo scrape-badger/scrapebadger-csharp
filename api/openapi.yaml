@@ -15436,14 +15436,33 @@ paths:
       - TikTok
   /v1/tiktok/shop/categories:
     get:
-      description: "Top-level TikTok Shop categories (US). Drill down with /shop/categories/{category_id}."
+      description: "Top-level TikTok Shop categories of a market. Drill down with\
+        \ /shop/categories/{id}."
       operationId: tiktok_tiktok_shop_root_categories
+      parameters:
+      - description: "Market: US, GB, ID"
+        explode: true
+        in: query
+        name: region
+        required: false
+        schema:
+          default: US
+          description: "Market: US, GB, ID"
+          title: Region
+          type: string
+        style: form
       responses:
         "200":
           content:
             application/json:
               schema: {}
           description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
       security:
       - ApiKeyAuth: []
       summary: TikTok Shop root categories
@@ -15452,7 +15471,7 @@ paths:
   /v1/tiktok/shop/categories/{category_id}:
     get:
       description: A category's subcategories and its top products as TikTok Shop
-        ranks them (US).
+        ranks them.
       operationId: tiktok_tiktok_shop_category_subcategories_top_products
       parameters:
       - explode: false
@@ -15463,6 +15482,17 @@ paths:
           title: Category Id
           type: string
         style: simple
+      - description: "Market: US, GB, ID"
+        explode: true
+        in: query
+        name: region
+        required: false
+        schema:
+          default: US
+          description: "Market: US, GB, ID"
+          title: Region
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -15480,10 +15510,52 @@ paths:
       summary: "TikTok Shop category: subcategories + top products"
       tags:
       - TikTok
+  /v1/tiktok/shop/deals/{deal}:
+    get:
+      description: "A curated storefront feed: recommended-for-you, or premium-offers\
+        \ (US only)."
+      operationId: tiktok_tiktok_shop_deals_feed
+      parameters:
+      - explode: false
+        in: path
+        name: deal
+        required: true
+        schema:
+          title: Deal
+          type: string
+        style: simple
+      - description: "Market: US, GB, ID"
+        explode: true
+        in: query
+        name: region
+        required: false
+        schema:
+          default: US
+          description: "Market: US, GB, ID"
+          title: Region
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: TikTok Shop deals feed
+      tags:
+      - TikTok
   /v1/tiktok/shop/products/{product_id}:
     get:
       description: |-
-        Full TikTok Shop product page (US): description, images, price, SKUs with stock, reviews,
+        Full TikTok Shop product page: description, images, price, SKUs with stock, first reviews,
         shop and TikTok's AI summary.
       operationId: tiktok_tiktok_shop_product_detail
       parameters:
@@ -15495,6 +15567,17 @@ paths:
           title: Product Id
           type: string
         style: simple
+      - description: "Market: US, GB, ID"
+        explode: true
+        in: query
+        name: region
+        required: false
+        schema:
+          default: US
+          description: "Market: US, GB, ID"
+          title: Region
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -15512,12 +15595,129 @@ paths:
       summary: TikTok Shop product detail
       tags:
       - TikTok
+  /v1/tiktok/shop/products/{product_id}/reviews:
+    get:
+      description: Paginated product reviews with the rating breakdown (US).
+      operationId: tiktok_tiktok_shop_product_reviews
+      parameters:
+      - explode: false
+        in: path
+        name: product_id
+        required: true
+        schema:
+          title: Product Id
+          type: string
+        style: simple
+      - description: "Market: US, GB, ID"
+        explode: true
+        in: query
+        name: region
+        required: false
+        schema:
+          default: US
+          description: "Market: US, GB, ID"
+          title: Region
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          default: 20
+          maximum: 50
+          minimum: 1
+          title: Count
+          type: integer
+        style: form
+      - description: recommended | recent
+        explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          default: recommended
+          description: recommended | recent
+          title: Sort
+          type: string
+        style: form
+      - description: Only this star rating
+        explode: true
+        in: query
+        name: rating
+        required: false
+        schema:
+          maximum: 5
+          minimum: 1
+          nullable: true
+          type: integer
+        style: form
+      - description: Only reviews with photos/videos
+        explode: true
+        in: query
+        name: with_media
+        required: false
+        schema:
+          default: false
+          description: Only reviews with photos/videos
+          title: With Media
+          type: boolean
+        style: form
+      - description: Only verified purchases
+        explode: true
+        in: query
+        name: verified
+        required: false
+        schema:
+          default: false
+          description: Only verified purchases
+          title: Verified
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: TikTok Shop product reviews
+      tags:
+      - TikTok
   /v1/tiktok/shop/ranking:
     get:
       description: TikTok Shop's own ranking of the best-selling products of the past
-        30 days (US).
+        30 days (US only).
       operationId: tiktok_tiktok_shop_best_sellers
       parameters:
+      - description: "Market: US, GB, ID"
+        explode: true
+        in: query
+        name: region
+        required: false
+        schema:
+          default: US
+          description: "Market: US, GB, ID"
+          title: Region
+          type: string
+        style: form
       - description: Max products to return
         explode: true
         in: query
@@ -15550,9 +15750,9 @@ paths:
       - TikTok
   /v1/tiktok/shop/search:
     get:
-      description: |-
-        Keyword search over TikTok Shop products (US): products with their bound video, matching
-        shops, related searches and categories.
+      description: "Keyword search over TikTok Shop products: 30 per page with offset\
+        \ pagination (US); the first page also carries matching shops and related\
+        \ searches."
       operationId: tiktok_search_tiktok_shop_products
       parameters:
       - description: "Keyword, e.g. 'wireless earbuds'"
@@ -15565,6 +15765,29 @@ paths:
           minLength: 1
           title: Q
           type: string
+        style: form
+      - description: "Market: US, GB, ID"
+        explode: true
+        in: query
+        name: region
+        required: false
+        schema:
+          default: US
+          description: "Market: US, GB, ID"
+          title: Region
+          type: string
+        style: form
+      - description: Pass back next_offset for the next page (US)
+        explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          default: 0
+          description: Pass back next_offset for the next page (US)
+          minimum: 0
+          title: Offset
+          type: integer
         style: form
       responses:
         "200":
@@ -15581,6 +15804,69 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: Search TikTok Shop products
+      tags:
+      - TikTok
+  /v1/tiktok/shop/stores/{seller_id}:
+    get:
+      description: A store's stats and its cursor-paginated product catalogue (US).
+      operationId: tiktok_tiktok_shop_store_products
+      parameters:
+      - explode: false
+        in: path
+        name: seller_id
+        required: true
+        schema:
+          title: Seller Id
+          type: string
+        style: simple
+      - description: "Market: US, GB, ID"
+        explode: true
+        in: query
+        name: region
+        required: false
+        schema:
+          default: US
+          description: "Market: US, GB, ID"
+          title: Region
+          type: string
+        style: form
+      - description: Pass back next_cursor for the next page
+        explode: true
+        in: query
+        name: cursor
+        required: false
+        schema:
+          default: ""
+          description: Pass back next_cursor for the next page
+          title: Cursor
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          default: 20
+          maximum: 50
+          minimum: 1
+          title: Count
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: TikTok Shop store + products
       tags:
       - TikTok
   /v1/tiktok/trending/hashtags:
