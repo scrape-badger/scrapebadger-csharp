@@ -4713,6 +4713,42 @@ paths:
       summary: Search listings
       tags:
       - eBay
+  /v1/ebay/search/by-image:
+    post:
+      description: |-
+        Search active listings by image, the way eBay's camera icon does.
+
+        No ``sort_by``: eBay ignores it on a visual results page.
+      operationId: ebay_search_by_image
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: {}
+              description: "{\"image_url\": \"https://…/photo.jpg\", \"domain\": \"\
+                com\"} — or send the picture itself as {\"image_base64\": \"<base64\
+                \ JPEG/PNG>\"}. Exactly one of the two. Also accepts category_id,\
+                \ page, per_page, condition, buying_format, min_price, max_price,\
+                \ free_shipping, location and language."
+              title: Body
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Search by image
+      tags:
+      - eBay
   /v1/ebay/sellers/{username}:
     get:
       description: Get an eBay seller's public profile.

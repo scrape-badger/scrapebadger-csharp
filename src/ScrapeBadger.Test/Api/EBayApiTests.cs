@@ -221,6 +221,18 @@ namespace ScrapeBadger.Test.Api
         }
 
         /// <summary>
+        /// Test EbaySearchByImage
+        /// </summary>
+        [Fact]
+        public void EbaySearchByImageTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //Dictionary<string, Object> requestBody = null;
+            //var response = instance.EbaySearchByImage(requestBody);
+            //Assert.IsType<Object>(response);
+        }
+
+        /// <summary>
         /// Test EbaySearchListings
         /// </summary>
         [Fact]

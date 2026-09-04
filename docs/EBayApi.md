@@ -16,6 +16,7 @@ All URIs are relative to *https://scrapebadger.com*
 | [**EbayKeywordSuggestions**](EBayApi.md#ebaykeywordsuggestions) | **GET** /v1/ebay/autocomplete | Keyword suggestions |
 | [**EbayListCategories**](EBayApi.md#ebaylistcategories) | **GET** /v1/ebay/categories | List categories |
 | [**EbayListMarkets**](EBayApi.md#ebaylistmarkets) | **GET** /v1/ebay/markets | List markets |
+| [**EbaySearchByImage**](EBayApi.md#ebaysearchbyimage) | **POST** /v1/ebay/search/by-image | Search by image |
 | [**EbaySearchListings**](EBayApi.md#ebaysearchlistings) | **GET** /v1/ebay/search | Search listings |
 
 <a id="ebaybrowseacategory"></a>
@@ -1257,6 +1258,107 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="ebaysearchbyimage"></a>
+# **EbaySearchByImage**
+> Object EbaySearchByImage (Dictionary<string, Object> requestBody)
+
+Search by image
+
+Search active listings by image, the way eBay's camera icon does.  No ``sort_by``: eBay ignores it on a visual results page.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using ScrapeBadger.Api;
+using ScrapeBadger.Client;
+using ScrapeBadger.Model;
+
+namespace Example
+{
+    public class EbaySearchByImageExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://scrapebadger.com";
+            // Configure API key authorization: ApiKeyAuth
+            config.AddApiKey("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("X-API-Key", "Bearer");
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new EBayApi(httpClient, config, httpClientHandler);
+            var requestBody = new Dictionary<string, Object>(); // Dictionary<string, Object> | 
+
+            try
+            {
+                // Search by image
+                Object result = apiInstance.EbaySearchByImage(requestBody);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling EBayApi.EbaySearchByImage: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the EbaySearchByImageWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Search by image
+    ApiResponse<Object> response = apiInstance.EbaySearchByImageWithHttpInfo(requestBody);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling EBayApi.EbaySearchByImageWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **requestBody** | [**Dictionary&lt;string, Object&gt;**](Object.md) |  |  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
