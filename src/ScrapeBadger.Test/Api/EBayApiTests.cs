@@ -88,7 +88,8 @@ namespace ScrapeBadger.Test.Api
             //decimal? minPrice = null;
             //decimal? maxPrice = null;
             //string location = null;
-            //var response = instance.EbayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location);
+            //string language = null;
+            //var response = instance.EbayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location, language);
             //Assert.IsType<Object>(response);
         }
 
@@ -238,7 +239,8 @@ namespace ScrapeBadger.Test.Api
             //decimal? maxPrice = null;
             //bool? freeShipping = null;
             //string location = null;
-            //var response = instance.EbaySearchListings(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping, location);
+            //string language = null;
+            //var response = instance.EbaySearchListings(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping, location, language);
             //Assert.IsType<Object>(response);
         }
     }

@@ -4406,6 +4406,15 @@ paths:
           nullable: true
           type: string
         style: form
+      - description: english|japanese|chinese|korean
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -4673,6 +4682,15 @@ paths:
         explode: true
         in: query
         name: location
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: english|japanese|chinese|korean
+        explode: true
+        in: query
+        name: language
         required: false
         schema:
           nullable: true
