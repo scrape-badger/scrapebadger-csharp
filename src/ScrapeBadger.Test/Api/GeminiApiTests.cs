@@ -63,7 +63,8 @@ namespace ScrapeBadger.Test.Api
             //string prompt = null;
             //string country = null;
             //string webSearch = null;
-            //var response = instance.GeminiAskGeminiAQuestion(prompt, country, webSearch);
+            //string imageUrl = null;
+            //var response = instance.GeminiAskGeminiAQuestion(prompt, country, webSearch, imageUrl);
             //Assert.IsType<Object>(response);
         }
 

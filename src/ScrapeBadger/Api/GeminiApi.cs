@@ -37,8 +37,9 @@ namespace ScrapeBadger.Api
         /// <param name="prompt">The prompt to send to Gemini (max 4096 characters).</param>
         /// <param name="country">ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)</param>
         /// <param name="webSearch">auto (let Gemini decide) | force (ask it to browse) | off (answer from memory). &#x60;web_search_triggered&#x60; in the response always reports what actually happened. (optional, default to &quot;auto&quot;)</param>
+        /// <param name="imageUrl">Public http(s) URL of an image to attach to the prompt. Gemini reads it and answers about it. POST also accepts &#x60;image_base64&#x60;. Exactly one of the two. (optional)</param>
         /// <returns>Object</returns>
-        Object GeminiAskGeminiAQuestion(string prompt, string country = default(string), string webSearch = default(string));
+        Object GeminiAskGeminiAQuestion(string prompt, string country = default(string), string webSearch = default(string), string imageUrl = default(string));
 
         /// <summary>
         /// Ask Gemini a question
@@ -50,8 +51,9 @@ namespace ScrapeBadger.Api
         /// <param name="prompt">The prompt to send to Gemini (max 4096 characters).</param>
         /// <param name="country">ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)</param>
         /// <param name="webSearch">auto (let Gemini decide) | force (ask it to browse) | off (answer from memory). &#x60;web_search_triggered&#x60; in the response always reports what actually happened. (optional, default to &quot;auto&quot;)</param>
+        /// <param name="imageUrl">Public http(s) URL of an image to attach to the prompt. Gemini reads it and answers about it. POST also accepts &#x60;image_base64&#x60;. Exactly one of the two. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> GeminiAskGeminiAQuestionWithHttpInfo(string prompt, string country = default(string), string webSearch = default(string));
+        ApiResponse<Object> GeminiAskGeminiAQuestionWithHttpInfo(string prompt, string country = default(string), string webSearch = default(string), string imageUrl = default(string));
         /// <summary>
         /// Ask Gemini a question (POST)
         /// </summary>
@@ -180,9 +182,10 @@ namespace ScrapeBadger.Api
         /// <param name="prompt">The prompt to send to Gemini (max 4096 characters).</param>
         /// <param name="country">ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)</param>
         /// <param name="webSearch">auto (let Gemini decide) | force (ask it to browse) | off (answer from memory). &#x60;web_search_triggered&#x60; in the response always reports what actually happened. (optional, default to &quot;auto&quot;)</param>
+        /// <param name="imageUrl">Public http(s) URL of an image to attach to the prompt. Gemini reads it and answers about it. POST also accepts &#x60;image_base64&#x60;. Exactly one of the two. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> GeminiAskGeminiAQuestionAsync(string prompt, string country = default(string), string webSearch = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> GeminiAskGeminiAQuestionAsync(string prompt, string country = default(string), string webSearch = default(string), string imageUrl = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Ask Gemini a question
@@ -194,9 +197,10 @@ namespace ScrapeBadger.Api
         /// <param name="prompt">The prompt to send to Gemini (max 4096 characters).</param>
         /// <param name="country">ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)</param>
         /// <param name="webSearch">auto (let Gemini decide) | force (ask it to browse) | off (answer from memory). &#x60;web_search_triggered&#x60; in the response always reports what actually happened. (optional, default to &quot;auto&quot;)</param>
+        /// <param name="imageUrl">Public http(s) URL of an image to attach to the prompt. Gemini reads it and answers about it. POST also accepts &#x60;image_base64&#x60;. Exactly one of the two. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GeminiAskGeminiAQuestionWithHttpInfoAsync(string prompt, string country = default(string), string webSearch = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> GeminiAskGeminiAQuestionWithHttpInfoAsync(string prompt, string country = default(string), string webSearch = default(string), string imageUrl = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Ask Gemini a question (POST)
         /// </summary>
@@ -536,10 +540,11 @@ namespace ScrapeBadger.Api
         /// <param name="prompt">The prompt to send to Gemini (max 4096 characters).</param>
         /// <param name="country">ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)</param>
         /// <param name="webSearch">auto (let Gemini decide) | force (ask it to browse) | off (answer from memory). &#x60;web_search_triggered&#x60; in the response always reports what actually happened. (optional, default to &quot;auto&quot;)</param>
+        /// <param name="imageUrl">Public http(s) URL of an image to attach to the prompt. Gemini reads it and answers about it. POST also accepts &#x60;image_base64&#x60;. Exactly one of the two. (optional)</param>
         /// <returns>Object</returns>
-        public Object GeminiAskGeminiAQuestion(string prompt, string country = default(string), string webSearch = default(string))
+        public Object GeminiAskGeminiAQuestion(string prompt, string country = default(string), string webSearch = default(string), string imageUrl = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GeminiAskGeminiAQuestionWithHttpInfo(prompt, country, webSearch);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GeminiAskGeminiAQuestionWithHttpInfo(prompt, country, webSearch, imageUrl);
             return localVarResponse.Data;
         }
 
@@ -550,8 +555,9 @@ namespace ScrapeBadger.Api
         /// <param name="prompt">The prompt to send to Gemini (max 4096 characters).</param>
         /// <param name="country">ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)</param>
         /// <param name="webSearch">auto (let Gemini decide) | force (ask it to browse) | off (answer from memory). &#x60;web_search_triggered&#x60; in the response always reports what actually happened. (optional, default to &quot;auto&quot;)</param>
+        /// <param name="imageUrl">Public http(s) URL of an image to attach to the prompt. Gemini reads it and answers about it. POST also accepts &#x60;image_base64&#x60;. Exactly one of the two. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> GeminiAskGeminiAQuestionWithHttpInfo(string prompt, string country = default(string), string webSearch = default(string))
+        public ScrapeBadger.Client.ApiResponse<Object> GeminiAskGeminiAQuestionWithHttpInfo(string prompt, string country = default(string), string webSearch = default(string), string imageUrl = default(string))
         {
             // verify the required parameter 'prompt' is set
             if (prompt == null)
@@ -581,6 +587,10 @@ namespace ScrapeBadger.Api
             if (webSearch != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "web_search", webSearch));
+            }
+            if (imageUrl != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "image_url", imageUrl));
             }
 
             // authentication (ApiKeyAuth) required
@@ -608,11 +618,12 @@ namespace ScrapeBadger.Api
         /// <param name="prompt">The prompt to send to Gemini (max 4096 characters).</param>
         /// <param name="country">ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)</param>
         /// <param name="webSearch">auto (let Gemini decide) | force (ask it to browse) | off (answer from memory). &#x60;web_search_triggered&#x60; in the response always reports what actually happened. (optional, default to &quot;auto&quot;)</param>
+        /// <param name="imageUrl">Public http(s) URL of an image to attach to the prompt. Gemini reads it and answers about it. POST also accepts &#x60;image_base64&#x60;. Exactly one of the two. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> GeminiAskGeminiAQuestionAsync(string prompt, string country = default(string), string webSearch = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> GeminiAskGeminiAQuestionAsync(string prompt, string country = default(string), string webSearch = default(string), string imageUrl = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GeminiAskGeminiAQuestionWithHttpInfoAsync(prompt, country, webSearch, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GeminiAskGeminiAQuestionWithHttpInfoAsync(prompt, country, webSearch, imageUrl, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -623,9 +634,10 @@ namespace ScrapeBadger.Api
         /// <param name="prompt">The prompt to send to Gemini (max 4096 characters).</param>
         /// <param name="country">ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)</param>
         /// <param name="webSearch">auto (let Gemini decide) | force (ask it to browse) | off (answer from memory). &#x60;web_search_triggered&#x60; in the response always reports what actually happened. (optional, default to &quot;auto&quot;)</param>
+        /// <param name="imageUrl">Public http(s) URL of an image to attach to the prompt. Gemini reads it and answers about it. POST also accepts &#x60;image_base64&#x60;. Exactly one of the two. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GeminiAskGeminiAQuestionWithHttpInfoAsync(string prompt, string country = default(string), string webSearch = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GeminiAskGeminiAQuestionWithHttpInfoAsync(string prompt, string country = default(string), string webSearch = default(string), string imageUrl = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'prompt' is set
             if (prompt == null)
@@ -657,6 +669,10 @@ namespace ScrapeBadger.Api
             if (webSearch != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "web_search", webSearch));
+            }
+            if (imageUrl != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "image_url", imageUrl));
             }
 
             // authentication (ApiKeyAuth) required

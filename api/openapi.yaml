@@ -3135,6 +3135,17 @@ paths:
           title: Web Search
           type: string
         style: form
+      - description: Public http(s) URL of an image to attach to the prompt. ChatGPT
+          reads it and answers about it. POST also accepts `image_base64`. Exactly
+          one of the two.
+        explode: true
+        in: query
+        name: image_url
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -5921,6 +5932,17 @@ paths:
             from memory). `web_search_triggered` in the response always reports what
             actually happened.
           title: Web Search
+          type: string
+        style: form
+      - description: Public http(s) URL of an image to attach to the prompt. Gemini
+          reads it and answers about it. POST also accepts `image_base64`. Exactly
+          one of the two.
+        explode: true
+        in: query
+        name: image_url
+        required: false
+        schema:
+          nullable: true
           type: string
         style: form
       responses:

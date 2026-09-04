@@ -13,7 +13,7 @@ All URIs are relative to *https://scrapebadger.com*
 
 <a id="geminiaskgeminiaquestion"></a>
 # **GeminiAskGeminiAQuestion**
-> Object GeminiAskGeminiAQuestion (string prompt, string country = null, string webSearch = null)
+> Object GeminiAskGeminiAQuestion (string prompt, string country = null, string webSearch = null, string imageUrl = null)
 
 Ask Gemini a question
 
@@ -48,11 +48,12 @@ namespace Example
             var prompt = "prompt_example";  // string | The prompt to send to Gemini (max 4096 characters).
             var country = "country_example";  // string | ISO-3166 alpha-2 egress country, e.g. 'US', 'GB', 'DE'. (optional) 
             var webSearch = "\"auto\"";  // string | auto (let Gemini decide) | force (ask it to browse) | off (answer from memory). `web_search_triggered` in the response always reports what actually happened. (optional)  (default to "auto")
+            var imageUrl = "imageUrl_example";  // string | Public http(s) URL of an image to attach to the prompt. Gemini reads it and answers about it. POST also accepts `image_base64`. Exactly one of the two. (optional) 
 
             try
             {
                 // Ask Gemini a question
-                Object result = apiInstance.GeminiAskGeminiAQuestion(prompt, country, webSearch);
+                Object result = apiInstance.GeminiAskGeminiAQuestion(prompt, country, webSearch, imageUrl);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -73,7 +74,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Ask Gemini a question
-    ApiResponse<Object> response = apiInstance.GeminiAskGeminiAQuestionWithHttpInfo(prompt, country, webSearch);
+    ApiResponse<Object> response = apiInstance.GeminiAskGeminiAQuestionWithHttpInfo(prompt, country, webSearch, imageUrl);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -93,6 +94,7 @@ catch (ApiException e)
 | **prompt** | **string** | The prompt to send to Gemini (max 4096 characters). |  |
 | **country** | **string** | ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. | [optional]  |
 | **webSearch** | **string** | auto (let Gemini decide) | force (ask it to browse) | off (answer from memory). &#x60;web_search_triggered&#x60; in the response always reports what actually happened. | [optional] [default to &quot;auto&quot;] |
+| **imageUrl** | **string** | Public http(s) URL of an image to attach to the prompt. Gemini reads it and answers about it. POST also accepts &#x60;image_base64&#x60;. Exactly one of the two. | [optional]  |
 
 ### Return type
 
