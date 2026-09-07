@@ -432,19 +432,6 @@ namespace ScrapeBadger.Test.Api
         }
 
         /// <summary>
-        /// Test TiktokTiktokShopBestSellers
-        /// </summary>
-        [Fact]
-        public void TiktokTiktokShopBestSellersTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string region = null;
-            //int? count = null;
-            //var response = instance.TiktokTiktokShopBestSellers(region, count);
-            //Assert.IsType<Object>(response);
-        }
-
-        /// <summary>
         /// Test TiktokTiktokShopCategorySubcategoriesTopProducts
         /// </summary>
         [Fact]
@@ -454,19 +441,6 @@ namespace ScrapeBadger.Test.Api
             //string categoryId = null;
             //string region = null;
             //var response = instance.TiktokTiktokShopCategorySubcategoriesTopProducts(categoryId, region);
-            //Assert.IsType<Object>(response);
-        }
-
-        /// <summary>
-        /// Test TiktokTiktokShopDealsFeed
-        /// </summary>
-        [Fact]
-        public void TiktokTiktokShopDealsFeedTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string deal = null;
-            //string region = null;
-            //var response = instance.TiktokTiktokShopDealsFeed(deal, region);
             //Assert.IsType<Object>(response);
         }
 

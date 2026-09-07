@@ -15638,48 +15638,6 @@ paths:
       summary: "TikTok Shop category: subcategories + top products"
       tags:
       - TikTok
-  /v1/tiktok/shop/deals/{deal}:
-    get:
-      description: "A curated storefront feed: recommended-for-you, or premium-offers\
-        \ (US only)."
-      operationId: tiktok_tiktok_shop_deals_feed
-      parameters:
-      - explode: false
-        in: path
-        name: deal
-        required: true
-        schema:
-          title: Deal
-          type: string
-        style: simple
-      - description: "Market: US, GB, ID"
-        explode: true
-        in: query
-        name: region
-        required: false
-        schema:
-          default: US
-          description: "Market: US, GB, ID"
-          title: Region
-          type: string
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema: {}
-          description: Successful Response
-        "422":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-          description: Validation Error
-      security:
-      - ApiKeyAuth: []
-      summary: TikTok Shop deals feed
-      tags:
-      - TikTok
   /v1/tiktok/shop/products/{product_id}:
     get:
       description: |-
@@ -15827,53 +15785,6 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: TikTok Shop product reviews
-      tags:
-      - TikTok
-  /v1/tiktok/shop/ranking:
-    get:
-      description: TikTok Shop's own ranking of the best-selling products of the past
-        30 days (US only).
-      operationId: tiktok_tiktok_shop_best_sellers
-      parameters:
-      - description: "Market: US, GB, ID"
-        explode: true
-        in: query
-        name: region
-        required: false
-        schema:
-          default: US
-          description: "Market: US, GB, ID"
-          title: Region
-          type: string
-        style: form
-      - description: Max products to return
-        explode: true
-        in: query
-        name: count
-        required: false
-        schema:
-          default: 20
-          description: Max products to return
-          maximum: 50
-          minimum: 1
-          title: Count
-          type: integer
-        style: form
-      responses:
-        "200":
-          content:
-            application/json:
-              schema: {}
-          description: Successful Response
-        "422":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-          description: Validation Error
-      security:
-      - ApiKeyAuth: []
-      summary: TikTok Shop best sellers
       tags:
       - TikTok
   /v1/tiktok/shop/search:

@@ -501,9 +501,7 @@ Class | Method | HTTP request | Description
 *TikTokApi* | [**TiktokSearchTiktokShopProducts**](docs/TikTokApi.md#tiktoksearchtiktokshopproducts) | **GET** /v1/tiktok/shop/search | Search TikTok Shop products
 *TikTokApi* | [**TiktokSearchUsers**](docs/TikTokApi.md#tiktoksearchusers) | **GET** /v1/tiktok/search/users | Search users
 *TikTokApi* | [**TiktokSearchVideos**](docs/TikTokApi.md#tiktoksearchvideos) | **GET** /v1/tiktok/search/videos | Search videos
-*TikTokApi* | [**TiktokTiktokShopBestSellers**](docs/TikTokApi.md#tiktoktiktokshopbestsellers) | **GET** /v1/tiktok/shop/ranking | TikTok Shop best sellers
 *TikTokApi* | [**TiktokTiktokShopCategorySubcategoriesTopProducts**](docs/TikTokApi.md#tiktoktiktokshopcategorysubcategoriestopproducts) | **GET** /v1/tiktok/shop/categories/{category_id} | TikTok Shop category: subcategories + top products
-*TikTokApi* | [**TiktokTiktokShopDealsFeed**](docs/TikTokApi.md#tiktoktiktokshopdealsfeed) | **GET** /v1/tiktok/shop/deals/{deal} | TikTok Shop deals feed
 *TikTokApi* | [**TiktokTiktokShopProductDetail**](docs/TikTokApi.md#tiktoktiktokshopproductdetail) | **GET** /v1/tiktok/shop/products/{product_id} | TikTok Shop product detail
 *TikTokApi* | [**TiktokTiktokShopProductReviews**](docs/TikTokApi.md#tiktoktiktokshopproductreviews) | **GET** /v1/tiktok/shop/products/{product_id}/reviews | TikTok Shop product reviews
 *TikTokApi* | [**TiktokTiktokShopRootCategories**](docs/TikTokApi.md#tiktoktiktokshoprootcategories) | **GET** /v1/tiktok/shop/categories | TikTok Shop root categories
