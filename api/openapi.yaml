@@ -21588,6 +21588,43 @@ paths:
       summary: Region/address suggestions
       tags:
       - Zillow
+  /v1/zillow/building:
+    get:
+      description: |-
+        Get a Zillow apartment community with per-unit pricing and availability.
+
+        Multi-unit rentals are served on `/apartments/...` and `/b/...` pages, which
+        `/property` cannot read — pass a `home_type=BUILDING` search result's
+        `detail_url` here instead.
+      operationId: zillow_get_multifamily_building
+      parameters:
+      - description: "Full Zillow building URL, e.g. https://www.zillow.com/apartments/kansas-city-mo/brookside-51/CkBJqt/"
+        explode: true
+        in: query
+        name: url
+        required: true
+        schema:
+          description: "Full Zillow building URL, e.g. https://www.zillow.com/apartments/kansas-city-mo/brookside-51/CkBJqt/"
+          title: Url
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get multifamily building
+      tags:
+      - Zillow
   /v1/zillow/health:
     get:
       description: Check health of the Zillow scraper service (accepts HEAD for UptimeRobot).

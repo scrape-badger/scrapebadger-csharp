@@ -67,6 +67,18 @@ namespace ScrapeBadger.Test.Api
         }
 
         /// <summary>
+        /// Test ZillowGetMultifamilyBuilding
+        /// </summary>
+        [Fact]
+        public void ZillowGetMultifamilyBuildingTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string url = null;
+            //var response = instance.ZillowGetMultifamilyBuilding(url);
+            //Assert.IsType<Object>(response);
+        }
+
+        /// <summary>
         /// Test ZillowGetPropertyDetail
         /// </summary>
         [Fact]
