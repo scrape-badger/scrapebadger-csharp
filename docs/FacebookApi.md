@@ -1869,11 +1869,11 @@ catch (ApiException e)
 
 <a id="facebooksearchmarketplace"></a>
 # **FacebookSearchMarketplace**
-> Object FacebookSearchMarketplace (string query, string location = null, int? minPrice = null, int? maxPrice = null, int? daysSinceListed = null, string sortBy = null, string itemCondition = null, string deliveryMethod = null, string after = null)
+> Object FacebookSearchMarketplace (string query, string location = null, int? minPrice = null, int? maxPrice = null, int? daysSinceListed = null, string sortBy = null, string itemCondition = null, string deliveryMethod = null, int? radius = null, string after = null)
 
 Search Marketplace
 
-Search Facebook Marketplace listings by keyword and location.
+Search Facebook Marketplace listings by keyword and location.  ``location`` must be a Facebook location slug (``london``, ``newcastleupontyne``) or a numeric Facebook place id — the ``city_page_id`` on any listing is one. Human-readable names such as ``Durham, UK`` are rejected with a 400 rather than silently searching Facebook's San Francisco default.
 
 ### Example
 ```csharp
@@ -1902,19 +1902,20 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FacebookApi(httpClient, config, httpClientHandler);
             var query = "query_example";  // string | Search keywords
-            var location = "\"nyc\"";  // string | Marketplace location slug (optional)  (default to "nyc")
+            var location = "\"nyc\"";  // string | Marketplace location slug or numeric place id (optional)  (default to "nyc")
             var minPrice = 56;  // int? |  (optional) 
             var maxPrice = 56;  // int? |  (optional) 
             var daysSinceListed = 56;  // int? |  (optional) 
             var sortBy = "sortBy_example";  // string |  (optional) 
             var itemCondition = "itemCondition_example";  // string |  (optional) 
             var deliveryMethod = "deliveryMethod_example";  // string |  (optional) 
+            var radius = 56;  // int? | Search radius around the location (km, or miles in the US) (optional) 
             var after = "after_example";  // string |  (optional) 
 
             try
             {
                 // Search Marketplace
-                Object result = apiInstance.FacebookSearchMarketplace(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, after);
+                Object result = apiInstance.FacebookSearchMarketplace(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1935,7 +1936,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search Marketplace
-    ApiResponse<Object> response = apiInstance.FacebookSearchMarketplaceWithHttpInfo(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, after);
+    ApiResponse<Object> response = apiInstance.FacebookSearchMarketplaceWithHttpInfo(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1953,13 +1954,14 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **query** | **string** | Search keywords |  |
-| **location** | **string** | Marketplace location slug | [optional] [default to &quot;nyc&quot;] |
+| **location** | **string** | Marketplace location slug or numeric place id | [optional] [default to &quot;nyc&quot;] |
 | **minPrice** | **int?** |  | [optional]  |
 | **maxPrice** | **int?** |  | [optional]  |
 | **daysSinceListed** | **int?** |  | [optional]  |
 | **sortBy** | **string** |  | [optional]  |
 | **itemCondition** | **string** |  | [optional]  |
 | **deliveryMethod** | **string** |  | [optional]  |
+| **radius** | **int?** | Search radius around the location (km, or miles in the US) | [optional]  |
 | **after** | **string** |  | [optional]  |
 
 ### Return type

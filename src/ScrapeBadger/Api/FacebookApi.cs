@@ -437,39 +437,41 @@ namespace ScrapeBadger.Api
         /// Search Marketplace
         /// </summary>
         /// <remarks>
-        /// Search Facebook Marketplace listings by keyword and location.
+        /// Search Facebook Marketplace listings by keyword and location.  &#x60;&#x60;location&#x60;&#x60; must be a Facebook location slug (&#x60;&#x60;london&#x60;&#x60;, &#x60;&#x60;newcastleupontyne&#x60;&#x60;) or a numeric Facebook place id — the &#x60;&#x60;city_page_id&#x60;&#x60; on any listing is one. Human-readable names such as &#x60;&#x60;Durham, UK&#x60;&#x60; are rejected with a 400 rather than silently searching Facebook&#39;s San Francisco default.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords</param>
-        /// <param name="location">Marketplace location slug (optional, default to &quot;nyc&quot;)</param>
+        /// <param name="location">Marketplace location slug or numeric place id (optional, default to &quot;nyc&quot;)</param>
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="daysSinceListed"> (optional)</param>
         /// <param name="sortBy"> (optional)</param>
         /// <param name="itemCondition"> (optional)</param>
         /// <param name="deliveryMethod"> (optional)</param>
+        /// <param name="radius">Search radius around the location (km, or miles in the US) (optional)</param>
         /// <param name="after"> (optional)</param>
         /// <returns>Object</returns>
-        Object FacebookSearchMarketplace(string query, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), int? daysSinceListed = default(int?), string sortBy = default(string), string itemCondition = default(string), string deliveryMethod = default(string), string after = default(string));
+        Object FacebookSearchMarketplace(string query, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), int? daysSinceListed = default(int?), string sortBy = default(string), string itemCondition = default(string), string deliveryMethod = default(string), int? radius = default(int?), string after = default(string));
 
         /// <summary>
         /// Search Marketplace
         /// </summary>
         /// <remarks>
-        /// Search Facebook Marketplace listings by keyword and location.
+        /// Search Facebook Marketplace listings by keyword and location.  &#x60;&#x60;location&#x60;&#x60; must be a Facebook location slug (&#x60;&#x60;london&#x60;&#x60;, &#x60;&#x60;newcastleupontyne&#x60;&#x60;) or a numeric Facebook place id — the &#x60;&#x60;city_page_id&#x60;&#x60; on any listing is one. Human-readable names such as &#x60;&#x60;Durham, UK&#x60;&#x60; are rejected with a 400 rather than silently searching Facebook&#39;s San Francisco default.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords</param>
-        /// <param name="location">Marketplace location slug (optional, default to &quot;nyc&quot;)</param>
+        /// <param name="location">Marketplace location slug or numeric place id (optional, default to &quot;nyc&quot;)</param>
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="daysSinceListed"> (optional)</param>
         /// <param name="sortBy"> (optional)</param>
         /// <param name="itemCondition"> (optional)</param>
         /// <param name="deliveryMethod"> (optional)</param>
+        /// <param name="radius">Search radius around the location (km, or miles in the US) (optional)</param>
         /// <param name="after"> (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> FacebookSearchMarketplaceWithHttpInfo(string query, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), int? daysSinceListed = default(int?), string sortBy = default(string), string itemCondition = default(string), string deliveryMethod = default(string), string after = default(string));
+        ApiResponse<Object> FacebookSearchMarketplaceWithHttpInfo(string query, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), int? daysSinceListed = default(int?), string sortBy = default(string), string itemCondition = default(string), string deliveryMethod = default(string), int? radius = default(int?), string after = default(string));
         /// <summary>
         /// Search Pages
         /// </summary>
@@ -1046,41 +1048,43 @@ namespace ScrapeBadger.Api
         /// Search Marketplace
         /// </summary>
         /// <remarks>
-        /// Search Facebook Marketplace listings by keyword and location.
+        /// Search Facebook Marketplace listings by keyword and location.  &#x60;&#x60;location&#x60;&#x60; must be a Facebook location slug (&#x60;&#x60;london&#x60;&#x60;, &#x60;&#x60;newcastleupontyne&#x60;&#x60;) or a numeric Facebook place id — the &#x60;&#x60;city_page_id&#x60;&#x60; on any listing is one. Human-readable names such as &#x60;&#x60;Durham, UK&#x60;&#x60; are rejected with a 400 rather than silently searching Facebook&#39;s San Francisco default.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords</param>
-        /// <param name="location">Marketplace location slug (optional, default to &quot;nyc&quot;)</param>
+        /// <param name="location">Marketplace location slug or numeric place id (optional, default to &quot;nyc&quot;)</param>
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="daysSinceListed"> (optional)</param>
         /// <param name="sortBy"> (optional)</param>
         /// <param name="itemCondition"> (optional)</param>
         /// <param name="deliveryMethod"> (optional)</param>
+        /// <param name="radius">Search radius around the location (km, or miles in the US) (optional)</param>
         /// <param name="after"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> FacebookSearchMarketplaceAsync(string query, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), int? daysSinceListed = default(int?), string sortBy = default(string), string itemCondition = default(string), string deliveryMethod = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> FacebookSearchMarketplaceAsync(string query, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), int? daysSinceListed = default(int?), string sortBy = default(string), string itemCondition = default(string), string deliveryMethod = default(string), int? radius = default(int?), string after = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Search Marketplace
         /// </summary>
         /// <remarks>
-        /// Search Facebook Marketplace listings by keyword and location.
+        /// Search Facebook Marketplace listings by keyword and location.  &#x60;&#x60;location&#x60;&#x60; must be a Facebook location slug (&#x60;&#x60;london&#x60;&#x60;, &#x60;&#x60;newcastleupontyne&#x60;&#x60;) or a numeric Facebook place id — the &#x60;&#x60;city_page_id&#x60;&#x60; on any listing is one. Human-readable names such as &#x60;&#x60;Durham, UK&#x60;&#x60; are rejected with a 400 rather than silently searching Facebook&#39;s San Francisco default.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords</param>
-        /// <param name="location">Marketplace location slug (optional, default to &quot;nyc&quot;)</param>
+        /// <param name="location">Marketplace location slug or numeric place id (optional, default to &quot;nyc&quot;)</param>
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="daysSinceListed"> (optional)</param>
         /// <param name="sortBy"> (optional)</param>
         /// <param name="itemCondition"> (optional)</param>
         /// <param name="deliveryMethod"> (optional)</param>
+        /// <param name="radius">Search radius around the location (km, or miles in the US) (optional)</param>
         /// <param name="after"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> FacebookSearchMarketplaceWithHttpInfoAsync(string query, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), int? daysSinceListed = default(int?), string sortBy = default(string), string itemCondition = default(string), string deliveryMethod = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> FacebookSearchMarketplaceWithHttpInfoAsync(string query, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), int? daysSinceListed = default(int?), string sortBy = default(string), string itemCondition = default(string), string deliveryMethod = default(string), int? radius = default(int?), string after = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Search Pages
         /// </summary>
@@ -3840,40 +3844,42 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search Marketplace Search Facebook Marketplace listings by keyword and location.
+        /// Search Marketplace Search Facebook Marketplace listings by keyword and location.  &#x60;&#x60;location&#x60;&#x60; must be a Facebook location slug (&#x60;&#x60;london&#x60;&#x60;, &#x60;&#x60;newcastleupontyne&#x60;&#x60;) or a numeric Facebook place id — the &#x60;&#x60;city_page_id&#x60;&#x60; on any listing is one. Human-readable names such as &#x60;&#x60;Durham, UK&#x60;&#x60; are rejected with a 400 rather than silently searching Facebook&#39;s San Francisco default.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords</param>
-        /// <param name="location">Marketplace location slug (optional, default to &quot;nyc&quot;)</param>
+        /// <param name="location">Marketplace location slug or numeric place id (optional, default to &quot;nyc&quot;)</param>
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="daysSinceListed"> (optional)</param>
         /// <param name="sortBy"> (optional)</param>
         /// <param name="itemCondition"> (optional)</param>
         /// <param name="deliveryMethod"> (optional)</param>
+        /// <param name="radius">Search radius around the location (km, or miles in the US) (optional)</param>
         /// <param name="after"> (optional)</param>
         /// <returns>Object</returns>
-        public Object FacebookSearchMarketplace(string query, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), int? daysSinceListed = default(int?), string sortBy = default(string), string itemCondition = default(string), string deliveryMethod = default(string), string after = default(string))
+        public Object FacebookSearchMarketplace(string query, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), int? daysSinceListed = default(int?), string sortBy = default(string), string itemCondition = default(string), string deliveryMethod = default(string), int? radius = default(int?), string after = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = FacebookSearchMarketplaceWithHttpInfo(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, after);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = FacebookSearchMarketplaceWithHttpInfo(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Search Marketplace Search Facebook Marketplace listings by keyword and location.
+        /// Search Marketplace Search Facebook Marketplace listings by keyword and location.  &#x60;&#x60;location&#x60;&#x60; must be a Facebook location slug (&#x60;&#x60;london&#x60;&#x60;, &#x60;&#x60;newcastleupontyne&#x60;&#x60;) or a numeric Facebook place id — the &#x60;&#x60;city_page_id&#x60;&#x60; on any listing is one. Human-readable names such as &#x60;&#x60;Durham, UK&#x60;&#x60; are rejected with a 400 rather than silently searching Facebook&#39;s San Francisco default.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords</param>
-        /// <param name="location">Marketplace location slug (optional, default to &quot;nyc&quot;)</param>
+        /// <param name="location">Marketplace location slug or numeric place id (optional, default to &quot;nyc&quot;)</param>
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="daysSinceListed"> (optional)</param>
         /// <param name="sortBy"> (optional)</param>
         /// <param name="itemCondition"> (optional)</param>
         /// <param name="deliveryMethod"> (optional)</param>
+        /// <param name="radius">Search radius around the location (km, or miles in the US) (optional)</param>
         /// <param name="after"> (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> FacebookSearchMarketplaceWithHttpInfo(string query, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), int? daysSinceListed = default(int?), string sortBy = default(string), string itemCondition = default(string), string deliveryMethod = default(string), string after = default(string))
+        public ScrapeBadger.Client.ApiResponse<Object> FacebookSearchMarketplaceWithHttpInfo(string query, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), int? daysSinceListed = default(int?), string sortBy = default(string), string itemCondition = default(string), string deliveryMethod = default(string), int? radius = default(int?), string after = default(string))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -3923,6 +3929,10 @@ namespace ScrapeBadger.Api
             if (deliveryMethod != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "delivery_method", deliveryMethod));
+            }
+            if (radius != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "radius", radius));
             }
             if (after != null)
             {
@@ -3948,42 +3958,44 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search Marketplace Search Facebook Marketplace listings by keyword and location.
+        /// Search Marketplace Search Facebook Marketplace listings by keyword and location.  &#x60;&#x60;location&#x60;&#x60; must be a Facebook location slug (&#x60;&#x60;london&#x60;&#x60;, &#x60;&#x60;newcastleupontyne&#x60;&#x60;) or a numeric Facebook place id — the &#x60;&#x60;city_page_id&#x60;&#x60; on any listing is one. Human-readable names such as &#x60;&#x60;Durham, UK&#x60;&#x60; are rejected with a 400 rather than silently searching Facebook&#39;s San Francisco default.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords</param>
-        /// <param name="location">Marketplace location slug (optional, default to &quot;nyc&quot;)</param>
+        /// <param name="location">Marketplace location slug or numeric place id (optional, default to &quot;nyc&quot;)</param>
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="daysSinceListed"> (optional)</param>
         /// <param name="sortBy"> (optional)</param>
         /// <param name="itemCondition"> (optional)</param>
         /// <param name="deliveryMethod"> (optional)</param>
+        /// <param name="radius">Search radius around the location (km, or miles in the US) (optional)</param>
         /// <param name="after"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> FacebookSearchMarketplaceAsync(string query, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), int? daysSinceListed = default(int?), string sortBy = default(string), string itemCondition = default(string), string deliveryMethod = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> FacebookSearchMarketplaceAsync(string query, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), int? daysSinceListed = default(int?), string sortBy = default(string), string itemCondition = default(string), string deliveryMethod = default(string), int? radius = default(int?), string after = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await FacebookSearchMarketplaceWithHttpInfoAsync(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, after, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await FacebookSearchMarketplaceWithHttpInfoAsync(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Search Marketplace Search Facebook Marketplace listings by keyword and location.
+        /// Search Marketplace Search Facebook Marketplace listings by keyword and location.  &#x60;&#x60;location&#x60;&#x60; must be a Facebook location slug (&#x60;&#x60;london&#x60;&#x60;, &#x60;&#x60;newcastleupontyne&#x60;&#x60;) or a numeric Facebook place id — the &#x60;&#x60;city_page_id&#x60;&#x60; on any listing is one. Human-readable names such as &#x60;&#x60;Durham, UK&#x60;&#x60; are rejected with a 400 rather than silently searching Facebook&#39;s San Francisco default.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords</param>
-        /// <param name="location">Marketplace location slug (optional, default to &quot;nyc&quot;)</param>
+        /// <param name="location">Marketplace location slug or numeric place id (optional, default to &quot;nyc&quot;)</param>
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="daysSinceListed"> (optional)</param>
         /// <param name="sortBy"> (optional)</param>
         /// <param name="itemCondition"> (optional)</param>
         /// <param name="deliveryMethod"> (optional)</param>
+        /// <param name="radius">Search radius around the location (km, or miles in the US) (optional)</param>
         /// <param name="after"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> FacebookSearchMarketplaceWithHttpInfoAsync(string query, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), int? daysSinceListed = default(int?), string sortBy = default(string), string itemCondition = default(string), string deliveryMethod = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> FacebookSearchMarketplaceWithHttpInfoAsync(string query, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), int? daysSinceListed = default(int?), string sortBy = default(string), string itemCondition = default(string), string deliveryMethod = default(string), int? radius = default(int?), string after = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -4035,6 +4047,10 @@ namespace ScrapeBadger.Api
             if (deliveryMethod != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "delivery_method", deliveryMethod));
+            }
+            if (radius != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "radius", radius));
             }
             if (after != null)
             {

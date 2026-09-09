@@ -5315,7 +5315,13 @@ paths:
       - Facebook
   /v1/facebook/marketplace/search:
     get:
-      description: Search Facebook Marketplace listings by keyword and location.
+      description: |-
+        Search Facebook Marketplace listings by keyword and location.
+
+        ``location`` must be a Facebook location slug (``london``, ``newcastleupontyne``)
+        or a numeric Facebook place id — the ``city_page_id`` on any listing is one.
+        Human-readable names such as ``Durham, UK`` are rejected with a 400 rather than
+        silently searching Facebook's San Francisco default.
       operationId: facebook_search_marketplace
       parameters:
       - description: Search keywords
@@ -5328,14 +5334,14 @@ paths:
           title: Query
           type: string
         style: form
-      - description: Marketplace location slug
+      - description: Marketplace location slug or numeric place id
         explode: true
         in: query
         name: location
         required: false
         schema:
           default: nyc
-          description: Marketplace location slug
+          description: Marketplace location slug or numeric place id
           title: Location
           type: string
         style: form
@@ -5386,6 +5392,15 @@ paths:
         schema:
           nullable: true
           type: string
+        style: form
+      - description: "Search radius around the location (km, or miles in the US)"
+        explode: true
+        in: query
+        name: radius
+        required: false
+        schema:
+          nullable: true
+          type: integer
         style: form
       - explode: true
         in: query
