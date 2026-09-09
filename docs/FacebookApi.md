@@ -857,11 +857,11 @@ catch (ApiException e)
 
 <a id="facebookgetpostcomments"></a>
 # **FacebookGetPostComments**
-> Object FacebookGetPostComments (string postId, string after = null, string sort = null)
+> Object FacebookGetPostComments (string postId, string url = null, string after = null, string sort = null)
 
 Get post comments
 
-Get a Facebook post's comment thread (paginated).
+Get a Facebook post's comment thread, 10 per page.  ``sort`` is ``relevance`` (Facebook's ranked order, the default) or ``newest``. Follow ``end_cursor`` while ``has_next_page`` to walk the whole thread; ``total_count`` is how many the post has.
 
 ### Example
 ```csharp
@@ -890,13 +890,14 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FacebookApi(httpClient, config, httpClientHandler);
             var postId = "postId_example";  // string | 
+            var url = "url_example";  // string | Full post permalink/reel URL — overrides post_id (optional) 
             var after = "after_example";  // string |  (optional) 
-            var sort = "\"relevance\"";  // string |  (optional)  (default to "relevance")
+            var sort = "\"relevance\"";  // string | relevance | newest (optional)  (default to "relevance")
 
             try
             {
                 // Get post comments
-                Object result = apiInstance.FacebookGetPostComments(postId, after, sort);
+                Object result = apiInstance.FacebookGetPostComments(postId, url, after, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -917,7 +918,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get post comments
-    ApiResponse<Object> response = apiInstance.FacebookGetPostCommentsWithHttpInfo(postId, after, sort);
+    ApiResponse<Object> response = apiInstance.FacebookGetPostCommentsWithHttpInfo(postId, url, after, sort);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -935,8 +936,9 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **postId** | **string** |  |  |
+| **url** | **string** | Full post permalink/reel URL — overrides post_id | [optional]  |
 | **after** | **string** |  | [optional]  |
-| **sort** | **string** |  | [optional] [default to &quot;relevance&quot;] |
+| **sort** | **string** | relevance | newest | [optional] [default to &quot;relevance&quot;] |
 
 ### Return type
 
@@ -962,11 +964,11 @@ catch (ApiException e)
 
 <a id="facebookgetpostdetail"></a>
 # **FacebookGetPostDetail**
-> Object FacebookGetPostDetail (string postId)
+> Object FacebookGetPostDetail (string postId, string url = null)
 
 Get post detail
 
-Get a Facebook post's detail plus its top comments.
+Get a Facebook post's detail: text, media, author, date and the reaction / comment / share counts. The comments themselves come from ``/posts/{post_id}/comments``.
 
 ### Example
 ```csharp
@@ -995,11 +997,12 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new FacebookApi(httpClient, config, httpClientHandler);
             var postId = "postId_example";  // string | 
+            var url = "url_example";  // string | Full post permalink/reel URL — overrides post_id (optional) 
 
             try
             {
                 // Get post detail
-                Object result = apiInstance.FacebookGetPostDetail(postId);
+                Object result = apiInstance.FacebookGetPostDetail(postId, url);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1020,7 +1023,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get post detail
-    ApiResponse<Object> response = apiInstance.FacebookGetPostDetailWithHttpInfo(postId);
+    ApiResponse<Object> response = apiInstance.FacebookGetPostDetailWithHttpInfo(postId, url);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1038,6 +1041,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **postId** | **string** |  |  |
+| **url** | **string** | Full post permalink/reel URL — overrides post_id | [optional]  |
 
 ### Return type
 

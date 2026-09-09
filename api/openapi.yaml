@@ -5497,7 +5497,10 @@ paths:
       - Facebook
   /v1/facebook/posts/{post_id}:
     get:
-      description: Get a Facebook post's detail plus its top comments.
+      description: |-
+        Get a Facebook post's detail: text, media, author, date and the
+        reaction / comment / share counts. The comments themselves come from
+        ``/posts/{post_id}/comments``.
       operationId: facebook_get_post_detail
       parameters:
       - explode: false
@@ -5508,6 +5511,15 @@ paths:
           title: Post Id
           type: string
         style: simple
+      - description: Full post permalink/reel URL — overrides post_id
+        explode: true
+        in: query
+        name: url
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -5527,7 +5539,12 @@ paths:
       - Facebook
   /v1/facebook/posts/{post_id}/comments:
     get:
-      description: Get a Facebook post's comment thread (paginated).
+      description: |-
+        Get a Facebook post's comment thread, 10 per page.
+
+        ``sort`` is ``relevance`` (Facebook's ranked order, the default) or
+        ``newest``. Follow ``end_cursor`` while ``has_next_page`` to walk the whole
+        thread; ``total_count`` is how many the post has.
       operationId: facebook_get_post_comments
       parameters:
       - explode: false
@@ -5538,6 +5555,15 @@ paths:
           title: Post Id
           type: string
         style: simple
+      - description: Full post permalink/reel URL — overrides post_id
+        explode: true
+        in: query
+        name: url
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
       - explode: true
         in: query
         name: after
@@ -5546,12 +5572,14 @@ paths:
           nullable: true
           type: string
         style: form
-      - explode: true
+      - description: relevance | newest
+        explode: true
         in: query
         name: sort
         required: false
         schema:
           default: relevance
+          description: relevance | newest
           title: Sort
           type: string
         style: form

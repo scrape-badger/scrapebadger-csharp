@@ -217,48 +217,52 @@ namespace ScrapeBadger.Api
         /// Get post comments
         /// </summary>
         /// <remarks>
-        /// Get a Facebook post&#39;s comment thread (paginated).
+        /// Get a Facebook post&#39;s comment thread, 10 per page.  &#x60;&#x60;sort&#x60;&#x60; is &#x60;&#x60;relevance&#x60;&#x60; (Facebook&#39;s ranked order, the default) or &#x60;&#x60;newest&#x60;&#x60;. Follow &#x60;&#x60;end_cursor&#x60;&#x60; while &#x60;&#x60;has_next_page&#x60;&#x60; to walk the whole thread; &#x60;&#x60;total_count&#x60;&#x60; is how many the post has.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postId"></param>
+        /// <param name="url">Full post permalink/reel URL — overrides post_id (optional)</param>
         /// <param name="after"> (optional)</param>
-        /// <param name="sort"> (optional, default to &quot;relevance&quot;)</param>
+        /// <param name="sort">relevance | newest (optional, default to &quot;relevance&quot;)</param>
         /// <returns>Object</returns>
-        Object FacebookGetPostComments(string postId, string after = default(string), string sort = default(string));
+        Object FacebookGetPostComments(string postId, string url = default(string), string after = default(string), string sort = default(string));
 
         /// <summary>
         /// Get post comments
         /// </summary>
         /// <remarks>
-        /// Get a Facebook post&#39;s comment thread (paginated).
+        /// Get a Facebook post&#39;s comment thread, 10 per page.  &#x60;&#x60;sort&#x60;&#x60; is &#x60;&#x60;relevance&#x60;&#x60; (Facebook&#39;s ranked order, the default) or &#x60;&#x60;newest&#x60;&#x60;. Follow &#x60;&#x60;end_cursor&#x60;&#x60; while &#x60;&#x60;has_next_page&#x60;&#x60; to walk the whole thread; &#x60;&#x60;total_count&#x60;&#x60; is how many the post has.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postId"></param>
+        /// <param name="url">Full post permalink/reel URL — overrides post_id (optional)</param>
         /// <param name="after"> (optional)</param>
-        /// <param name="sort"> (optional, default to &quot;relevance&quot;)</param>
+        /// <param name="sort">relevance | newest (optional, default to &quot;relevance&quot;)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> FacebookGetPostCommentsWithHttpInfo(string postId, string after = default(string), string sort = default(string));
+        ApiResponse<Object> FacebookGetPostCommentsWithHttpInfo(string postId, string url = default(string), string after = default(string), string sort = default(string));
         /// <summary>
         /// Get post detail
         /// </summary>
         /// <remarks>
-        /// Get a Facebook post&#39;s detail plus its top comments.
+        /// Get a Facebook post&#39;s detail: text, media, author, date and the reaction / comment / share counts. The comments themselves come from &#x60;&#x60;/posts/{post_id}/comments&#x60;&#x60;.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postId"></param>
+        /// <param name="url">Full post permalink/reel URL — overrides post_id (optional)</param>
         /// <returns>Object</returns>
-        Object FacebookGetPostDetail(string postId);
+        Object FacebookGetPostDetail(string postId, string url = default(string));
 
         /// <summary>
         /// Get post detail
         /// </summary>
         /// <remarks>
-        /// Get a Facebook post&#39;s detail plus its top comments.
+        /// Get a Facebook post&#39;s detail: text, media, author, date and the reaction / comment / share counts. The comments themselves come from &#x60;&#x60;/posts/{post_id}/comments&#x60;&#x60;.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postId"></param>
+        /// <param name="url">Full post permalink/reel URL — overrides post_id (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> FacebookGetPostDetailWithHttpInfo(string postId);
+        ApiResponse<Object> FacebookGetPostDetailWithHttpInfo(string postId, string url = default(string));
         /// <summary>
         /// Get profile detail
         /// </summary>
@@ -808,52 +812,56 @@ namespace ScrapeBadger.Api
         /// Get post comments
         /// </summary>
         /// <remarks>
-        /// Get a Facebook post&#39;s comment thread (paginated).
+        /// Get a Facebook post&#39;s comment thread, 10 per page.  &#x60;&#x60;sort&#x60;&#x60; is &#x60;&#x60;relevance&#x60;&#x60; (Facebook&#39;s ranked order, the default) or &#x60;&#x60;newest&#x60;&#x60;. Follow &#x60;&#x60;end_cursor&#x60;&#x60; while &#x60;&#x60;has_next_page&#x60;&#x60; to walk the whole thread; &#x60;&#x60;total_count&#x60;&#x60; is how many the post has.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postId"></param>
+        /// <param name="url">Full post permalink/reel URL — overrides post_id (optional)</param>
         /// <param name="after"> (optional)</param>
-        /// <param name="sort"> (optional, default to &quot;relevance&quot;)</param>
+        /// <param name="sort">relevance | newest (optional, default to &quot;relevance&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> FacebookGetPostCommentsAsync(string postId, string after = default(string), string sort = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> FacebookGetPostCommentsAsync(string postId, string url = default(string), string after = default(string), string sort = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get post comments
         /// </summary>
         /// <remarks>
-        /// Get a Facebook post&#39;s comment thread (paginated).
+        /// Get a Facebook post&#39;s comment thread, 10 per page.  &#x60;&#x60;sort&#x60;&#x60; is &#x60;&#x60;relevance&#x60;&#x60; (Facebook&#39;s ranked order, the default) or &#x60;&#x60;newest&#x60;&#x60;. Follow &#x60;&#x60;end_cursor&#x60;&#x60; while &#x60;&#x60;has_next_page&#x60;&#x60; to walk the whole thread; &#x60;&#x60;total_count&#x60;&#x60; is how many the post has.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postId"></param>
+        /// <param name="url">Full post permalink/reel URL — overrides post_id (optional)</param>
         /// <param name="after"> (optional)</param>
-        /// <param name="sort"> (optional, default to &quot;relevance&quot;)</param>
+        /// <param name="sort">relevance | newest (optional, default to &quot;relevance&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> FacebookGetPostCommentsWithHttpInfoAsync(string postId, string after = default(string), string sort = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> FacebookGetPostCommentsWithHttpInfoAsync(string postId, string url = default(string), string after = default(string), string sort = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get post detail
         /// </summary>
         /// <remarks>
-        /// Get a Facebook post&#39;s detail plus its top comments.
+        /// Get a Facebook post&#39;s detail: text, media, author, date and the reaction / comment / share counts. The comments themselves come from &#x60;&#x60;/posts/{post_id}/comments&#x60;&#x60;.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postId"></param>
+        /// <param name="url">Full post permalink/reel URL — overrides post_id (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> FacebookGetPostDetailAsync(string postId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> FacebookGetPostDetailAsync(string postId, string url = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get post detail
         /// </summary>
         /// <remarks>
-        /// Get a Facebook post&#39;s detail plus its top comments.
+        /// Get a Facebook post&#39;s detail: text, media, author, date and the reaction / comment / share counts. The comments themselves come from &#x60;&#x60;/posts/{post_id}/comments&#x60;&#x60;.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postId"></param>
+        /// <param name="url">Full post permalink/reel URL — overrides post_id (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> FacebookGetPostDetailWithHttpInfoAsync(string postId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> FacebookGetPostDetailWithHttpInfoAsync(string postId, string url = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get profile detail
         /// </summary>
@@ -2538,28 +2546,30 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get post comments Get a Facebook post&#39;s comment thread (paginated).
+        /// Get post comments Get a Facebook post&#39;s comment thread, 10 per page.  &#x60;&#x60;sort&#x60;&#x60; is &#x60;&#x60;relevance&#x60;&#x60; (Facebook&#39;s ranked order, the default) or &#x60;&#x60;newest&#x60;&#x60;. Follow &#x60;&#x60;end_cursor&#x60;&#x60; while &#x60;&#x60;has_next_page&#x60;&#x60; to walk the whole thread; &#x60;&#x60;total_count&#x60;&#x60; is how many the post has.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postId"></param>
+        /// <param name="url">Full post permalink/reel URL — overrides post_id (optional)</param>
         /// <param name="after"> (optional)</param>
-        /// <param name="sort"> (optional, default to &quot;relevance&quot;)</param>
+        /// <param name="sort">relevance | newest (optional, default to &quot;relevance&quot;)</param>
         /// <returns>Object</returns>
-        public Object FacebookGetPostComments(string postId, string after = default(string), string sort = default(string))
+        public Object FacebookGetPostComments(string postId, string url = default(string), string after = default(string), string sort = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = FacebookGetPostCommentsWithHttpInfo(postId, after, sort);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = FacebookGetPostCommentsWithHttpInfo(postId, url, after, sort);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get post comments Get a Facebook post&#39;s comment thread (paginated).
+        /// Get post comments Get a Facebook post&#39;s comment thread, 10 per page.  &#x60;&#x60;sort&#x60;&#x60; is &#x60;&#x60;relevance&#x60;&#x60; (Facebook&#39;s ranked order, the default) or &#x60;&#x60;newest&#x60;&#x60;. Follow &#x60;&#x60;end_cursor&#x60;&#x60; while &#x60;&#x60;has_next_page&#x60;&#x60; to walk the whole thread; &#x60;&#x60;total_count&#x60;&#x60; is how many the post has.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postId"></param>
+        /// <param name="url">Full post permalink/reel URL — overrides post_id (optional)</param>
         /// <param name="after"> (optional)</param>
-        /// <param name="sort"> (optional, default to &quot;relevance&quot;)</param>
+        /// <param name="sort">relevance | newest (optional, default to &quot;relevance&quot;)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> FacebookGetPostCommentsWithHttpInfo(string postId, string after = default(string), string sort = default(string))
+        public ScrapeBadger.Client.ApiResponse<Object> FacebookGetPostCommentsWithHttpInfo(string postId, string url = default(string), string after = default(string), string sort = default(string))
         {
             // verify the required parameter 'postId' is set
             if (postId == null)
@@ -2582,6 +2592,10 @@ namespace ScrapeBadger.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("post_id", ScrapeBadger.Client.ClientUtils.ParameterToString(postId)); // path parameter
+            if (url != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "url", url));
+            }
             if (after != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "after", after));
@@ -2610,30 +2624,32 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get post comments Get a Facebook post&#39;s comment thread (paginated).
+        /// Get post comments Get a Facebook post&#39;s comment thread, 10 per page.  &#x60;&#x60;sort&#x60;&#x60; is &#x60;&#x60;relevance&#x60;&#x60; (Facebook&#39;s ranked order, the default) or &#x60;&#x60;newest&#x60;&#x60;. Follow &#x60;&#x60;end_cursor&#x60;&#x60; while &#x60;&#x60;has_next_page&#x60;&#x60; to walk the whole thread; &#x60;&#x60;total_count&#x60;&#x60; is how many the post has.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postId"></param>
+        /// <param name="url">Full post permalink/reel URL — overrides post_id (optional)</param>
         /// <param name="after"> (optional)</param>
-        /// <param name="sort"> (optional, default to &quot;relevance&quot;)</param>
+        /// <param name="sort">relevance | newest (optional, default to &quot;relevance&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> FacebookGetPostCommentsAsync(string postId, string after = default(string), string sort = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> FacebookGetPostCommentsAsync(string postId, string url = default(string), string after = default(string), string sort = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await FacebookGetPostCommentsWithHttpInfoAsync(postId, after, sort, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await FacebookGetPostCommentsWithHttpInfoAsync(postId, url, after, sort, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get post comments Get a Facebook post&#39;s comment thread (paginated).
+        /// Get post comments Get a Facebook post&#39;s comment thread, 10 per page.  &#x60;&#x60;sort&#x60;&#x60; is &#x60;&#x60;relevance&#x60;&#x60; (Facebook&#39;s ranked order, the default) or &#x60;&#x60;newest&#x60;&#x60;. Follow &#x60;&#x60;end_cursor&#x60;&#x60; while &#x60;&#x60;has_next_page&#x60;&#x60; to walk the whole thread; &#x60;&#x60;total_count&#x60;&#x60; is how many the post has.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postId"></param>
+        /// <param name="url">Full post permalink/reel URL — overrides post_id (optional)</param>
         /// <param name="after"> (optional)</param>
-        /// <param name="sort"> (optional, default to &quot;relevance&quot;)</param>
+        /// <param name="sort">relevance | newest (optional, default to &quot;relevance&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> FacebookGetPostCommentsWithHttpInfoAsync(string postId, string after = default(string), string sort = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> FacebookGetPostCommentsWithHttpInfoAsync(string postId, string url = default(string), string after = default(string), string sort = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'postId' is set
             if (postId == null)
@@ -2658,6 +2674,10 @@ namespace ScrapeBadger.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("post_id", ScrapeBadger.Client.ClientUtils.ParameterToString(postId)); // path parameter
+            if (url != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "url", url));
+            }
             if (after != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "after", after));
@@ -2687,24 +2707,26 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get post detail Get a Facebook post&#39;s detail plus its top comments.
+        /// Get post detail Get a Facebook post&#39;s detail: text, media, author, date and the reaction / comment / share counts. The comments themselves come from &#x60;&#x60;/posts/{post_id}/comments&#x60;&#x60;.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postId"></param>
+        /// <param name="url">Full post permalink/reel URL — overrides post_id (optional)</param>
         /// <returns>Object</returns>
-        public Object FacebookGetPostDetail(string postId)
+        public Object FacebookGetPostDetail(string postId, string url = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = FacebookGetPostDetailWithHttpInfo(postId);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = FacebookGetPostDetailWithHttpInfo(postId, url);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get post detail Get a Facebook post&#39;s detail plus its top comments.
+        /// Get post detail Get a Facebook post&#39;s detail: text, media, author, date and the reaction / comment / share counts. The comments themselves come from &#x60;&#x60;/posts/{post_id}/comments&#x60;&#x60;.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postId"></param>
+        /// <param name="url">Full post permalink/reel URL — overrides post_id (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> FacebookGetPostDetailWithHttpInfo(string postId)
+        public ScrapeBadger.Client.ApiResponse<Object> FacebookGetPostDetailWithHttpInfo(string postId, string url = default(string))
         {
             // verify the required parameter 'postId' is set
             if (postId == null)
@@ -2727,6 +2749,10 @@ namespace ScrapeBadger.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("post_id", ScrapeBadger.Client.ClientUtils.ParameterToString(postId)); // path parameter
+            if (url != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "url", url));
+            }
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
@@ -2747,26 +2773,28 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get post detail Get a Facebook post&#39;s detail plus its top comments.
+        /// Get post detail Get a Facebook post&#39;s detail: text, media, author, date and the reaction / comment / share counts. The comments themselves come from &#x60;&#x60;/posts/{post_id}/comments&#x60;&#x60;.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postId"></param>
+        /// <param name="url">Full post permalink/reel URL — overrides post_id (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> FacebookGetPostDetailAsync(string postId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> FacebookGetPostDetailAsync(string postId, string url = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await FacebookGetPostDetailWithHttpInfoAsync(postId, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await FacebookGetPostDetailWithHttpInfoAsync(postId, url, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get post detail Get a Facebook post&#39;s detail plus its top comments.
+        /// Get post detail Get a Facebook post&#39;s detail: text, media, author, date and the reaction / comment / share counts. The comments themselves come from &#x60;&#x60;/posts/{post_id}/comments&#x60;&#x60;.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="postId"></param>
+        /// <param name="url">Full post permalink/reel URL — overrides post_id (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> FacebookGetPostDetailWithHttpInfoAsync(string postId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> FacebookGetPostDetailWithHttpInfoAsync(string postId, string url = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'postId' is set
             if (postId == null)
@@ -2791,6 +2819,10 @@ namespace ScrapeBadger.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("post_id", ScrapeBadger.Client.ClientUtils.ParameterToString(postId)); // path parameter
+            if (url != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "url", url));
+            }
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))

@@ -166,9 +166,10 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string postId = null;
+            //string url = null;
             //string after = null;
             //string sort = null;
-            //var response = instance.FacebookGetPostComments(postId, after, sort);
+            //var response = instance.FacebookGetPostComments(postId, url, after, sort);
             //Assert.IsType<Object>(response);
         }
 
@@ -180,7 +181,8 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string postId = null;
-            //var response = instance.FacebookGetPostDetail(postId);
+            //string url = null;
+            //var response = instance.FacebookGetPostDetail(postId, url);
             //Assert.IsType<Object>(response);
         }
 
