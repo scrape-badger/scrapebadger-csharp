@@ -18994,6 +18994,36 @@ paths:
       summary: Search Vinted items
       tags:
       - Vinted
+  /v1/vinted/search_by_image:
+    post:
+      description: |-
+        Find active Vinted listings from a photo. 10 credits per successful request. Returns the usual items, pagination and
+        market envelope. Visual ranking; no similarity score. Resend the same image
+        and pagination time for subsequent pages. Structured brand data may be null.
+      operationId: vinted_search_by_image
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VintedImageSearchRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Search by image
+      tags:
+      - Vinted
   /v1/vinted/statuses:
     get:
       description: Get available item condition statuses.
@@ -23083,6 +23113,97 @@ components:
       - msg
       - type
       title: ValidationError
+    VintedImageSearchRequest:
+      additionalProperties: true
+      description: Search by exactly one public image URL or base64-encoded image.
+      example:
+        per_page: 58
+        price_from: 0.14658129805029452
+        image_url: image_url
+        status_ids: status_ids
+        price_to: 0.5962133916683182
+        color_ids: color_ids
+        material_ids: material_ids
+        catalog_ids: catalog_ids
+        market: fr
+        image_base64: image_base64
+        brand_ids: brand_ids
+        size_ids: size_ids
+        page: 1
+        time: 0
+        search_session_id: search_session_id
+      properties:
+        image_url:
+          maxLength: 4096
+          nullable: true
+          type: string
+        image_base64:
+          maxLength: 7100000
+          nullable: true
+          type: string
+        market:
+          default: fr
+          description: Vinted market code; uk aliases gb
+          title: Market
+          type: string
+        page:
+          default: 1
+          minimum: 1.0
+          title: Page
+          type: integer
+        per_page:
+          default: 20
+          maximum: 96.0
+          minimum: 1.0
+          title: Per Page
+          type: integer
+        price_from:
+          minimum: 0.0
+          nullable: true
+          type: number
+        price_to:
+          minimum: 0.0
+          nullable: true
+          type: number
+        brand_ids:
+          maxLength: 1000
+          nullable: true
+          pattern: "^[1-9][0-9]*(,[1-9][0-9]*)*$"
+          type: string
+        catalog_ids:
+          maxLength: 1000
+          nullable: true
+          pattern: "^[1-9][0-9]*(,[1-9][0-9]*)*$"
+          type: string
+        color_ids:
+          maxLength: 1000
+          nullable: true
+          pattern: "^[1-9][0-9]*(,[1-9][0-9]*)*$"
+          type: string
+        size_ids:
+          maxLength: 1000
+          nullable: true
+          pattern: "^[1-9][0-9]*(,[1-9][0-9]*)*$"
+          type: string
+        material_ids:
+          maxLength: 1000
+          nullable: true
+          pattern: "^[1-9][0-9]*(,[1-9][0-9]*)*$"
+          type: string
+        status_ids:
+          maxLength: 1000
+          nullable: true
+          pattern: "^[1-9][0-9]*(,[1-9][0-9]*)*$"
+          type: string
+        time:
+          minimum: 0.0
+          nullable: true
+          type: integer
+        search_session_id:
+          maxLength: 100
+          nullable: true
+          type: string
+      title: VintedImageSearchRequest
     VintedMobileReadRequest:
       additionalProperties: {}
       description: Parameters are validated against the discoverable operation catalog.

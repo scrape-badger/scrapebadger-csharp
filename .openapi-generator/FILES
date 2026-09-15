@@ -55,6 +55,7 @@ docs/TwitterApi.md
 docs/ValidationError.md
 docs/ValidationErrorLocInner.md
 docs/VintedApi.md
+docs/VintedImageSearchRequest.md
 docs/VintedMobileReadRequest.md
 docs/WalmartApi.md
 docs/WebApi.md
@@ -126,6 +127,7 @@ src/ScrapeBadger.Test/Model/TweetDeliveryLogListResponseTests.cs
 src/ScrapeBadger.Test/Model/TweetDeliveryLogResponseTests.cs
 src/ScrapeBadger.Test/Model/ValidationErrorLocInnerTests.cs
 src/ScrapeBadger.Test/Model/ValidationErrorTests.cs
+src/ScrapeBadger.Test/Model/VintedImageSearchRequestTests.cs
 src/ScrapeBadger.Test/Model/VintedMobileReadRequestTests.cs
 src/ScrapeBadger.Test/Model/WebhookCreateTests.cs
 src/ScrapeBadger.Test/Model/WebhookListItemTests.cs
@@ -209,6 +211,7 @@ src/ScrapeBadger/Model/TweetDeliveryLogListResponse.cs
 src/ScrapeBadger/Model/TweetDeliveryLogResponse.cs
 src/ScrapeBadger/Model/ValidationError.cs
 src/ScrapeBadger/Model/ValidationErrorLocInner.cs
+src/ScrapeBadger/Model/VintedImageSearchRequest.cs
 src/ScrapeBadger/Model/VintedMobileReadRequest.cs
 src/ScrapeBadger/Model/WebhookCreate.cs
 src/ScrapeBadger/Model/WebhookListItem.cs

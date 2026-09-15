@@ -167,6 +167,18 @@ namespace ScrapeBadger.Test.Api
         }
 
         /// <summary>
+        /// Test VintedSearchByImage
+        /// </summary>
+        [Fact]
+        public void VintedSearchByImageTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //VintedImageSearchRequest vintedImageSearchRequest = null;
+            //var response = instance.VintedSearchByImage(vintedImageSearchRequest);
+            //Assert.IsType<Object>(response);
+        }
+
+        /// <summary>
         /// Test VintedSearchVintedItems
         /// </summary>
         [Fact]
