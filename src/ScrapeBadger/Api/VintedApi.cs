@@ -162,6 +162,48 @@ namespace ScrapeBadger.Api
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> VintedListMarketsWithHttpInfo();
         /// <summary>
+        /// List public Vinted mobile operations
+        /// </summary>
+        /// <remarks>
+        /// Discover public read operations, parameters and runnable examples. Free.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Object</returns>
+        Object VintedListPublicVintedMobileOperations();
+
+        /// <summary>
+        /// List public Vinted mobile operations
+        /// </summary>
+        /// <remarks>
+        /// Discover public read operations, parameters and runnable examples. Free.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Object</returns>
+        ApiResponse<Object> VintedListPublicVintedMobileOperationsWithHttpInfo();
+        /// <summary>
+        /// Read Vinted mobile data
+        /// </summary>
+        /// <remarks>
+        /// Read catalog, listing, seller, review, sold-comparable, pricing, reference, shipping-reference, homepage or help data. No Vinted account is required. This is an allowlisted read API, including read-only upstream POST queries. Returns operation, market, and the upstream JSON under data. One credit. Sold comparable prices are not guaranteed final negotiated sale prices.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operation"></param>
+        /// <param name="vintedMobileReadRequest"></param>
+        /// <returns>Object</returns>
+        Object VintedReadVintedMobileData(string operation, VintedMobileReadRequest vintedMobileReadRequest);
+
+        /// <summary>
+        /// Read Vinted mobile data
+        /// </summary>
+        /// <remarks>
+        /// Read catalog, listing, seller, review, sold-comparable, pricing, reference, shipping-reference, homepage or help data. No Vinted account is required. This is an allowlisted read API, including read-only upstream POST queries. Returns operation, market, and the upstream JSON under data. One credit. Sold comparable prices are not guaranteed final negotiated sale prices.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operation"></param>
+        /// <param name="vintedMobileReadRequest"></param>
+        /// <returns>ApiResponse of Object</returns>
+        ApiResponse<Object> VintedReadVintedMobileDataWithHttpInfo(string operation, VintedMobileReadRequest vintedMobileReadRequest);
+        /// <summary>
         /// Search brands
         /// </summary>
         /// <remarks>
@@ -201,10 +243,14 @@ namespace ScrapeBadger.Api
         /// <param name="brandIds"> (optional)</param>
         /// <param name="catalogIds">Comma-separated Vinted catalog (category) IDs to restrict the search to, e.g. &#39;1904&#39; or &#39;1904,79&#39;. Vinted applies this before searching, so pagination totals reflect the filtered set. A catalog ID is the &#x60;catalog[]&#x60; value in a Vinted category URL (vinted.fr/catalog?catalog[]&#x3D;1904). (optional)</param>
         /// <param name="colorIds">Comma-separated color IDs (optional)</param>
+        /// <param name="sizeIds">Comma-separated size IDs (optional)</param>
+        /// <param name="materialIds">Comma-separated material IDs (optional)</param>
+        /// <param name="time">Pagination time returned by the preceding page (optional)</param>
+        /// <param name="searchSessionId">Reuse across pages of one search (optional)</param>
         /// <param name="statusIds">Comma-separated condition/status IDs (optional)</param>
         /// <param name="order"> (optional)</param>
         /// <returns>Object</returns>
-        Object VintedSearchVintedItems(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string statusIds = default(string), string order = default(string));
+        Object VintedSearchVintedItems(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string sizeIds = default(string), string materialIds = default(string), int? time = default(int?), string searchSessionId = default(string), string statusIds = default(string), string order = default(string));
 
         /// <summary>
         /// Search Vinted items
@@ -223,10 +269,14 @@ namespace ScrapeBadger.Api
         /// <param name="brandIds"> (optional)</param>
         /// <param name="catalogIds">Comma-separated Vinted catalog (category) IDs to restrict the search to, e.g. &#39;1904&#39; or &#39;1904,79&#39;. Vinted applies this before searching, so pagination totals reflect the filtered set. A catalog ID is the &#x60;catalog[]&#x60; value in a Vinted category URL (vinted.fr/catalog?catalog[]&#x3D;1904). (optional)</param>
         /// <param name="colorIds">Comma-separated color IDs (optional)</param>
+        /// <param name="sizeIds">Comma-separated size IDs (optional)</param>
+        /// <param name="materialIds">Comma-separated material IDs (optional)</param>
+        /// <param name="time">Pagination time returned by the preceding page (optional)</param>
+        /// <param name="searchSessionId">Reuse across pages of one search (optional)</param>
         /// <param name="statusIds">Comma-separated condition/status IDs (optional)</param>
         /// <param name="order"> (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> VintedSearchVintedItemsWithHttpInfo(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string statusIds = default(string), string order = default(string));
+        ApiResponse<Object> VintedSearchVintedItemsWithHttpInfo(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string sizeIds = default(string), string materialIds = default(string), int? time = default(int?), string searchSessionId = default(string), string statusIds = default(string), string order = default(string));
         /// <summary>
         /// Vinted scraper health check
         /// </summary>
@@ -421,6 +471,52 @@ namespace ScrapeBadger.Api
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> VintedListMarketsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
+        /// List public Vinted mobile operations
+        /// </summary>
+        /// <remarks>
+        /// Discover public read operations, parameters and runnable examples. Free.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        System.Threading.Tasks.Task<Object> VintedListPublicVintedMobileOperationsAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// List public Vinted mobile operations
+        /// </summary>
+        /// <remarks>
+        /// Discover public read operations, parameters and runnable examples. Free.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> VintedListPublicVintedMobileOperationsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Read Vinted mobile data
+        /// </summary>
+        /// <remarks>
+        /// Read catalog, listing, seller, review, sold-comparable, pricing, reference, shipping-reference, homepage or help data. No Vinted account is required. This is an allowlisted read API, including read-only upstream POST queries. Returns operation, market, and the upstream JSON under data. One credit. Sold comparable prices are not guaranteed final negotiated sale prices.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operation"></param>
+        /// <param name="vintedMobileReadRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        System.Threading.Tasks.Task<Object> VintedReadVintedMobileDataAsync(string operation, VintedMobileReadRequest vintedMobileReadRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Read Vinted mobile data
+        /// </summary>
+        /// <remarks>
+        /// Read catalog, listing, seller, review, sold-comparable, pricing, reference, shipping-reference, homepage or help data. No Vinted account is required. This is an allowlisted read API, including read-only upstream POST queries. Returns operation, market, and the upstream JSON under data. One credit. Sold comparable prices are not guaranteed final negotiated sale prices.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operation"></param>
+        /// <param name="vintedMobileReadRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> VintedReadVintedMobileDataWithHttpInfoAsync(string operation, VintedMobileReadRequest vintedMobileReadRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
         /// Search brands
         /// </summary>
         /// <remarks>
@@ -462,11 +558,15 @@ namespace ScrapeBadger.Api
         /// <param name="brandIds"> (optional)</param>
         /// <param name="catalogIds">Comma-separated Vinted catalog (category) IDs to restrict the search to, e.g. &#39;1904&#39; or &#39;1904,79&#39;. Vinted applies this before searching, so pagination totals reflect the filtered set. A catalog ID is the &#x60;catalog[]&#x60; value in a Vinted category URL (vinted.fr/catalog?catalog[]&#x3D;1904). (optional)</param>
         /// <param name="colorIds">Comma-separated color IDs (optional)</param>
+        /// <param name="sizeIds">Comma-separated size IDs (optional)</param>
+        /// <param name="materialIds">Comma-separated material IDs (optional)</param>
+        /// <param name="time">Pagination time returned by the preceding page (optional)</param>
+        /// <param name="searchSessionId">Reuse across pages of one search (optional)</param>
         /// <param name="statusIds">Comma-separated condition/status IDs (optional)</param>
         /// <param name="order"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> VintedSearchVintedItemsAsync(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string statusIds = default(string), string order = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> VintedSearchVintedItemsAsync(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string sizeIds = default(string), string materialIds = default(string), int? time = default(int?), string searchSessionId = default(string), string statusIds = default(string), string order = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Search Vinted items
@@ -485,11 +585,15 @@ namespace ScrapeBadger.Api
         /// <param name="brandIds"> (optional)</param>
         /// <param name="catalogIds">Comma-separated Vinted catalog (category) IDs to restrict the search to, e.g. &#39;1904&#39; or &#39;1904,79&#39;. Vinted applies this before searching, so pagination totals reflect the filtered set. A catalog ID is the &#x60;catalog[]&#x60; value in a Vinted category URL (vinted.fr/catalog?catalog[]&#x3D;1904). (optional)</param>
         /// <param name="colorIds">Comma-separated color IDs (optional)</param>
+        /// <param name="sizeIds">Comma-separated size IDs (optional)</param>
+        /// <param name="materialIds">Comma-separated material IDs (optional)</param>
+        /// <param name="time">Pagination time returned by the preceding page (optional)</param>
+        /// <param name="searchSessionId">Reuse across pages of one search (optional)</param>
         /// <param name="statusIds">Comma-separated condition/status IDs (optional)</param>
         /// <param name="order"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> VintedSearchVintedItemsWithHttpInfoAsync(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string statusIds = default(string), string order = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> VintedSearchVintedItemsWithHttpInfoAsync(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string sizeIds = default(string), string materialIds = default(string), int? time = default(int?), string searchSessionId = default(string), string statusIds = default(string), string order = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Vinted scraper health check
         /// </summary>
@@ -1514,6 +1618,258 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
+        /// List public Vinted mobile operations Discover public read operations, parameters and runnable examples. Free.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Object</returns>
+        public Object VintedListPublicVintedMobileOperations()
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = VintedListPublicVintedMobileOperationsWithHttpInfo();
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List public Vinted mobile operations Discover public read operations, parameters and runnable examples. Free.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Object</returns>
+        public ScrapeBadger.Client.ApiResponse<Object> VintedListPublicVintedMobileOperationsWithHttpInfo()
+        {
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Object>("/v1/vinted/mobile/operations", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("VintedListPublicVintedMobileOperations", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List public Vinted mobile operations Discover public read operations, parameters and runnable examples. Free.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        public async System.Threading.Tasks.Task<Object> VintedListPublicVintedMobileOperationsAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await VintedListPublicVintedMobileOperationsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List public Vinted mobile operations Discover public read operations, parameters and runnable examples. Free.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> VintedListPublicVintedMobileOperationsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/vinted/mobile/operations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("VintedListPublicVintedMobileOperations", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Read Vinted mobile data Read catalog, listing, seller, review, sold-comparable, pricing, reference, shipping-reference, homepage or help data. No Vinted account is required. This is an allowlisted read API, including read-only upstream POST queries. Returns operation, market, and the upstream JSON under data. One credit. Sold comparable prices are not guaranteed final negotiated sale prices.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operation"></param>
+        /// <param name="vintedMobileReadRequest"></param>
+        /// <returns>Object</returns>
+        public Object VintedReadVintedMobileData(string operation, VintedMobileReadRequest vintedMobileReadRequest)
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = VintedReadVintedMobileDataWithHttpInfo(operation, vintedMobileReadRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read Vinted mobile data Read catalog, listing, seller, review, sold-comparable, pricing, reference, shipping-reference, homepage or help data. No Vinted account is required. This is an allowlisted read API, including read-only upstream POST queries. Returns operation, market, and the upstream JSON under data. One credit. Sold comparable prices are not guaranteed final negotiated sale prices.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operation"></param>
+        /// <param name="vintedMobileReadRequest"></param>
+        /// <returns>ApiResponse of Object</returns>
+        public ScrapeBadger.Client.ApiResponse<Object> VintedReadVintedMobileDataWithHttpInfo(string operation, VintedMobileReadRequest vintedMobileReadRequest)
+        {
+            // verify the required parameter 'operation' is set
+            if (operation == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'operation' when calling VintedApi->VintedReadVintedMobileData");
+
+            // verify the required parameter 'vintedMobileReadRequest' is set
+            if (vintedMobileReadRequest == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'vintedMobileReadRequest' when calling VintedApi->VintedReadVintedMobileData");
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("operation", ScrapeBadger.Client.ClientUtils.ParameterToString(operation)); // path parameter
+            localVarRequestOptions.Data = vintedMobileReadRequest;
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<Object>("/v1/vinted/mobile/{operation}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("VintedReadVintedMobileData", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Read Vinted mobile data Read catalog, listing, seller, review, sold-comparable, pricing, reference, shipping-reference, homepage or help data. No Vinted account is required. This is an allowlisted read API, including read-only upstream POST queries. Returns operation, market, and the upstream JSON under data. One credit. Sold comparable prices are not guaranteed final negotiated sale prices.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operation"></param>
+        /// <param name="vintedMobileReadRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        public async System.Threading.Tasks.Task<Object> VintedReadVintedMobileDataAsync(string operation, VintedMobileReadRequest vintedMobileReadRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await VintedReadVintedMobileDataWithHttpInfoAsync(operation, vintedMobileReadRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Read Vinted mobile data Read catalog, listing, seller, review, sold-comparable, pricing, reference, shipping-reference, homepage or help data. No Vinted account is required. This is an allowlisted read API, including read-only upstream POST queries. Returns operation, market, and the upstream JSON under data. One credit. Sold comparable prices are not guaranteed final negotiated sale prices.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operation"></param>
+        /// <param name="vintedMobileReadRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> VintedReadVintedMobileDataWithHttpInfoAsync(string operation, VintedMobileReadRequest vintedMobileReadRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'operation' is set
+            if (operation == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'operation' when calling VintedApi->VintedReadVintedMobileData");
+
+            // verify the required parameter 'vintedMobileReadRequest' is set
+            if (vintedMobileReadRequest == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'vintedMobileReadRequest' when calling VintedApi->VintedReadVintedMobileData");
+
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("operation", ScrapeBadger.Client.ClientUtils.ParameterToString(operation)); // path parameter
+            localVarRequestOptions.Data = vintedMobileReadRequest;
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/v1/vinted/mobile/{operation}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("VintedReadVintedMobileData", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// Search brands Search Vinted brands.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1664,12 +2020,16 @@ namespace ScrapeBadger.Api
         /// <param name="brandIds"> (optional)</param>
         /// <param name="catalogIds">Comma-separated Vinted catalog (category) IDs to restrict the search to, e.g. &#39;1904&#39; or &#39;1904,79&#39;. Vinted applies this before searching, so pagination totals reflect the filtered set. A catalog ID is the &#x60;catalog[]&#x60; value in a Vinted category URL (vinted.fr/catalog?catalog[]&#x3D;1904). (optional)</param>
         /// <param name="colorIds">Comma-separated color IDs (optional)</param>
+        /// <param name="sizeIds">Comma-separated size IDs (optional)</param>
+        /// <param name="materialIds">Comma-separated material IDs (optional)</param>
+        /// <param name="time">Pagination time returned by the preceding page (optional)</param>
+        /// <param name="searchSessionId">Reuse across pages of one search (optional)</param>
         /// <param name="statusIds">Comma-separated condition/status IDs (optional)</param>
         /// <param name="order"> (optional)</param>
         /// <returns>Object</returns>
-        public Object VintedSearchVintedItems(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string statusIds = default(string), string order = default(string))
+        public Object VintedSearchVintedItems(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string sizeIds = default(string), string materialIds = default(string), int? time = default(int?), string searchSessionId = default(string), string statusIds = default(string), string order = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = VintedSearchVintedItemsWithHttpInfo(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, statusIds, order);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = VintedSearchVintedItemsWithHttpInfo(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
             return localVarResponse.Data;
         }
 
@@ -1687,10 +2047,14 @@ namespace ScrapeBadger.Api
         /// <param name="brandIds"> (optional)</param>
         /// <param name="catalogIds">Comma-separated Vinted catalog (category) IDs to restrict the search to, e.g. &#39;1904&#39; or &#39;1904,79&#39;. Vinted applies this before searching, so pagination totals reflect the filtered set. A catalog ID is the &#x60;catalog[]&#x60; value in a Vinted category URL (vinted.fr/catalog?catalog[]&#x3D;1904). (optional)</param>
         /// <param name="colorIds">Comma-separated color IDs (optional)</param>
+        /// <param name="sizeIds">Comma-separated size IDs (optional)</param>
+        /// <param name="materialIds">Comma-separated material IDs (optional)</param>
+        /// <param name="time">Pagination time returned by the preceding page (optional)</param>
+        /// <param name="searchSessionId">Reuse across pages of one search (optional)</param>
         /// <param name="statusIds">Comma-separated condition/status IDs (optional)</param>
         /// <param name="order"> (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> VintedSearchVintedItemsWithHttpInfo(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string statusIds = default(string), string order = default(string))
+        public ScrapeBadger.Client.ApiResponse<Object> VintedSearchVintedItemsWithHttpInfo(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string sizeIds = default(string), string materialIds = default(string), int? time = default(int?), string searchSessionId = default(string), string statusIds = default(string), string order = default(string))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1748,6 +2112,22 @@ namespace ScrapeBadger.Api
             if (colorIds != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "color_ids", colorIds));
+            }
+            if (sizeIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "size_ids", sizeIds));
+            }
+            if (materialIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "material_ids", materialIds));
+            }
+            if (time != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "time", time));
+            }
+            if (searchSessionId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "search_session_id", searchSessionId));
             }
             if (statusIds != null)
             {
@@ -1790,13 +2170,17 @@ namespace ScrapeBadger.Api
         /// <param name="brandIds"> (optional)</param>
         /// <param name="catalogIds">Comma-separated Vinted catalog (category) IDs to restrict the search to, e.g. &#39;1904&#39; or &#39;1904,79&#39;. Vinted applies this before searching, so pagination totals reflect the filtered set. A catalog ID is the &#x60;catalog[]&#x60; value in a Vinted category URL (vinted.fr/catalog?catalog[]&#x3D;1904). (optional)</param>
         /// <param name="colorIds">Comma-separated color IDs (optional)</param>
+        /// <param name="sizeIds">Comma-separated size IDs (optional)</param>
+        /// <param name="materialIds">Comma-separated material IDs (optional)</param>
+        /// <param name="time">Pagination time returned by the preceding page (optional)</param>
+        /// <param name="searchSessionId">Reuse across pages of one search (optional)</param>
         /// <param name="statusIds">Comma-separated condition/status IDs (optional)</param>
         /// <param name="order"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> VintedSearchVintedItemsAsync(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string statusIds = default(string), string order = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> VintedSearchVintedItemsAsync(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string sizeIds = default(string), string materialIds = default(string), int? time = default(int?), string searchSessionId = default(string), string statusIds = default(string), string order = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await VintedSearchVintedItemsWithHttpInfoAsync(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, statusIds, order, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await VintedSearchVintedItemsWithHttpInfoAsync(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1814,11 +2198,15 @@ namespace ScrapeBadger.Api
         /// <param name="brandIds"> (optional)</param>
         /// <param name="catalogIds">Comma-separated Vinted catalog (category) IDs to restrict the search to, e.g. &#39;1904&#39; or &#39;1904,79&#39;. Vinted applies this before searching, so pagination totals reflect the filtered set. A catalog ID is the &#x60;catalog[]&#x60; value in a Vinted category URL (vinted.fr/catalog?catalog[]&#x3D;1904). (optional)</param>
         /// <param name="colorIds">Comma-separated color IDs (optional)</param>
+        /// <param name="sizeIds">Comma-separated size IDs (optional)</param>
+        /// <param name="materialIds">Comma-separated material IDs (optional)</param>
+        /// <param name="time">Pagination time returned by the preceding page (optional)</param>
+        /// <param name="searchSessionId">Reuse across pages of one search (optional)</param>
         /// <param name="statusIds">Comma-separated condition/status IDs (optional)</param>
         /// <param name="order"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> VintedSearchVintedItemsWithHttpInfoAsync(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string statusIds = default(string), string order = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> VintedSearchVintedItemsWithHttpInfoAsync(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string sizeIds = default(string), string materialIds = default(string), int? time = default(int?), string searchSessionId = default(string), string statusIds = default(string), string order = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1878,6 +2266,22 @@ namespace ScrapeBadger.Api
             if (colorIds != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "color_ids", colorIds));
+            }
+            if (sizeIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "size_ids", sizeIds));
+            }
+            if (materialIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "material_ids", materialIds));
+            }
+            if (time != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "time", time));
+            }
+            if (searchSessionId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "search_session_id", searchSessionId));
             }
             if (statusIds != null)
             {

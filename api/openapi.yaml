@@ -18760,6 +18760,63 @@ paths:
       summary: List markets
       tags:
       - Vinted
+  /v1/vinted/mobile/operations:
+    get:
+      description: "Discover public read operations, parameters and runnable examples.\
+        \ Free."
+      operationId: vinted_list_public_vinted_mobile_operations
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: List public Vinted mobile operations
+      tags:
+      - Vinted
+  /v1/vinted/mobile/{operation}:
+    post:
+      description: |-
+        Read catalog, listing, seller, review, sold-comparable, pricing, reference,
+        shipping-reference, homepage or help data. No Vinted account is required.
+        This is an allowlisted read API, including read-only upstream POST queries.
+        Returns operation, market, and the upstream JSON under data. One credit.
+        Sold comparable prices are not guaranteed final negotiated sale prices.
+      operationId: vinted_read_vinted_mobile_data
+      parameters:
+      - explode: false
+        in: path
+        name: operation
+        required: true
+        schema:
+          title: Operation
+          type: string
+        style: simple
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VintedMobileReadRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Read Vinted mobile data
+      tags:
+      - Vinted
   /v1/vinted/search:
     get:
       description: Search Vinted catalog items with filters.
@@ -18861,6 +18918,43 @@ paths:
         explode: true
         in: query
         name: color_ids
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Comma-separated size IDs
+        explode: true
+        in: query
+        name: size_ids
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Comma-separated material IDs
+        explode: true
+        in: query
+        name: material_ids
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Pagination time returned by the preceding page
+        explode: true
+        in: query
+        name: time
+        required: false
+        schema:
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Reuse across pages of one search
+        explode: true
+        in: query
+        name: search_session_id
         required: false
         schema:
           nullable: true
@@ -22989,6 +23083,24 @@ components:
       - msg
       - type
       title: ValidationError
+    VintedMobileReadRequest:
+      additionalProperties: {}
+      description: Parameters are validated against the discoverable operation catalog.
+      example:
+        market: fr
+        parameters:
+          key: ""
+      properties:
+        market:
+          default: fr
+          description: Vinted market code; uk aliases gb
+          title: Market
+        parameters:
+          additionalProperties: true
+          description: "Operation-specific parameters. GET /v1/vinted/mobile/operations\
+            \ lists types, required fields and examples."
+          title: Parameters
+      title: VintedMobileReadRequest
     WebhookCreate:
       description: Configure webhook on a monitor.
       example:

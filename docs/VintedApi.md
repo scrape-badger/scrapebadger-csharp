@@ -10,6 +10,8 @@ All URIs are relative to *https://scrapebadger.com*
 | [**VintedListColors**](VintedApi.md#vintedlistcolors) | **GET** /v1/vinted/colors | List colors |
 | [**VintedListItemConditions**](VintedApi.md#vintedlistitemconditions) | **GET** /v1/vinted/statuses | List item conditions |
 | [**VintedListMarkets**](VintedApi.md#vintedlistmarkets) | **GET** /v1/vinted/markets | List markets |
+| [**VintedListPublicVintedMobileOperations**](VintedApi.md#vintedlistpublicvintedmobileoperations) | **GET** /v1/vinted/mobile/operations | List public Vinted mobile operations |
+| [**VintedReadVintedMobileData**](VintedApi.md#vintedreadvintedmobiledata) | **POST** /v1/vinted/mobile/{operation} | Read Vinted mobile data |
 | [**VintedSearchBrands**](VintedApi.md#vintedsearchbrands) | **GET** /v1/vinted/brands | Search brands |
 | [**VintedSearchVintedItems**](VintedApi.md#vintedsearchvinteditems) | **GET** /v1/vinted/search | Search Vinted items |
 | [**VintedVintedScraperHealthCheck**](VintedApi.md#vintedvintedscraperhealthcheck) | **GET** /v1/vinted/health | Vinted scraper health check |
@@ -625,6 +627,204 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+<a id="vintedlistpublicvintedmobileoperations"></a>
+# **VintedListPublicVintedMobileOperations**
+> Object VintedListPublicVintedMobileOperations ()
+
+List public Vinted mobile operations
+
+Discover public read operations, parameters and runnable examples. Free.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using ScrapeBadger.Api;
+using ScrapeBadger.Client;
+using ScrapeBadger.Model;
+
+namespace Example
+{
+    public class VintedListPublicVintedMobileOperationsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://scrapebadger.com";
+            // Configure API key authorization: ApiKeyAuth
+            config.AddApiKey("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("X-API-Key", "Bearer");
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new VintedApi(httpClient, config, httpClientHandler);
+
+            try
+            {
+                // List public Vinted mobile operations
+                Object result = apiInstance.VintedListPublicVintedMobileOperations();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling VintedApi.VintedListPublicVintedMobileOperations: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the VintedListPublicVintedMobileOperationsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // List public Vinted mobile operations
+    ApiResponse<Object> response = apiInstance.VintedListPublicVintedMobileOperationsWithHttpInfo();
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling VintedApi.VintedListPublicVintedMobileOperationsWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="vintedreadvintedmobiledata"></a>
+# **VintedReadVintedMobileData**
+> Object VintedReadVintedMobileData (string operation, VintedMobileReadRequest vintedMobileReadRequest)
+
+Read Vinted mobile data
+
+Read catalog, listing, seller, review, sold-comparable, pricing, reference, shipping-reference, homepage or help data. No Vinted account is required. This is an allowlisted read API, including read-only upstream POST queries. Returns operation, market, and the upstream JSON under data. One credit. Sold comparable prices are not guaranteed final negotiated sale prices.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using ScrapeBadger.Api;
+using ScrapeBadger.Client;
+using ScrapeBadger.Model;
+
+namespace Example
+{
+    public class VintedReadVintedMobileDataExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://scrapebadger.com";
+            // Configure API key authorization: ApiKeyAuth
+            config.AddApiKey("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("X-API-Key", "Bearer");
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new VintedApi(httpClient, config, httpClientHandler);
+            var operation = "operation_example";  // string | 
+            var vintedMobileReadRequest = new VintedMobileReadRequest(); // VintedMobileReadRequest | 
+
+            try
+            {
+                // Read Vinted mobile data
+                Object result = apiInstance.VintedReadVintedMobileData(operation, vintedMobileReadRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling VintedApi.VintedReadVintedMobileData: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the VintedReadVintedMobileDataWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Read Vinted mobile data
+    ApiResponse<Object> response = apiInstance.VintedReadVintedMobileDataWithHttpInfo(operation, vintedMobileReadRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling VintedApi.VintedReadVintedMobileDataWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **operation** | **string** |  |  |
+| **vintedMobileReadRequest** | [**VintedMobileReadRequest**](VintedMobileReadRequest.md) |  |  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 <a id="vintedsearchbrands"></a>
 # **VintedSearchBrands**
 > Object VintedSearchBrands (string keyword, string market = null)
@@ -730,7 +930,7 @@ catch (ApiException e)
 
 <a id="vintedsearchvinteditems"></a>
 # **VintedSearchVintedItems**
-> Object VintedSearchVintedItems (string query, string market = null, string sellerCountry = null, int? page = null, int? perPage = null, decimal? priceFrom = null, decimal? priceTo = null, string brandIds = null, string catalogIds = null, string colorIds = null, string statusIds = null, string order = null)
+> Object VintedSearchVintedItems (string query, string market = null, string sellerCountry = null, int? page = null, int? perPage = null, decimal? priceFrom = null, decimal? priceTo = null, string brandIds = null, string catalogIds = null, string colorIds = null, string sizeIds = null, string materialIds = null, int? time = null, string searchSessionId = null, string statusIds = null, string order = null)
 
 Search Vinted items
 
@@ -772,13 +972,17 @@ namespace Example
             var brandIds = "brandIds_example";  // string |  (optional) 
             var catalogIds = "catalogIds_example";  // string | Comma-separated Vinted catalog (category) IDs to restrict the search to, e.g. '1904' or '1904,79'. Vinted applies this before searching, so pagination totals reflect the filtered set. A catalog ID is the `catalog[]` value in a Vinted category URL (vinted.fr/catalog?catalog[]=1904). (optional) 
             var colorIds = "colorIds_example";  // string | Comma-separated color IDs (optional) 
+            var sizeIds = "sizeIds_example";  // string | Comma-separated size IDs (optional) 
+            var materialIds = "materialIds_example";  // string | Comma-separated material IDs (optional) 
+            var time = 56;  // int? | Pagination time returned by the preceding page (optional) 
+            var searchSessionId = "searchSessionId_example";  // string | Reuse across pages of one search (optional) 
             var statusIds = "statusIds_example";  // string | Comma-separated condition/status IDs (optional) 
             var order = "order_example";  // string |  (optional) 
 
             try
             {
                 // Search Vinted items
-                Object result = apiInstance.VintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, statusIds, order);
+                Object result = apiInstance.VintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -799,7 +1003,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search Vinted items
-    ApiResponse<Object> response = apiInstance.VintedSearchVintedItemsWithHttpInfo(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, statusIds, order);
+    ApiResponse<Object> response = apiInstance.VintedSearchVintedItemsWithHttpInfo(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -826,6 +1030,10 @@ catch (ApiException e)
 | **brandIds** | **string** |  | [optional]  |
 | **catalogIds** | **string** | Comma-separated Vinted catalog (category) IDs to restrict the search to, e.g. &#39;1904&#39; or &#39;1904,79&#39;. Vinted applies this before searching, so pagination totals reflect the filtered set. A catalog ID is the &#x60;catalog[]&#x60; value in a Vinted category URL (vinted.fr/catalog?catalog[]&#x3D;1904). | [optional]  |
 | **colorIds** | **string** | Comma-separated color IDs | [optional]  |
+| **sizeIds** | **string** | Comma-separated size IDs | [optional]  |
+| **materialIds** | **string** | Comma-separated material IDs | [optional]  |
+| **time** | **int?** | Pagination time returned by the preceding page | [optional]  |
+| **searchSessionId** | **string** | Reuse across pages of one search | [optional]  |
 | **statusIds** | **string** | Comma-separated condition/status IDs | [optional]  |
 | **order** | **string** |  | [optional]  |
 

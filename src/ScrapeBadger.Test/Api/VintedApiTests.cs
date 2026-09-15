@@ -130,6 +130,30 @@ namespace ScrapeBadger.Test.Api
         }
 
         /// <summary>
+        /// Test VintedListPublicVintedMobileOperations
+        /// </summary>
+        [Fact]
+        public void VintedListPublicVintedMobileOperationsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.VintedListPublicVintedMobileOperations();
+            //Assert.IsType<Object>(response);
+        }
+
+        /// <summary>
+        /// Test VintedReadVintedMobileData
+        /// </summary>
+        [Fact]
+        public void VintedReadVintedMobileDataTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string operation = null;
+            //VintedMobileReadRequest vintedMobileReadRequest = null;
+            //var response = instance.VintedReadVintedMobileData(operation, vintedMobileReadRequest);
+            //Assert.IsType<Object>(response);
+        }
+
+        /// <summary>
         /// Test VintedSearchBrands
         /// </summary>
         [Fact]
@@ -159,9 +183,13 @@ namespace ScrapeBadger.Test.Api
             //string brandIds = null;
             //string catalogIds = null;
             //string colorIds = null;
+            //string sizeIds = null;
+            //string materialIds = null;
+            //int? time = null;
+            //string searchSessionId = null;
             //string statusIds = null;
             //string order = null;
-            //var response = instance.VintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, statusIds, order);
+            //var response = instance.VintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
             //Assert.IsType<Object>(response);
         }
 
