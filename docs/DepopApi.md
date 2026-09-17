@@ -655,7 +655,7 @@ namespace Example
             var sizes = "sizes_example";  // string | Comma-separated size IDs (optional) 
             var conditions = "conditions_example";  // string | Comma-separated condition slugs (brand_new, used_excellent, ...) (optional) 
             var gender = "gender_example";  // string | male | female (optional) 
-            var sort = "sort_example";  // string | relevance | newlyListed | priceAscending | priceDescending (optional) 
+            var sort = "sort_example";  // string | relevance (default) | priceAscending | priceDescending (optional) 
 
             try
             {
@@ -709,7 +709,7 @@ catch (ApiException e)
 | **sizes** | **string** | Comma-separated size IDs | [optional]  |
 | **conditions** | **string** | Comma-separated condition slugs (brand_new, used_excellent, ...) | [optional]  |
 | **gender** | **string** | male | female | [optional]  |
-| **sort** | **string** | relevance | newlyListed | priceAscending | priceDescending | [optional]  |
+| **sort** | **string** | relevance (default) | priceAscending | priceDescending | [optional]  |
 
 ### Return type
 

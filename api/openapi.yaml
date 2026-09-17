@@ -3540,7 +3540,7 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: relevance | newlyListed | priceAscending | priceDescending
+      - description: relevance (default) | priceAscending | priceDescending
         explode: true
         in: query
         name: sort

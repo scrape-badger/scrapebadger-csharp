@@ -175,7 +175,7 @@ namespace ScrapeBadger.Api
         /// <param name="sizes">Comma-separated size IDs (optional)</param>
         /// <param name="conditions">Comma-separated condition slugs (brand_new, used_excellent, ...) (optional)</param>
         /// <param name="gender">male | female (optional)</param>
-        /// <param name="sort">relevance | newlyListed | priceAscending | priceDescending (optional)</param>
+        /// <param name="sort">relevance (default) | priceAscending | priceDescending (optional)</param>
         /// <returns>Object</returns>
         Object DepopSearchDepopProducts(string query, string market = default(string), int? perPage = default(int?), string cursor = default(string), decimal? priceMin = default(decimal?), decimal? priceMax = default(decimal?), string brands = default(string), string categories = default(string), string sizes = default(string), string conditions = default(string), string gender = default(string), string sort = default(string));
 
@@ -197,7 +197,7 @@ namespace ScrapeBadger.Api
         /// <param name="sizes">Comma-separated size IDs (optional)</param>
         /// <param name="conditions">Comma-separated condition slugs (brand_new, used_excellent, ...) (optional)</param>
         /// <param name="gender">male | female (optional)</param>
-        /// <param name="sort">relevance | newlyListed | priceAscending | priceDescending (optional)</param>
+        /// <param name="sort">relevance (default) | priceAscending | priceDescending (optional)</param>
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> DepopSearchDepopProductsWithHttpInfo(string query, string market = default(string), int? perPage = default(int?), string cursor = default(string), decimal? priceMin = default(decimal?), decimal? priceMax = default(decimal?), string brands = default(string), string categories = default(string), string sizes = default(string), string conditions = default(string), string gender = default(string), string sort = default(string));
         #endregion Synchronous Operations
@@ -369,7 +369,7 @@ namespace ScrapeBadger.Api
         /// <param name="sizes">Comma-separated size IDs (optional)</param>
         /// <param name="conditions">Comma-separated condition slugs (brand_new, used_excellent, ...) (optional)</param>
         /// <param name="gender">male | female (optional)</param>
-        /// <param name="sort">relevance | newlyListed | priceAscending | priceDescending (optional)</param>
+        /// <param name="sort">relevance (default) | priceAscending | priceDescending (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
         System.Threading.Tasks.Task<Object> DepopSearchDepopProductsAsync(string query, string market = default(string), int? perPage = default(int?), string cursor = default(string), decimal? priceMin = default(decimal?), decimal? priceMax = default(decimal?), string brands = default(string), string categories = default(string), string sizes = default(string), string conditions = default(string), string gender = default(string), string sort = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
@@ -392,7 +392,7 @@ namespace ScrapeBadger.Api
         /// <param name="sizes">Comma-separated size IDs (optional)</param>
         /// <param name="conditions">Comma-separated condition slugs (brand_new, used_excellent, ...) (optional)</param>
         /// <param name="gender">male | female (optional)</param>
-        /// <param name="sort">relevance | newlyListed | priceAscending | priceDescending (optional)</param>
+        /// <param name="sort">relevance (default) | priceAscending | priceDescending (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DepopSearchDepopProductsWithHttpInfoAsync(string query, string market = default(string), int? perPage = default(int?), string cursor = default(string), decimal? priceMin = default(decimal?), decimal? priceMax = default(decimal?), string brands = default(string), string categories = default(string), string sizes = default(string), string conditions = default(string), string gender = default(string), string sort = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
@@ -1392,7 +1392,7 @@ namespace ScrapeBadger.Api
         /// <param name="sizes">Comma-separated size IDs (optional)</param>
         /// <param name="conditions">Comma-separated condition slugs (brand_new, used_excellent, ...) (optional)</param>
         /// <param name="gender">male | female (optional)</param>
-        /// <param name="sort">relevance | newlyListed | priceAscending | priceDescending (optional)</param>
+        /// <param name="sort">relevance (default) | priceAscending | priceDescending (optional)</param>
         /// <returns>Object</returns>
         public Object DepopSearchDepopProducts(string query, string market = default(string), int? perPage = default(int?), string cursor = default(string), decimal? priceMin = default(decimal?), decimal? priceMax = default(decimal?), string brands = default(string), string categories = default(string), string sizes = default(string), string conditions = default(string), string gender = default(string), string sort = default(string))
         {
@@ -1415,7 +1415,7 @@ namespace ScrapeBadger.Api
         /// <param name="sizes">Comma-separated size IDs (optional)</param>
         /// <param name="conditions">Comma-separated condition slugs (brand_new, used_excellent, ...) (optional)</param>
         /// <param name="gender">male | female (optional)</param>
-        /// <param name="sort">relevance | newlyListed | priceAscending | priceDescending (optional)</param>
+        /// <param name="sort">relevance (default) | priceAscending | priceDescending (optional)</param>
         /// <returns>ApiResponse of Object</returns>
         public ScrapeBadger.Client.ApiResponse<Object> DepopSearchDepopProductsWithHttpInfo(string query, string market = default(string), int? perPage = default(int?), string cursor = default(string), decimal? priceMin = default(decimal?), decimal? priceMax = default(decimal?), string brands = default(string), string categories = default(string), string sizes = default(string), string conditions = default(string), string gender = default(string), string sort = default(string))
         {
@@ -1518,7 +1518,7 @@ namespace ScrapeBadger.Api
         /// <param name="sizes">Comma-separated size IDs (optional)</param>
         /// <param name="conditions">Comma-separated condition slugs (brand_new, used_excellent, ...) (optional)</param>
         /// <param name="gender">male | female (optional)</param>
-        /// <param name="sort">relevance | newlyListed | priceAscending | priceDescending (optional)</param>
+        /// <param name="sort">relevance (default) | priceAscending | priceDescending (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
         public async System.Threading.Tasks.Task<Object> DepopSearchDepopProductsAsync(string query, string market = default(string), int? perPage = default(int?), string cursor = default(string), decimal? priceMin = default(decimal?), decimal? priceMax = default(decimal?), string brands = default(string), string categories = default(string), string sizes = default(string), string conditions = default(string), string gender = default(string), string sort = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
@@ -1542,7 +1542,7 @@ namespace ScrapeBadger.Api
         /// <param name="sizes">Comma-separated size IDs (optional)</param>
         /// <param name="conditions">Comma-separated condition slugs (brand_new, used_excellent, ...) (optional)</param>
         /// <param name="gender">male | female (optional)</param>
-        /// <param name="sort">relevance | newlyListed | priceAscending | priceDescending (optional)</param>
+        /// <param name="sort">relevance (default) | priceAscending | priceDescending (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
         public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> DepopSearchDepopProductsWithHttpInfoAsync(string query, string market = default(string), int? perPage = default(int?), string cursor = default(string), decimal? priceMin = default(decimal?), decimal? priceMax = default(decimal?), string brands = default(string), string categories = default(string), string sizes = default(string), string conditions = default(string), string gender = default(string), string sort = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
