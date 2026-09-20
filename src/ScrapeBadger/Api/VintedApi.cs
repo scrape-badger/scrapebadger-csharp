@@ -230,7 +230,7 @@ namespace ScrapeBadger.Api
         /// Search by image
         /// </summary>
         /// <remarks>
-        /// Find active Vinted listings from a photo. 10 credits per successful request. Returns the usual items, pagination and market envelope. Visual ranking; no similarity score. Resend the same image and pagination time for subsequent pages. Structured brand data may be null.
+        /// Find active Vinted listings from a photo. 10 credits per successful request. Returns the usual items, pagination and market envelope. Visual ranking. Each item carries &#x60;similarity_score&#x60; (0-1; the query image&#39;s own listing scores 1.0) on the calls where Vinted returns a ranking, and null on the ones where it does not - - a null says nothing about the item. Resend the same image and pagination time for subsequent pages. Structured brand data may be null.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vintedImageSearchRequest"></param>
@@ -241,7 +241,7 @@ namespace ScrapeBadger.Api
         /// Search by image
         /// </summary>
         /// <remarks>
-        /// Find active Vinted listings from a photo. 10 credits per successful request. Returns the usual items, pagination and market envelope. Visual ranking; no similarity score. Resend the same image and pagination time for subsequent pages. Structured brand data may be null.
+        /// Find active Vinted listings from a photo. 10 credits per successful request. Returns the usual items, pagination and market envelope. Visual ranking. Each item carries &#x60;similarity_score&#x60; (0-1; the query image&#39;s own listing scores 1.0) on the calls where Vinted returns a ranking, and null on the ones where it does not - - a null says nothing about the item. Resend the same image and pagination time for subsequent pages. Structured brand data may be null.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vintedImageSearchRequest"></param>
@@ -566,7 +566,7 @@ namespace ScrapeBadger.Api
         /// Search by image
         /// </summary>
         /// <remarks>
-        /// Find active Vinted listings from a photo. 10 credits per successful request. Returns the usual items, pagination and market envelope. Visual ranking; no similarity score. Resend the same image and pagination time for subsequent pages. Structured brand data may be null.
+        /// Find active Vinted listings from a photo. 10 credits per successful request. Returns the usual items, pagination and market envelope. Visual ranking. Each item carries &#x60;similarity_score&#x60; (0-1; the query image&#39;s own listing scores 1.0) on the calls where Vinted returns a ranking, and null on the ones where it does not - - a null says nothing about the item. Resend the same image and pagination time for subsequent pages. Structured brand data may be null.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vintedImageSearchRequest"></param>
@@ -578,7 +578,7 @@ namespace ScrapeBadger.Api
         /// Search by image
         /// </summary>
         /// <remarks>
-        /// Find active Vinted listings from a photo. 10 credits per successful request. Returns the usual items, pagination and market envelope. Visual ranking; no similarity score. Resend the same image and pagination time for subsequent pages. Structured brand data may be null.
+        /// Find active Vinted listings from a photo. 10 credits per successful request. Returns the usual items, pagination and market envelope. Visual ranking. Each item carries &#x60;similarity_score&#x60; (0-1; the query image&#39;s own listing scores 1.0) on the calls where Vinted returns a ranking, and null on the ones where it does not - - a null says nothing about the item. Resend the same image and pagination time for subsequent pages. Structured brand data may be null.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vintedImageSearchRequest"></param>
@@ -2051,7 +2051,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search by image Find active Vinted listings from a photo. 10 credits per successful request. Returns the usual items, pagination and market envelope. Visual ranking; no similarity score. Resend the same image and pagination time for subsequent pages. Structured brand data may be null.
+        /// Search by image Find active Vinted listings from a photo. 10 credits per successful request. Returns the usual items, pagination and market envelope. Visual ranking. Each item carries &#x60;similarity_score&#x60; (0-1; the query image&#39;s own listing scores 1.0) on the calls where Vinted returns a ranking, and null on the ones where it does not - - a null says nothing about the item. Resend the same image and pagination time for subsequent pages. Structured brand data may be null.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vintedImageSearchRequest"></param>
@@ -2063,7 +2063,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search by image Find active Vinted listings from a photo. 10 credits per successful request. Returns the usual items, pagination and market envelope. Visual ranking; no similarity score. Resend the same image and pagination time for subsequent pages. Structured brand data may be null.
+        /// Search by image Find active Vinted listings from a photo. 10 credits per successful request. Returns the usual items, pagination and market envelope. Visual ranking. Each item carries &#x60;similarity_score&#x60; (0-1; the query image&#39;s own listing scores 1.0) on the calls where Vinted returns a ranking, and null on the ones where it does not - - a null says nothing about the item. Resend the same image and pagination time for subsequent pages. Structured brand data may be null.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vintedImageSearchRequest"></param>
@@ -2112,7 +2112,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search by image Find active Vinted listings from a photo. 10 credits per successful request. Returns the usual items, pagination and market envelope. Visual ranking; no similarity score. Resend the same image and pagination time for subsequent pages. Structured brand data may be null.
+        /// Search by image Find active Vinted listings from a photo. 10 credits per successful request. Returns the usual items, pagination and market envelope. Visual ranking. Each item carries &#x60;similarity_score&#x60; (0-1; the query image&#39;s own listing scores 1.0) on the calls where Vinted returns a ranking, and null on the ones where it does not - - a null says nothing about the item. Resend the same image and pagination time for subsequent pages. Structured brand data may be null.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vintedImageSearchRequest"></param>
@@ -2125,7 +2125,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search by image Find active Vinted listings from a photo. 10 credits per successful request. Returns the usual items, pagination and market envelope. Visual ranking; no similarity score. Resend the same image and pagination time for subsequent pages. Structured brand data may be null.
+        /// Search by image Find active Vinted listings from a photo. 10 credits per successful request. Returns the usual items, pagination and market envelope. Visual ranking. Each item carries &#x60;similarity_score&#x60; (0-1; the query image&#39;s own listing scores 1.0) on the calls where Vinted returns a ranking, and null on the ones where it does not - - a null says nothing about the item. Resend the same image and pagination time for subsequent pages. Structured brand data may be null.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vintedImageSearchRequest"></param>
