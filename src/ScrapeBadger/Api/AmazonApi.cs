@@ -175,14 +175,14 @@ namespace ScrapeBadger.Api
         /// Get product reviews
         /// </summary>
         /// <remarks>
-        /// Customer reviews for an ASIN (featured + paginated, with filters).
+        /// Customer reviews for an ASIN, filtered, sorted and paginated.  Reviews come from the product page&#39;s public featured block, which is the only review surface Amazon serves anonymously — a subset of the full history (&#x60;&#x60;ratings_total&#x60;&#x60; reports the true total). &#x60;&#x60;pagination&#x60;&#x60; gives the filtered count and the last page, so paging past it returns an empty list. An unrecognised &#x60;&#x60;star&#x60;&#x60; or &#x60;&#x60;sort_by&#x60;&#x60; is rejected with 422 rather than silently answered with unfiltered reviews.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asin"></param>
         /// <param name="domain"> (optional, default to &quot;com&quot;)</param>
-        /// <param name="page">Review page (1-100, ~10 reviews/page) (optional, default to 1)</param>
+        /// <param name="page">Review page (10 reviews/page) (optional, default to 1)</param>
         /// <param name="sortBy">helpful | recent (optional, default to &quot;helpful&quot;)</param>
-        /// <param name="star">one_star..five_star | positive | critical (optional)</param>
+        /// <param name="star">1-5 | one_star..five_star | positive | critical | all_stars (optional)</param>
         /// <param name="verifiedOnly"> (optional, default to false)</param>
         /// <param name="mediaOnly"> (optional, default to false)</param>
         /// <returns>Object</returns>
@@ -192,14 +192,14 @@ namespace ScrapeBadger.Api
         /// Get product reviews
         /// </summary>
         /// <remarks>
-        /// Customer reviews for an ASIN (featured + paginated, with filters).
+        /// Customer reviews for an ASIN, filtered, sorted and paginated.  Reviews come from the product page&#39;s public featured block, which is the only review surface Amazon serves anonymously — a subset of the full history (&#x60;&#x60;ratings_total&#x60;&#x60; reports the true total). &#x60;&#x60;pagination&#x60;&#x60; gives the filtered count and the last page, so paging past it returns an empty list. An unrecognised &#x60;&#x60;star&#x60;&#x60; or &#x60;&#x60;sort_by&#x60;&#x60; is rejected with 422 rather than silently answered with unfiltered reviews.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asin"></param>
         /// <param name="domain"> (optional, default to &quot;com&quot;)</param>
-        /// <param name="page">Review page (1-100, ~10 reviews/page) (optional, default to 1)</param>
+        /// <param name="page">Review page (10 reviews/page) (optional, default to 1)</param>
         /// <param name="sortBy">helpful | recent (optional, default to &quot;helpful&quot;)</param>
-        /// <param name="star">one_star..five_star | positive | critical (optional)</param>
+        /// <param name="star">1-5 | one_star..five_star | positive | critical | all_stars (optional)</param>
         /// <param name="verifiedOnly"> (optional, default to false)</param>
         /// <param name="mediaOnly"> (optional, default to false)</param>
         /// <returns>ApiResponse of Object</returns>
@@ -596,14 +596,14 @@ namespace ScrapeBadger.Api
         /// Get product reviews
         /// </summary>
         /// <remarks>
-        /// Customer reviews for an ASIN (featured + paginated, with filters).
+        /// Customer reviews for an ASIN, filtered, sorted and paginated.  Reviews come from the product page&#39;s public featured block, which is the only review surface Amazon serves anonymously — a subset of the full history (&#x60;&#x60;ratings_total&#x60;&#x60; reports the true total). &#x60;&#x60;pagination&#x60;&#x60; gives the filtered count and the last page, so paging past it returns an empty list. An unrecognised &#x60;&#x60;star&#x60;&#x60; or &#x60;&#x60;sort_by&#x60;&#x60; is rejected with 422 rather than silently answered with unfiltered reviews.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asin"></param>
         /// <param name="domain"> (optional, default to &quot;com&quot;)</param>
-        /// <param name="page">Review page (1-100, ~10 reviews/page) (optional, default to 1)</param>
+        /// <param name="page">Review page (10 reviews/page) (optional, default to 1)</param>
         /// <param name="sortBy">helpful | recent (optional, default to &quot;helpful&quot;)</param>
-        /// <param name="star">one_star..five_star | positive | critical (optional)</param>
+        /// <param name="star">1-5 | one_star..five_star | positive | critical | all_stars (optional)</param>
         /// <param name="verifiedOnly"> (optional, default to false)</param>
         /// <param name="mediaOnly"> (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -614,14 +614,14 @@ namespace ScrapeBadger.Api
         /// Get product reviews
         /// </summary>
         /// <remarks>
-        /// Customer reviews for an ASIN (featured + paginated, with filters).
+        /// Customer reviews for an ASIN, filtered, sorted and paginated.  Reviews come from the product page&#39;s public featured block, which is the only review surface Amazon serves anonymously — a subset of the full history (&#x60;&#x60;ratings_total&#x60;&#x60; reports the true total). &#x60;&#x60;pagination&#x60;&#x60; gives the filtered count and the last page, so paging past it returns an empty list. An unrecognised &#x60;&#x60;star&#x60;&#x60; or &#x60;&#x60;sort_by&#x60;&#x60; is rejected with 422 rather than silently answered with unfiltered reviews.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asin"></param>
         /// <param name="domain"> (optional, default to &quot;com&quot;)</param>
-        /// <param name="page">Review page (1-100, ~10 reviews/page) (optional, default to 1)</param>
+        /// <param name="page">Review page (10 reviews/page) (optional, default to 1)</param>
         /// <param name="sortBy">helpful | recent (optional, default to &quot;helpful&quot;)</param>
-        /// <param name="star">one_star..five_star | positive | critical (optional)</param>
+        /// <param name="star">1-5 | one_star..five_star | positive | critical | all_stars (optional)</param>
         /// <param name="verifiedOnly"> (optional, default to false)</param>
         /// <param name="mediaOnly"> (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1934,14 +1934,14 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get product reviews Customer reviews for an ASIN (featured + paginated, with filters).
+        /// Get product reviews Customer reviews for an ASIN, filtered, sorted and paginated.  Reviews come from the product page&#39;s public featured block, which is the only review surface Amazon serves anonymously — a subset of the full history (&#x60;&#x60;ratings_total&#x60;&#x60; reports the true total). &#x60;&#x60;pagination&#x60;&#x60; gives the filtered count and the last page, so paging past it returns an empty list. An unrecognised &#x60;&#x60;star&#x60;&#x60; or &#x60;&#x60;sort_by&#x60;&#x60; is rejected with 422 rather than silently answered with unfiltered reviews.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asin"></param>
         /// <param name="domain"> (optional, default to &quot;com&quot;)</param>
-        /// <param name="page">Review page (1-100, ~10 reviews/page) (optional, default to 1)</param>
+        /// <param name="page">Review page (10 reviews/page) (optional, default to 1)</param>
         /// <param name="sortBy">helpful | recent (optional, default to &quot;helpful&quot;)</param>
-        /// <param name="star">one_star..five_star | positive | critical (optional)</param>
+        /// <param name="star">1-5 | one_star..five_star | positive | critical | all_stars (optional)</param>
         /// <param name="verifiedOnly"> (optional, default to false)</param>
         /// <param name="mediaOnly"> (optional, default to false)</param>
         /// <returns>Object</returns>
@@ -1952,14 +1952,14 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get product reviews Customer reviews for an ASIN (featured + paginated, with filters).
+        /// Get product reviews Customer reviews for an ASIN, filtered, sorted and paginated.  Reviews come from the product page&#39;s public featured block, which is the only review surface Amazon serves anonymously — a subset of the full history (&#x60;&#x60;ratings_total&#x60;&#x60; reports the true total). &#x60;&#x60;pagination&#x60;&#x60; gives the filtered count and the last page, so paging past it returns an empty list. An unrecognised &#x60;&#x60;star&#x60;&#x60; or &#x60;&#x60;sort_by&#x60;&#x60; is rejected with 422 rather than silently answered with unfiltered reviews.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asin"></param>
         /// <param name="domain"> (optional, default to &quot;com&quot;)</param>
-        /// <param name="page">Review page (1-100, ~10 reviews/page) (optional, default to 1)</param>
+        /// <param name="page">Review page (10 reviews/page) (optional, default to 1)</param>
         /// <param name="sortBy">helpful | recent (optional, default to &quot;helpful&quot;)</param>
-        /// <param name="star">one_star..five_star | positive | critical (optional)</param>
+        /// <param name="star">1-5 | one_star..five_star | positive | critical | all_stars (optional)</param>
         /// <param name="verifiedOnly"> (optional, default to false)</param>
         /// <param name="mediaOnly"> (optional, default to false)</param>
         /// <returns>ApiResponse of Object</returns>
@@ -2030,14 +2030,14 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get product reviews Customer reviews for an ASIN (featured + paginated, with filters).
+        /// Get product reviews Customer reviews for an ASIN, filtered, sorted and paginated.  Reviews come from the product page&#39;s public featured block, which is the only review surface Amazon serves anonymously — a subset of the full history (&#x60;&#x60;ratings_total&#x60;&#x60; reports the true total). &#x60;&#x60;pagination&#x60;&#x60; gives the filtered count and the last page, so paging past it returns an empty list. An unrecognised &#x60;&#x60;star&#x60;&#x60; or &#x60;&#x60;sort_by&#x60;&#x60; is rejected with 422 rather than silently answered with unfiltered reviews.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asin"></param>
         /// <param name="domain"> (optional, default to &quot;com&quot;)</param>
-        /// <param name="page">Review page (1-100, ~10 reviews/page) (optional, default to 1)</param>
+        /// <param name="page">Review page (10 reviews/page) (optional, default to 1)</param>
         /// <param name="sortBy">helpful | recent (optional, default to &quot;helpful&quot;)</param>
-        /// <param name="star">one_star..five_star | positive | critical (optional)</param>
+        /// <param name="star">1-5 | one_star..five_star | positive | critical | all_stars (optional)</param>
         /// <param name="verifiedOnly"> (optional, default to false)</param>
         /// <param name="mediaOnly"> (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2049,14 +2049,14 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get product reviews Customer reviews for an ASIN (featured + paginated, with filters).
+        /// Get product reviews Customer reviews for an ASIN, filtered, sorted and paginated.  Reviews come from the product page&#39;s public featured block, which is the only review surface Amazon serves anonymously — a subset of the full history (&#x60;&#x60;ratings_total&#x60;&#x60; reports the true total). &#x60;&#x60;pagination&#x60;&#x60; gives the filtered count and the last page, so paging past it returns an empty list. An unrecognised &#x60;&#x60;star&#x60;&#x60; or &#x60;&#x60;sort_by&#x60;&#x60; is rejected with 422 rather than silently answered with unfiltered reviews.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="asin"></param>
         /// <param name="domain"> (optional, default to &quot;com&quot;)</param>
-        /// <param name="page">Review page (1-100, ~10 reviews/page) (optional, default to 1)</param>
+        /// <param name="page">Review page (10 reviews/page) (optional, default to 1)</param>
         /// <param name="sortBy">helpful | recent (optional, default to &quot;helpful&quot;)</param>
-        /// <param name="star">one_star..five_star | positive | critical (optional)</param>
+        /// <param name="star">1-5 | one_star..five_star | positive | critical | all_stars (optional)</param>
         /// <param name="verifiedOnly"> (optional, default to false)</param>
         /// <param name="mediaOnly"> (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

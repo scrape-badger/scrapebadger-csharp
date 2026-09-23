@@ -643,7 +643,7 @@ catch (ApiException e)
 
 Get product reviews
 
-Customer reviews for an ASIN (featured + paginated, with filters).
+Customer reviews for an ASIN, filtered, sorted and paginated.  Reviews come from the product page's public featured block, which is the only review surface Amazon serves anonymously — a subset of the full history (``ratings_total`` reports the true total). ``pagination`` gives the filtered count and the last page, so paging past it returns an empty list. An unrecognised ``star`` or ``sort_by`` is rejected with 422 rather than silently answered with unfiltered reviews.
 
 ### Example
 ```csharp
@@ -673,9 +673,9 @@ namespace Example
             var apiInstance = new AmazonApi(httpClient, config, httpClientHandler);
             var asin = "asin_example";  // string | 
             var domain = "\"com\"";  // string |  (optional)  (default to "com")
-            var page = 1;  // int? | Review page (1-100, ~10 reviews/page) (optional)  (default to 1)
+            var page = 1;  // int? | Review page (10 reviews/page) (optional)  (default to 1)
             var sortBy = "\"helpful\"";  // string | helpful | recent (optional)  (default to "helpful")
-            var star = "star_example";  // string | one_star..five_star | positive | critical (optional) 
+            var star = "star_example";  // string | 1-5 | one_star..five_star | positive | critical | all_stars (optional) 
             var verifiedOnly = false;  // bool? |  (optional)  (default to false)
             var mediaOnly = false;  // bool? |  (optional)  (default to false)
 
@@ -722,9 +722,9 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **asin** | **string** |  |  |
 | **domain** | **string** |  | [optional] [default to &quot;com&quot;] |
-| **page** | **int?** | Review page (1-100, ~10 reviews/page) | [optional] [default to 1] |
+| **page** | **int?** | Review page (10 reviews/page) | [optional] [default to 1] |
 | **sortBy** | **string** | helpful | recent | [optional] [default to &quot;helpful&quot;] |
-| **star** | **string** | one_star..five_star | positive | critical | [optional]  |
+| **star** | **string** | 1-5 | one_star..five_star | positive | critical | all_stars | [optional]  |
 | **verifiedOnly** | **bool?** |  | [optional] [default to false] |
 | **mediaOnly** | **bool?** |  | [optional] [default to false] |
 

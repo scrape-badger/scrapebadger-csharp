@@ -1116,7 +1116,15 @@ paths:
       - Amazon
   /v1/amazon/products/{asin}/reviews:
     get:
-      description: "Customer reviews for an ASIN (featured + paginated, with filters)."
+      description: |-
+        Customer reviews for an ASIN, filtered, sorted and paginated.
+
+        Reviews come from the product page's public featured block, which is the
+        only review surface Amazon serves anonymously — a subset of the full
+        history (``ratings_total`` reports the true total). ``pagination`` gives
+        the filtered count and the last page, so paging past it returns an empty
+        list. An unrecognised ``star`` or ``sort_by`` is rejected with 422 rather
+        than silently answered with unfiltered reviews.
       operationId: amazon_get_product_reviews
       parameters:
       - explode: false
@@ -1136,14 +1144,14 @@ paths:
           title: Domain
           type: string
         style: form
-      - description: "Review page (1-100, ~10 reviews/page)"
+      - description: Review page (10 reviews/page)
         explode: true
         in: query
         name: page
         required: false
         schema:
           default: 1
-          description: "Review page (1-100, ~10 reviews/page)"
+          description: Review page (10 reviews/page)
           maximum: 100
           minimum: 1
           title: Page
@@ -1160,7 +1168,7 @@ paths:
           title: Sort By
           type: string
         style: form
-      - description: one_star..five_star | positive | critical
+      - description: 1-5 | one_star..five_star | positive | critical | all_stars
         explode: true
         in: query
         name: star
