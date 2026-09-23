@@ -18635,7 +18635,8 @@ paths:
         "200":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/BrandsResponse'
           description: Successful Response
         "422":
           content:
@@ -18666,7 +18667,8 @@ paths:
         "200":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/ColorsResponse'
           description: Successful Response
         "422":
           content:
@@ -18742,7 +18744,8 @@ paths:
         "200":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/ItemDetailResponse'
           description: Successful Response
         "422":
           content:
@@ -18763,7 +18766,8 @@ paths:
         "200":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/MarketsResponse'
           description: Successful Response
       security:
       - ApiKeyAuth: []
@@ -18991,7 +18995,8 @@ paths:
         "200":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
           description: Successful Response
         "422":
           content:
@@ -19024,7 +19029,8 @@ paths:
         "200":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
           description: Successful Response
         "422":
           content:
@@ -19055,7 +19061,8 @@ paths:
         "200":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/StatusesResponse'
           description: Successful Response
         "422":
           content:
@@ -19094,7 +19101,8 @@ paths:
         "200":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/UserProfileResponse'
           description: Successful Response
         "422":
           content:
@@ -19154,7 +19162,8 @@ paths:
         "200":
           content:
             application/json:
-              schema: {}
+              schema:
+                $ref: '#/components/schemas/UserItemsResponse'
           description: Successful Response
         "422":
           content:
@@ -22279,6 +22288,60 @@ components:
       - rate_applied
       - tier_label
       title: BillingLogResponse
+    BrandsResponse:
+      description: Envelope returned by brand search.
+      example:
+        brands:
+        - item_count: 6
+          favourite_count: 1
+          id: 0
+          title: title
+          slug: slug
+          url: url
+          is_luxury: false
+        - item_count: 6
+          favourite_count: 1
+          id: 0
+          title: title
+          slug: slug
+          url: url
+          is_luxury: false
+        pagination:
+          per_page: 7
+          total_pages: 5
+          time: 9
+          current_page: 5
+          total_entries: 2
+      properties:
+        brands:
+          items:
+            $ref: '#/components/schemas/VintedBrand'
+          type: array
+        pagination:
+          $ref: '#/components/schemas/VintedPagination'
+      required:
+      - brands
+      title: BrandsResponse
+    ColorsResponse:
+      description: Envelope returned by the colour reference endpoint.
+      example:
+        colors:
+        - code: code
+          hex: hex
+          id: 0
+          title: title
+        - code: code
+          hex: hex
+          id: 0
+          title: title
+      properties:
+        colors:
+          items:
+            $ref: '#/components/schemas/VintedColor'
+          type: array
+      required:
+      - colors
+      title: ColorsResponse
     FilterRuleCreate:
       description: Create filter rule request.
       example:
@@ -22673,6 +22736,263 @@ components:
             $ref: '#/components/schemas/ValidationError'
           type: array
       title: HTTPValidationError
+    ItemDetailResponse:
+      description: Envelope returned by item detail.
+      example:
+        market: market
+        item:
+          seller:
+            item_count: 1
+            badges:
+            - badges
+            - badges
+            feedback_reputation: 1.2315135367772556
+            business: false
+            last_seen: last_seen
+            location: location
+            id: 4
+            photo_url: photo_url
+            login: ""
+            feedback_count: 7
+          display_title: display_title
+          is_hidden: false
+          description: description
+          instant_buy: false
+          is_favourite: false
+          title: title
+          promoted: false
+          photos:
+          - dominant_color: dominant_color
+            full_size_url: full_size_url
+            is_main: false
+            width: 7
+            id: 2
+            url: url
+            height: 9
+          - dominant_color: dominant_color
+            full_size_url: full_size_url
+            is_main: false
+            width: 7
+            id: 2
+            url: url
+            height: 9
+          color1: color1
+          is_reserved: false
+          path: path
+          color2: color2
+          status_id: 6
+          total_item_price: total_item_price
+          content_source: content_source
+          price:
+            amount: amount
+            currency_code: currency_code
+          package_size_id: 2
+          size_id: 1
+          id: 0
+          can_buy: true
+          is_closed: false
+          upload_date: upload_date
+          is_visible: true
+          display_subtitle: display_subtitle
+          service_fee: service_fee
+          photo:
+            dominant_color: dominant_color
+            full_size_url: full_size_url
+            is_main: false
+            width: 7
+            id: 2
+            url: url
+            height: 9
+          can_reserve: false
+          url: url
+          brand_title: brand_title
+          brand_id: 7
+          seller_country_code: seller_country_code
+          catalog_id: 3
+          can_bundle: false
+          uploaded_at: uploaded_at
+          favourite_count: 6
+          category:
+          - category
+          - category
+          similarity_score: 5.962133916683182
+          user:
+            business: false
+            id: 5
+            photo_url: photo_url
+            login: login
+          size_title: size_title
+          view_count: 1
+          status: status
+      properties:
+        item:
+          $ref: '#/components/schemas/VintedItemDetail'
+        market:
+          title: Market
+          type: string
+      required:
+      - item
+      - market
+      title: ItemDetailResponse
+    MarketsResponse:
+      description: Envelope returned by the market reference endpoint.
+      example:
+        markets:
+        - key: ""
+        - key: ""
+      properties:
+        markets:
+          items:
+            additionalProperties: true
+            type: object
+          type: array
+      required:
+      - markets
+      title: MarketsResponse
+    SearchResponse:
+      description: Envelope returned by search and search_by_image.
+      example:
+        market: market
+        pagination:
+          per_page: 7
+          total_pages: 5
+          time: 9
+          current_page: 5
+          total_entries: 2
+        seller_country: seller_country
+        items:
+        - is_visible: true
+          display_title: display_title
+          display_subtitle: display_subtitle
+          service_fee: service_fee
+          photo:
+            dominant_color: dominant_color
+            full_size_url: full_size_url
+            is_main: false
+            width: 7
+            id: 2
+            url: url
+            height: 9
+          title: title
+          promoted: false
+          photos:
+          - dominant_color: dominant_color
+            full_size_url: full_size_url
+            is_main: false
+            width: 7
+            id: 2
+            url: url
+            height: 9
+          - dominant_color: dominant_color
+            full_size_url: full_size_url
+            is_main: false
+            width: 7
+            id: 2
+            url: url
+            height: 9
+          url: url
+          brand_title: brand_title
+          seller_country_code: seller_country_code
+          path: path
+          total_item_price: total_item_price
+          content_source: content_source
+          price:
+            amount: amount
+            currency_code: currency_code
+          favourite_count: 6
+          id: 0
+          similarity_score: 5.962133916683182
+          user:
+            business: false
+            id: 5
+            photo_url: photo_url
+            login: login
+          size_title: size_title
+          view_count: 1
+          status: status
+        - is_visible: true
+          display_title: display_title
+          display_subtitle: display_subtitle
+          service_fee: service_fee
+          photo:
+            dominant_color: dominant_color
+            full_size_url: full_size_url
+            is_main: false
+            width: 7
+            id: 2
+            url: url
+            height: 9
+          title: title
+          promoted: false
+          photos:
+          - dominant_color: dominant_color
+            full_size_url: full_size_url
+            is_main: false
+            width: 7
+            id: 2
+            url: url
+            height: 9
+          - dominant_color: dominant_color
+            full_size_url: full_size_url
+            is_main: false
+            width: 7
+            id: 2
+            url: url
+            height: 9
+          url: url
+          brand_title: brand_title
+          seller_country_code: seller_country_code
+          path: path
+          total_item_price: total_item_price
+          content_source: content_source
+          price:
+            amount: amount
+            currency_code: currency_code
+          favourite_count: 6
+          id: 0
+          similarity_score: 5.962133916683182
+          user:
+            business: false
+            id: 5
+            photo_url: photo_url
+            login: login
+          size_title: size_title
+          view_count: 1
+          status: status
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/VintedItemSummary'
+          type: array
+        pagination:
+          $ref: '#/components/schemas/VintedPagination'
+        market:
+          title: Market
+          type: string
+        seller_country:
+          nullable: true
+          type: string
+      required:
+      - items
+      - market
+      - pagination
+      title: SearchResponse
+    StatusesResponse:
+      description: Envelope returned by the condition reference endpoint.
+      example:
+        statuses:
+        - id: 0
+          title: title
+        - id: 0
+          title: title
+      properties:
+        statuses:
+          items:
+            $ref: '#/components/schemas/VintedStatus'
+          type: array
+      required:
+      - statuses
+      title: StatusesResponse
     StreamMonitorCreate:
       description: Create stream monitor request.
       example:
@@ -23103,6 +23423,165 @@ components:
       - webhook_attempts
       - webhook_status_code
       title: TweetDeliveryLogResponse
+    UserItemsResponse:
+      description: Envelope returned by a seller's wardrobe listing.
+      example:
+        market: market
+        pagination:
+          per_page: 7
+          total_pages: 5
+          time: 9
+          current_page: 5
+          total_entries: 2
+        items:
+        - is_visible: true
+          display_title: display_title
+          display_subtitle: display_subtitle
+          service_fee: service_fee
+          photo:
+            dominant_color: dominant_color
+            full_size_url: full_size_url
+            is_main: false
+            width: 7
+            id: 2
+            url: url
+            height: 9
+          title: title
+          promoted: false
+          photos:
+          - dominant_color: dominant_color
+            full_size_url: full_size_url
+            is_main: false
+            width: 7
+            id: 2
+            url: url
+            height: 9
+          - dominant_color: dominant_color
+            full_size_url: full_size_url
+            is_main: false
+            width: 7
+            id: 2
+            url: url
+            height: 9
+          url: url
+          brand_title: brand_title
+          seller_country_code: seller_country_code
+          path: path
+          total_item_price: total_item_price
+          content_source: content_source
+          price:
+            amount: amount
+            currency_code: currency_code
+          favourite_count: 6
+          id: 0
+          similarity_score: 5.962133916683182
+          user:
+            business: false
+            id: 5
+            photo_url: photo_url
+            login: login
+          size_title: size_title
+          view_count: 1
+          status: status
+        - is_visible: true
+          display_title: display_title
+          display_subtitle: display_subtitle
+          service_fee: service_fee
+          photo:
+            dominant_color: dominant_color
+            full_size_url: full_size_url
+            is_main: false
+            width: 7
+            id: 2
+            url: url
+            height: 9
+          title: title
+          promoted: false
+          photos:
+          - dominant_color: dominant_color
+            full_size_url: full_size_url
+            is_main: false
+            width: 7
+            id: 2
+            url: url
+            height: 9
+          - dominant_color: dominant_color
+            full_size_url: full_size_url
+            is_main: false
+            width: 7
+            id: 2
+            url: url
+            height: 9
+          url: url
+          brand_title: brand_title
+          seller_country_code: seller_country_code
+          path: path
+          total_item_price: total_item_price
+          content_source: content_source
+          price:
+            amount: amount
+            currency_code: currency_code
+          favourite_count: 6
+          id: 0
+          similarity_score: 5.962133916683182
+          user:
+            business: false
+            id: 5
+            photo_url: photo_url
+            login: login
+          size_title: size_title
+          view_count: 1
+          status: status
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/VintedItemSummary'
+          type: array
+        pagination:
+          $ref: '#/components/schemas/VintedPagination'
+        market:
+          title: Market
+          type: string
+      required:
+      - items
+      - market
+      - pagination
+      title: UserItemsResponse
+    UserProfileResponse:
+      description: Envelope returned by user profile.
+      example:
+        market: market
+        user:
+          item_count: 7
+          is_on_holiday: false
+          feedback_reputation: 1.4658129805029452
+          business: false
+          city: city
+          profile_url: profile_url
+          negative_feedback_count: 2
+          login: login
+          locale: locale
+          feedback_count: 6
+          total_items_count: 9
+          country_code: country_code
+          neutral_feedback_count: 5
+          positive_feedback_count: 5
+          following_count: 2
+          followers_count: 3
+          id: 0
+          photo_url: photo_url
+          is_online: false
+          last_loged_on_ts: last_loged_on_ts
+      properties:
+        user:
+          $ref: '#/components/schemas/VintedUserProfile'
+        market:
+          title: Market
+          type: string
+      required:
+      - market
+      - user
+      title: UserProfileResponse
     ValidationError:
       example:
         msg: msg
@@ -23126,6 +23605,72 @@ components:
       - msg
       - type
       title: ValidationError
+    VintedBrand:
+      description: "A brand, as the brand search returns it."
+      example:
+        item_count: 6
+        favourite_count: 1
+        id: 0
+        title: title
+        slug: slug
+        url: url
+        is_luxury: false
+      properties:
+        id:
+          title: Id
+          type: integer
+        title:
+          title: Title
+          type: string
+        slug:
+          title: Slug
+          type: string
+        item_count:
+          default: 0
+          title: Item Count
+          type: integer
+        favourite_count:
+          default: 0
+          title: Favourite Count
+          type: integer
+        is_luxury:
+          default: false
+          title: Is Luxury
+          type: boolean
+        url:
+          nullable: true
+          type: string
+      required:
+      - id
+      - slug
+      - title
+      title: VintedBrand
+    VintedColor:
+      description: A colour filter value.
+      example:
+        code: code
+        hex: hex
+        id: 0
+        title: title
+      properties:
+        id:
+          title: Id
+          type: integer
+        title:
+          title: Title
+          type: string
+        hex:
+          title: Hex
+          type: string
+        code:
+          title: Code
+          type: string
+      required:
+      - code
+      - hex
+      - id
+      - title
+      title: VintedColor
     VintedImageSearchRequest:
       additionalProperties: true
       description: Search by exactly one public image URL or base64-encoded image.
@@ -23217,6 +23762,362 @@ components:
           nullable: true
           type: string
       title: VintedImageSearchRequest
+    VintedItemDetail:
+      description: A single listing with the fields only the detail endpoint carries.
+      example:
+        seller:
+          item_count: 1
+          badges:
+          - badges
+          - badges
+          feedback_reputation: 1.2315135367772556
+          business: false
+          last_seen: last_seen
+          location: location
+          id: 4
+          photo_url: photo_url
+          login: ""
+          feedback_count: 7
+        display_title: display_title
+        is_hidden: false
+        description: description
+        instant_buy: false
+        is_favourite: false
+        title: title
+        promoted: false
+        photos:
+        - dominant_color: dominant_color
+          full_size_url: full_size_url
+          is_main: false
+          width: 7
+          id: 2
+          url: url
+          height: 9
+        - dominant_color: dominant_color
+          full_size_url: full_size_url
+          is_main: false
+          width: 7
+          id: 2
+          url: url
+          height: 9
+        color1: color1
+        is_reserved: false
+        path: path
+        color2: color2
+        status_id: 6
+        total_item_price: total_item_price
+        content_source: content_source
+        price:
+          amount: amount
+          currency_code: currency_code
+        package_size_id: 2
+        size_id: 1
+        id: 0
+        can_buy: true
+        is_closed: false
+        upload_date: upload_date
+        is_visible: true
+        display_subtitle: display_subtitle
+        service_fee: service_fee
+        photo:
+          dominant_color: dominant_color
+          full_size_url: full_size_url
+          is_main: false
+          width: 7
+          id: 2
+          url: url
+          height: 9
+        can_reserve: false
+        url: url
+        brand_title: brand_title
+        brand_id: 7
+        seller_country_code: seller_country_code
+        catalog_id: 3
+        can_bundle: false
+        uploaded_at: uploaded_at
+        favourite_count: 6
+        category:
+        - category
+        - category
+        similarity_score: 5.962133916683182
+        user:
+          business: false
+          id: 5
+          photo_url: photo_url
+          login: login
+        size_title: size_title
+        view_count: 1
+        status: status
+      properties:
+        id:
+          title: Id
+          type: integer
+        title:
+          title: Title
+          type: string
+        price:
+          $ref: '#/components/schemas/VintedPrice'
+        brand_title:
+          nullable: true
+          type: string
+        display_title:
+          nullable: true
+          type: string
+        display_subtitle:
+          nullable: true
+          type: string
+        size_title:
+          nullable: true
+          type: string
+        status:
+          nullable: true
+          type: string
+        url:
+          title: Url
+          type: string
+        path:
+          nullable: true
+          type: string
+        is_visible:
+          default: true
+          title: Is Visible
+          type: boolean
+        promoted:
+          default: false
+          title: Promoted
+          type: boolean
+        favourite_count:
+          default: 0
+          title: Favourite Count
+          type: integer
+        view_count:
+          default: 0
+          title: View Count
+          type: integer
+        service_fee:
+          nullable: true
+          type: string
+        total_item_price:
+          nullable: true
+          type: string
+        content_source:
+          nullable: true
+          type: string
+        seller_country_code:
+          nullable: true
+          type: string
+        similarity_score:
+          nullable: true
+          type: number
+        user:
+          $ref: '#/components/schemas/VintedUserSummary'
+        photo:
+          $ref: '#/components/schemas/VintedPhoto'
+        photos:
+          items:
+            $ref: '#/components/schemas/VintedPhoto'
+          type: array
+        description:
+          nullable: true
+          type: string
+        catalog_id:
+          nullable: true
+          type: integer
+        color1:
+          nullable: true
+          type: string
+        color2:
+          nullable: true
+          type: string
+        package_size_id:
+          nullable: true
+          type: integer
+        is_favourite:
+          default: false
+          title: Is Favourite
+          type: boolean
+        can_buy:
+          default: true
+          title: Can Buy
+          type: boolean
+        can_bundle:
+          default: false
+          title: Can Bundle
+          type: boolean
+        can_reserve:
+          default: false
+          title: Can Reserve
+          type: boolean
+        instant_buy:
+          default: false
+          title: Instant Buy
+          type: boolean
+        is_hidden:
+          default: false
+          title: Is Hidden
+          type: boolean
+        is_reserved:
+          default: false
+          title: Is Reserved
+          type: boolean
+        is_closed:
+          default: false
+          title: Is Closed
+          type: boolean
+        seller:
+          $ref: '#/components/schemas/VintedSellerSummary'
+        size_id:
+          nullable: true
+          type: integer
+        status_id:
+          nullable: true
+          type: integer
+        brand_id:
+          nullable: true
+          type: integer
+        category:
+          items:
+            type: string
+          type: array
+        upload_date:
+          nullable: true
+          type: string
+        uploaded_at:
+          nullable: true
+          type: string
+      required:
+      - id
+      - price
+      - title
+      - url
+      title: VintedItemDetail
+    VintedItemSummary:
+      description: "An item as search, image search and wardrobe listings return it."
+      example:
+        is_visible: true
+        display_title: display_title
+        display_subtitle: display_subtitle
+        service_fee: service_fee
+        photo:
+          dominant_color: dominant_color
+          full_size_url: full_size_url
+          is_main: false
+          width: 7
+          id: 2
+          url: url
+          height: 9
+        title: title
+        promoted: false
+        photos:
+        - dominant_color: dominant_color
+          full_size_url: full_size_url
+          is_main: false
+          width: 7
+          id: 2
+          url: url
+          height: 9
+        - dominant_color: dominant_color
+          full_size_url: full_size_url
+          is_main: false
+          width: 7
+          id: 2
+          url: url
+          height: 9
+        url: url
+        brand_title: brand_title
+        seller_country_code: seller_country_code
+        path: path
+        total_item_price: total_item_price
+        content_source: content_source
+        price:
+          amount: amount
+          currency_code: currency_code
+        favourite_count: 6
+        id: 0
+        similarity_score: 5.962133916683182
+        user:
+          business: false
+          id: 5
+          photo_url: photo_url
+          login: login
+        size_title: size_title
+        view_count: 1
+        status: status
+      properties:
+        id:
+          title: Id
+          type: integer
+        title:
+          title: Title
+          type: string
+        price:
+          $ref: '#/components/schemas/VintedPrice'
+        brand_title:
+          nullable: true
+          type: string
+        display_title:
+          nullable: true
+          type: string
+        display_subtitle:
+          nullable: true
+          type: string
+        size_title:
+          nullable: true
+          type: string
+        status:
+          nullable: true
+          type: string
+        url:
+          title: Url
+          type: string
+        path:
+          nullable: true
+          type: string
+        is_visible:
+          default: true
+          title: Is Visible
+          type: boolean
+        promoted:
+          default: false
+          title: Promoted
+          type: boolean
+        favourite_count:
+          default: 0
+          title: Favourite Count
+          type: integer
+        view_count:
+          default: 0
+          title: View Count
+          type: integer
+        service_fee:
+          nullable: true
+          type: string
+        total_item_price:
+          nullable: true
+          type: string
+        content_source:
+          nullable: true
+          type: string
+        seller_country_code:
+          nullable: true
+          type: string
+        similarity_score:
+          nullable: true
+          type: number
+        user:
+          $ref: '#/components/schemas/VintedUserSummary'
+        photo:
+          $ref: '#/components/schemas/VintedPhoto'
+        photos:
+          items:
+            $ref: '#/components/schemas/VintedPhoto'
+          type: array
+      required:
+      - id
+      - price
+      - title
+      - url
+      title: VintedItemSummary
     VintedMobileReadRequest:
       additionalProperties: {}
       description: Parameters are validated against the discoverable operation catalog.
@@ -23235,6 +24136,285 @@ components:
             \ lists types, required fields and examples."
           title: Parameters
       title: VintedMobileReadRequest
+    VintedPagination:
+      description: Page metadata. Resend `time` to page a search deterministically.
+      example:
+        per_page: 7
+        total_pages: 5
+        time: 9
+        current_page: 5
+        total_entries: 2
+      properties:
+        current_page:
+          title: Current Page
+          type: integer
+        total_pages:
+          title: Total Pages
+          type: integer
+        total_entries:
+          title: Total Entries
+          type: integer
+        per_page:
+          title: Per Page
+          type: integer
+        time:
+          nullable: true
+          type: integer
+      required:
+      - current_page
+      - per_page
+      - total_entries
+      - total_pages
+      title: VintedPagination
+    VintedPhoto:
+      description: One item photo.
+      example:
+        dominant_color: dominant_color
+        full_size_url: full_size_url
+        is_main: false
+        width: 7
+        id: 2
+        url: url
+        height: 9
+      properties:
+        id:
+          title: Id
+          type: integer
+        url:
+          title: Url
+          type: string
+        dominant_color:
+          nullable: true
+          type: string
+        is_main:
+          default: false
+          title: Is Main
+          type: boolean
+        width:
+          nullable: true
+          type: integer
+        height:
+          nullable: true
+          type: integer
+        full_size_url:
+          nullable: true
+          type: string
+      required:
+      - id
+      - url
+      title: VintedPhoto
+    VintedPrice:
+      description: "Money value. The amount is a decimal string, never a float."
+      example:
+        amount: amount
+        currency_code: currency_code
+      properties:
+        amount:
+          title: Amount
+          type: string
+        currency_code:
+          title: Currency Code
+          type: string
+      required:
+      - amount
+      - currency_code
+      title: VintedPrice
+    VintedSellerSummary:
+      description: Richer seller block carried on item detail.
+      example:
+        item_count: 1
+        badges:
+        - badges
+        - badges
+        feedback_reputation: 1.2315135367772556
+        business: false
+        last_seen: last_seen
+        location: location
+        id: 4
+        photo_url: photo_url
+        login: ""
+        feedback_count: 7
+      properties:
+        id:
+          title: Id
+          type: integer
+        login:
+          default: ""
+          title: Login
+          type: string
+        photo_url:
+          nullable: true
+          type: string
+        business:
+          default: false
+          title: Business
+          type: boolean
+        feedback_count:
+          default: 0
+          title: Feedback Count
+          type: integer
+        feedback_reputation:
+          default: 0.0
+          title: Feedback Reputation
+          type: number
+        item_count:
+          default: 0
+          title: Item Count
+          type: integer
+        location:
+          nullable: true
+          type: string
+        last_seen:
+          nullable: true
+          type: string
+        badges:
+          items:
+            type: string
+          type: array
+      required:
+      - id
+      title: VintedSellerSummary
+    VintedStatus:
+      description: A condition filter value.
+      example:
+        id: 0
+        title: title
+      properties:
+        id:
+          title: Id
+          type: integer
+        title:
+          title: Title
+          type: string
+      required:
+      - id
+      - title
+      title: VintedStatus
+    VintedUserProfile:
+      description: A seller's public profile.
+      example:
+        item_count: 7
+        is_on_holiday: false
+        feedback_reputation: 1.4658129805029452
+        business: false
+        city: city
+        profile_url: profile_url
+        negative_feedback_count: 2
+        login: login
+        locale: locale
+        feedback_count: 6
+        total_items_count: 9
+        country_code: country_code
+        neutral_feedback_count: 5
+        positive_feedback_count: 5
+        following_count: 2
+        followers_count: 3
+        id: 0
+        photo_url: photo_url
+        is_online: false
+        last_loged_on_ts: last_loged_on_ts
+      properties:
+        id:
+          title: Id
+          type: integer
+        login:
+          title: Login
+          type: string
+        photo_url:
+          nullable: true
+          type: string
+        business:
+          default: false
+          title: Business
+          type: boolean
+        country_code:
+          nullable: true
+          type: string
+        city:
+          nullable: true
+          type: string
+        feedback_count:
+          default: 0
+          title: Feedback Count
+          type: integer
+        feedback_reputation:
+          default: 0.0
+          title: Feedback Reputation
+          type: number
+        positive_feedback_count:
+          default: 0
+          title: Positive Feedback Count
+          type: integer
+        neutral_feedback_count:
+          default: 0
+          title: Neutral Feedback Count
+          type: integer
+        negative_feedback_count:
+          default: 0
+          title: Negative Feedback Count
+          type: integer
+        item_count:
+          default: 0
+          title: Item Count
+          type: integer
+        total_items_count:
+          default: 0
+          title: Total Items Count
+          type: integer
+        followers_count:
+          default: 0
+          title: Followers Count
+          type: integer
+        following_count:
+          default: 0
+          title: Following Count
+          type: integer
+        is_online:
+          default: false
+          title: Is Online
+          type: boolean
+        is_on_holiday:
+          default: false
+          title: Is On Holiday
+          type: boolean
+        last_loged_on_ts:
+          nullable: true
+          type: string
+        profile_url:
+          nullable: true
+          type: string
+        locale:
+          nullable: true
+          type: string
+      required:
+      - id
+      - login
+      title: VintedUserProfile
+    VintedUserSummary:
+      description: Seller as nested in an item response.
+      example:
+        business: false
+        id: 5
+        photo_url: photo_url
+        login: login
+      properties:
+        id:
+          title: Id
+          type: integer
+        login:
+          title: Login
+          type: string
+        photo_url:
+          nullable: true
+          type: string
+        business:
+          default: false
+          title: Business
+          type: boolean
+      required:
+      - id
+      - login
+      title: VintedUserSummary
     WebhookCreate:
       description: Configure webhook on a monitor.
       example:

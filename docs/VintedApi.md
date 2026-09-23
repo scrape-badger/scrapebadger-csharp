@@ -20,7 +20,7 @@ All URIs are relative to *https://scrapebadger.com*
 
 <a id="vintedgetitemdetails"></a>
 # **VintedGetItemDetails**
-> Object VintedGetItemDetails (int itemId, string market = null)
+> ItemDetailResponse VintedGetItemDetails (int itemId, string market = null)
 
 Get item details
 
@@ -58,7 +58,7 @@ namespace Example
             try
             {
                 // Get item details
-                Object result = apiInstance.VintedGetItemDetails(itemId, market);
+                ItemDetailResponse result = apiInstance.VintedGetItemDetails(itemId, market);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -79,7 +79,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get item details
-    ApiResponse<Object> response = apiInstance.VintedGetItemDetailsWithHttpInfo(itemId, market);
+    ApiResponse<ItemDetailResponse> response = apiInstance.VintedGetItemDetailsWithHttpInfo(itemId, market);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -101,7 +101,7 @@ catch (ApiException e)
 
 ### Return type
 
-**Object**
+[**ItemDetailResponse**](ItemDetailResponse.md)
 
 ### Authorization
 
@@ -123,7 +123,7 @@ catch (ApiException e)
 
 <a id="vintedgetuserprofile"></a>
 # **VintedGetUserProfile**
-> Object VintedGetUserProfile (int userId, string market = null)
+> UserProfileResponse VintedGetUserProfile (int userId, string market = null)
 
 Get user profile
 
@@ -161,7 +161,7 @@ namespace Example
             try
             {
                 // Get user profile
-                Object result = apiInstance.VintedGetUserProfile(userId, market);
+                UserProfileResponse result = apiInstance.VintedGetUserProfile(userId, market);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -182,7 +182,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get user profile
-    ApiResponse<Object> response = apiInstance.VintedGetUserProfileWithHttpInfo(userId, market);
+    ApiResponse<UserProfileResponse> response = apiInstance.VintedGetUserProfileWithHttpInfo(userId, market);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -204,7 +204,7 @@ catch (ApiException e)
 
 ### Return type
 
-**Object**
+[**UserProfileResponse**](UserProfileResponse.md)
 
 ### Authorization
 
@@ -226,7 +226,7 @@ catch (ApiException e)
 
 <a id="vintedgetuserslisteditems"></a>
 # **VintedGetUserSListedItems**
-> Object VintedGetUserSListedItems (int userId, string market = null, int? page = null, int? perPage = null)
+> UserItemsResponse VintedGetUserSListedItems (int userId, string market = null, int? page = null, int? perPage = null)
 
 Get user's listed items
 
@@ -266,7 +266,7 @@ namespace Example
             try
             {
                 // Get user's listed items
-                Object result = apiInstance.VintedGetUserSListedItems(userId, market, page, perPage);
+                UserItemsResponse result = apiInstance.VintedGetUserSListedItems(userId, market, page, perPage);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -287,7 +287,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get user's listed items
-    ApiResponse<Object> response = apiInstance.VintedGetUserSListedItemsWithHttpInfo(userId, market, page, perPage);
+    ApiResponse<UserItemsResponse> response = apiInstance.VintedGetUserSListedItemsWithHttpInfo(userId, market, page, perPage);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -311,7 +311,7 @@ catch (ApiException e)
 
 ### Return type
 
-**Object**
+[**UserItemsResponse**](UserItemsResponse.md)
 
 ### Authorization
 
@@ -333,7 +333,7 @@ catch (ApiException e)
 
 <a id="vintedlistcolors"></a>
 # **VintedListColors**
-> Object VintedListColors (string market = null)
+> ColorsResponse VintedListColors (string market = null)
 
 List colors
 
@@ -370,7 +370,7 @@ namespace Example
             try
             {
                 // List colors
-                Object result = apiInstance.VintedListColors(market);
+                ColorsResponse result = apiInstance.VintedListColors(market);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -391,7 +391,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // List colors
-    ApiResponse<Object> response = apiInstance.VintedListColorsWithHttpInfo(market);
+    ApiResponse<ColorsResponse> response = apiInstance.VintedListColorsWithHttpInfo(market);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -412,7 +412,7 @@ catch (ApiException e)
 
 ### Return type
 
-**Object**
+[**ColorsResponse**](ColorsResponse.md)
 
 ### Authorization
 
@@ -434,7 +434,7 @@ catch (ApiException e)
 
 <a id="vintedlistitemconditions"></a>
 # **VintedListItemConditions**
-> Object VintedListItemConditions (string market = null)
+> StatusesResponse VintedListItemConditions (string market = null)
 
 List item conditions
 
@@ -471,7 +471,7 @@ namespace Example
             try
             {
                 // List item conditions
-                Object result = apiInstance.VintedListItemConditions(market);
+                StatusesResponse result = apiInstance.VintedListItemConditions(market);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -492,7 +492,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // List item conditions
-    ApiResponse<Object> response = apiInstance.VintedListItemConditionsWithHttpInfo(market);
+    ApiResponse<StatusesResponse> response = apiInstance.VintedListItemConditionsWithHttpInfo(market);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -513,7 +513,7 @@ catch (ApiException e)
 
 ### Return type
 
-**Object**
+[**StatusesResponse**](StatusesResponse.md)
 
 ### Authorization
 
@@ -535,7 +535,7 @@ catch (ApiException e)
 
 <a id="vintedlistmarkets"></a>
 # **VintedListMarkets**
-> Object VintedListMarkets ()
+> MarketsResponse VintedListMarkets ()
 
 List markets
 
@@ -571,7 +571,7 @@ namespace Example
             try
             {
                 // List markets
-                Object result = apiInstance.VintedListMarkets();
+                MarketsResponse result = apiInstance.VintedListMarkets();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -592,7 +592,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // List markets
-    ApiResponse<Object> response = apiInstance.VintedListMarketsWithHttpInfo();
+    ApiResponse<MarketsResponse> response = apiInstance.VintedListMarketsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -609,7 +609,7 @@ catch (ApiException e)
 This endpoint does not need any parameter.
 ### Return type
 
-**Object**
+[**MarketsResponse**](MarketsResponse.md)
 
 ### Authorization
 
@@ -828,7 +828,7 @@ catch (ApiException e)
 
 <a id="vintedsearchbrands"></a>
 # **VintedSearchBrands**
-> Object VintedSearchBrands (string keyword, string market = null)
+> BrandsResponse VintedSearchBrands (string keyword, string market = null)
 
 Search brands
 
@@ -866,7 +866,7 @@ namespace Example
             try
             {
                 // Search brands
-                Object result = apiInstance.VintedSearchBrands(keyword, market);
+                BrandsResponse result = apiInstance.VintedSearchBrands(keyword, market);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -887,7 +887,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search brands
-    ApiResponse<Object> response = apiInstance.VintedSearchBrandsWithHttpInfo(keyword, market);
+    ApiResponse<BrandsResponse> response = apiInstance.VintedSearchBrandsWithHttpInfo(keyword, market);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -909,7 +909,7 @@ catch (ApiException e)
 
 ### Return type
 
-**Object**
+[**BrandsResponse**](BrandsResponse.md)
 
 ### Authorization
 
@@ -931,7 +931,7 @@ catch (ApiException e)
 
 <a id="vintedsearchbyimage"></a>
 # **VintedSearchByImage**
-> Object VintedSearchByImage (VintedImageSearchRequest vintedImageSearchRequest)
+> SearchResponse VintedSearchByImage (VintedImageSearchRequest vintedImageSearchRequest)
 
 Search by image
 
@@ -968,7 +968,7 @@ namespace Example
             try
             {
                 // Search by image
-                Object result = apiInstance.VintedSearchByImage(vintedImageSearchRequest);
+                SearchResponse result = apiInstance.VintedSearchByImage(vintedImageSearchRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -989,7 +989,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search by image
-    ApiResponse<Object> response = apiInstance.VintedSearchByImageWithHttpInfo(vintedImageSearchRequest);
+    ApiResponse<SearchResponse> response = apiInstance.VintedSearchByImageWithHttpInfo(vintedImageSearchRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1010,7 +1010,7 @@ catch (ApiException e)
 
 ### Return type
 
-**Object**
+[**SearchResponse**](SearchResponse.md)
 
 ### Authorization
 
@@ -1032,7 +1032,7 @@ catch (ApiException e)
 
 <a id="vintedsearchvinteditems"></a>
 # **VintedSearchVintedItems**
-> Object VintedSearchVintedItems (string query, string market = null, string sellerCountry = null, int? page = null, int? perPage = null, decimal? priceFrom = null, decimal? priceTo = null, string brandIds = null, string catalogIds = null, string colorIds = null, string sizeIds = null, string materialIds = null, int? time = null, string searchSessionId = null, string statusIds = null, string order = null)
+> SearchResponse VintedSearchVintedItems (string query, string market = null, string sellerCountry = null, int? page = null, int? perPage = null, decimal? priceFrom = null, decimal? priceTo = null, string brandIds = null, string catalogIds = null, string colorIds = null, string sizeIds = null, string materialIds = null, int? time = null, string searchSessionId = null, string statusIds = null, string order = null)
 
 Search Vinted items
 
@@ -1084,7 +1084,7 @@ namespace Example
             try
             {
                 // Search Vinted items
-                Object result = apiInstance.VintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
+                SearchResponse result = apiInstance.VintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1105,7 +1105,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search Vinted items
-    ApiResponse<Object> response = apiInstance.VintedSearchVintedItemsWithHttpInfo(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
+    ApiResponse<SearchResponse> response = apiInstance.VintedSearchVintedItemsWithHttpInfo(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1141,7 +1141,7 @@ catch (ApiException e)
 
 ### Return type
 
-**Object**
+[**SearchResponse**](SearchResponse.md)
 
 ### Authorization
 

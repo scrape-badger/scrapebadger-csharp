@@ -36,8 +36,8 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="itemId"></param>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
-        /// <returns>Object</returns>
-        Object VintedGetItemDetails(int itemId, string market = default(string));
+        /// <returns>ItemDetailResponse</returns>
+        ItemDetailResponse VintedGetItemDetails(int itemId, string market = default(string));
 
         /// <summary>
         /// Get item details
@@ -48,8 +48,8 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="itemId"></param>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> VintedGetItemDetailsWithHttpInfo(int itemId, string market = default(string));
+        /// <returns>ApiResponse of ItemDetailResponse</returns>
+        ApiResponse<ItemDetailResponse> VintedGetItemDetailsWithHttpInfo(int itemId, string market = default(string));
         /// <summary>
         /// Get user profile
         /// </summary>
@@ -59,8 +59,8 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
-        /// <returns>Object</returns>
-        Object VintedGetUserProfile(int userId, string market = default(string));
+        /// <returns>UserProfileResponse</returns>
+        UserProfileResponse VintedGetUserProfile(int userId, string market = default(string));
 
         /// <summary>
         /// Get user profile
@@ -71,8 +71,8 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> VintedGetUserProfileWithHttpInfo(int userId, string market = default(string));
+        /// <returns>ApiResponse of UserProfileResponse</returns>
+        ApiResponse<UserProfileResponse> VintedGetUserProfileWithHttpInfo(int userId, string market = default(string));
         /// <summary>
         /// Get user&#39;s listed items
         /// </summary>
@@ -84,8 +84,8 @@ namespace ScrapeBadger.Api
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
         /// <param name="page"> (optional, default to 1)</param>
         /// <param name="perPage"> (optional, default to 20)</param>
-        /// <returns>Object</returns>
-        Object VintedGetUserSListedItems(int userId, string market = default(string), int? page = default(int?), int? perPage = default(int?));
+        /// <returns>UserItemsResponse</returns>
+        UserItemsResponse VintedGetUserSListedItems(int userId, string market = default(string), int? page = default(int?), int? perPage = default(int?));
 
         /// <summary>
         /// Get user&#39;s listed items
@@ -98,8 +98,8 @@ namespace ScrapeBadger.Api
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
         /// <param name="page"> (optional, default to 1)</param>
         /// <param name="perPage"> (optional, default to 20)</param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> VintedGetUserSListedItemsWithHttpInfo(int userId, string market = default(string), int? page = default(int?), int? perPage = default(int?));
+        /// <returns>ApiResponse of UserItemsResponse</returns>
+        ApiResponse<UserItemsResponse> VintedGetUserSListedItemsWithHttpInfo(int userId, string market = default(string), int? page = default(int?), int? perPage = default(int?));
         /// <summary>
         /// List colors
         /// </summary>
@@ -108,8 +108,8 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
-        /// <returns>Object</returns>
-        Object VintedListColors(string market = default(string));
+        /// <returns>ColorsResponse</returns>
+        ColorsResponse VintedListColors(string market = default(string));
 
         /// <summary>
         /// List colors
@@ -119,8 +119,8 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> VintedListColorsWithHttpInfo(string market = default(string));
+        /// <returns>ApiResponse of ColorsResponse</returns>
+        ApiResponse<ColorsResponse> VintedListColorsWithHttpInfo(string market = default(string));
         /// <summary>
         /// List item conditions
         /// </summary>
@@ -129,8 +129,8 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
-        /// <returns>Object</returns>
-        Object VintedListItemConditions(string market = default(string));
+        /// <returns>StatusesResponse</returns>
+        StatusesResponse VintedListItemConditions(string market = default(string));
 
         /// <summary>
         /// List item conditions
@@ -140,8 +140,8 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> VintedListItemConditionsWithHttpInfo(string market = default(string));
+        /// <returns>ApiResponse of StatusesResponse</returns>
+        ApiResponse<StatusesResponse> VintedListItemConditionsWithHttpInfo(string market = default(string));
         /// <summary>
         /// List markets
         /// </summary>
@@ -149,8 +149,8 @@ namespace ScrapeBadger.Api
         /// List all supported Vinted markets.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Object</returns>
-        Object VintedListMarkets();
+        /// <returns>MarketsResponse</returns>
+        MarketsResponse VintedListMarkets();
 
         /// <summary>
         /// List markets
@@ -159,8 +159,8 @@ namespace ScrapeBadger.Api
         /// List all supported Vinted markets.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> VintedListMarketsWithHttpInfo();
+        /// <returns>ApiResponse of MarketsResponse</returns>
+        ApiResponse<MarketsResponse> VintedListMarketsWithHttpInfo();
         /// <summary>
         /// List public Vinted mobile operations
         /// </summary>
@@ -212,8 +212,8 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyword">Brand search keyword</param>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
-        /// <returns>Object</returns>
-        Object VintedSearchBrands(string keyword, string market = default(string));
+        /// <returns>BrandsResponse</returns>
+        BrandsResponse VintedSearchBrands(string keyword, string market = default(string));
 
         /// <summary>
         /// Search brands
@@ -224,8 +224,8 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyword">Brand search keyword</param>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> VintedSearchBrandsWithHttpInfo(string keyword, string market = default(string));
+        /// <returns>ApiResponse of BrandsResponse</returns>
+        ApiResponse<BrandsResponse> VintedSearchBrandsWithHttpInfo(string keyword, string market = default(string));
         /// <summary>
         /// Search by image
         /// </summary>
@@ -234,8 +234,8 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vintedImageSearchRequest"></param>
-        /// <returns>Object</returns>
-        Object VintedSearchByImage(VintedImageSearchRequest vintedImageSearchRequest);
+        /// <returns>SearchResponse</returns>
+        SearchResponse VintedSearchByImage(VintedImageSearchRequest vintedImageSearchRequest);
 
         /// <summary>
         /// Search by image
@@ -245,8 +245,8 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vintedImageSearchRequest"></param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> VintedSearchByImageWithHttpInfo(VintedImageSearchRequest vintedImageSearchRequest);
+        /// <returns>ApiResponse of SearchResponse</returns>
+        ApiResponse<SearchResponse> VintedSearchByImageWithHttpInfo(VintedImageSearchRequest vintedImageSearchRequest);
         /// <summary>
         /// Search Vinted items
         /// </summary>
@@ -270,8 +270,8 @@ namespace ScrapeBadger.Api
         /// <param name="searchSessionId">Reuse across pages of one search (optional)</param>
         /// <param name="statusIds">Comma-separated condition/status IDs (optional)</param>
         /// <param name="order"> (optional)</param>
-        /// <returns>Object</returns>
-        Object VintedSearchVintedItems(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string sizeIds = default(string), string materialIds = default(string), int? time = default(int?), string searchSessionId = default(string), string statusIds = default(string), string order = default(string));
+        /// <returns>SearchResponse</returns>
+        SearchResponse VintedSearchVintedItems(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string sizeIds = default(string), string materialIds = default(string), int? time = default(int?), string searchSessionId = default(string), string statusIds = default(string), string order = default(string));
 
         /// <summary>
         /// Search Vinted items
@@ -296,8 +296,8 @@ namespace ScrapeBadger.Api
         /// <param name="searchSessionId">Reuse across pages of one search (optional)</param>
         /// <param name="statusIds">Comma-separated condition/status IDs (optional)</param>
         /// <param name="order"> (optional)</param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> VintedSearchVintedItemsWithHttpInfo(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string sizeIds = default(string), string materialIds = default(string), int? time = default(int?), string searchSessionId = default(string), string statusIds = default(string), string order = default(string));
+        /// <returns>ApiResponse of SearchResponse</returns>
+        ApiResponse<SearchResponse> VintedSearchVintedItemsWithHttpInfo(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string sizeIds = default(string), string materialIds = default(string), int? time = default(int?), string searchSessionId = default(string), string statusIds = default(string), string order = default(string));
         /// <summary>
         /// Vinted scraper health check
         /// </summary>
@@ -355,8 +355,8 @@ namespace ScrapeBadger.Api
         /// <param name="itemId"></param>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> VintedGetItemDetailsAsync(int itemId, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of ItemDetailResponse</returns>
+        System.Threading.Tasks.Task<ItemDetailResponse> VintedGetItemDetailsAsync(int itemId, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get item details
@@ -368,8 +368,8 @@ namespace ScrapeBadger.Api
         /// <param name="itemId"></param>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> VintedGetItemDetailsWithHttpInfoAsync(int itemId, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (ItemDetailResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ItemDetailResponse>> VintedGetItemDetailsWithHttpInfoAsync(int itemId, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get user profile
         /// </summary>
@@ -380,8 +380,8 @@ namespace ScrapeBadger.Api
         /// <param name="userId"></param>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> VintedGetUserProfileAsync(int userId, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of UserProfileResponse</returns>
+        System.Threading.Tasks.Task<UserProfileResponse> VintedGetUserProfileAsync(int userId, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get user profile
@@ -393,8 +393,8 @@ namespace ScrapeBadger.Api
         /// <param name="userId"></param>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> VintedGetUserProfileWithHttpInfoAsync(int userId, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (UserProfileResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UserProfileResponse>> VintedGetUserProfileWithHttpInfoAsync(int userId, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get user&#39;s listed items
         /// </summary>
@@ -407,8 +407,8 @@ namespace ScrapeBadger.Api
         /// <param name="page"> (optional, default to 1)</param>
         /// <param name="perPage"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> VintedGetUserSListedItemsAsync(int userId, string market = default(string), int? page = default(int?), int? perPage = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of UserItemsResponse</returns>
+        System.Threading.Tasks.Task<UserItemsResponse> VintedGetUserSListedItemsAsync(int userId, string market = default(string), int? page = default(int?), int? perPage = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get user&#39;s listed items
@@ -422,8 +422,8 @@ namespace ScrapeBadger.Api
         /// <param name="page"> (optional, default to 1)</param>
         /// <param name="perPage"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> VintedGetUserSListedItemsWithHttpInfoAsync(int userId, string market = default(string), int? page = default(int?), int? perPage = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (UserItemsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<UserItemsResponse>> VintedGetUserSListedItemsWithHttpInfoAsync(int userId, string market = default(string), int? page = default(int?), int? perPage = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List colors
         /// </summary>
@@ -433,8 +433,8 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> VintedListColorsAsync(string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of ColorsResponse</returns>
+        System.Threading.Tasks.Task<ColorsResponse> VintedListColorsAsync(string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List colors
@@ -445,8 +445,8 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> VintedListColorsWithHttpInfoAsync(string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (ColorsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ColorsResponse>> VintedListColorsWithHttpInfoAsync(string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List item conditions
         /// </summary>
@@ -456,8 +456,8 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> VintedListItemConditionsAsync(string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of StatusesResponse</returns>
+        System.Threading.Tasks.Task<StatusesResponse> VintedListItemConditionsAsync(string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List item conditions
@@ -468,8 +468,8 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> VintedListItemConditionsWithHttpInfoAsync(string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (StatusesResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<StatusesResponse>> VintedListItemConditionsWithHttpInfoAsync(string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List markets
         /// </summary>
@@ -478,8 +478,8 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> VintedListMarketsAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of MarketsResponse</returns>
+        System.Threading.Tasks.Task<MarketsResponse> VintedListMarketsAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List markets
@@ -489,8 +489,8 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> VintedListMarketsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (MarketsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<MarketsResponse>> VintedListMarketsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List public Vinted mobile operations
         /// </summary>
@@ -547,8 +547,8 @@ namespace ScrapeBadger.Api
         /// <param name="keyword">Brand search keyword</param>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> VintedSearchBrandsAsync(string keyword, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of BrandsResponse</returns>
+        System.Threading.Tasks.Task<BrandsResponse> VintedSearchBrandsAsync(string keyword, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Search brands
@@ -560,8 +560,8 @@ namespace ScrapeBadger.Api
         /// <param name="keyword">Brand search keyword</param>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> VintedSearchBrandsWithHttpInfoAsync(string keyword, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (BrandsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<BrandsResponse>> VintedSearchBrandsWithHttpInfoAsync(string keyword, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Search by image
         /// </summary>
@@ -571,8 +571,8 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vintedImageSearchRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> VintedSearchByImageAsync(VintedImageSearchRequest vintedImageSearchRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of SearchResponse</returns>
+        System.Threading.Tasks.Task<SearchResponse> VintedSearchByImageAsync(VintedImageSearchRequest vintedImageSearchRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Search by image
@@ -583,8 +583,8 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vintedImageSearchRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> VintedSearchByImageWithHttpInfoAsync(VintedImageSearchRequest vintedImageSearchRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (SearchResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SearchResponse>> VintedSearchByImageWithHttpInfoAsync(VintedImageSearchRequest vintedImageSearchRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Search Vinted items
         /// </summary>
@@ -609,8 +609,8 @@ namespace ScrapeBadger.Api
         /// <param name="statusIds">Comma-separated condition/status IDs (optional)</param>
         /// <param name="order"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> VintedSearchVintedItemsAsync(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string sizeIds = default(string), string materialIds = default(string), int? time = default(int?), string searchSessionId = default(string), string statusIds = default(string), string order = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of SearchResponse</returns>
+        System.Threading.Tasks.Task<SearchResponse> VintedSearchVintedItemsAsync(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string sizeIds = default(string), string materialIds = default(string), int? time = default(int?), string searchSessionId = default(string), string statusIds = default(string), string order = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Search Vinted items
@@ -636,8 +636,8 @@ namespace ScrapeBadger.Api
         /// <param name="statusIds">Comma-separated condition/status IDs (optional)</param>
         /// <param name="order"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> VintedSearchVintedItemsWithHttpInfoAsync(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string sizeIds = default(string), string materialIds = default(string), int? time = default(int?), string searchSessionId = default(string), string statusIds = default(string), string order = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse (SearchResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<SearchResponse>> VintedSearchVintedItemsWithHttpInfoAsync(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string sizeIds = default(string), string materialIds = default(string), int? time = default(int?), string searchSessionId = default(string), string statusIds = default(string), string order = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Vinted scraper health check
         /// </summary>
@@ -899,10 +899,10 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="itemId"></param>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
-        /// <returns>Object</returns>
-        public Object VintedGetItemDetails(int itemId, string market = default(string))
+        /// <returns>ItemDetailResponse</returns>
+        public ItemDetailResponse VintedGetItemDetails(int itemId, string market = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = VintedGetItemDetailsWithHttpInfo(itemId, market);
+            ScrapeBadger.Client.ApiResponse<ItemDetailResponse> localVarResponse = VintedGetItemDetailsWithHttpInfo(itemId, market);
             return localVarResponse.Data;
         }
 
@@ -912,8 +912,8 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="itemId"></param>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
-        /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> VintedGetItemDetailsWithHttpInfo(int itemId, string market = default(string))
+        /// <returns>ApiResponse of ItemDetailResponse</returns>
+        public ScrapeBadger.Client.ApiResponse<ItemDetailResponse> VintedGetItemDetailsWithHttpInfo(int itemId, string market = default(string))
         {
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
 
@@ -944,7 +944,7 @@ namespace ScrapeBadger.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/v1/vinted/items/{item_id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<ItemDetailResponse>("/v1/vinted/items/{item_id}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -962,10 +962,10 @@ namespace ScrapeBadger.Api
         /// <param name="itemId"></param>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> VintedGetItemDetailsAsync(int itemId, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of ItemDetailResponse</returns>
+        public async System.Threading.Tasks.Task<ItemDetailResponse> VintedGetItemDetailsAsync(int itemId, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await VintedGetItemDetailsWithHttpInfoAsync(itemId, market, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<ItemDetailResponse> localVarResponse = await VintedGetItemDetailsWithHttpInfoAsync(itemId, market, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -976,8 +976,8 @@ namespace ScrapeBadger.Api
         /// <param name="itemId"></param>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> VintedGetItemDetailsWithHttpInfoAsync(int itemId, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (ItemDetailResponse)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<ItemDetailResponse>> VintedGetItemDetailsWithHttpInfoAsync(int itemId, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
@@ -1011,7 +1011,7 @@ namespace ScrapeBadger.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/vinted/items/{item_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ItemDetailResponse>("/v1/vinted/items/{item_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1028,10 +1028,10 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
-        /// <returns>Object</returns>
-        public Object VintedGetUserProfile(int userId, string market = default(string))
+        /// <returns>UserProfileResponse</returns>
+        public UserProfileResponse VintedGetUserProfile(int userId, string market = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = VintedGetUserProfileWithHttpInfo(userId, market);
+            ScrapeBadger.Client.ApiResponse<UserProfileResponse> localVarResponse = VintedGetUserProfileWithHttpInfo(userId, market);
             return localVarResponse.Data;
         }
 
@@ -1041,8 +1041,8 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
-        /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> VintedGetUserProfileWithHttpInfo(int userId, string market = default(string))
+        /// <returns>ApiResponse of UserProfileResponse</returns>
+        public ScrapeBadger.Client.ApiResponse<UserProfileResponse> VintedGetUserProfileWithHttpInfo(int userId, string market = default(string))
         {
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
 
@@ -1073,7 +1073,7 @@ namespace ScrapeBadger.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/v1/vinted/users/{user_id}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<UserProfileResponse>("/v1/vinted/users/{user_id}", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1091,10 +1091,10 @@ namespace ScrapeBadger.Api
         /// <param name="userId"></param>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> VintedGetUserProfileAsync(int userId, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of UserProfileResponse</returns>
+        public async System.Threading.Tasks.Task<UserProfileResponse> VintedGetUserProfileAsync(int userId, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await VintedGetUserProfileWithHttpInfoAsync(userId, market, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<UserProfileResponse> localVarResponse = await VintedGetUserProfileWithHttpInfoAsync(userId, market, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1105,8 +1105,8 @@ namespace ScrapeBadger.Api
         /// <param name="userId"></param>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> VintedGetUserProfileWithHttpInfoAsync(int userId, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (UserProfileResponse)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<UserProfileResponse>> VintedGetUserProfileWithHttpInfoAsync(int userId, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
@@ -1140,7 +1140,7 @@ namespace ScrapeBadger.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/vinted/users/{user_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<UserProfileResponse>("/v1/vinted/users/{user_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1159,10 +1159,10 @@ namespace ScrapeBadger.Api
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
         /// <param name="page"> (optional, default to 1)</param>
         /// <param name="perPage"> (optional, default to 20)</param>
-        /// <returns>Object</returns>
-        public Object VintedGetUserSListedItems(int userId, string market = default(string), int? page = default(int?), int? perPage = default(int?))
+        /// <returns>UserItemsResponse</returns>
+        public UserItemsResponse VintedGetUserSListedItems(int userId, string market = default(string), int? page = default(int?), int? perPage = default(int?))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = VintedGetUserSListedItemsWithHttpInfo(userId, market, page, perPage);
+            ScrapeBadger.Client.ApiResponse<UserItemsResponse> localVarResponse = VintedGetUserSListedItemsWithHttpInfo(userId, market, page, perPage);
             return localVarResponse.Data;
         }
 
@@ -1174,8 +1174,8 @@ namespace ScrapeBadger.Api
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
         /// <param name="page"> (optional, default to 1)</param>
         /// <param name="perPage"> (optional, default to 20)</param>
-        /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> VintedGetUserSListedItemsWithHttpInfo(int userId, string market = default(string), int? page = default(int?), int? perPage = default(int?))
+        /// <returns>ApiResponse of UserItemsResponse</returns>
+        public ScrapeBadger.Client.ApiResponse<UserItemsResponse> VintedGetUserSListedItemsWithHttpInfo(int userId, string market = default(string), int? page = default(int?), int? perPage = default(int?))
         {
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
 
@@ -1214,7 +1214,7 @@ namespace ScrapeBadger.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/v1/vinted/users/{user_id}/items", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<UserItemsResponse>("/v1/vinted/users/{user_id}/items", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1234,10 +1234,10 @@ namespace ScrapeBadger.Api
         /// <param name="page"> (optional, default to 1)</param>
         /// <param name="perPage"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> VintedGetUserSListedItemsAsync(int userId, string market = default(string), int? page = default(int?), int? perPage = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of UserItemsResponse</returns>
+        public async System.Threading.Tasks.Task<UserItemsResponse> VintedGetUserSListedItemsAsync(int userId, string market = default(string), int? page = default(int?), int? perPage = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await VintedGetUserSListedItemsWithHttpInfoAsync(userId, market, page, perPage, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<UserItemsResponse> localVarResponse = await VintedGetUserSListedItemsWithHttpInfoAsync(userId, market, page, perPage, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1250,8 +1250,8 @@ namespace ScrapeBadger.Api
         /// <param name="page"> (optional, default to 1)</param>
         /// <param name="perPage"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> VintedGetUserSListedItemsWithHttpInfoAsync(int userId, string market = default(string), int? page = default(int?), int? perPage = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (UserItemsResponse)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<UserItemsResponse>> VintedGetUserSListedItemsWithHttpInfoAsync(int userId, string market = default(string), int? page = default(int?), int? perPage = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
@@ -1293,7 +1293,7 @@ namespace ScrapeBadger.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/vinted/users/{user_id}/items", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<UserItemsResponse>("/v1/vinted/users/{user_id}/items", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1309,10 +1309,10 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
-        /// <returns>Object</returns>
-        public Object VintedListColors(string market = default(string))
+        /// <returns>ColorsResponse</returns>
+        public ColorsResponse VintedListColors(string market = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = VintedListColorsWithHttpInfo(market);
+            ScrapeBadger.Client.ApiResponse<ColorsResponse> localVarResponse = VintedListColorsWithHttpInfo(market);
             return localVarResponse.Data;
         }
 
@@ -1321,8 +1321,8 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
-        /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> VintedListColorsWithHttpInfo(string market = default(string))
+        /// <returns>ApiResponse of ColorsResponse</returns>
+        public ScrapeBadger.Client.ApiResponse<ColorsResponse> VintedListColorsWithHttpInfo(string market = default(string))
         {
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
 
@@ -1352,7 +1352,7 @@ namespace ScrapeBadger.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/v1/vinted/colors", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<ColorsResponse>("/v1/vinted/colors", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1369,10 +1369,10 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> VintedListColorsAsync(string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of ColorsResponse</returns>
+        public async System.Threading.Tasks.Task<ColorsResponse> VintedListColorsAsync(string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await VintedListColorsWithHttpInfoAsync(market, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<ColorsResponse> localVarResponse = await VintedListColorsWithHttpInfoAsync(market, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1382,8 +1382,8 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> VintedListColorsWithHttpInfoAsync(string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (ColorsResponse)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<ColorsResponse>> VintedListColorsWithHttpInfoAsync(string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
@@ -1416,7 +1416,7 @@ namespace ScrapeBadger.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/vinted/colors", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<ColorsResponse>("/v1/vinted/colors", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1432,10 +1432,10 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
-        /// <returns>Object</returns>
-        public Object VintedListItemConditions(string market = default(string))
+        /// <returns>StatusesResponse</returns>
+        public StatusesResponse VintedListItemConditions(string market = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = VintedListItemConditionsWithHttpInfo(market);
+            ScrapeBadger.Client.ApiResponse<StatusesResponse> localVarResponse = VintedListItemConditionsWithHttpInfo(market);
             return localVarResponse.Data;
         }
 
@@ -1444,8 +1444,8 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
-        /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> VintedListItemConditionsWithHttpInfo(string market = default(string))
+        /// <returns>ApiResponse of StatusesResponse</returns>
+        public ScrapeBadger.Client.ApiResponse<StatusesResponse> VintedListItemConditionsWithHttpInfo(string market = default(string))
         {
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
 
@@ -1475,7 +1475,7 @@ namespace ScrapeBadger.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/v1/vinted/statuses", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<StatusesResponse>("/v1/vinted/statuses", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1492,10 +1492,10 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> VintedListItemConditionsAsync(string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of StatusesResponse</returns>
+        public async System.Threading.Tasks.Task<StatusesResponse> VintedListItemConditionsAsync(string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await VintedListItemConditionsWithHttpInfoAsync(market, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<StatusesResponse> localVarResponse = await VintedListItemConditionsWithHttpInfoAsync(market, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1505,8 +1505,8 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> VintedListItemConditionsWithHttpInfoAsync(string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (StatusesResponse)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<StatusesResponse>> VintedListItemConditionsWithHttpInfoAsync(string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
@@ -1539,7 +1539,7 @@ namespace ScrapeBadger.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/vinted/statuses", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<StatusesResponse>("/v1/vinted/statuses", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1554,10 +1554,10 @@ namespace ScrapeBadger.Api
         /// List markets List all supported Vinted markets.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Object</returns>
-        public Object VintedListMarkets()
+        /// <returns>MarketsResponse</returns>
+        public MarketsResponse VintedListMarkets()
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = VintedListMarketsWithHttpInfo();
+            ScrapeBadger.Client.ApiResponse<MarketsResponse> localVarResponse = VintedListMarketsWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -1565,8 +1565,8 @@ namespace ScrapeBadger.Api
         /// List markets List all supported Vinted markets.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> VintedListMarketsWithHttpInfo()
+        /// <returns>ApiResponse of MarketsResponse</returns>
+        public ScrapeBadger.Client.ApiResponse<MarketsResponse> VintedListMarketsWithHttpInfo()
         {
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
 
@@ -1592,7 +1592,7 @@ namespace ScrapeBadger.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/v1/vinted/markets", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<MarketsResponse>("/v1/vinted/markets", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1608,10 +1608,10 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> VintedListMarketsAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of MarketsResponse</returns>
+        public async System.Threading.Tasks.Task<MarketsResponse> VintedListMarketsAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await VintedListMarketsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<MarketsResponse> localVarResponse = await VintedListMarketsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1620,8 +1620,8 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> VintedListMarketsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (MarketsResponse)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<MarketsResponse>> VintedListMarketsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
@@ -1650,7 +1650,7 @@ namespace ScrapeBadger.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/vinted/markets", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<MarketsResponse>("/v1/vinted/markets", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1919,10 +1919,10 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyword">Brand search keyword</param>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
-        /// <returns>Object</returns>
-        public Object VintedSearchBrands(string keyword, string market = default(string))
+        /// <returns>BrandsResponse</returns>
+        public BrandsResponse VintedSearchBrands(string keyword, string market = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = VintedSearchBrandsWithHttpInfo(keyword, market);
+            ScrapeBadger.Client.ApiResponse<BrandsResponse> localVarResponse = VintedSearchBrandsWithHttpInfo(keyword, market);
             return localVarResponse.Data;
         }
 
@@ -1932,8 +1932,8 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyword">Brand search keyword</param>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
-        /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> VintedSearchBrandsWithHttpInfo(string keyword, string market = default(string))
+        /// <returns>ApiResponse of BrandsResponse</returns>
+        public ScrapeBadger.Client.ApiResponse<BrandsResponse> VintedSearchBrandsWithHttpInfo(string keyword, string market = default(string))
         {
             // verify the required parameter 'keyword' is set
             if (keyword == null)
@@ -1968,7 +1968,7 @@ namespace ScrapeBadger.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/v1/vinted/brands", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<BrandsResponse>("/v1/vinted/brands", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -1986,10 +1986,10 @@ namespace ScrapeBadger.Api
         /// <param name="keyword">Brand search keyword</param>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> VintedSearchBrandsAsync(string keyword, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of BrandsResponse</returns>
+        public async System.Threading.Tasks.Task<BrandsResponse> VintedSearchBrandsAsync(string keyword, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await VintedSearchBrandsWithHttpInfoAsync(keyword, market, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<BrandsResponse> localVarResponse = await VintedSearchBrandsWithHttpInfoAsync(keyword, market, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2000,8 +2000,8 @@ namespace ScrapeBadger.Api
         /// <param name="keyword">Brand search keyword</param>
         /// <param name="market"> (optional, default to &quot;fr&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> VintedSearchBrandsWithHttpInfoAsync(string keyword, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (BrandsResponse)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<BrandsResponse>> VintedSearchBrandsWithHttpInfoAsync(string keyword, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'keyword' is set
             if (keyword == null)
@@ -2039,7 +2039,7 @@ namespace ScrapeBadger.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/vinted/brands", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<BrandsResponse>("/v1/vinted/brands", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2055,10 +2055,10 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vintedImageSearchRequest"></param>
-        /// <returns>Object</returns>
-        public Object VintedSearchByImage(VintedImageSearchRequest vintedImageSearchRequest)
+        /// <returns>SearchResponse</returns>
+        public SearchResponse VintedSearchByImage(VintedImageSearchRequest vintedImageSearchRequest)
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = VintedSearchByImageWithHttpInfo(vintedImageSearchRequest);
+            ScrapeBadger.Client.ApiResponse<SearchResponse> localVarResponse = VintedSearchByImageWithHttpInfo(vintedImageSearchRequest);
             return localVarResponse.Data;
         }
 
@@ -2067,8 +2067,8 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vintedImageSearchRequest"></param>
-        /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> VintedSearchByImageWithHttpInfo(VintedImageSearchRequest vintedImageSearchRequest)
+        /// <returns>ApiResponse of SearchResponse</returns>
+        public ScrapeBadger.Client.ApiResponse<SearchResponse> VintedSearchByImageWithHttpInfo(VintedImageSearchRequest vintedImageSearchRequest)
         {
             // verify the required parameter 'vintedImageSearchRequest' is set
             if (vintedImageSearchRequest == null)
@@ -2100,7 +2100,7 @@ namespace ScrapeBadger.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/v1/vinted/search_by_image", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<SearchResponse>("/v1/vinted/search_by_image", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -2117,10 +2117,10 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vintedImageSearchRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> VintedSearchByImageAsync(VintedImageSearchRequest vintedImageSearchRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of SearchResponse</returns>
+        public async System.Threading.Tasks.Task<SearchResponse> VintedSearchByImageAsync(VintedImageSearchRequest vintedImageSearchRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await VintedSearchByImageWithHttpInfoAsync(vintedImageSearchRequest, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<SearchResponse> localVarResponse = await VintedSearchByImageWithHttpInfoAsync(vintedImageSearchRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2130,8 +2130,8 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="vintedImageSearchRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> VintedSearchByImageWithHttpInfoAsync(VintedImageSearchRequest vintedImageSearchRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (SearchResponse)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<SearchResponse>> VintedSearchByImageWithHttpInfoAsync(VintedImageSearchRequest vintedImageSearchRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'vintedImageSearchRequest' is set
             if (vintedImageSearchRequest == null)
@@ -2166,7 +2166,7 @@ namespace ScrapeBadger.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/v1/vinted/search_by_image", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<SearchResponse>("/v1/vinted/search_by_image", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2197,10 +2197,10 @@ namespace ScrapeBadger.Api
         /// <param name="searchSessionId">Reuse across pages of one search (optional)</param>
         /// <param name="statusIds">Comma-separated condition/status IDs (optional)</param>
         /// <param name="order"> (optional)</param>
-        /// <returns>Object</returns>
-        public Object VintedSearchVintedItems(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string sizeIds = default(string), string materialIds = default(string), int? time = default(int?), string searchSessionId = default(string), string statusIds = default(string), string order = default(string))
+        /// <returns>SearchResponse</returns>
+        public SearchResponse VintedSearchVintedItems(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string sizeIds = default(string), string materialIds = default(string), int? time = default(int?), string searchSessionId = default(string), string statusIds = default(string), string order = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = VintedSearchVintedItemsWithHttpInfo(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
+            ScrapeBadger.Client.ApiResponse<SearchResponse> localVarResponse = VintedSearchVintedItemsWithHttpInfo(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
             return localVarResponse.Data;
         }
 
@@ -2224,8 +2224,8 @@ namespace ScrapeBadger.Api
         /// <param name="searchSessionId">Reuse across pages of one search (optional)</param>
         /// <param name="statusIds">Comma-separated condition/status IDs (optional)</param>
         /// <param name="order"> (optional)</param>
-        /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> VintedSearchVintedItemsWithHttpInfo(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string sizeIds = default(string), string materialIds = default(string), int? time = default(int?), string searchSessionId = default(string), string statusIds = default(string), string order = default(string))
+        /// <returns>ApiResponse of SearchResponse</returns>
+        public ScrapeBadger.Client.ApiResponse<SearchResponse> VintedSearchVintedItemsWithHttpInfo(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string sizeIds = default(string), string materialIds = default(string), int? time = default(int?), string searchSessionId = default(string), string statusIds = default(string), string order = default(string))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -2316,7 +2316,7 @@ namespace ScrapeBadger.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/v1/vinted/search", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<SearchResponse>("/v1/vinted/search", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -2348,10 +2348,10 @@ namespace ScrapeBadger.Api
         /// <param name="statusIds">Comma-separated condition/status IDs (optional)</param>
         /// <param name="order"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> VintedSearchVintedItemsAsync(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string sizeIds = default(string), string materialIds = default(string), int? time = default(int?), string searchSessionId = default(string), string statusIds = default(string), string order = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of SearchResponse</returns>
+        public async System.Threading.Tasks.Task<SearchResponse> VintedSearchVintedItemsAsync(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string sizeIds = default(string), string materialIds = default(string), int? time = default(int?), string searchSessionId = default(string), string statusIds = default(string), string order = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await VintedSearchVintedItemsWithHttpInfoAsync(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<SearchResponse> localVarResponse = await VintedSearchVintedItemsWithHttpInfoAsync(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2376,8 +2376,8 @@ namespace ScrapeBadger.Api
         /// <param name="statusIds">Comma-separated condition/status IDs (optional)</param>
         /// <param name="order"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> VintedSearchVintedItemsWithHttpInfoAsync(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string sizeIds = default(string), string materialIds = default(string), int? time = default(int?), string searchSessionId = default(string), string statusIds = default(string), string order = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse (SearchResponse)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<SearchResponse>> VintedSearchVintedItemsWithHttpInfoAsync(string query, string market = default(string), string sellerCountry = default(string), int? page = default(int?), int? perPage = default(int?), decimal? priceFrom = default(decimal?), decimal? priceTo = default(decimal?), string brandIds = default(string), string catalogIds = default(string), string colorIds = default(string), string sizeIds = default(string), string materialIds = default(string), int? time = default(int?), string searchSessionId = default(string), string statusIds = default(string), string order = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -2471,7 +2471,7 @@ namespace ScrapeBadger.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/vinted/search", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<SearchResponse>("/v1/vinted/search", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

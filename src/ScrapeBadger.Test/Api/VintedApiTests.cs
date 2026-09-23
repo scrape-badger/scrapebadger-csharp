@@ -63,7 +63,7 @@ namespace ScrapeBadger.Test.Api
             //int itemId = null;
             //string market = null;
             //var response = instance.VintedGetItemDetails(itemId, market);
-            //Assert.IsType<Object>(response);
+            //Assert.IsType<ItemDetailResponse>(response);
         }
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace ScrapeBadger.Test.Api
             //int userId = null;
             //string market = null;
             //var response = instance.VintedGetUserProfile(userId, market);
-            //Assert.IsType<Object>(response);
+            //Assert.IsType<UserProfileResponse>(response);
         }
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace ScrapeBadger.Test.Api
             //int? page = null;
             //int? perPage = null;
             //var response = instance.VintedGetUserSListedItems(userId, market, page, perPage);
-            //Assert.IsType<Object>(response);
+            //Assert.IsType<UserItemsResponse>(response);
         }
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string market = null;
             //var response = instance.VintedListColors(market);
-            //Assert.IsType<Object>(response);
+            //Assert.IsType<ColorsResponse>(response);
         }
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string market = null;
             //var response = instance.VintedListItemConditions(market);
-            //Assert.IsType<Object>(response);
+            //Assert.IsType<StatusesResponse>(response);
         }
 
         /// <summary>
@@ -126,7 +126,7 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //var response = instance.VintedListMarkets();
-            //Assert.IsType<Object>(response);
+            //Assert.IsType<MarketsResponse>(response);
         }
 
         /// <summary>
@@ -163,7 +163,7 @@ namespace ScrapeBadger.Test.Api
             //string keyword = null;
             //string market = null;
             //var response = instance.VintedSearchBrands(keyword, market);
-            //Assert.IsType<Object>(response);
+            //Assert.IsType<BrandsResponse>(response);
         }
 
         /// <summary>
@@ -175,7 +175,7 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //VintedImageSearchRequest vintedImageSearchRequest = null;
             //var response = instance.VintedSearchByImage(vintedImageSearchRequest);
-            //Assert.IsType<Object>(response);
+            //Assert.IsType<SearchResponse>(response);
         }
 
         /// <summary>
@@ -202,7 +202,7 @@ namespace ScrapeBadger.Test.Api
             //string statusIds = null;
             //string order = null;
             //var response = instance.VintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
-            //Assert.IsType<Object>(response);
+            //Assert.IsType<SearchResponse>(response);
         }
 
         /// <summary>
