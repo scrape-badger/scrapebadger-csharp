@@ -15631,20 +15631,92 @@ paths:
       summary: Search videos
       tags:
       - TikTok
-  /v1/tiktok/shop/categories:
+  /v1/tiktok/shop/bestsellers:
     get:
-      description: "Top-level TikTok Shop categories of a market. Drill down with\
-        \ /shop/categories/{id}."
-      operationId: tiktok_tiktok_shop_root_categories
+      description: |-
+        Sales-ranked best-selling products, available for every operating market.
+
+        Ranked by real sold_count (source: sales_ranked); works for SG/MY/JP where TikTok's
+        curated /shop/rankings are not exposed. Omit category_id for a market-wide list.
+      operationId: tiktok_best_selling_tiktok_shop_products
       parameters:
-      - description: "Market: US, GB, ID"
+      - description: "Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies\
+          \ by endpoint"
         explode: true
         in: query
         name: region
         required: false
         schema:
           default: US
-          description: "Market: US, GB, ID"
+          description: "Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies\
+            \ by endpoint"
+          title: Region
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: category_id
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[1-9][0-9]{0,18}$"
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: pages
+        required: false
+        schema:
+          default: 2
+          maximum: 4
+          minimum: 1
+          title: Pages
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 20
+          maximum: 100
+          minimum: 1
+          title: Limit
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Best-selling TikTok Shop products
+      tags:
+      - TikTok
+  /v1/tiktok/shop/categories:
+    get:
+      description: "Top-level TikTok Shop categories of a market. Drill down with\
+        \ /shop/categories/{id}."
+      operationId: tiktok_tiktok_shop_root_categories
+      parameters:
+      - description: "Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies\
+          \ by endpoint"
+        explode: true
+        in: query
+        name: region
+        required: false
+        schema:
+          default: US
+          description: "Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies\
+            \ by endpoint"
           title: Region
           type: string
         style: form
@@ -15679,14 +15751,16 @@ paths:
           title: Category Id
           type: string
         style: simple
-      - description: "Market: US, GB, ID"
+      - description: "Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies\
+          \ by endpoint"
         explode: true
         in: query
         name: region
         required: false
         schema:
           default: US
-          description: "Market: US, GB, ID"
+          description: "Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies\
+            \ by endpoint"
           title: Region
           type: string
         style: form
@@ -15707,6 +15781,132 @@ paths:
       summary: "TikTok Shop category: subcategories + top products"
       tags:
       - TikTok
+  /v1/tiktok/shop/categories/{category_id}/products:
+    get:
+      description: Category recommendations. Pass accumulated exclusion IDs for the
+        next page; these are not sales rankings.
+      operationId: tiktok_tiktok_shop_category_products
+      parameters:
+      - explode: false
+        in: path
+        name: category_id
+        required: true
+        schema:
+          title: Category Id
+          type: string
+        style: simple
+      - description: "Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies\
+          \ by endpoint"
+        explode: true
+        in: query
+        name: region
+        required: false
+        schema:
+          default: US
+          description: "Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies\
+            \ by endpoint"
+          title: Region
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          default: 20
+          maximum: 40
+          minimum: 1
+          title: Count
+          type: integer
+        style: form
+      - description: Repeat for every next_exclude_product_ids value
+        explode: true
+        in: query
+        name: exclude_product_ids
+        required: false
+        schema:
+          default: []
+          description: Repeat for every next_exclude_product_ids value
+          items:
+            nullable: true
+            type: string
+          type: array
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: TikTok Shop category products
+      tags:
+      - TikTok
+  /v1/tiktok/shop/mall:
+    get:
+      description: |-
+        Mall navigation and recommendations with a 15-minute continuation token.
+
+        ID, SG, MY, PH, TH, VN and JP are locally verified.
+        Tabs are not a complete category taxonomy.
+      operationId: tiktok_tiktok_shop_regional_mall_feed
+      parameters:
+      - description: "Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies\
+          \ by endpoint"
+        explode: true
+        in: query
+        name: region
+        required: false
+        schema:
+          default: US
+          description: "Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies\
+            \ by endpoint"
+          title: Region
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: tab_id
+        required: false
+        schema:
+          default: 0
+          minimum: 0
+          title: Tab Id
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: page_token
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[a-f0-9]{32}$"
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: TikTok Shop regional mall feed
+      tags:
+      - TikTok
   /v1/tiktok/shop/products/{product_id}:
     get:
       description: |-
@@ -15722,14 +15922,16 @@ paths:
           title: Product Id
           type: string
         style: simple
-      - description: "Market: US, GB, ID"
+      - description: "Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies\
+          \ by endpoint"
         explode: true
         in: query
         name: region
         required: false
         schema:
           default: US
-          description: "Market: US, GB, ID"
+          description: "Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies\
+            \ by endpoint"
           title: Region
           type: string
         style: form
@@ -15752,7 +15954,9 @@ paths:
       - TikTok
   /v1/tiktok/shop/products/{product_id}/reviews:
     get:
-      description: Paginated product reviews with the rating breakdown (US).
+      description: "Paginated product reviews with rating breakdown (US and ID). Indonesia\
+        \ supports recent/recommended ordering, star and media filters; verified=true\
+        \ is not supported."
       operationId: tiktok_tiktok_shop_product_reviews
       parameters:
       - explode: false
@@ -15763,14 +15967,16 @@ paths:
           title: Product Id
           type: string
         style: simple
-      - description: "Market: US, GB, ID"
+      - description: "Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies\
+          \ by endpoint"
         explode: true
         in: query
         name: region
         required: false
         schema:
           default: US
-          description: "Market: US, GB, ID"
+          description: "Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies\
+            \ by endpoint"
           title: Region
           type: string
         style: form
@@ -15856,6 +16062,85 @@ paths:
       summary: TikTok Shop product reviews
       tags:
       - TikTok
+  /v1/tiktok/shop/rankings/{rank_id}:
+    get:
+      description: |-
+        Native category/theme ranking. ID, PH, TH and VN are locally verified.
+
+        Types: 1 high seller, 2 trending, 3 ratings. Coverage depends on the configured
+        guest profile; a category recommendation feed is not used as a substitute.
+      operationId: tiktok_tiktok_shop_theme_ranking
+      parameters:
+      - explode: false
+        in: path
+        name: rank_id
+        required: true
+        schema:
+          title: Rank Id
+          type: string
+        style: simple
+      - description: "Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies\
+          \ by endpoint"
+        explode: true
+        in: query
+        name: region
+        required: false
+        schema:
+          default: US
+          description: "Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies\
+            \ by endpoint"
+          title: Region
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: rank_type
+        required: false
+        schema:
+          default: 1
+          maximum: 3
+          minimum: 1
+          title: Rank Type
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: cursor
+        required: false
+        schema:
+          default: 0
+          minimum: 0
+          title: Cursor
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          default: 20
+          maximum: 20
+          minimum: 1
+          title: Count
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: TikTok Shop theme ranking
+      tags:
+      - TikTok
   /v1/tiktok/shop/search:
     get:
       description: "Keyword search over TikTok Shop products: 30 per page with offset\
@@ -15874,15 +16159,26 @@ paths:
           title: Q
           type: string
         style: form
-      - description: "Market: US, GB, ID"
+      - description: "Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies\
+          \ by endpoint"
         explode: true
         in: query
         name: region
         required: false
         schema:
           default: US
-          description: "Market: US, GB, ID"
+          description: "Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies\
+            \ by endpoint"
           title: Region
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: page_token
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[a-f0-9]{32}$"
           type: string
         style: form
       - description: Pass back next_offset for the next page (US)
@@ -15927,14 +16223,16 @@ paths:
           title: Seller Id
           type: string
         style: simple
-      - description: "Market: US, GB, ID"
+      - description: "Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies\
+          \ by endpoint"
         explode: true
         in: query
         name: region
         required: false
         schema:
           default: US
-          description: "Market: US, GB, ID"
+          description: "Market: US, GB, ID, JP, MX, SG, MY, PH, TH, VN; coverage varies\
+            \ by endpoint"
           title: Region
           type: string
         style: form
