@@ -64,7 +64,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <returns>Object</returns>
         Object TiktokGeneralSearch(string query, string region = default(string), int? count = default(int?), string cursor = default(string));
 
@@ -78,7 +78,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> TiktokGeneralSearchWithHttpInfo(string query, string region = default(string), int? count = default(int?), string cursor = default(string));
         /// <summary>
@@ -138,59 +138,59 @@ namespace ScrapeBadger.Api
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> TiktokGetCommentsWithHttpInfo(string videoId, string region = default(string), int? count = default(int?), string cursor = default(string));
         /// <summary>
-        /// Get followers (deprecated)
+        /// Get followers
         /// </summary>
         /// <remarks>
-        /// DEPRECATED — TikTok followers require an authenticated account session. Returns HTTP 410.
+        /// Get publicly visible followers without an account.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <returns>Object</returns>
-        [Obsolete]
-        Object TiktokGetFollowersDeprecated(string username, string region = default(string), int? count = default(int?));
+        Object TiktokGetFollowers(string username, string region = default(string), int? count = default(int?), string cursor = default(string));
 
         /// <summary>
-        /// Get followers (deprecated)
+        /// Get followers
         /// </summary>
         /// <remarks>
-        /// DEPRECATED — TikTok followers require an authenticated account session. Returns HTTP 410.
+        /// Get publicly visible followers without an account.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        [Obsolete]
-        ApiResponse<Object> TiktokGetFollowersDeprecatedWithHttpInfo(string username, string region = default(string), int? count = default(int?));
+        ApiResponse<Object> TiktokGetFollowersWithHttpInfo(string username, string region = default(string), int? count = default(int?), string cursor = default(string));
         /// <summary>
-        /// Get following (deprecated)
+        /// Get following
         /// </summary>
         /// <remarks>
-        /// DEPRECATED — TikTok following requires an authenticated account session. Returns HTTP 410.
+        /// Get publicly visible followed accounts. Hidden lists return HTTP 403.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <returns>Object</returns>
-        [Obsolete]
-        Object TiktokGetFollowingDeprecated(string username, string region = default(string), int? count = default(int?));
+        Object TiktokGetFollowing(string username, string region = default(string), int? count = default(int?), string cursor = default(string));
 
         /// <summary>
-        /// Get following (deprecated)
+        /// Get following
         /// </summary>
         /// <remarks>
-        /// DEPRECATED — TikTok following requires an authenticated account session. Returns HTTP 410.
+        /// Get publicly visible followed accounts. Hidden lists return HTTP 403.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        [Obsolete]
-        ApiResponse<Object> TiktokGetFollowingDeprecatedWithHttpInfo(string username, string region = default(string), int? count = default(int?));
+        ApiResponse<Object> TiktokGetFollowingWithHttpInfo(string username, string region = default(string), int? count = default(int?), string cursor = default(string));
         /// <summary>
         /// Get hashtag detail
         /// </summary>
@@ -242,32 +242,32 @@ namespace ScrapeBadger.Api
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> TiktokGetHashtagVideosWithHttpInfo(string name, string region = default(string), int? count = default(int?), string cursor = default(string));
         /// <summary>
-        /// Get liked videos (deprecated)
+        /// Get liked videos
         /// </summary>
         /// <remarks>
-        /// DEPRECATED — TikTok liked videos require an authenticated account session. Returns HTTP 410.
+        /// Get public liked videos. Hidden liked lists return HTTP 403.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <returns>Object</returns>
-        [Obsolete]
-        Object TiktokGetLikedVideosDeprecated(string username, string region = default(string), int? count = default(int?));
+        Object TiktokGetLikedVideos(string username, string region = default(string), int? count = default(int?), string cursor = default(string));
 
         /// <summary>
-        /// Get liked videos (deprecated)
+        /// Get liked videos
         /// </summary>
         /// <remarks>
-        /// DEPRECATED — TikTok liked videos require an authenticated account session. Returns HTTP 410.
+        /// Get public liked videos. Hidden liked lists return HTTP 403.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        [Obsolete]
-        ApiResponse<Object> TiktokGetLikedVideosDeprecatedWithHttpInfo(string username, string region = default(string), int? count = default(int?));
+        ApiResponse<Object> TiktokGetLikedVideosWithHttpInfo(string username, string region = default(string), int? count = default(int?), string cursor = default(string));
         /// <summary>
         /// Get music/sound detail
         /// </summary>
@@ -351,8 +351,9 @@ namespace ScrapeBadger.Api
         /// <param name="videoId"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 16)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <returns>Object</returns>
-        Object TiktokGetRelatedVideos(string videoId, string region = default(string), int? count = default(int?));
+        Object TiktokGetRelatedVideos(string videoId, string region = default(string), int? count = default(int?), string cursor = default(string));
 
         /// <summary>
         /// Get related videos
@@ -364,8 +365,9 @@ namespace ScrapeBadger.Api
         /// <param name="videoId"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 16)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> TiktokGetRelatedVideosWithHttpInfo(string videoId, string region = default(string), int? count = default(int?));
+        ApiResponse<Object> TiktokGetRelatedVideosWithHttpInfo(string videoId, string region = default(string), int? count = default(int?), string cursor = default(string));
         /// <summary>
         /// Get reposts
         /// </summary>
@@ -376,8 +378,9 @@ namespace ScrapeBadger.Api
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <returns>Object</returns>
-        Object TiktokGetReposts(string username, string region = default(string), int? count = default(int?));
+        Object TiktokGetReposts(string username, string region = default(string), int? count = default(int?), string cursor = default(string));
 
         /// <summary>
         /// Get reposts
@@ -389,8 +392,9 @@ namespace ScrapeBadger.Api
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> TiktokGetRepostsWithHttpInfo(string username, string region = default(string), int? count = default(int?));
+        ApiResponse<Object> TiktokGetRepostsWithHttpInfo(string username, string region = default(string), int? count = default(int?), string cursor = default(string));
         /// <summary>
         /// Get TikTok ad detail
         /// </summary>
@@ -470,7 +474,7 @@ namespace ScrapeBadger.Api
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
-        /// <param name="cursor">Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (signer path only). (optional)</param>
+        /// <param name="cursor">Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (opaque; expires after 15 minutes). (optional)</param>
         /// <returns>Object</returns>
         Object TiktokGetUserVideos(string username, string region = default(string), int? count = default(int?), string cursor = default(string));
 
@@ -484,7 +488,7 @@ namespace ScrapeBadger.Api
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
-        /// <param name="cursor">Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (signer path only). (optional)</param>
+        /// <param name="cursor">Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (opaque; expires after 15 minutes). (optional)</param>
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> TiktokGetUserVideosWithHttpInfo(string username, string region = default(string), int? count = default(int?), string cursor = default(string));
         /// <summary>
@@ -579,7 +583,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <returns>Object</returns>
         Object TiktokSearchHashtags(string query, string region = default(string), int? count = default(int?), string cursor = default(string));
 
@@ -593,7 +597,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> TiktokSearchHashtagsWithHttpInfo(string query, string region = default(string), int? count = default(int?), string cursor = default(string));
         /// <summary>
@@ -693,7 +697,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <returns>Object</returns>
         Object TiktokSearchUsers(string query, string region = default(string), int? count = default(int?), string cursor = default(string));
 
@@ -707,7 +711,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> TiktokSearchUsersWithHttpInfo(string query, string region = default(string), int? count = default(int?), string cursor = default(string));
         /// <summary>
@@ -720,7 +724,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <returns>Object</returns>
         Object TiktokSearchVideos(string query, string region = default(string), int? count = default(int?), string cursor = default(string));
 
@@ -734,7 +738,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> TiktokSearchVideosWithHttpInfo(string query, string region = default(string), int? count = default(int?), string cursor = default(string));
         /// <summary>
@@ -955,7 +959,7 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
-        /// <param name="period"> (optional, default to 7)</param>
+        /// <param name="period">Historical windows are unavailable; omit period (optional)</param>
         /// <param name="count"> (optional, default to 20)</param>
         /// <returns>Object</returns>
         Object TiktokTrendingHashtags(string region = default(string), int? period = default(int?), int? count = default(int?));
@@ -968,7 +972,7 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
-        /// <param name="period"> (optional, default to 7)</param>
+        /// <param name="period">Historical windows are unavailable; omit period (optional)</param>
         /// <param name="count"> (optional, default to 20)</param>
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> TiktokTrendingHashtagsWithHttpInfo(string region = default(string), int? period = default(int?), int? count = default(int?));
@@ -980,7 +984,7 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
-        /// <param name="period"> (optional, default to 7)</param>
+        /// <param name="period">Historical windows are unavailable; omit period (optional)</param>
         /// <param name="count"> (optional, default to 20)</param>
         /// <returns>Object</returns>
         Object TiktokTrendingSongs(string region = default(string), int? period = default(int?), int? count = default(int?));
@@ -993,7 +997,7 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
-        /// <param name="period"> (optional, default to 7)</param>
+        /// <param name="period">Historical windows are unavailable; omit period (optional)</param>
         /// <param name="count"> (optional, default to 20)</param>
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> TiktokTrendingSongsWithHttpInfo(string region = default(string), int? period = default(int?), int? count = default(int?));
@@ -1068,7 +1072,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
         System.Threading.Tasks.Task<Object> TiktokGeneralSearchAsync(string query, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
@@ -1083,7 +1087,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> TiktokGeneralSearchWithHttpInfoAsync(string query, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
@@ -1148,63 +1152,63 @@ namespace ScrapeBadger.Api
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> TiktokGetCommentsWithHttpInfoAsync(string videoId, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
-        /// Get followers (deprecated)
+        /// Get followers
         /// </summary>
         /// <remarks>
-        /// DEPRECATED — TikTok followers require an authenticated account session. Returns HTTP 410.
+        /// Get publicly visible followers without an account.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<Object> TiktokGetFollowersDeprecatedAsync(string username, string region = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> TiktokGetFollowersAsync(string username, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get followers (deprecated)
+        /// Get followers
         /// </summary>
         /// <remarks>
-        /// DEPRECATED — TikTok followers require an authenticated account session. Returns HTTP 410.
+        /// Get publicly visible followers without an account.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<Object>> TiktokGetFollowersDeprecatedWithHttpInfoAsync(string username, string region = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> TiktokGetFollowersWithHttpInfoAsync(string username, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
-        /// Get following (deprecated)
+        /// Get following
         /// </summary>
         /// <remarks>
-        /// DEPRECATED — TikTok following requires an authenticated account session. Returns HTTP 410.
+        /// Get publicly visible followed accounts. Hidden lists return HTTP 403.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<Object> TiktokGetFollowingDeprecatedAsync(string username, string region = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> TiktokGetFollowingAsync(string username, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get following (deprecated)
+        /// Get following
         /// </summary>
         /// <remarks>
-        /// DEPRECATED — TikTok following requires an authenticated account session. Returns HTTP 410.
+        /// Get publicly visible followed accounts. Hidden lists return HTTP 403.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<Object>> TiktokGetFollowingDeprecatedWithHttpInfoAsync(string username, string region = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> TiktokGetFollowingWithHttpInfoAsync(string username, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get hashtag detail
         /// </summary>
@@ -1260,34 +1264,34 @@ namespace ScrapeBadger.Api
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> TiktokGetHashtagVideosWithHttpInfoAsync(string name, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
-        /// Get liked videos (deprecated)
+        /// Get liked videos
         /// </summary>
         /// <remarks>
-        /// DEPRECATED — TikTok liked videos require an authenticated account session. Returns HTTP 410.
+        /// Get public liked videos. Hidden liked lists return HTTP 403.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<Object> TiktokGetLikedVideosDeprecatedAsync(string username, string region = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> TiktokGetLikedVideosAsync(string username, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get liked videos (deprecated)
+        /// Get liked videos
         /// </summary>
         /// <remarks>
-        /// DEPRECATED — TikTok liked videos require an authenticated account session. Returns HTTP 410.
+        /// Get public liked videos. Hidden liked lists return HTTP 403.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        [Obsolete]
-        System.Threading.Tasks.Task<ApiResponse<Object>> TiktokGetLikedVideosDeprecatedWithHttpInfoAsync(string username, string region = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> TiktokGetLikedVideosWithHttpInfoAsync(string username, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get music/sound detail
         /// </summary>
@@ -1377,9 +1381,10 @@ namespace ScrapeBadger.Api
         /// <param name="videoId"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 16)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> TiktokGetRelatedVideosAsync(string videoId, string region = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> TiktokGetRelatedVideosAsync(string videoId, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get related videos
@@ -1391,9 +1396,10 @@ namespace ScrapeBadger.Api
         /// <param name="videoId"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 16)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> TiktokGetRelatedVideosWithHttpInfoAsync(string videoId, string region = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> TiktokGetRelatedVideosWithHttpInfoAsync(string videoId, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get reposts
         /// </summary>
@@ -1404,9 +1410,10 @@ namespace ScrapeBadger.Api
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> TiktokGetRepostsAsync(string username, string region = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> TiktokGetRepostsAsync(string username, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get reposts
@@ -1418,9 +1425,10 @@ namespace ScrapeBadger.Api
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> TiktokGetRepostsWithHttpInfoAsync(string username, string region = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> TiktokGetRepostsWithHttpInfoAsync(string username, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get TikTok ad detail
         /// </summary>
@@ -1506,7 +1514,7 @@ namespace ScrapeBadger.Api
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
-        /// <param name="cursor">Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (signer path only). (optional)</param>
+        /// <param name="cursor">Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (opaque; expires after 15 minutes). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
         System.Threading.Tasks.Task<Object> TiktokGetUserVideosAsync(string username, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
@@ -1521,7 +1529,7 @@ namespace ScrapeBadger.Api
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
-        /// <param name="cursor">Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (signer path only). (optional)</param>
+        /// <param name="cursor">Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (opaque; expires after 15 minutes). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> TiktokGetUserVideosWithHttpInfoAsync(string username, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
@@ -1625,7 +1633,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
         System.Threading.Tasks.Task<Object> TiktokSearchHashtagsAsync(string query, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
@@ -1640,7 +1648,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> TiktokSearchHashtagsWithHttpInfoAsync(string query, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
@@ -1747,7 +1755,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
         System.Threading.Tasks.Task<Object> TiktokSearchUsersAsync(string query, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
@@ -1762,7 +1770,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> TiktokSearchUsersWithHttpInfoAsync(string query, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
@@ -1776,7 +1784,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
         System.Threading.Tasks.Task<Object> TiktokSearchVideosAsync(string query, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
@@ -1791,7 +1799,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> TiktokSearchVideosWithHttpInfoAsync(string query, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
@@ -2029,7 +2037,7 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
-        /// <param name="period"> (optional, default to 7)</param>
+        /// <param name="period">Historical windows are unavailable; omit period (optional)</param>
         /// <param name="count"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
@@ -2043,7 +2051,7 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
-        /// <param name="period"> (optional, default to 7)</param>
+        /// <param name="period">Historical windows are unavailable; omit period (optional)</param>
         /// <param name="count"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
@@ -2056,7 +2064,7 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
-        /// <param name="period"> (optional, default to 7)</param>
+        /// <param name="period">Historical windows are unavailable; omit period (optional)</param>
         /// <param name="count"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
@@ -2070,7 +2078,7 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
-        /// <param name="period"> (optional, default to 7)</param>
+        /// <param name="period">Historical windows are unavailable; omit period (optional)</param>
         /// <param name="count"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
@@ -2479,7 +2487,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <returns>Object</returns>
         public Object TiktokGeneralSearch(string query, string region = default(string), int? count = default(int?), string cursor = default(string))
         {
@@ -2494,7 +2502,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <returns>ApiResponse of Object</returns>
         public ScrapeBadger.Client.ApiResponse<Object> TiktokGeneralSearchWithHttpInfo(string query, string region = default(string), int? count = default(int?), string cursor = default(string))
         {
@@ -2557,7 +2565,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
         public async System.Threading.Tasks.Task<Object> TiktokGeneralSearchAsync(string query, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
@@ -2573,7 +2581,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
         public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> TiktokGeneralSearchWithHttpInfoAsync(string query, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
@@ -2970,34 +2978,34 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get followers (deprecated) DEPRECATED — TikTok followers require an authenticated account session. Returns HTTP 410.
+        /// Get followers Get publicly visible followers without an account.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <returns>Object</returns>
-        [Obsolete]
-        public Object TiktokGetFollowersDeprecated(string username, string region = default(string), int? count = default(int?))
+        public Object TiktokGetFollowers(string username, string region = default(string), int? count = default(int?), string cursor = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = TiktokGetFollowersDeprecatedWithHttpInfo(username, region, count);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = TiktokGetFollowersWithHttpInfo(username, region, count, cursor);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get followers (deprecated) DEPRECATED — TikTok followers require an authenticated account session. Returns HTTP 410.
+        /// Get followers Get publicly visible followers without an account.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        [Obsolete]
-        public ScrapeBadger.Client.ApiResponse<Object> TiktokGetFollowersDeprecatedWithHttpInfo(string username, string region = default(string), int? count = default(int?))
+        public ScrapeBadger.Client.ApiResponse<Object> TiktokGetFollowersWithHttpInfo(string username, string region = default(string), int? count = default(int?), string cursor = default(string))
         {
             // verify the required parameter 'username' is set
             if (username == null)
-                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'username' when calling TikTokApi->TiktokGetFollowersDeprecated");
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'username' when calling TikTokApi->TiktokGetFollowers");
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
 
@@ -3023,6 +3031,10 @@ namespace ScrapeBadger.Api
             if (count != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "cursor", cursor));
             }
 
             // authentication (ApiKeyAuth) required
@@ -3036,7 +3048,7 @@ namespace ScrapeBadger.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("TiktokGetFollowersDeprecated", localVarResponse);
+                Exception _exception = this.ExceptionFactory("TiktokGetFollowers", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -3044,36 +3056,36 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get followers (deprecated) DEPRECATED — TikTok followers require an authenticated account session. Returns HTTP 410.
+        /// Get followers Get publicly visible followers without an account.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<Object> TiktokGetFollowersDeprecatedAsync(string username, string region = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> TiktokGetFollowersAsync(string username, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await TiktokGetFollowersDeprecatedWithHttpInfoAsync(username, region, count, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await TiktokGetFollowersWithHttpInfoAsync(username, region, count, cursor, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get followers (deprecated) DEPRECATED — TikTok followers require an authenticated account session. Returns HTTP 410.
+        /// Get followers Get publicly visible followers without an account.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> TiktokGetFollowersDeprecatedWithHttpInfoAsync(string username, string region = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> TiktokGetFollowersWithHttpInfoAsync(string username, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'username' is set
             if (username == null)
-                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'username' when calling TikTokApi->TiktokGetFollowersDeprecated");
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'username' when calling TikTokApi->TiktokGetFollowers");
 
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
@@ -3101,6 +3113,10 @@ namespace ScrapeBadger.Api
             if (count != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "cursor", cursor));
             }
 
             // authentication (ApiKeyAuth) required
@@ -3115,7 +3131,7 @@ namespace ScrapeBadger.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("TiktokGetFollowersDeprecated", localVarResponse);
+                Exception _exception = this.ExceptionFactory("TiktokGetFollowers", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -3123,34 +3139,34 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get following (deprecated) DEPRECATED — TikTok following requires an authenticated account session. Returns HTTP 410.
+        /// Get following Get publicly visible followed accounts. Hidden lists return HTTP 403.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <returns>Object</returns>
-        [Obsolete]
-        public Object TiktokGetFollowingDeprecated(string username, string region = default(string), int? count = default(int?))
+        public Object TiktokGetFollowing(string username, string region = default(string), int? count = default(int?), string cursor = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = TiktokGetFollowingDeprecatedWithHttpInfo(username, region, count);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = TiktokGetFollowingWithHttpInfo(username, region, count, cursor);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get following (deprecated) DEPRECATED — TikTok following requires an authenticated account session. Returns HTTP 410.
+        /// Get following Get publicly visible followed accounts. Hidden lists return HTTP 403.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        [Obsolete]
-        public ScrapeBadger.Client.ApiResponse<Object> TiktokGetFollowingDeprecatedWithHttpInfo(string username, string region = default(string), int? count = default(int?))
+        public ScrapeBadger.Client.ApiResponse<Object> TiktokGetFollowingWithHttpInfo(string username, string region = default(string), int? count = default(int?), string cursor = default(string))
         {
             // verify the required parameter 'username' is set
             if (username == null)
-                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'username' when calling TikTokApi->TiktokGetFollowingDeprecated");
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'username' when calling TikTokApi->TiktokGetFollowing");
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
 
@@ -3176,6 +3192,10 @@ namespace ScrapeBadger.Api
             if (count != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "cursor", cursor));
             }
 
             // authentication (ApiKeyAuth) required
@@ -3189,7 +3209,7 @@ namespace ScrapeBadger.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("TiktokGetFollowingDeprecated", localVarResponse);
+                Exception _exception = this.ExceptionFactory("TiktokGetFollowing", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -3197,36 +3217,36 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get following (deprecated) DEPRECATED — TikTok following requires an authenticated account session. Returns HTTP 410.
+        /// Get following Get publicly visible followed accounts. Hidden lists return HTTP 403.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<Object> TiktokGetFollowingDeprecatedAsync(string username, string region = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> TiktokGetFollowingAsync(string username, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await TiktokGetFollowingDeprecatedWithHttpInfoAsync(username, region, count, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await TiktokGetFollowingWithHttpInfoAsync(username, region, count, cursor, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get following (deprecated) DEPRECATED — TikTok following requires an authenticated account session. Returns HTTP 410.
+        /// Get following Get publicly visible followed accounts. Hidden lists return HTTP 403.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> TiktokGetFollowingDeprecatedWithHttpInfoAsync(string username, string region = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> TiktokGetFollowingWithHttpInfoAsync(string username, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'username' is set
             if (username == null)
-                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'username' when calling TikTokApi->TiktokGetFollowingDeprecated");
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'username' when calling TikTokApi->TiktokGetFollowing");
 
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
@@ -3254,6 +3274,10 @@ namespace ScrapeBadger.Api
             if (count != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "cursor", cursor));
             }
 
             // authentication (ApiKeyAuth) required
@@ -3268,7 +3292,7 @@ namespace ScrapeBadger.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("TiktokGetFollowingDeprecated", localVarResponse);
+                Exception _exception = this.ExceptionFactory("TiktokGetFollowing", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -3574,34 +3598,34 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get liked videos (deprecated) DEPRECATED — TikTok liked videos require an authenticated account session. Returns HTTP 410.
+        /// Get liked videos Get public liked videos. Hidden liked lists return HTTP 403.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <returns>Object</returns>
-        [Obsolete]
-        public Object TiktokGetLikedVideosDeprecated(string username, string region = default(string), int? count = default(int?))
+        public Object TiktokGetLikedVideos(string username, string region = default(string), int? count = default(int?), string cursor = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = TiktokGetLikedVideosDeprecatedWithHttpInfo(username, region, count);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = TiktokGetLikedVideosWithHttpInfo(username, region, count, cursor);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get liked videos (deprecated) DEPRECATED — TikTok liked videos require an authenticated account session. Returns HTTP 410.
+        /// Get liked videos Get public liked videos. Hidden liked lists return HTTP 403.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        [Obsolete]
-        public ScrapeBadger.Client.ApiResponse<Object> TiktokGetLikedVideosDeprecatedWithHttpInfo(string username, string region = default(string), int? count = default(int?))
+        public ScrapeBadger.Client.ApiResponse<Object> TiktokGetLikedVideosWithHttpInfo(string username, string region = default(string), int? count = default(int?), string cursor = default(string))
         {
             // verify the required parameter 'username' is set
             if (username == null)
-                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'username' when calling TikTokApi->TiktokGetLikedVideosDeprecated");
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'username' when calling TikTokApi->TiktokGetLikedVideos");
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
 
@@ -3627,6 +3651,10 @@ namespace ScrapeBadger.Api
             if (count != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "cursor", cursor));
             }
 
             // authentication (ApiKeyAuth) required
@@ -3640,7 +3668,7 @@ namespace ScrapeBadger.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("TiktokGetLikedVideosDeprecated", localVarResponse);
+                Exception _exception = this.ExceptionFactory("TiktokGetLikedVideos", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -3648,36 +3676,36 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get liked videos (deprecated) DEPRECATED — TikTok liked videos require an authenticated account session. Returns HTTP 410.
+        /// Get liked videos Get public liked videos. Hidden liked lists return HTTP 403.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<Object> TiktokGetLikedVideosDeprecatedAsync(string username, string region = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> TiktokGetLikedVideosAsync(string username, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await TiktokGetLikedVideosDeprecatedWithHttpInfoAsync(username, region, count, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await TiktokGetLikedVideosWithHttpInfoAsync(username, region, count, cursor, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get liked videos (deprecated) DEPRECATED — TikTok liked videos require an authenticated account session. Returns HTTP 410.
+        /// Get liked videos Get public liked videos. Hidden liked lists return HTTP 403.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        [Obsolete]
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> TiktokGetLikedVideosDeprecatedWithHttpInfoAsync(string username, string region = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> TiktokGetLikedVideosWithHttpInfoAsync(string username, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'username' is set
             if (username == null)
-                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'username' when calling TikTokApi->TiktokGetLikedVideosDeprecated");
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'username' when calling TikTokApi->TiktokGetLikedVideos");
 
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
@@ -3705,6 +3733,10 @@ namespace ScrapeBadger.Api
             if (count != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "cursor", cursor));
             }
 
             // authentication (ApiKeyAuth) required
@@ -3719,7 +3751,7 @@ namespace ScrapeBadger.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("TiktokGetLikedVideosDeprecated", localVarResponse);
+                Exception _exception = this.ExceptionFactory("TiktokGetLikedVideos", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -4168,10 +4200,11 @@ namespace ScrapeBadger.Api
         /// <param name="videoId"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 16)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <returns>Object</returns>
-        public Object TiktokGetRelatedVideos(string videoId, string region = default(string), int? count = default(int?))
+        public Object TiktokGetRelatedVideos(string videoId, string region = default(string), int? count = default(int?), string cursor = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = TiktokGetRelatedVideosWithHttpInfo(videoId, region, count);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = TiktokGetRelatedVideosWithHttpInfo(videoId, region, count, cursor);
             return localVarResponse.Data;
         }
 
@@ -4182,8 +4215,9 @@ namespace ScrapeBadger.Api
         /// <param name="videoId"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 16)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> TiktokGetRelatedVideosWithHttpInfo(string videoId, string region = default(string), int? count = default(int?))
+        public ScrapeBadger.Client.ApiResponse<Object> TiktokGetRelatedVideosWithHttpInfo(string videoId, string region = default(string), int? count = default(int?), string cursor = default(string))
         {
             // verify the required parameter 'videoId' is set
             if (videoId == null)
@@ -4213,6 +4247,10 @@ namespace ScrapeBadger.Api
             if (count != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "cursor", cursor));
             }
 
             // authentication (ApiKeyAuth) required
@@ -4240,11 +4278,12 @@ namespace ScrapeBadger.Api
         /// <param name="videoId"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 16)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> TiktokGetRelatedVideosAsync(string videoId, string region = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> TiktokGetRelatedVideosAsync(string videoId, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await TiktokGetRelatedVideosWithHttpInfoAsync(videoId, region, count, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await TiktokGetRelatedVideosWithHttpInfoAsync(videoId, region, count, cursor, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4255,9 +4294,10 @@ namespace ScrapeBadger.Api
         /// <param name="videoId"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 16)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> TiktokGetRelatedVideosWithHttpInfoAsync(string videoId, string region = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> TiktokGetRelatedVideosWithHttpInfoAsync(string videoId, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'videoId' is set
             if (videoId == null)
@@ -4289,6 +4329,10 @@ namespace ScrapeBadger.Api
             if (count != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "cursor", cursor));
             }
 
             // authentication (ApiKeyAuth) required
@@ -4317,10 +4361,11 @@ namespace ScrapeBadger.Api
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <returns>Object</returns>
-        public Object TiktokGetReposts(string username, string region = default(string), int? count = default(int?))
+        public Object TiktokGetReposts(string username, string region = default(string), int? count = default(int?), string cursor = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = TiktokGetRepostsWithHttpInfo(username, region, count);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = TiktokGetRepostsWithHttpInfo(username, region, count, cursor);
             return localVarResponse.Data;
         }
 
@@ -4331,8 +4376,9 @@ namespace ScrapeBadger.Api
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> TiktokGetRepostsWithHttpInfo(string username, string region = default(string), int? count = default(int?))
+        public ScrapeBadger.Client.ApiResponse<Object> TiktokGetRepostsWithHttpInfo(string username, string region = default(string), int? count = default(int?), string cursor = default(string))
         {
             // verify the required parameter 'username' is set
             if (username == null)
@@ -4362,6 +4408,10 @@ namespace ScrapeBadger.Api
             if (count != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "cursor", cursor));
             }
 
             // authentication (ApiKeyAuth) required
@@ -4389,11 +4439,12 @@ namespace ScrapeBadger.Api
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> TiktokGetRepostsAsync(string username, string region = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> TiktokGetRepostsAsync(string username, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await TiktokGetRepostsWithHttpInfoAsync(username, region, count, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await TiktokGetRepostsWithHttpInfoAsync(username, region, count, cursor, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4404,9 +4455,10 @@ namespace ScrapeBadger.Api
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
+        /// <param name="cursor">Continuation cursor from the previous page (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> TiktokGetRepostsWithHttpInfoAsync(string username, string region = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> TiktokGetRepostsWithHttpInfoAsync(string username, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'username' is set
             if (username == null)
@@ -4438,6 +4490,10 @@ namespace ScrapeBadger.Api
             if (count != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (cursor != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "cursor", cursor));
             }
 
             // authentication (ApiKeyAuth) required
@@ -4877,7 +4933,7 @@ namespace ScrapeBadger.Api
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
-        /// <param name="cursor">Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (signer path only). (optional)</param>
+        /// <param name="cursor">Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (opaque; expires after 15 minutes). (optional)</param>
         /// <returns>Object</returns>
         public Object TiktokGetUserVideos(string username, string region = default(string), int? count = default(int?), string cursor = default(string))
         {
@@ -4892,7 +4948,7 @@ namespace ScrapeBadger.Api
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
-        /// <param name="cursor">Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (signer path only). (optional)</param>
+        /// <param name="cursor">Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (opaque; expires after 15 minutes). (optional)</param>
         /// <returns>ApiResponse of Object</returns>
         public ScrapeBadger.Client.ApiResponse<Object> TiktokGetUserVideosWithHttpInfo(string username, string region = default(string), int? count = default(int?), string cursor = default(string))
         {
@@ -4955,7 +5011,7 @@ namespace ScrapeBadger.Api
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
-        /// <param name="cursor">Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (signer path only). (optional)</param>
+        /// <param name="cursor">Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (opaque; expires after 15 minutes). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
         public async System.Threading.Tasks.Task<Object> TiktokGetUserVideosAsync(string username, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
@@ -4971,7 +5027,7 @@ namespace ScrapeBadger.Api
         /// <param name="username"></param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 30)</param>
-        /// <param name="cursor">Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (signer path only). (optional)</param>
+        /// <param name="cursor">Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (opaque; expires after 15 minutes). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
         public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> TiktokGetUserVideosWithHttpInfoAsync(string username, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
@@ -5520,7 +5576,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <returns>Object</returns>
         public Object TiktokSearchHashtags(string query, string region = default(string), int? count = default(int?), string cursor = default(string))
         {
@@ -5535,7 +5591,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <returns>ApiResponse of Object</returns>
         public ScrapeBadger.Client.ApiResponse<Object> TiktokSearchHashtagsWithHttpInfo(string query, string region = default(string), int? count = default(int?), string cursor = default(string))
         {
@@ -5598,7 +5654,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
         public async System.Threading.Tasks.Task<Object> TiktokSearchHashtagsAsync(string query, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
@@ -5614,7 +5670,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
         public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> TiktokSearchHashtagsWithHttpInfoAsync(string query, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
@@ -6198,7 +6254,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <returns>Object</returns>
         public Object TiktokSearchUsers(string query, string region = default(string), int? count = default(int?), string cursor = default(string))
         {
@@ -6213,7 +6269,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <returns>ApiResponse of Object</returns>
         public ScrapeBadger.Client.ApiResponse<Object> TiktokSearchUsersWithHttpInfo(string query, string region = default(string), int? count = default(int?), string cursor = default(string))
         {
@@ -6276,7 +6332,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
         public async System.Threading.Tasks.Task<Object> TiktokSearchUsersAsync(string query, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
@@ -6292,7 +6348,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
         public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> TiktokSearchUsersWithHttpInfoAsync(string query, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
@@ -6359,7 +6415,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <returns>Object</returns>
         public Object TiktokSearchVideos(string query, string region = default(string), int? count = default(int?), string cursor = default(string))
         {
@@ -6374,7 +6430,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <returns>ApiResponse of Object</returns>
         public ScrapeBadger.Client.ApiResponse<Object> TiktokSearchVideosWithHttpInfo(string query, string region = default(string), int? count = default(int?), string cursor = default(string))
         {
@@ -6437,7 +6493,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
         public async System.Threading.Tasks.Task<Object> TiktokSearchVideosAsync(string query, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
@@ -6453,7 +6509,7 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keyword</param>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
         /// <param name="count"> (optional, default to 20)</param>
-        /// <param name="cursor">Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor (optional)</param>
+        /// <param name="cursor">Opaque continuation cursor from a prior page&#39;s pagination.cursor (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
         public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> TiktokSearchVideosWithHttpInfoAsync(string query, string region = default(string), int? count = default(int?), string cursor = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
@@ -7766,7 +7822,7 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
-        /// <param name="period"> (optional, default to 7)</param>
+        /// <param name="period">Historical windows are unavailable; omit period (optional)</param>
         /// <param name="count"> (optional, default to 20)</param>
         /// <returns>Object</returns>
         public Object TiktokTrendingHashtags(string region = default(string), int? period = default(int?), int? count = default(int?))
@@ -7780,7 +7836,7 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
-        /// <param name="period"> (optional, default to 7)</param>
+        /// <param name="period">Historical windows are unavailable; omit period (optional)</param>
         /// <param name="count"> (optional, default to 20)</param>
         /// <returns>ApiResponse of Object</returns>
         public ScrapeBadger.Client.ApiResponse<Object> TiktokTrendingHashtagsWithHttpInfo(string region = default(string), int? period = default(int?), int? count = default(int?))
@@ -7837,7 +7893,7 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
-        /// <param name="period"> (optional, default to 7)</param>
+        /// <param name="period">Historical windows are unavailable; omit period (optional)</param>
         /// <param name="count"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
@@ -7852,7 +7908,7 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
-        /// <param name="period"> (optional, default to 7)</param>
+        /// <param name="period">Historical windows are unavailable; omit period (optional)</param>
         /// <param name="count"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
@@ -7913,7 +7969,7 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
-        /// <param name="period"> (optional, default to 7)</param>
+        /// <param name="period">Historical windows are unavailable; omit period (optional)</param>
         /// <param name="count"> (optional, default to 20)</param>
         /// <returns>Object</returns>
         public Object TiktokTrendingSongs(string region = default(string), int? period = default(int?), int? count = default(int?))
@@ -7927,7 +7983,7 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
-        /// <param name="period"> (optional, default to 7)</param>
+        /// <param name="period">Historical windows are unavailable; omit period (optional)</param>
         /// <param name="count"> (optional, default to 20)</param>
         /// <returns>ApiResponse of Object</returns>
         public ScrapeBadger.Client.ApiResponse<Object> TiktokTrendingSongsWithHttpInfo(string region = default(string), int? period = default(int?), int? count = default(int?))
@@ -7984,7 +8040,7 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
-        /// <param name="period"> (optional, default to 7)</param>
+        /// <param name="period">Historical windows are unavailable; omit period (optional)</param>
         /// <param name="count"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
@@ -7999,7 +8055,7 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="region"> (optional, default to &quot;US&quot;)</param>
-        /// <param name="period"> (optional, default to 7)</param>
+        /// <param name="period">Historical windows are unavailable; omit period (optional)</param>
         /// <param name="count"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>

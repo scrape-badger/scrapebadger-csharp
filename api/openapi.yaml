@@ -7674,6 +7674,13 @@ paths:
         ``price`` (``{value, currency, extracted}``) and the raw ``tag`` chip it
         is parsed from, on shoppable matches. ``related_searches`` chips come
         alongside. Legacy ``results`` alias kept for backwards compat.
+
+        ``query`` refines the grid with text and is honoured. ``product`` and
+        ``exact_matches`` are not yet supported, and ``visual_matches=false``
+        cannot be: visual matches are the only surface served. Setting any of
+        the three adds a line to the ``warnings`` array on the response rather
+        than changing the result — see SCR-177. The match grid still CONTAINS
+        an image's exact matches; Google just does not label which they are.
       operationId: google_google_lens_visual_search
       parameters:
       - description: Public URL of the image to search visually
@@ -7735,36 +7742,36 @@ paths:
           title: Hl
           type: string
         style: form
-      - description: Bias towards shoppable product matches
+      - description: "NOT YET SUPPORTED — accepted, and reported back in `warnings`"
         explode: true
         in: query
         name: product
         required: false
         schema:
           default: false
-          description: Bias towards shoppable product matches
+          description: "NOT YET SUPPORTED — accepted, and reported back in `warnings`"
           title: Product
           type: boolean
         style: form
-      - description: Include the visual-matches carousel
+      - description: Always true in practice — `false` is reported back in `warnings`
         explode: true
         in: query
         name: visual_matches
         required: false
         schema:
           default: true
-          description: Include the visual-matches carousel
+          description: Always true in practice — `false` is reported back in `warnings`
           title: Visual Matches
           type: boolean
         style: form
-      - description: Restrict to exact-match results
+      - description: "NOT YET SUPPORTED — accepted, and reported back in `warnings`"
         explode: true
         in: query
         name: exact_matches
         required: false
         schema:
           default: false
-          description: Restrict to exact-match results
+          description: "NOT YET SUPPORTED — accepted, and reported back in `warnings`"
           title: Exact Matches
           type: boolean
         style: form
@@ -15418,8 +15425,7 @@ paths:
           title: Count
           type: integer
         style: form
-      - description: Composite pagination cursor (offset.search_id) from a prior page's
-          pagination.cursor
+      - description: Opaque continuation cursor from a prior page's pagination.cursor
         explode: true
         in: query
         name: cursor
@@ -15480,8 +15486,7 @@ paths:
           title: Count
           type: integer
         style: form
-      - description: Composite pagination cursor (offset.search_id) from a prior page's
-          pagination.cursor
+      - description: Opaque continuation cursor from a prior page's pagination.cursor
         explode: true
         in: query
         name: cursor
@@ -15542,8 +15547,7 @@ paths:
           title: Count
           type: integer
         style: form
-      - description: Composite pagination cursor (offset.search_id) from a prior page's
-          pagination.cursor
+      - description: Opaque continuation cursor from a prior page's pagination.cursor
         explode: true
         in: query
         name: cursor
@@ -15604,8 +15608,7 @@ paths:
           title: Count
           type: integer
         style: form
-      - description: Composite pagination cursor (offset.search_id) from a prior page's
-          pagination.cursor
+      - description: Opaque continuation cursor from a prior page's pagination.cursor
         explode: true
         in: query
         name: cursor
@@ -16289,13 +16292,13 @@ paths:
           title: Region
           type: string
         style: form
-      - explode: true
+      - description: Historical windows are unavailable; omit period
+        explode: true
         in: query
         name: period
         required: false
         schema:
-          default: 7
-          title: Period
+          nullable: true
           type: integer
         style: form
       - explode: true
@@ -16340,13 +16343,13 @@ paths:
           title: Region
           type: string
         style: form
-      - explode: true
+      - description: Historical windows are unavailable; omit period
+        explode: true
         in: query
         name: period
         required: false
         schema:
-          default: 7
-          title: Period
+          nullable: true
           type: integer
         style: form
       - explode: true
@@ -16462,10 +16465,8 @@ paths:
       - TikTok
   /v1/tiktok/users/{username}/followers:
     get:
-      deprecated: true
-      description: DEPRECATED — TikTok followers require an authenticated account
-        session. Returns HTTP 410.
-      operationId: tiktok_get_followers_deprecated
+      description: Get publicly visible followers without an account.
+      operationId: tiktok_get_followers
       parameters:
       - explode: false
         in: path
@@ -16495,6 +16496,15 @@ paths:
           title: Count
           type: integer
         style: form
+      - description: Continuation cursor from the previous page
+        explode: true
+        in: query
+        name: cursor
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -16509,15 +16519,14 @@ paths:
           description: Validation Error
       security:
       - ApiKeyAuth: []
-      summary: Get followers (deprecated)
+      summary: Get followers
       tags:
       - TikTok
   /v1/tiktok/users/{username}/following:
     get:
-      deprecated: true
-      description: DEPRECATED — TikTok following requires an authenticated account
-        session. Returns HTTP 410.
-      operationId: tiktok_get_following_deprecated
+      description: Get publicly visible followed accounts. Hidden lists return HTTP
+        403.
+      operationId: tiktok_get_following
       parameters:
       - explode: false
         in: path
@@ -16547,6 +16556,15 @@ paths:
           title: Count
           type: integer
         style: form
+      - description: Continuation cursor from the previous page
+        explode: true
+        in: query
+        name: cursor
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -16561,15 +16579,13 @@ paths:
           description: Validation Error
       security:
       - ApiKeyAuth: []
-      summary: Get following (deprecated)
+      summary: Get following
       tags:
       - TikTok
   /v1/tiktok/users/{username}/liked:
     get:
-      deprecated: true
-      description: DEPRECATED — TikTok liked videos require an authenticated account
-        session. Returns HTTP 410.
-      operationId: tiktok_get_liked_videos_deprecated
+      description: Get public liked videos. Hidden liked lists return HTTP 403.
+      operationId: tiktok_get_liked_videos
       parameters:
       - explode: false
         in: path
@@ -16599,6 +16615,15 @@ paths:
           title: Count
           type: integer
         style: form
+      - description: Continuation cursor from the previous page
+        explode: true
+        in: query
+        name: cursor
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -16613,7 +16638,7 @@ paths:
           description: Validation Error
       security:
       - ApiKeyAuth: []
-      summary: Get liked videos (deprecated)
+      summary: Get liked videos
       tags:
       - TikTok
   /v1/tiktok/users/{username}/reposts:
@@ -16648,6 +16673,15 @@ paths:
           minimum: 1
           title: Count
           type: integer
+        style: form
+      - description: Continuation cursor from the previous page
+        explode: true
+        in: query
+        name: cursor
+        required: false
+        schema:
+          nullable: true
+          type: string
         style: form
       responses:
         "200":
@@ -16699,8 +16733,8 @@ paths:
           title: Count
           type: integer
         style: form
-      - description: Pagination cursor from a prior page's `pagination.cursor` (signer
-          path only).
+      - description: Pagination cursor from a prior page's `pagination.cursor` (opaque;
+          expires after 15 minutes).
         explode: true
         in: query
         name: cursor
@@ -16865,6 +16899,15 @@ paths:
           minimum: 1
           title: Count
           type: integer
+        style: form
+      - description: Continuation cursor from the previous page
+        explode: true
+        in: query
+        name: cursor
+        required: false
+        schema:
+          nullable: true
+          type: string
         style: form
       responses:
         "200":

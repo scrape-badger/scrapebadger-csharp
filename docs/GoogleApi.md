@@ -1356,7 +1356,7 @@ catch (ApiException e)
 
 Google Lens visual search
 
-Google Lens visual search.  Response carries ``lens_results`` (Scrapingdog parity alias) with ``title`` / ``source`` / ``source_favicon`` / ``thumbnail`` / ``original_thumbnail`` / ``rating`` / ``reviews`` / ``in_stock``, plus ``price`` (``{value, currency, extracted}``) and the raw ``tag`` chip it is parsed from, on shoppable matches. ``related_searches`` chips come alongside. Legacy ``results`` alias kept for backwards compat.
+Google Lens visual search.  Response carries ``lens_results`` (Scrapingdog parity alias) with ``title`` / ``source`` / ``source_favicon`` / ``thumbnail`` / ``original_thumbnail`` / ``rating`` / ``reviews`` / ``in_stock``, plus ``price`` (``{value, currency, extracted}``) and the raw ``tag`` chip it is parsed from, on shoppable matches. ``related_searches`` chips come alongside. Legacy ``results`` alias kept for backwards compat.  ``query`` refines the grid with text and is honoured. ``product`` and ``exact_matches`` are not yet supported, and ``visual_matches=false`` cannot be: visual matches are the only surface served. Setting any of the three adds a line to the ``warnings`` array on the response rather than changing the result — see SCR-177. The match grid still CONTAINS an image's exact matches; Google just does not label which they are.
 
 ### Example
 ```csharp
@@ -1390,9 +1390,9 @@ namespace Example
             var language = "language_example";  // string | Language code (alias for hl) (optional) 
             var gl = "\"us\"";  // string | Country code (optional)  (default to "us")
             var hl = "\"en\"";  // string | Language code (optional)  (default to "en")
-            var product = false;  // bool? | Bias towards shoppable product matches (optional)  (default to false)
-            var visualMatches = true;  // bool? | Include the visual-matches carousel (optional)  (default to true)
-            var exactMatches = false;  // bool? | Restrict to exact-match results (optional)  (default to false)
+            var product = false;  // bool? | NOT YET SUPPORTED — accepted, and reported back in `warnings` (optional)  (default to false)
+            var visualMatches = true;  // bool? | Always true in practice — `false` is reported back in `warnings` (optional)  (default to true)
+            var exactMatches = false;  // bool? | NOT YET SUPPORTED — accepted, and reported back in `warnings` (optional)  (default to false)
 
             try
             {
@@ -1441,9 +1441,9 @@ catch (ApiException e)
 | **language** | **string** | Language code (alias for hl) | [optional]  |
 | **gl** | **string** | Country code | [optional] [default to &quot;us&quot;] |
 | **hl** | **string** | Language code | [optional] [default to &quot;en&quot;] |
-| **product** | **bool?** | Bias towards shoppable product matches | [optional] [default to false] |
-| **visualMatches** | **bool?** | Include the visual-matches carousel | [optional] [default to true] |
-| **exactMatches** | **bool?** | Restrict to exact-match results | [optional] [default to false] |
+| **product** | **bool?** | NOT YET SUPPORTED — accepted, and reported back in &#x60;warnings&#x60; | [optional] [default to false] |
+| **visualMatches** | **bool?** | Always true in practice — &#x60;false&#x60; is reported back in &#x60;warnings&#x60; | [optional] [default to true] |
+| **exactMatches** | **bool?** | NOT YET SUPPORTED — accepted, and reported back in &#x60;warnings&#x60; | [optional] [default to false] |
 
 ### Return type
 

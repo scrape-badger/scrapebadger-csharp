@@ -115,30 +115,32 @@ namespace ScrapeBadger.Test.Api
         }
 
         /// <summary>
-        /// Test TiktokGetFollowersDeprecated
+        /// Test TiktokGetFollowers
         /// </summary>
         [Fact]
-        public void TiktokGetFollowersDeprecatedTest()
+        public void TiktokGetFollowersTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string username = null;
             //string region = null;
             //int? count = null;
-            //var response = instance.TiktokGetFollowersDeprecated(username, region, count);
+            //string cursor = null;
+            //var response = instance.TiktokGetFollowers(username, region, count, cursor);
             //Assert.IsType<Object>(response);
         }
 
         /// <summary>
-        /// Test TiktokGetFollowingDeprecated
+        /// Test TiktokGetFollowing
         /// </summary>
         [Fact]
-        public void TiktokGetFollowingDeprecatedTest()
+        public void TiktokGetFollowingTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string username = null;
             //string region = null;
             //int? count = null;
-            //var response = instance.TiktokGetFollowingDeprecated(username, region, count);
+            //string cursor = null;
+            //var response = instance.TiktokGetFollowing(username, region, count, cursor);
             //Assert.IsType<Object>(response);
         }
 
@@ -171,16 +173,17 @@ namespace ScrapeBadger.Test.Api
         }
 
         /// <summary>
-        /// Test TiktokGetLikedVideosDeprecated
+        /// Test TiktokGetLikedVideos
         /// </summary>
         [Fact]
-        public void TiktokGetLikedVideosDeprecatedTest()
+        public void TiktokGetLikedVideosTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string username = null;
             //string region = null;
             //int? count = null;
-            //var response = instance.TiktokGetLikedVideosDeprecated(username, region, count);
+            //string cursor = null;
+            //var response = instance.TiktokGetLikedVideos(username, region, count, cursor);
             //Assert.IsType<Object>(response);
         }
 
@@ -235,7 +238,8 @@ namespace ScrapeBadger.Test.Api
             //string videoId = null;
             //string region = null;
             //int? count = null;
-            //var response = instance.TiktokGetRelatedVideos(videoId, region, count);
+            //string cursor = null;
+            //var response = instance.TiktokGetRelatedVideos(videoId, region, count, cursor);
             //Assert.IsType<Object>(response);
         }
 
@@ -249,7 +253,8 @@ namespace ScrapeBadger.Test.Api
             //string username = null;
             //string region = null;
             //int? count = null;
-            //var response = instance.TiktokGetReposts(username, region, count);
+            //string cursor = null;
+            //var response = instance.TiktokGetReposts(username, region, count, cursor);
             //Assert.IsType<Object>(response);
         }
 

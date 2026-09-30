@@ -373,7 +373,7 @@ namespace ScrapeBadger.Api
         /// Google Lens visual search
         /// </summary>
         /// <remarks>
-        /// Google Lens visual search.  Response carries &#x60;&#x60;lens_results&#x60;&#x60; (Scrapingdog parity alias) with &#x60;&#x60;title&#x60;&#x60; / &#x60;&#x60;source&#x60;&#x60; / &#x60;&#x60;source_favicon&#x60;&#x60; / &#x60;&#x60;thumbnail&#x60;&#x60; / &#x60;&#x60;original_thumbnail&#x60;&#x60; / &#x60;&#x60;rating&#x60;&#x60; / &#x60;&#x60;reviews&#x60;&#x60; / &#x60;&#x60;in_stock&#x60;&#x60;, plus &#x60;&#x60;price&#x60;&#x60; (&#x60;&#x60;{value, currency, extracted}&#x60;&#x60;) and the raw &#x60;&#x60;tag&#x60;&#x60; chip it is parsed from, on shoppable matches. &#x60;&#x60;related_searches&#x60;&#x60; chips come alongside. Legacy &#x60;&#x60;results&#x60;&#x60; alias kept for backwards compat.
+        /// Google Lens visual search.  Response carries &#x60;&#x60;lens_results&#x60;&#x60; (Scrapingdog parity alias) with &#x60;&#x60;title&#x60;&#x60; / &#x60;&#x60;source&#x60;&#x60; / &#x60;&#x60;source_favicon&#x60;&#x60; / &#x60;&#x60;thumbnail&#x60;&#x60; / &#x60;&#x60;original_thumbnail&#x60;&#x60; / &#x60;&#x60;rating&#x60;&#x60; / &#x60;&#x60;reviews&#x60;&#x60; / &#x60;&#x60;in_stock&#x60;&#x60;, plus &#x60;&#x60;price&#x60;&#x60; (&#x60;&#x60;{value, currency, extracted}&#x60;&#x60;) and the raw &#x60;&#x60;tag&#x60;&#x60; chip it is parsed from, on shoppable matches. &#x60;&#x60;related_searches&#x60;&#x60; chips come alongside. Legacy &#x60;&#x60;results&#x60;&#x60; alias kept for backwards compat.  &#x60;&#x60;query&#x60;&#x60; refines the grid with text and is honoured. &#x60;&#x60;product&#x60;&#x60; and &#x60;&#x60;exact_matches&#x60;&#x60; are not yet supported, and &#x60;&#x60;visual_matches&#x3D;false&#x60;&#x60; cannot be: visual matches are the only surface served. Setting any of the three adds a line to the &#x60;&#x60;warnings&#x60;&#x60; array on the response rather than changing the result — see SCR-177. The match grid still CONTAINS an image&#39;s exact matches; Google just does not label which they are.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="url">Public URL of the image to search visually</param>
@@ -382,9 +382,9 @@ namespace ScrapeBadger.Api
         /// <param name="language">Language code (alias for hl) (optional)</param>
         /// <param name="gl">Country code (optional, default to &quot;us&quot;)</param>
         /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
-        /// <param name="product">Bias towards shoppable product matches (optional, default to false)</param>
-        /// <param name="visualMatches">Include the visual-matches carousel (optional, default to true)</param>
-        /// <param name="exactMatches">Restrict to exact-match results (optional, default to false)</param>
+        /// <param name="product">NOT YET SUPPORTED — accepted, and reported back in &#x60;warnings&#x60; (optional, default to false)</param>
+        /// <param name="visualMatches">Always true in practice — &#x60;false&#x60; is reported back in &#x60;warnings&#x60; (optional, default to true)</param>
+        /// <param name="exactMatches">NOT YET SUPPORTED — accepted, and reported back in &#x60;warnings&#x60; (optional, default to false)</param>
         /// <returns>Object</returns>
         Object GoogleGoogleLensVisualSearch(string url, string query = default(string), string country = default(string), string language = default(string), string gl = default(string), string hl = default(string), bool? product = default(bool?), bool? visualMatches = default(bool?), bool? exactMatches = default(bool?));
 
@@ -392,7 +392,7 @@ namespace ScrapeBadger.Api
         /// Google Lens visual search
         /// </summary>
         /// <remarks>
-        /// Google Lens visual search.  Response carries &#x60;&#x60;lens_results&#x60;&#x60; (Scrapingdog parity alias) with &#x60;&#x60;title&#x60;&#x60; / &#x60;&#x60;source&#x60;&#x60; / &#x60;&#x60;source_favicon&#x60;&#x60; / &#x60;&#x60;thumbnail&#x60;&#x60; / &#x60;&#x60;original_thumbnail&#x60;&#x60; / &#x60;&#x60;rating&#x60;&#x60; / &#x60;&#x60;reviews&#x60;&#x60; / &#x60;&#x60;in_stock&#x60;&#x60;, plus &#x60;&#x60;price&#x60;&#x60; (&#x60;&#x60;{value, currency, extracted}&#x60;&#x60;) and the raw &#x60;&#x60;tag&#x60;&#x60; chip it is parsed from, on shoppable matches. &#x60;&#x60;related_searches&#x60;&#x60; chips come alongside. Legacy &#x60;&#x60;results&#x60;&#x60; alias kept for backwards compat.
+        /// Google Lens visual search.  Response carries &#x60;&#x60;lens_results&#x60;&#x60; (Scrapingdog parity alias) with &#x60;&#x60;title&#x60;&#x60; / &#x60;&#x60;source&#x60;&#x60; / &#x60;&#x60;source_favicon&#x60;&#x60; / &#x60;&#x60;thumbnail&#x60;&#x60; / &#x60;&#x60;original_thumbnail&#x60;&#x60; / &#x60;&#x60;rating&#x60;&#x60; / &#x60;&#x60;reviews&#x60;&#x60; / &#x60;&#x60;in_stock&#x60;&#x60;, plus &#x60;&#x60;price&#x60;&#x60; (&#x60;&#x60;{value, currency, extracted}&#x60;&#x60;) and the raw &#x60;&#x60;tag&#x60;&#x60; chip it is parsed from, on shoppable matches. &#x60;&#x60;related_searches&#x60;&#x60; chips come alongside. Legacy &#x60;&#x60;results&#x60;&#x60; alias kept for backwards compat.  &#x60;&#x60;query&#x60;&#x60; refines the grid with text and is honoured. &#x60;&#x60;product&#x60;&#x60; and &#x60;&#x60;exact_matches&#x60;&#x60; are not yet supported, and &#x60;&#x60;visual_matches&#x3D;false&#x60;&#x60; cannot be: visual matches are the only surface served. Setting any of the three adds a line to the &#x60;&#x60;warnings&#x60;&#x60; array on the response rather than changing the result — see SCR-177. The match grid still CONTAINS an image&#39;s exact matches; Google just does not label which they are.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="url">Public URL of the image to search visually</param>
@@ -401,9 +401,9 @@ namespace ScrapeBadger.Api
         /// <param name="language">Language code (alias for hl) (optional)</param>
         /// <param name="gl">Country code (optional, default to &quot;us&quot;)</param>
         /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
-        /// <param name="product">Bias towards shoppable product matches (optional, default to false)</param>
-        /// <param name="visualMatches">Include the visual-matches carousel (optional, default to true)</param>
-        /// <param name="exactMatches">Restrict to exact-match results (optional, default to false)</param>
+        /// <param name="product">NOT YET SUPPORTED — accepted, and reported back in &#x60;warnings&#x60; (optional, default to false)</param>
+        /// <param name="visualMatches">Always true in practice — &#x60;false&#x60; is reported back in &#x60;warnings&#x60; (optional, default to true)</param>
+        /// <param name="exactMatches">NOT YET SUPPORTED — accepted, and reported back in &#x60;warnings&#x60; (optional, default to false)</param>
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> GoogleGoogleLensVisualSearchWithHttpInfo(string url, string query = default(string), string country = default(string), string language = default(string), string gl = default(string), string hl = default(string), bool? product = default(bool?), bool? visualMatches = default(bool?), bool? exactMatches = default(bool?));
         /// <summary>
@@ -1515,7 +1515,7 @@ namespace ScrapeBadger.Api
         /// Google Lens visual search
         /// </summary>
         /// <remarks>
-        /// Google Lens visual search.  Response carries &#x60;&#x60;lens_results&#x60;&#x60; (Scrapingdog parity alias) with &#x60;&#x60;title&#x60;&#x60; / &#x60;&#x60;source&#x60;&#x60; / &#x60;&#x60;source_favicon&#x60;&#x60; / &#x60;&#x60;thumbnail&#x60;&#x60; / &#x60;&#x60;original_thumbnail&#x60;&#x60; / &#x60;&#x60;rating&#x60;&#x60; / &#x60;&#x60;reviews&#x60;&#x60; / &#x60;&#x60;in_stock&#x60;&#x60;, plus &#x60;&#x60;price&#x60;&#x60; (&#x60;&#x60;{value, currency, extracted}&#x60;&#x60;) and the raw &#x60;&#x60;tag&#x60;&#x60; chip it is parsed from, on shoppable matches. &#x60;&#x60;related_searches&#x60;&#x60; chips come alongside. Legacy &#x60;&#x60;results&#x60;&#x60; alias kept for backwards compat.
+        /// Google Lens visual search.  Response carries &#x60;&#x60;lens_results&#x60;&#x60; (Scrapingdog parity alias) with &#x60;&#x60;title&#x60;&#x60; / &#x60;&#x60;source&#x60;&#x60; / &#x60;&#x60;source_favicon&#x60;&#x60; / &#x60;&#x60;thumbnail&#x60;&#x60; / &#x60;&#x60;original_thumbnail&#x60;&#x60; / &#x60;&#x60;rating&#x60;&#x60; / &#x60;&#x60;reviews&#x60;&#x60; / &#x60;&#x60;in_stock&#x60;&#x60;, plus &#x60;&#x60;price&#x60;&#x60; (&#x60;&#x60;{value, currency, extracted}&#x60;&#x60;) and the raw &#x60;&#x60;tag&#x60;&#x60; chip it is parsed from, on shoppable matches. &#x60;&#x60;related_searches&#x60;&#x60; chips come alongside. Legacy &#x60;&#x60;results&#x60;&#x60; alias kept for backwards compat.  &#x60;&#x60;query&#x60;&#x60; refines the grid with text and is honoured. &#x60;&#x60;product&#x60;&#x60; and &#x60;&#x60;exact_matches&#x60;&#x60; are not yet supported, and &#x60;&#x60;visual_matches&#x3D;false&#x60;&#x60; cannot be: visual matches are the only surface served. Setting any of the three adds a line to the &#x60;&#x60;warnings&#x60;&#x60; array on the response rather than changing the result — see SCR-177. The match grid still CONTAINS an image&#39;s exact matches; Google just does not label which they are.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="url">Public URL of the image to search visually</param>
@@ -1524,9 +1524,9 @@ namespace ScrapeBadger.Api
         /// <param name="language">Language code (alias for hl) (optional)</param>
         /// <param name="gl">Country code (optional, default to &quot;us&quot;)</param>
         /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
-        /// <param name="product">Bias towards shoppable product matches (optional, default to false)</param>
-        /// <param name="visualMatches">Include the visual-matches carousel (optional, default to true)</param>
-        /// <param name="exactMatches">Restrict to exact-match results (optional, default to false)</param>
+        /// <param name="product">NOT YET SUPPORTED — accepted, and reported back in &#x60;warnings&#x60; (optional, default to false)</param>
+        /// <param name="visualMatches">Always true in practice — &#x60;false&#x60; is reported back in &#x60;warnings&#x60; (optional, default to true)</param>
+        /// <param name="exactMatches">NOT YET SUPPORTED — accepted, and reported back in &#x60;warnings&#x60; (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
         System.Threading.Tasks.Task<Object> GoogleGoogleLensVisualSearchAsync(string url, string query = default(string), string country = default(string), string language = default(string), string gl = default(string), string hl = default(string), bool? product = default(bool?), bool? visualMatches = default(bool?), bool? exactMatches = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
@@ -1535,7 +1535,7 @@ namespace ScrapeBadger.Api
         /// Google Lens visual search
         /// </summary>
         /// <remarks>
-        /// Google Lens visual search.  Response carries &#x60;&#x60;lens_results&#x60;&#x60; (Scrapingdog parity alias) with &#x60;&#x60;title&#x60;&#x60; / &#x60;&#x60;source&#x60;&#x60; / &#x60;&#x60;source_favicon&#x60;&#x60; / &#x60;&#x60;thumbnail&#x60;&#x60; / &#x60;&#x60;original_thumbnail&#x60;&#x60; / &#x60;&#x60;rating&#x60;&#x60; / &#x60;&#x60;reviews&#x60;&#x60; / &#x60;&#x60;in_stock&#x60;&#x60;, plus &#x60;&#x60;price&#x60;&#x60; (&#x60;&#x60;{value, currency, extracted}&#x60;&#x60;) and the raw &#x60;&#x60;tag&#x60;&#x60; chip it is parsed from, on shoppable matches. &#x60;&#x60;related_searches&#x60;&#x60; chips come alongside. Legacy &#x60;&#x60;results&#x60;&#x60; alias kept for backwards compat.
+        /// Google Lens visual search.  Response carries &#x60;&#x60;lens_results&#x60;&#x60; (Scrapingdog parity alias) with &#x60;&#x60;title&#x60;&#x60; / &#x60;&#x60;source&#x60;&#x60; / &#x60;&#x60;source_favicon&#x60;&#x60; / &#x60;&#x60;thumbnail&#x60;&#x60; / &#x60;&#x60;original_thumbnail&#x60;&#x60; / &#x60;&#x60;rating&#x60;&#x60; / &#x60;&#x60;reviews&#x60;&#x60; / &#x60;&#x60;in_stock&#x60;&#x60;, plus &#x60;&#x60;price&#x60;&#x60; (&#x60;&#x60;{value, currency, extracted}&#x60;&#x60;) and the raw &#x60;&#x60;tag&#x60;&#x60; chip it is parsed from, on shoppable matches. &#x60;&#x60;related_searches&#x60;&#x60; chips come alongside. Legacy &#x60;&#x60;results&#x60;&#x60; alias kept for backwards compat.  &#x60;&#x60;query&#x60;&#x60; refines the grid with text and is honoured. &#x60;&#x60;product&#x60;&#x60; and &#x60;&#x60;exact_matches&#x60;&#x60; are not yet supported, and &#x60;&#x60;visual_matches&#x3D;false&#x60;&#x60; cannot be: visual matches are the only surface served. Setting any of the three adds a line to the &#x60;&#x60;warnings&#x60;&#x60; array on the response rather than changing the result — see SCR-177. The match grid still CONTAINS an image&#39;s exact matches; Google just does not label which they are.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="url">Public URL of the image to search visually</param>
@@ -1544,9 +1544,9 @@ namespace ScrapeBadger.Api
         /// <param name="language">Language code (alias for hl) (optional)</param>
         /// <param name="gl">Country code (optional, default to &quot;us&quot;)</param>
         /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
-        /// <param name="product">Bias towards shoppable product matches (optional, default to false)</param>
-        /// <param name="visualMatches">Include the visual-matches carousel (optional, default to true)</param>
-        /// <param name="exactMatches">Restrict to exact-match results (optional, default to false)</param>
+        /// <param name="product">NOT YET SUPPORTED — accepted, and reported back in &#x60;warnings&#x60; (optional, default to false)</param>
+        /// <param name="visualMatches">Always true in practice — &#x60;false&#x60; is reported back in &#x60;warnings&#x60; (optional, default to true)</param>
+        /// <param name="exactMatches">NOT YET SUPPORTED — accepted, and reported back in &#x60;warnings&#x60; (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> GoogleGoogleLensVisualSearchWithHttpInfoAsync(string url, string query = default(string), string country = default(string), string language = default(string), string gl = default(string), string hl = default(string), bool? product = default(bool?), bool? visualMatches = default(bool?), bool? exactMatches = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
@@ -4696,7 +4696,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Google Lens visual search Google Lens visual search.  Response carries &#x60;&#x60;lens_results&#x60;&#x60; (Scrapingdog parity alias) with &#x60;&#x60;title&#x60;&#x60; / &#x60;&#x60;source&#x60;&#x60; / &#x60;&#x60;source_favicon&#x60;&#x60; / &#x60;&#x60;thumbnail&#x60;&#x60; / &#x60;&#x60;original_thumbnail&#x60;&#x60; / &#x60;&#x60;rating&#x60;&#x60; / &#x60;&#x60;reviews&#x60;&#x60; / &#x60;&#x60;in_stock&#x60;&#x60;, plus &#x60;&#x60;price&#x60;&#x60; (&#x60;&#x60;{value, currency, extracted}&#x60;&#x60;) and the raw &#x60;&#x60;tag&#x60;&#x60; chip it is parsed from, on shoppable matches. &#x60;&#x60;related_searches&#x60;&#x60; chips come alongside. Legacy &#x60;&#x60;results&#x60;&#x60; alias kept for backwards compat.
+        /// Google Lens visual search Google Lens visual search.  Response carries &#x60;&#x60;lens_results&#x60;&#x60; (Scrapingdog parity alias) with &#x60;&#x60;title&#x60;&#x60; / &#x60;&#x60;source&#x60;&#x60; / &#x60;&#x60;source_favicon&#x60;&#x60; / &#x60;&#x60;thumbnail&#x60;&#x60; / &#x60;&#x60;original_thumbnail&#x60;&#x60; / &#x60;&#x60;rating&#x60;&#x60; / &#x60;&#x60;reviews&#x60;&#x60; / &#x60;&#x60;in_stock&#x60;&#x60;, plus &#x60;&#x60;price&#x60;&#x60; (&#x60;&#x60;{value, currency, extracted}&#x60;&#x60;) and the raw &#x60;&#x60;tag&#x60;&#x60; chip it is parsed from, on shoppable matches. &#x60;&#x60;related_searches&#x60;&#x60; chips come alongside. Legacy &#x60;&#x60;results&#x60;&#x60; alias kept for backwards compat.  &#x60;&#x60;query&#x60;&#x60; refines the grid with text and is honoured. &#x60;&#x60;product&#x60;&#x60; and &#x60;&#x60;exact_matches&#x60;&#x60; are not yet supported, and &#x60;&#x60;visual_matches&#x3D;false&#x60;&#x60; cannot be: visual matches are the only surface served. Setting any of the three adds a line to the &#x60;&#x60;warnings&#x60;&#x60; array on the response rather than changing the result — see SCR-177. The match grid still CONTAINS an image&#39;s exact matches; Google just does not label which they are.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="url">Public URL of the image to search visually</param>
@@ -4705,9 +4705,9 @@ namespace ScrapeBadger.Api
         /// <param name="language">Language code (alias for hl) (optional)</param>
         /// <param name="gl">Country code (optional, default to &quot;us&quot;)</param>
         /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
-        /// <param name="product">Bias towards shoppable product matches (optional, default to false)</param>
-        /// <param name="visualMatches">Include the visual-matches carousel (optional, default to true)</param>
-        /// <param name="exactMatches">Restrict to exact-match results (optional, default to false)</param>
+        /// <param name="product">NOT YET SUPPORTED — accepted, and reported back in &#x60;warnings&#x60; (optional, default to false)</param>
+        /// <param name="visualMatches">Always true in practice — &#x60;false&#x60; is reported back in &#x60;warnings&#x60; (optional, default to true)</param>
+        /// <param name="exactMatches">NOT YET SUPPORTED — accepted, and reported back in &#x60;warnings&#x60; (optional, default to false)</param>
         /// <returns>Object</returns>
         public Object GoogleGoogleLensVisualSearch(string url, string query = default(string), string country = default(string), string language = default(string), string gl = default(string), string hl = default(string), bool? product = default(bool?), bool? visualMatches = default(bool?), bool? exactMatches = default(bool?))
         {
@@ -4716,7 +4716,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Google Lens visual search Google Lens visual search.  Response carries &#x60;&#x60;lens_results&#x60;&#x60; (Scrapingdog parity alias) with &#x60;&#x60;title&#x60;&#x60; / &#x60;&#x60;source&#x60;&#x60; / &#x60;&#x60;source_favicon&#x60;&#x60; / &#x60;&#x60;thumbnail&#x60;&#x60; / &#x60;&#x60;original_thumbnail&#x60;&#x60; / &#x60;&#x60;rating&#x60;&#x60; / &#x60;&#x60;reviews&#x60;&#x60; / &#x60;&#x60;in_stock&#x60;&#x60;, plus &#x60;&#x60;price&#x60;&#x60; (&#x60;&#x60;{value, currency, extracted}&#x60;&#x60;) and the raw &#x60;&#x60;tag&#x60;&#x60; chip it is parsed from, on shoppable matches. &#x60;&#x60;related_searches&#x60;&#x60; chips come alongside. Legacy &#x60;&#x60;results&#x60;&#x60; alias kept for backwards compat.
+        /// Google Lens visual search Google Lens visual search.  Response carries &#x60;&#x60;lens_results&#x60;&#x60; (Scrapingdog parity alias) with &#x60;&#x60;title&#x60;&#x60; / &#x60;&#x60;source&#x60;&#x60; / &#x60;&#x60;source_favicon&#x60;&#x60; / &#x60;&#x60;thumbnail&#x60;&#x60; / &#x60;&#x60;original_thumbnail&#x60;&#x60; / &#x60;&#x60;rating&#x60;&#x60; / &#x60;&#x60;reviews&#x60;&#x60; / &#x60;&#x60;in_stock&#x60;&#x60;, plus &#x60;&#x60;price&#x60;&#x60; (&#x60;&#x60;{value, currency, extracted}&#x60;&#x60;) and the raw &#x60;&#x60;tag&#x60;&#x60; chip it is parsed from, on shoppable matches. &#x60;&#x60;related_searches&#x60;&#x60; chips come alongside. Legacy &#x60;&#x60;results&#x60;&#x60; alias kept for backwards compat.  &#x60;&#x60;query&#x60;&#x60; refines the grid with text and is honoured. &#x60;&#x60;product&#x60;&#x60; and &#x60;&#x60;exact_matches&#x60;&#x60; are not yet supported, and &#x60;&#x60;visual_matches&#x3D;false&#x60;&#x60; cannot be: visual matches are the only surface served. Setting any of the three adds a line to the &#x60;&#x60;warnings&#x60;&#x60; array on the response rather than changing the result — see SCR-177. The match grid still CONTAINS an image&#39;s exact matches; Google just does not label which they are.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="url">Public URL of the image to search visually</param>
@@ -4725,9 +4725,9 @@ namespace ScrapeBadger.Api
         /// <param name="language">Language code (alias for hl) (optional)</param>
         /// <param name="gl">Country code (optional, default to &quot;us&quot;)</param>
         /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
-        /// <param name="product">Bias towards shoppable product matches (optional, default to false)</param>
-        /// <param name="visualMatches">Include the visual-matches carousel (optional, default to true)</param>
-        /// <param name="exactMatches">Restrict to exact-match results (optional, default to false)</param>
+        /// <param name="product">NOT YET SUPPORTED — accepted, and reported back in &#x60;warnings&#x60; (optional, default to false)</param>
+        /// <param name="visualMatches">Always true in practice — &#x60;false&#x60; is reported back in &#x60;warnings&#x60; (optional, default to true)</param>
+        /// <param name="exactMatches">NOT YET SUPPORTED — accepted, and reported back in &#x60;warnings&#x60; (optional, default to false)</param>
         /// <returns>ApiResponse of Object</returns>
         public ScrapeBadger.Client.ApiResponse<Object> GoogleGoogleLensVisualSearchWithHttpInfo(string url, string query = default(string), string country = default(string), string language = default(string), string gl = default(string), string hl = default(string), bool? product = default(bool?), bool? visualMatches = default(bool?), bool? exactMatches = default(bool?))
         {
@@ -4804,7 +4804,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Google Lens visual search Google Lens visual search.  Response carries &#x60;&#x60;lens_results&#x60;&#x60; (Scrapingdog parity alias) with &#x60;&#x60;title&#x60;&#x60; / &#x60;&#x60;source&#x60;&#x60; / &#x60;&#x60;source_favicon&#x60;&#x60; / &#x60;&#x60;thumbnail&#x60;&#x60; / &#x60;&#x60;original_thumbnail&#x60;&#x60; / &#x60;&#x60;rating&#x60;&#x60; / &#x60;&#x60;reviews&#x60;&#x60; / &#x60;&#x60;in_stock&#x60;&#x60;, plus &#x60;&#x60;price&#x60;&#x60; (&#x60;&#x60;{value, currency, extracted}&#x60;&#x60;) and the raw &#x60;&#x60;tag&#x60;&#x60; chip it is parsed from, on shoppable matches. &#x60;&#x60;related_searches&#x60;&#x60; chips come alongside. Legacy &#x60;&#x60;results&#x60;&#x60; alias kept for backwards compat.
+        /// Google Lens visual search Google Lens visual search.  Response carries &#x60;&#x60;lens_results&#x60;&#x60; (Scrapingdog parity alias) with &#x60;&#x60;title&#x60;&#x60; / &#x60;&#x60;source&#x60;&#x60; / &#x60;&#x60;source_favicon&#x60;&#x60; / &#x60;&#x60;thumbnail&#x60;&#x60; / &#x60;&#x60;original_thumbnail&#x60;&#x60; / &#x60;&#x60;rating&#x60;&#x60; / &#x60;&#x60;reviews&#x60;&#x60; / &#x60;&#x60;in_stock&#x60;&#x60;, plus &#x60;&#x60;price&#x60;&#x60; (&#x60;&#x60;{value, currency, extracted}&#x60;&#x60;) and the raw &#x60;&#x60;tag&#x60;&#x60; chip it is parsed from, on shoppable matches. &#x60;&#x60;related_searches&#x60;&#x60; chips come alongside. Legacy &#x60;&#x60;results&#x60;&#x60; alias kept for backwards compat.  &#x60;&#x60;query&#x60;&#x60; refines the grid with text and is honoured. &#x60;&#x60;product&#x60;&#x60; and &#x60;&#x60;exact_matches&#x60;&#x60; are not yet supported, and &#x60;&#x60;visual_matches&#x3D;false&#x60;&#x60; cannot be: visual matches are the only surface served. Setting any of the three adds a line to the &#x60;&#x60;warnings&#x60;&#x60; array on the response rather than changing the result — see SCR-177. The match grid still CONTAINS an image&#39;s exact matches; Google just does not label which they are.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="url">Public URL of the image to search visually</param>
@@ -4813,9 +4813,9 @@ namespace ScrapeBadger.Api
         /// <param name="language">Language code (alias for hl) (optional)</param>
         /// <param name="gl">Country code (optional, default to &quot;us&quot;)</param>
         /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
-        /// <param name="product">Bias towards shoppable product matches (optional, default to false)</param>
-        /// <param name="visualMatches">Include the visual-matches carousel (optional, default to true)</param>
-        /// <param name="exactMatches">Restrict to exact-match results (optional, default to false)</param>
+        /// <param name="product">NOT YET SUPPORTED — accepted, and reported back in &#x60;warnings&#x60; (optional, default to false)</param>
+        /// <param name="visualMatches">Always true in practice — &#x60;false&#x60; is reported back in &#x60;warnings&#x60; (optional, default to true)</param>
+        /// <param name="exactMatches">NOT YET SUPPORTED — accepted, and reported back in &#x60;warnings&#x60; (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
         public async System.Threading.Tasks.Task<Object> GoogleGoogleLensVisualSearchAsync(string url, string query = default(string), string country = default(string), string language = default(string), string gl = default(string), string hl = default(string), bool? product = default(bool?), bool? visualMatches = default(bool?), bool? exactMatches = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
@@ -4825,7 +4825,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Google Lens visual search Google Lens visual search.  Response carries &#x60;&#x60;lens_results&#x60;&#x60; (Scrapingdog parity alias) with &#x60;&#x60;title&#x60;&#x60; / &#x60;&#x60;source&#x60;&#x60; / &#x60;&#x60;source_favicon&#x60;&#x60; / &#x60;&#x60;thumbnail&#x60;&#x60; / &#x60;&#x60;original_thumbnail&#x60;&#x60; / &#x60;&#x60;rating&#x60;&#x60; / &#x60;&#x60;reviews&#x60;&#x60; / &#x60;&#x60;in_stock&#x60;&#x60;, plus &#x60;&#x60;price&#x60;&#x60; (&#x60;&#x60;{value, currency, extracted}&#x60;&#x60;) and the raw &#x60;&#x60;tag&#x60;&#x60; chip it is parsed from, on shoppable matches. &#x60;&#x60;related_searches&#x60;&#x60; chips come alongside. Legacy &#x60;&#x60;results&#x60;&#x60; alias kept for backwards compat.
+        /// Google Lens visual search Google Lens visual search.  Response carries &#x60;&#x60;lens_results&#x60;&#x60; (Scrapingdog parity alias) with &#x60;&#x60;title&#x60;&#x60; / &#x60;&#x60;source&#x60;&#x60; / &#x60;&#x60;source_favicon&#x60;&#x60; / &#x60;&#x60;thumbnail&#x60;&#x60; / &#x60;&#x60;original_thumbnail&#x60;&#x60; / &#x60;&#x60;rating&#x60;&#x60; / &#x60;&#x60;reviews&#x60;&#x60; / &#x60;&#x60;in_stock&#x60;&#x60;, plus &#x60;&#x60;price&#x60;&#x60; (&#x60;&#x60;{value, currency, extracted}&#x60;&#x60;) and the raw &#x60;&#x60;tag&#x60;&#x60; chip it is parsed from, on shoppable matches. &#x60;&#x60;related_searches&#x60;&#x60; chips come alongside. Legacy &#x60;&#x60;results&#x60;&#x60; alias kept for backwards compat.  &#x60;&#x60;query&#x60;&#x60; refines the grid with text and is honoured. &#x60;&#x60;product&#x60;&#x60; and &#x60;&#x60;exact_matches&#x60;&#x60; are not yet supported, and &#x60;&#x60;visual_matches&#x3D;false&#x60;&#x60; cannot be: visual matches are the only surface served. Setting any of the three adds a line to the &#x60;&#x60;warnings&#x60;&#x60; array on the response rather than changing the result — see SCR-177. The match grid still CONTAINS an image&#39;s exact matches; Google just does not label which they are.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="url">Public URL of the image to search visually</param>
@@ -4834,9 +4834,9 @@ namespace ScrapeBadger.Api
         /// <param name="language">Language code (alias for hl) (optional)</param>
         /// <param name="gl">Country code (optional, default to &quot;us&quot;)</param>
         /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
-        /// <param name="product">Bias towards shoppable product matches (optional, default to false)</param>
-        /// <param name="visualMatches">Include the visual-matches carousel (optional, default to true)</param>
-        /// <param name="exactMatches">Restrict to exact-match results (optional, default to false)</param>
+        /// <param name="product">NOT YET SUPPORTED — accepted, and reported back in &#x60;warnings&#x60; (optional, default to false)</param>
+        /// <param name="visualMatches">Always true in practice — &#x60;false&#x60; is reported back in &#x60;warnings&#x60; (optional, default to true)</param>
+        /// <param name="exactMatches">NOT YET SUPPORTED — accepted, and reported back in &#x60;warnings&#x60; (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
         public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GoogleGoogleLensVisualSearchWithHttpInfoAsync(string url, string query = default(string), string country = default(string), string language = default(string), string gl = default(string), string hl = default(string), bool? product = default(bool?), bool? visualMatches = default(bool?), bool? exactMatches = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))

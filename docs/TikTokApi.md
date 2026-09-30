@@ -8,11 +8,11 @@ All URIs are relative to *https://scrapebadger.com*
 | [**TiktokGeneralSearch**](TikTokApi.md#tiktokgeneralsearch) | **GET** /v1/tiktok/search | General search |
 | [**TiktokGetCommentReplies**](TikTokApi.md#tiktokgetcommentreplies) | **GET** /v1/tiktok/comments/{comment_id}/replies | Get comment replies |
 | [**TiktokGetComments**](TikTokApi.md#tiktokgetcomments) | **GET** /v1/tiktok/videos/{video_id}/comments | Get comments |
-| [**TiktokGetFollowersDeprecated**](TikTokApi.md#tiktokgetfollowersdeprecated) | **GET** /v1/tiktok/users/{username}/followers | Get followers (deprecated) |
-| [**TiktokGetFollowingDeprecated**](TikTokApi.md#tiktokgetfollowingdeprecated) | **GET** /v1/tiktok/users/{username}/following | Get following (deprecated) |
+| [**TiktokGetFollowers**](TikTokApi.md#tiktokgetfollowers) | **GET** /v1/tiktok/users/{username}/followers | Get followers |
+| [**TiktokGetFollowing**](TikTokApi.md#tiktokgetfollowing) | **GET** /v1/tiktok/users/{username}/following | Get following |
 | [**TiktokGetHashtagDetail**](TikTokApi.md#tiktokgethashtagdetail) | **GET** /v1/tiktok/hashtags/{name} | Get hashtag detail |
 | [**TiktokGetHashtagVideos**](TikTokApi.md#tiktokgethashtagvideos) | **GET** /v1/tiktok/hashtags/{name}/videos | Get hashtag videos |
-| [**TiktokGetLikedVideosDeprecated**](TikTokApi.md#tiktokgetlikedvideosdeprecated) | **GET** /v1/tiktok/users/{username}/liked | Get liked videos (deprecated) |
+| [**TiktokGetLikedVideos**](TikTokApi.md#tiktokgetlikedvideos) | **GET** /v1/tiktok/users/{username}/liked | Get liked videos |
 | [**TiktokGetMusicSoundDetail**](TikTokApi.md#tiktokgetmusicsounddetail) | **GET** /v1/tiktok/music/{music_id} | Get music/sound detail |
 | [**TiktokGetMusicVideos**](TikTokApi.md#tiktokgetmusicvideos) | **GET** /v1/tiktok/music/{music_id}/videos | Get music videos |
 | [**TiktokGetOembedMetadata**](TikTokApi.md#tiktokgetoembedmetadata) | **GET** /v1/tiktok/oembed | Get oEmbed metadata |
@@ -188,7 +188,7 @@ namespace Example
             var query = "query_example";  // string | Search keyword
             var region = "\"US\"";  // string |  (optional)  (default to "US")
             var count = 20;  // int? |  (optional)  (default to 20)
-            var cursor = "cursor_example";  // string | Composite pagination cursor (offset.search_id) from a prior page's pagination.cursor (optional) 
+            var cursor = "cursor_example";  // string | Opaque continuation cursor from a prior page's pagination.cursor (optional) 
 
             try
             {
@@ -234,7 +234,7 @@ catch (ApiException e)
 | **query** | **string** | Search keyword |  |
 | **region** | **string** |  | [optional] [default to &quot;US&quot;] |
 | **count** | **int?** |  | [optional] [default to 20] |
-| **cursor** | **string** | Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor | [optional]  |
+| **cursor** | **string** | Opaque continuation cursor from a prior page&#39;s pagination.cursor | [optional]  |
 
 ### Return type
 
@@ -474,13 +474,13 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="tiktokgetfollowersdeprecated"></a>
-# **TiktokGetFollowersDeprecated**
-> Object TiktokGetFollowersDeprecated (string username, string region = null, int? count = null)
+<a id="tiktokgetfollowers"></a>
+# **TiktokGetFollowers**
+> Object TiktokGetFollowers (string username, string region = null, int? count = null, string cursor = null)
 
-Get followers (deprecated)
+Get followers
 
-DEPRECATED — TikTok followers require an authenticated account session. Returns HTTP 410.
+Get publicly visible followers without an account.
 
 ### Example
 ```csharp
@@ -493,7 +493,7 @@ using ScrapeBadger.Model;
 
 namespace Example
 {
-    public class TiktokGetFollowersDeprecatedExample
+    public class TiktokGetFollowersExample
     {
         public static void Main()
         {
@@ -511,16 +511,17 @@ namespace Example
             var username = "username_example";  // string | 
             var region = "\"US\"";  // string |  (optional)  (default to "US")
             var count = 30;  // int? |  (optional)  (default to 30)
+            var cursor = "cursor_example";  // string | Continuation cursor from the previous page (optional) 
 
             try
             {
-                // Get followers (deprecated)
-                Object result = apiInstance.TiktokGetFollowersDeprecated(username, region, count);
+                // Get followers
+                Object result = apiInstance.TiktokGetFollowers(username, region, count, cursor);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TikTokApi.TiktokGetFollowersDeprecated: " + e.Message);
+                Debug.Print("Exception when calling TikTokApi.TiktokGetFollowers: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -529,21 +530,21 @@ namespace Example
 }
 ```
 
-#### Using the TiktokGetFollowersDeprecatedWithHttpInfo variant
+#### Using the TiktokGetFollowersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Get followers (deprecated)
-    ApiResponse<Object> response = apiInstance.TiktokGetFollowersDeprecatedWithHttpInfo(username, region, count);
+    // Get followers
+    ApiResponse<Object> response = apiInstance.TiktokGetFollowersWithHttpInfo(username, region, count, cursor);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling TikTokApi.TiktokGetFollowersDeprecatedWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling TikTokApi.TiktokGetFollowersWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -556,6 +557,7 @@ catch (ApiException e)
 | **username** | **string** |  |  |
 | **region** | **string** |  | [optional] [default to &quot;US&quot;] |
 | **count** | **int?** |  | [optional] [default to 30] |
+| **cursor** | **string** | Continuation cursor from the previous page | [optional]  |
 
 ### Return type
 
@@ -579,13 +581,13 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="tiktokgetfollowingdeprecated"></a>
-# **TiktokGetFollowingDeprecated**
-> Object TiktokGetFollowingDeprecated (string username, string region = null, int? count = null)
+<a id="tiktokgetfollowing"></a>
+# **TiktokGetFollowing**
+> Object TiktokGetFollowing (string username, string region = null, int? count = null, string cursor = null)
 
-Get following (deprecated)
+Get following
 
-DEPRECATED — TikTok following requires an authenticated account session. Returns HTTP 410.
+Get publicly visible followed accounts. Hidden lists return HTTP 403.
 
 ### Example
 ```csharp
@@ -598,7 +600,7 @@ using ScrapeBadger.Model;
 
 namespace Example
 {
-    public class TiktokGetFollowingDeprecatedExample
+    public class TiktokGetFollowingExample
     {
         public static void Main()
         {
@@ -616,16 +618,17 @@ namespace Example
             var username = "username_example";  // string | 
             var region = "\"US\"";  // string |  (optional)  (default to "US")
             var count = 30;  // int? |  (optional)  (default to 30)
+            var cursor = "cursor_example";  // string | Continuation cursor from the previous page (optional) 
 
             try
             {
-                // Get following (deprecated)
-                Object result = apiInstance.TiktokGetFollowingDeprecated(username, region, count);
+                // Get following
+                Object result = apiInstance.TiktokGetFollowing(username, region, count, cursor);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TikTokApi.TiktokGetFollowingDeprecated: " + e.Message);
+                Debug.Print("Exception when calling TikTokApi.TiktokGetFollowing: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -634,21 +637,21 @@ namespace Example
 }
 ```
 
-#### Using the TiktokGetFollowingDeprecatedWithHttpInfo variant
+#### Using the TiktokGetFollowingWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Get following (deprecated)
-    ApiResponse<Object> response = apiInstance.TiktokGetFollowingDeprecatedWithHttpInfo(username, region, count);
+    // Get following
+    ApiResponse<Object> response = apiInstance.TiktokGetFollowingWithHttpInfo(username, region, count, cursor);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling TikTokApi.TiktokGetFollowingDeprecatedWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling TikTokApi.TiktokGetFollowingWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -661,6 +664,7 @@ catch (ApiException e)
 | **username** | **string** |  |  |
 | **region** | **string** |  | [optional] [default to &quot;US&quot;] |
 | **count** | **int?** |  | [optional] [default to 30] |
+| **cursor** | **string** | Continuation cursor from the previous page | [optional]  |
 
 ### Return type
 
@@ -894,13 +898,13 @@ catch (ApiException e)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-<a id="tiktokgetlikedvideosdeprecated"></a>
-# **TiktokGetLikedVideosDeprecated**
-> Object TiktokGetLikedVideosDeprecated (string username, string region = null, int? count = null)
+<a id="tiktokgetlikedvideos"></a>
+# **TiktokGetLikedVideos**
+> Object TiktokGetLikedVideos (string username, string region = null, int? count = null, string cursor = null)
 
-Get liked videos (deprecated)
+Get liked videos
 
-DEPRECATED — TikTok liked videos require an authenticated account session. Returns HTTP 410.
+Get public liked videos. Hidden liked lists return HTTP 403.
 
 ### Example
 ```csharp
@@ -913,7 +917,7 @@ using ScrapeBadger.Model;
 
 namespace Example
 {
-    public class TiktokGetLikedVideosDeprecatedExample
+    public class TiktokGetLikedVideosExample
     {
         public static void Main()
         {
@@ -931,16 +935,17 @@ namespace Example
             var username = "username_example";  // string | 
             var region = "\"US\"";  // string |  (optional)  (default to "US")
             var count = 30;  // int? |  (optional)  (default to 30)
+            var cursor = "cursor_example";  // string | Continuation cursor from the previous page (optional) 
 
             try
             {
-                // Get liked videos (deprecated)
-                Object result = apiInstance.TiktokGetLikedVideosDeprecated(username, region, count);
+                // Get liked videos
+                Object result = apiInstance.TiktokGetLikedVideos(username, region, count, cursor);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling TikTokApi.TiktokGetLikedVideosDeprecated: " + e.Message);
+                Debug.Print("Exception when calling TikTokApi.TiktokGetLikedVideos: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -949,21 +954,21 @@ namespace Example
 }
 ```
 
-#### Using the TiktokGetLikedVideosDeprecatedWithHttpInfo variant
+#### Using the TiktokGetLikedVideosWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Get liked videos (deprecated)
-    ApiResponse<Object> response = apiInstance.TiktokGetLikedVideosDeprecatedWithHttpInfo(username, region, count);
+    // Get liked videos
+    ApiResponse<Object> response = apiInstance.TiktokGetLikedVideosWithHttpInfo(username, region, count, cursor);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling TikTokApi.TiktokGetLikedVideosDeprecatedWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling TikTokApi.TiktokGetLikedVideosWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }
@@ -976,6 +981,7 @@ catch (ApiException e)
 | **username** | **string** |  |  |
 | **region** | **string** |  | [optional] [default to &quot;US&quot;] |
 | **count** | **int?** |  | [optional] [default to 30] |
+| **cursor** | **string** | Continuation cursor from the previous page | [optional]  |
 
 ### Return type
 
@@ -1314,7 +1320,7 @@ catch (ApiException e)
 
 <a id="tiktokgetrelatedvideos"></a>
 # **TiktokGetRelatedVideos**
-> Object TiktokGetRelatedVideos (string videoId, string region = null, int? count = null)
+> Object TiktokGetRelatedVideos (string videoId, string region = null, int? count = null, string cursor = null)
 
 Get related videos
 
@@ -1349,11 +1355,12 @@ namespace Example
             var videoId = "videoId_example";  // string | 
             var region = "\"US\"";  // string |  (optional)  (default to "US")
             var count = 16;  // int? |  (optional)  (default to 16)
+            var cursor = "cursor_example";  // string | Continuation cursor from the previous page (optional) 
 
             try
             {
                 // Get related videos
-                Object result = apiInstance.TiktokGetRelatedVideos(videoId, region, count);
+                Object result = apiInstance.TiktokGetRelatedVideos(videoId, region, count, cursor);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1374,7 +1381,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get related videos
-    ApiResponse<Object> response = apiInstance.TiktokGetRelatedVideosWithHttpInfo(videoId, region, count);
+    ApiResponse<Object> response = apiInstance.TiktokGetRelatedVideosWithHttpInfo(videoId, region, count, cursor);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1394,6 +1401,7 @@ catch (ApiException e)
 | **videoId** | **string** |  |  |
 | **region** | **string** |  | [optional] [default to &quot;US&quot;] |
 | **count** | **int?** |  | [optional] [default to 16] |
+| **cursor** | **string** | Continuation cursor from the previous page | [optional]  |
 
 ### Return type
 
@@ -1419,7 +1427,7 @@ catch (ApiException e)
 
 <a id="tiktokgetreposts"></a>
 # **TiktokGetReposts**
-> Object TiktokGetReposts (string username, string region = null, int? count = null)
+> Object TiktokGetReposts (string username, string region = null, int? count = null, string cursor = null)
 
 Get reposts
 
@@ -1454,11 +1462,12 @@ namespace Example
             var username = "username_example";  // string | 
             var region = "\"US\"";  // string |  (optional)  (default to "US")
             var count = 30;  // int? |  (optional)  (default to 30)
+            var cursor = "cursor_example";  // string | Continuation cursor from the previous page (optional) 
 
             try
             {
                 // Get reposts
-                Object result = apiInstance.TiktokGetReposts(username, region, count);
+                Object result = apiInstance.TiktokGetReposts(username, region, count, cursor);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1479,7 +1488,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get reposts
-    ApiResponse<Object> response = apiInstance.TiktokGetRepostsWithHttpInfo(username, region, count);
+    ApiResponse<Object> response = apiInstance.TiktokGetRepostsWithHttpInfo(username, region, count, cursor);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1499,6 +1508,7 @@ catch (ApiException e)
 | **username** | **string** |  |  |
 | **region** | **string** |  | [optional] [default to &quot;US&quot;] |
 | **count** | **int?** |  | [optional] [default to 30] |
+| **cursor** | **string** | Continuation cursor from the previous page | [optional]  |
 
 ### Return type
 
@@ -1868,7 +1878,7 @@ namespace Example
             var username = "username_example";  // string | 
             var region = "\"US\"";  // string |  (optional)  (default to "US")
             var count = 30;  // int? |  (optional)  (default to 30)
-            var cursor = "cursor_example";  // string | Pagination cursor from a prior page's `pagination.cursor` (signer path only). (optional) 
+            var cursor = "cursor_example";  // string | Pagination cursor from a prior page's `pagination.cursor` (opaque; expires after 15 minutes). (optional) 
 
             try
             {
@@ -1914,7 +1924,7 @@ catch (ApiException e)
 | **username** | **string** |  |  |
 | **region** | **string** |  | [optional] [default to &quot;US&quot;] |
 | **count** | **int?** |  | [optional] [default to 30] |
-| **cursor** | **string** | Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (signer path only). | [optional]  |
+| **cursor** | **string** | Pagination cursor from a prior page&#39;s &#x60;pagination.cursor&#x60; (opaque; expires after 15 minutes). | [optional]  |
 
 ### Return type
 
@@ -2365,7 +2375,7 @@ namespace Example
             var query = "query_example";  // string | Search keyword
             var region = "\"US\"";  // string |  (optional)  (default to "US")
             var count = 20;  // int? |  (optional)  (default to 20)
-            var cursor = "cursor_example";  // string | Composite pagination cursor (offset.search_id) from a prior page's pagination.cursor (optional) 
+            var cursor = "cursor_example";  // string | Opaque continuation cursor from a prior page's pagination.cursor (optional) 
 
             try
             {
@@ -2411,7 +2421,7 @@ catch (ApiException e)
 | **query** | **string** | Search keyword |  |
 | **region** | **string** |  | [optional] [default to &quot;US&quot;] |
 | **count** | **int?** |  | [optional] [default to 20] |
-| **cursor** | **string** | Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor | [optional]  |
+| **cursor** | **string** | Opaque continuation cursor from a prior page&#39;s pagination.cursor | [optional]  |
 
 ### Return type
 
@@ -2799,7 +2809,7 @@ namespace Example
             var query = "query_example";  // string | Search keyword
             var region = "\"US\"";  // string |  (optional)  (default to "US")
             var count = 20;  // int? |  (optional)  (default to 20)
-            var cursor = "cursor_example";  // string | Composite pagination cursor (offset.search_id) from a prior page's pagination.cursor (optional) 
+            var cursor = "cursor_example";  // string | Opaque continuation cursor from a prior page's pagination.cursor (optional) 
 
             try
             {
@@ -2845,7 +2855,7 @@ catch (ApiException e)
 | **query** | **string** | Search keyword |  |
 | **region** | **string** |  | [optional] [default to &quot;US&quot;] |
 | **count** | **int?** |  | [optional] [default to 20] |
-| **cursor** | **string** | Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor | [optional]  |
+| **cursor** | **string** | Opaque continuation cursor from a prior page&#39;s pagination.cursor | [optional]  |
 
 ### Return type
 
@@ -2906,7 +2916,7 @@ namespace Example
             var query = "query_example";  // string | Search keyword
             var region = "\"US\"";  // string |  (optional)  (default to "US")
             var count = 20;  // int? |  (optional)  (default to 20)
-            var cursor = "cursor_example";  // string | Composite pagination cursor (offset.search_id) from a prior page's pagination.cursor (optional) 
+            var cursor = "cursor_example";  // string | Opaque continuation cursor from a prior page's pagination.cursor (optional) 
 
             try
             {
@@ -2952,7 +2962,7 @@ catch (ApiException e)
 | **query** | **string** | Search keyword |  |
 | **region** | **string** |  | [optional] [default to &quot;US&quot;] |
 | **count** | **int?** |  | [optional] [default to 20] |
-| **cursor** | **string** | Composite pagination cursor (offset.search_id) from a prior page&#39;s pagination.cursor | [optional]  |
+| **cursor** | **string** | Opaque continuation cursor from a prior page&#39;s pagination.cursor | [optional]  |
 
 ### Return type
 
@@ -3861,7 +3871,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new TikTokApi(httpClient, config, httpClientHandler);
             var region = "\"US\"";  // string |  (optional)  (default to "US")
-            var period = 7;  // int? |  (optional)  (default to 7)
+            var period = 56;  // int? | Historical windows are unavailable; omit period (optional) 
             var count = 20;  // int? |  (optional)  (default to 20)
 
             try
@@ -3906,7 +3916,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **region** | **string** |  | [optional] [default to &quot;US&quot;] |
-| **period** | **int?** |  | [optional] [default to 7] |
+| **period** | **int?** | Historical windows are unavailable; omit period | [optional]  |
 | **count** | **int?** |  | [optional] [default to 20] |
 
 ### Return type
@@ -3966,7 +3976,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new TikTokApi(httpClient, config, httpClientHandler);
             var region = "\"US\"";  // string |  (optional)  (default to "US")
-            var period = 7;  // int? |  (optional)  (default to 7)
+            var period = 56;  // int? | Historical windows are unavailable; omit period (optional) 
             var count = 20;  // int? |  (optional)  (default to 20)
 
             try
@@ -4011,7 +4021,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **region** | **string** |  | [optional] [default to &quot;US&quot;] |
-| **period** | **int?** |  | [optional] [default to 7] |
+| **period** | **int?** | Historical windows are unavailable; omit period | [optional]  |
 | **count** | **int?** |  | [optional] [default to 20] |
 
 ### Return type
