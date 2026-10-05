@@ -1356,7 +1356,7 @@ catch (ApiException e)
 
 Google Lens visual search
 
-Google Lens visual search.  Response carries ``lens_results`` (Scrapingdog parity alias) with ``title`` / ``source`` / ``source_favicon`` / ``thumbnail`` / ``original_thumbnail`` / ``rating`` / ``reviews`` / ``in_stock``, plus ``price`` (``{value, currency, extracted}``) and the raw ``tag`` chip it is parsed from, on shoppable matches. ``related_searches`` chips come alongside. Legacy ``results`` alias kept for backwards compat.  ``query`` refines the grid with text. ``exact_matches=true`` returns just the pages hosting the image, each flagged ``exact_match: true``, instead of the broad grid — available for most images (7 of 10 in sampling) and falling back to the grid otherwise. ``product`` is not supported, and ``visual_matches=false`` cannot be: visual matches are the only grid served. Anything that could not be applied — including an exact-match lookup that came back empty — is named in the ``warnings`` array rather than silently dropped (SCR-177, SCR-180).
+Google Lens visual search.  Response carries ``lens_results`` (Scrapingdog parity alias) with ``title`` / ``source`` / ``source_favicon`` / ``thumbnail`` / ``original_thumbnail`` / ``rating`` / ``reviews`` / ``in_stock``, plus ``price`` (``{value, currency, extracted}``) and the raw ``tag`` chip it is parsed from, on shoppable matches. ``related_searches`` chips come alongside. Legacy ``results`` alias kept for backwards compat.  ``query`` refines the grid with text. ``exact_matches=true`` returns just the pages hosting the image, each flagged ``exact_match: true``, instead of the broad grid — available for most images (8 of 10 in sampling) and falling back to the grid otherwise. ``product=true`` narrows the grid to the tiles Google marked buyable. ``visual_matches=false`` cannot be honoured: ``visual_matches=false`` cannot be: visual matches are the only grid served. Anything that could not be applied — including an exact-match lookup that came back empty — is named in the ``warnings`` array rather than silently dropped (SCR-177, SCR-180).
 
 ### Example
 ```csharp
@@ -1390,9 +1390,9 @@ namespace Example
             var language = "language_example";  // string | Language code (alias for hl) (optional) 
             var gl = "\"us\"";  // string | Country code (optional)  (default to "us")
             var hl = "\"en\"";  // string | Language code (optional)  (default to "en")
-            var product = false;  // bool? | NOT YET SUPPORTED — accepted, and reported back in `warnings` (optional)  (default to false)
+            var product = false;  // bool? | Only the tiles Google marked buyable (price + stock), drawn from the same grid (optional)  (default to false)
             var visualMatches = true;  // bool? | Always true in practice — `false` is reported back in `warnings` (optional)  (default to true)
-            var exactMatches = false;  // bool? | Return only the pages hosting this image, flagged exact_match. Available for most images (7/10 in sampling); falls back to the full grid otherwise, saying so in warnings (optional)  (default to false)
+            var exactMatches = false;  // bool? | Return only the pages hosting this image, flagged exact_match. Available for most images (8/10 in sampling); falls back to the full grid otherwise, saying so in warnings (optional)  (default to false)
 
             try
             {
@@ -1441,9 +1441,9 @@ catch (ApiException e)
 | **language** | **string** | Language code (alias for hl) | [optional]  |
 | **gl** | **string** | Country code | [optional] [default to &quot;us&quot;] |
 | **hl** | **string** | Language code | [optional] [default to &quot;en&quot;] |
-| **product** | **bool?** | NOT YET SUPPORTED — accepted, and reported back in &#x60;warnings&#x60; | [optional] [default to false] |
+| **product** | **bool?** | Only the tiles Google marked buyable (price + stock), drawn from the same grid | [optional] [default to false] |
 | **visualMatches** | **bool?** | Always true in practice — &#x60;false&#x60; is reported back in &#x60;warnings&#x60; | [optional] [default to true] |
-| **exactMatches** | **bool?** | Return only the pages hosting this image, flagged exact_match. Available for most images (7/10 in sampling); falls back to the full grid otherwise, saying so in warnings | [optional] [default to false] |
+| **exactMatches** | **bool?** | Return only the pages hosting this image, flagged exact_match. Available for most images (8/10 in sampling); falls back to the full grid otherwise, saying so in warnings | [optional] [default to false] |
 
 ### Return type
 
