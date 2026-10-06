@@ -30,6 +30,7 @@ tags:
 - name: Leboncoin
 - name: LinkedIn
 - name: LoopNet
+- name: Naver
 - name: Perplexity
 - name: Realtor
 - name: Reddit
@@ -12982,6 +12983,512 @@ paths:
       summary: Search commercial real estate
       tags:
       - LoopNet
+  /v1/naver/autocomplete:
+    get:
+      description: Naver search-box suggestions.
+      operationId: naver_search_suggestions
+      parameters:
+      - description: Partial search term
+        explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          description: Partial search term
+          title: Query
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Search suggestions
+      tags:
+      - Naver
+  /v1/naver/blog:
+    get:
+      description: "Naver blog vertical — post title, blog name and real post URLs."
+      operationId: naver_naver_blog_search
+      parameters:
+      - description: 검색어
+        explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          description: 검색어
+          title: Query
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Naver blog search
+      tags:
+      - Naver
+  /v1/naver/health:
+    get:
+      description: Check health of the Naver scraper service (accepts HEAD for UptimeRobot).
+      operationId: naver_naver_scraper_health_check
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Naver scraper health check
+      tags:
+      - Naver
+    head:
+      description: Check health of the Naver scraper service (accepts HEAD for UptimeRobot).
+      operationId: naver_naver_scraper_health_check_head
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Naver scraper health check
+      tags:
+      - Naver
+  /v1/naver/local:
+    get:
+      description: "Naver Place/Local search — name, category, rating, hours status."
+      operationId: naver_naver_place_local_search
+      parameters:
+      - description: "Place query, e.g. '성남 카페'"
+        explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          description: "Place query, e.g. '성남 카페'"
+          title: Query
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Naver Place/Local search
+      tags:
+      - Naver
+  /v1/naver/news:
+    get:
+      description: "Naver news vertical — publisher, age string and real article URLs."
+      operationId: naver_naver_news_search
+      parameters:
+      - description: 검색어
+        explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          description: 검색어
+          title: Query
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Naver news search
+      tags:
+      - Naver
+  /v1/naver/place/{place_id}:
+    get:
+      description: Naver Place detail by place id.
+      operationId: naver_naver_place_detail
+      parameters:
+      - explode: false
+        in: path
+        name: place_id
+        required: true
+        schema:
+          title: Place Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Naver place detail
+      tags:
+      - Naver
+  /v1/naver/place/{place_id}/reviews:
+    get:
+      description: "Visitor reviews for a Naver place — rating, body, reviewer, voted\
+        \ keywords, photos."
+      operationId: naver_naver_place_visitor_reviews
+      parameters:
+      - explode: false
+        in: path
+        name: place_id
+        required: true
+        schema:
+          title: Place Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Naver place visitor reviews
+      tags:
+      - Naver
+  /v1/naver/search:
+    get:
+      description: Naver integrated SERP — organic results plus the inline Place pack.
+      operationId: naver_naver_web_search
+      parameters:
+      - description: "검색어, e.g. '성남 카페'"
+        explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          description: "검색어, e.g. '성남 카페'"
+          title: Query
+          type: string
+        style: form
+      - description: Result page
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          description: Result page
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Naver web search
+      tags:
+      - Naver
+  /v1/naver/shopping/bestsellers:
+    get:
+      description: "Naver Shopping bestseller rankings — ranked products with price,\
+        \ review score, mall."
+      operationId: naver_naver_shopping_bestseller_rankings
+      parameters:
+      - description: "Naver shopping category id, or ALL"
+        explode: true
+        in: query
+        name: category_id
+        required: false
+        schema:
+          default: ALL
+          description: "Naver shopping category id, or ALL"
+          title: Category Id
+          type: string
+        style: form
+      - description: ALL | MEN_20 | WOMEN_20 | ...
+        explode: true
+        in: query
+        name: age_type
+        required: false
+        schema:
+          default: ALL
+          description: ALL | MEN_20 | WOMEN_20 | ...
+          title: Age Type
+          type: string
+        style: form
+      - description: PRODUCT_CLICK | PRODUCT_BUY
+        explode: true
+        in: query
+        name: sort_type
+        required: false
+        schema:
+          default: PRODUCT_CLICK
+          description: PRODUCT_CLICK | PRODUCT_BUY
+          title: Sort Type
+          type: string
+        style: form
+      - description: DAILY | WEEKLY
+        explode: true
+        in: query
+        name: period_type
+        required: false
+        schema:
+          default: DAILY
+          description: DAILY | WEEKLY
+          title: Period Type
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Naver Shopping bestseller rankings
+      tags:
+      - Naver
+  /v1/naver/shopping/categories:
+    get:
+      description: Naver Shopping top-level category ids (for bestsellers/keywords/insight).
+        Free.
+      operationId: naver_naver_shopping_category_reference
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Naver Shopping category reference
+      tags:
+      - Naver
+  /v1/naver/shopping/insight:
+    get:
+      description: DataLab Shopping Insight — top search keywords in a category over
+        a window.
+      operationId: naver_naver_datalab_shopping_keyword_insight
+      parameters:
+      - description: "DataLab category id (cid), e.g. 50000000"
+        explode: true
+        in: query
+        name: category_id
+        required: true
+        schema:
+          description: "DataLab category id (cid), e.g. 50000000"
+          title: Category Id
+          type: string
+        style: form
+      - description: YYYY-MM-DD
+        explode: true
+        in: query
+        name: start_date
+        required: true
+        schema:
+          description: YYYY-MM-DD
+          title: Start Date
+          type: string
+        style: form
+      - description: YYYY-MM-DD
+        explode: true
+        in: query
+        name: end_date
+        required: true
+        schema:
+          description: YYYY-MM-DD
+          title: End Date
+          type: string
+        style: form
+      - description: date | week | month
+        explode: true
+        in: query
+        name: time_unit
+        required: false
+        schema:
+          default: date
+          description: date | week | month
+          title: Time Unit
+          type: string
+        style: form
+      - description: Keywords to return
+        explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          default: 20
+          description: Keywords to return
+          maximum: 100
+          minimum: 1
+          title: Count
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Naver DataLab shopping keyword insight
+      tags:
+      - Naver
+  /v1/naver/shopping/keywords:
+    get:
+      description: Trending Naver Shopping keywords for a category (snxbest keyword
+        rankings).
+      operationId: naver_naver_shopping_trending_keyword_rankings
+      parameters:
+      - description: Naver shopping category id (see /shopping/categories)
+        explode: true
+        in: query
+        name: category_id
+        required: true
+        schema:
+          description: Naver shopping category id (see /shopping/categories)
+          title: Category Id
+          type: string
+        style: form
+      - description: ALL | MEN_20 | WOMEN_20 | ...
+        explode: true
+        in: query
+        name: age_type
+        required: false
+        schema:
+          default: ALL
+          description: ALL | MEN_20 | WOMEN_20 | ...
+          title: Age Type
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sort_type
+        required: false
+        schema:
+          default: KEYWORD_POPULAR
+          title: Sort Type
+          type: string
+        style: form
+      - description: DAILY | WEEKLY
+        explode: true
+        in: query
+        name: period_type
+        required: false
+        schema:
+          default: WEEKLY
+          description: DAILY | WEEKLY
+          title: Period Type
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Naver Shopping trending keyword rankings
+      tags:
+      - Naver
   /v1/perplexity/ask:
     get:
       description: Send a prompt to Perplexity and get the answer plus the web sources

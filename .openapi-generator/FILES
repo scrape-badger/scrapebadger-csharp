@@ -42,6 +42,7 @@ docs/LeboncoinApi.md
 docs/LinkedInApi.md
 docs/LoopNetApi.md
 docs/MarketsResponse.md
+docs/NaverApi.md
 docs/PerplexityApi.md
 docs/PortalApiRoutersV1TwitterFilterRulesFilterRulePricingResponse.md
 docs/RealtorApi.md
@@ -111,6 +112,7 @@ src/ScrapeBadger.Test/Api/InstagramApiTests.cs
 src/ScrapeBadger.Test/Api/LeboncoinApiTests.cs
 src/ScrapeBadger.Test/Api/LinkedInApiTests.cs
 src/ScrapeBadger.Test/Api/LoopNetApiTests.cs
+src/ScrapeBadger.Test/Api/NaverApiTests.cs
 src/ScrapeBadger.Test/Api/PerplexityApiTests.cs
 src/ScrapeBadger.Test/Api/RealtorApiTests.cs
 src/ScrapeBadger.Test/Api/RedditApiTests.cs
@@ -196,6 +198,7 @@ src/ScrapeBadger/Api/InstagramApi.cs
 src/ScrapeBadger/Api/LeboncoinApi.cs
 src/ScrapeBadger/Api/LinkedInApi.cs
 src/ScrapeBadger/Api/LoopNetApi.cs
+src/ScrapeBadger/Api/NaverApi.cs
 src/ScrapeBadger/Api/PerplexityApi.cs
 src/ScrapeBadger/Api/RealtorApi.cs
 src/ScrapeBadger/Api/RedditApi.cs
