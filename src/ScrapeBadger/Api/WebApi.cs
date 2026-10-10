@@ -50,42 +50,23 @@ namespace ScrapeBadger.Api
         /// Extract structured data
         /// </summary>
         /// <remarks>
-        /// Extract structured data from a URL using CSS or XPath selectors. (Phase 6)
+        /// Scrape a URL and extract fields with CSS/XPath selectors and/or AI.  &#x60;&#x60;extract_rules&#x60;&#x60; maps a field to a selector and returns &#x60;&#x60;data&#x60;&#x60;; &#x60;&#x60;ai_extract_rules&#x60;&#x60; (field -&gt; description) and &#x60;&#x60;ai_query&#x60;&#x60; return &#x60;&#x60;ai_extraction&#x60;&#x60;. Billed as a scrape, plus the AI extraction credits when AI is asked for and succeeds.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="extractRequest"></param>
         /// <returns>Object</returns>
-        Object WebExtractStructuredData();
+        Object WebExtractStructuredData(ExtractRequest extractRequest);
 
         /// <summary>
         /// Extract structured data
         /// </summary>
         /// <remarks>
-        /// Extract structured data from a URL using CSS or XPath selectors. (Phase 6)
+        /// Scrape a URL and extract fields with CSS/XPath selectors and/or AI.  &#x60;&#x60;extract_rules&#x60;&#x60; maps a field to a selector and returns &#x60;&#x60;data&#x60;&#x60;; &#x60;&#x60;ai_extract_rules&#x60;&#x60; (field -&gt; description) and &#x60;&#x60;ai_query&#x60;&#x60; return &#x60;&#x60;ai_extraction&#x60;&#x60;. Billed as a scrape, plus the AI extraction credits when AI is asked for and succeeds.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="extractRequest"></param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> WebExtractStructuredDataWithHttpInfo();
-        /// <summary>
-        /// Get batch job status
-        /// </summary>
-        /// <remarks>
-        /// Get the status of a batch scraping job. (Phase 6)
-        /// </remarks>
-        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="jobId"></param>
-        /// <returns>Object</returns>
-        Object WebGetBatchJobStatus(string jobId);
-
-        /// <summary>
-        /// Get batch job status
-        /// </summary>
-        /// <remarks>
-        /// Get the status of a batch scraping job. (Phase 6)
-        /// </remarks>
-        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="jobId"></param>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> WebGetBatchJobStatusWithHttpInfo(string jobId);
+        ApiResponse<Object> WebExtractStructuredDataWithHttpInfo(ExtractRequest extractRequest);
         /// <summary>
         /// Poll an auto-unblock discovery job
         /// </summary>
@@ -127,43 +108,26 @@ namespace ScrapeBadger.Api
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> WebScrapeAUrlWithHttpInfo();
         /// <summary>
-        /// Submit batch scraping job
-        /// </summary>
-        /// <remarks>
-        /// Submit a batch of URLs for scraping. (Phase 6)
-        /// </remarks>
-        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Object</returns>
-        Object WebSubmitBatchScrapingJob();
-
-        /// <summary>
-        /// Submit batch scraping job
-        /// </summary>
-        /// <remarks>
-        /// Submit a batch of URLs for scraping. (Phase 6)
-        /// </remarks>
-        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> WebSubmitBatchScrapingJobWithHttpInfo();
-        /// <summary>
         /// Take a screenshot
         /// </summary>
         /// <remarks>
-        /// Take a screenshot of a URL. (browser engine)
+        /// Render a URL in the browser engine and return a PNG screenshot.  &#x60;&#x60;screenshot&#x60;&#x60; is the PNG, base64-encoded. &#x60;&#x60;width&#x60;&#x60;/&#x60;&#x60;height&#x60;&#x60; set the viewport; &#x60;&#x60;full_page&#x60;&#x60; captures the whole scrollable page. Billed as a browser scrape (plus the proxy tier); a page that loads without a screenshot is a 502 and costs nothing.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="screenshotRequest"></param>
         /// <returns>Object</returns>
-        Object WebTakeAScreenshot();
+        Object WebTakeAScreenshot(ScreenshotRequest screenshotRequest);
 
         /// <summary>
         /// Take a screenshot
         /// </summary>
         /// <remarks>
-        /// Take a screenshot of a URL. (browser engine)
+        /// Render a URL in the browser engine and return a PNG screenshot.  &#x60;&#x60;screenshot&#x60;&#x60; is the PNG, base64-encoded. &#x60;&#x60;width&#x60;&#x60;/&#x60;&#x60;height&#x60;&#x60; set the viewport; &#x60;&#x60;full_page&#x60;&#x60; captures the whole scrollable page. Billed as a browser scrape (plus the proxy tier); a page that loads without a screenshot is a 502 and costs nothing.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="screenshotRequest"></param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> WebTakeAScreenshotWithHttpInfo();
+        ApiResponse<Object> WebTakeAScreenshotWithHttpInfo(ScreenshotRequest screenshotRequest);
         /// <summary>
         /// Web scraper health check
         /// </summary>
@@ -236,46 +200,25 @@ namespace ScrapeBadger.Api
         /// Extract structured data
         /// </summary>
         /// <remarks>
-        /// Extract structured data from a URL using CSS or XPath selectors. (Phase 6)
+        /// Scrape a URL and extract fields with CSS/XPath selectors and/or AI.  &#x60;&#x60;extract_rules&#x60;&#x60; maps a field to a selector and returns &#x60;&#x60;data&#x60;&#x60;; &#x60;&#x60;ai_extract_rules&#x60;&#x60; (field -&gt; description) and &#x60;&#x60;ai_query&#x60;&#x60; return &#x60;&#x60;ai_extraction&#x60;&#x60;. Billed as a scrape, plus the AI extraction credits when AI is asked for and succeeds.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="extractRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> WebExtractStructuredDataAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> WebExtractStructuredDataAsync(ExtractRequest extractRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Extract structured data
         /// </summary>
         /// <remarks>
-        /// Extract structured data from a URL using CSS or XPath selectors. (Phase 6)
+        /// Scrape a URL and extract fields with CSS/XPath selectors and/or AI.  &#x60;&#x60;extract_rules&#x60;&#x60; maps a field to a selector and returns &#x60;&#x60;data&#x60;&#x60;; &#x60;&#x60;ai_extract_rules&#x60;&#x60; (field -&gt; description) and &#x60;&#x60;ai_query&#x60;&#x60; return &#x60;&#x60;ai_extraction&#x60;&#x60;. Billed as a scrape, plus the AI extraction credits when AI is asked for and succeeds.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="extractRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> WebExtractStructuredDataWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
-        /// Get batch job status
-        /// </summary>
-        /// <remarks>
-        /// Get the status of a batch scraping job. (Phase 6)
-        /// </remarks>
-        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="jobId"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> WebGetBatchJobStatusAsync(string jobId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Get batch job status
-        /// </summary>
-        /// <remarks>
-        /// Get the status of a batch scraping job. (Phase 6)
-        /// </remarks>
-        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="jobId"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> WebGetBatchJobStatusWithHttpInfoAsync(string jobId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> WebExtractStructuredDataWithHttpInfoAsync(ExtractRequest extractRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Poll an auto-unblock discovery job
         /// </summary>
@@ -321,47 +264,28 @@ namespace ScrapeBadger.Api
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> WebScrapeAUrlWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
-        /// Submit batch scraping job
-        /// </summary>
-        /// <remarks>
-        /// Submit a batch of URLs for scraping. (Phase 6)
-        /// </remarks>
-        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> WebSubmitBatchScrapingJobAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-
-        /// <summary>
-        /// Submit batch scraping job
-        /// </summary>
-        /// <remarks>
-        /// Submit a batch of URLs for scraping. (Phase 6)
-        /// </remarks>
-        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> WebSubmitBatchScrapingJobWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
-        /// <summary>
         /// Take a screenshot
         /// </summary>
         /// <remarks>
-        /// Take a screenshot of a URL. (browser engine)
+        /// Render a URL in the browser engine and return a PNG screenshot.  &#x60;&#x60;screenshot&#x60;&#x60; is the PNG, base64-encoded. &#x60;&#x60;width&#x60;&#x60;/&#x60;&#x60;height&#x60;&#x60; set the viewport; &#x60;&#x60;full_page&#x60;&#x60; captures the whole scrollable page. Billed as a browser scrape (plus the proxy tier); a page that loads without a screenshot is a 502 and costs nothing.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="screenshotRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> WebTakeAScreenshotAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> WebTakeAScreenshotAsync(ScreenshotRequest screenshotRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Take a screenshot
         /// </summary>
         /// <remarks>
-        /// Take a screenshot of a URL. (browser engine)
+        /// Render a URL in the browser engine and return a PNG screenshot.  &#x60;&#x60;screenshot&#x60;&#x60; is the PNG, base64-encoded. &#x60;&#x60;width&#x60;&#x60;/&#x60;&#x60;height&#x60;&#x60; set the viewport; &#x60;&#x60;full_page&#x60;&#x60; captures the whole scrollable page. Billed as a browser scrape (plus the proxy tier); a page that loads without a screenshot is a 502 and costs nothing.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="screenshotRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> WebTakeAScreenshotWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> WebTakeAScreenshotWithHttpInfoAsync(ScreenshotRequest screenshotRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Web scraper health check
         /// </summary>
@@ -729,26 +653,33 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Extract structured data Extract structured data from a URL using CSS or XPath selectors. (Phase 6)
+        /// Extract structured data Scrape a URL and extract fields with CSS/XPath selectors and/or AI.  &#x60;&#x60;extract_rules&#x60;&#x60; maps a field to a selector and returns &#x60;&#x60;data&#x60;&#x60;; &#x60;&#x60;ai_extract_rules&#x60;&#x60; (field -&gt; description) and &#x60;&#x60;ai_query&#x60;&#x60; return &#x60;&#x60;ai_extraction&#x60;&#x60;. Billed as a scrape, plus the AI extraction credits when AI is asked for and succeeds.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="extractRequest"></param>
         /// <returns>Object</returns>
-        public Object WebExtractStructuredData()
+        public Object WebExtractStructuredData(ExtractRequest extractRequest)
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = WebExtractStructuredDataWithHttpInfo();
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = WebExtractStructuredDataWithHttpInfo(extractRequest);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Extract structured data Extract structured data from a URL using CSS or XPath selectors. (Phase 6)
+        /// Extract structured data Scrape a URL and extract fields with CSS/XPath selectors and/or AI.  &#x60;&#x60;extract_rules&#x60;&#x60; maps a field to a selector and returns &#x60;&#x60;data&#x60;&#x60;; &#x60;&#x60;ai_extract_rules&#x60;&#x60; (field -&gt; description) and &#x60;&#x60;ai_query&#x60;&#x60; return &#x60;&#x60;ai_extraction&#x60;&#x60;. Billed as a scrape, plus the AI extraction credits when AI is asked for and succeeds.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="extractRequest"></param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> WebExtractStructuredDataWithHttpInfo()
+        public ScrapeBadger.Client.ApiResponse<Object> WebExtractStructuredDataWithHttpInfo(ExtractRequest extractRequest)
         {
+            // verify the required parameter 'extractRequest' is set
+            if (extractRequest == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'extractRequest' when calling WebApi->WebExtractStructuredData");
+
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -762,6 +693,7 @@ namespace ScrapeBadger.Api
             var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            localVarRequestOptions.Data = extractRequest;
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
@@ -782,29 +714,36 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Extract structured data Extract structured data from a URL using CSS or XPath selectors. (Phase 6)
+        /// Extract structured data Scrape a URL and extract fields with CSS/XPath selectors and/or AI.  &#x60;&#x60;extract_rules&#x60;&#x60; maps a field to a selector and returns &#x60;&#x60;data&#x60;&#x60;; &#x60;&#x60;ai_extract_rules&#x60;&#x60; (field -&gt; description) and &#x60;&#x60;ai_query&#x60;&#x60; return &#x60;&#x60;ai_extraction&#x60;&#x60;. Billed as a scrape, plus the AI extraction credits when AI is asked for and succeeds.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="extractRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> WebExtractStructuredDataAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> WebExtractStructuredDataAsync(ExtractRequest extractRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await WebExtractStructuredDataWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await WebExtractStructuredDataWithHttpInfoAsync(extractRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Extract structured data Extract structured data from a URL using CSS or XPath selectors. (Phase 6)
+        /// Extract structured data Scrape a URL and extract fields with CSS/XPath selectors and/or AI.  &#x60;&#x60;extract_rules&#x60;&#x60; maps a field to a selector and returns &#x60;&#x60;data&#x60;&#x60;; &#x60;&#x60;ai_extract_rules&#x60;&#x60; (field -&gt; description) and &#x60;&#x60;ai_query&#x60;&#x60; return &#x60;&#x60;ai_extraction&#x60;&#x60;. Billed as a scrape, plus the AI extraction credits when AI is asked for and succeeds.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="extractRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> WebExtractStructuredDataWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> WebExtractStructuredDataWithHttpInfoAsync(ExtractRequest extractRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'extractRequest' is set
+            if (extractRequest == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'extractRequest' when calling WebApi->WebExtractStructuredData");
+
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -819,6 +758,7 @@ namespace ScrapeBadger.Api
             var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            localVarRequestOptions.Data = extractRequest;
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
@@ -833,131 +773,6 @@ namespace ScrapeBadger.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("WebExtractStructuredData", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get batch job status Get the status of a batch scraping job. (Phase 6)
-        /// </summary>
-        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="jobId"></param>
-        /// <returns>Object</returns>
-        public Object WebGetBatchJobStatus(string jobId)
-        {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = WebGetBatchJobStatusWithHttpInfo(jobId);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get batch job status Get the status of a batch scraping job. (Phase 6)
-        /// </summary>
-        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="jobId"></param>
-        /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> WebGetBatchJobStatusWithHttpInfo(string jobId)
-        {
-            // verify the required parameter 'jobId' is set
-            if (jobId == null)
-                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'jobId' when calling WebApi->WebGetBatchJobStatus");
-
-            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("job_id", ScrapeBadger.Client.ClientUtils.ParameterToString(jobId)); // path parameter
-
-            // authentication (ApiKeyAuth) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Get<Object>("/v1/web/batch/{job_id}", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("WebGetBatchJobStatus", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Get batch job status Get the status of a batch scraping job. (Phase 6)
-        /// </summary>
-        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="jobId"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> WebGetBatchJobStatusAsync(string jobId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await WebGetBatchJobStatusWithHttpInfoAsync(jobId, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get batch job status Get the status of a batch scraping job. (Phase 6)
-        /// </summary>
-        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="jobId"></param>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> WebGetBatchJobStatusWithHttpInfoAsync(string jobId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            // verify the required parameter 'jobId' is set
-            if (jobId == null)
-                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'jobId' when calling WebApi->WebGetBatchJobStatus");
-
-
-            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-            localVarRequestOptions.PathParameters.Add("job_id", ScrapeBadger.Client.ClientUtils.ParameterToString(jobId)); // path parameter
-
-            // authentication (ApiKeyAuth) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
-            }
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/web/batch/{job_id}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("WebGetBatchJobStatus", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -1201,26 +1016,33 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Submit batch scraping job Submit a batch of URLs for scraping. (Phase 6)
+        /// Take a screenshot Render a URL in the browser engine and return a PNG screenshot.  &#x60;&#x60;screenshot&#x60;&#x60; is the PNG, base64-encoded. &#x60;&#x60;width&#x60;&#x60;/&#x60;&#x60;height&#x60;&#x60; set the viewport; &#x60;&#x60;full_page&#x60;&#x60; captures the whole scrollable page. Billed as a browser scrape (plus the proxy tier); a page that loads without a screenshot is a 502 and costs nothing.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="screenshotRequest"></param>
         /// <returns>Object</returns>
-        public Object WebSubmitBatchScrapingJob()
+        public Object WebTakeAScreenshot(ScreenshotRequest screenshotRequest)
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = WebSubmitBatchScrapingJobWithHttpInfo();
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = WebTakeAScreenshotWithHttpInfo(screenshotRequest);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Submit batch scraping job Submit a batch of URLs for scraping. (Phase 6)
+        /// Take a screenshot Render a URL in the browser engine and return a PNG screenshot.  &#x60;&#x60;screenshot&#x60;&#x60; is the PNG, base64-encoded. &#x60;&#x60;width&#x60;&#x60;/&#x60;&#x60;height&#x60;&#x60; set the viewport; &#x60;&#x60;full_page&#x60;&#x60; captures the whole scrollable page. Billed as a browser scrape (plus the proxy tier); a page that loads without a screenshot is a 502 and costs nothing.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="screenshotRequest"></param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> WebSubmitBatchScrapingJobWithHttpInfo()
+        public ScrapeBadger.Client.ApiResponse<Object> WebTakeAScreenshotWithHttpInfo(ScreenshotRequest screenshotRequest)
         {
+            // verify the required parameter 'screenshotRequest' is set
+            if (screenshotRequest == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'screenshotRequest' when calling WebApi->WebTakeAScreenshot");
+
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -1234,117 +1056,7 @@ namespace ScrapeBadger.Api
             var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-
-            // authentication (ApiKeyAuth) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
-            }
-
-            // make the HTTP request
-            var localVarResponse = this.Client.Post<Object>("/v1/web/batch", localVarRequestOptions, this.Configuration);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("WebSubmitBatchScrapingJob", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Submit batch scraping job Submit a batch of URLs for scraping. (Phase 6)
-        /// </summary>
-        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> WebSubmitBatchScrapingJobAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await WebSubmitBatchScrapingJobWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Submit batch scraping job Submit a batch of URLs for scraping. (Phase 6)
-        /// </summary>
-        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> WebSubmitBatchScrapingJobWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-        {
-
-            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-
-            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
-
-            // authentication (ApiKeyAuth) required
-            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
-            {
-                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
-            }
-
-            // make the HTTP request
-
-            var localVarResponse = await this.AsynchronousClient.PostAsync<Object>("/v1/web/batch", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-
-            if (this.ExceptionFactory != null)
-            {
-                Exception _exception = this.ExceptionFactory("WebSubmitBatchScrapingJob", localVarResponse);
-                if (_exception != null) throw _exception;
-            }
-
-            return localVarResponse;
-        }
-
-        /// <summary>
-        /// Take a screenshot Take a screenshot of a URL. (browser engine)
-        /// </summary>
-        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Object</returns>
-        public Object WebTakeAScreenshot()
-        {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = WebTakeAScreenshotWithHttpInfo();
-            return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Take a screenshot Take a screenshot of a URL. (browser engine)
-        /// </summary>
-        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> WebTakeAScreenshotWithHttpInfo()
-        {
-            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
-
-            string[] _contentTypes = new string[] {
-            };
-
-            // to determine the Accept header
-            string[] _accepts = new string[] {
-                "application/json"
-            };
-
-            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
-            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
-
-            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
-            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
-
+            localVarRequestOptions.Data = screenshotRequest;
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
@@ -1365,29 +1077,36 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Take a screenshot Take a screenshot of a URL. (browser engine)
+        /// Take a screenshot Render a URL in the browser engine and return a PNG screenshot.  &#x60;&#x60;screenshot&#x60;&#x60; is the PNG, base64-encoded. &#x60;&#x60;width&#x60;&#x60;/&#x60;&#x60;height&#x60;&#x60; set the viewport; &#x60;&#x60;full_page&#x60;&#x60; captures the whole scrollable page. Billed as a browser scrape (plus the proxy tier); a page that loads without a screenshot is a 502 and costs nothing.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="screenshotRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> WebTakeAScreenshotAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> WebTakeAScreenshotAsync(ScreenshotRequest screenshotRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await WebTakeAScreenshotWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await WebTakeAScreenshotWithHttpInfoAsync(screenshotRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Take a screenshot Take a screenshot of a URL. (browser engine)
+        /// Take a screenshot Render a URL in the browser engine and return a PNG screenshot.  &#x60;&#x60;screenshot&#x60;&#x60; is the PNG, base64-encoded. &#x60;&#x60;width&#x60;&#x60;/&#x60;&#x60;height&#x60;&#x60; set the viewport; &#x60;&#x60;full_page&#x60;&#x60; captures the whole scrollable page. Billed as a browser scrape (plus the proxy tier); a page that loads without a screenshot is a 502 and costs nothing.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="screenshotRequest"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> WebTakeAScreenshotWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> WebTakeAScreenshotWithHttpInfoAsync(ScreenshotRequest screenshotRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
+            // verify the required parameter 'screenshotRequest' is set
+            if (screenshotRequest == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'screenshotRequest' when calling WebApi->WebTakeAScreenshot");
+
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -1402,6 +1121,7 @@ namespace ScrapeBadger.Api
             var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            localVarRequestOptions.Data = screenshotRequest;
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))

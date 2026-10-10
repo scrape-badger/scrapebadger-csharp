@@ -20541,51 +20541,6 @@ paths:
       summary: Get store + nearby stores
       tags:
       - Walmart
-  /v1/web/batch:
-    post:
-      description: Submit a batch of URLs for scraping. (Phase 6)
-      operationId: web_submit_batch_scraping_job
-      responses:
-        "200":
-          content:
-            application/json:
-              schema: {}
-          description: Successful Response
-      security:
-      - ApiKeyAuth: []
-      summary: Submit batch scraping job
-      tags:
-      - Web
-  /v1/web/batch/{job_id}:
-    get:
-      description: Get the status of a batch scraping job. (Phase 6)
-      operationId: web_get_batch_job_status
-      parameters:
-      - explode: false
-        in: path
-        name: job_id
-        required: true
-        schema:
-          title: Job Id
-          type: string
-        style: simple
-      responses:
-        "200":
-          content:
-            application/json:
-              schema: {}
-          description: Successful Response
-        "422":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-          description: Validation Error
-      security:
-      - ApiKeyAuth: []
-      summary: Get batch job status
-      tags:
-      - Web
   /v1/web/detect:
     post:
       description: |-
@@ -20608,15 +20563,32 @@ paths:
       - Web
   /v1/web/extract:
     post:
-      description: Extract structured data from a URL using CSS or XPath selectors.
-        (Phase 6)
+      description: |-
+        Scrape a URL and extract fields with CSS/XPath selectors and/or AI.
+
+        ``extract_rules`` maps a field to a selector and returns ``data``;
+        ``ai_extract_rules`` (field -> description) and ``ai_query`` return
+        ``ai_extraction``. Billed as a scrape, plus the AI extraction credits when
+        AI is asked for and succeeds.
       operationId: web_extract_structured_data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExtractRequest'
+        required: true
       responses:
         "200":
           content:
             application/json:
               schema: {}
           description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
       security:
       - ApiKeyAuth: []
       summary: Extract structured data
@@ -20697,14 +20669,32 @@ paths:
       - Web
   /v1/web/screenshot:
     post:
-      description: Take a screenshot of a URL. (browser engine)
+      description: |-
+        Render a URL in the browser engine and return a PNG screenshot.
+
+        ``screenshot`` is the PNG, base64-encoded. ``width``/``height`` set the
+        viewport; ``full_page`` captures the whole scrollable page. Billed as a
+        browser scrape (plus the proxy tier); a page that loads without a
+        screenshot is a 502 and costs nothing.
       operationId: web_take_a_screenshot
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ScreenshotRequest'
+        required: true
       responses:
         "200":
           content:
             application/json:
               schema: {}
           description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
       security:
       - ApiKeyAuth: []
       summary: Take a screenshot
@@ -23206,6 +23196,87 @@ components:
       required:
       - colors
       title: ColorsResponse
+    ExtractRequest:
+      additionalProperties: true
+      example:
+        country: country
+        extract_rules:
+          key: ExtractRequest_extract_rules_value
+        render_js: false
+        proxy_tier: simple
+        ai_query: ai_query
+        wait_for: wait_for
+        url: url
+        ai_extract_rules:
+          key: ai_extract_rules
+      properties:
+        url:
+          description: The page to fetch.
+          title: Url
+          type: string
+        wait_for:
+          nullable: true
+          type: string
+        country:
+          nullable: true
+          type: string
+        proxy_tier:
+          default: simple
+          description: "Proxy pool: simple, premium or ultra."
+          enum:
+          - simple
+          - premium
+          - ultra
+          title: Proxy Tier
+          type: string
+        extract_rules:
+          additionalProperties:
+            $ref: '#/components/schemas/ExtractRequest_extract_rules_value'
+          nullable: true
+        ai_extract_rules:
+          additionalProperties:
+            type: string
+          nullable: true
+        ai_query:
+          nullable: true
+          type: string
+        render_js:
+          default: false
+          description: Render the page in a browser first.
+          title: Render Js
+          type: boolean
+      required:
+      - url
+      title: ExtractRequest
+    ExtractRule:
+      additionalProperties: true
+      properties:
+        selector:
+          description: CSS or XPath selector.
+          title: Selector
+          type: string
+        type:
+          enum:
+          - css
+          - xpath
+          nullable: true
+          type: string
+        all:
+          default: false
+          description: "Return every match as a list, not just the first."
+          title: All
+          type: boolean
+        output:
+          default: text
+          description: "An element's text content, or its outer HTML."
+          enum:
+          - text
+          - html
+          title: Output
+          type: string
+      required:
+      - selector
+      title: ExtractRule
     FilterRuleCreate:
       description: Create filter rule request.
       example:
@@ -23713,6 +23784,54 @@ components:
       required:
       - markets
       title: MarketsResponse
+    ScreenshotRequest:
+      additionalProperties: true
+      example:
+        country: country
+        full_page: false
+        proxy_tier: simple
+        width: 601
+        wait_for: wait_for
+        url: url
+        height: 2699
+      properties:
+        url:
+          description: The page to fetch.
+          title: Url
+          type: string
+        wait_for:
+          nullable: true
+          type: string
+        country:
+          nullable: true
+          type: string
+        proxy_tier:
+          default: simple
+          description: "Proxy pool: simple, premium or ultra."
+          enum:
+          - simple
+          - premium
+          - ultra
+          title: Proxy Tier
+          type: string
+        full_page:
+          default: false
+          description: Capture the whole scrollable page instead of the viewport.
+          title: Full Page
+          type: boolean
+        width:
+          maximum: 3840.0
+          minimum: 320.0
+          nullable: true
+          type: integer
+        height:
+          maximum: 4320.0
+          minimum: 240.0
+          nullable: true
+          type: integer
+      required:
+      - url
+      title: ScreenshotRequest
     SearchResponse:
       description: Envelope returned by search and search_by_image.
       example:
@@ -25452,6 +25571,10 @@ components:
       - credits_per_empty_call
       - credits_per_tweet_returned
       title: FilterRulePricingResponse
+    ExtractRequest_extract_rules_value:
+      anyOf:
+      - type: string
+      - $ref: '#/components/schemas/ExtractRule'
     ValidationError_loc_inner:
       anyOf:
       - type: string

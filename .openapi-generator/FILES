@@ -21,6 +21,9 @@ docs/ColorsResponse.md
 docs/DepopApi.md
 docs/DuckDuckGoApi.md
 docs/EBayApi.md
+docs/ExtractRequest.md
+docs/ExtractRequestExtractRulesValue.md
+docs/ExtractRule.md
 docs/FacebookApi.md
 docs/FilterRuleCreate.md
 docs/FilterRuleDeliveryLogListResponse.md
@@ -48,6 +51,7 @@ docs/PortalApiRoutersV1TwitterFilterRulesFilterRulePricingResponse.md
 docs/RealtorApi.md
 docs/RedditApi.md
 docs/RedfinApi.md
+docs/ScreenshotRequest.md
 docs/SearchResponse.md
 docs/StatusesResponse.md
 docs/StreamMonitorCreate.md
@@ -131,6 +135,9 @@ src/ScrapeBadger.Test/Model/BillingLogListResponseTests.cs
 src/ScrapeBadger.Test/Model/BillingLogResponseTests.cs
 src/ScrapeBadger.Test/Model/BrandsResponseTests.cs
 src/ScrapeBadger.Test/Model/ColorsResponseTests.cs
+src/ScrapeBadger.Test/Model/ExtractRequestExtractRulesValueTests.cs
+src/ScrapeBadger.Test/Model/ExtractRequestTests.cs
+src/ScrapeBadger.Test/Model/ExtractRuleTests.cs
 src/ScrapeBadger.Test/Model/FilterRuleCreateTests.cs
 src/ScrapeBadger.Test/Model/FilterRuleDeliveryLogListResponseTests.cs
 src/ScrapeBadger.Test/Model/FilterRuleDeliveryLogResponseTests.cs
@@ -143,6 +150,7 @@ src/ScrapeBadger.Test/Model/HTTPValidationErrorTests.cs
 src/ScrapeBadger.Test/Model/ItemDetailResponseTests.cs
 src/ScrapeBadger.Test/Model/MarketsResponseTests.cs
 src/ScrapeBadger.Test/Model/PortalApiRoutersV1TwitterFilterRulesFilterRulePricingResponseTests.cs
+src/ScrapeBadger.Test/Model/ScreenshotRequestTests.cs
 src/ScrapeBadger.Test/Model/SearchResponseTests.cs
 src/ScrapeBadger.Test/Model/StatusesResponseTests.cs
 src/ScrapeBadger.Test/Model/StreamMonitorCreateTests.cs
@@ -235,6 +243,9 @@ src/ScrapeBadger/Model/BillingLogListResponse.cs
 src/ScrapeBadger/Model/BillingLogResponse.cs
 src/ScrapeBadger/Model/BrandsResponse.cs
 src/ScrapeBadger/Model/ColorsResponse.cs
+src/ScrapeBadger/Model/ExtractRequest.cs
+src/ScrapeBadger/Model/ExtractRequestExtractRulesValue.cs
+src/ScrapeBadger/Model/ExtractRule.cs
 src/ScrapeBadger/Model/FilterRuleCreate.cs
 src/ScrapeBadger/Model/FilterRuleDeliveryLogListResponse.cs
 src/ScrapeBadger/Model/FilterRuleDeliveryLogResponse.cs
@@ -247,6 +258,7 @@ src/ScrapeBadger/Model/HTTPValidationError.cs
 src/ScrapeBadger/Model/ItemDetailResponse.cs
 src/ScrapeBadger/Model/MarketsResponse.cs
 src/ScrapeBadger/Model/PortalApiRoutersV1TwitterFilterRulesFilterRulePricingResponse.cs
+src/ScrapeBadger/Model/ScreenshotRequest.cs
 src/ScrapeBadger/Model/SearchResponse.cs
 src/ScrapeBadger/Model/StatusesResponse.cs
 src/ScrapeBadger/Model/StreamMonitorCreate.cs

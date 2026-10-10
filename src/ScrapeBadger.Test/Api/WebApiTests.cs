@@ -71,19 +71,8 @@ namespace ScrapeBadger.Test.Api
         public void WebExtractStructuredDataTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.WebExtractStructuredData();
-            //Assert.IsType<Object>(response);
-        }
-
-        /// <summary>
-        /// Test WebGetBatchJobStatus
-        /// </summary>
-        [Fact]
-        public void WebGetBatchJobStatusTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //string jobId = null;
-            //var response = instance.WebGetBatchJobStatus(jobId);
+            //ExtractRequest extractRequest = null;
+            //var response = instance.WebExtractStructuredData(extractRequest);
             //Assert.IsType<Object>(response);
         }
 
@@ -111,24 +100,14 @@ namespace ScrapeBadger.Test.Api
         }
 
         /// <summary>
-        /// Test WebSubmitBatchScrapingJob
-        /// </summary>
-        [Fact]
-        public void WebSubmitBatchScrapingJobTest()
-        {
-            // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.WebSubmitBatchScrapingJob();
-            //Assert.IsType<Object>(response);
-        }
-
-        /// <summary>
         /// Test WebTakeAScreenshot
         /// </summary>
         [Fact]
         public void WebTakeAScreenshotTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.WebTakeAScreenshot();
+            //ScreenshotRequest screenshotRequest = null;
+            //var response = instance.WebTakeAScreenshot(screenshotRequest);
             //Assert.IsType<Object>(response);
         }
 
