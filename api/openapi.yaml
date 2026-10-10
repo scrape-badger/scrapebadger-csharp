@@ -2432,27 +2432,31 @@ paths:
           title: Market
           type: string
         style: form
-      - description: Results per page (1-50)
+      - description: "Organic results to return (1-50), merged from Bing's following\
+          \ pages when one page is short. May return fewer."
         explode: true
         in: query
         name: count
         required: false
         schema:
           default: 10
-          description: Results per page (1-50)
+          description: "Organic results to return (1-50), merged from Bing's following\
+            \ pages when one page is short. May return fewer."
           maximum: 50
           minimum: 1
           title: Count
           type: integer
         style: form
-      - description: Zero-based result offset for pagination
+      - description: Organic results to skip in Bing's ranking. Paginate with offset
+          += count.
         explode: true
         in: query
         name: offset
         required: false
         schema:
           default: 0
-          description: Zero-based result offset for pagination
+          description: Organic results to skip in Bing's ranking. Paginate with offset
+            += count.
           minimum: 0
           title: Offset
           type: integer

@@ -195,8 +195,8 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;coffee machine&#39;</param>
         /// <param name="market">Bing market code, e.g. &#39;en-US&#39;, &#39;en-GB&#39;, &#39;de-DE&#39;. See /markets. (optional, default to &quot;en-US&quot;)</param>
-        /// <param name="count">Results per page (1-50) (optional, default to 10)</param>
-        /// <param name="offset">Zero-based result offset for pagination (optional, default to 0)</param>
+        /// <param name="count">Organic results to return (1-50), merged from Bing&#39;s following pages when one page is short. May return fewer. (optional, default to 10)</param>
+        /// <param name="offset">Organic results to skip in Bing&#39;s ranking. Paginate with offset +&#x3D; count. (optional, default to 0)</param>
         /// <param name="safeSearch">off | moderate | strict (default moderate) (optional)</param>
         /// <returns>Object</returns>
         Object BingWebSearch(string query, string market = default(string), int? count = default(int?), int? offset = default(int?), string safeSearch = default(string));
@@ -210,8 +210,8 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;coffee machine&#39;</param>
         /// <param name="market">Bing market code, e.g. &#39;en-US&#39;, &#39;en-GB&#39;, &#39;de-DE&#39;. See /markets. (optional, default to &quot;en-US&quot;)</param>
-        /// <param name="count">Results per page (1-50) (optional, default to 10)</param>
-        /// <param name="offset">Zero-based result offset for pagination (optional, default to 0)</param>
+        /// <param name="count">Organic results to return (1-50), merged from Bing&#39;s following pages when one page is short. May return fewer. (optional, default to 10)</param>
+        /// <param name="offset">Organic results to skip in Bing&#39;s ranking. Paginate with offset +&#x3D; count. (optional, default to 0)</param>
         /// <param name="safeSearch">off | moderate | strict (default moderate) (optional)</param>
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> BingWebSearchWithHttpInfo(string query, string market = default(string), int? count = default(int?), int? offset = default(int?), string safeSearch = default(string));
@@ -406,8 +406,8 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;coffee machine&#39;</param>
         /// <param name="market">Bing market code, e.g. &#39;en-US&#39;, &#39;en-GB&#39;, &#39;de-DE&#39;. See /markets. (optional, default to &quot;en-US&quot;)</param>
-        /// <param name="count">Results per page (1-50) (optional, default to 10)</param>
-        /// <param name="offset">Zero-based result offset for pagination (optional, default to 0)</param>
+        /// <param name="count">Organic results to return (1-50), merged from Bing&#39;s following pages when one page is short. May return fewer. (optional, default to 10)</param>
+        /// <param name="offset">Organic results to skip in Bing&#39;s ranking. Paginate with offset +&#x3D; count. (optional, default to 0)</param>
         /// <param name="safeSearch">off | moderate | strict (default moderate) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
@@ -422,8 +422,8 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;coffee machine&#39;</param>
         /// <param name="market">Bing market code, e.g. &#39;en-US&#39;, &#39;en-GB&#39;, &#39;de-DE&#39;. See /markets. (optional, default to &quot;en-US&quot;)</param>
-        /// <param name="count">Results per page (1-50) (optional, default to 10)</param>
-        /// <param name="offset">Zero-based result offset for pagination (optional, default to 0)</param>
+        /// <param name="count">Organic results to return (1-50), merged from Bing&#39;s following pages when one page is short. May return fewer. (optional, default to 10)</param>
+        /// <param name="offset">Organic results to skip in Bing&#39;s ranking. Paginate with offset +&#x3D; count. (optional, default to 0)</param>
         /// <param name="safeSearch">off | moderate | strict (default moderate) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
@@ -1588,8 +1588,8 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;coffee machine&#39;</param>
         /// <param name="market">Bing market code, e.g. &#39;en-US&#39;, &#39;en-GB&#39;, &#39;de-DE&#39;. See /markets. (optional, default to &quot;en-US&quot;)</param>
-        /// <param name="count">Results per page (1-50) (optional, default to 10)</param>
-        /// <param name="offset">Zero-based result offset for pagination (optional, default to 0)</param>
+        /// <param name="count">Organic results to return (1-50), merged from Bing&#39;s following pages when one page is short. May return fewer. (optional, default to 10)</param>
+        /// <param name="offset">Organic results to skip in Bing&#39;s ranking. Paginate with offset +&#x3D; count. (optional, default to 0)</param>
         /// <param name="safeSearch">off | moderate | strict (default moderate) (optional)</param>
         /// <returns>Object</returns>
         public Object BingWebSearch(string query, string market = default(string), int? count = default(int?), int? offset = default(int?), string safeSearch = default(string))
@@ -1604,8 +1604,8 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;coffee machine&#39;</param>
         /// <param name="market">Bing market code, e.g. &#39;en-US&#39;, &#39;en-GB&#39;, &#39;de-DE&#39;. See /markets. (optional, default to &quot;en-US&quot;)</param>
-        /// <param name="count">Results per page (1-50) (optional, default to 10)</param>
-        /// <param name="offset">Zero-based result offset for pagination (optional, default to 0)</param>
+        /// <param name="count">Organic results to return (1-50), merged from Bing&#39;s following pages when one page is short. May return fewer. (optional, default to 10)</param>
+        /// <param name="offset">Organic results to skip in Bing&#39;s ranking. Paginate with offset +&#x3D; count. (optional, default to 0)</param>
         /// <param name="safeSearch">off | moderate | strict (default moderate) (optional)</param>
         /// <returns>ApiResponse of Object</returns>
         public ScrapeBadger.Client.ApiResponse<Object> BingWebSearchWithHttpInfo(string query, string market = default(string), int? count = default(int?), int? offset = default(int?), string safeSearch = default(string))
@@ -1672,8 +1672,8 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;coffee machine&#39;</param>
         /// <param name="market">Bing market code, e.g. &#39;en-US&#39;, &#39;en-GB&#39;, &#39;de-DE&#39;. See /markets. (optional, default to &quot;en-US&quot;)</param>
-        /// <param name="count">Results per page (1-50) (optional, default to 10)</param>
-        /// <param name="offset">Zero-based result offset for pagination (optional, default to 0)</param>
+        /// <param name="count">Organic results to return (1-50), merged from Bing&#39;s following pages when one page is short. May return fewer. (optional, default to 10)</param>
+        /// <param name="offset">Organic results to skip in Bing&#39;s ranking. Paginate with offset +&#x3D; count. (optional, default to 0)</param>
         /// <param name="safeSearch">off | moderate | strict (default moderate) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
@@ -1689,8 +1689,8 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;coffee machine&#39;</param>
         /// <param name="market">Bing market code, e.g. &#39;en-US&#39;, &#39;en-GB&#39;, &#39;de-DE&#39;. See /markets. (optional, default to &quot;en-US&quot;)</param>
-        /// <param name="count">Results per page (1-50) (optional, default to 10)</param>
-        /// <param name="offset">Zero-based result offset for pagination (optional, default to 0)</param>
+        /// <param name="count">Organic results to return (1-50), merged from Bing&#39;s following pages when one page is short. May return fewer. (optional, default to 10)</param>
+        /// <param name="offset">Organic results to skip in Bing&#39;s ranking. Paginate with offset +&#x3D; count. (optional, default to 0)</param>
         /// <param name="safeSearch">off | moderate | strict (default moderate) (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>

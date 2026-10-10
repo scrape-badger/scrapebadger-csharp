@@ -756,8 +756,8 @@ namespace Example
             var apiInstance = new BingApi(httpClient, config, httpClientHandler);
             var query = "query_example";  // string | Search keywords, e.g. 'coffee machine'
             var market = "\"en-US\"";  // string | Bing market code, e.g. 'en-US', 'en-GB', 'de-DE'. See /markets. (optional)  (default to "en-US")
-            var count = 10;  // int? | Results per page (1-50) (optional)  (default to 10)
-            var offset = 0;  // int? | Zero-based result offset for pagination (optional)  (default to 0)
+            var count = 10;  // int? | Organic results to return (1-50), merged from Bing's following pages when one page is short. May return fewer. (optional)  (default to 10)
+            var offset = 0;  // int? | Organic results to skip in Bing's ranking. Paginate with offset += count. (optional)  (default to 0)
             var safeSearch = "safeSearch_example";  // string | off | moderate | strict (default moderate) (optional) 
 
             try
@@ -803,8 +803,8 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **query** | **string** | Search keywords, e.g. &#39;coffee machine&#39; |  |
 | **market** | **string** | Bing market code, e.g. &#39;en-US&#39;, &#39;en-GB&#39;, &#39;de-DE&#39;. See /markets. | [optional] [default to &quot;en-US&quot;] |
-| **count** | **int?** | Results per page (1-50) | [optional] [default to 10] |
-| **offset** | **int?** | Zero-based result offset for pagination | [optional] [default to 0] |
+| **count** | **int?** | Organic results to return (1-50), merged from Bing&#39;s following pages when one page is short. May return fewer. | [optional] [default to 10] |
+| **offset** | **int?** | Organic results to skip in Bing&#39;s ranking. Paginate with offset +&#x3D; count. | [optional] [default to 0] |
 | **safeSearch** | **string** | off | moderate | strict (default moderate) | [optional]  |
 
 ### Return type
