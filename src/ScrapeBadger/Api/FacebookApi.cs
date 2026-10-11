@@ -150,25 +150,27 @@ namespace ScrapeBadger.Api
         /// Get group posts
         /// </summary>
         /// <remarks>
-        /// Get a Facebook group&#39;s post feed.
+        /// Get a public Facebook group&#39;s post feed.  &#x60;&#x60;sort&#x60;&#x60; is &#x60;&#x60;newest&#x60;&#x60; (newest first by post time, the default) or &#x60;&#x60;relevance&#x60;&#x60; (Facebook&#39;s \&quot;top posts\&quot; ranking, which moves posts with fresh comments up). Facebook serves 3 posts per page to logged-out visitors; follow &#x60;&#x60;end_cursor&#x60;&#x60; while &#x60;&#x60;has_next_page&#x60;&#x60; for older posts.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
         /// <param name="after"> (optional)</param>
+        /// <param name="sort">newest | relevance (optional, default to newest)</param>
         /// <returns>Object</returns>
-        Object FacebookGetGroupPosts(string groupId, string after = default(string));
+        Object FacebookGetGroupPosts(string groupId, string after = default(string), string sort = default(string));
 
         /// <summary>
         /// Get group posts
         /// </summary>
         /// <remarks>
-        /// Get a Facebook group&#39;s post feed.
+        /// Get a public Facebook group&#39;s post feed.  &#x60;&#x60;sort&#x60;&#x60; is &#x60;&#x60;newest&#x60;&#x60; (newest first by post time, the default) or &#x60;&#x60;relevance&#x60;&#x60; (Facebook&#39;s \&quot;top posts\&quot; ranking, which moves posts with fresh comments up). Facebook serves 3 posts per page to logged-out visitors; follow &#x60;&#x60;end_cursor&#x60;&#x60; while &#x60;&#x60;has_next_page&#x60;&#x60; for older posts.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
         /// <param name="after"> (optional)</param>
+        /// <param name="sort">newest | relevance (optional, default to newest)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> FacebookGetGroupPostsWithHttpInfo(string groupId, string after = default(string));
+        ApiResponse<Object> FacebookGetGroupPostsWithHttpInfo(string groupId, string after = default(string), string sort = default(string));
         /// <summary>
         /// Get page detail
         /// </summary>
@@ -739,27 +741,29 @@ namespace ScrapeBadger.Api
         /// Get group posts
         /// </summary>
         /// <remarks>
-        /// Get a Facebook group&#39;s post feed.
+        /// Get a public Facebook group&#39;s post feed.  &#x60;&#x60;sort&#x60;&#x60; is &#x60;&#x60;newest&#x60;&#x60; (newest first by post time, the default) or &#x60;&#x60;relevance&#x60;&#x60; (Facebook&#39;s \&quot;top posts\&quot; ranking, which moves posts with fresh comments up). Facebook serves 3 posts per page to logged-out visitors; follow &#x60;&#x60;end_cursor&#x60;&#x60; while &#x60;&#x60;has_next_page&#x60;&#x60; for older posts.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
         /// <param name="after"> (optional)</param>
+        /// <param name="sort">newest | relevance (optional, default to newest)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> FacebookGetGroupPostsAsync(string groupId, string after = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> FacebookGetGroupPostsAsync(string groupId, string after = default(string), string sort = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get group posts
         /// </summary>
         /// <remarks>
-        /// Get a Facebook group&#39;s post feed.
+        /// Get a public Facebook group&#39;s post feed.  &#x60;&#x60;sort&#x60;&#x60; is &#x60;&#x60;newest&#x60;&#x60; (newest first by post time, the default) or &#x60;&#x60;relevance&#x60;&#x60; (Facebook&#39;s \&quot;top posts\&quot; ranking, which moves posts with fresh comments up). Facebook serves 3 posts per page to logged-out visitors; follow &#x60;&#x60;end_cursor&#x60;&#x60; while &#x60;&#x60;has_next_page&#x60;&#x60; for older posts.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
         /// <param name="after"> (optional)</param>
+        /// <param name="sort">newest | relevance (optional, default to newest)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> FacebookGetGroupPostsWithHttpInfoAsync(string groupId, string after = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> FacebookGetGroupPostsWithHttpInfoAsync(string groupId, string after = default(string), string sort = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get page detail
         /// </summary>
@@ -2147,26 +2151,28 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get group posts Get a Facebook group&#39;s post feed.
+        /// Get group posts Get a public Facebook group&#39;s post feed.  &#x60;&#x60;sort&#x60;&#x60; is &#x60;&#x60;newest&#x60;&#x60; (newest first by post time, the default) or &#x60;&#x60;relevance&#x60;&#x60; (Facebook&#39;s \&quot;top posts\&quot; ranking, which moves posts with fresh comments up). Facebook serves 3 posts per page to logged-out visitors; follow &#x60;&#x60;end_cursor&#x60;&#x60; while &#x60;&#x60;has_next_page&#x60;&#x60; for older posts.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
         /// <param name="after"> (optional)</param>
+        /// <param name="sort">newest | relevance (optional, default to newest)</param>
         /// <returns>Object</returns>
-        public Object FacebookGetGroupPosts(string groupId, string after = default(string))
+        public Object FacebookGetGroupPosts(string groupId, string after = default(string), string sort = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = FacebookGetGroupPostsWithHttpInfo(groupId, after);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = FacebookGetGroupPostsWithHttpInfo(groupId, after, sort);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get group posts Get a Facebook group&#39;s post feed.
+        /// Get group posts Get a public Facebook group&#39;s post feed.  &#x60;&#x60;sort&#x60;&#x60; is &#x60;&#x60;newest&#x60;&#x60; (newest first by post time, the default) or &#x60;&#x60;relevance&#x60;&#x60; (Facebook&#39;s \&quot;top posts\&quot; ranking, which moves posts with fresh comments up). Facebook serves 3 posts per page to logged-out visitors; follow &#x60;&#x60;end_cursor&#x60;&#x60; while &#x60;&#x60;has_next_page&#x60;&#x60; for older posts.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
         /// <param name="after"> (optional)</param>
+        /// <param name="sort">newest | relevance (optional, default to newest)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> FacebookGetGroupPostsWithHttpInfo(string groupId, string after = default(string))
+        public ScrapeBadger.Client.ApiResponse<Object> FacebookGetGroupPostsWithHttpInfo(string groupId, string after = default(string), string sort = default(string))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -2192,6 +2198,10 @@ namespace ScrapeBadger.Api
             if (after != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "after", after));
+            }
+            if (sort != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
             }
 
             // authentication (ApiKeyAuth) required
@@ -2213,28 +2223,30 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get group posts Get a Facebook group&#39;s post feed.
+        /// Get group posts Get a public Facebook group&#39;s post feed.  &#x60;&#x60;sort&#x60;&#x60; is &#x60;&#x60;newest&#x60;&#x60; (newest first by post time, the default) or &#x60;&#x60;relevance&#x60;&#x60; (Facebook&#39;s \&quot;top posts\&quot; ranking, which moves posts with fresh comments up). Facebook serves 3 posts per page to logged-out visitors; follow &#x60;&#x60;end_cursor&#x60;&#x60; while &#x60;&#x60;has_next_page&#x60;&#x60; for older posts.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
         /// <param name="after"> (optional)</param>
+        /// <param name="sort">newest | relevance (optional, default to newest)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> FacebookGetGroupPostsAsync(string groupId, string after = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> FacebookGetGroupPostsAsync(string groupId, string after = default(string), string sort = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await FacebookGetGroupPostsWithHttpInfoAsync(groupId, after, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await FacebookGetGroupPostsWithHttpInfoAsync(groupId, after, sort, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get group posts Get a Facebook group&#39;s post feed.
+        /// Get group posts Get a public Facebook group&#39;s post feed.  &#x60;&#x60;sort&#x60;&#x60; is &#x60;&#x60;newest&#x60;&#x60; (newest first by post time, the default) or &#x60;&#x60;relevance&#x60;&#x60; (Facebook&#39;s \&quot;top posts\&quot; ranking, which moves posts with fresh comments up). Facebook serves 3 posts per page to logged-out visitors; follow &#x60;&#x60;end_cursor&#x60;&#x60; while &#x60;&#x60;has_next_page&#x60;&#x60; for older posts.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
         /// <param name="after"> (optional)</param>
+        /// <param name="sort">newest | relevance (optional, default to newest)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> FacebookGetGroupPostsWithHttpInfoAsync(string groupId, string after = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> FacebookGetGroupPostsWithHttpInfoAsync(string groupId, string after = default(string), string sort = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -2262,6 +2274,10 @@ namespace ScrapeBadger.Api
             if (after != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "after", after));
+            }
+            if (sort != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
             }
 
             // authentication (ApiKeyAuth) required

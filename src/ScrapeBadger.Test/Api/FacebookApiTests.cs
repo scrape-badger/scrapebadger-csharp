@@ -129,7 +129,8 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string groupId = null;
             //string after = null;
-            //var response = instance.FacebookGetGroupPosts(groupId, after);
+            //string sort = null;
+            //var response = instance.FacebookGetGroupPosts(groupId, after, sort);
             //Assert.IsType<Object>(response);
         }
 

@@ -5176,7 +5176,13 @@ paths:
       - Facebook
   /v1/facebook/groups/{group_id}/posts:
     get:
-      description: Get a Facebook group's post feed.
+      description: |-
+        Get a public Facebook group's post feed.
+
+        ``sort`` is ``newest`` (newest first by post time, the default) or
+        ``relevance`` (Facebook's "top posts" ranking, which moves posts with fresh
+        comments up). Facebook serves 3 posts per page to logged-out visitors; follow
+        ``end_cursor`` while ``has_next_page`` for older posts.
       operationId: facebook_get_group_posts
       parameters:
       - explode: false
@@ -5193,6 +5199,20 @@ paths:
         required: false
         schema:
           nullable: true
+          type: string
+        style: form
+      - description: newest | relevance
+        explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          default: newest
+          description: newest | relevance
+          enum:
+          - newest
+          - relevance
+          title: Sort
           type: string
         style: form
       responses:

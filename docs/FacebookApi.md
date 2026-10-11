@@ -550,11 +550,11 @@ catch (ApiException e)
 
 <a id="facebookgetgroupposts"></a>
 # **FacebookGetGroupPosts**
-> Object FacebookGetGroupPosts (string groupId, string after = null)
+> Object FacebookGetGroupPosts (string groupId, string after = null, string sort = null)
 
 Get group posts
 
-Get a Facebook group's post feed.
+Get a public Facebook group's post feed.  ``sort`` is ``newest`` (newest first by post time, the default) or ``relevance`` (Facebook's \"top posts\" ranking, which moves posts with fresh comments up). Facebook serves 3 posts per page to logged-out visitors; follow ``end_cursor`` while ``has_next_page`` for older posts.
 
 ### Example
 ```csharp
@@ -584,11 +584,12 @@ namespace Example
             var apiInstance = new FacebookApi(httpClient, config, httpClientHandler);
             var groupId = "groupId_example";  // string | 
             var after = "after_example";  // string |  (optional) 
+            var sort = "newest";  // string | newest | relevance (optional)  (default to newest)
 
             try
             {
                 // Get group posts
-                Object result = apiInstance.FacebookGetGroupPosts(groupId, after);
+                Object result = apiInstance.FacebookGetGroupPosts(groupId, after, sort);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -609,7 +610,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get group posts
-    ApiResponse<Object> response = apiInstance.FacebookGetGroupPostsWithHttpInfo(groupId, after);
+    ApiResponse<Object> response = apiInstance.FacebookGetGroupPostsWithHttpInfo(groupId, after, sort);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -628,6 +629,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **groupId** | **string** |  |  |
 | **after** | **string** |  | [optional]  |
+| **sort** | **string** | newest | relevance | [optional] [default to newest] |
 
 ### Return type
 
