@@ -81,6 +81,7 @@ docs/VintedSellerSummary.md
 docs/VintedStatus.md
 docs/VintedUserProfile.md
 docs/VintedUserSummary.md
+docs/WallapopApi.md
 docs/WalmartApi.md
 docs/WebApi.md
 docs/WebhookCreate.md
@@ -124,6 +125,7 @@ src/ScrapeBadger.Test/Api/RedfinApiTests.cs
 src/ScrapeBadger.Test/Api/TikTokApiTests.cs
 src/ScrapeBadger.Test/Api/TwitterApiTests.cs
 src/ScrapeBadger.Test/Api/VintedApiTests.cs
+src/ScrapeBadger.Test/Api/WallapopApiTests.cs
 src/ScrapeBadger.Test/Api/WalmartApiTests.cs
 src/ScrapeBadger.Test/Api/WebApiTests.cs
 src/ScrapeBadger.Test/Api/YahooApiTests.cs
@@ -214,6 +216,7 @@ src/ScrapeBadger/Api/RedfinApi.cs
 src/ScrapeBadger/Api/TikTokApi.cs
 src/ScrapeBadger/Api/TwitterApi.cs
 src/ScrapeBadger/Api/VintedApi.cs
+src/ScrapeBadger/Api/WallapopApi.cs
 src/ScrapeBadger/Api/WalmartApi.cs
 src/ScrapeBadger/Api/WebApi.cs
 src/ScrapeBadger/Api/YahooApi.cs

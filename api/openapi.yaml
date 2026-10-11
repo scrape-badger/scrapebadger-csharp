@@ -38,6 +38,7 @@ tags:
 - name: TikTok
 - name: Twitter
 - name: Vinted
+- name: Wallapop
 - name: Walmart
 - name: Web
 - name: Yahoo
@@ -20070,6 +20071,701 @@ paths:
       summary: Get user's listed items
       tags:
       - Vinted
+  /v1/wallapop/autocomplete:
+    get:
+      description: Wallapop's search-box suggestions for a partial query.
+      operationId: wallapop_autocomplete
+      parameters:
+      - description: "Partial search text, e.g. 'bici'"
+        explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          description: "Partial search text, e.g. 'bici'"
+          title: Query
+          type: string
+        style: form
+      - description: "Market: es (Spain), it (Italy), pt (Portugal)"
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          default: es
+          description: "Market: es (Spain), it (Italy), pt (Portugal)"
+          title: Market
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Autocomplete
+      tags:
+      - Wallapop
+  /v1/wallapop/categories:
+    get:
+      description: The full category tree; ids are usable as the search category_id.
+      operationId: wallapop_list_categories
+      parameters:
+      - description: "Market: es (Spain), it (Italy), pt (Portugal)"
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          default: es
+          description: "Market: es (Spain), it (Italy), pt (Portugal)"
+          title: Market
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: List categories
+      tags:
+      - Wallapop
+  /v1/wallapop/filters:
+    get:
+      description: "The filters Wallapop offers for a category or query, with option\
+        \ ids."
+      operationId: wallapop_list_search_filters
+      parameters:
+      - description: Category the filters apply to
+        explode: true
+        in: query
+        name: category_id
+        required: false
+        schema:
+          nullable: true
+          type: integer
+        style: form
+      - description: Search text the filters apply to
+        explode: true
+        in: query
+        name: query
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "Market: es (Spain), it (Italy), pt (Portugal)"
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          default: es
+          description: "Market: es (Spain), it (Italy), pt (Portugal)"
+          title: Market
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: List search filters
+      tags:
+      - Wallapop
+  /v1/wallapop/filters/{filter_id}/options:
+    get:
+      description: "Long option lists (e.g. brand, model) for filters flagged options_endpoint."
+      operationId: wallapop_list_filter_options
+      parameters:
+      - explode: false
+        in: path
+        name: filter_id
+        required: true
+        schema:
+          title: Filter Id
+          type: string
+        style: simple
+      - description: Category to scope options to
+        explode: true
+        in: query
+        name: category_id
+        required: false
+        schema:
+          nullable: true
+          type: integer
+        style: form
+      - description: Search text to scope options to
+        explode: true
+        in: query
+        name: query
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "Market: es (Spain), it (Italy), pt (Portugal)"
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          default: es
+          description: "Market: es (Spain), it (Italy), pt (Portugal)"
+          title: Market
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: List filter options
+      tags:
+      - Wallapop
+  /v1/wallapop/health:
+    get:
+      description: Check health of the Wallapop scraper service (accepts HEAD).
+      operationId: wallapop_wallapop_scraper_health_check
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Wallapop scraper health check
+      tags:
+      - Wallapop
+    head:
+      description: Check health of the Wallapop scraper service (accepts HEAD).
+      operationId: wallapop_wallapop_scraper_health_check_head
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Wallapop scraper health check
+      tags:
+      - Wallapop
+  /v1/wallapop/items/{item_id}:
+    get:
+      description: Full listing detail by id (e.g. nzxeknm5x562) or listing slug.
+      operationId: wallapop_get_listing_detail
+      parameters:
+      - explode: false
+        in: path
+        name: item_id
+        required: true
+        schema:
+          title: Item Id
+          type: string
+        style: simple
+      - description: "Market: es (Spain), it (Italy), pt (Portugal)"
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          default: es
+          description: "Market: es (Spain), it (Italy), pt (Portugal)"
+          title: Market
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get listing detail
+      tags:
+      - Wallapop
+  /v1/wallapop/markets:
+    get:
+      description: Supported Wallapop markets and their default search location.
+      operationId: wallapop_list_markets
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: List markets
+      tags:
+      - Wallapop
+  /v1/wallapop/search:
+    get:
+      description: "Search Wallapop listings (40 per page). Needs a query, a category_id,\
+        \ or both."
+      operationId: wallapop_search_listings
+      parameters:
+      - description: "Search text, e.g. 'iphone 14'"
+        explode: true
+        in: query
+        name: query
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "Market: es (Spain), it (Italy), pt (Portugal)"
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          default: es
+          description: "Market: es (Spain), it (Italy), pt (Portugal)"
+          title: Market
+          type: string
+        style: form
+      - description: Search centre latitude (defaults to the market capital)
+        explode: true
+        in: query
+        name: latitude
+        required: false
+        schema:
+          nullable: true
+          type: number
+        style: form
+      - description: Search centre longitude
+        explode: true
+        in: query
+        name: longitude
+        required: false
+        schema:
+          nullable: true
+          type: number
+        style: form
+      - description: Search radius
+        explode: true
+        in: query
+        name: distance_km
+        required: false
+        schema:
+          maximum: 500
+          minimum: 1
+          nullable: true
+          type: integer
+        style: form
+      - description: Category id from /categories
+        explode: true
+        in: query
+        name: category_id
+        required: false
+        schema:
+          nullable: true
+          type: integer
+        style: form
+      - description: Minimum price (EUR)
+        explode: true
+        in: query
+        name: min_price
+        required: false
+        schema:
+          minimum: 0
+          nullable: true
+          type: number
+        style: form
+      - description: Maximum price (EUR)
+        explode: true
+        in: query
+        name: max_price
+        required: false
+        schema:
+          minimum: 0
+          nullable: true
+          type: number
+        style: form
+      - description: "Comma-separated: un_opened, in_box, new, as_good_as_new, good,\
+          \ fair, has_given_it_all"
+        explode: true
+        in: query
+        name: condition
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "Brand, e.g. Apple"
+        explode: true
+        in: query
+        name: brand
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "Model, e.g. iPhone 14"
+        explode: true
+        in: query
+        name: model
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "Colour id, e.g. black"
+        explode: true
+        in: query
+        name: color
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Only listings published within this window
+        explode: true
+        in: query
+        name: time_filter
+        required: false
+        schema:
+          enum:
+          - today
+          - lastWeek
+          - lastMonth
+          nullable: true
+          type: string
+        style: form
+      - description: Only listings that ship
+        explode: true
+        in: query
+        name: shippable
+        required: false
+        schema:
+          default: false
+          description: Only listings that ship
+          title: Shippable
+          type: boolean
+        style: form
+      - description: Only listings with a warranty
+        explode: true
+        in: query
+        name: has_warranty
+        required: false
+        schema:
+          default: false
+          description: Only listings with a warranty
+          title: Has Warranty
+          type: boolean
+        style: form
+      - description: Only refurbished listings
+        explode: true
+        in: query
+        name: refurbished
+        required: false
+        schema:
+          default: false
+          description: Only refurbished listings
+          title: Refurbished
+          type: boolean
+        style: form
+      - description: "Cars: earliest model year"
+        explode: true
+        in: query
+        name: min_year
+        required: false
+        schema:
+          nullable: true
+          type: integer
+        style: form
+      - description: "Cars: latest model year"
+        explode: true
+        in: query
+        name: max_year
+        required: false
+        schema:
+          nullable: true
+          type: integer
+        style: form
+      - description: "Cars: minimum mileage"
+        explode: true
+        in: query
+        name: min_km
+        required: false
+        schema:
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Cars: maximum mileage"
+        explode: true
+        in: query
+        name: max_km
+        required: false
+        schema:
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Cars
+        explode: true
+        in: query
+        name: gearbox
+        required: false
+        schema:
+          enum:
+          - manual
+          - automatic
+          nullable: true
+          type: string
+        style: form
+      - description: "Cars: minimum power"
+        explode: true
+        in: query
+        name: min_horsepower
+        required: false
+        schema:
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: "Cars: maximum power"
+        explode: true
+        in: query
+        name: max_horsepower
+        required: false
+        schema:
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Sort order
+        explode: true
+        in: query
+        name: order_by
+        required: false
+        schema:
+          default: most_relevance
+          description: Sort order
+          enum:
+          - most_relevance
+          - newest
+          - closest
+          - price_low_to_high
+          - price_high_to_low
+          title: Order By
+          type: string
+        style: form
+      - description: Cursor from the previous page's next_page; other parameters are
+          then ignored
+        explode: true
+        in: query
+        name: next_page
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Search listings
+      tags:
+      - Wallapop
+  /v1/wallapop/users/{user_id}:
+    get:
+      description: "Seller profile with ratings, sales counters, response rate and\
+        \ verifications."
+      operationId: wallapop_get_user_profile
+      parameters:
+      - explode: false
+        in: path
+        name: user_id
+        required: true
+        schema:
+          title: User Id
+          type: string
+        style: simple
+      - description: "Market: es (Spain), it (Italy), pt (Portugal)"
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          default: es
+          description: "Market: es (Spain), it (Italy), pt (Portugal)"
+          title: Market
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get user profile
+      tags:
+      - Wallapop
+  /v1/wallapop/users/{user_id}/items:
+    get:
+      description: "A seller's live listings, 40 per page."
+      operationId: wallapop_get_user_listings
+      parameters:
+      - explode: false
+        in: path
+        name: user_id
+        required: true
+        schema:
+          title: User Id
+          type: string
+        style: simple
+      - description: "Market: es (Spain), it (Italy), pt (Portugal)"
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          default: es
+          description: "Market: es (Spain), it (Italy), pt (Portugal)"
+          title: Market
+          type: string
+        style: form
+      - description: Cursor from the previous page's next_page
+        explode: true
+        in: query
+        name: next_page
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get user listings
+      tags:
+      - Wallapop
+  /v1/wallapop/users/{user_id}/reviews:
+    get:
+      description: "Reviews a seller received, newest first, 40 per page."
+      operationId: wallapop_get_user_reviews
+      parameters:
+      - explode: false
+        in: path
+        name: user_id
+        required: true
+        schema:
+          title: User Id
+          type: string
+        style: simple
+      - description: "Market: es (Spain), it (Italy), pt (Portugal)"
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          default: es
+          description: "Market: es (Spain), it (Italy), pt (Portugal)"
+          title: Market
+          type: string
+        style: form
+      - description: Cursor from the previous page's next_page
+        explode: true
+        in: query
+        name: next_page
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get user reviews
+      tags:
+      - Wallapop
   /v1/walmart/autocomplete:
     get:
       description: Walmart search-box suggestions.
