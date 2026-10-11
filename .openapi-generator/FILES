@@ -36,6 +36,7 @@ docs/FilterRuleValidateResponse.md
 docs/GeminiApi.md
 docs/GoogleApi.md
 docs/GooglePlayApi.md
+docs/GumtreeApi.md
 docs/HTTPValidationError.md
 docs/IdealistaApi.md
 docs/ImmobiliareApi.md
@@ -111,6 +112,7 @@ src/ScrapeBadger.Test/Api/FacebookApiTests.cs
 src/ScrapeBadger.Test/Api/GeminiApiTests.cs
 src/ScrapeBadger.Test/Api/GoogleApiTests.cs
 src/ScrapeBadger.Test/Api/GooglePlayApiTests.cs
+src/ScrapeBadger.Test/Api/GumtreeApiTests.cs
 src/ScrapeBadger.Test/Api/IdealistaApiTests.cs
 src/ScrapeBadger.Test/Api/ImmobiliareApiTests.cs
 src/ScrapeBadger.Test/Api/InstagramApiTests.cs
@@ -202,6 +204,7 @@ src/ScrapeBadger/Api/FacebookApi.cs
 src/ScrapeBadger/Api/GeminiApi.cs
 src/ScrapeBadger/Api/GoogleApi.cs
 src/ScrapeBadger/Api/GooglePlayApi.cs
+src/ScrapeBadger/Api/GumtreeApi.cs
 src/ScrapeBadger/Api/IdealistaApi.cs
 src/ScrapeBadger/Api/ImmobiliareApi.cs
 src/ScrapeBadger/Api/InstagramApi.cs

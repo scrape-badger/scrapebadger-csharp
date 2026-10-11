@@ -358,6 +358,16 @@ Class | Method | HTTP request | Description
 *GooglePlayApi* | [**GooglePlayListMarkets**](docs/GooglePlayApi.md#googleplaylistmarkets) | **GET** /v1/google-play/markets | List markets
 *GooglePlayApi* | [**GooglePlaySearchApps**](docs/GooglePlayApi.md#googleplaysearchapps) | **GET** /v1/google-play/search | Search apps
 *GooglePlayApi* | [**GooglePlayTopCharts**](docs/GooglePlayApi.md#googleplaytopcharts) | **GET** /v1/google-play/collections/{collection} | Top charts
+*GumtreeApi* | [**GumtreeGetListing**](docs/GumtreeApi.md#gumtreegetlisting) | **GET** /v1/gumtree/listings/{listing_id} | Get listing
+*GumtreeApi* | [**GumtreeGetSearchFilters**](docs/GumtreeApi.md#gumtreegetsearchfilters) | **GET** /v1/gumtree/search/filters | Get search filters
+*GumtreeApi* | [**GumtreeGetSellerListings**](docs/GumtreeApi.md#gumtreegetsellerlistings) | **GET** /v1/gumtree/listings/{listing_id}/seller-listings | Get seller listings
+*GumtreeApi* | [**GumtreeGumtreeScraperHealthCheck**](docs/GumtreeApi.md#gumtreegumtreescraperhealthcheck) | **GET** /v1/gumtree/health | Gumtree scraper health check
+*GumtreeApi* | [**GumtreeGumtreeScraperHealthCheckHead**](docs/GumtreeApi.md#gumtreegumtreescraperhealthcheckhead) | **HEAD** /v1/gumtree/health | Gumtree scraper health check
+*GumtreeApi* | [**GumtreeListCategories**](docs/GumtreeApi.md#gumtreelistcategories) | **GET** /v1/gumtree/categories | List categories
+*GumtreeApi* | [**GumtreeListLocations**](docs/GumtreeApi.md#gumtreelistlocations) | **GET** /v1/gumtree/locations | List locations
+*GumtreeApi* | [**GumtreeLocationSuggestions**](docs/GumtreeApi.md#gumtreelocationsuggestions) | **GET** /v1/gumtree/locations/autocomplete | Location suggestions
+*GumtreeApi* | [**GumtreeSearchListings**](docs/GumtreeApi.md#gumtreesearchlistings) | **GET** /v1/gumtree/search | Search listings
+*GumtreeApi* | [**GumtreeSearchSuggestions**](docs/GumtreeApi.md#gumtreesearchsuggestions) | **GET** /v1/gumtree/autocomplete | Search suggestions
 *IdealistaApi* | [**IdealistaAgencyByPhone**](docs/IdealistaApi.md#idealistaagencybyphone) | **GET** /v1/idealista/agency/by-phone/{phone} | Agency by phone
 *IdealistaApi* | [**IdealistaAgencyProfileListings**](docs/IdealistaApi.md#idealistaagencyprofilelistings) | **GET** /v1/idealista/agency/{short_name} | Agency profile + listings
 *IdealistaApi* | [**IdealistaGetListingEngagementStats**](docs/IdealistaApi.md#idealistagetlistingengagementstats) | **GET** /v1/idealista/properties/{property_code}/stats | Get listing engagement stats
