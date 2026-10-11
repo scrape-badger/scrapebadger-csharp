@@ -7683,11 +7683,17 @@ paths:
         ``query`` refines the grid with text. ``exact_matches=true`` returns just
         the pages hosting the image, each flagged ``exact_match: true``, instead
         of the broad grid — available for most images (8 of 10 in sampling) and
-        falling back to the grid otherwise. ``product=true`` narrows the grid to the tiles Google marked buyable. ``visual_matches=false`` cannot be honoured:
-        ``visual_matches=false`` cannot be: visual matches are the only grid
-        served. Anything that could not be applied — including an exact-match
-        lookup that came back empty — is named in the ``warnings`` array rather
-        than silently dropped (SCR-177, SCR-180).
+        falling back to the grid otherwise. ``product=true`` narrows the grid to
+        the tiles Google marked buyable. ``visual_matches=false`` cannot be
+        honoured: visual matches are the only grid served. Anything that could not
+        be applied — including an exact-match lookup that came back empty — is
+        named in the ``warnings`` array rather than silently dropped (SCR-177,
+        SCR-180).
+
+        When Google has no matches for an image — it filters explicit images and
+        matches removed under DMCA — the response is ``404`` with
+        ``error: lens_no_visual_matches``. That is Google's final answer for the
+        image: it is not charged, and retrying will not change it (SCR-325).
       operationId: google_google_lens_visual_search
       parameters:
       - description: Public URL of the image to search visually
