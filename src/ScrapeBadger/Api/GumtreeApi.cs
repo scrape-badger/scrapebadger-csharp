@@ -54,7 +54,7 @@ namespace ScrapeBadger.Api
         /// Get search filters
         /// </summary>
         /// <remarks>
-        /// Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;. au bills 2x (browser render).
+        /// Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="category">uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
@@ -69,7 +69,7 @@ namespace ScrapeBadger.Api
         /// Get search filters
         /// </summary>
         /// <remarks>
-        /// Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;. au bills 2x (browser render).
+        /// Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="category">uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
@@ -169,7 +169,7 @@ namespace ScrapeBadger.Api
         /// List locations
         /// </summary>
         /// <remarks>
-        /// Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count (browser render, bills 5x). za: provinces -&gt; towns.
+        /// Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count. za: provinces -&gt; towns.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parentId">Location id to list the children of (default: the whole country) (optional)</param>
@@ -181,7 +181,7 @@ namespace ScrapeBadger.Api
         /// List locations
         /// </summary>
         /// <remarks>
-        /// Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count (browser render, bills 5x). za: provinces -&gt; towns.
+        /// Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count. za: provinces -&gt; towns.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parentId">Location id to list the children of (default: the whole country) (optional)</param>
@@ -234,7 +234,7 @@ namespace ScrapeBadger.Api
         /// Search listings
         /// </summary>
         /// <remarks>
-        /// Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20. An au search runs a real browser (~10-20 s) and bills 2x.
+        /// Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;mountain bike&#39; (optional)</param>
@@ -257,7 +257,7 @@ namespace ScrapeBadger.Api
         /// Search listings
         /// </summary>
         /// <remarks>
-        /// Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20. An au search runs a real browser (~10-20 s) and bills 2x.
+        /// Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;mountain bike&#39; (optional)</param>
@@ -336,7 +336,7 @@ namespace ScrapeBadger.Api
         /// Get search filters
         /// </summary>
         /// <remarks>
-        /// Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;. au bills 2x (browser render).
+        /// Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="category">uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
@@ -352,7 +352,7 @@ namespace ScrapeBadger.Api
         /// Get search filters
         /// </summary>
         /// <remarks>
-        /// Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;. au bills 2x (browser render).
+        /// Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="category">uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
@@ -461,7 +461,7 @@ namespace ScrapeBadger.Api
         /// List locations
         /// </summary>
         /// <remarks>
-        /// Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count (browser render, bills 5x). za: provinces -&gt; towns.
+        /// Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count. za: provinces -&gt; towns.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parentId">Location id to list the children of (default: the whole country) (optional)</param>
@@ -474,7 +474,7 @@ namespace ScrapeBadger.Api
         /// List locations
         /// </summary>
         /// <remarks>
-        /// Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count (browser render, bills 5x). za: provinces -&gt; towns.
+        /// Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count. za: provinces -&gt; towns.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parentId">Location id to list the children of (default: the whole country) (optional)</param>
@@ -532,7 +532,7 @@ namespace ScrapeBadger.Api
         /// Search listings
         /// </summary>
         /// <remarks>
-        /// Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20. An au search runs a real browser (~10-20 s) and bills 2x.
+        /// Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;mountain bike&#39; (optional)</param>
@@ -556,7 +556,7 @@ namespace ScrapeBadger.Api
         /// Search listings
         /// </summary>
         /// <remarks>
-        /// Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20. An au search runs a real browser (~10-20 s) and bills 2x.
+        /// Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;mountain bike&#39; (optional)</param>
@@ -951,7 +951,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get search filters Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;. au bills 2x (browser render).
+        /// Get search filters Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="category">uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
@@ -967,7 +967,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get search filters Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;. au bills 2x (browser render).
+        /// Get search filters Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="category">uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
@@ -1034,7 +1034,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get search filters Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;. au bills 2x (browser render).
+        /// Get search filters Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="category">uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
@@ -1051,7 +1051,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get search filters Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;. au bills 2x (browser render).
+        /// Get search filters Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="category">uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
@@ -1628,7 +1628,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// List locations Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count (browser render, bills 5x). za: provinces -&gt; towns.
+        /// List locations Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count. za: provinces -&gt; towns.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parentId">Location id to list the children of (default: the whole country) (optional)</param>
@@ -1641,7 +1641,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// List locations Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count (browser render, bills 5x). za: provinces -&gt; towns.
+        /// List locations Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count. za: provinces -&gt; towns.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parentId">Location id to list the children of (default: the whole country) (optional)</param>
@@ -1693,7 +1693,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// List locations Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count (browser render, bills 5x). za: provinces -&gt; towns.
+        /// List locations Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count. za: provinces -&gt; towns.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parentId">Location id to list the children of (default: the whole country) (optional)</param>
@@ -1707,7 +1707,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// List locations Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count (browser render, bills 5x). za: provinces -&gt; towns.
+        /// List locations Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count. za: provinces -&gt; towns.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parentId">Location id to list the children of (default: the whole country) (optional)</param>
@@ -2011,7 +2011,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search listings Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20. An au search runs a real browser (~10-20 s) and bills 2x.
+        /// Search listings Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;mountain bike&#39; (optional)</param>
@@ -2035,7 +2035,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search listings Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20. An au search runs a real browser (~10-20 s) and bills 2x.
+        /// Search listings Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;mountain bike&#39; (optional)</param>
@@ -2142,7 +2142,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search listings Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20. An au search runs a real browser (~10-20 s) and bills 2x.
+        /// Search listings Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;mountain bike&#39; (optional)</param>
@@ -2167,7 +2167,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search listings Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20. An au search runs a real browser (~10-20 s) and bills 2x.
+        /// Search listings Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;mountain bike&#39; (optional)</param>
