@@ -34,9 +34,10 @@ namespace ScrapeBadger.Api
         /// Full listing — description, attributes, images, seller, similar listings.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listingId">Gumtree listing id — the number at the end of a gumtree.com/p/... URL</param>
+        /// <param name="listingId">Gumtree listing id — the number at the end of the listing URL (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>Object</returns>
-        Object GumtreeGetListing(string listingId);
+        Object GumtreeGetListing(string listingId, string market = default(string));
 
         /// <summary>
         /// Get listing
@@ -45,34 +46,39 @@ namespace ScrapeBadger.Api
         /// Full listing — description, attributes, images, seller, similar listings.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listingId">Gumtree listing id — the number at the end of a gumtree.com/p/... URL</param>
+        /// <param name="listingId">Gumtree listing id — the number at the end of the listing URL (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> GumtreeGetListingWithHttpInfo(string listingId);
+        ApiResponse<Object> GumtreeGetListingWithHttpInfo(string listingId, string market = default(string));
         /// <summary>
         /// Get search filters
         /// </summary>
         /// <remarks>
-        /// Filters, sort orders and radius options for a category, with live counts.
+        /// Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;. au bills 2x (browser render).
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="category">Category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
-        /// <param name="location">Location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). Default &#39;uk&#39;. (optional, default to &quot;uk&quot;)</param>
-        /// <param name="query"> (optional)</param>
+        /// <param name="category">uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
+        /// <param name="location">uk: location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). au/za: numeric location id, e.g. &#39;3003435&#39; (au Sydney) or &#39;3100003&#39; (za Gauteng). Use /locations/autocomplete to resolve one. Default: the whole country. (optional)</param>
+        /// <param name="query">Optional keywords to scope the counts (optional)</param>
+        /// <param name="filters">za only: filters already applied (e.g. &#39;ma:toyota&#39; to list Toyota models) (optional)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>Object</returns>
-        Object GumtreeGetSearchFilters(string category = default(string), string location = default(string), string query = default(string));
+        Object GumtreeGetSearchFilters(string category = default(string), string location = default(string), string query = default(string), string filters = default(string), string market = default(string));
 
         /// <summary>
         /// Get search filters
         /// </summary>
         /// <remarks>
-        /// Filters, sort orders and radius options for a category, with live counts.
+        /// Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;. au bills 2x (browser render).
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="category">Category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
-        /// <param name="location">Location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). Default &#39;uk&#39;. (optional, default to &quot;uk&quot;)</param>
-        /// <param name="query"> (optional)</param>
+        /// <param name="category">uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
+        /// <param name="location">uk: location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). au/za: numeric location id, e.g. &#39;3003435&#39; (au Sydney) or &#39;3100003&#39; (za Gauteng). Use /locations/autocomplete to resolve one. Default: the whole country. (optional)</param>
+        /// <param name="query">Optional keywords to scope the counts (optional)</param>
+        /// <param name="filters">za only: filters already applied (e.g. &#39;ma:toyota&#39; to list Toyota models) (optional)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> GumtreeGetSearchFiltersWithHttpInfo(string category = default(string), string location = default(string), string query = default(string));
+        ApiResponse<Object> GumtreeGetSearchFiltersWithHttpInfo(string category = default(string), string location = default(string), string query = default(string), string filters = default(string), string market = default(string));
         /// <summary>
         /// Get seller listings
         /// </summary>
@@ -80,10 +86,11 @@ namespace ScrapeBadger.Api
         /// Every live listing by the seller of the given listing.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listingId">Gumtree listing id — the number at the end of a gumtree.com/p/... URL</param>
+        /// <param name="listingId">Gumtree listing id — the number at the end of the listing URL (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one)</param>
         /// <param name="page"> (optional, default to 1)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>Object</returns>
-        Object GumtreeGetSellerListings(string listingId, int? page = default(int?));
+        Object GumtreeGetSellerListings(string listingId, int? page = default(int?), string market = default(string));
 
         /// <summary>
         /// Get seller listings
@@ -92,10 +99,11 @@ namespace ScrapeBadger.Api
         /// Every live listing by the seller of the given listing.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listingId">Gumtree listing id — the number at the end of a gumtree.com/p/... URL</param>
+        /// <param name="listingId">Gumtree listing id — the number at the end of the listing URL (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one)</param>
         /// <param name="page"> (optional, default to 1)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> GumtreeGetSellerListingsWithHttpInfo(string listingId, int? page = default(int?));
+        ApiResponse<Object> GumtreeGetSellerListingsWithHttpInfo(string listingId, int? page = default(int?), string market = default(string));
         /// <summary>
         /// Gumtree scraper health check
         /// </summary>
@@ -138,108 +146,135 @@ namespace ScrapeBadger.Api
         /// List categories
         /// </summary>
         /// <remarks>
-        /// Browse Gumtree&#39;s category tree. A node&#39;s &#x60;slug&#x60; is the &#x60;/search&#x60; category.
+        /// Browse Gumtree&#39;s category tree.  A node&#39;s &#x60;slug&#x60; (uk) or &#x60;id&#x60; (au/za) is the &#x60;/search&#x60; category.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parentId">Parent category id (default: all) (optional, default to 1)</param>
+        /// <param name="parentId">Category id to list the children of (default: all) (optional)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>Object</returns>
-        Object GumtreeListCategories(int? parentId = default(int?));
+        Object GumtreeListCategories(int? parentId = default(int?), string market = default(string));
 
         /// <summary>
         /// List categories
         /// </summary>
         /// <remarks>
-        /// Browse Gumtree&#39;s category tree. A node&#39;s &#x60;slug&#x60; is the &#x60;/search&#x60; category.
+        /// Browse Gumtree&#39;s category tree.  A node&#39;s &#x60;slug&#x60; (uk) or &#x60;id&#x60; (au/za) is the &#x60;/search&#x60; category.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parentId">Parent category id (default: all) (optional, default to 1)</param>
+        /// <param name="parentId">Category id to list the children of (default: all) (optional)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> GumtreeListCategoriesWithHttpInfo(int? parentId = default(int?));
+        ApiResponse<Object> GumtreeListCategoriesWithHttpInfo(int? parentId = default(int?), string market = default(string));
         /// <summary>
         /// List locations
         /// </summary>
         /// <remarks>
-        /// Browse Gumtree&#39;s location tree.
+        /// Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count (browser render, bills 5x). za: provinces -&gt; towns.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parentId">Parent location id (default: UK) (optional, default to 10000392)</param>
+        /// <param name="parentId">Location id to list the children of (default: the whole country) (optional)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>Object</returns>
-        Object GumtreeListLocations(int? parentId = default(int?));
+        Object GumtreeListLocations(int? parentId = default(int?), string market = default(string));
 
         /// <summary>
         /// List locations
         /// </summary>
         /// <remarks>
-        /// Browse Gumtree&#39;s location tree.
+        /// Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count (browser render, bills 5x). za: provinces -&gt; towns.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parentId">Parent location id (default: UK) (optional, default to 10000392)</param>
+        /// <param name="parentId">Location id to list the children of (default: the whole country) (optional)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> GumtreeListLocationsWithHttpInfo(int? parentId = default(int?));
+        ApiResponse<Object> GumtreeListLocationsWithHttpInfo(int? parentId = default(int?), string market = default(string));
+        /// <summary>
+        /// List markets
+        /// </summary>
+        /// <remarks>
+        /// The Gumtree sites this API covers (uk, au, za) with currency and id formats.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Object</returns>
+        Object GumtreeListMarkets();
+
+        /// <summary>
+        /// List markets
+        /// </summary>
+        /// <remarks>
+        /// The Gumtree sites this API covers (uk, au, za) with currency and id formats.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Object</returns>
+        ApiResponse<Object> GumtreeListMarketsWithHttpInfo();
         /// <summary>
         /// Location suggestions
         /// </summary>
         /// <remarks>
-        /// Resolve a place name or postcode to Gumtree locations with coordinates.
+        /// Resolve a place name or postcode to Gumtree location ids (uk: with coordinates).  The &#x60;id&#x60; (au/za) or &#x60;name&#x60; (uk) is what &#x60;/search&#x60; takes as &#x60;location&#x60;.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">Town or postcode prefix, e.g. &#39;manch&#39;</param>
+        /// <param name="query">Town, area or postcode prefix, e.g. &#39;manch&#39; or &#39;SW1A&#39;</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>Object</returns>
-        Object GumtreeLocationSuggestions(string query);
+        Object GumtreeLocationSuggestions(string query, string market = default(string));
 
         /// <summary>
         /// Location suggestions
         /// </summary>
         /// <remarks>
-        /// Resolve a place name or postcode to Gumtree locations with coordinates.
+        /// Resolve a place name or postcode to Gumtree location ids (uk: with coordinates).  The &#x60;id&#x60; (au/za) or &#x60;name&#x60; (uk) is what &#x60;/search&#x60; takes as &#x60;location&#x60;.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">Town or postcode prefix, e.g. &#39;manch&#39;</param>
+        /// <param name="query">Town, area or postcode prefix, e.g. &#39;manch&#39; or &#39;SW1A&#39;</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> GumtreeLocationSuggestionsWithHttpInfo(string query);
+        ApiResponse<Object> GumtreeLocationSuggestionsWithHttpInfo(string query, string market = default(string));
         /// <summary>
         /// Search listings
         /// </summary>
         /// <remarks>
-        /// Search gumtree.com listings. ~25-30 per page, up to 50 pages.
+        /// Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20. An au search runs a real browser (~10-20 s) and bills 2x.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;mountain bike&#39; (optional)</param>
-        /// <param name="category">Category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
-        /// <param name="location">Location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). Default &#39;uk&#39;. (optional, default to &quot;uk&quot;)</param>
-        /// <param name="distance">Radius in miles (optional)</param>
-        /// <param name="minPrice">GBP; needs a category (optional)</param>
-        /// <param name="maxPrice">GBP; needs a category (optional)</param>
-        /// <param name="sort"> (optional)</param>
-        /// <param name="sellerType"> (optional)</param>
-        /// <param name="urgentOnly"> (optional, default to false)</param>
-        /// <param name="withPhotos"> (optional, default to false)</param>
-        /// <param name="filters">Category filters as key:value pairs, e.g. &#39;vehicle_make:bmw,vehicle_fuel_type:petrol&#39; (optional)</param>
+        /// <param name="category">uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
+        /// <param name="location">uk: location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). au/za: numeric location id, e.g. &#39;3003435&#39; (au Sydney) or &#39;3100003&#39; (za Gauteng). Use /locations/autocomplete to resolve one. Default: the whole country. (optional)</param>
+        /// <param name="distance">Radius around &#x60;location&#x60;: miles (uk) or km (au). Not offered by za. (optional)</param>
+        /// <param name="minPrice">Minimum price in the market&#39;s currency (uk: needs a category, not &#39;all&#39;) (optional)</param>
+        /// <param name="maxPrice">Maximum price in the market&#39;s currency (uk: needs a category, not &#39;all&#39;) (optional)</param>
+        /// <param name="sort">Result ordering (default relevance). &#39;distance&#39; needs uk, or au with a location. (optional)</param>
+        /// <param name="sellerType">uk/za: &#39;trade&#39; covers dealers, agencies and recruiters. au: not supported — use a category filter such as &#39;cars.forsaleby_s:ownr&#39;. (optional)</param>
+        /// <param name="urgentOnly">uk only: only ads marked urgent (optional, default to false)</param>
+        /// <param name="withPhotos">uk only: only ads with photos (optional, default to false)</param>
+        /// <param name="filters">Category-specific filters as comma-separated key:value pairs, e.g. &#39;vehicle_make:bmw,vehicle_fuel_type:petrol,min_vehicle_mileage:10000&#39; (uk), &#39;cars.carmake_s:toyota,cars.forsaleby_s:ownr&#39; (au) or &#39;ma:toyota,fu:petrol,max_km:100000&#39; (za). Range filters take min_&lt;key&gt;/max_&lt;key&gt;. Discover keys and values with /search/filters for the same market. (optional)</param>
         /// <param name="page"> (optional, default to 1)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>Object</returns>
-        Object GumtreeSearchListings(string query = default(string), string category = default(string), string location = default(string), decimal? distance = default(decimal?), int? minPrice = default(int?), int? maxPrice = default(int?), string sort = default(string), string sellerType = default(string), bool? urgentOnly = default(bool?), bool? withPhotos = default(bool?), string filters = default(string), int? page = default(int?));
+        Object GumtreeSearchListings(string query = default(string), string category = default(string), string location = default(string), decimal? distance = default(decimal?), int? minPrice = default(int?), int? maxPrice = default(int?), string sort = default(string), string sellerType = default(string), bool? urgentOnly = default(bool?), bool? withPhotos = default(bool?), string filters = default(string), int? page = default(int?), string market = default(string));
 
         /// <summary>
         /// Search listings
         /// </summary>
         /// <remarks>
-        /// Search gumtree.com listings. ~25-30 per page, up to 50 pages.
+        /// Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20. An au search runs a real browser (~10-20 s) and bills 2x.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;mountain bike&#39; (optional)</param>
-        /// <param name="category">Category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
-        /// <param name="location">Location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). Default &#39;uk&#39;. (optional, default to &quot;uk&quot;)</param>
-        /// <param name="distance">Radius in miles (optional)</param>
-        /// <param name="minPrice">GBP; needs a category (optional)</param>
-        /// <param name="maxPrice">GBP; needs a category (optional)</param>
-        /// <param name="sort"> (optional)</param>
-        /// <param name="sellerType"> (optional)</param>
-        /// <param name="urgentOnly"> (optional, default to false)</param>
-        /// <param name="withPhotos"> (optional, default to false)</param>
-        /// <param name="filters">Category filters as key:value pairs, e.g. &#39;vehicle_make:bmw,vehicle_fuel_type:petrol&#39; (optional)</param>
+        /// <param name="category">uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
+        /// <param name="location">uk: location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). au/za: numeric location id, e.g. &#39;3003435&#39; (au Sydney) or &#39;3100003&#39; (za Gauteng). Use /locations/autocomplete to resolve one. Default: the whole country. (optional)</param>
+        /// <param name="distance">Radius around &#x60;location&#x60;: miles (uk) or km (au). Not offered by za. (optional)</param>
+        /// <param name="minPrice">Minimum price in the market&#39;s currency (uk: needs a category, not &#39;all&#39;) (optional)</param>
+        /// <param name="maxPrice">Maximum price in the market&#39;s currency (uk: needs a category, not &#39;all&#39;) (optional)</param>
+        /// <param name="sort">Result ordering (default relevance). &#39;distance&#39; needs uk, or au with a location. (optional)</param>
+        /// <param name="sellerType">uk/za: &#39;trade&#39; covers dealers, agencies and recruiters. au: not supported — use a category filter such as &#39;cars.forsaleby_s:ownr&#39;. (optional)</param>
+        /// <param name="urgentOnly">uk only: only ads marked urgent (optional, default to false)</param>
+        /// <param name="withPhotos">uk only: only ads with photos (optional, default to false)</param>
+        /// <param name="filters">Category-specific filters as comma-separated key:value pairs, e.g. &#39;vehicle_make:bmw,vehicle_fuel_type:petrol,min_vehicle_mileage:10000&#39; (uk), &#39;cars.carmake_s:toyota,cars.forsaleby_s:ownr&#39; (au) or &#39;ma:toyota,fu:petrol,max_km:100000&#39; (za). Range filters take min_&lt;key&gt;/max_&lt;key&gt;. Discover keys and values with /search/filters for the same market. (optional)</param>
         /// <param name="page"> (optional, default to 1)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> GumtreeSearchListingsWithHttpInfo(string query = default(string), string category = default(string), string location = default(string), decimal? distance = default(decimal?), int? minPrice = default(int?), int? maxPrice = default(int?), string sort = default(string), string sellerType = default(string), bool? urgentOnly = default(bool?), bool? withPhotos = default(bool?), string filters = default(string), int? page = default(int?));
+        ApiResponse<Object> GumtreeSearchListingsWithHttpInfo(string query = default(string), string category = default(string), string location = default(string), decimal? distance = default(decimal?), int? minPrice = default(int?), int? maxPrice = default(int?), string sort = default(string), string sellerType = default(string), bool? urgentOnly = default(bool?), bool? withPhotos = default(bool?), string filters = default(string), int? page = default(int?), string market = default(string));
         /// <summary>
         /// Search suggestions
         /// </summary>
@@ -248,8 +283,9 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Partial search term, e.g. &#39;iph&#39;</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>Object</returns>
-        Object GumtreeSearchSuggestions(string query);
+        Object GumtreeSearchSuggestions(string query, string market = default(string));
 
         /// <summary>
         /// Search suggestions
@@ -259,8 +295,9 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Partial search term, e.g. &#39;iph&#39;</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> GumtreeSearchSuggestionsWithHttpInfo(string query);
+        ApiResponse<Object> GumtreeSearchSuggestionsWithHttpInfo(string query, string market = default(string));
         #endregion Synchronous Operations
     }
 
@@ -277,10 +314,11 @@ namespace ScrapeBadger.Api
         /// Full listing — description, attributes, images, seller, similar listings.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listingId">Gumtree listing id — the number at the end of a gumtree.com/p/... URL</param>
+        /// <param name="listingId">Gumtree listing id — the number at the end of the listing URL (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> GumtreeGetListingAsync(string listingId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> GumtreeGetListingAsync(string listingId, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get listing
@@ -289,37 +327,42 @@ namespace ScrapeBadger.Api
         /// Full listing — description, attributes, images, seller, similar listings.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listingId">Gumtree listing id — the number at the end of a gumtree.com/p/... URL</param>
+        /// <param name="listingId">Gumtree listing id — the number at the end of the listing URL (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GumtreeGetListingWithHttpInfoAsync(string listingId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> GumtreeGetListingWithHttpInfoAsync(string listingId, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get search filters
         /// </summary>
         /// <remarks>
-        /// Filters, sort orders and radius options for a category, with live counts.
+        /// Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;. au bills 2x (browser render).
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="category">Category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
-        /// <param name="location">Location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). Default &#39;uk&#39;. (optional, default to &quot;uk&quot;)</param>
-        /// <param name="query"> (optional)</param>
+        /// <param name="category">uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
+        /// <param name="location">uk: location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). au/za: numeric location id, e.g. &#39;3003435&#39; (au Sydney) or &#39;3100003&#39; (za Gauteng). Use /locations/autocomplete to resolve one. Default: the whole country. (optional)</param>
+        /// <param name="query">Optional keywords to scope the counts (optional)</param>
+        /// <param name="filters">za only: filters already applied (e.g. &#39;ma:toyota&#39; to list Toyota models) (optional)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> GumtreeGetSearchFiltersAsync(string category = default(string), string location = default(string), string query = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> GumtreeGetSearchFiltersAsync(string category = default(string), string location = default(string), string query = default(string), string filters = default(string), string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get search filters
         /// </summary>
         /// <remarks>
-        /// Filters, sort orders and radius options for a category, with live counts.
+        /// Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;. au bills 2x (browser render).
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="category">Category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
-        /// <param name="location">Location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). Default &#39;uk&#39;. (optional, default to &quot;uk&quot;)</param>
-        /// <param name="query"> (optional)</param>
+        /// <param name="category">uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
+        /// <param name="location">uk: location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). au/za: numeric location id, e.g. &#39;3003435&#39; (au Sydney) or &#39;3100003&#39; (za Gauteng). Use /locations/autocomplete to resolve one. Default: the whole country. (optional)</param>
+        /// <param name="query">Optional keywords to scope the counts (optional)</param>
+        /// <param name="filters">za only: filters already applied (e.g. &#39;ma:toyota&#39; to list Toyota models) (optional)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GumtreeGetSearchFiltersWithHttpInfoAsync(string category = default(string), string location = default(string), string query = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> GumtreeGetSearchFiltersWithHttpInfoAsync(string category = default(string), string location = default(string), string query = default(string), string filters = default(string), string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get seller listings
         /// </summary>
@@ -327,11 +370,12 @@ namespace ScrapeBadger.Api
         /// Every live listing by the seller of the given listing.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listingId">Gumtree listing id — the number at the end of a gumtree.com/p/... URL</param>
+        /// <param name="listingId">Gumtree listing id — the number at the end of the listing URL (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one)</param>
         /// <param name="page"> (optional, default to 1)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> GumtreeGetSellerListingsAsync(string listingId, int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> GumtreeGetSellerListingsAsync(string listingId, int? page = default(int?), string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Get seller listings
@@ -340,11 +384,12 @@ namespace ScrapeBadger.Api
         /// Every live listing by the seller of the given listing.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listingId">Gumtree listing id — the number at the end of a gumtree.com/p/... URL</param>
+        /// <param name="listingId">Gumtree listing id — the number at the end of the listing URL (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one)</param>
         /// <param name="page"> (optional, default to 1)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GumtreeGetSellerListingsWithHttpInfoAsync(string listingId, int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> GumtreeGetSellerListingsWithHttpInfoAsync(string listingId, int? page = default(int?), string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Gumtree scraper health check
         /// </summary>
@@ -391,116 +436,145 @@ namespace ScrapeBadger.Api
         /// List categories
         /// </summary>
         /// <remarks>
-        /// Browse Gumtree&#39;s category tree. A node&#39;s &#x60;slug&#x60; is the &#x60;/search&#x60; category.
+        /// Browse Gumtree&#39;s category tree.  A node&#39;s &#x60;slug&#x60; (uk) or &#x60;id&#x60; (au/za) is the &#x60;/search&#x60; category.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parentId">Parent category id (default: all) (optional, default to 1)</param>
+        /// <param name="parentId">Category id to list the children of (default: all) (optional)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> GumtreeListCategoriesAsync(int? parentId = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> GumtreeListCategoriesAsync(int? parentId = default(int?), string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List categories
         /// </summary>
         /// <remarks>
-        /// Browse Gumtree&#39;s category tree. A node&#39;s &#x60;slug&#x60; is the &#x60;/search&#x60; category.
+        /// Browse Gumtree&#39;s category tree.  A node&#39;s &#x60;slug&#x60; (uk) or &#x60;id&#x60; (au/za) is the &#x60;/search&#x60; category.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parentId">Parent category id (default: all) (optional, default to 1)</param>
+        /// <param name="parentId">Category id to list the children of (default: all) (optional)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GumtreeListCategoriesWithHttpInfoAsync(int? parentId = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> GumtreeListCategoriesWithHttpInfoAsync(int? parentId = default(int?), string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List locations
         /// </summary>
         /// <remarks>
-        /// Browse Gumtree&#39;s location tree.
+        /// Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count (browser render, bills 5x). za: provinces -&gt; towns.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parentId">Parent location id (default: UK) (optional, default to 10000392)</param>
+        /// <param name="parentId">Location id to list the children of (default: the whole country) (optional)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> GumtreeListLocationsAsync(int? parentId = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> GumtreeListLocationsAsync(int? parentId = default(int?), string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List locations
         /// </summary>
         /// <remarks>
-        /// Browse Gumtree&#39;s location tree.
+        /// Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count (browser render, bills 5x). za: provinces -&gt; towns.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parentId">Parent location id (default: UK) (optional, default to 10000392)</param>
+        /// <param name="parentId">Location id to list the children of (default: the whole country) (optional)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GumtreeListLocationsWithHttpInfoAsync(int? parentId = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> GumtreeListLocationsWithHttpInfoAsync(int? parentId = default(int?), string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// List markets
+        /// </summary>
+        /// <remarks>
+        /// The Gumtree sites this API covers (uk, au, za) with currency and id formats.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        System.Threading.Tasks.Task<Object> GumtreeListMarketsAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// List markets
+        /// </summary>
+        /// <remarks>
+        /// The Gumtree sites this API covers (uk, au, za) with currency and id formats.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> GumtreeListMarketsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Location suggestions
         /// </summary>
         /// <remarks>
-        /// Resolve a place name or postcode to Gumtree locations with coordinates.
+        /// Resolve a place name or postcode to Gumtree location ids (uk: with coordinates).  The &#x60;id&#x60; (au/za) or &#x60;name&#x60; (uk) is what &#x60;/search&#x60; takes as &#x60;location&#x60;.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">Town or postcode prefix, e.g. &#39;manch&#39;</param>
+        /// <param name="query">Town, area or postcode prefix, e.g. &#39;manch&#39; or &#39;SW1A&#39;</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> GumtreeLocationSuggestionsAsync(string query, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> GumtreeLocationSuggestionsAsync(string query, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Location suggestions
         /// </summary>
         /// <remarks>
-        /// Resolve a place name or postcode to Gumtree locations with coordinates.
+        /// Resolve a place name or postcode to Gumtree location ids (uk: with coordinates).  The &#x60;id&#x60; (au/za) or &#x60;name&#x60; (uk) is what &#x60;/search&#x60; takes as &#x60;location&#x60;.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">Town or postcode prefix, e.g. &#39;manch&#39;</param>
+        /// <param name="query">Town, area or postcode prefix, e.g. &#39;manch&#39; or &#39;SW1A&#39;</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GumtreeLocationSuggestionsWithHttpInfoAsync(string query, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> GumtreeLocationSuggestionsWithHttpInfoAsync(string query, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Search listings
         /// </summary>
         /// <remarks>
-        /// Search gumtree.com listings. ~25-30 per page, up to 50 pages.
+        /// Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20. An au search runs a real browser (~10-20 s) and bills 2x.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;mountain bike&#39; (optional)</param>
-        /// <param name="category">Category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
-        /// <param name="location">Location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). Default &#39;uk&#39;. (optional, default to &quot;uk&quot;)</param>
-        /// <param name="distance">Radius in miles (optional)</param>
-        /// <param name="minPrice">GBP; needs a category (optional)</param>
-        /// <param name="maxPrice">GBP; needs a category (optional)</param>
-        /// <param name="sort"> (optional)</param>
-        /// <param name="sellerType"> (optional)</param>
-        /// <param name="urgentOnly"> (optional, default to false)</param>
-        /// <param name="withPhotos"> (optional, default to false)</param>
-        /// <param name="filters">Category filters as key:value pairs, e.g. &#39;vehicle_make:bmw,vehicle_fuel_type:petrol&#39; (optional)</param>
+        /// <param name="category">uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
+        /// <param name="location">uk: location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). au/za: numeric location id, e.g. &#39;3003435&#39; (au Sydney) or &#39;3100003&#39; (za Gauteng). Use /locations/autocomplete to resolve one. Default: the whole country. (optional)</param>
+        /// <param name="distance">Radius around &#x60;location&#x60;: miles (uk) or km (au). Not offered by za. (optional)</param>
+        /// <param name="minPrice">Minimum price in the market&#39;s currency (uk: needs a category, not &#39;all&#39;) (optional)</param>
+        /// <param name="maxPrice">Maximum price in the market&#39;s currency (uk: needs a category, not &#39;all&#39;) (optional)</param>
+        /// <param name="sort">Result ordering (default relevance). &#39;distance&#39; needs uk, or au with a location. (optional)</param>
+        /// <param name="sellerType">uk/za: &#39;trade&#39; covers dealers, agencies and recruiters. au: not supported — use a category filter such as &#39;cars.forsaleby_s:ownr&#39;. (optional)</param>
+        /// <param name="urgentOnly">uk only: only ads marked urgent (optional, default to false)</param>
+        /// <param name="withPhotos">uk only: only ads with photos (optional, default to false)</param>
+        /// <param name="filters">Category-specific filters as comma-separated key:value pairs, e.g. &#39;vehicle_make:bmw,vehicle_fuel_type:petrol,min_vehicle_mileage:10000&#39; (uk), &#39;cars.carmake_s:toyota,cars.forsaleby_s:ownr&#39; (au) or &#39;ma:toyota,fu:petrol,max_km:100000&#39; (za). Range filters take min_&lt;key&gt;/max_&lt;key&gt;. Discover keys and values with /search/filters for the same market. (optional)</param>
         /// <param name="page"> (optional, default to 1)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> GumtreeSearchListingsAsync(string query = default(string), string category = default(string), string location = default(string), decimal? distance = default(decimal?), int? minPrice = default(int?), int? maxPrice = default(int?), string sort = default(string), string sellerType = default(string), bool? urgentOnly = default(bool?), bool? withPhotos = default(bool?), string filters = default(string), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> GumtreeSearchListingsAsync(string query = default(string), string category = default(string), string location = default(string), decimal? distance = default(decimal?), int? minPrice = default(int?), int? maxPrice = default(int?), string sort = default(string), string sellerType = default(string), bool? urgentOnly = default(bool?), bool? withPhotos = default(bool?), string filters = default(string), int? page = default(int?), string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Search listings
         /// </summary>
         /// <remarks>
-        /// Search gumtree.com listings. ~25-30 per page, up to 50 pages.
+        /// Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20. An au search runs a real browser (~10-20 s) and bills 2x.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;mountain bike&#39; (optional)</param>
-        /// <param name="category">Category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
-        /// <param name="location">Location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). Default &#39;uk&#39;. (optional, default to &quot;uk&quot;)</param>
-        /// <param name="distance">Radius in miles (optional)</param>
-        /// <param name="minPrice">GBP; needs a category (optional)</param>
-        /// <param name="maxPrice">GBP; needs a category (optional)</param>
-        /// <param name="sort"> (optional)</param>
-        /// <param name="sellerType"> (optional)</param>
-        /// <param name="urgentOnly"> (optional, default to false)</param>
-        /// <param name="withPhotos"> (optional, default to false)</param>
-        /// <param name="filters">Category filters as key:value pairs, e.g. &#39;vehicle_make:bmw,vehicle_fuel_type:petrol&#39; (optional)</param>
+        /// <param name="category">uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
+        /// <param name="location">uk: location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). au/za: numeric location id, e.g. &#39;3003435&#39; (au Sydney) or &#39;3100003&#39; (za Gauteng). Use /locations/autocomplete to resolve one. Default: the whole country. (optional)</param>
+        /// <param name="distance">Radius around &#x60;location&#x60;: miles (uk) or km (au). Not offered by za. (optional)</param>
+        /// <param name="minPrice">Minimum price in the market&#39;s currency (uk: needs a category, not &#39;all&#39;) (optional)</param>
+        /// <param name="maxPrice">Maximum price in the market&#39;s currency (uk: needs a category, not &#39;all&#39;) (optional)</param>
+        /// <param name="sort">Result ordering (default relevance). &#39;distance&#39; needs uk, or au with a location. (optional)</param>
+        /// <param name="sellerType">uk/za: &#39;trade&#39; covers dealers, agencies and recruiters. au: not supported — use a category filter such as &#39;cars.forsaleby_s:ownr&#39;. (optional)</param>
+        /// <param name="urgentOnly">uk only: only ads marked urgent (optional, default to false)</param>
+        /// <param name="withPhotos">uk only: only ads with photos (optional, default to false)</param>
+        /// <param name="filters">Category-specific filters as comma-separated key:value pairs, e.g. &#39;vehicle_make:bmw,vehicle_fuel_type:petrol,min_vehicle_mileage:10000&#39; (uk), &#39;cars.carmake_s:toyota,cars.forsaleby_s:ownr&#39; (au) or &#39;ma:toyota,fu:petrol,max_km:100000&#39; (za). Range filters take min_&lt;key&gt;/max_&lt;key&gt;. Discover keys and values with /search/filters for the same market. (optional)</param>
         /// <param name="page"> (optional, default to 1)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GumtreeSearchListingsWithHttpInfoAsync(string query = default(string), string category = default(string), string location = default(string), decimal? distance = default(decimal?), int? minPrice = default(int?), int? maxPrice = default(int?), string sort = default(string), string sellerType = default(string), bool? urgentOnly = default(bool?), bool? withPhotos = default(bool?), string filters = default(string), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> GumtreeSearchListingsWithHttpInfoAsync(string query = default(string), string category = default(string), string location = default(string), decimal? distance = default(decimal?), int? minPrice = default(int?), int? maxPrice = default(int?), string sort = default(string), string sellerType = default(string), bool? urgentOnly = default(bool?), bool? withPhotos = default(bool?), string filters = default(string), int? page = default(int?), string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Search suggestions
         /// </summary>
@@ -509,9 +583,10 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Partial search term, e.g. &#39;iph&#39;</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> GumtreeSearchSuggestionsAsync(string query, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> GumtreeSearchSuggestionsAsync(string query, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Search suggestions
@@ -521,9 +596,10 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Partial search term, e.g. &#39;iph&#39;</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GumtreeSearchSuggestionsWithHttpInfoAsync(string query, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> GumtreeSearchSuggestionsWithHttpInfoAsync(string query, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -741,11 +817,12 @@ namespace ScrapeBadger.Api
         /// Get listing Full listing — description, attributes, images, seller, similar listings.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listingId">Gumtree listing id — the number at the end of a gumtree.com/p/... URL</param>
+        /// <param name="listingId">Gumtree listing id — the number at the end of the listing URL (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>Object</returns>
-        public Object GumtreeGetListing(string listingId)
+        public Object GumtreeGetListing(string listingId, string market = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GumtreeGetListingWithHttpInfo(listingId);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GumtreeGetListingWithHttpInfo(listingId, market);
             return localVarResponse.Data;
         }
 
@@ -753,9 +830,10 @@ namespace ScrapeBadger.Api
         /// Get listing Full listing — description, attributes, images, seller, similar listings.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listingId">Gumtree listing id — the number at the end of a gumtree.com/p/... URL</param>
+        /// <param name="listingId">Gumtree listing id — the number at the end of the listing URL (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> GumtreeGetListingWithHttpInfo(string listingId)
+        public ScrapeBadger.Client.ApiResponse<Object> GumtreeGetListingWithHttpInfo(string listingId, string market = default(string))
         {
             // verify the required parameter 'listingId' is set
             if (listingId == null)
@@ -778,6 +856,10 @@ namespace ScrapeBadger.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("listing_id", ScrapeBadger.Client.ClientUtils.ParameterToString(listingId)); // path parameter
+            if (market != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "market", market));
+            }
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
@@ -801,12 +883,13 @@ namespace ScrapeBadger.Api
         /// Get listing Full listing — description, attributes, images, seller, similar listings.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listingId">Gumtree listing id — the number at the end of a gumtree.com/p/... URL</param>
+        /// <param name="listingId">Gumtree listing id — the number at the end of the listing URL (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> GumtreeGetListingAsync(string listingId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> GumtreeGetListingAsync(string listingId, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GumtreeGetListingWithHttpInfoAsync(listingId, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GumtreeGetListingWithHttpInfoAsync(listingId, market, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -814,10 +897,11 @@ namespace ScrapeBadger.Api
         /// Get listing Full listing — description, attributes, images, seller, similar listings.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listingId">Gumtree listing id — the number at the end of a gumtree.com/p/... URL</param>
+        /// <param name="listingId">Gumtree listing id — the number at the end of the listing URL (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GumtreeGetListingWithHttpInfoAsync(string listingId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GumtreeGetListingWithHttpInfoAsync(string listingId, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'listingId' is set
             if (listingId == null)
@@ -842,6 +926,10 @@ namespace ScrapeBadger.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("listing_id", ScrapeBadger.Client.ClientUtils.ParameterToString(listingId)); // path parameter
+            if (market != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "market", market));
+            }
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
@@ -863,28 +951,32 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get search filters Filters, sort orders and radius options for a category, with live counts.
+        /// Get search filters Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;. au bills 2x (browser render).
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="category">Category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
-        /// <param name="location">Location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). Default &#39;uk&#39;. (optional, default to &quot;uk&quot;)</param>
-        /// <param name="query"> (optional)</param>
+        /// <param name="category">uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
+        /// <param name="location">uk: location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). au/za: numeric location id, e.g. &#39;3003435&#39; (au Sydney) or &#39;3100003&#39; (za Gauteng). Use /locations/autocomplete to resolve one. Default: the whole country. (optional)</param>
+        /// <param name="query">Optional keywords to scope the counts (optional)</param>
+        /// <param name="filters">za only: filters already applied (e.g. &#39;ma:toyota&#39; to list Toyota models) (optional)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>Object</returns>
-        public Object GumtreeGetSearchFilters(string category = default(string), string location = default(string), string query = default(string))
+        public Object GumtreeGetSearchFilters(string category = default(string), string location = default(string), string query = default(string), string filters = default(string), string market = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GumtreeGetSearchFiltersWithHttpInfo(category, location, query);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GumtreeGetSearchFiltersWithHttpInfo(category, location, query, filters, market);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get search filters Filters, sort orders and radius options for a category, with live counts.
+        /// Get search filters Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;. au bills 2x (browser render).
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="category">Category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
-        /// <param name="location">Location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). Default &#39;uk&#39;. (optional, default to &quot;uk&quot;)</param>
-        /// <param name="query"> (optional)</param>
+        /// <param name="category">uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
+        /// <param name="location">uk: location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). au/za: numeric location id, e.g. &#39;3003435&#39; (au Sydney) or &#39;3100003&#39; (za Gauteng). Use /locations/autocomplete to resolve one. Default: the whole country. (optional)</param>
+        /// <param name="query">Optional keywords to scope the counts (optional)</param>
+        /// <param name="filters">za only: filters already applied (e.g. &#39;ma:toyota&#39; to list Toyota models) (optional)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> GumtreeGetSearchFiltersWithHttpInfo(string category = default(string), string location = default(string), string query = default(string))
+        public ScrapeBadger.Client.ApiResponse<Object> GumtreeGetSearchFiltersWithHttpInfo(string category = default(string), string location = default(string), string query = default(string), string filters = default(string), string market = default(string))
         {
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
 
@@ -913,6 +1005,14 @@ namespace ScrapeBadger.Api
             if (query != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "query", query));
+            }
+            if (filters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "filters", filters));
+            }
+            if (market != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "market", market));
             }
 
             // authentication (ApiKeyAuth) required
@@ -934,30 +1034,34 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get search filters Filters, sort orders and radius options for a category, with live counts.
+        /// Get search filters Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;. au bills 2x (browser render).
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="category">Category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
-        /// <param name="location">Location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). Default &#39;uk&#39;. (optional, default to &quot;uk&quot;)</param>
-        /// <param name="query"> (optional)</param>
+        /// <param name="category">uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
+        /// <param name="location">uk: location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). au/za: numeric location id, e.g. &#39;3003435&#39; (au Sydney) or &#39;3100003&#39; (za Gauteng). Use /locations/autocomplete to resolve one. Default: the whole country. (optional)</param>
+        /// <param name="query">Optional keywords to scope the counts (optional)</param>
+        /// <param name="filters">za only: filters already applied (e.g. &#39;ma:toyota&#39; to list Toyota models) (optional)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> GumtreeGetSearchFiltersAsync(string category = default(string), string location = default(string), string query = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> GumtreeGetSearchFiltersAsync(string category = default(string), string location = default(string), string query = default(string), string filters = default(string), string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GumtreeGetSearchFiltersWithHttpInfoAsync(category, location, query, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GumtreeGetSearchFiltersWithHttpInfoAsync(category, location, query, filters, market, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get search filters Filters, sort orders and radius options for a category, with live counts.
+        /// Get search filters Filters, sort orders and radius options for a category, with live counts.  Feed a &#x60;key&#x60; and a &#x60;value&#x60; back into &#x60;/search&#x60; as &#x60;filters&#x3D;key:value&#x60;. au bills 2x (browser render).
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="category">Category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
-        /// <param name="location">Location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). Default &#39;uk&#39;. (optional, default to &quot;uk&quot;)</param>
-        /// <param name="query"> (optional)</param>
+        /// <param name="category">uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
+        /// <param name="location">uk: location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). au/za: numeric location id, e.g. &#39;3003435&#39; (au Sydney) or &#39;3100003&#39; (za Gauteng). Use /locations/autocomplete to resolve one. Default: the whole country. (optional)</param>
+        /// <param name="query">Optional keywords to scope the counts (optional)</param>
+        /// <param name="filters">za only: filters already applied (e.g. &#39;ma:toyota&#39; to list Toyota models) (optional)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GumtreeGetSearchFiltersWithHttpInfoAsync(string category = default(string), string location = default(string), string query = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GumtreeGetSearchFiltersWithHttpInfoAsync(string category = default(string), string location = default(string), string query = default(string), string filters = default(string), string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
@@ -988,6 +1092,14 @@ namespace ScrapeBadger.Api
             if (query != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "query", query));
+            }
+            if (filters != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "filters", filters));
+            }
+            if (market != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "market", market));
             }
 
             // authentication (ApiKeyAuth) required
@@ -1013,12 +1125,13 @@ namespace ScrapeBadger.Api
         /// Get seller listings Every live listing by the seller of the given listing.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listingId">Gumtree listing id — the number at the end of a gumtree.com/p/... URL</param>
+        /// <param name="listingId">Gumtree listing id — the number at the end of the listing URL (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one)</param>
         /// <param name="page"> (optional, default to 1)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>Object</returns>
-        public Object GumtreeGetSellerListings(string listingId, int? page = default(int?))
+        public Object GumtreeGetSellerListings(string listingId, int? page = default(int?), string market = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GumtreeGetSellerListingsWithHttpInfo(listingId, page);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GumtreeGetSellerListingsWithHttpInfo(listingId, page, market);
             return localVarResponse.Data;
         }
 
@@ -1026,10 +1139,11 @@ namespace ScrapeBadger.Api
         /// Get seller listings Every live listing by the seller of the given listing.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listingId">Gumtree listing id — the number at the end of a gumtree.com/p/... URL</param>
+        /// <param name="listingId">Gumtree listing id — the number at the end of the listing URL (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one)</param>
         /// <param name="page"> (optional, default to 1)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> GumtreeGetSellerListingsWithHttpInfo(string listingId, int? page = default(int?))
+        public ScrapeBadger.Client.ApiResponse<Object> GumtreeGetSellerListingsWithHttpInfo(string listingId, int? page = default(int?), string market = default(string))
         {
             // verify the required parameter 'listingId' is set
             if (listingId == null)
@@ -1055,6 +1169,10 @@ namespace ScrapeBadger.Api
             if (page != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (market != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "market", market));
             }
 
             // authentication (ApiKeyAuth) required
@@ -1079,13 +1197,14 @@ namespace ScrapeBadger.Api
         /// Get seller listings Every live listing by the seller of the given listing.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listingId">Gumtree listing id — the number at the end of a gumtree.com/p/... URL</param>
+        /// <param name="listingId">Gumtree listing id — the number at the end of the listing URL (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one)</param>
         /// <param name="page"> (optional, default to 1)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> GumtreeGetSellerListingsAsync(string listingId, int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> GumtreeGetSellerListingsAsync(string listingId, int? page = default(int?), string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GumtreeGetSellerListingsWithHttpInfoAsync(listingId, page, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GumtreeGetSellerListingsWithHttpInfoAsync(listingId, page, market, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1093,11 +1212,12 @@ namespace ScrapeBadger.Api
         /// Get seller listings Every live listing by the seller of the given listing.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="listingId">Gumtree listing id — the number at the end of a gumtree.com/p/... URL</param>
+        /// <param name="listingId">Gumtree listing id — the number at the end of the listing URL (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one)</param>
         /// <param name="page"> (optional, default to 1)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GumtreeGetSellerListingsWithHttpInfoAsync(string listingId, int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GumtreeGetSellerListingsWithHttpInfoAsync(string listingId, int? page = default(int?), string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'listingId' is set
             if (listingId == null)
@@ -1125,6 +1245,10 @@ namespace ScrapeBadger.Api
             if (page != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (market != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "market", market));
             }
 
             // authentication (ApiKeyAuth) required
@@ -1369,24 +1493,26 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// List categories Browse Gumtree&#39;s category tree. A node&#39;s &#x60;slug&#x60; is the &#x60;/search&#x60; category.
+        /// List categories Browse Gumtree&#39;s category tree.  A node&#39;s &#x60;slug&#x60; (uk) or &#x60;id&#x60; (au/za) is the &#x60;/search&#x60; category.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parentId">Parent category id (default: all) (optional, default to 1)</param>
+        /// <param name="parentId">Category id to list the children of (default: all) (optional)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>Object</returns>
-        public Object GumtreeListCategories(int? parentId = default(int?))
+        public Object GumtreeListCategories(int? parentId = default(int?), string market = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GumtreeListCategoriesWithHttpInfo(parentId);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GumtreeListCategoriesWithHttpInfo(parentId, market);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List categories Browse Gumtree&#39;s category tree. A node&#39;s &#x60;slug&#x60; is the &#x60;/search&#x60; category.
+        /// List categories Browse Gumtree&#39;s category tree.  A node&#39;s &#x60;slug&#x60; (uk) or &#x60;id&#x60; (au/za) is the &#x60;/search&#x60; category.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parentId">Parent category id (default: all) (optional, default to 1)</param>
+        /// <param name="parentId">Category id to list the children of (default: all) (optional)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> GumtreeListCategoriesWithHttpInfo(int? parentId = default(int?))
+        public ScrapeBadger.Client.ApiResponse<Object> GumtreeListCategoriesWithHttpInfo(int? parentId = default(int?), string market = default(string))
         {
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
 
@@ -1407,6 +1533,10 @@ namespace ScrapeBadger.Api
             if (parentId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "parent_id", parentId));
+            }
+            if (market != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "market", market));
             }
 
             // authentication (ApiKeyAuth) required
@@ -1428,26 +1558,28 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// List categories Browse Gumtree&#39;s category tree. A node&#39;s &#x60;slug&#x60; is the &#x60;/search&#x60; category.
+        /// List categories Browse Gumtree&#39;s category tree.  A node&#39;s &#x60;slug&#x60; (uk) or &#x60;id&#x60; (au/za) is the &#x60;/search&#x60; category.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parentId">Parent category id (default: all) (optional, default to 1)</param>
+        /// <param name="parentId">Category id to list the children of (default: all) (optional)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> GumtreeListCategoriesAsync(int? parentId = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> GumtreeListCategoriesAsync(int? parentId = default(int?), string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GumtreeListCategoriesWithHttpInfoAsync(parentId, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GumtreeListCategoriesWithHttpInfoAsync(parentId, market, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List categories Browse Gumtree&#39;s category tree. A node&#39;s &#x60;slug&#x60; is the &#x60;/search&#x60; category.
+        /// List categories Browse Gumtree&#39;s category tree.  A node&#39;s &#x60;slug&#x60; (uk) or &#x60;id&#x60; (au/za) is the &#x60;/search&#x60; category.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parentId">Parent category id (default: all) (optional, default to 1)</param>
+        /// <param name="parentId">Category id to list the children of (default: all) (optional)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GumtreeListCategoriesWithHttpInfoAsync(int? parentId = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GumtreeListCategoriesWithHttpInfoAsync(int? parentId = default(int?), string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
@@ -1470,6 +1602,10 @@ namespace ScrapeBadger.Api
             if (parentId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "parent_id", parentId));
+            }
+            if (market != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "market", market));
             }
 
             // authentication (ApiKeyAuth) required
@@ -1492,24 +1628,26 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// List locations Browse Gumtree&#39;s location tree.
+        /// List locations Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count (browser render, bills 5x). za: provinces -&gt; towns.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parentId">Parent location id (default: UK) (optional, default to 10000392)</param>
+        /// <param name="parentId">Location id to list the children of (default: the whole country) (optional)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>Object</returns>
-        public Object GumtreeListLocations(int? parentId = default(int?))
+        public Object GumtreeListLocations(int? parentId = default(int?), string market = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GumtreeListLocationsWithHttpInfo(parentId);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GumtreeListLocationsWithHttpInfo(parentId, market);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List locations Browse Gumtree&#39;s location tree.
+        /// List locations Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count (browser render, bills 5x). za: provinces -&gt; towns.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parentId">Parent location id (default: UK) (optional, default to 10000392)</param>
+        /// <param name="parentId">Location id to list the children of (default: the whole country) (optional)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> GumtreeListLocationsWithHttpInfo(int? parentId = default(int?))
+        public ScrapeBadger.Client.ApiResponse<Object> GumtreeListLocationsWithHttpInfo(int? parentId = default(int?), string market = default(string))
         {
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
 
@@ -1530,6 +1668,10 @@ namespace ScrapeBadger.Api
             if (parentId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "parent_id", parentId));
+            }
+            if (market != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "market", market));
             }
 
             // authentication (ApiKeyAuth) required
@@ -1551,26 +1693,28 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// List locations Browse Gumtree&#39;s location tree.
+        /// List locations Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count (browser render, bills 5x). za: provinces -&gt; towns.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parentId">Parent location id (default: UK) (optional, default to 10000392)</param>
+        /// <param name="parentId">Location id to list the children of (default: the whole country) (optional)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> GumtreeListLocationsAsync(int? parentId = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> GumtreeListLocationsAsync(int? parentId = default(int?), string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GumtreeListLocationsWithHttpInfoAsync(parentId, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GumtreeListLocationsWithHttpInfoAsync(parentId, market, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// List locations Browse Gumtree&#39;s location tree.
+        /// List locations Browse Gumtree&#39;s location tree.  uk: UK -&gt; nations -&gt; counties -&gt; towns. au: states -&gt; regions -&gt; areas, each with its live ad count (browser render, bills 5x). za: provinces -&gt; towns.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parentId">Parent location id (default: UK) (optional, default to 10000392)</param>
+        /// <param name="parentId">Location id to list the children of (default: the whole country) (optional)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GumtreeListLocationsWithHttpInfoAsync(int? parentId = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GumtreeListLocationsWithHttpInfoAsync(int? parentId = default(int?), string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
@@ -1593,6 +1737,10 @@ namespace ScrapeBadger.Api
             if (parentId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "parent_id", parentId));
+            }
+            if (market != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "market", market));
             }
 
             // authentication (ApiKeyAuth) required
@@ -1615,24 +1763,137 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Location suggestions Resolve a place name or postcode to Gumtree locations with coordinates.
+        /// List markets The Gumtree sites this API covers (uk, au, za) with currency and id formats.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">Town or postcode prefix, e.g. &#39;manch&#39;</param>
         /// <returns>Object</returns>
-        public Object GumtreeLocationSuggestions(string query)
+        public Object GumtreeListMarkets()
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GumtreeLocationSuggestionsWithHttpInfo(query);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GumtreeListMarketsWithHttpInfo();
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Location suggestions Resolve a place name or postcode to Gumtree locations with coordinates.
+        /// List markets The Gumtree sites this API covers (uk, au, za) with currency and id formats.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">Town or postcode prefix, e.g. &#39;manch&#39;</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> GumtreeLocationSuggestionsWithHttpInfo(string query)
+        public ScrapeBadger.Client.ApiResponse<Object> GumtreeListMarketsWithHttpInfo()
+        {
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Object>("/v1/gumtree/markets", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GumtreeListMarkets", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// List markets The Gumtree sites this API covers (uk, au, za) with currency and id formats.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        public async System.Threading.Tasks.Task<Object> GumtreeListMarketsAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GumtreeListMarketsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// List markets The Gumtree sites this API covers (uk, au, za) with currency and id formats.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GumtreeListMarketsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/gumtree/markets", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GumtreeListMarkets", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Location suggestions Resolve a place name or postcode to Gumtree location ids (uk: with coordinates).  The &#x60;id&#x60; (au/za) or &#x60;name&#x60; (uk) is what &#x60;/search&#x60; takes as &#x60;location&#x60;.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">Town, area or postcode prefix, e.g. &#39;manch&#39; or &#39;SW1A&#39;</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
+        /// <returns>Object</returns>
+        public Object GumtreeLocationSuggestions(string query, string market = default(string))
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GumtreeLocationSuggestionsWithHttpInfo(query, market);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Location suggestions Resolve a place name or postcode to Gumtree location ids (uk: with coordinates).  The &#x60;id&#x60; (au/za) or &#x60;name&#x60; (uk) is what &#x60;/search&#x60; takes as &#x60;location&#x60;.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">Town, area or postcode prefix, e.g. &#39;manch&#39; or &#39;SW1A&#39;</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
+        /// <returns>ApiResponse of Object</returns>
+        public ScrapeBadger.Client.ApiResponse<Object> GumtreeLocationSuggestionsWithHttpInfo(string query, string market = default(string))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1655,6 +1916,10 @@ namespace ScrapeBadger.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "query", query));
+            if (market != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "market", market));
+            }
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
@@ -1675,26 +1940,28 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Location suggestions Resolve a place name or postcode to Gumtree locations with coordinates.
+        /// Location suggestions Resolve a place name or postcode to Gumtree location ids (uk: with coordinates).  The &#x60;id&#x60; (au/za) or &#x60;name&#x60; (uk) is what &#x60;/search&#x60; takes as &#x60;location&#x60;.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">Town or postcode prefix, e.g. &#39;manch&#39;</param>
+        /// <param name="query">Town, area or postcode prefix, e.g. &#39;manch&#39; or &#39;SW1A&#39;</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> GumtreeLocationSuggestionsAsync(string query, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> GumtreeLocationSuggestionsAsync(string query, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GumtreeLocationSuggestionsWithHttpInfoAsync(query, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GumtreeLocationSuggestionsWithHttpInfoAsync(query, market, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Location suggestions Resolve a place name or postcode to Gumtree locations with coordinates.
+        /// Location suggestions Resolve a place name or postcode to Gumtree location ids (uk: with coordinates).  The &#x60;id&#x60; (au/za) or &#x60;name&#x60; (uk) is what &#x60;/search&#x60; takes as &#x60;location&#x60;.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="query">Town or postcode prefix, e.g. &#39;manch&#39;</param>
+        /// <param name="query">Town, area or postcode prefix, e.g. &#39;manch&#39; or &#39;SW1A&#39;</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GumtreeLocationSuggestionsWithHttpInfoAsync(string query, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GumtreeLocationSuggestionsWithHttpInfoAsync(string query, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1719,6 +1986,10 @@ namespace ScrapeBadger.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "query", query));
+            if (market != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "market", market));
+            }
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
@@ -1740,46 +2011,48 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search listings Search gumtree.com listings. ~25-30 per page, up to 50 pages.
+        /// Search listings Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20. An au search runs a real browser (~10-20 s) and bills 2x.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;mountain bike&#39; (optional)</param>
-        /// <param name="category">Category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
-        /// <param name="location">Location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). Default &#39;uk&#39;. (optional, default to &quot;uk&quot;)</param>
-        /// <param name="distance">Radius in miles (optional)</param>
-        /// <param name="minPrice">GBP; needs a category (optional)</param>
-        /// <param name="maxPrice">GBP; needs a category (optional)</param>
-        /// <param name="sort"> (optional)</param>
-        /// <param name="sellerType"> (optional)</param>
-        /// <param name="urgentOnly"> (optional, default to false)</param>
-        /// <param name="withPhotos"> (optional, default to false)</param>
-        /// <param name="filters">Category filters as key:value pairs, e.g. &#39;vehicle_make:bmw,vehicle_fuel_type:petrol&#39; (optional)</param>
+        /// <param name="category">uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
+        /// <param name="location">uk: location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). au/za: numeric location id, e.g. &#39;3003435&#39; (au Sydney) or &#39;3100003&#39; (za Gauteng). Use /locations/autocomplete to resolve one. Default: the whole country. (optional)</param>
+        /// <param name="distance">Radius around &#x60;location&#x60;: miles (uk) or km (au). Not offered by za. (optional)</param>
+        /// <param name="minPrice">Minimum price in the market&#39;s currency (uk: needs a category, not &#39;all&#39;) (optional)</param>
+        /// <param name="maxPrice">Maximum price in the market&#39;s currency (uk: needs a category, not &#39;all&#39;) (optional)</param>
+        /// <param name="sort">Result ordering (default relevance). &#39;distance&#39; needs uk, or au with a location. (optional)</param>
+        /// <param name="sellerType">uk/za: &#39;trade&#39; covers dealers, agencies and recruiters. au: not supported — use a category filter such as &#39;cars.forsaleby_s:ownr&#39;. (optional)</param>
+        /// <param name="urgentOnly">uk only: only ads marked urgent (optional, default to false)</param>
+        /// <param name="withPhotos">uk only: only ads with photos (optional, default to false)</param>
+        /// <param name="filters">Category-specific filters as comma-separated key:value pairs, e.g. &#39;vehicle_make:bmw,vehicle_fuel_type:petrol,min_vehicle_mileage:10000&#39; (uk), &#39;cars.carmake_s:toyota,cars.forsaleby_s:ownr&#39; (au) or &#39;ma:toyota,fu:petrol,max_km:100000&#39; (za). Range filters take min_&lt;key&gt;/max_&lt;key&gt;. Discover keys and values with /search/filters for the same market. (optional)</param>
         /// <param name="page"> (optional, default to 1)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>Object</returns>
-        public Object GumtreeSearchListings(string query = default(string), string category = default(string), string location = default(string), decimal? distance = default(decimal?), int? minPrice = default(int?), int? maxPrice = default(int?), string sort = default(string), string sellerType = default(string), bool? urgentOnly = default(bool?), bool? withPhotos = default(bool?), string filters = default(string), int? page = default(int?))
+        public Object GumtreeSearchListings(string query = default(string), string category = default(string), string location = default(string), decimal? distance = default(decimal?), int? minPrice = default(int?), int? maxPrice = default(int?), string sort = default(string), string sellerType = default(string), bool? urgentOnly = default(bool?), bool? withPhotos = default(bool?), string filters = default(string), int? page = default(int?), string market = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GumtreeSearchListingsWithHttpInfo(query, category, location, distance, minPrice, maxPrice, sort, sellerType, urgentOnly, withPhotos, filters, page);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GumtreeSearchListingsWithHttpInfo(query, category, location, distance, minPrice, maxPrice, sort, sellerType, urgentOnly, withPhotos, filters, page, market);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Search listings Search gumtree.com listings. ~25-30 per page, up to 50 pages.
+        /// Search listings Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20. An au search runs a real browser (~10-20 s) and bills 2x.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;mountain bike&#39; (optional)</param>
-        /// <param name="category">Category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
-        /// <param name="location">Location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). Default &#39;uk&#39;. (optional, default to &quot;uk&quot;)</param>
-        /// <param name="distance">Radius in miles (optional)</param>
-        /// <param name="minPrice">GBP; needs a category (optional)</param>
-        /// <param name="maxPrice">GBP; needs a category (optional)</param>
-        /// <param name="sort"> (optional)</param>
-        /// <param name="sellerType"> (optional)</param>
-        /// <param name="urgentOnly"> (optional, default to false)</param>
-        /// <param name="withPhotos"> (optional, default to false)</param>
-        /// <param name="filters">Category filters as key:value pairs, e.g. &#39;vehicle_make:bmw,vehicle_fuel_type:petrol&#39; (optional)</param>
+        /// <param name="category">uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
+        /// <param name="location">uk: location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). au/za: numeric location id, e.g. &#39;3003435&#39; (au Sydney) or &#39;3100003&#39; (za Gauteng). Use /locations/autocomplete to resolve one. Default: the whole country. (optional)</param>
+        /// <param name="distance">Radius around &#x60;location&#x60;: miles (uk) or km (au). Not offered by za. (optional)</param>
+        /// <param name="minPrice">Minimum price in the market&#39;s currency (uk: needs a category, not &#39;all&#39;) (optional)</param>
+        /// <param name="maxPrice">Maximum price in the market&#39;s currency (uk: needs a category, not &#39;all&#39;) (optional)</param>
+        /// <param name="sort">Result ordering (default relevance). &#39;distance&#39; needs uk, or au with a location. (optional)</param>
+        /// <param name="sellerType">uk/za: &#39;trade&#39; covers dealers, agencies and recruiters. au: not supported — use a category filter such as &#39;cars.forsaleby_s:ownr&#39;. (optional)</param>
+        /// <param name="urgentOnly">uk only: only ads marked urgent (optional, default to false)</param>
+        /// <param name="withPhotos">uk only: only ads with photos (optional, default to false)</param>
+        /// <param name="filters">Category-specific filters as comma-separated key:value pairs, e.g. &#39;vehicle_make:bmw,vehicle_fuel_type:petrol,min_vehicle_mileage:10000&#39; (uk), &#39;cars.carmake_s:toyota,cars.forsaleby_s:ownr&#39; (au) or &#39;ma:toyota,fu:petrol,max_km:100000&#39; (za). Range filters take min_&lt;key&gt;/max_&lt;key&gt;. Discover keys and values with /search/filters for the same market. (optional)</param>
         /// <param name="page"> (optional, default to 1)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> GumtreeSearchListingsWithHttpInfo(string query = default(string), string category = default(string), string location = default(string), decimal? distance = default(decimal?), int? minPrice = default(int?), int? maxPrice = default(int?), string sort = default(string), string sellerType = default(string), bool? urgentOnly = default(bool?), bool? withPhotos = default(bool?), string filters = default(string), int? page = default(int?))
+        public ScrapeBadger.Client.ApiResponse<Object> GumtreeSearchListingsWithHttpInfo(string query = default(string), string category = default(string), string location = default(string), decimal? distance = default(decimal?), int? minPrice = default(int?), int? maxPrice = default(int?), string sort = default(string), string sellerType = default(string), bool? urgentOnly = default(bool?), bool? withPhotos = default(bool?), string filters = default(string), int? page = default(int?), string market = default(string))
         {
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
 
@@ -1844,6 +2117,10 @@ namespace ScrapeBadger.Api
             if (page != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (market != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "market", market));
             }
 
             // authentication (ApiKeyAuth) required
@@ -1865,48 +2142,50 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search listings Search gumtree.com listings. ~25-30 per page, up to 50 pages.
+        /// Search listings Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20. An au search runs a real browser (~10-20 s) and bills 2x.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;mountain bike&#39; (optional)</param>
-        /// <param name="category">Category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
-        /// <param name="location">Location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). Default &#39;uk&#39;. (optional, default to &quot;uk&quot;)</param>
-        /// <param name="distance">Radius in miles (optional)</param>
-        /// <param name="minPrice">GBP; needs a category (optional)</param>
-        /// <param name="maxPrice">GBP; needs a category (optional)</param>
-        /// <param name="sort"> (optional)</param>
-        /// <param name="sellerType"> (optional)</param>
-        /// <param name="urgentOnly"> (optional, default to false)</param>
-        /// <param name="withPhotos"> (optional, default to false)</param>
-        /// <param name="filters">Category filters as key:value pairs, e.g. &#39;vehicle_make:bmw,vehicle_fuel_type:petrol&#39; (optional)</param>
+        /// <param name="category">uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
+        /// <param name="location">uk: location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). au/za: numeric location id, e.g. &#39;3003435&#39; (au Sydney) or &#39;3100003&#39; (za Gauteng). Use /locations/autocomplete to resolve one. Default: the whole country. (optional)</param>
+        /// <param name="distance">Radius around &#x60;location&#x60;: miles (uk) or km (au). Not offered by za. (optional)</param>
+        /// <param name="minPrice">Minimum price in the market&#39;s currency (uk: needs a category, not &#39;all&#39;) (optional)</param>
+        /// <param name="maxPrice">Maximum price in the market&#39;s currency (uk: needs a category, not &#39;all&#39;) (optional)</param>
+        /// <param name="sort">Result ordering (default relevance). &#39;distance&#39; needs uk, or au with a location. (optional)</param>
+        /// <param name="sellerType">uk/za: &#39;trade&#39; covers dealers, agencies and recruiters. au: not supported — use a category filter such as &#39;cars.forsaleby_s:ownr&#39;. (optional)</param>
+        /// <param name="urgentOnly">uk only: only ads marked urgent (optional, default to false)</param>
+        /// <param name="withPhotos">uk only: only ads with photos (optional, default to false)</param>
+        /// <param name="filters">Category-specific filters as comma-separated key:value pairs, e.g. &#39;vehicle_make:bmw,vehicle_fuel_type:petrol,min_vehicle_mileage:10000&#39; (uk), &#39;cars.carmake_s:toyota,cars.forsaleby_s:ownr&#39; (au) or &#39;ma:toyota,fu:petrol,max_km:100000&#39; (za). Range filters take min_&lt;key&gt;/max_&lt;key&gt;. Discover keys and values with /search/filters for the same market. (optional)</param>
         /// <param name="page"> (optional, default to 1)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> GumtreeSearchListingsAsync(string query = default(string), string category = default(string), string location = default(string), decimal? distance = default(decimal?), int? minPrice = default(int?), int? maxPrice = default(int?), string sort = default(string), string sellerType = default(string), bool? urgentOnly = default(bool?), bool? withPhotos = default(bool?), string filters = default(string), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> GumtreeSearchListingsAsync(string query = default(string), string category = default(string), string location = default(string), decimal? distance = default(decimal?), int? minPrice = default(int?), int? maxPrice = default(int?), string sort = default(string), string sellerType = default(string), bool? urgentOnly = default(bool?), bool? withPhotos = default(bool?), string filters = default(string), int? page = default(int?), string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GumtreeSearchListingsWithHttpInfoAsync(query, category, location, distance, minPrice, maxPrice, sort, sellerType, urgentOnly, withPhotos, filters, page, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GumtreeSearchListingsWithHttpInfoAsync(query, category, location, distance, minPrice, maxPrice, sort, sellerType, urgentOnly, withPhotos, filters, page, market, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Search listings Search gumtree.com listings. ~25-30 per page, up to 50 pages.
+        /// Search listings Search Gumtree listings in the UK, Australia or South Africa.  Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads), za 20. An au search runs a real browser (~10-20 s) and bills 2x.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;mountain bike&#39; (optional)</param>
-        /// <param name="category">Category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
-        /// <param name="location">Location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). Default &#39;uk&#39;. (optional, default to &quot;uk&quot;)</param>
-        /// <param name="distance">Radius in miles (optional)</param>
-        /// <param name="minPrice">GBP; needs a category (optional)</param>
-        /// <param name="maxPrice">GBP; needs a category (optional)</param>
-        /// <param name="sort"> (optional)</param>
-        /// <param name="sellerType"> (optional)</param>
-        /// <param name="urgentOnly"> (optional, default to false)</param>
-        /// <param name="withPhotos"> (optional, default to false)</param>
-        /// <param name="filters">Category filters as key:value pairs, e.g. &#39;vehicle_make:bmw,vehicle_fuel_type:petrol&#39; (optional)</param>
+        /// <param name="category">uk: category slug, e.g. &#39;cars&#39;, &#39;for-sale&#39;, &#39;property-to-rent&#39;, &#39;jobs&#39;, &#39;bicycles&#39;. au/za: numeric category id, e.g. &#39;18320&#39; (au cars) or &#39;9077&#39; (za cars). Use /categories to browse the tree. Default &#39;all&#39;. (optional, default to &quot;all&quot;)</param>
+        /// <param name="location">uk: location slug (&#39;london&#39;), town name or UK postcode (&#39;SW1A 1AA&#39;). au/za: numeric location id, e.g. &#39;3003435&#39; (au Sydney) or &#39;3100003&#39; (za Gauteng). Use /locations/autocomplete to resolve one. Default: the whole country. (optional)</param>
+        /// <param name="distance">Radius around &#x60;location&#x60;: miles (uk) or km (au). Not offered by za. (optional)</param>
+        /// <param name="minPrice">Minimum price in the market&#39;s currency (uk: needs a category, not &#39;all&#39;) (optional)</param>
+        /// <param name="maxPrice">Maximum price in the market&#39;s currency (uk: needs a category, not &#39;all&#39;) (optional)</param>
+        /// <param name="sort">Result ordering (default relevance). &#39;distance&#39; needs uk, or au with a location. (optional)</param>
+        /// <param name="sellerType">uk/za: &#39;trade&#39; covers dealers, agencies and recruiters. au: not supported — use a category filter such as &#39;cars.forsaleby_s:ownr&#39;. (optional)</param>
+        /// <param name="urgentOnly">uk only: only ads marked urgent (optional, default to false)</param>
+        /// <param name="withPhotos">uk only: only ads with photos (optional, default to false)</param>
+        /// <param name="filters">Category-specific filters as comma-separated key:value pairs, e.g. &#39;vehicle_make:bmw,vehicle_fuel_type:petrol,min_vehicle_mileage:10000&#39; (uk), &#39;cars.carmake_s:toyota,cars.forsaleby_s:ownr&#39; (au) or &#39;ma:toyota,fu:petrol,max_km:100000&#39; (za). Range filters take min_&lt;key&gt;/max_&lt;key&gt;. Discover keys and values with /search/filters for the same market. (optional)</param>
         /// <param name="page"> (optional, default to 1)</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GumtreeSearchListingsWithHttpInfoAsync(string query = default(string), string category = default(string), string location = default(string), decimal? distance = default(decimal?), int? minPrice = default(int?), int? maxPrice = default(int?), string sort = default(string), string sellerType = default(string), bool? urgentOnly = default(bool?), bool? withPhotos = default(bool?), string filters = default(string), int? page = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GumtreeSearchListingsWithHttpInfoAsync(string query = default(string), string category = default(string), string location = default(string), decimal? distance = default(decimal?), int? minPrice = default(int?), int? maxPrice = default(int?), string sort = default(string), string sellerType = default(string), bool? urgentOnly = default(bool?), bool? withPhotos = default(bool?), string filters = default(string), int? page = default(int?), string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
@@ -1973,6 +2252,10 @@ namespace ScrapeBadger.Api
             if (page != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (market != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "market", market));
             }
 
             // authentication (ApiKeyAuth) required
@@ -1999,10 +2282,11 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Partial search term, e.g. &#39;iph&#39;</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>Object</returns>
-        public Object GumtreeSearchSuggestions(string query)
+        public Object GumtreeSearchSuggestions(string query, string market = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GumtreeSearchSuggestionsWithHttpInfo(query);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GumtreeSearchSuggestionsWithHttpInfo(query, market);
             return localVarResponse.Data;
         }
 
@@ -2011,8 +2295,9 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Partial search term, e.g. &#39;iph&#39;</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> GumtreeSearchSuggestionsWithHttpInfo(string query)
+        public ScrapeBadger.Client.ApiResponse<Object> GumtreeSearchSuggestionsWithHttpInfo(string query, string market = default(string))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -2035,6 +2320,10 @@ namespace ScrapeBadger.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "query", query));
+            if (market != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "market", market));
+            }
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
@@ -2059,11 +2348,12 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Partial search term, e.g. &#39;iph&#39;</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> GumtreeSearchSuggestionsAsync(string query, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> GumtreeSearchSuggestionsAsync(string query, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GumtreeSearchSuggestionsWithHttpInfoAsync(query, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GumtreeSearchSuggestionsWithHttpInfoAsync(query, market, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2072,9 +2362,10 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Partial search term, e.g. &#39;iph&#39;</param>
+        /// <param name="market">Which Gumtree: &#39;uk&#39; (gumtree.com, GBP), &#39;au&#39; (gumtree.com.au, AUD) or &#39;za&#39; (gumtree.co.za, ZAR). Separate sites — ids from one market mean nothing in another. (optional, default to uk)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GumtreeSearchSuggestionsWithHttpInfoAsync(string query, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GumtreeSearchSuggestionsWithHttpInfoAsync(string query, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -2099,6 +2390,10 @@ namespace ScrapeBadger.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "query", query));
+            if (market != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "market", market));
+            }
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))

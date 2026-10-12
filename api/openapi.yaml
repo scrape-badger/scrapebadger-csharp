@@ -9722,6 +9722,25 @@ paths:
           title: Query
           type: string
         style: form
+      - description: "Which Gumtree: 'uk' (gumtree.com, GBP), 'au' (gumtree.com.au,\
+          \ AUD) or 'za' (gumtree.co.za, ZAR). Separate sites — ids from one market\
+          \ mean nothing in another."
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          default: uk
+          description: "Which Gumtree: 'uk' (gumtree.com, GBP), 'au' (gumtree.com.au,\
+            \ AUD) or 'za' (gumtree.co.za, ZAR). Separate sites — ids from one market\
+            \ mean nothing in another."
+          enum:
+          - uk
+          - au
+          - za
+          title: Market
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -9741,20 +9760,39 @@ paths:
       - Gumtree
   /v1/gumtree/categories:
     get:
-      description: Browse Gumtree's category tree. A node's `slug` is the `/search`
-        category.
+      description: |-
+        Browse Gumtree's category tree.
+
+        A node's `slug` (uk) or `id` (au/za) is the `/search` category.
       operationId: gumtree_list_categories
       parameters:
-      - description: "Parent category id (default: all)"
+      - description: "Category id to list the children of (default: all)"
         explode: true
         in: query
         name: parent_id
         required: false
         schema:
-          default: 1
-          description: "Parent category id (default: all)"
-          title: Parent Id
+          nullable: true
           type: integer
+        style: form
+      - description: "Which Gumtree: 'uk' (gumtree.com, GBP), 'au' (gumtree.com.au,\
+          \ AUD) or 'za' (gumtree.co.za, ZAR). Separate sites — ids from one market\
+          \ mean nothing in another."
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          default: uk
+          description: "Which Gumtree: 'uk' (gumtree.com, GBP), 'au' (gumtree.com.au,\
+            \ AUD) or 'za' (gumtree.co.za, ZAR). Separate sites — ids from one market\
+            \ mean nothing in another."
+          enum:
+          - uk
+          - au
+          - za
+          title: Market
+          type: string
         style: form
       responses:
         "200":
@@ -9808,19 +9846,38 @@ paths:
         \ listings."
       operationId: gumtree_get_listing
       parameters:
-      - description: Gumtree listing id — the number at the end of a gumtree.com/p/...
-          URL
+      - description: "Gumtree listing id — the number at the end of the listing URL\
+          \ (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one)"
         explode: false
         in: path
         name: listing_id
         required: true
         schema:
-          description: Gumtree listing id — the number at the end of a gumtree.com/p/...
-            URL
-          pattern: "^\\d{5,12}$"
+          description: "Gumtree listing id — the number at the end of the listing\
+            \ URL (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one)"
+          pattern: "^\\d{5,30}$"
           title: Listing Id
           type: string
         style: simple
+      - description: "Which Gumtree: 'uk' (gumtree.com, GBP), 'au' (gumtree.com.au,\
+          \ AUD) or 'za' (gumtree.co.za, ZAR). Separate sites — ids from one market\
+          \ mean nothing in another."
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          default: uk
+          description: "Which Gumtree: 'uk' (gumtree.com, GBP), 'au' (gumtree.com.au,\
+            \ AUD) or 'za' (gumtree.co.za, ZAR). Separate sites — ids from one market\
+            \ mean nothing in another."
+          enum:
+          - uk
+          - au
+          - za
+          title: Market
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -9843,16 +9900,16 @@ paths:
       description: Every live listing by the seller of the given listing.
       operationId: gumtree_get_seller_listings
       parameters:
-      - description: Gumtree listing id — the number at the end of a gumtree.com/p/...
-          URL
+      - description: "Gumtree listing id — the number at the end of the listing URL\
+          \ (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one)"
         explode: false
         in: path
         name: listing_id
         required: true
         schema:
-          description: Gumtree listing id — the number at the end of a gumtree.com/p/...
-            URL
-          pattern: "^\\d{5,12}$"
+          description: "Gumtree listing id — the number at the end of the listing\
+            \ URL (uk/au: ~10 digits; za: the full 26-digit ad id, not the short one)"
+          pattern: "^\\d{5,30}$"
           title: Listing Id
           type: string
         style: simple
@@ -9866,6 +9923,25 @@ paths:
           minimum: 1
           title: Page
           type: integer
+        style: form
+      - description: "Which Gumtree: 'uk' (gumtree.com, GBP), 'au' (gumtree.com.au,\
+          \ AUD) or 'za' (gumtree.co.za, ZAR). Separate sites — ids from one market\
+          \ mean nothing in another."
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          default: uk
+          description: "Which Gumtree: 'uk' (gumtree.com, GBP), 'au' (gumtree.com.au,\
+            \ AUD) or 'za' (gumtree.co.za, ZAR). Separate sites — ids from one market\
+            \ mean nothing in another."
+          enum:
+          - uk
+          - au
+          - za
+          title: Market
+          type: string
         style: form
       responses:
         "200":
@@ -9886,19 +9962,40 @@ paths:
       - Gumtree
   /v1/gumtree/locations:
     get:
-      description: Browse Gumtree's location tree.
+      description: |-
+        Browse Gumtree's location tree.
+
+        uk: UK -> nations -> counties -> towns. au: states -> regions -> areas, each
+        with its live ad count (browser render, bills 5x). za: provinces -> towns.
       operationId: gumtree_list_locations
       parameters:
-      - description: "Parent location id (default: UK)"
+      - description: "Location id to list the children of (default: the whole country)"
         explode: true
         in: query
         name: parent_id
         required: false
         schema:
-          default: 10000392
-          description: "Parent location id (default: UK)"
-          title: Parent Id
+          nullable: true
           type: integer
+        style: form
+      - description: "Which Gumtree: 'uk' (gumtree.com, GBP), 'au' (gumtree.com.au,\
+          \ AUD) or 'za' (gumtree.co.za, ZAR). Separate sites — ids from one market\
+          \ mean nothing in another."
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          default: uk
+          description: "Which Gumtree: 'uk' (gumtree.com, GBP), 'au' (gumtree.com.au,\
+            \ AUD) or 'za' (gumtree.co.za, ZAR). Separate sites — ids from one market\
+            \ mean nothing in another."
+          enum:
+          - uk
+          - au
+          - za
+          title: Market
+          type: string
         style: form
       responses:
         "200":
@@ -9919,18 +10016,40 @@ paths:
       - Gumtree
   /v1/gumtree/locations/autocomplete:
     get:
-      description: Resolve a place name or postcode to Gumtree locations with coordinates.
+      description: |-
+        Resolve a place name or postcode to Gumtree location ids (uk: with coordinates).
+
+        The `id` (au/za) or `name` (uk) is what `/search` takes as `location`.
       operationId: gumtree_location_suggestions
       parameters:
-      - description: "Town or postcode prefix, e.g. 'manch'"
+      - description: "Town, area or postcode prefix, e.g. 'manch' or 'SW1A'"
         explode: true
         in: query
         name: query
         required: true
         schema:
-          description: "Town or postcode prefix, e.g. 'manch'"
+          description: "Town, area or postcode prefix, e.g. 'manch' or 'SW1A'"
           minLength: 2
           title: Query
+          type: string
+        style: form
+      - description: "Which Gumtree: 'uk' (gumtree.com, GBP), 'au' (gumtree.com.au,\
+          \ AUD) or 'za' (gumtree.co.za, ZAR). Separate sites — ids from one market\
+          \ mean nothing in another."
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          default: uk
+          description: "Which Gumtree: 'uk' (gumtree.com, GBP), 'au' (gumtree.com.au,\
+            \ AUD) or 'za' (gumtree.co.za, ZAR). Separate sites — ids from one market\
+            \ mean nothing in another."
+          enum:
+          - uk
+          - au
+          - za
+          title: Market
           type: string
         style: form
       responses:
@@ -9950,9 +10069,29 @@ paths:
       summary: Location suggestions
       tags:
       - Gumtree
+  /v1/gumtree/markets:
+    get:
+      description: "The Gumtree sites this API covers (uk, au, za) with currency and\
+        \ id formats."
+      operationId: gumtree_list_markets
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: List markets
+      tags:
+      - Gumtree
   /v1/gumtree/search:
     get:
-      description: "Search gumtree.com listings. ~25-30 per page, up to 50 pages."
+      description: |-
+        Search Gumtree listings in the UK, Australia or South Africa.
+
+        Up to 50 pages. Page size: uk 25, au 24 (plus up to 6 featured top ads),
+        za 20. An au search runs a real browser (~10-20 s) and bills 2x.
       operationId: gumtree_search_listings
       parameters:
       - description: "Search keywords, e.g. 'mountain bike'"
@@ -9964,33 +10103,35 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: "Category slug, e.g. 'cars', 'for-sale', 'property-to-rent',\
-          \ 'jobs'. Default 'all'."
+      - description: "uk: category slug, e.g. 'cars', 'for-sale', 'property-to-rent',\
+          \ 'jobs', 'bicycles'. au/za: numeric category id, e.g. '18320' (au cars)\
+          \ or '9077' (za cars). Use /categories to browse the tree. Default 'all'."
         explode: true
         in: query
         name: category
         required: false
         schema:
           default: all
-          description: "Category slug, e.g. 'cars', 'for-sale', 'property-to-rent',\
-            \ 'jobs'. Default 'all'."
+          description: "uk: category slug, e.g. 'cars', 'for-sale', 'property-to-rent',\
+            \ 'jobs', 'bicycles'. au/za: numeric category id, e.g. '18320' (au cars)\
+            \ or '9077' (za cars). Use /categories to browse the tree. Default 'all'."
           title: Category
           type: string
         style: form
-      - description: "Location slug ('london'), town name or UK postcode ('SW1A 1AA').\
-          \ Default 'uk'."
+      - description: "uk: location slug ('london'), town name or UK postcode ('SW1A\
+          \ 1AA'). au/za: numeric location id, e.g. '3003435' (au Sydney) or '3100003'\
+          \ (za Gauteng). Use /locations/autocomplete to resolve one. Default: the\
+          \ whole country."
         explode: true
         in: query
         name: location
         required: false
         schema:
-          default: uk
-          description: "Location slug ('london'), town name or UK postcode ('SW1A\
-            \ 1AA'). Default 'uk'."
-          title: Location
+          nullable: true
           type: string
         style: form
-      - description: Radius in miles
+      - description: "Radius around `location`: miles (uk) or km (au). Not offered\
+          \ by za."
         explode: true
         in: query
         name: distance
@@ -10000,7 +10141,8 @@ paths:
           nullable: true
           type: number
         style: form
-      - description: GBP; needs a category
+      - description: "Minimum price in the market's currency (uk: needs a category,\
+          \ not 'all')"
         explode: true
         in: query
         name: min_price
@@ -10010,7 +10152,8 @@ paths:
           nullable: true
           type: integer
         style: form
-      - description: GBP; needs a category
+      - description: "Maximum price in the market's currency (uk: needs a category,\
+          \ not 'all')"
         explode: true
         in: query
         name: max_price
@@ -10020,7 +10163,9 @@ paths:
           nullable: true
           type: integer
         style: form
-      - explode: true
+      - description: "Result ordering (default relevance). 'distance' needs uk, or\
+          \ au with a location."
+        explode: true
         in: query
         name: sort
         required: false
@@ -10034,7 +10179,9 @@ paths:
           nullable: true
           type: string
         style: form
-      - explode: true
+      - description: "uk/za: 'trade' covers dealers, agencies and recruiters. au:\
+          \ not supported — use a category filter such as 'cars.forsaleby_s:ownr'."
+        explode: true
         in: query
         name: seller_type
         required: false
@@ -10045,25 +10192,33 @@ paths:
           nullable: true
           type: string
         style: form
-      - explode: true
+      - description: "uk only: only ads marked urgent"
+        explode: true
         in: query
         name: urgent_only
         required: false
         schema:
           default: false
+          description: "uk only: only ads marked urgent"
           title: Urgent Only
           type: boolean
         style: form
-      - explode: true
+      - description: "uk only: only ads with photos"
+        explode: true
         in: query
         name: with_photos
         required: false
         schema:
           default: false
+          description: "uk only: only ads with photos"
           title: With Photos
           type: boolean
         style: form
-      - description: "Category filters as key:value pairs, e.g. 'vehicle_make:bmw,vehicle_fuel_type:petrol'"
+      - description: "Category-specific filters as comma-separated key:value pairs,\
+          \ e.g. 'vehicle_make:bmw,vehicle_fuel_type:petrol,min_vehicle_mileage:10000'\
+          \ (uk), 'cars.carmake_s:toyota,cars.forsaleby_s:ownr' (au) or 'ma:toyota,fu:petrol,max_km:100000'\
+          \ (za). Range filters take min_<key>/max_<key>. Discover keys and values\
+          \ with /search/filters for the same market."
         explode: true
         in: query
         name: filters
@@ -10082,6 +10237,25 @@ paths:
           minimum: 1
           title: Page
           type: integer
+        style: form
+      - description: "Which Gumtree: 'uk' (gumtree.com, GBP), 'au' (gumtree.com.au,\
+          \ AUD) or 'za' (gumtree.co.za, ZAR). Separate sites — ids from one market\
+          \ mean nothing in another."
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          default: uk
+          description: "Which Gumtree: 'uk' (gumtree.com, GBP), 'au' (gumtree.com.au,\
+            \ AUD) or 'za' (gumtree.co.za, ZAR). Separate sites — ids from one market\
+            \ mean nothing in another."
+          enum:
+          - uk
+          - au
+          - za
+          title: Market
+          type: string
         style: form
       responses:
         "200":
@@ -10102,42 +10276,76 @@ paths:
       - Gumtree
   /v1/gumtree/search/filters:
     get:
-      description: "Filters, sort orders and radius options for a category, with live\
-        \ counts."
+      description: |-
+        Filters, sort orders and radius options for a category, with live counts.
+
+        Feed a `key` and a `value` back into `/search` as `filters=key:value`.
+        au bills 2x (browser render).
       operationId: gumtree_get_search_filters
       parameters:
-      - description: "Category slug, e.g. 'cars', 'for-sale', 'property-to-rent',\
-          \ 'jobs'. Default 'all'."
+      - description: "uk: category slug, e.g. 'cars', 'for-sale', 'property-to-rent',\
+          \ 'jobs', 'bicycles'. au/za: numeric category id, e.g. '18320' (au cars)\
+          \ or '9077' (za cars). Use /categories to browse the tree. Default 'all'."
         explode: true
         in: query
         name: category
         required: false
         schema:
           default: all
-          description: "Category slug, e.g. 'cars', 'for-sale', 'property-to-rent',\
-            \ 'jobs'. Default 'all'."
+          description: "uk: category slug, e.g. 'cars', 'for-sale', 'property-to-rent',\
+            \ 'jobs', 'bicycles'. au/za: numeric category id, e.g. '18320' (au cars)\
+            \ or '9077' (za cars). Use /categories to browse the tree. Default 'all'."
           title: Category
           type: string
         style: form
-      - description: "Location slug ('london'), town name or UK postcode ('SW1A 1AA').\
-          \ Default 'uk'."
+      - description: "uk: location slug ('london'), town name or UK postcode ('SW1A\
+          \ 1AA'). au/za: numeric location id, e.g. '3003435' (au Sydney) or '3100003'\
+          \ (za Gauteng). Use /locations/autocomplete to resolve one. Default: the\
+          \ whole country."
         explode: true
         in: query
         name: location
         required: false
         schema:
-          default: uk
-          description: "Location slug ('london'), town name or UK postcode ('SW1A\
-            \ 1AA'). Default 'uk'."
-          title: Location
+          nullable: true
           type: string
         style: form
-      - explode: true
+      - description: Optional keywords to scope the counts
+        explode: true
         in: query
         name: query
         required: false
         schema:
           nullable: true
+          type: string
+        style: form
+      - description: "za only: filters already applied (e.g. 'ma:toyota' to list Toyota\
+          \ models)"
+        explode: true
+        in: query
+        name: filters
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "Which Gumtree: 'uk' (gumtree.com, GBP), 'au' (gumtree.com.au,\
+          \ AUD) or 'za' (gumtree.co.za, ZAR). Separate sites — ids from one market\
+          \ mean nothing in another."
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          default: uk
+          description: "Which Gumtree: 'uk' (gumtree.com, GBP), 'au' (gumtree.com.au,\
+            \ AUD) or 'za' (gumtree.co.za, ZAR). Separate sites — ids from one market\
+            \ mean nothing in another."
+          enum:
+          - uk
+          - au
+          - za
+          title: Market
           type: string
         style: form
       responses:

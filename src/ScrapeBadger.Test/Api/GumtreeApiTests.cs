@@ -61,7 +61,8 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string listingId = null;
-            //var response = instance.GumtreeGetListing(listingId);
+            //string market = null;
+            //var response = instance.GumtreeGetListing(listingId, market);
             //Assert.IsType<Object>(response);
         }
 
@@ -75,7 +76,9 @@ namespace ScrapeBadger.Test.Api
             //string category = null;
             //string location = null;
             //string query = null;
-            //var response = instance.GumtreeGetSearchFilters(category, location, query);
+            //string filters = null;
+            //string market = null;
+            //var response = instance.GumtreeGetSearchFilters(category, location, query, filters, market);
             //Assert.IsType<Object>(response);
         }
 
@@ -88,7 +91,8 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string listingId = null;
             //int? page = null;
-            //var response = instance.GumtreeGetSellerListings(listingId, page);
+            //string market = null;
+            //var response = instance.GumtreeGetSellerListings(listingId, page, market);
             //Assert.IsType<Object>(response);
         }
 
@@ -122,7 +126,8 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? parentId = null;
-            //var response = instance.GumtreeListCategories(parentId);
+            //string market = null;
+            //var response = instance.GumtreeListCategories(parentId, market);
             //Assert.IsType<Object>(response);
         }
 
@@ -134,7 +139,19 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? parentId = null;
-            //var response = instance.GumtreeListLocations(parentId);
+            //string market = null;
+            //var response = instance.GumtreeListLocations(parentId, market);
+            //Assert.IsType<Object>(response);
+        }
+
+        /// <summary>
+        /// Test GumtreeListMarkets
+        /// </summary>
+        [Fact]
+        public void GumtreeListMarketsTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //var response = instance.GumtreeListMarkets();
             //Assert.IsType<Object>(response);
         }
 
@@ -146,7 +163,8 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string query = null;
-            //var response = instance.GumtreeLocationSuggestions(query);
+            //string market = null;
+            //var response = instance.GumtreeLocationSuggestions(query, market);
             //Assert.IsType<Object>(response);
         }
 
@@ -169,7 +187,8 @@ namespace ScrapeBadger.Test.Api
             //bool? withPhotos = null;
             //string filters = null;
             //int? page = null;
-            //var response = instance.GumtreeSearchListings(query, category, location, distance, minPrice, maxPrice, sort, sellerType, urgentOnly, withPhotos, filters, page);
+            //string market = null;
+            //var response = instance.GumtreeSearchListings(query, category, location, distance, minPrice, maxPrice, sort, sellerType, urgentOnly, withPhotos, filters, page, market);
             //Assert.IsType<Object>(response);
         }
 
@@ -181,7 +200,8 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string query = null;
-            //var response = instance.GumtreeSearchSuggestions(query);
+            //string market = null;
+            //var response = instance.GumtreeSearchSuggestions(query, market);
             //Assert.IsType<Object>(response);
         }
     }
