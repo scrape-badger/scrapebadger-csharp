@@ -175,7 +175,7 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //VintedImageSearchRequest vintedImageSearchRequest = null;
             //var response = instance.VintedSearchByImage(vintedImageSearchRequest);
-            //Assert.IsType<SearchResponse>(response);
+            //Assert.IsType<PortalApiRoutersVintedSchemasSearchResponse>(response);
         }
 
         /// <summary>
@@ -202,7 +202,7 @@ namespace ScrapeBadger.Test.Api
             //string statusIds = null;
             //string order = null;
             //var response = instance.VintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
-            //Assert.IsType<SearchResponse>(response);
+            //Assert.IsType<PortalApiRoutersVintedSchemasSearchResponse>(response);
         }
 
         /// <summary>

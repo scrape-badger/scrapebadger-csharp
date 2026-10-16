@@ -27,57 +27,42 @@ using OpenAPIDateConverter = ScrapeBadger.Client.OpenAPIDateConverter;
 namespace ScrapeBadger.Model
 {
     /// <summary>
-    /// Envelope returned by search and search_by_image.
+    /// StockResponse
     /// </summary>
-    [DataContract(Name = "SearchResponse")]
-    public partial class SearchResponse : IValidatableObject
+    [DataContract(Name = "StockResponse")]
+    public partial class StockResponse : IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="SearchResponse" /> class.
+        /// Initializes a new instance of the <see cref="StockResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected SearchResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="SearchResponse" /> class.
-        /// </summary>
-        /// <param name="items">items (required).</param>
-        /// <param name="pagination">pagination (required).</param>
-        /// <param name="market">market (required).</param>
-        /// <param name="sellerCountry">sellerCountry.</param>
-        public SearchResponse(List<VintedItemSummary> items = default(List<VintedItemSummary>), VintedPagination pagination = default(VintedPagination), string market = default(string), string sellerCountry = default(string))
+        protected StockResponse()
         {
-            // to ensure "items" is required (not null)
-            if (items == null)
-            {
-                throw new ArgumentNullException("items is a required property for SearchResponse and cannot be null");
-            }
-            this.Items = items;
-            // to ensure "pagination" is required (not null)
-            if (pagination == null)
-            {
-                throw new ArgumentNullException("pagination is a required property for SearchResponse and cannot be null");
-            }
-            this.Pagination = pagination;
+            this.AdditionalProperties = new Dictionary<string, object>();
+        }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StockResponse" /> class.
+        /// </summary>
+        /// <param name="market">market (required).</param>
+        /// <param name="products">products (required).</param>
+        /// <param name="missingProductIds">missingProductIds.</param>
+        public StockResponse(string market = default(string), List<StockProduct> products = default(List<StockProduct>), List<int> missingProductIds = default(List<int>))
+        {
             // to ensure "market" is required (not null)
             if (market == null)
             {
-                throw new ArgumentNullException("market is a required property for SearchResponse and cannot be null");
+                throw new ArgumentNullException("market is a required property for StockResponse and cannot be null");
             }
             this.Market = market;
-            this.SellerCountry = sellerCountry;
+            // to ensure "products" is required (not null)
+            if (products == null)
+            {
+                throw new ArgumentNullException("products is a required property for StockResponse and cannot be null");
+            }
+            this.Products = products;
+            this.MissingProductIds = missingProductIds;
+            this.AdditionalProperties = new Dictionary<string, object>();
         }
-
-        /// <summary>
-        /// Gets or Sets Items
-        /// </summary>
-        [DataMember(Name = "items", IsRequired = true, EmitDefaultValue = true)]
-        public List<VintedItemSummary> Items { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Pagination
-        /// </summary>
-        [DataMember(Name = "pagination", IsRequired = true, EmitDefaultValue = true)]
-        public VintedPagination Pagination { get; set; }
 
         /// <summary>
         /// Gets or Sets Market
@@ -86,10 +71,22 @@ namespace ScrapeBadger.Model
         public string Market { get; set; }
 
         /// <summary>
-        /// Gets or Sets SellerCountry
+        /// Gets or Sets Products
         /// </summary>
-        [DataMember(Name = "seller_country", EmitDefaultValue = true)]
-        public string SellerCountry { get; set; }
+        [DataMember(Name = "products", IsRequired = true, EmitDefaultValue = true)]
+        public List<StockProduct> Products { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MissingProductIds
+        /// </summary>
+        [DataMember(Name = "missing_product_ids", EmitDefaultValue = false)]
+        public List<int> MissingProductIds { get; set; }
+
+        /// <summary>
+        /// Gets or Sets additional properties
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -98,11 +95,11 @@ namespace ScrapeBadger.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class SearchResponse {\n");
-            sb.Append("  Items: ").Append(Items).Append("\n");
-            sb.Append("  Pagination: ").Append(Pagination).Append("\n");
+            sb.Append("class StockResponse {\n");
             sb.Append("  Market: ").Append(Market).Append("\n");
-            sb.Append("  SellerCountry: ").Append(SellerCountry).Append("\n");
+            sb.Append("  Products: ").Append(Products).Append("\n");
+            sb.Append("  MissingProductIds: ").Append(MissingProductIds).Append("\n");
+            sb.Append("  AdditionalProperties: ").Append(AdditionalProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

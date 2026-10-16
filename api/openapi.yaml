@@ -10,16 +10,20 @@ security:
 tags:
 - name: Account
 - name: Airbnb
+- name: AliExpress
 - name: Amazon
 - name: Apartments
 - name: App-Store
+- name: ASOS
 - name: Baidu
+- name: BestBuy
 - name: Bing
 - name: Booking
 - name: ChatGPT
 - name: Depop
 - name: DuckDuckGo
 - name: eBay
+- name: Etsy
 - name: Facebook
 - name: Gemini
 - name: Google-Play
@@ -36,6 +40,7 @@ tags:
 - name: Realtor
 - name: Reddit
 - name: Redfin
+- name: Target
 - name: TikTok
 - name: Twitter
 - name: Vinted
@@ -675,6 +680,500 @@ paths:
       summary: Search stays
       tags:
       - Airbnb
+  /v1/aliexpress/autocomplete:
+    get:
+      operationId: aliexpress_get_search_suggestions
+      parameters:
+      - explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          maxLength: 250
+          minLength: 1
+          title: Query
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: US
+          pattern: "^[A-Z]{2}$"
+          title: Country
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          default: en
+          pattern: "^[a-z]{2}$"
+          title: Language
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get search suggestions
+      tags:
+      - AliExpress
+  /v1/aliexpress/categories:
+    get:
+      operationId: aliexpress_get_category_navigation
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Get category navigation
+      tags:
+      - AliExpress
+  /v1/aliexpress/products/{product_id}:
+    get:
+      operationId: aliexpress_get_product_detail
+      parameters:
+      - explode: false
+        in: path
+        name: product_id
+        required: true
+        schema:
+          title: Product Id
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: US
+          pattern: "^[A-Z]{2}$"
+          title: Country
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          default: USD
+          pattern: "^[A-Z]{3}$"
+          title: Currency
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          default: en_US
+          pattern: "^[a-z]{2}_[A-Z]{2}$"
+          title: Language
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get product detail
+      tags:
+      - AliExpress
+  /v1/aliexpress/products/{product_id}/reviews:
+    get:
+      operationId: aliexpress_get_product_reviews
+      parameters:
+      - explode: false
+        in: path
+        name: product_id
+        required: true
+        schema:
+          title: Product Id
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          maximum: 10000
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: page_size
+        required: false
+        schema:
+          default: 10
+          maximum: 50
+          minimum: 1
+          title: Page Size
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          default: complex_default
+          enum:
+          - complex_default
+          - latest_sort
+          title: Sort
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get product reviews
+      tags:
+      - AliExpress
+  /v1/aliexpress/search:
+    get:
+      operationId: aliexpress_search_products
+      parameters:
+      - explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          maxLength: 250
+          minLength: 1
+          title: Query
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          maximum: 60
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: US
+          pattern: "^[A-Z]{2}$"
+          title: Country
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          default: USD
+          pattern: "^[A-Z]{3}$"
+          title: Currency
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          default: en
+          pattern: "^[a-z]{2}$"
+          title: Language
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          default: default
+          enum:
+          - default
+          - price_asc
+          - price_desc
+          - total_tranpro_desc
+          title: Sort
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: min_price
+        required: false
+        schema:
+          minimum: 0
+          nullable: true
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: max_price
+        required: false
+        schema:
+          minimum: 0
+          nullable: true
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Search products
+      tags:
+      - AliExpress
+  /v1/aliexpress/stores/{store_id}:
+    get:
+      operationId: aliexpress_get_store_profile
+      parameters:
+      - explode: false
+        in: path
+        name: store_id
+        required: true
+        schema:
+          title: Store Id
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: US
+          pattern: "^[A-Z]{2}$"
+          title: Country
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          default: USD
+          pattern: "^[A-Z]{3}$"
+          title: Currency
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          default: en
+          pattern: "^[a-z]{2}$"
+          title: Language
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get store profile
+      tags:
+      - AliExpress
+  /v1/aliexpress/stores/{store_id}/categories:
+    get:
+      operationId: aliexpress_get_store_product_categories
+      parameters:
+      - explode: false
+        in: path
+        name: store_id
+        required: true
+        schema:
+          title: Store Id
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: US
+          pattern: "^[A-Z]{2}$"
+          title: Country
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get store product categories
+      tags:
+      - AliExpress
+  /v1/aliexpress/stores/{store_id}/products:
+    get:
+      operationId: aliexpress_get_store_products
+      parameters:
+      - explode: false
+        in: path
+        name: store_id
+        required: true
+        schema:
+          title: Store Id
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          maximum: 1000
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: page_size
+        required: false
+        schema:
+          default: 24
+          maximum: 60
+          minimum: 1
+          title: Page Size
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: US
+          pattern: "^[A-Z]{2}$"
+          title: Country
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          default: USD
+          pattern: "^[A-Z]{3}$"
+          title: Currency
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          default: en
+          pattern: "^[a-z]{2}$"
+          title: Language
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: query
+        required: false
+        schema:
+          default: ""
+          maxLength: 250
+          title: Query
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          default: bestmatch_sort
+          enum:
+          - bestmatch_sort
+          - price_asc
+          - price_desc
+          - orders_desc
+          title: Sort
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get store products
+      tags:
+      - AliExpress
   /v1/amazon/autocomplete:
     get:
       description: Get Amazon search autocomplete suggestions for keyword research.
@@ -1994,6 +2493,627 @@ paths:
       summary: Search apps
       tags:
       - App-Store
+  /v1/asos/autocomplete:
+    get:
+      description: Search suggestions with result counts.
+      operationId: asos_search_suggestions
+      parameters:
+      - explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          maxLength: 200
+          minLength: 1
+          title: Query
+          type: string
+        style: form
+      - description: "Storefront: uk, us, au, de, fr, it, es, nl, se, dk, pl"
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          default: uk
+          description: "Storefront: uk, us, au, de, fr, it, es, nl, se, dk, pl"
+          title: Market
+          type: string
+        style: form
+      - description: "Override store, e.g. COM or US"
+        explode: true
+        in: query
+        name: store
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[A-Z]{2,3}$"
+          type: string
+        style: form
+      - description: ISO country override
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[A-Z]{2}$"
+          type: string
+        style: form
+      - description: Currency override
+        explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[A-Z]{3}$"
+          type: string
+        style: form
+      - description: "Locale override, e.g. en-GB"
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[a-z]{2}-[A-Z]{2}$"
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Search suggestions
+      tags:
+      - ASOS
+  /v1/asos/categories:
+    get:
+      description: "Full nested navigation with category ids, names, images and links."
+      operationId: asos_list_categories
+      parameters:
+      - explode: true
+        in: query
+        name: gender
+        required: false
+        schema:
+          default: men
+          enum:
+          - men
+          - women
+          title: Gender
+          type: string
+        style: form
+      - description: "Storefront: uk, us, au, de, fr, it, es, nl, se, dk, pl"
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          default: uk
+          description: "Storefront: uk, us, au, de, fr, it, es, nl, se, dk, pl"
+          title: Market
+          type: string
+        style: form
+      - description: "Override store, e.g. COM or US"
+        explode: true
+        in: query
+        name: store
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[A-Z]{2,3}$"
+          type: string
+        style: form
+      - description: ISO country override
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[A-Z]{2}$"
+          type: string
+        style: form
+      - description: Currency override
+        explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[A-Z]{3}$"
+          type: string
+        style: form
+      - description: "Locale override, e.g. en-GB"
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[a-z]{2}-[A-Z]{2}$"
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: List categories
+      tags:
+      - ASOS
+  /v1/asos/filters:
+    get:
+      description: "Facet ids, labels, option counts and selections for a query or\
+        \ category."
+      operationId: asos_list_search_filters
+      parameters:
+      - explode: true
+        in: query
+        name: query
+        required: false
+        schema:
+          minLength: 1
+          nullable: true
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: category_id
+        required: false
+        schema:
+          nullable: true
+          type: integer
+        style: form
+      - description: "Storefront: uk, us, au, de, fr, it, es, nl, se, dk, pl"
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          default: uk
+          description: "Storefront: uk, us, au, de, fr, it, es, nl, se, dk, pl"
+          title: Market
+          type: string
+        style: form
+      - description: "Override store, e.g. COM or US"
+        explode: true
+        in: query
+        name: store
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[A-Z]{2,3}$"
+          type: string
+        style: form
+      - description: ISO country override
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[A-Z]{2}$"
+          type: string
+        style: form
+      - description: Currency override
+        explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[A-Z]{3}$"
+          type: string
+        style: form
+      - description: "Locale override, e.g. en-GB"
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[a-z]{2}-[A-Z]{2}$"
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: List search filters
+      tags:
+      - ASOS
+  /v1/asos/markets:
+    get:
+      operationId: asos_list_markets
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: List markets
+      tags:
+      - ASOS
+  /v1/asos/products/{product_id}:
+    get:
+      description: "Product, live per-size stock and price, images, descriptions,\
+        \ reviews and breadcrumbs."
+      operationId: asos_get_product_detail
+      parameters:
+      - explode: false
+        in: path
+        name: product_id
+        required: true
+        schema:
+          title: Product Id
+          type: integer
+        style: simple
+      - description: "Storefront: uk, us, au, de, fr, it, es, nl, se, dk, pl"
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          default: uk
+          description: "Storefront: uk, us, au, de, fr, it, es, nl, se, dk, pl"
+          title: Market
+          type: string
+        style: form
+      - description: "Override store, e.g. COM or US"
+        explode: true
+        in: query
+        name: store
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[A-Z]{2,3}$"
+          type: string
+        style: form
+      - description: ISO country override
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[A-Z]{2}$"
+          type: string
+        style: form
+      - description: Currency override
+        explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[A-Z]{3}$"
+          type: string
+        style: form
+      - description: "Locale override, e.g. en-GB"
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[a-z]{2}-[A-Z]{2}$"
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductResponse'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get product detail
+      tags:
+      - ASOS
+  /v1/asos/search:
+    get:
+      description: "Search by query, category_id, or both. Includes price, images\
+        \ and filter facets."
+      operationId: asos_search_products
+      parameters:
+      - description: "Keyword, e.g. shoes"
+        explode: true
+        in: query
+        name: query
+        required: false
+        schema:
+          maxLength: 200
+          minLength: 1
+          nullable: true
+          type: string
+        style: form
+      - description: Category id from navigation
+        explode: true
+        in: query
+        name: category_id
+        required: false
+        schema:
+          nullable: true
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: offset
+        required: false
+        schema:
+          default: 0
+          maximum: 10000
+          minimum: 0
+          title: Offset
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 48
+          maximum: 200
+          minimum: 1
+          title: Limit
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          default: recommended
+          enum:
+          - recommended
+          - freshness
+          - priceasc
+          - pricedesc
+          title: Sort
+          type: string
+        style: form
+      - description: Comma-separated brand facet ids
+        explode: true
+        in: query
+        name: brand
+        required: false
+        schema:
+          nullable: true
+          pattern: "^\\d+(,\\d+)*$"
+          type: string
+        style: form
+      - description: Comma-separated colour facet ids
+        explode: true
+        in: query
+        name: colour
+        required: false
+        schema:
+          nullable: true
+          pattern: "^\\d+(,\\d+)*$"
+          type: string
+        style: form
+      - description: Comma-separated size facet ids
+        explode: true
+        in: query
+        name: size
+        required: false
+        schema:
+          nullable: true
+          pattern: "^\\d+(,\\d+)*$"
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: min_price
+        required: false
+        schema:
+          minimum: 0
+          nullable: true
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: max_price
+        required: false
+        schema:
+          minimum: 0
+          nullable: true
+          type: number
+        style: form
+      - description: "Storefront: uk, us, au, de, fr, it, es, nl, se, dk, pl"
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          default: uk
+          description: "Storefront: uk, us, au, de, fr, it, es, nl, se, dk, pl"
+          title: Market
+          type: string
+        style: form
+      - description: "Override store, e.g. COM or US"
+        explode: true
+        in: query
+        name: store
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[A-Z]{2,3}$"
+          type: string
+        style: form
+      - description: ISO country override
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[A-Z]{2}$"
+          type: string
+        style: form
+      - description: Currency override
+        explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[A-Z]{3}$"
+          type: string
+        style: form
+      - description: "Locale override, e.g. en-GB"
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[a-z]{2}-[A-Z]{2}$"
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/portal_api__routers__v1_asos__SearchResponse'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Search products
+      tags:
+      - ASOS
+  /v1/asos/stock-price:
+    get:
+      description: Refresh product and variant stock/prices; reports missing product
+        ids explicitly.
+      operationId: asos_get_stock_and_prices
+      parameters:
+      - description: 1–50 comma-separated product ids
+        explode: true
+        in: query
+        name: product_ids
+        required: true
+        schema:
+          description: 1–50 comma-separated product ids
+          pattern: "^\\d+(,\\d+){0,49}$"
+          title: Product Ids
+          type: string
+        style: form
+      - description: "Storefront: uk, us, au, de, fr, it, es, nl, se, dk, pl"
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          default: uk
+          description: "Storefront: uk, us, au, de, fr, it, es, nl, se, dk, pl"
+          title: Market
+          type: string
+        style: form
+      - description: "Override store, e.g. COM or US"
+        explode: true
+        in: query
+        name: store
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[A-Z]{2,3}$"
+          type: string
+        style: form
+      - description: ISO country override
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[A-Z]{2}$"
+          type: string
+        style: form
+      - description: Currency override
+        explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[A-Z]{3}$"
+          type: string
+        style: form
+      - description: "Locale override, e.g. en-GB"
+        explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[a-z]{2}-[A-Z]{2}$"
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StockResponse'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get stock and prices
+      tags:
+      - ASOS
   /v1/baidu/autocomplete:
     get:
       description: Baidu search-box suggestions.
@@ -2203,6 +3323,415 @@ paths:
       summary: Baidu web search
       tags:
       - Baidu
+  /v1/bestbuy/autocomplete:
+    get:
+      operationId: bestbuy_get_search_suggestions
+      parameters:
+      - explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          minLength: 1
+          title: Query
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get search suggestions
+      tags:
+      - BestBuy
+  /v1/bestbuy/categories:
+    get:
+      operationId: bestbuy_get_categories
+      parameters:
+      - explode: true
+        in: query
+        name: query
+        required: false
+        schema:
+          default: laptop
+          minLength: 1
+          title: Query
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get categories
+      tags:
+      - BestBuy
+  /v1/bestbuy/category:
+    get:
+      operationId: bestbuy_browse_a_category
+      parameters:
+      - explode: true
+        in: query
+        name: category_id
+        required: true
+        schema:
+          pattern: "^[a-zA-Z0-9]+$"
+          title: Category Id
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          maximum: 100
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Browse a category
+      tags:
+      - BestBuy
+  /v1/bestbuy/deals:
+    get:
+      operationId: bestbuy_get_laptop_and_computer_deals
+      parameters:
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          maximum: 100
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get laptop and computer deals
+      tags:
+      - BestBuy
+  /v1/bestbuy/markets:
+    get:
+      operationId: bestbuy_list_supported_markets
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: List supported markets
+      tags:
+      - BestBuy
+  /v1/bestbuy/products/{sku}:
+    get:
+      operationId: bestbuy_get_product_detail
+      parameters:
+      - explode: false
+        in: path
+        name: sku
+        required: true
+        schema:
+          title: Sku
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get product detail
+      tags:
+      - BestBuy
+  /v1/bestbuy/products/{sku}/availability:
+    get:
+      operationId: bestbuy_get_product_availability
+      parameters:
+      - explode: false
+        in: path
+        name: sku
+        required: true
+        schema:
+          title: Sku
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: zip_code
+        required: true
+        schema:
+          pattern: "^\\d{5}$"
+          title: Zip Code
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: store_id
+        required: false
+        schema:
+          default: "7"
+          pattern: ^\d+$
+          title: Store Id
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get product availability
+      tags:
+      - BestBuy
+  /v1/bestbuy/products/{sku}/questions:
+    get:
+      operationId: bestbuy_get_product_questions
+      parameters:
+      - explode: false
+        in: path
+        name: sku
+        required: true
+        schema:
+          title: Sku
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          maximum: 1000
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: page_size
+        required: false
+        schema:
+          default: 10
+          maximum: 50
+          minimum: 1
+          title: Page Size
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: query
+        required: false
+        schema:
+          default: ""
+          title: Query
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get product questions
+      tags:
+      - BestBuy
+  /v1/bestbuy/products/{sku}/reviews:
+    get:
+      operationId: bestbuy_get_product_reviews
+      parameters:
+      - explode: false
+        in: path
+        name: sku
+        required: true
+        schema:
+          title: Sku
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          maximum: 1000
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: page_size
+        required: false
+        schema:
+          default: 10
+          maximum: 20
+          minimum: 1
+          title: Page Size
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          default: MOST_RECENT
+          enum:
+          - MOST_RECENT
+          - BEST_REVIEW
+          - MOST_HELPFUL
+          - OLDEST
+          - HIGHEST_RATING
+          - LOWEST_RATING
+          title: Sort
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get product reviews
+      tags:
+      - BestBuy
+  /v1/bestbuy/search:
+    get:
+      operationId: bestbuy_search_products
+      parameters:
+      - explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          minLength: 1
+          title: Query
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          maximum: 100
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          default: best_match
+          enum:
+          - best_match
+          - best_selling
+          - price_low
+          - price_high
+          - rating
+          - newest
+          title: Sort
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Search products
+      tags:
+      - BestBuy
   /v1/bing/autocomplete:
     get:
       description: Bing search-box query suggestions.
@@ -4950,6 +6479,564 @@ paths:
       summary: Get seller listings
       tags:
       - eBay
+  /v1/etsy/autocomplete:
+    get:
+      operationId: etsy_get_search_suggestions
+      parameters:
+      - explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          maxLength: 250
+          minLength: 1
+          title: Query
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: US
+          pattern: "^[A-Z]{2}$"
+          title: Country
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          default: USD
+          pattern: "^[A-Z]{3}$"
+          title: Currency
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          default: en-US
+          pattern: "^[a-z]{2}-[A-Z]{2}$"
+          title: Language
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get search suggestions
+      tags:
+      - Etsy
+  /v1/etsy/categories:
+    get:
+      operationId: etsy_get_categories
+      parameters:
+      - explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: US
+          pattern: "^[A-Z]{2}$"
+          title: Country
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          default: USD
+          pattern: "^[A-Z]{3}$"
+          title: Currency
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          default: en-US
+          pattern: "^[a-z]{2}-[A-Z]{2}$"
+          title: Language
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get categories
+      tags:
+      - Etsy
+  /v1/etsy/listings/{listing_id}:
+    get:
+      operationId: etsy_get_listing_detail
+      parameters:
+      - explode: false
+        in: path
+        name: listing_id
+        required: true
+        schema:
+          title: Listing Id
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: US
+          pattern: "^[A-Z]{2}$"
+          title: Country
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          default: USD
+          pattern: "^[A-Z]{3}$"
+          title: Currency
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          default: en-US
+          pattern: "^[a-z]{2}-[A-Z]{2}$"
+          title: Language
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get listing detail
+      tags:
+      - Etsy
+  /v1/etsy/listings/{listing_id}/reviews:
+    get:
+      operationId: etsy_get_listing_reviews
+      parameters:
+      - explode: false
+        in: path
+        name: listing_id
+        required: true
+        schema:
+          title: Listing Id
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          maximum: 10000
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          default: Relevancy
+          enum:
+          - Relevancy
+          - Recency
+          - Highest
+          - Lowest
+          title: Sort
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: US
+          pattern: "^[A-Z]{2}$"
+          title: Country
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          default: USD
+          pattern: "^[A-Z]{3}$"
+          title: Currency
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          default: en-US
+          pattern: "^[a-z]{2}-[A-Z]{2}$"
+          title: Language
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get listing reviews
+      tags:
+      - Etsy
+  /v1/etsy/search:
+    get:
+      operationId: etsy_search_listings
+      parameters:
+      - explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          maxLength: 250
+          minLength: 1
+          title: Query
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          maximum: 250
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: US
+          pattern: "^[A-Z]{2}$"
+          title: Country
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          default: USD
+          pattern: "^[A-Z]{3}$"
+          title: Currency
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          default: en-US
+          pattern: "^[a-z]{2}-[A-Z]{2}$"
+          title: Language
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          default: most_relevant
+          enum:
+          - most_relevant
+          - date_desc
+          - price_asc
+          - price_desc
+          title: Sort
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: min_price
+        required: false
+        schema:
+          minimum: 0
+          nullable: true
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: max_price
+        required: false
+        schema:
+          minimum: 0
+          nullable: true
+          type: number
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Search listings
+      tags:
+      - Etsy
+  /v1/etsy/shops/{shop_name}:
+    get:
+      operationId: etsy_get_shop_profile
+      parameters:
+      - explode: false
+        in: path
+        name: shop_name
+        required: true
+        schema:
+          title: Shop Name
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: US
+          pattern: "^[A-Z]{2}$"
+          title: Country
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          default: USD
+          pattern: "^[A-Z]{3}$"
+          title: Currency
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          default: en-US
+          pattern: "^[a-z]{2}-[A-Z]{2}$"
+          title: Language
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get shop profile
+      tags:
+      - Etsy
+  /v1/etsy/shops/{shop_name}/listings:
+    get:
+      operationId: etsy_get_shop_listings
+      parameters:
+      - explode: false
+        in: path
+        name: shop_name
+        required: true
+        schema:
+          title: Shop Name
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          maximum: 250
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: US
+          pattern: "^[A-Z]{2}$"
+          title: Country
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          default: USD
+          pattern: "^[A-Z]{3}$"
+          title: Currency
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          default: en-US
+          pattern: "^[a-z]{2}-[A-Z]{2}$"
+          title: Language
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get shop listings
+      tags:
+      - Etsy
+  /v1/etsy/shops/{shop_name}/reviews:
+    get:
+      operationId: etsy_get_shop_reviews
+      parameters:
+      - explode: false
+        in: path
+        name: shop_name
+        required: true
+        schema:
+          title: Shop Name
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          maximum: 10000
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: US
+          pattern: "^[A-Z]{2}$"
+          title: Country
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: currency
+        required: false
+        schema:
+          default: USD
+          pattern: "^[A-Z]{3}$"
+          title: Currency
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: language
+        required: false
+        schema:
+          default: en-US
+          pattern: "^[a-z]{2}-[A-Z]{2}$"
+          title: Language
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get shop reviews
+      tags:
+      - Etsy
   /v1/facebook/ads/pages/search:
     get:
       description: |-
@@ -16044,6 +18131,523 @@ paths:
       summary: Search properties
       tags:
       - Redfin
+  /v1/target/autocomplete:
+    get:
+      operationId: target_get_search_suggestions
+      parameters:
+      - explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          minLength: 1
+          title: Query
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get search suggestions
+      tags:
+      - Target
+  /v1/target/categories:
+    get:
+      operationId: target_get_categories
+      parameters:
+      - explode: true
+        in: query
+        name: category_id
+        required: false
+        schema:
+          default: 5xtly
+          pattern: "^[a-zA-Z0-9]+$"
+          title: Category Id
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get categories
+      tags:
+      - Target
+  /v1/target/category:
+    get:
+      operationId: target_browse_a_category
+      parameters:
+      - explode: true
+        in: query
+        name: category_id
+        required: true
+        schema:
+          pattern: "^[a-zA-Z0-9]+$"
+          title: Category Id
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          maximum: 50
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: page_size
+        required: false
+        schema:
+          default: 24
+          maximum: 24
+          minimum: 1
+          title: Page Size
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: store_id
+        required: false
+        schema:
+          default: "1375"
+          pattern: ^\d+$
+          title: Store Id
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: zip_code
+        required: false
+        schema:
+          default: "55403"
+          pattern: "^\\d{5}$"
+          title: Zip Code
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Browse a category
+      tags:
+      - Target
+  /v1/target/markets:
+    get:
+      operationId: target_list_supported_markets
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: List supported markets
+      tags:
+      - Target
+  /v1/target/products/{tcin}:
+    get:
+      operationId: target_get_product_detail
+      parameters:
+      - explode: false
+        in: path
+        name: tcin
+        required: true
+        schema:
+          title: Tcin
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: store_id
+        required: false
+        schema:
+          default: "1375"
+          pattern: ^\d+$
+          title: Store Id
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: zip_code
+        required: false
+        schema:
+          default: "55403"
+          pattern: "^\\d{5}$"
+          title: Zip Code
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get product detail
+      tags:
+      - Target
+  /v1/target/products/{tcin}/availability:
+    get:
+      operationId: target_get_product_availability
+      parameters:
+      - explode: false
+        in: path
+        name: tcin
+        required: true
+        schema:
+          title: Tcin
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: zip_code
+        required: true
+        schema:
+          pattern: "^\\d{5}$"
+          title: Zip Code
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 10
+          maximum: 20
+          minimum: 1
+          title: Limit
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get product availability
+      tags:
+      - Target
+  /v1/target/products/{tcin}/questions:
+    get:
+      operationId: target_get_product_questions
+      parameters:
+      - explode: false
+        in: path
+        name: tcin
+        required: true
+        schema:
+          title: Tcin
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: page_size
+        required: false
+        schema:
+          default: 10
+          maximum: 50
+          minimum: 1
+          title: Page Size
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get product questions
+      tags:
+      - Target
+  /v1/target/products/{tcin}/reviews:
+    get:
+      operationId: target_get_product_reviews
+      parameters:
+      - explode: false
+        in: path
+        name: tcin
+        required: true
+        schema:
+          title: Tcin
+          type: string
+        style: simple
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: page_size
+        required: false
+        schema:
+          default: 10
+          maximum: 50
+          minimum: 1
+          title: Page Size
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          default: most_recent
+          enum:
+          - most_recent
+          - most_helpful
+          - highest_rated
+          - lowest_rated
+          title: Sort
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get product reviews
+      tags:
+      - Target
+  /v1/target/search:
+    get:
+      operationId: target_search_products
+      parameters:
+      - explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          minLength: 1
+          title: Query
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          maximum: 50
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: page_size
+        required: false
+        schema:
+          default: 24
+          maximum: 24
+          minimum: 1
+          title: Page Size
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: store_id
+        required: false
+        schema:
+          default: "1375"
+          pattern: ^\d+$
+          title: Store Id
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: zip_code
+        required: false
+        schema:
+          default: "55403"
+          pattern: "^\\d{5}$"
+          title: Zip Code
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sort
+        required: false
+        schema:
+          default: relevance
+          enum:
+          - relevance
+          - PriceLow
+          - PriceHigh
+          - RatingHigh
+          - bestselling
+          - newest
+          title: Sort
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Search products
+      tags:
+      - Target
+  /v1/target/stores:
+    get:
+      operationId: target_find_nearby_stores
+      parameters:
+      - explode: true
+        in: query
+        name: zip_code
+        required: true
+        schema:
+          pattern: "^\\d{5}$"
+          title: Zip Code
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          default: 10
+          maximum: 20
+          minimum: 1
+          title: Limit
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Find nearby stores
+      tags:
+      - Target
+  /v1/target/stores/{store_id}:
+    get:
+      operationId: target_get_store_detail
+      parameters:
+      - explode: false
+        in: path
+        name: store_id
+        required: true
+        schema:
+          title: Store Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get store detail
+      tags:
+      - Target
   /v1/tiktok/ads/advertisers:
     get:
       description: Look up TikTok advertiser business ids by name (feeds ads/search?advertiser_id=).
@@ -20552,7 +23156,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SearchResponse'
+                $ref: '#/components/schemas/portal_api__routers___vinted_schemas__SearchResponse'
           description: Successful Response
         "422":
           content:
@@ -20586,7 +23190,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SearchResponse'
+                $ref: '#/components/schemas/portal_api__routers___vinted_schemas__SearchResponse'
           description: Successful Response
         "422":
           content:
@@ -25177,6 +27781,315 @@ components:
       required:
       - markets
       title: MarketsResponse
+    Price:
+      additionalProperties: true
+      example:
+        discountPercentage: 5.637376656633329
+        rrp:
+          text: text
+          value: 5.962133916683182
+        current:
+          text: text
+          value: 5.962133916683182
+        isMarkedDown: false
+        previous:
+          text: text
+          value: 5.962133916683182
+        isOutletPrice: false
+        currency: currency
+      properties:
+        current:
+          $ref: '#/components/schemas/PriceValue'
+        previous:
+          $ref: '#/components/schemas/PriceValue'
+        rrp:
+          $ref: '#/components/schemas/PriceValue'
+        currency:
+          nullable: true
+          type: string
+        isMarkedDown:
+          default: false
+          title: Ismarkeddown
+          type: boolean
+        isOutletPrice:
+          default: false
+          title: Isoutletprice
+          type: boolean
+        discountPercentage:
+          nullable: true
+          type: number
+      title: Price
+    PriceValue:
+      additionalProperties: true
+      example:
+        text: text
+        value: 5.962133916683182
+      properties:
+        value:
+          nullable: true
+          type: number
+        text:
+          nullable: true
+          type: string
+      title: PriceValue
+    Product:
+      additionalProperties: {}
+      example:
+        brandName: Brandname
+        images:
+        - key: ""
+        - key: ""
+        gender: Gender
+        description:
+          key: ""
+        variants:
+        - sizeId: 9
+          isAvailable: true
+          isLowInStock: true
+          colour: colour
+          size: size
+          isRestockingSoon: true
+          price:
+            discountPercentage: 5.637376656633329
+            rrp:
+              text: text
+              value: 5.962133916683182
+            current:
+              text: text
+              value: 5.962133916683182
+            isMarkedDown: false
+            previous:
+              text: text
+              value: 5.962133916683182
+            isOutletPrice: false
+            currency: currency
+          brandSize: brandSize
+          variantId: 2
+          id: 7
+          isInStock: true
+          sku: sku
+          colourWayId: 3
+        - sizeId: 9
+          isAvailable: true
+          isLowInStock: true
+          colour: colour
+          size: size
+          isRestockingSoon: true
+          price:
+            discountPercentage: 5.637376656633329
+            rrp:
+              text: text
+              value: 5.962133916683182
+            current:
+              text: text
+              value: 5.962133916683182
+            isMarkedDown: false
+            previous:
+              text: text
+              value: 5.962133916683182
+            isOutletPrice: false
+            currency: currency
+          brandSize: brandSize
+          variantId: 2
+          id: 7
+          isInStock: true
+          sku: sku
+          colourWayId: 3
+        url: Url
+        colour: Colour
+        productCode: Productcode
+        price:
+          discountPercentage: 5.637376656633329
+          rrp:
+            text: text
+            value: 5.962133916683182
+          current:
+            text: text
+            value: 5.962133916683182
+          isMarkedDown: false
+          previous:
+            text: text
+            value: 5.962133916683182
+          isOutletPrice: false
+          currency: currency
+        isRestockingSoon: true
+        ratings:
+          key: ""
+        brandId: 6
+        imageUrl: Imageurl
+        name: name
+        additionalImageUrls:
+        - additionalImageUrls
+        - additionalImageUrls
+        isSellingFast: true
+        id: 0
+        isInStock: true
+        colourWayId: 1
+        breadcrumbs:
+        - key: ""
+        - key: ""
+      properties:
+        id:
+          title: Id
+          type: integer
+        name:
+          title: Name
+          type: string
+        productCode:
+          $ref: '#/components/schemas/Productcode'
+        brandName:
+          $ref: '#/components/schemas/Brandname'
+        brandId:
+          $ref: '#/components/schemas/Brandid'
+        colour:
+          $ref: '#/components/schemas/Colour'
+        colourWayId:
+          $ref: '#/components/schemas/Colourwayid'
+        price:
+          $ref: '#/components/schemas/Product_price'
+        url:
+          $ref: '#/components/schemas/Url'
+        imageUrl:
+          $ref: '#/components/schemas/Imageurl'
+        additionalImageUrls:
+          items: {}
+          title: Additionalimageurls
+        images:
+          items:
+            additionalProperties: true
+          title: Images
+        variants:
+          items:
+            $ref: '#/components/schemas/Variant'
+          title: Variants
+        isSellingFast:
+          $ref: '#/components/schemas/Issellingfast'
+        isRestockingSoon:
+          $ref: '#/components/schemas/Isrestockingsoon'
+        isInStock:
+          $ref: '#/components/schemas/Isinstock'
+        gender:
+          $ref: '#/components/schemas/Gender'
+        description:
+          $ref: '#/components/schemas/Description'
+        ratings:
+          $ref: '#/components/schemas/Ratings'
+        breadcrumbs:
+          items:
+            additionalProperties: true
+          title: Breadcrumbs
+      required:
+      - id
+      - name
+      title: Product
+    ProductResponse:
+      additionalProperties: true
+      example:
+        market: market
+        product:
+          brandName: Brandname
+          images:
+          - key: ""
+          - key: ""
+          gender: Gender
+          description:
+            key: ""
+          variants:
+          - sizeId: 9
+            isAvailable: true
+            isLowInStock: true
+            colour: colour
+            size: size
+            isRestockingSoon: true
+            price:
+              discountPercentage: 5.637376656633329
+              rrp:
+                text: text
+                value: 5.962133916683182
+              current:
+                text: text
+                value: 5.962133916683182
+              isMarkedDown: false
+              previous:
+                text: text
+                value: 5.962133916683182
+              isOutletPrice: false
+              currency: currency
+            brandSize: brandSize
+            variantId: 2
+            id: 7
+            isInStock: true
+            sku: sku
+            colourWayId: 3
+          - sizeId: 9
+            isAvailable: true
+            isLowInStock: true
+            colour: colour
+            size: size
+            isRestockingSoon: true
+            price:
+              discountPercentage: 5.637376656633329
+              rrp:
+                text: text
+                value: 5.962133916683182
+              current:
+                text: text
+                value: 5.962133916683182
+              isMarkedDown: false
+              previous:
+                text: text
+                value: 5.962133916683182
+              isOutletPrice: false
+              currency: currency
+            brandSize: brandSize
+            variantId: 2
+            id: 7
+            isInStock: true
+            sku: sku
+            colourWayId: 3
+          url: Url
+          colour: Colour
+          productCode: Productcode
+          price:
+            discountPercentage: 5.637376656633329
+            rrp:
+              text: text
+              value: 5.962133916683182
+            current:
+              text: text
+              value: 5.962133916683182
+            isMarkedDown: false
+            previous:
+              text: text
+              value: 5.962133916683182
+            isOutletPrice: false
+            currency: currency
+          isRestockingSoon: true
+          ratings:
+            key: ""
+          brandId: 6
+          imageUrl: Imageurl
+          name: name
+          additionalImageUrls:
+          - additionalImageUrls
+          - additionalImageUrls
+          isSellingFast: true
+          id: 0
+          isInStock: true
+          colourWayId: 1
+          breadcrumbs:
+          - key: ""
+          - key: ""
+      properties:
+        market:
+          title: Market
+          type: string
+        product:
+          $ref: '#/components/schemas/Product'
+      required:
+      - market
+      - product
+      title: ProductResponse
     ScreenshotRequest:
       additionalProperties: true
       example:
@@ -25225,134 +28138,6 @@ components:
       required:
       - url
       title: ScreenshotRequest
-    SearchResponse:
-      description: Envelope returned by search and search_by_image.
-      example:
-        market: market
-        pagination:
-          per_page: 7
-          total_pages: 5
-          time: 9
-          current_page: 5
-          total_entries: 2
-        seller_country: seller_country
-        items:
-        - is_visible: true
-          display_title: display_title
-          display_subtitle: display_subtitle
-          service_fee: service_fee
-          photo:
-            dominant_color: dominant_color
-            full_size_url: full_size_url
-            is_main: false
-            width: 7
-            id: 2
-            url: url
-            height: 9
-          title: title
-          promoted: false
-          photos:
-          - dominant_color: dominant_color
-            full_size_url: full_size_url
-            is_main: false
-            width: 7
-            id: 2
-            url: url
-            height: 9
-          - dominant_color: dominant_color
-            full_size_url: full_size_url
-            is_main: false
-            width: 7
-            id: 2
-            url: url
-            height: 9
-          url: url
-          brand_title: brand_title
-          seller_country_code: seller_country_code
-          path: path
-          total_item_price: total_item_price
-          content_source: content_source
-          price:
-            amount: amount
-            currency_code: currency_code
-          favourite_count: 6
-          id: 0
-          similarity_score: 5.962133916683182
-          user:
-            business: false
-            id: 5
-            photo_url: photo_url
-            login: login
-          size_title: size_title
-          view_count: 1
-          status: status
-        - is_visible: true
-          display_title: display_title
-          display_subtitle: display_subtitle
-          service_fee: service_fee
-          photo:
-            dominant_color: dominant_color
-            full_size_url: full_size_url
-            is_main: false
-            width: 7
-            id: 2
-            url: url
-            height: 9
-          title: title
-          promoted: false
-          photos:
-          - dominant_color: dominant_color
-            full_size_url: full_size_url
-            is_main: false
-            width: 7
-            id: 2
-            url: url
-            height: 9
-          - dominant_color: dominant_color
-            full_size_url: full_size_url
-            is_main: false
-            width: 7
-            id: 2
-            url: url
-            height: 9
-          url: url
-          brand_title: brand_title
-          seller_country_code: seller_country_code
-          path: path
-          total_item_price: total_item_price
-          content_source: content_source
-          price:
-            amount: amount
-            currency_code: currency_code
-          favourite_count: 6
-          id: 0
-          similarity_score: 5.962133916683182
-          user:
-            business: false
-            id: 5
-            photo_url: photo_url
-            login: login
-          size_title: size_title
-          view_count: 1
-          status: status
-      properties:
-        items:
-          items:
-            $ref: '#/components/schemas/VintedItemSummary'
-          type: array
-        pagination:
-          $ref: '#/components/schemas/VintedPagination'
-        market:
-          title: Market
-          type: string
-        seller_country:
-          nullable: true
-          type: string
-      required:
-      - items
-      - market
-      - pagination
-      title: SearchResponse
     StatusesResponse:
       description: Envelope returned by the condition reference endpoint.
       example:
@@ -25369,6 +28154,257 @@ components:
       required:
       - statuses
       title: StatusesResponse
+    StockProduct:
+      additionalProperties: true
+      example:
+        productId: 0
+        isInStock: true
+        variants:
+        - sizeId: 9
+          isAvailable: true
+          isLowInStock: true
+          colour: colour
+          size: size
+          isRestockingSoon: true
+          price:
+            discountPercentage: 5.637376656633329
+            rrp:
+              text: text
+              value: 5.962133916683182
+            current:
+              text: text
+              value: 5.962133916683182
+            isMarkedDown: false
+            previous:
+              text: text
+              value: 5.962133916683182
+            isOutletPrice: false
+            currency: currency
+          brandSize: brandSize
+          variantId: 2
+          id: 7
+          isInStock: true
+          sku: sku
+          colourWayId: 3
+        - sizeId: 9
+          isAvailable: true
+          isLowInStock: true
+          colour: colour
+          size: size
+          isRestockingSoon: true
+          price:
+            discountPercentage: 5.637376656633329
+            rrp:
+              text: text
+              value: 5.962133916683182
+            current:
+              text: text
+              value: 5.962133916683182
+            isMarkedDown: false
+            previous:
+              text: text
+              value: 5.962133916683182
+            isOutletPrice: false
+            currency: currency
+          brandSize: brandSize
+          variantId: 2
+          id: 7
+          isInStock: true
+          sku: sku
+          colourWayId: 3
+        productPrice:
+          discountPercentage: 5.637376656633329
+          rrp:
+            text: text
+            value: 5.962133916683182
+          current:
+            text: text
+            value: 5.962133916683182
+          isMarkedDown: false
+          previous:
+            text: text
+            value: 5.962133916683182
+          isOutletPrice: false
+          currency: currency
+      properties:
+        productId:
+          title: Productid
+          type: integer
+        productPrice:
+          $ref: '#/components/schemas/Price'
+        isInStock:
+          title: Isinstock
+          type: boolean
+        variants:
+          items:
+            $ref: '#/components/schemas/Variant'
+          type: array
+      required:
+      - isInStock
+      - productId
+      title: StockProduct
+    StockResponse:
+      additionalProperties: true
+      example:
+        market: market
+        missing_product_ids:
+        - 6
+        - 6
+        products:
+        - productId: 0
+          isInStock: true
+          variants:
+          - sizeId: 9
+            isAvailable: true
+            isLowInStock: true
+            colour: colour
+            size: size
+            isRestockingSoon: true
+            price:
+              discountPercentage: 5.637376656633329
+              rrp:
+                text: text
+                value: 5.962133916683182
+              current:
+                text: text
+                value: 5.962133916683182
+              isMarkedDown: false
+              previous:
+                text: text
+                value: 5.962133916683182
+              isOutletPrice: false
+              currency: currency
+            brandSize: brandSize
+            variantId: 2
+            id: 7
+            isInStock: true
+            sku: sku
+            colourWayId: 3
+          - sizeId: 9
+            isAvailable: true
+            isLowInStock: true
+            colour: colour
+            size: size
+            isRestockingSoon: true
+            price:
+              discountPercentage: 5.637376656633329
+              rrp:
+                text: text
+                value: 5.962133916683182
+              current:
+                text: text
+                value: 5.962133916683182
+              isMarkedDown: false
+              previous:
+                text: text
+                value: 5.962133916683182
+              isOutletPrice: false
+              currency: currency
+            brandSize: brandSize
+            variantId: 2
+            id: 7
+            isInStock: true
+            sku: sku
+            colourWayId: 3
+          productPrice:
+            discountPercentage: 5.637376656633329
+            rrp:
+              text: text
+              value: 5.962133916683182
+            current:
+              text: text
+              value: 5.962133916683182
+            isMarkedDown: false
+            previous:
+              text: text
+              value: 5.962133916683182
+            isOutletPrice: false
+            currency: currency
+        - productId: 0
+          isInStock: true
+          variants:
+          - sizeId: 9
+            isAvailable: true
+            isLowInStock: true
+            colour: colour
+            size: size
+            isRestockingSoon: true
+            price:
+              discountPercentage: 5.637376656633329
+              rrp:
+                text: text
+                value: 5.962133916683182
+              current:
+                text: text
+                value: 5.962133916683182
+              isMarkedDown: false
+              previous:
+                text: text
+                value: 5.962133916683182
+              isOutletPrice: false
+              currency: currency
+            brandSize: brandSize
+            variantId: 2
+            id: 7
+            isInStock: true
+            sku: sku
+            colourWayId: 3
+          - sizeId: 9
+            isAvailable: true
+            isLowInStock: true
+            colour: colour
+            size: size
+            isRestockingSoon: true
+            price:
+              discountPercentage: 5.637376656633329
+              rrp:
+                text: text
+                value: 5.962133916683182
+              current:
+                text: text
+                value: 5.962133916683182
+              isMarkedDown: false
+              previous:
+                text: text
+                value: 5.962133916683182
+              isOutletPrice: false
+              currency: currency
+            brandSize: brandSize
+            variantId: 2
+            id: 7
+            isInStock: true
+            sku: sku
+            colourWayId: 3
+          productPrice:
+            discountPercentage: 5.637376656633329
+            rrp:
+              text: text
+              value: 5.962133916683182
+            current:
+              text: text
+              value: 5.962133916683182
+            isMarkedDown: false
+            previous:
+              text: text
+              value: 5.962133916683182
+            isOutletPrice: false
+            currency: currency
+      properties:
+        market:
+          title: Market
+          type: string
+        products:
+          items:
+            $ref: '#/components/schemas/StockProduct'
+          type: array
+        missing_product_ids:
+          items:
+            type: integer
+          type: array
+      required:
+      - market
+      - products
+      title: StockResponse
     StreamMonitorCreate:
       description: Create stream monitor request.
       example:
@@ -25981,6 +29017,75 @@ components:
       - msg
       - type
       title: ValidationError
+    Variant:
+      additionalProperties: true
+      example:
+        sizeId: 9
+        isAvailable: true
+        isLowInStock: true
+        colour: colour
+        size: size
+        isRestockingSoon: true
+        price:
+          discountPercentage: 5.637376656633329
+          rrp:
+            text: text
+            value: 5.962133916683182
+          current:
+            text: text
+            value: 5.962133916683182
+          isMarkedDown: false
+          previous:
+            text: text
+            value: 5.962133916683182
+          isOutletPrice: false
+          currency: currency
+        brandSize: brandSize
+        variantId: 2
+        id: 7
+        isInStock: true
+        sku: sku
+        colourWayId: 3
+      properties:
+        variantId:
+          nullable: true
+          type: integer
+        id:
+          nullable: true
+          type: integer
+        size:
+          nullable: true
+          type: string
+        brandSize:
+          nullable: true
+          type: string
+        sizeId:
+          nullable: true
+          type: integer
+        colour:
+          nullable: true
+          type: string
+        colourWayId:
+          nullable: true
+          type: integer
+        sku:
+          nullable: true
+          type: string
+        isAvailable:
+          nullable: true
+          type: boolean
+        isInStock:
+          nullable: true
+          type: boolean
+        isLowInStock:
+          nullable: true
+          type: boolean
+        isRestockingSoon:
+          nullable: true
+          type: boolean
+        price:
+          $ref: '#/components/schemas/Price'
+      title: Variant
     VintedBrand:
       description: "A brand, as the brand search returns it."
       example:
@@ -26948,6 +30053,364 @@ components:
       - response_time_ms
       - success
       title: WebhookTestResponse
+    portal_api__routers___vinted_schemas__SearchResponse:
+      description: Envelope returned by search and search_by_image.
+      example:
+        market: market
+        pagination:
+          per_page: 7
+          total_pages: 5
+          time: 9
+          current_page: 5
+          total_entries: 2
+        seller_country: seller_country
+        items:
+        - is_visible: true
+          display_title: display_title
+          display_subtitle: display_subtitle
+          service_fee: service_fee
+          photo:
+            dominant_color: dominant_color
+            full_size_url: full_size_url
+            is_main: false
+            width: 7
+            id: 2
+            url: url
+            height: 9
+          title: title
+          promoted: false
+          photos:
+          - dominant_color: dominant_color
+            full_size_url: full_size_url
+            is_main: false
+            width: 7
+            id: 2
+            url: url
+            height: 9
+          - dominant_color: dominant_color
+            full_size_url: full_size_url
+            is_main: false
+            width: 7
+            id: 2
+            url: url
+            height: 9
+          url: url
+          brand_title: brand_title
+          seller_country_code: seller_country_code
+          path: path
+          total_item_price: total_item_price
+          content_source: content_source
+          price:
+            amount: amount
+            currency_code: currency_code
+          favourite_count: 6
+          id: 0
+          similarity_score: 5.962133916683182
+          user:
+            business: false
+            id: 5
+            photo_url: photo_url
+            login: login
+          size_title: size_title
+          view_count: 1
+          status: status
+        - is_visible: true
+          display_title: display_title
+          display_subtitle: display_subtitle
+          service_fee: service_fee
+          photo:
+            dominant_color: dominant_color
+            full_size_url: full_size_url
+            is_main: false
+            width: 7
+            id: 2
+            url: url
+            height: 9
+          title: title
+          promoted: false
+          photos:
+          - dominant_color: dominant_color
+            full_size_url: full_size_url
+            is_main: false
+            width: 7
+            id: 2
+            url: url
+            height: 9
+          - dominant_color: dominant_color
+            full_size_url: full_size_url
+            is_main: false
+            width: 7
+            id: 2
+            url: url
+            height: 9
+          url: url
+          brand_title: brand_title
+          seller_country_code: seller_country_code
+          path: path
+          total_item_price: total_item_price
+          content_source: content_source
+          price:
+            amount: amount
+            currency_code: currency_code
+          favourite_count: 6
+          id: 0
+          similarity_score: 5.962133916683182
+          user:
+            business: false
+            id: 5
+            photo_url: photo_url
+            login: login
+          size_title: size_title
+          view_count: 1
+          status: status
+      properties:
+        items:
+          items:
+            $ref: '#/components/schemas/VintedItemSummary'
+          type: array
+        pagination:
+          $ref: '#/components/schemas/VintedPagination'
+        market:
+          title: Market
+          type: string
+        seller_country:
+          nullable: true
+          type: string
+      required:
+      - items
+      - market
+      - pagination
+      title: SearchResponse
+    portal_api__routers__v1_asos__SearchResponse:
+      additionalProperties: {}
+      example:
+        market: market
+        searchTerm: Searchterm
+        offset: 6
+        limit: 1
+        categoryName: Categoryname
+        next_offset: 5
+        total_results: 0
+        products:
+        - brandName: Brandname
+          images:
+          - key: ""
+          - key: ""
+          gender: Gender
+          description:
+            key: ""
+          variants:
+          - sizeId: 9
+            isAvailable: true
+            isLowInStock: true
+            colour: colour
+            size: size
+            isRestockingSoon: true
+            price:
+              discountPercentage: 5.637376656633329
+              rrp:
+                text: text
+                value: 5.962133916683182
+              current:
+                text: text
+                value: 5.962133916683182
+              isMarkedDown: false
+              previous:
+                text: text
+                value: 5.962133916683182
+              isOutletPrice: false
+              currency: currency
+            brandSize: brandSize
+            variantId: 2
+            id: 7
+            isInStock: true
+            sku: sku
+            colourWayId: 3
+          - sizeId: 9
+            isAvailable: true
+            isLowInStock: true
+            colour: colour
+            size: size
+            isRestockingSoon: true
+            price:
+              discountPercentage: 5.637376656633329
+              rrp:
+                text: text
+                value: 5.962133916683182
+              current:
+                text: text
+                value: 5.962133916683182
+              isMarkedDown: false
+              previous:
+                text: text
+                value: 5.962133916683182
+              isOutletPrice: false
+              currency: currency
+            brandSize: brandSize
+            variantId: 2
+            id: 7
+            isInStock: true
+            sku: sku
+            colourWayId: 3
+          url: Url
+          colour: Colour
+          productCode: Productcode
+          price:
+            discountPercentage: 5.637376656633329
+            rrp:
+              text: text
+              value: 5.962133916683182
+            current:
+              text: text
+              value: 5.962133916683182
+            isMarkedDown: false
+            previous:
+              text: text
+              value: 5.962133916683182
+            isOutletPrice: false
+            currency: currency
+          isRestockingSoon: true
+          ratings:
+            key: ""
+          brandId: 6
+          imageUrl: Imageurl
+          name: name
+          additionalImageUrls:
+          - additionalImageUrls
+          - additionalImageUrls
+          isSellingFast: true
+          id: 0
+          isInStock: true
+          colourWayId: 1
+          breadcrumbs:
+          - key: ""
+          - key: ""
+        - brandName: Brandname
+          images:
+          - key: ""
+          - key: ""
+          gender: Gender
+          description:
+            key: ""
+          variants:
+          - sizeId: 9
+            isAvailable: true
+            isLowInStock: true
+            colour: colour
+            size: size
+            isRestockingSoon: true
+            price:
+              discountPercentage: 5.637376656633329
+              rrp:
+                text: text
+                value: 5.962133916683182
+              current:
+                text: text
+                value: 5.962133916683182
+              isMarkedDown: false
+              previous:
+                text: text
+                value: 5.962133916683182
+              isOutletPrice: false
+              currency: currency
+            brandSize: brandSize
+            variantId: 2
+            id: 7
+            isInStock: true
+            sku: sku
+            colourWayId: 3
+          - sizeId: 9
+            isAvailable: true
+            isLowInStock: true
+            colour: colour
+            size: size
+            isRestockingSoon: true
+            price:
+              discountPercentage: 5.637376656633329
+              rrp:
+                text: text
+                value: 5.962133916683182
+              current:
+                text: text
+                value: 5.962133916683182
+              isMarkedDown: false
+              previous:
+                text: text
+                value: 5.962133916683182
+              isOutletPrice: false
+              currency: currency
+            brandSize: brandSize
+            variantId: 2
+            id: 7
+            isInStock: true
+            sku: sku
+            colourWayId: 3
+          url: Url
+          colour: Colour
+          productCode: Productcode
+          price:
+            discountPercentage: 5.637376656633329
+            rrp:
+              text: text
+              value: 5.962133916683182
+            current:
+              text: text
+              value: 5.962133916683182
+            isMarkedDown: false
+            previous:
+              text: text
+              value: 5.962133916683182
+            isOutletPrice: false
+            currency: currency
+          isRestockingSoon: true
+          ratings:
+            key: ""
+          brandId: 6
+          imageUrl: Imageurl
+          name: name
+          additionalImageUrls:
+          - additionalImageUrls
+          - additionalImageUrls
+          isSellingFast: true
+          id: 0
+          isInStock: true
+          colourWayId: 1
+          breadcrumbs:
+          - key: ""
+          - key: ""
+        facets:
+        - key: ""
+        - key: ""
+      properties:
+        market:
+          title: Market
+        searchTerm:
+          $ref: '#/components/schemas/Searchterm'
+        categoryName:
+          $ref: '#/components/schemas/Categoryname'
+        total_results:
+          title: Total Results
+        offset:
+          title: Offset
+        limit:
+          title: Limit
+        next_offset:
+          $ref: '#/components/schemas/Next_Offset'
+        products:
+          items:
+            $ref: '#/components/schemas/Product'
+          title: Products
+        facets:
+          items:
+            additionalProperties: true
+          title: Facets
+      required:
+      - limit
+      - market
+      - offset
+      - products
+      - total_results
+      title: SearchResponse
     portal_api__routers__v1_twitter_filter_rules__FilterRulePricingResponse:
       description: Per-poll rates for filter rules (no tiers — usage-based).
       example:
@@ -26968,10 +30431,96 @@ components:
       anyOf:
       - type: string
       - $ref: '#/components/schemas/ExtractRule'
+    Productcode:
+      anyOf:
+      - {}
+      - {}
+      - {}
+      title: Productcode
+    Brandname:
+      anyOf:
+      - {}
+      - {}
+      title: Brandname
+    Brandid:
+      anyOf:
+      - {}
+      - {}
+      title: Brandid
+    Colour:
+      anyOf:
+      - {}
+      - {}
+      title: Colour
+    Colourwayid:
+      anyOf:
+      - {}
+      - {}
+      title: Colourwayid
+    Product_price:
+      anyOf:
+      - $ref: '#/components/schemas/Price'
+      - {}
+    Url:
+      anyOf:
+      - nullable: true
+        type: string
+      nullable: true
+      title: Url
+    Imageurl:
+      anyOf:
+      - {}
+      - {}
+      title: Imageurl
+    Issellingfast:
+      anyOf:
+      - {}
+      - {}
+      title: Issellingfast
+    Isrestockingsoon:
+      anyOf:
+      - {}
+      - {}
+      title: Isrestockingsoon
+    Isinstock:
+      anyOf:
+      - {}
+      - {}
+      title: Isinstock
+    Gender:
+      anyOf:
+      - {}
+      - {}
+      title: Gender
+    Description:
+      anyOf:
+      - additionalProperties: true
+      - nullable: true
+      title: Description
+    Ratings:
+      anyOf:
+      - additionalProperties: true
+      - nullable: true
+      title: Ratings
     ValidationError_loc_inner:
       anyOf:
       - type: string
       - type: integer
+    Searchterm:
+      anyOf:
+      - {}
+      - {}
+      title: Searchterm
+    Categoryname:
+      anyOf:
+      - {}
+      - {}
+      title: Categoryname
+    Next_Offset:
+      anyOf:
+      - {}
+      - {}
+      title: Next Offset
   securitySchemes:
     ApiKeyAuth:
       in: header

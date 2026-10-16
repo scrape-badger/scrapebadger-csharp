@@ -931,7 +931,7 @@ catch (ApiException e)
 
 <a id="vintedsearchbyimage"></a>
 # **VintedSearchByImage**
-> SearchResponse VintedSearchByImage (VintedImageSearchRequest vintedImageSearchRequest)
+> PortalApiRoutersVintedSchemasSearchResponse VintedSearchByImage (VintedImageSearchRequest vintedImageSearchRequest)
 
 Search by image
 
@@ -968,7 +968,7 @@ namespace Example
             try
             {
                 // Search by image
-                SearchResponse result = apiInstance.VintedSearchByImage(vintedImageSearchRequest);
+                PortalApiRoutersVintedSchemasSearchResponse result = apiInstance.VintedSearchByImage(vintedImageSearchRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -989,7 +989,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search by image
-    ApiResponse<SearchResponse> response = apiInstance.VintedSearchByImageWithHttpInfo(vintedImageSearchRequest);
+    ApiResponse<PortalApiRoutersVintedSchemasSearchResponse> response = apiInstance.VintedSearchByImageWithHttpInfo(vintedImageSearchRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1010,7 +1010,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**SearchResponse**](SearchResponse.md)
+[**PortalApiRoutersVintedSchemasSearchResponse**](PortalApiRoutersVintedSchemasSearchResponse.md)
 
 ### Authorization
 
@@ -1032,7 +1032,7 @@ catch (ApiException e)
 
 <a id="vintedsearchvinteditems"></a>
 # **VintedSearchVintedItems**
-> SearchResponse VintedSearchVintedItems (string query, string market = null, string sellerCountry = null, int? page = null, int? perPage = null, decimal? priceFrom = null, decimal? priceTo = null, string brandIds = null, string catalogIds = null, string colorIds = null, string sizeIds = null, string materialIds = null, int? time = null, string searchSessionId = null, string statusIds = null, string order = null)
+> PortalApiRoutersVintedSchemasSearchResponse VintedSearchVintedItems (string query, string market = null, string sellerCountry = null, int? page = null, int? perPage = null, decimal? priceFrom = null, decimal? priceTo = null, string brandIds = null, string catalogIds = null, string colorIds = null, string sizeIds = null, string materialIds = null, int? time = null, string searchSessionId = null, string statusIds = null, string order = null)
 
 Search Vinted items
 
@@ -1084,7 +1084,7 @@ namespace Example
             try
             {
                 // Search Vinted items
-                SearchResponse result = apiInstance.VintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
+                PortalApiRoutersVintedSchemasSearchResponse result = apiInstance.VintedSearchVintedItems(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1105,7 +1105,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search Vinted items
-    ApiResponse<SearchResponse> response = apiInstance.VintedSearchVintedItemsWithHttpInfo(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
+    ApiResponse<PortalApiRoutersVintedSchemasSearchResponse> response = apiInstance.VintedSearchVintedItemsWithHttpInfo(query, market, sellerCountry, page, perPage, priceFrom, priceTo, brandIds, catalogIds, colorIds, sizeIds, materialIds, time, searchSessionId, statusIds, order);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1141,7 +1141,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**SearchResponse**](SearchResponse.md)
+[**PortalApiRoutersVintedSchemasSearchResponse**](PortalApiRoutersVintedSchemasSearchResponse.md)
 
 ### Authorization
 
