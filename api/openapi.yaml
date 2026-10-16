@@ -9145,7 +9145,8 @@ paths:
           type: string
         style: form
       - description: Chase deferred AI Overview page_token with a follow-up fetch
-          and merge the result. Adds ~1s and 1 credit when the SERP defers the overview.
+          and merge the result. Adds ~1s when the SERP defers the overview; the request
+          price is unchanged.
         explode: true
         in: query
         name: ai_overview
@@ -9153,7 +9154,8 @@ paths:
         schema:
           default: false
           description: Chase deferred AI Overview page_token with a follow-up fetch
-            and merge the result. Adds ~1s and 1 credit when the SERP defers the overview.
+            and merge the result. Adds ~1s when the SERP defers the overview; the
+            request price is unchanged.
           title: Ai Overview
           type: boolean
         style: form

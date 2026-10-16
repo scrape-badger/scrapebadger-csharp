@@ -530,7 +530,7 @@ namespace ScrapeBadger.Api
         /// <param name="si">Cached search params (optional)</param>
         /// <param name="ibp">Layout control (optional)</param>
         /// <param name="uds">Google filter string (optional)</param>
-        /// <param name="aiOverview">Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s and 1 credit when the SERP defers the overview. (optional, default to false)</param>
+        /// <param name="aiOverview">Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional, default to false)</param>
         /// <returns>Object</returns>
         Object GoogleGoogleWebSearch(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string device = default(string), string userAgent = default(string), string output = default(string), string location = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), string uule = default(string), int? filter = default(int?), int? nfpr = default(int?), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), bool? aiOverview = default(bool?));
 
@@ -564,7 +564,7 @@ namespace ScrapeBadger.Api
         /// <param name="si">Cached search params (optional)</param>
         /// <param name="ibp">Layout control (optional)</param>
         /// <param name="uds">Google filter string (optional)</param>
-        /// <param name="aiOverview">Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s and 1 credit when the SERP defers the overview. (optional, default to false)</param>
+        /// <param name="aiOverview">Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional, default to false)</param>
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> GoogleGoogleWebSearchWithHttpInfo(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string device = default(string), string userAgent = default(string), string output = default(string), string location = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), string uule = default(string), int? filter = default(int?), int? nfpr = default(int?), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), bool? aiOverview = default(bool?));
         /// <summary>
@@ -1682,7 +1682,7 @@ namespace ScrapeBadger.Api
         /// <param name="si">Cached search params (optional)</param>
         /// <param name="ibp">Layout control (optional)</param>
         /// <param name="uds">Google filter string (optional)</param>
-        /// <param name="aiOverview">Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s and 1 credit when the SERP defers the overview. (optional, default to false)</param>
+        /// <param name="aiOverview">Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
         System.Threading.Tasks.Task<Object> GoogleGoogleWebSearchAsync(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string device = default(string), string userAgent = default(string), string output = default(string), string location = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), string uule = default(string), int? filter = default(int?), int? nfpr = default(int?), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), bool? aiOverview = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
@@ -1717,7 +1717,7 @@ namespace ScrapeBadger.Api
         /// <param name="si">Cached search params (optional)</param>
         /// <param name="ibp">Layout control (optional)</param>
         /// <param name="uds">Google filter string (optional)</param>
-        /// <param name="aiOverview">Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s and 1 credit when the SERP defers the overview. (optional, default to false)</param>
+        /// <param name="aiOverview">Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> GoogleGoogleWebSearchWithHttpInfoAsync(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string device = default(string), string userAgent = default(string), string output = default(string), string location = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), string uule = default(string), int? filter = default(int?), int? nfpr = default(int?), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), bool? aiOverview = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
@@ -5499,7 +5499,7 @@ namespace ScrapeBadger.Api
         /// <param name="si">Cached search params (optional)</param>
         /// <param name="ibp">Layout control (optional)</param>
         /// <param name="uds">Google filter string (optional)</param>
-        /// <param name="aiOverview">Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s and 1 credit when the SERP defers the overview. (optional, default to false)</param>
+        /// <param name="aiOverview">Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional, default to false)</param>
         /// <returns>Object</returns>
         public Object GoogleGoogleWebSearch(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string device = default(string), string userAgent = default(string), string output = default(string), string location = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), string uule = default(string), int? filter = default(int?), int? nfpr = default(int?), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), bool? aiOverview = default(bool?))
         {
@@ -5534,7 +5534,7 @@ namespace ScrapeBadger.Api
         /// <param name="si">Cached search params (optional)</param>
         /// <param name="ibp">Layout control (optional)</param>
         /// <param name="uds">Google filter string (optional)</param>
-        /// <param name="aiOverview">Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s and 1 credit when the SERP defers the overview. (optional, default to false)</param>
+        /// <param name="aiOverview">Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional, default to false)</param>
         /// <returns>ApiResponse of Object</returns>
         public ScrapeBadger.Client.ApiResponse<Object> GoogleGoogleWebSearchWithHttpInfo(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string device = default(string), string userAgent = default(string), string output = default(string), string location = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), string uule = default(string), int? filter = default(int?), int? nfpr = default(int?), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), bool? aiOverview = default(bool?))
         {
@@ -5697,7 +5697,7 @@ namespace ScrapeBadger.Api
         /// <param name="si">Cached search params (optional)</param>
         /// <param name="ibp">Layout control (optional)</param>
         /// <param name="uds">Google filter string (optional)</param>
-        /// <param name="aiOverview">Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s and 1 credit when the SERP defers the overview. (optional, default to false)</param>
+        /// <param name="aiOverview">Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
         public async System.Threading.Tasks.Task<Object> GoogleGoogleWebSearchAsync(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string device = default(string), string userAgent = default(string), string output = default(string), string location = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), string uule = default(string), int? filter = default(int?), int? nfpr = default(int?), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), bool? aiOverview = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
@@ -5733,7 +5733,7 @@ namespace ScrapeBadger.Api
         /// <param name="si">Cached search params (optional)</param>
         /// <param name="ibp">Layout control (optional)</param>
         /// <param name="uds">Google filter string (optional)</param>
-        /// <param name="aiOverview">Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s and 1 credit when the SERP defers the overview. (optional, default to false)</param>
+        /// <param name="aiOverview">Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
         public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GoogleGoogleWebSearchWithHttpInfoAsync(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string device = default(string), string userAgent = default(string), string output = default(string), string location = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), string uule = default(string), int? filter = default(int?), int? nfpr = default(int?), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), bool? aiOverview = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))

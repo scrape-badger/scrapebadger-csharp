@@ -1930,7 +1930,7 @@ namespace Example
             var si = "si_example";  // string | Cached search params (optional) 
             var ibp = "ibp_example";  // string | Layout control (optional) 
             var uds = "uds_example";  // string | Google filter string (optional) 
-            var aiOverview = false;  // bool? | Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s and 1 credit when the SERP defers the overview. (optional)  (default to false)
+            var aiOverview = false;  // bool? | Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional)  (default to false)
 
             try
             {
@@ -1996,7 +1996,7 @@ catch (ApiException e)
 | **si** | **string** | Cached search params | [optional]  |
 | **ibp** | **string** | Layout control | [optional]  |
 | **uds** | **string** | Google filter string | [optional]  |
-| **aiOverview** | **bool?** | Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s and 1 credit when the SERP defers the overview. | [optional] [default to false] |
+| **aiOverview** | **bool?** | Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. | [optional] [default to false] |
 
 ### Return type
 
