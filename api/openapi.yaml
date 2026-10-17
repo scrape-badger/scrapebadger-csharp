@@ -24645,6 +24645,11 @@ paths:
         as ``unblock`` / ``X-Unblock`` (``discovering`` | ``cooldown`` | ``none``);
         once found it applies to later requests automatically.
 
+        Repeated identical upstream failures can return 429 with Retry-After under
+        the gateway's existing failure-backoff thresholds. Other URLs and changed
+        request options (including credentials) remain independent; validation
+        errors do not fund or trip this protection.
+
         One exception, added for SB-001083/SCR-64: a plain ``google.com/search``
         web-SERP fetch is served by the dedicated Google scraper, whose rotation
         loop is built for SearchGuard. Same request shape, same response shape,
