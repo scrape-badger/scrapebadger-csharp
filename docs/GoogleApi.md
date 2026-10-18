@@ -17,6 +17,7 @@ All URIs are relative to *https://scrapebadger.com*
 | [**GoogleGoogleFlightsCalendarCheapestFarePerDate**](GoogleApi.md#googlegoogleflightscalendarcheapestfareperdate) | **GET** /v1/google/flights/calendar | Google Flights calendar — cheapest fare per date |
 | [**GoogleGoogleFlightsSearch**](GoogleApi.md#googlegoogleflightssearch) | **GET** /v1/google/flights/search | Google Flights search |
 | [**GoogleGoogleLensVisualSearch**](GoogleApi.md#googlegooglelensvisualsearch) | **GET** /v1/google/lens/search | Google Lens visual search |
+| [**GoogleGoogleLightWebSearch**](GoogleApi.md#googlegooglelightwebsearch) | **GET** /v1/google/light/search | Google Light web search |
 | [**GoogleGoogleScraperHealthCheck**](GoogleApi.md#googlegooglescraperhealthcheck) | **GET** /v1/google/health | Google scraper health check |
 | [**GoogleGoogleScraperHealthCheckHead**](GoogleApi.md#googlegooglescraperhealthcheckhead) | **HEAD** /v1/google/health | Google scraper health check |
 | [**GoogleGoogleSearchSuggestions**](GoogleApi.md#googlegooglesearchsuggestions) | **GET** /v1/google/autocomplete | Google search suggestions |
@@ -1444,6 +1445,133 @@ catch (ApiException e)
 | **product** | **bool?** | Only the tiles Google marked buyable (price + stock), drawn from the same grid | [optional] [default to false] |
 | **visualMatches** | **bool?** | Always true in practice — &#x60;false&#x60; is reported back in &#x60;warnings&#x60; | [optional] [default to true] |
 | **exactMatches** | **bool?** | Return only the pages hosting this image, flagged exact_match. Available for most images (8/10 in sampling); falls back to the full grid otherwise, saying so in warnings | [optional] [default to false] |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="googlegooglelightwebsearch"></a>
+# **GoogleGoogleLightWebSearch**
+> Object GoogleGoogleLightWebSearch (string q, string gl = null, string hl = null, int? num = null, int? start = null, string domain = null, string location = null, string uule = null, string lr = null, string tbs = null, string safe = null, int? filter = null, int? nfpr = null, string output = null)
+
+Google Light web search
+
+Organic results and related searches only. Costs 10 credits per successful uncached request, compared with 20 credits for regular Google Search. Light always skips rich SERP blocks; mode and ai_overview cannot enable them.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using ScrapeBadger.Api;
+using ScrapeBadger.Client;
+using ScrapeBadger.Model;
+
+namespace Example
+{
+    public class GoogleGoogleLightWebSearchExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://scrapebadger.com";
+            // Configure API key authorization: ApiKeyAuth
+            config.AddApiKey("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("X-API-Key", "Bearer");
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GoogleApi(httpClient, config, httpClientHandler);
+            var q = "q_example";  // string | Search query (supports Google operators)
+            var gl = "\"us\"";  // string | Country code (optional)  (default to "us")
+            var hl = "\"en\"";  // string | Language code (optional)  (default to "en")
+            var num = 10;  // int? |  (optional)  (default to 10)
+            var start = 0;  // int? | Page offset (0, 10, 20...) (optional)  (default to 0)
+            var domain = "\"google.com\"";  // string | Google domain (optional)  (default to "google.com")
+            var location = "location_example";  // string | City-level geo-targeting (optional) 
+            var uule = "uule_example";  // string | Encoded location (optional) 
+            var lr = "lr_example";  // string | Language restrict (e.g. lang_en) (optional) 
+            var tbs = "tbs_example";  // string | Time filter (e.g. qdr:d) (optional) 
+            var safe = "\"off\"";  // string | Safe search: off or active (optional)  (default to "off")
+            var filter = 56;  // int? |  (optional) 
+            var nfpr = 0;  // int? | Disable auto-correction (optional)  (default to 0)
+            var output = "json";  // string |  (optional)  (default to json)
+
+            try
+            {
+                // Google Light web search
+                Object result = apiInstance.GoogleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling GoogleApi.GoogleGoogleLightWebSearch: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GoogleGoogleLightWebSearchWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Google Light web search
+    ApiResponse<Object> response = apiInstance.GoogleGoogleLightWebSearchWithHttpInfo(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GoogleApi.GoogleGoogleLightWebSearchWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **q** | **string** | Search query (supports Google operators) |  |
+| **gl** | **string** | Country code | [optional] [default to &quot;us&quot;] |
+| **hl** | **string** | Language code | [optional] [default to &quot;en&quot;] |
+| **num** | **int?** |  | [optional] [default to 10] |
+| **start** | **int?** | Page offset (0, 10, 20...) | [optional] [default to 0] |
+| **domain** | **string** | Google domain | [optional] [default to &quot;google.com&quot;] |
+| **location** | **string** | City-level geo-targeting | [optional]  |
+| **uule** | **string** | Encoded location | [optional]  |
+| **lr** | **string** | Language restrict (e.g. lang_en) | [optional]  |
+| **tbs** | **string** | Time filter (e.g. qdr:d) | [optional]  |
+| **safe** | **string** | Safe search: off or active | [optional] [default to &quot;off&quot;] |
+| **filter** | **int?** |  | [optional]  |
+| **nfpr** | **int?** | Disable auto-correction | [optional] [default to 0] |
+| **output** | **string** |  | [optional] [default to json] |
 
 ### Return type
 

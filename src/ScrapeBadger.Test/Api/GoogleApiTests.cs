@@ -269,6 +269,31 @@ namespace ScrapeBadger.Test.Api
         }
 
         /// <summary>
+        /// Test GoogleGoogleLightWebSearch
+        /// </summary>
+        [Fact]
+        public void GoogleGoogleLightWebSearchTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string q = null;
+            //string gl = null;
+            //string hl = null;
+            //int? num = null;
+            //int? start = null;
+            //string domain = null;
+            //string location = null;
+            //string uule = null;
+            //string lr = null;
+            //string tbs = null;
+            //string safe = null;
+            //int? filter = null;
+            //int? nfpr = null;
+            //string output = null;
+            //var response = instance.GoogleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output);
+            //Assert.IsType<Object>(response);
+        }
+
+        /// <summary>
         /// Test GoogleGoogleScraperHealthCheck
         /// </summary>
         [Fact]

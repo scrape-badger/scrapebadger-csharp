@@ -407,6 +407,53 @@ namespace ScrapeBadger.Api
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> GoogleGoogleLensVisualSearchWithHttpInfo(string url, string query = default(string), string country = default(string), string language = default(string), string gl = default(string), string hl = default(string), bool? product = default(bool?), bool? visualMatches = default(bool?), bool? exactMatches = default(bool?));
         /// <summary>
+        /// Google Light web search
+        /// </summary>
+        /// <remarks>
+        /// Organic results and related searches only. Costs 10 credits per successful uncached request, compared with 20 credits for regular Google Search. Light always skips rich SERP blocks; mode and ai_overview cannot enable them.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Search query (supports Google operators)</param>
+        /// <param name="gl">Country code (optional, default to &quot;us&quot;)</param>
+        /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
+        /// <param name="num"> (optional, default to 10)</param>
+        /// <param name="start">Page offset (0, 10, 20...) (optional, default to 0)</param>
+        /// <param name="domain">Google domain (optional, default to &quot;google.com&quot;)</param>
+        /// <param name="location">City-level geo-targeting (optional)</param>
+        /// <param name="uule">Encoded location (optional)</param>
+        /// <param name="lr">Language restrict (e.g. lang_en) (optional)</param>
+        /// <param name="tbs">Time filter (e.g. qdr:d) (optional)</param>
+        /// <param name="safe">Safe search: off or active (optional, default to &quot;off&quot;)</param>
+        /// <param name="filter"> (optional)</param>
+        /// <param name="nfpr">Disable auto-correction (optional, default to 0)</param>
+        /// <param name="output"> (optional, default to json)</param>
+        /// <returns>Object</returns>
+        Object GoogleGoogleLightWebSearch(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string location = default(string), string uule = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), int? filter = default(int?), int? nfpr = default(int?), string output = default(string));
+
+        /// <summary>
+        /// Google Light web search
+        /// </summary>
+        /// <remarks>
+        /// Organic results and related searches only. Costs 10 credits per successful uncached request, compared with 20 credits for regular Google Search. Light always skips rich SERP blocks; mode and ai_overview cannot enable them.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Search query (supports Google operators)</param>
+        /// <param name="gl">Country code (optional, default to &quot;us&quot;)</param>
+        /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
+        /// <param name="num"> (optional, default to 10)</param>
+        /// <param name="start">Page offset (0, 10, 20...) (optional, default to 0)</param>
+        /// <param name="domain">Google domain (optional, default to &quot;google.com&quot;)</param>
+        /// <param name="location">City-level geo-targeting (optional)</param>
+        /// <param name="uule">Encoded location (optional)</param>
+        /// <param name="lr">Language restrict (e.g. lang_en) (optional)</param>
+        /// <param name="tbs">Time filter (e.g. qdr:d) (optional)</param>
+        /// <param name="safe">Safe search: off or active (optional, default to &quot;off&quot;)</param>
+        /// <param name="filter"> (optional)</param>
+        /// <param name="nfpr">Disable auto-correction (optional, default to 0)</param>
+        /// <param name="output"> (optional, default to json)</param>
+        /// <returns>ApiResponse of Object</returns>
+        ApiResponse<Object> GoogleGoogleLightWebSearchWithHttpInfo(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string location = default(string), string uule = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), int? filter = default(int?), int? nfpr = default(int?), string output = default(string));
+        /// <summary>
         /// Google scraper health check
         /// </summary>
         /// <remarks>
@@ -1550,6 +1597,55 @@ namespace ScrapeBadger.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> GoogleGoogleLensVisualSearchWithHttpInfoAsync(string url, string query = default(string), string country = default(string), string language = default(string), string gl = default(string), string hl = default(string), bool? product = default(bool?), bool? visualMatches = default(bool?), bool? exactMatches = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Google Light web search
+        /// </summary>
+        /// <remarks>
+        /// Organic results and related searches only. Costs 10 credits per successful uncached request, compared with 20 credits for regular Google Search. Light always skips rich SERP blocks; mode and ai_overview cannot enable them.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Search query (supports Google operators)</param>
+        /// <param name="gl">Country code (optional, default to &quot;us&quot;)</param>
+        /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
+        /// <param name="num"> (optional, default to 10)</param>
+        /// <param name="start">Page offset (0, 10, 20...) (optional, default to 0)</param>
+        /// <param name="domain">Google domain (optional, default to &quot;google.com&quot;)</param>
+        /// <param name="location">City-level geo-targeting (optional)</param>
+        /// <param name="uule">Encoded location (optional)</param>
+        /// <param name="lr">Language restrict (e.g. lang_en) (optional)</param>
+        /// <param name="tbs">Time filter (e.g. qdr:d) (optional)</param>
+        /// <param name="safe">Safe search: off or active (optional, default to &quot;off&quot;)</param>
+        /// <param name="filter"> (optional)</param>
+        /// <param name="nfpr">Disable auto-correction (optional, default to 0)</param>
+        /// <param name="output"> (optional, default to json)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        System.Threading.Tasks.Task<Object> GoogleGoogleLightWebSearchAsync(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string location = default(string), string uule = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), int? filter = default(int?), int? nfpr = default(int?), string output = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Google Light web search
+        /// </summary>
+        /// <remarks>
+        /// Organic results and related searches only. Costs 10 credits per successful uncached request, compared with 20 credits for regular Google Search. Light always skips rich SERP blocks; mode and ai_overview cannot enable them.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Search query (supports Google operators)</param>
+        /// <param name="gl">Country code (optional, default to &quot;us&quot;)</param>
+        /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
+        /// <param name="num"> (optional, default to 10)</param>
+        /// <param name="start">Page offset (0, 10, 20...) (optional, default to 0)</param>
+        /// <param name="domain">Google domain (optional, default to &quot;google.com&quot;)</param>
+        /// <param name="location">City-level geo-targeting (optional)</param>
+        /// <param name="uule">Encoded location (optional)</param>
+        /// <param name="lr">Language restrict (e.g. lang_en) (optional)</param>
+        /// <param name="tbs">Time filter (e.g. qdr:d) (optional)</param>
+        /// <param name="safe">Safe search: off or active (optional, default to &quot;off&quot;)</param>
+        /// <param name="filter"> (optional)</param>
+        /// <param name="nfpr">Disable auto-correction (optional, default to 0)</param>
+        /// <param name="output"> (optional, default to json)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> GoogleGoogleLightWebSearchWithHttpInfoAsync(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string location = default(string), string uule = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), int? filter = default(int?), int? nfpr = default(int?), string output = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Google scraper health check
         /// </summary>
@@ -4910,6 +5006,287 @@ namespace ScrapeBadger.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GoogleGoogleLensVisualSearch", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Google Light web search Organic results and related searches only. Costs 10 credits per successful uncached request, compared with 20 credits for regular Google Search. Light always skips rich SERP blocks; mode and ai_overview cannot enable them.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Search query (supports Google operators)</param>
+        /// <param name="gl">Country code (optional, default to &quot;us&quot;)</param>
+        /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
+        /// <param name="num"> (optional, default to 10)</param>
+        /// <param name="start">Page offset (0, 10, 20...) (optional, default to 0)</param>
+        /// <param name="domain">Google domain (optional, default to &quot;google.com&quot;)</param>
+        /// <param name="location">City-level geo-targeting (optional)</param>
+        /// <param name="uule">Encoded location (optional)</param>
+        /// <param name="lr">Language restrict (e.g. lang_en) (optional)</param>
+        /// <param name="tbs">Time filter (e.g. qdr:d) (optional)</param>
+        /// <param name="safe">Safe search: off or active (optional, default to &quot;off&quot;)</param>
+        /// <param name="filter"> (optional)</param>
+        /// <param name="nfpr">Disable auto-correction (optional, default to 0)</param>
+        /// <param name="output"> (optional, default to json)</param>
+        /// <returns>Object</returns>
+        public Object GoogleGoogleLightWebSearch(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string location = default(string), string uule = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), int? filter = default(int?), int? nfpr = default(int?), string output = default(string))
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GoogleGoogleLightWebSearchWithHttpInfo(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Google Light web search Organic results and related searches only. Costs 10 credits per successful uncached request, compared with 20 credits for regular Google Search. Light always skips rich SERP blocks; mode and ai_overview cannot enable them.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Search query (supports Google operators)</param>
+        /// <param name="gl">Country code (optional, default to &quot;us&quot;)</param>
+        /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
+        /// <param name="num"> (optional, default to 10)</param>
+        /// <param name="start">Page offset (0, 10, 20...) (optional, default to 0)</param>
+        /// <param name="domain">Google domain (optional, default to &quot;google.com&quot;)</param>
+        /// <param name="location">City-level geo-targeting (optional)</param>
+        /// <param name="uule">Encoded location (optional)</param>
+        /// <param name="lr">Language restrict (e.g. lang_en) (optional)</param>
+        /// <param name="tbs">Time filter (e.g. qdr:d) (optional)</param>
+        /// <param name="safe">Safe search: off or active (optional, default to &quot;off&quot;)</param>
+        /// <param name="filter"> (optional)</param>
+        /// <param name="nfpr">Disable auto-correction (optional, default to 0)</param>
+        /// <param name="output"> (optional, default to json)</param>
+        /// <returns>ApiResponse of Object</returns>
+        public ScrapeBadger.Client.ApiResponse<Object> GoogleGoogleLightWebSearchWithHttpInfo(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string location = default(string), string uule = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), int? filter = default(int?), int? nfpr = default(int?), string output = default(string))
+        {
+            // verify the required parameter 'q' is set
+            if (q == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'q' when calling GoogleApi->GoogleGoogleLightWebSearch");
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "q", q));
+            if (gl != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "gl", gl));
+            }
+            if (hl != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "hl", hl));
+            }
+            if (num != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "num", num));
+            }
+            if (start != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "start", start));
+            }
+            if (domain != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "domain", domain));
+            }
+            if (location != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "location", location));
+            }
+            if (uule != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "uule", uule));
+            }
+            if (lr != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "lr", lr));
+            }
+            if (tbs != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "tbs", tbs));
+            }
+            if (safe != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "safe", safe));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (nfpr != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "nfpr", nfpr));
+            }
+            if (output != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "output", output));
+            }
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Object>("/v1/google/light/search", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GoogleGoogleLightWebSearch", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Google Light web search Organic results and related searches only. Costs 10 credits per successful uncached request, compared with 20 credits for regular Google Search. Light always skips rich SERP blocks; mode and ai_overview cannot enable them.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Search query (supports Google operators)</param>
+        /// <param name="gl">Country code (optional, default to &quot;us&quot;)</param>
+        /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
+        /// <param name="num"> (optional, default to 10)</param>
+        /// <param name="start">Page offset (0, 10, 20...) (optional, default to 0)</param>
+        /// <param name="domain">Google domain (optional, default to &quot;google.com&quot;)</param>
+        /// <param name="location">City-level geo-targeting (optional)</param>
+        /// <param name="uule">Encoded location (optional)</param>
+        /// <param name="lr">Language restrict (e.g. lang_en) (optional)</param>
+        /// <param name="tbs">Time filter (e.g. qdr:d) (optional)</param>
+        /// <param name="safe">Safe search: off or active (optional, default to &quot;off&quot;)</param>
+        /// <param name="filter"> (optional)</param>
+        /// <param name="nfpr">Disable auto-correction (optional, default to 0)</param>
+        /// <param name="output"> (optional, default to json)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        public async System.Threading.Tasks.Task<Object> GoogleGoogleLightWebSearchAsync(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string location = default(string), string uule = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), int? filter = default(int?), int? nfpr = default(int?), string output = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GoogleGoogleLightWebSearchWithHttpInfoAsync(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Google Light web search Organic results and related searches only. Costs 10 credits per successful uncached request, compared with 20 credits for regular Google Search. Light always skips rich SERP blocks; mode and ai_overview cannot enable them.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="q">Search query (supports Google operators)</param>
+        /// <param name="gl">Country code (optional, default to &quot;us&quot;)</param>
+        /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
+        /// <param name="num"> (optional, default to 10)</param>
+        /// <param name="start">Page offset (0, 10, 20...) (optional, default to 0)</param>
+        /// <param name="domain">Google domain (optional, default to &quot;google.com&quot;)</param>
+        /// <param name="location">City-level geo-targeting (optional)</param>
+        /// <param name="uule">Encoded location (optional)</param>
+        /// <param name="lr">Language restrict (e.g. lang_en) (optional)</param>
+        /// <param name="tbs">Time filter (e.g. qdr:d) (optional)</param>
+        /// <param name="safe">Safe search: off or active (optional, default to &quot;off&quot;)</param>
+        /// <param name="filter"> (optional)</param>
+        /// <param name="nfpr">Disable auto-correction (optional, default to 0)</param>
+        /// <param name="output"> (optional, default to json)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GoogleGoogleLightWebSearchWithHttpInfoAsync(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string location = default(string), string uule = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), int? filter = default(int?), int? nfpr = default(int?), string output = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'q' is set
+            if (q == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'q' when calling GoogleApi->GoogleGoogleLightWebSearch");
+
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "q", q));
+            if (gl != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "gl", gl));
+            }
+            if (hl != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "hl", hl));
+            }
+            if (num != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "num", num));
+            }
+            if (start != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "start", start));
+            }
+            if (domain != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "domain", domain));
+            }
+            if (location != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "location", location));
+            }
+            if (uule != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "uule", uule));
+            }
+            if (lr != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "lr", lr));
+            }
+            if (tbs != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "tbs", tbs));
+            }
+            if (safe != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "safe", safe));
+            }
+            if (filter != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
+            }
+            if (nfpr != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "nfpr", nfpr));
+            }
+            if (output != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "output", output));
+            }
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/google/light/search", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GoogleGoogleLightWebSearch", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
