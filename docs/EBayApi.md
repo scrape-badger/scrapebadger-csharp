@@ -134,11 +134,11 @@ catch (ApiException e)
 
 <a id="ebaycompletedsoldlistings"></a>
 # **EbayCompletedSoldListings**
-> Object EbayCompletedSoldListings (string query, string domain = null, string categoryId = null, int? page = null, int? perPage = null, string sortBy = null, string condition = null, decimal? minPrice = null, decimal? maxPrice = null, string location = null, string language = null)
+> Object EbayCompletedSoldListings (string query = null, string seller = null, string domain = null, string categoryId = null, int? page = null, int? perPage = null, string sortBy = null, string condition = null, decimal? minPrice = null, decimal? maxPrice = null, string location = null, string language = null)
 
 Completed / sold listings
 
-Search completed/sold listings — eBay's sold-price history.  eBay pads a short result set with \"results matching fewer words\" and counts only the exact ones in ``pagination.total_results``. Results come back in eBay's own ranking order with the exact matches first, and each one carries ``exact_match`` (true/false) so a price series can be built without parsing titles. An empty ``results`` with ``total_results: 0`` is eBay's own answer and costs 0 credits — a fetch failure is never a 200.  ``price`` is what the listing sold for, including the market's buyer-protection fee, as a local buyer sees it. It is ``null`` on one shape: an auction that also accepted offers (``bids`` set). eBay's sold index answers those with either the listing's start/Buy-It-Now price or the price it sold at, varying between identical requests with nothing to say which, so no number there is trustworthy — ``/v1/ebay/items/{item_id}`` carries the winning bid for them (before the fee). A listing that closed purely on an accepted Best Offer prices normally: eBay never publishes the accepted amount, so ``price`` is the listed one, exactly as its own item page shows.
+Search completed/sold listings — eBay's sold-price history.  Pass ``query``, ``seller`` or both. ``seller`` alone returns everything that seller sold, page by page, with no keyword needed.  eBay pads a short result set with \"results matching fewer words\" and counts only the exact ones in ``pagination.total_results``. Results come back in eBay's own ranking order with the exact matches first, and each one carries ``exact_match`` (true/false) so a price series can be built without parsing titles. An empty ``results`` with ``total_results: 0`` is eBay's own answer and costs 0 credits — a fetch failure is never a 200.  ``price`` is what the listing sold for, including the market's buyer-protection fee, as a local buyer sees it. It is ``null`` on one shape: an auction that also accepted offers (``bids`` set). eBay's sold index answers those with either the listing's start/Buy-It-Now price or the price it sold at, varying between identical requests with nothing to say which, so no number there is trustworthy — ``/v1/ebay/items/{item_id}`` carries the winning bid for them (before the fee). A listing that closed purely on an accepted Best Offer prices normally: eBay never publishes the accepted amount, so ``price`` is the listed one, exactly as its own item page shows.
 
 ### Example
 ```csharp
@@ -166,7 +166,8 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new EBayApi(httpClient, config, httpClientHandler);
-            var query = "query_example";  // string | Search keywords
+            var query = "query_example";  // string | Search keywords. Optional when `seller` is set. (optional) 
+            var seller = "seller_example";  // string | Only this seller's sold listings (eBay username). Works without `query`. (optional) 
             var domain = "\"com\"";  // string | Marketplace domain (com, co.uk, de …) (optional)  (default to "com")
             var categoryId = "categoryId_example";  // string | Restrict to a category id (optional) 
             var page = 1;  // int? |  (optional)  (default to 1)
@@ -181,7 +182,7 @@ namespace Example
             try
             {
                 // Completed / sold listings
-                Object result = apiInstance.EbayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location, language);
+                Object result = apiInstance.EbayCompletedSoldListings(query, seller, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location, language);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -202,7 +203,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Completed / sold listings
-    ApiResponse<Object> response = apiInstance.EbayCompletedSoldListingsWithHttpInfo(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location, language);
+    ApiResponse<Object> response = apiInstance.EbayCompletedSoldListingsWithHttpInfo(query, seller, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location, language);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -219,7 +220,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **query** | **string** | Search keywords |  |
+| **query** | **string** | Search keywords. Optional when &#x60;seller&#x60; is set. | [optional]  |
+| **seller** | **string** | Only this seller&#39;s sold listings (eBay username). Works without &#x60;query&#x60;. | [optional]  |
 | **domain** | **string** | Marketplace domain (com, co.uk, de …) | [optional] [default to &quot;com&quot;] |
 | **categoryId** | **string** | Restrict to a category id | [optional]  |
 | **page** | **int?** |  | [optional] [default to 1] |

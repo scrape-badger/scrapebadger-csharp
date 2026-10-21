@@ -31,7 +31,7 @@ namespace ScrapeBadger.Api
         /// About this account
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Country, join date and former usernames.
+        /// Country, join date and former usernames.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -42,7 +42,7 @@ namespace ScrapeBadger.Api
         /// About this account
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Country, join date and former usernames.
+        /// Country, join date and former usernames.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -51,9 +51,6 @@ namespace ScrapeBadger.Api
         /// <summary>
         /// Blended top search
         /// </summary>
-        /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
-        /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query"></param>
         /// <returns>Object</returns>
@@ -63,7 +60,7 @@ namespace ScrapeBadger.Api
         /// Blended top search
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query"></param>
@@ -73,7 +70,7 @@ namespace ScrapeBadger.Api
         /// Get active stories
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Active stories (account pool only).
+        /// Active stories (account pool only).
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -84,7 +81,7 @@ namespace ScrapeBadger.Api
         /// Get active stories
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Active stories (account pool only).
+        /// Active stories (account pool only).
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -93,9 +90,6 @@ namespace ScrapeBadger.Api
         /// <summary>
         /// Get audio track
         /// </summary>
-        /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
-        /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audioId"></param>
         /// <returns>Object</returns>
@@ -105,7 +99,7 @@ namespace ScrapeBadger.Api
         /// Get audio track
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audioId"></param>
@@ -137,7 +131,7 @@ namespace ScrapeBadger.Api
         /// Get followers
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Followers list, paginated (account pool).
+        /// Followers list, paginated (account pool).
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -151,7 +145,7 @@ namespace ScrapeBadger.Api
         /// Get followers
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Followers list, paginated (account pool).
+        /// Followers list, paginated (account pool).
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -163,9 +157,6 @@ namespace ScrapeBadger.Api
         /// <summary>
         /// Get following
         /// </summary>
-        /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
-        /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="amount"> (optional, default to 50)</param>
@@ -177,7 +168,7 @@ namespace ScrapeBadger.Api
         /// Get following
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -188,9 +179,6 @@ namespace ScrapeBadger.Api
         /// <summary>
         /// Get hashtag info
         /// </summary>
-        /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
-        /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag"></param>
         /// <returns>Object</returns>
@@ -200,7 +188,7 @@ namespace ScrapeBadger.Api
         /// Get hashtag info
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag"></param>
@@ -209,9 +197,6 @@ namespace ScrapeBadger.Api
         /// <summary>
         /// Get highlights
         /// </summary>
-        /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
-        /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <returns>Object</returns>
@@ -221,7 +206,7 @@ namespace ScrapeBadger.Api
         /// Get highlights
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -230,9 +215,6 @@ namespace ScrapeBadger.Api
         /// <summary>
         /// Get likers
         /// </summary>
-        /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
-        /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code"></param>
         /// <returns>Object</returns>
@@ -242,7 +224,7 @@ namespace ScrapeBadger.Api
         /// Get likers
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code"></param>
@@ -251,9 +233,6 @@ namespace ScrapeBadger.Api
         /// <summary>
         /// Get location
         /// </summary>
-        /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
-        /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="locationPk"></param>
         /// <returns>Object</returns>
@@ -263,7 +242,7 @@ namespace ScrapeBadger.Api
         /// Get location
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="locationPk"></param>
@@ -314,9 +293,6 @@ namespace ScrapeBadger.Api
         /// <summary>
         /// Get tagged posts
         /// </summary>
-        /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
-        /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="amount"> (optional, default to 20)</param>
@@ -328,7 +304,7 @@ namespace ScrapeBadger.Api
         /// Get tagged posts
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -364,9 +340,6 @@ namespace ScrapeBadger.Api
         /// <summary>
         /// Get user reels
         /// </summary>
-        /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
-        /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <param name="amount"> (optional, default to 20)</param>
@@ -378,7 +351,7 @@ namespace ScrapeBadger.Api
         /// Get user reels
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -421,9 +394,6 @@ namespace ScrapeBadger.Api
         /// <summary>
         /// Recent hashtag posts
         /// </summary>
-        /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
-        /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag"></param>
         /// <param name="amount"> (optional, default to 20)</param>
@@ -435,7 +405,7 @@ namespace ScrapeBadger.Api
         /// Recent hashtag posts
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag"></param>
@@ -446,9 +416,6 @@ namespace ScrapeBadger.Api
         /// <summary>
         /// Related profiles
         /// </summary>
-        /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
-        /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
         /// <returns>Object</returns>
@@ -458,7 +425,7 @@ namespace ScrapeBadger.Api
         /// Related profiles
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -467,9 +434,6 @@ namespace ScrapeBadger.Api
         /// <summary>
         /// Search hashtags
         /// </summary>
-        /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
-        /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query"></param>
         /// <returns>Object</returns>
@@ -479,7 +443,7 @@ namespace ScrapeBadger.Api
         /// Search hashtags
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query"></param>
@@ -488,9 +452,6 @@ namespace ScrapeBadger.Api
         /// <summary>
         /// Search users
         /// </summary>
-        /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
-        /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query"></param>
         /// <returns>Object</returns>
@@ -500,7 +461,7 @@ namespace ScrapeBadger.Api
         /// Search users
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query"></param>
@@ -509,9 +470,6 @@ namespace ScrapeBadger.Api
         /// <summary>
         /// Top hashtag posts
         /// </summary>
-        /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
-        /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag"></param>
         /// <param name="amount"> (optional, default to 20)</param>
@@ -523,7 +481,7 @@ namespace ScrapeBadger.Api
         /// Top hashtag posts
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag"></param>
@@ -544,7 +502,7 @@ namespace ScrapeBadger.Api
         /// About this account
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Country, join date and former usernames.
+        /// Country, join date and former usernames.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -556,7 +514,7 @@ namespace ScrapeBadger.Api
         /// About this account
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Country, join date and former usernames.
+        /// Country, join date and former usernames.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -567,7 +525,7 @@ namespace ScrapeBadger.Api
         /// Blended top search
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query"></param>
@@ -579,7 +537,7 @@ namespace ScrapeBadger.Api
         /// Blended top search
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query"></param>
@@ -590,7 +548,7 @@ namespace ScrapeBadger.Api
         /// Get active stories
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Active stories (account pool only).
+        /// Active stories (account pool only).
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -602,7 +560,7 @@ namespace ScrapeBadger.Api
         /// Get active stories
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Active stories (account pool only).
+        /// Active stories (account pool only).
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -613,7 +571,7 @@ namespace ScrapeBadger.Api
         /// Get audio track
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audioId"></param>
@@ -625,7 +583,7 @@ namespace ScrapeBadger.Api
         /// Get audio track
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audioId"></param>
@@ -663,7 +621,7 @@ namespace ScrapeBadger.Api
         /// Get followers
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Followers list, paginated (account pool).
+        /// Followers list, paginated (account pool).
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -678,7 +636,7 @@ namespace ScrapeBadger.Api
         /// Get followers
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Followers list, paginated (account pool).
+        /// Followers list, paginated (account pool).
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -692,7 +650,7 @@ namespace ScrapeBadger.Api
         /// Get following
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -706,7 +664,7 @@ namespace ScrapeBadger.Api
         /// Get following
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -719,7 +677,7 @@ namespace ScrapeBadger.Api
         /// Get hashtag info
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag"></param>
@@ -731,7 +689,7 @@ namespace ScrapeBadger.Api
         /// Get hashtag info
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag"></param>
@@ -742,7 +700,7 @@ namespace ScrapeBadger.Api
         /// Get highlights
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -754,7 +712,7 @@ namespace ScrapeBadger.Api
         /// Get highlights
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -765,7 +723,7 @@ namespace ScrapeBadger.Api
         /// Get likers
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code"></param>
@@ -777,7 +735,7 @@ namespace ScrapeBadger.Api
         /// Get likers
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code"></param>
@@ -788,7 +746,7 @@ namespace ScrapeBadger.Api
         /// Get location
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="locationPk"></param>
@@ -800,7 +758,7 @@ namespace ScrapeBadger.Api
         /// Get location
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="locationPk"></param>
@@ -857,7 +815,7 @@ namespace ScrapeBadger.Api
         /// Get tagged posts
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -871,7 +829,7 @@ namespace ScrapeBadger.Api
         /// Get tagged posts
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -911,7 +869,7 @@ namespace ScrapeBadger.Api
         /// Get user reels
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -925,7 +883,7 @@ namespace ScrapeBadger.Api
         /// Get user reels
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -980,7 +938,7 @@ namespace ScrapeBadger.Api
         /// Recent hashtag posts
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag"></param>
@@ -994,7 +952,7 @@ namespace ScrapeBadger.Api
         /// Recent hashtag posts
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag"></param>
@@ -1007,7 +965,7 @@ namespace ScrapeBadger.Api
         /// Related profiles
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -1019,7 +977,7 @@ namespace ScrapeBadger.Api
         /// Related profiles
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -1030,7 +988,7 @@ namespace ScrapeBadger.Api
         /// Search hashtags
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query"></param>
@@ -1042,7 +1000,7 @@ namespace ScrapeBadger.Api
         /// Search hashtags
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query"></param>
@@ -1053,7 +1011,7 @@ namespace ScrapeBadger.Api
         /// Search users
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query"></param>
@@ -1065,7 +1023,7 @@ namespace ScrapeBadger.Api
         /// Search users
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query"></param>
@@ -1076,7 +1034,7 @@ namespace ScrapeBadger.Api
         /// Top hashtag posts
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag"></param>
@@ -1090,7 +1048,7 @@ namespace ScrapeBadger.Api
         /// Top hashtag posts
         /// </summary>
         /// <remarks>
-        /// **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// 
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag"></param>
@@ -1313,7 +1271,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// About this account **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Country, join date and former usernames.
+        /// About this account Country, join date and former usernames.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -1325,7 +1283,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// About this account **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Country, join date and former usernames.
+        /// About this account Country, join date and former usernames.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -1373,7 +1331,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// About this account **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Country, join date and former usernames.
+        /// About this account Country, join date and former usernames.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -1386,7 +1344,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// About this account **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Country, join date and former usernames.
+        /// About this account Country, join date and former usernames.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -1438,7 +1396,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Blended top search **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Blended top search 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query"></param>
@@ -1450,7 +1408,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Blended top search **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Blended top search 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query"></param>
@@ -1498,7 +1456,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Blended top search **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Blended top search 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query"></param>
@@ -1511,7 +1469,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Blended top search **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Blended top search 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query"></param>
@@ -1563,7 +1521,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get active stories **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Active stories (account pool only).
+        /// Get active stories Active stories (account pool only).
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -1575,7 +1533,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get active stories **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Active stories (account pool only).
+        /// Get active stories Active stories (account pool only).
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -1623,7 +1581,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get active stories **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Active stories (account pool only).
+        /// Get active stories Active stories (account pool only).
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -1636,7 +1594,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get active stories **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Active stories (account pool only).
+        /// Get active stories Active stories (account pool only).
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -1688,7 +1646,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get audio track **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get audio track 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audioId"></param>
@@ -1700,7 +1658,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get audio track **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get audio track 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audioId"></param>
@@ -1748,7 +1706,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get audio track **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get audio track 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audioId"></param>
@@ -1761,7 +1719,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get audio track **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get audio track 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="audioId"></param>
@@ -1962,7 +1920,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get followers **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Followers list, paginated (account pool).
+        /// Get followers Followers list, paginated (account pool).
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -1977,7 +1935,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get followers **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Followers list, paginated (account pool).
+        /// Get followers Followers list, paginated (account pool).
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -2040,7 +1998,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get followers **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Followers list, paginated (account pool).
+        /// Get followers Followers list, paginated (account pool).
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -2056,7 +2014,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get followers **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview. Followers list, paginated (account pool).
+        /// Get followers Followers list, paginated (account pool).
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -2123,7 +2081,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get following **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get following 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -2137,7 +2095,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get following **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get following 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -2195,7 +2153,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get following **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get following 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -2210,7 +2168,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get following **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get following 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -2272,7 +2230,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get hashtag info **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get hashtag info 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag"></param>
@@ -2284,7 +2242,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get hashtag info **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get hashtag info 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag"></param>
@@ -2332,7 +2290,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get hashtag info **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get hashtag info 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag"></param>
@@ -2345,7 +2303,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get hashtag info **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get hashtag info 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag"></param>
@@ -2397,7 +2355,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get highlights **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get highlights 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -2409,7 +2367,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get highlights **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get highlights 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -2457,7 +2415,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get highlights **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get highlights 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -2470,7 +2428,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get highlights **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get highlights 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -2522,7 +2480,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get likers **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get likers 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code"></param>
@@ -2534,7 +2492,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get likers **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get likers 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code"></param>
@@ -2582,7 +2540,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get likers **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get likers 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code"></param>
@@ -2595,7 +2553,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get likers **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get likers 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code"></param>
@@ -2647,7 +2605,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get location **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get location 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="locationPk"></param>
@@ -2659,7 +2617,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get location **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get location 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="locationPk"></param>
@@ -2703,7 +2661,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get location **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get location 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="locationPk"></param>
@@ -2716,7 +2674,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get location **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get location 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="locationPk"></param>
@@ -3014,7 +2972,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get tagged posts **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get tagged posts 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -3028,7 +2986,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get tagged posts **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get tagged posts 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -3086,7 +3044,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get tagged posts **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get tagged posts 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -3101,7 +3059,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get tagged posts **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get tagged posts 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -3312,7 +3270,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get user reels **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get user reels 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -3326,7 +3284,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get user reels **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get user reels 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -3384,7 +3342,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get user reels **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get user reels 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -3399,7 +3357,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Get user reels **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Get user reels 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -3683,7 +3641,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Recent hashtag posts **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Recent hashtag posts 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag"></param>
@@ -3697,7 +3655,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Recent hashtag posts **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Recent hashtag posts 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag"></param>
@@ -3755,7 +3713,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Recent hashtag posts **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Recent hashtag posts 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag"></param>
@@ -3770,7 +3728,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Recent hashtag posts **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Recent hashtag posts 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag"></param>
@@ -3832,7 +3790,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Related profiles **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Related profiles 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -3844,7 +3802,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Related profiles **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Related profiles 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -3892,7 +3850,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Related profiles **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Related profiles 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -3905,7 +3863,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Related profiles **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Related profiles 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="username"></param>
@@ -3957,7 +3915,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search hashtags **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Search hashtags 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query"></param>
@@ -3969,7 +3927,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search hashtags **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Search hashtags 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query"></param>
@@ -4017,7 +3975,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search hashtags **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Search hashtags 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query"></param>
@@ -4030,7 +3988,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search hashtags **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Search hashtags 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query"></param>
@@ -4082,7 +4040,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search users **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Search users 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query"></param>
@@ -4094,7 +4052,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search users **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Search users 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query"></param>
@@ -4142,7 +4100,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search users **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Search users 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query"></param>
@@ -4155,7 +4113,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search users **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Search users 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query"></param>
@@ -4207,7 +4165,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Top hashtag posts **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Top hashtag posts 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag"></param>
@@ -4221,7 +4179,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Top hashtag posts **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Top hashtag posts 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag"></param>
@@ -4279,7 +4237,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Top hashtag posts **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Top hashtag posts 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag"></param>
@@ -4294,7 +4252,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Top hashtag posts **Temporarily unavailable.** The authenticated Instagram tier is offline, so this endpoint currently returns &#x60;503 temporarily_unavailable&#x60; (not billed, &#x60;Retry-After&#x60; set) — see https://docs.scrapebadger.com/instagram/overview.
+        /// Top hashtag posts 
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="tag"></param>

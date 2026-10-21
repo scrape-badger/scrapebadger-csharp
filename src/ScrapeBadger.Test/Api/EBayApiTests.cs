@@ -79,6 +79,7 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string query = null;
+            //string seller = null;
             //string domain = null;
             //string categoryId = null;
             //int? page = null;
@@ -89,7 +90,7 @@ namespace ScrapeBadger.Test.Api
             //decimal? maxPrice = null;
             //string location = null;
             //string language = null;
-            //var response = instance.EbayCompletedSoldListings(query, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location, language);
+            //var response = instance.EbayCompletedSoldListings(query, seller, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location, language);
             //Assert.IsType<Object>(response);
         }
 
