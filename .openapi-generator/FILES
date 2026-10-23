@@ -7,6 +7,7 @@ appveyor.yml
 docs/ASOSApi.md
 docs/AccountApi.md
 docs/AccountInfo.md
+docs/AgentTrialInfo.md
 docs/AirbnbApi.md
 docs/AliExpressApi.md
 docs/AmazonApi.md
@@ -35,6 +36,8 @@ docs/ExtractRequest.md
 docs/ExtractRequestExtractRulesValue.md
 docs/ExtractRule.md
 docs/FacebookApi.md
+docs/FeedbackApi.md
+docs/FeedbackRequest.md
 docs/FilterRuleCreate.md
 docs/FilterRuleDeliveryLogListResponse.md
 docs/FilterRuleDeliveryLogResponse.md
@@ -73,10 +76,14 @@ docs/Product.md
 docs/ProductPrice.md
 docs/ProductResponse.md
 docs/Productcode.md
+docs/QuoteApi.md
+docs/QuoteRequest.md
 docs/Ratings.md
 docs/RealtorApi.md
 docs/RedditApi.md
 docs/RedfinApi.md
+docs/RequestsApi.md
+docs/ResultsApi.md
 docs/ScreenshotRequest.md
 docs/Searchterm.md
 docs/StatusesResponse.md
@@ -143,6 +150,7 @@ src/ScrapeBadger.Test/Api/DuckDuckGoApiTests.cs
 src/ScrapeBadger.Test/Api/EBayApiTests.cs
 src/ScrapeBadger.Test/Api/EtsyApiTests.cs
 src/ScrapeBadger.Test/Api/FacebookApiTests.cs
+src/ScrapeBadger.Test/Api/FeedbackApiTests.cs
 src/ScrapeBadger.Test/Api/GeminiApiTests.cs
 src/ScrapeBadger.Test/Api/GoogleApiTests.cs
 src/ScrapeBadger.Test/Api/GooglePlayApiTests.cs
@@ -155,9 +163,12 @@ src/ScrapeBadger.Test/Api/LinkedInApiTests.cs
 src/ScrapeBadger.Test/Api/LoopNetApiTests.cs
 src/ScrapeBadger.Test/Api/NaverApiTests.cs
 src/ScrapeBadger.Test/Api/PerplexityApiTests.cs
+src/ScrapeBadger.Test/Api/QuoteApiTests.cs
 src/ScrapeBadger.Test/Api/RealtorApiTests.cs
 src/ScrapeBadger.Test/Api/RedditApiTests.cs
 src/ScrapeBadger.Test/Api/RedfinApiTests.cs
+src/ScrapeBadger.Test/Api/RequestsApiTests.cs
+src/ScrapeBadger.Test/Api/ResultsApiTests.cs
 src/ScrapeBadger.Test/Api/TargetApiTests.cs
 src/ScrapeBadger.Test/Api/TikTokApiTests.cs
 src/ScrapeBadger.Test/Api/TwitterApiTests.cs
@@ -170,6 +181,7 @@ src/ScrapeBadger.Test/Api/YandexApiTests.cs
 src/ScrapeBadger.Test/Api/YouTubeApiTests.cs
 src/ScrapeBadger.Test/Api/ZillowApiTests.cs
 src/ScrapeBadger.Test/Model/AccountInfoTests.cs
+src/ScrapeBadger.Test/Model/AgentTrialInfoTests.cs
 src/ScrapeBadger.Test/Model/BillingLogListResponseTests.cs
 src/ScrapeBadger.Test/Model/BillingLogResponseTests.cs
 src/ScrapeBadger.Test/Model/BrandidTests.cs
@@ -183,6 +195,7 @@ src/ScrapeBadger.Test/Model/DescriptionTests.cs
 src/ScrapeBadger.Test/Model/ExtractRequestExtractRulesValueTests.cs
 src/ScrapeBadger.Test/Model/ExtractRequestTests.cs
 src/ScrapeBadger.Test/Model/ExtractRuleTests.cs
+src/ScrapeBadger.Test/Model/FeedbackRequestTests.cs
 src/ScrapeBadger.Test/Model/FilterRuleCreateTests.cs
 src/ScrapeBadger.Test/Model/FilterRuleDeliveryLogListResponseTests.cs
 src/ScrapeBadger.Test/Model/FilterRuleDeliveryLogResponseTests.cs
@@ -209,6 +222,7 @@ src/ScrapeBadger.Test/Model/ProductPriceTests.cs
 src/ScrapeBadger.Test/Model/ProductResponseTests.cs
 src/ScrapeBadger.Test/Model/ProductTests.cs
 src/ScrapeBadger.Test/Model/ProductcodeTests.cs
+src/ScrapeBadger.Test/Model/QuoteRequestTests.cs
 src/ScrapeBadger.Test/Model/RatingsTests.cs
 src/ScrapeBadger.Test/Model/ScreenshotRequestTests.cs
 src/ScrapeBadger.Test/Model/SearchtermTests.cs
@@ -265,6 +279,7 @@ src/ScrapeBadger/Api/DuckDuckGoApi.cs
 src/ScrapeBadger/Api/EBayApi.cs
 src/ScrapeBadger/Api/EtsyApi.cs
 src/ScrapeBadger/Api/FacebookApi.cs
+src/ScrapeBadger/Api/FeedbackApi.cs
 src/ScrapeBadger/Api/GeminiApi.cs
 src/ScrapeBadger/Api/GoogleApi.cs
 src/ScrapeBadger/Api/GooglePlayApi.cs
@@ -277,9 +292,12 @@ src/ScrapeBadger/Api/LinkedInApi.cs
 src/ScrapeBadger/Api/LoopNetApi.cs
 src/ScrapeBadger/Api/NaverApi.cs
 src/ScrapeBadger/Api/PerplexityApi.cs
+src/ScrapeBadger/Api/QuoteApi.cs
 src/ScrapeBadger/Api/RealtorApi.cs
 src/ScrapeBadger/Api/RedditApi.cs
 src/ScrapeBadger/Api/RedfinApi.cs
+src/ScrapeBadger/Api/RequestsApi.cs
+src/ScrapeBadger/Api/ResultsApi.cs
 src/ScrapeBadger/Api/TargetApi.cs
 src/ScrapeBadger/Api/TikTokApi.cs
 src/ScrapeBadger/Api/TwitterApi.cs
@@ -310,6 +328,7 @@ src/ScrapeBadger/Client/RetryConfiguration.cs
 src/ScrapeBadger/Client/WebRequestPathBuilder.cs
 src/ScrapeBadger/Model/AbstractOpenAPISchema.cs
 src/ScrapeBadger/Model/AccountInfo.cs
+src/ScrapeBadger/Model/AgentTrialInfo.cs
 src/ScrapeBadger/Model/BillingLogListResponse.cs
 src/ScrapeBadger/Model/BillingLogResponse.cs
 src/ScrapeBadger/Model/Brandid.cs
@@ -323,6 +342,7 @@ src/ScrapeBadger/Model/Description.cs
 src/ScrapeBadger/Model/ExtractRequest.cs
 src/ScrapeBadger/Model/ExtractRequestExtractRulesValue.cs
 src/ScrapeBadger/Model/ExtractRule.cs
+src/ScrapeBadger/Model/FeedbackRequest.cs
 src/ScrapeBadger/Model/FilterRuleCreate.cs
 src/ScrapeBadger/Model/FilterRuleDeliveryLogListResponse.cs
 src/ScrapeBadger/Model/FilterRuleDeliveryLogResponse.cs
@@ -349,6 +369,7 @@ src/ScrapeBadger/Model/Product.cs
 src/ScrapeBadger/Model/ProductPrice.cs
 src/ScrapeBadger/Model/ProductResponse.cs
 src/ScrapeBadger/Model/Productcode.cs
+src/ScrapeBadger/Model/QuoteRequest.cs
 src/ScrapeBadger/Model/Ratings.cs
 src/ScrapeBadger/Model/ScreenshotRequest.cs
 src/ScrapeBadger/Model/Searchterm.cs

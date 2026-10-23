@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Tier** | **string** |  | 
 **RateLimitPerMinute** | **int?** |  | 
 **Subscription** | [**SubscriptionInfo**](SubscriptionInfo.md) |  | [optional] 
+**AgentTrial** | [**AgentTrialInfo**](AgentTrialInfo.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

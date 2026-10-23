@@ -46,7 +46,8 @@ namespace ScrapeBadger.Model
         /// <param name="tier">tier (required).</param>
         /// <param name="rateLimitPerMinute">rateLimitPerMinute (required).</param>
         /// <param name="subscription">subscription.</param>
-        public AccountInfo(int creditsBalance = default(int), int subscriptionCreditsBalance = default(int), int totalCreditsBalance = default(int), string tier = default(string), int? rateLimitPerMinute = default(int?), SubscriptionInfo subscription = default(SubscriptionInfo))
+        /// <param name="agentTrial">agentTrial.</param>
+        public AccountInfo(int creditsBalance = default(int), int subscriptionCreditsBalance = default(int), int totalCreditsBalance = default(int), string tier = default(string), int? rateLimitPerMinute = default(int?), SubscriptionInfo subscription = default(SubscriptionInfo), AgentTrialInfo agentTrial = default(AgentTrialInfo))
         {
             this.CreditsBalance = creditsBalance;
             this.SubscriptionCreditsBalance = subscriptionCreditsBalance;
@@ -64,6 +65,7 @@ namespace ScrapeBadger.Model
             }
             this.RateLimitPerMinute = rateLimitPerMinute;
             this.Subscription = subscription;
+            this.AgentTrial = agentTrial;
         }
 
         /// <summary>
@@ -103,6 +105,12 @@ namespace ScrapeBadger.Model
         public SubscriptionInfo Subscription { get; set; }
 
         /// <summary>
+        /// Gets or Sets AgentTrial
+        /// </summary>
+        [DataMember(Name = "agent_trial", EmitDefaultValue = true)]
+        public AgentTrialInfo AgentTrial { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -116,6 +124,7 @@ namespace ScrapeBadger.Model
             sb.Append("  Tier: ").Append(Tier).Append("\n");
             sb.Append("  RateLimitPerMinute: ").Append(RateLimitPerMinute).Append("\n");
             sb.Append("  Subscription: ").Append(Subscription).Append("\n");
+            sb.Append("  AgentTrial: ").Append(AgentTrial).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }

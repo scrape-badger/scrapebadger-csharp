@@ -107,5 +107,14 @@ namespace ScrapeBadger.Test.Model
         {
             // TODO unit test for the property 'Subscription'
         }
+
+        /// <summary>
+        /// Test the property 'AgentTrial'
+        /// </summary>
+        [Fact]
+        public void AgentTrialTest()
+        {
+            // TODO unit test for the property 'AgentTrial'
+        }
     }
 }

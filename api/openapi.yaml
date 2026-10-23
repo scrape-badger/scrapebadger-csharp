@@ -25,6 +25,7 @@ tags:
 - name: eBay
 - name: Etsy
 - name: Facebook
+- name: Feedback
 - name: Gemini
 - name: Google-Play
 - name: Google
@@ -37,9 +38,12 @@ tags:
 - name: LoopNet
 - name: Naver
 - name: Perplexity
+- name: Quote
 - name: Realtor
 - name: Reddit
 - name: Redfin
+- name: Requests
+- name: Results
 - name: Target
 - name: TikTok
 - name: Twitter
@@ -8089,6 +8093,36 @@ paths:
       summary: Search posts
       tags:
       - Facebook
+  /v1/feedback:
+    post:
+      description: |-
+        File a bug (wrong/empty result for valid input, misleading error, price mismatch)
+        or feedback (an API or field you needed and couldn't find). Free, never billed.
+        Pass the failing call's X-Request-ID so we can find it.
+      operationId: feedback_report_a_bug_or_send_feedback
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeedbackRequest'
+        required: true
+      responses:
+        "201":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Report a bug or send feedback
+      tags:
+      - Feedback
   /v1/gemini/ask:
     get:
       description: Send a prompt to Gemini and get the answer plus the web sources
@@ -16578,6 +16612,35 @@ paths:
       summary: Perplexity scraper health check
       tags:
       - Perplexity
+  /v1/quote:
+    post:
+      description: |-
+        What a call would cost (credits and USD), whether its parameters are valid,
+        and how long it usually takes. Free: nothing runs and nothing is charged.
+      operationId: quote_quote_a_call
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QuoteRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Quote a call
+      tags:
+      - Quote
   /v1/realtor/autocomplete:
     get:
       description: Resolve a location query into candidate places to feed /search.
@@ -18263,6 +18326,70 @@ paths:
       summary: Search properties
       tags:
       - Redfin
+  /v1/requests/{request_id}:
+    get:
+      description: |-
+        Status or final response of a call made with ``Prefer: respond-async``.
+        While it runs: 202. When done: the original status, headers and body.
+      operationId: requests_poll_an_async_request
+      parameters:
+      - explode: false
+        in: path
+        name: request_id
+        required: true
+        schema:
+          title: Request Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Poll an async request
+      tags:
+      - Requests
+  /v1/results/{result_id}:
+    get:
+      description: |-
+        Replay a billed result (X-Result-ID) for free for ~15 minutes, optionally trimmed
+        with jq / fields / max_items / summary. Never re-run a paid call just to reshape it.
+      operationId: results_re_read_a_result
+      parameters:
+      - explode: false
+        in: path
+        name: result_id
+        required: true
+        schema:
+          title: Result Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Re-read a result
+      tags:
+      - Results
   /v1/target/autocomplete:
     get:
       operationId: target_get_search_suggestions
@@ -27143,6 +27270,10 @@ components:
     AccountInfo:
       description: Account information response.
       example:
+        agent_trial:
+          claim_url: claim_url
+          expires_at: 2000-01-23T04:56:07.000+00:00
+          credits_remaining: 2
         total_credits_balance: 1
         tier: tier
         subscription_credits_balance: 6
@@ -27179,6 +27310,8 @@ components:
           type: integer
         subscription:
           $ref: '#/components/schemas/SubscriptionInfo'
+        agent_trial:
+          $ref: '#/components/schemas/AgentTrialInfo'
       required:
       - credits_balance
       - rate_limit_per_minute
@@ -27186,6 +27319,27 @@ components:
       - tier
       - total_credits_balance
       title: AccountInfo
+    AgentTrialInfo:
+      description: Present only for an unclaimed agent trial key (services/agent_trial.py).
+      example:
+        claim_url: claim_url
+        expires_at: 2000-01-23T04:56:07.000+00:00
+        credits_remaining: 2
+      properties:
+        credits_remaining:
+          title: Credits Remaining
+          type: integer
+        expires_at:
+          format: date-time
+          nullable: true
+          type: string
+        claim_url:
+          title: Claim Url
+          type: string
+      required:
+      - claim_url
+      - credits_remaining
+      title: AgentTrialInfo
     BillingLogListResponse:
       description: Paginated billing logs.
       example:
@@ -27411,6 +27565,46 @@ components:
       required:
       - selector
       title: ExtractRule
+    FeedbackRequest:
+      example:
+        summary: summary
+        endpoint: endpoint
+        contact: contact
+        details: details
+        type: bug
+        request_id: request_id
+      properties:
+        type:
+          enum:
+          - bug
+          - feedback
+          title: Type
+          type: string
+        summary:
+          maxLength: 200
+          minLength: 3
+          title: Summary
+          type: string
+        details:
+          maxLength: 5000
+          nullable: true
+          type: string
+        request_id:
+          maxLength: 64
+          nullable: true
+          type: string
+        endpoint:
+          maxLength: 255
+          nullable: true
+          type: string
+        contact:
+          maxLength: 255
+          nullable: true
+          type: string
+      required:
+      - summary
+      - type
+      title: FeedbackRequest
     FilterRuleCreate:
       description: Create filter rule request.
       example:
@@ -28094,6 +28288,8 @@ components:
         images:
           items:
             additionalProperties: true
+            nullable: true
+            type: object
           title: Images
         variants:
           items:
@@ -28114,6 +28310,8 @@ components:
         breadcrumbs:
           items:
             additionalProperties: true
+            nullable: true
+            type: object
           title: Breadcrumbs
       required:
       - id
@@ -28227,6 +28425,37 @@ components:
       - market
       - product
       title: ProductResponse
+    QuoteRequest:
+      example:
+        path: path
+        method: GET
+        params:
+          key: ""
+        body:
+          key: ""
+      properties:
+        method:
+          default: GET
+          enum:
+          - GET
+          - POST
+          title: Method
+          type: string
+        path:
+          maxLength: 500
+          title: Path
+          type: string
+        params:
+          additionalProperties: true
+          nullable: true
+          type: object
+        body:
+          additionalProperties: true
+          nullable: true
+          type: object
+      required:
+      - path
+      title: QuoteRequest
     ScreenshotRequest:
       additionalProperties: true
       example:
@@ -30540,6 +30769,8 @@ components:
         facets:
           items:
             additionalProperties: true
+            nullable: true
+            type: object
           title: Facets
       required:
       - limit
@@ -30632,11 +30863,15 @@ components:
     Description:
       anyOf:
       - additionalProperties: true
+        nullable: true
+        type: object
       - nullable: true
       title: Description
     Ratings:
       anyOf:
       - additionalProperties: true
+        nullable: true
+        type: object
       - nullable: true
       title: Ratings
     ValidationError_loc_inner:
