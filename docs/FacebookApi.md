@@ -18,6 +18,7 @@ All URIs are relative to *https://scrapebadger.com*
 | [**FacebookGetProfilePosts**](FacebookApi.md#facebookgetprofileposts) | **GET** /v1/facebook/profiles/{identifier}/posts | Get profile posts |
 | [**FacebookListCategories**](FacebookApi.md#facebooklistcategories) | **GET** /v1/facebook/marketplace/categories | List categories |
 | [**FacebookListLocations**](FacebookApi.md#facebooklistlocations) | **GET** /v1/facebook/marketplace/locations | List locations |
+| [**FacebookResolveATownPostcodeToAMarketplaceLocation**](FacebookApi.md#facebookresolveatownpostcodetoamarketplacelocation) | **GET** /v1/facebook/marketplace/locations/resolve | Resolve a town/postcode to a Marketplace location |
 | [**FacebookSearchAdvertiserPages**](FacebookApi.md#facebooksearchadvertiserpages) | **GET** /v1/facebook/ads/pages/search | Search advertiser pages |
 | [**FacebookSearchEvents**](FacebookApi.md#facebooksearchevents) | **GET** /v1/facebook/search/events | Search events |
 | [**FacebookSearchEverything**](FacebookApi.md#facebooksearcheverything) | **GET** /v1/facebook/search | Search everything |
@@ -1460,6 +1461,113 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="facebookresolveatownpostcodetoamarketplacelocation"></a>
+# **FacebookResolveATownPostcodeToAMarketplaceLocation**
+> Object FacebookResolveATownPostcodeToAMarketplaceLocation (string query = null, decimal? latitude = null, decimal? longitude = null, string country = null)
+
+Resolve a town/postcode to a Marketplace location
+
+Resolve a town, postcode or coordinates to a Facebook Marketplace place id.  Facebook keys Marketplace by place, not coordinates, and only a place slug or numeric place id works as ``location``. Pass the returned ``place_id`` as ``location`` on Marketplace search/category to centre results anywhere, not just the preset catalogue. Postcodes resolve exactly; a bare town name in an ambiguous country is best paired with ``country`` (e.g. ``gb``).
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using ScrapeBadger.Api;
+using ScrapeBadger.Client;
+using ScrapeBadger.Model;
+
+namespace Example
+{
+    public class FacebookResolveATownPostcodeToAMarketplaceLocationExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://scrapebadger.com";
+            // Configure API key authorization: ApiKeyAuth
+            config.AddApiKey("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("X-API-Key", "Bearer");
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new FacebookApi(httpClient, config, httpClientHandler);
+            var query = "query_example";  // string | Town, city, postcode or address (e.g. 'Durham', 'DH1 3LE') (optional) 
+            var latitude = 8.14D;  // decimal? | Resolve this exact point instead (optional) 
+            var longitude = 8.14D;  // decimal? |  (optional) 
+            var country = "country_example";  // string | ISO country code hint for an ambiguous name (e.g. gb) (optional) 
+
+            try
+            {
+                // Resolve a town/postcode to a Marketplace location
+                Object result = apiInstance.FacebookResolveATownPostcodeToAMarketplaceLocation(query, latitude, longitude, country);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling FacebookApi.FacebookResolveATownPostcodeToAMarketplaceLocation: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the FacebookResolveATownPostcodeToAMarketplaceLocationWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Resolve a town/postcode to a Marketplace location
+    ApiResponse<Object> response = apiInstance.FacebookResolveATownPostcodeToAMarketplaceLocationWithHttpInfo(query, latitude, longitude, country);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling FacebookApi.FacebookResolveATownPostcodeToAMarketplaceLocationWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **query** | **string** | Town, city, postcode or address (e.g. &#39;Durham&#39;, &#39;DH1 3LE&#39;) | [optional]  |
+| **latitude** | **decimal?** | Resolve this exact point instead | [optional]  |
+| **longitude** | **decimal?** |  | [optional]  |
+| **country** | **string** | ISO country code hint for an ambiguous name (e.g. gb) | [optional]  |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

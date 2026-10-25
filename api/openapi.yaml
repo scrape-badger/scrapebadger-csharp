@@ -7478,6 +7478,70 @@ paths:
       summary: List locations
       tags:
       - Facebook
+  /v1/facebook/marketplace/locations/resolve:
+    get:
+      description: |-
+        Resolve a town, postcode or coordinates to a Facebook Marketplace place id.
+
+        Facebook keys Marketplace by place, not coordinates, and only a place slug or
+        numeric place id works as ``location``. Pass the returned ``place_id`` as
+        ``location`` on Marketplace search/category to centre results anywhere, not
+        just the preset catalogue. Postcodes resolve exactly; a bare town name in an
+        ambiguous country is best paired with ``country`` (e.g. ``gb``).
+      operationId: facebook_resolve_a_town_postcode_to_a_marketplace_location
+      parameters:
+      - description: "Town, city, postcode or address (e.g. 'Durham', 'DH1 3LE')"
+        explode: true
+        in: query
+        name: query
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Resolve this exact point instead
+        explode: true
+        in: query
+        name: latitude
+        required: false
+        schema:
+          nullable: true
+          type: number
+        style: form
+      - explode: true
+        in: query
+        name: longitude
+        required: false
+        schema:
+          nullable: true
+          type: number
+        style: form
+      - description: ISO country code hint for an ambiguous name (e.g. gb)
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Resolve a town/postcode to a Marketplace location
+      tags:
+      - Facebook
   /v1/facebook/marketplace/search:
     get:
       description: |-

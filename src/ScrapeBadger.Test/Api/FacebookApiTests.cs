@@ -236,6 +236,21 @@ namespace ScrapeBadger.Test.Api
         }
 
         /// <summary>
+        /// Test FacebookResolveATownPostcodeToAMarketplaceLocation
+        /// </summary>
+        [Fact]
+        public void FacebookResolveATownPostcodeToAMarketplaceLocationTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string query = null;
+            //decimal? latitude = null;
+            //decimal? longitude = null;
+            //string country = null;
+            //var response = instance.FacebookResolveATownPostcodeToAMarketplaceLocation(query, latitude, longitude, country);
+            //Assert.IsType<Object>(response);
+        }
+
+        /// <summary>
         /// Test FacebookSearchAdvertiserPages
         /// </summary>
         [Fact]

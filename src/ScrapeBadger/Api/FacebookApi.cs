@@ -350,6 +350,33 @@ namespace ScrapeBadger.Api
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> FacebookListLocationsWithHttpInfo();
         /// <summary>
+        /// Resolve a town/postcode to a Marketplace location
+        /// </summary>
+        /// <remarks>
+        /// Resolve a town, postcode or coordinates to a Facebook Marketplace place id.  Facebook keys Marketplace by place, not coordinates, and only a place slug or numeric place id works as &#x60;&#x60;location&#x60;&#x60;. Pass the returned &#x60;&#x60;place_id&#x60;&#x60; as &#x60;&#x60;location&#x60;&#x60; on Marketplace search/category to centre results anywhere, not just the preset catalogue. Postcodes resolve exactly; a bare town name in an ambiguous country is best paired with &#x60;&#x60;country&#x60;&#x60; (e.g. &#x60;&#x60;gb&#x60;&#x60;).
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">Town, city, postcode or address (e.g. &#39;Durham&#39;, &#39;DH1 3LE&#39;) (optional)</param>
+        /// <param name="latitude">Resolve this exact point instead (optional)</param>
+        /// <param name="longitude"> (optional)</param>
+        /// <param name="country">ISO country code hint for an ambiguous name (e.g. gb) (optional)</param>
+        /// <returns>Object</returns>
+        Object FacebookResolveATownPostcodeToAMarketplaceLocation(string query = default(string), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), string country = default(string));
+
+        /// <summary>
+        /// Resolve a town/postcode to a Marketplace location
+        /// </summary>
+        /// <remarks>
+        /// Resolve a town, postcode or coordinates to a Facebook Marketplace place id.  Facebook keys Marketplace by place, not coordinates, and only a place slug or numeric place id works as &#x60;&#x60;location&#x60;&#x60;. Pass the returned &#x60;&#x60;place_id&#x60;&#x60; as &#x60;&#x60;location&#x60;&#x60; on Marketplace search/category to centre results anywhere, not just the preset catalogue. Postcodes resolve exactly; a bare town name in an ambiguous country is best paired with &#x60;&#x60;country&#x60;&#x60; (e.g. &#x60;&#x60;gb&#x60;&#x60;).
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">Town, city, postcode or address (e.g. &#39;Durham&#39;, &#39;DH1 3LE&#39;) (optional)</param>
+        /// <param name="latitude">Resolve this exact point instead (optional)</param>
+        /// <param name="longitude"> (optional)</param>
+        /// <param name="country">ISO country code hint for an ambiguous name (e.g. gb) (optional)</param>
+        /// <returns>ApiResponse of Object</returns>
+        ApiResponse<Object> FacebookResolveATownPostcodeToAMarketplaceLocationWithHttpInfo(string query = default(string), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), string country = default(string));
+        /// <summary>
         /// Search advertiser pages
         /// </summary>
         /// <remarks>
@@ -960,6 +987,35 @@ namespace ScrapeBadger.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> FacebookListLocationsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Resolve a town/postcode to a Marketplace location
+        /// </summary>
+        /// <remarks>
+        /// Resolve a town, postcode or coordinates to a Facebook Marketplace place id.  Facebook keys Marketplace by place, not coordinates, and only a place slug or numeric place id works as &#x60;&#x60;location&#x60;&#x60;. Pass the returned &#x60;&#x60;place_id&#x60;&#x60; as &#x60;&#x60;location&#x60;&#x60; on Marketplace search/category to centre results anywhere, not just the preset catalogue. Postcodes resolve exactly; a bare town name in an ambiguous country is best paired with &#x60;&#x60;country&#x60;&#x60; (e.g. &#x60;&#x60;gb&#x60;&#x60;).
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">Town, city, postcode or address (e.g. &#39;Durham&#39;, &#39;DH1 3LE&#39;) (optional)</param>
+        /// <param name="latitude">Resolve this exact point instead (optional)</param>
+        /// <param name="longitude"> (optional)</param>
+        /// <param name="country">ISO country code hint for an ambiguous name (e.g. gb) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        System.Threading.Tasks.Task<Object> FacebookResolveATownPostcodeToAMarketplaceLocationAsync(string query = default(string), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), string country = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Resolve a town/postcode to a Marketplace location
+        /// </summary>
+        /// <remarks>
+        /// Resolve a town, postcode or coordinates to a Facebook Marketplace place id.  Facebook keys Marketplace by place, not coordinates, and only a place slug or numeric place id works as &#x60;&#x60;location&#x60;&#x60;. Pass the returned &#x60;&#x60;place_id&#x60;&#x60; as &#x60;&#x60;location&#x60;&#x60; on Marketplace search/category to centre results anywhere, not just the preset catalogue. Postcodes resolve exactly; a bare town name in an ambiguous country is best paired with &#x60;&#x60;country&#x60;&#x60; (e.g. &#x60;&#x60;gb&#x60;&#x60;).
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">Town, city, postcode or address (e.g. &#39;Durham&#39;, &#39;DH1 3LE&#39;) (optional)</param>
+        /// <param name="latitude">Resolve this exact point instead (optional)</param>
+        /// <param name="longitude"> (optional)</param>
+        /// <param name="country">ISO country code hint for an ambiguous name (e.g. gb) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> FacebookResolveATownPostcodeToAMarketplaceLocationWithHttpInfoAsync(string query = default(string), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), string country = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Search advertiser pages
         /// </summary>
@@ -3353,6 +3409,165 @@ namespace ScrapeBadger.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("FacebookListLocations", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Resolve a town/postcode to a Marketplace location Resolve a town, postcode or coordinates to a Facebook Marketplace place id.  Facebook keys Marketplace by place, not coordinates, and only a place slug or numeric place id works as &#x60;&#x60;location&#x60;&#x60;. Pass the returned &#x60;&#x60;place_id&#x60;&#x60; as &#x60;&#x60;location&#x60;&#x60; on Marketplace search/category to centre results anywhere, not just the preset catalogue. Postcodes resolve exactly; a bare town name in an ambiguous country is best paired with &#x60;&#x60;country&#x60;&#x60; (e.g. &#x60;&#x60;gb&#x60;&#x60;).
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">Town, city, postcode or address (e.g. &#39;Durham&#39;, &#39;DH1 3LE&#39;) (optional)</param>
+        /// <param name="latitude">Resolve this exact point instead (optional)</param>
+        /// <param name="longitude"> (optional)</param>
+        /// <param name="country">ISO country code hint for an ambiguous name (e.g. gb) (optional)</param>
+        /// <returns>Object</returns>
+        public Object FacebookResolveATownPostcodeToAMarketplaceLocation(string query = default(string), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), string country = default(string))
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = FacebookResolveATownPostcodeToAMarketplaceLocationWithHttpInfo(query, latitude, longitude, country);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Resolve a town/postcode to a Marketplace location Resolve a town, postcode or coordinates to a Facebook Marketplace place id.  Facebook keys Marketplace by place, not coordinates, and only a place slug or numeric place id works as &#x60;&#x60;location&#x60;&#x60;. Pass the returned &#x60;&#x60;place_id&#x60;&#x60; as &#x60;&#x60;location&#x60;&#x60; on Marketplace search/category to centre results anywhere, not just the preset catalogue. Postcodes resolve exactly; a bare town name in an ambiguous country is best paired with &#x60;&#x60;country&#x60;&#x60; (e.g. &#x60;&#x60;gb&#x60;&#x60;).
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">Town, city, postcode or address (e.g. &#39;Durham&#39;, &#39;DH1 3LE&#39;) (optional)</param>
+        /// <param name="latitude">Resolve this exact point instead (optional)</param>
+        /// <param name="longitude"> (optional)</param>
+        /// <param name="country">ISO country code hint for an ambiguous name (e.g. gb) (optional)</param>
+        /// <returns>ApiResponse of Object</returns>
+        public ScrapeBadger.Client.ApiResponse<Object> FacebookResolveATownPostcodeToAMarketplaceLocationWithHttpInfo(string query = default(string), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), string country = default(string))
+        {
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (query != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "query", query));
+            }
+            if (latitude != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "latitude", latitude));
+            }
+            if (longitude != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "longitude", longitude));
+            }
+            if (country != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "country", country));
+            }
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Object>("/v1/facebook/marketplace/locations/resolve", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("FacebookResolveATownPostcodeToAMarketplaceLocation", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Resolve a town/postcode to a Marketplace location Resolve a town, postcode or coordinates to a Facebook Marketplace place id.  Facebook keys Marketplace by place, not coordinates, and only a place slug or numeric place id works as &#x60;&#x60;location&#x60;&#x60;. Pass the returned &#x60;&#x60;place_id&#x60;&#x60; as &#x60;&#x60;location&#x60;&#x60; on Marketplace search/category to centre results anywhere, not just the preset catalogue. Postcodes resolve exactly; a bare town name in an ambiguous country is best paired with &#x60;&#x60;country&#x60;&#x60; (e.g. &#x60;&#x60;gb&#x60;&#x60;).
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">Town, city, postcode or address (e.g. &#39;Durham&#39;, &#39;DH1 3LE&#39;) (optional)</param>
+        /// <param name="latitude">Resolve this exact point instead (optional)</param>
+        /// <param name="longitude"> (optional)</param>
+        /// <param name="country">ISO country code hint for an ambiguous name (e.g. gb) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Object</returns>
+        public async System.Threading.Tasks.Task<Object> FacebookResolveATownPostcodeToAMarketplaceLocationAsync(string query = default(string), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), string country = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await FacebookResolveATownPostcodeToAMarketplaceLocationWithHttpInfoAsync(query, latitude, longitude, country, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Resolve a town/postcode to a Marketplace location Resolve a town, postcode or coordinates to a Facebook Marketplace place id.  Facebook keys Marketplace by place, not coordinates, and only a place slug or numeric place id works as &#x60;&#x60;location&#x60;&#x60;. Pass the returned &#x60;&#x60;place_id&#x60;&#x60; as &#x60;&#x60;location&#x60;&#x60; on Marketplace search/category to centre results anywhere, not just the preset catalogue. Postcodes resolve exactly; a bare town name in an ambiguous country is best paired with &#x60;&#x60;country&#x60;&#x60; (e.g. &#x60;&#x60;gb&#x60;&#x60;).
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="query">Town, city, postcode or address (e.g. &#39;Durham&#39;, &#39;DH1 3LE&#39;) (optional)</param>
+        /// <param name="latitude">Resolve this exact point instead (optional)</param>
+        /// <param name="longitude"> (optional)</param>
+        /// <param name="country">ISO country code hint for an ambiguous name (e.g. gb) (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Object)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> FacebookResolveATownPostcodeToAMarketplaceLocationWithHttpInfoAsync(string query = default(string), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), string country = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (query != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "query", query));
+            }
+            if (latitude != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "latitude", latitude));
+            }
+            if (longitude != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "longitude", longitude));
+            }
+            if (country != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "country", country));
+            }
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/facebook/marketplace/locations/resolve", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("FacebookResolveATownPostcodeToAMarketplaceLocation", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
