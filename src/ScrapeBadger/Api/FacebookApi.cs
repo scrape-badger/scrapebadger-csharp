@@ -39,9 +39,10 @@ namespace ScrapeBadger.Api
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="sortBy"> (optional)</param>
+        /// <param name="radius">Radius around the location (km, or miles in the US) (optional)</param>
         /// <param name="after"> (optional)</param>
         /// <returns>Object</returns>
-        Object FacebookBrowseAMarketplaceCategory(string category, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), string sortBy = default(string), string after = default(string));
+        Object FacebookBrowseAMarketplaceCategory(string category, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), string sortBy = default(string), int? radius = default(int?), string after = default(string));
 
         /// <summary>
         /// Browse a Marketplace category
@@ -55,9 +56,10 @@ namespace ScrapeBadger.Api
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="sortBy"> (optional)</param>
+        /// <param name="radius">Radius around the location (km, or miles in the US) (optional)</param>
         /// <param name="after"> (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> FacebookBrowseAMarketplaceCategoryWithHttpInfo(string category, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), string sortBy = default(string), string after = default(string));
+        ApiResponse<Object> FacebookBrowseAMarketplaceCategoryWithHttpInfo(string category, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), string sortBy = default(string), int? radius = default(int?), string after = default(string));
         /// <summary>
         /// Get a Marketplace item
         /// </summary>
@@ -620,10 +622,11 @@ namespace ScrapeBadger.Api
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="sortBy"> (optional)</param>
+        /// <param name="radius">Radius around the location (km, or miles in the US) (optional)</param>
         /// <param name="after"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> FacebookBrowseAMarketplaceCategoryAsync(string category, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), string sortBy = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> FacebookBrowseAMarketplaceCategoryAsync(string category, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), string sortBy = default(string), int? radius = default(int?), string after = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Browse a Marketplace category
@@ -637,10 +640,11 @@ namespace ScrapeBadger.Api
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="sortBy"> (optional)</param>
+        /// <param name="radius">Radius around the location (km, or miles in the US) (optional)</param>
         /// <param name="after"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> FacebookBrowseAMarketplaceCategoryWithHttpInfoAsync(string category, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), string sortBy = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> FacebookBrowseAMarketplaceCategoryWithHttpInfoAsync(string category, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), string sortBy = default(string), int? radius = default(int?), string after = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Get a Marketplace item
         /// </summary>
@@ -1450,11 +1454,12 @@ namespace ScrapeBadger.Api
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="sortBy"> (optional)</param>
+        /// <param name="radius">Radius around the location (km, or miles in the US) (optional)</param>
         /// <param name="after"> (optional)</param>
         /// <returns>Object</returns>
-        public Object FacebookBrowseAMarketplaceCategory(string category, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), string sortBy = default(string), string after = default(string))
+        public Object FacebookBrowseAMarketplaceCategory(string category, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), string sortBy = default(string), int? radius = default(int?), string after = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = FacebookBrowseAMarketplaceCategoryWithHttpInfo(category, location, minPrice, maxPrice, sortBy, after);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = FacebookBrowseAMarketplaceCategoryWithHttpInfo(category, location, minPrice, maxPrice, sortBy, radius, after);
             return localVarResponse.Data;
         }
 
@@ -1467,9 +1472,10 @@ namespace ScrapeBadger.Api
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="sortBy"> (optional)</param>
+        /// <param name="radius">Radius around the location (km, or miles in the US) (optional)</param>
         /// <param name="after"> (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> FacebookBrowseAMarketplaceCategoryWithHttpInfo(string category, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), string sortBy = default(string), string after = default(string))
+        public ScrapeBadger.Client.ApiResponse<Object> FacebookBrowseAMarketplaceCategoryWithHttpInfo(string category, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), string sortBy = default(string), int? radius = default(int?), string after = default(string))
         {
             // verify the required parameter 'category' is set
             if (category == null)
@@ -1507,6 +1513,10 @@ namespace ScrapeBadger.Api
             if (sortBy != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "sort_by", sortBy));
+            }
+            if (radius != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "radius", radius));
             }
             if (after != null)
             {
@@ -1540,12 +1550,13 @@ namespace ScrapeBadger.Api
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="sortBy"> (optional)</param>
+        /// <param name="radius">Radius around the location (km, or miles in the US) (optional)</param>
         /// <param name="after"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> FacebookBrowseAMarketplaceCategoryAsync(string category, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), string sortBy = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> FacebookBrowseAMarketplaceCategoryAsync(string category, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), string sortBy = default(string), int? radius = default(int?), string after = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await FacebookBrowseAMarketplaceCategoryWithHttpInfoAsync(category, location, minPrice, maxPrice, sortBy, after, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await FacebookBrowseAMarketplaceCategoryWithHttpInfoAsync(category, location, minPrice, maxPrice, sortBy, radius, after, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1558,10 +1569,11 @@ namespace ScrapeBadger.Api
         /// <param name="minPrice"> (optional)</param>
         /// <param name="maxPrice"> (optional)</param>
         /// <param name="sortBy"> (optional)</param>
+        /// <param name="radius">Radius around the location (km, or miles in the US) (optional)</param>
         /// <param name="after"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> FacebookBrowseAMarketplaceCategoryWithHttpInfoAsync(string category, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), string sortBy = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> FacebookBrowseAMarketplaceCategoryWithHttpInfoAsync(string category, string location = default(string), int? minPrice = default(int?), int? maxPrice = default(int?), string sortBy = default(string), int? radius = default(int?), string after = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'category' is set
             if (category == null)
@@ -1601,6 +1613,10 @@ namespace ScrapeBadger.Api
             if (sortBy != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "sort_by", sortBy));
+            }
+            if (radius != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "radius", radius));
             }
             if (after != null)
             {

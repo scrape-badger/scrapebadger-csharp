@@ -65,8 +65,9 @@ namespace ScrapeBadger.Test.Api
             //int? minPrice = null;
             //int? maxPrice = null;
             //string sortBy = null;
+            //int? radius = null;
             //string after = null;
-            //var response = instance.FacebookBrowseAMarketplaceCategory(category, location, minPrice, maxPrice, sortBy, after);
+            //var response = instance.FacebookBrowseAMarketplaceCategory(category, location, minPrice, maxPrice, sortBy, radius, after);
             //Assert.IsType<Object>(response);
         }
 

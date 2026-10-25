@@ -31,7 +31,7 @@ All URIs are relative to *https://scrapebadger.com*
 
 <a id="facebookbrowseamarketplacecategory"></a>
 # **FacebookBrowseAMarketplaceCategory**
-> Object FacebookBrowseAMarketplaceCategory (string category, string location = null, int? minPrice = null, int? maxPrice = null, string sortBy = null, string after = null)
+> Object FacebookBrowseAMarketplaceCategory (string category, string location = null, int? minPrice = null, int? maxPrice = null, string sortBy = null, int? radius = null, string after = null)
 
 Browse a Marketplace category
 
@@ -68,12 +68,13 @@ namespace Example
             var minPrice = 56;  // int? |  (optional) 
             var maxPrice = 56;  // int? |  (optional) 
             var sortBy = "sortBy_example";  // string |  (optional) 
+            var radius = 56;  // int? | Radius around the location (km, or miles in the US) (optional) 
             var after = "after_example";  // string |  (optional) 
 
             try
             {
                 // Browse a Marketplace category
-                Object result = apiInstance.FacebookBrowseAMarketplaceCategory(category, location, minPrice, maxPrice, sortBy, after);
+                Object result = apiInstance.FacebookBrowseAMarketplaceCategory(category, location, minPrice, maxPrice, sortBy, radius, after);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -94,7 +95,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Browse a Marketplace category
-    ApiResponse<Object> response = apiInstance.FacebookBrowseAMarketplaceCategoryWithHttpInfo(category, location, minPrice, maxPrice, sortBy, after);
+    ApiResponse<Object> response = apiInstance.FacebookBrowseAMarketplaceCategoryWithHttpInfo(category, location, minPrice, maxPrice, sortBy, radius, after);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -116,6 +117,7 @@ catch (ApiException e)
 | **minPrice** | **int?** |  | [optional]  |
 | **maxPrice** | **int?** |  | [optional]  |
 | **sortBy** | **string** |  | [optional]  |
+| **radius** | **int?** | Radius around the location (km, or miles in the US) | [optional]  |
 | **after** | **string** |  | [optional]  |
 
 ### Return type

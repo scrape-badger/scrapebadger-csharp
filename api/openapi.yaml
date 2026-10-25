@@ -7399,6 +7399,15 @@ paths:
           nullable: true
           type: string
         style: form
+      - description: "Radius around the location (km, or miles in the US)"
+        explode: true
+        in: query
+        name: radius
+        required: false
+        schema:
+          nullable: true
+          type: integer
+        style: form
       - explode: true
         in: query
         name: after
