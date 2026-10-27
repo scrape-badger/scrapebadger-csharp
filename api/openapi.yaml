@@ -17339,7 +17339,12 @@ paths:
       - Reddit
   /v1/reddit/search/posts:
     get:
-      description: Search Reddit posts globally or within a subreddit.
+      description: |-
+        Search Reddit's current web UI globally or within a subreddit.
+
+        Pass pagination.after unchanged with the same query, scope, sort and time
+        filter. Search cursors expire after 30 minutes. Reddit's native page may
+        contain fewer rows than limit; continue while after is present.
       operationId: reddit_search_reddit_posts
       parameters:
       - description: Search query
@@ -17421,7 +17426,12 @@ paths:
       - Reddit
   /v1/reddit/search/subreddits:
     get:
-      description: Search for subreddits by keyword.
+      description: |-
+        Search communities using Reddit's current web UI ranking and pagination.
+
+        Pass pagination.after unchanged with the same query. Search cursors expire
+        after 30 minutes. weekly_visitors and weekly_contributions are activity
+        counters, separate from the subscriber count.
       operationId: reddit_search_subreddits
       parameters:
       - description: Search query
@@ -17472,7 +17482,11 @@ paths:
       - Reddit
   /v1/reddit/search/users:
     get:
-      description: Search for Reddit users.
+      description: |-
+        Search profiles using Reddit's current web UI ranking and pagination.
+
+        Pass pagination.after unchanged with the same query. Search cursors expire
+        after 30 minutes. The native page may contain fewer rows than limit.
       operationId: reddit_search_users
       parameters:
       - description: Search query
