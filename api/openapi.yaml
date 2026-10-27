@@ -16,6 +16,7 @@ tags:
 - name: App-Store
 - name: ASOS
 - name: Baidu
+- name: Batch
 - name: BestBuy
 - name: Bing
 - name: Booking
@@ -74,6 +75,43 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: Get account info
+      tags:
+      - Account
+  /v1/account/webhook-secret:
+    get:
+      description: |-
+        The secret that signs this account's async-request webhooks, created on first
+        read. Verify a delivery by comparing ``X-ScrapeBadger-Signature`` with
+        ``sha256=`` + hex HMAC-SHA256(secret, raw body).
+      operationId: account_get_the_webhook_signing_secret
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookSecret'
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Get the webhook signing secret
+      tags:
+      - Account
+  /v1/account/webhook-secret/rotate:
+    post:
+      description: |-
+        Replace the signing secret. Deliveries that start from now on are signed with
+        the new one; retries of a delivery already under way keep the old one.
+      operationId: account_rotate_the_webhook_signing_secret
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WebhookSecret'
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Rotate the webhook signing secret
       tags:
       - Account
   /v1/airbnb/experiences:
@@ -3327,6 +3365,40 @@ paths:
       summary: Baidu web search
       tags:
       - Baidu
+  /v1/batch:
+    post:
+      description: |-
+        Submit up to 100 GET reads in one call. Each item runs as its own
+        ``Prefer: respond-async`` request under this key, with the same auth, credit
+        check, rate limit and billing as if it were sent alone, and returns a
+        request_id to poll (or a webhook to ``callback_url``). At most 10 items of a
+        batch run at the same time. Submitting is free; each item bills as it runs.
+        Items are checked against the spendable balance first, at the endpoint's base
+        price, so a batch never starts more than the account can pay for.
+      operationId: batch_submit_a_batch_of_async_requests
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BatchRequest'
+        required: true
+      responses:
+        "202":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Submit a batch of async requests
+      tags:
+      - Batch
   /v1/bestbuy/autocomplete:
     get:
       operationId: bestbuy_get_search_suggestions
@@ -27453,6 +27525,55 @@ components:
       - claim_url
       - credits_remaining
       title: AgentTrialInfo
+    BatchItem:
+      example:
+        path: path
+        method: GET
+        query:
+          key: BatchItem_query_value
+      properties:
+        method:
+          default: GET
+          enum:
+          - GET
+          title: Method
+          type: string
+        path:
+          maxLength: 500
+          title: Path
+          type: string
+        query:
+          additionalProperties:
+            $ref: '#/components/schemas/BatchItem_query_value'
+          nullable: true
+      required:
+      - path
+      title: BatchItem
+    BatchRequest:
+      example:
+        callback_url: callback_url
+        requests:
+        - path: path
+          method: GET
+          query:
+            key: BatchItem_query_value
+        - path: path
+          method: GET
+          query:
+            key: BatchItem_query_value
+      properties:
+        requests:
+          items:
+            $ref: '#/components/schemas/BatchItem'
+          minItems: 1
+          type: array
+        callback_url:
+          maxLength: 2048
+          nullable: true
+          type: string
+      required:
+      - requests
+      title: BatchRequest
     BillingLogListResponse:
       description: Paginated billing logs.
       example:
@@ -30495,6 +30616,27 @@ components:
       - secret
       - url
       title: WebhookResponse
+    WebhookSecret:
+      description: Signs every X-Callback-URL / batch webhook of this account (SCR-470).
+      example:
+        signature_header: X-ScrapeBadger-Signature
+        secret: secret
+        algorithm: sha256=<hex HMAC-SHA256 of the raw request body>
+      properties:
+        secret:
+          title: Secret
+          type: string
+        signature_header:
+          default: X-ScrapeBadger-Signature
+          title: Signature Header
+          type: string
+        algorithm:
+          default: sha256=<hex HMAC-SHA256 of the raw request body>
+          title: Algorithm
+          type: string
+      required:
+      - secret
+      title: WebhookSecret
     WebhookTestRequest:
       description: Test webhook delivery request.
       example:
@@ -30908,6 +31050,21 @@ components:
       - credits_per_empty_call
       - credits_per_tweet_returned
       title: FilterRulePricingResponse
+    BatchItem_query_value_anyOf_inner:
+      anyOf:
+      - type: string
+      - type: integer
+      - type: number
+      - type: boolean
+    BatchItem_query_value:
+      anyOf:
+      - type: string
+      - type: integer
+      - type: number
+      - type: boolean
+      - items:
+          $ref: '#/components/schemas/BatchItem_query_value_anyOf_inner'
+        type: array
     ExtractRequest_extract_rules_value:
       anyOf:
       - type: string

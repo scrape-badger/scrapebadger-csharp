@@ -14,6 +14,11 @@ docs/AmazonApi.md
 docs/ApartmentsApi.md
 docs/AppStoreApi.md
 docs/BaiduApi.md
+docs/BatchApi.md
+docs/BatchItem.md
+docs/BatchItemQueryValue.md
+docs/BatchItemQueryValueAnyOfInner.md
+docs/BatchRequest.md
 docs/BestBuyApi.md
 docs/BillingLogListResponse.md
 docs/BillingLogResponse.md
@@ -126,6 +131,7 @@ docs/WebhookCreate.md
 docs/WebhookListItem.md
 docs/WebhookListResponse.md
 docs/WebhookResponse.md
+docs/WebhookSecret.md
 docs/WebhookTestRequest.md
 docs/WebhookTestResponse.md
 docs/YahooApi.md
@@ -141,6 +147,7 @@ src/ScrapeBadger.Test/Api/AmazonApiTests.cs
 src/ScrapeBadger.Test/Api/ApartmentsApiTests.cs
 src/ScrapeBadger.Test/Api/AppStoreApiTests.cs
 src/ScrapeBadger.Test/Api/BaiduApiTests.cs
+src/ScrapeBadger.Test/Api/BatchApiTests.cs
 src/ScrapeBadger.Test/Api/BestBuyApiTests.cs
 src/ScrapeBadger.Test/Api/BingApiTests.cs
 src/ScrapeBadger.Test/Api/BookingApiTests.cs
@@ -182,6 +189,10 @@ src/ScrapeBadger.Test/Api/YouTubeApiTests.cs
 src/ScrapeBadger.Test/Api/ZillowApiTests.cs
 src/ScrapeBadger.Test/Model/AccountInfoTests.cs
 src/ScrapeBadger.Test/Model/AgentTrialInfoTests.cs
+src/ScrapeBadger.Test/Model/BatchItemQueryValueAnyOfInnerTests.cs
+src/ScrapeBadger.Test/Model/BatchItemQueryValueTests.cs
+src/ScrapeBadger.Test/Model/BatchItemTests.cs
+src/ScrapeBadger.Test/Model/BatchRequestTests.cs
 src/ScrapeBadger.Test/Model/BillingLogListResponseTests.cs
 src/ScrapeBadger.Test/Model/BillingLogResponseTests.cs
 src/ScrapeBadger.Test/Model/BrandidTests.cs
@@ -259,6 +270,7 @@ src/ScrapeBadger.Test/Model/WebhookCreateTests.cs
 src/ScrapeBadger.Test/Model/WebhookListItemTests.cs
 src/ScrapeBadger.Test/Model/WebhookListResponseTests.cs
 src/ScrapeBadger.Test/Model/WebhookResponseTests.cs
+src/ScrapeBadger.Test/Model/WebhookSecretTests.cs
 src/ScrapeBadger.Test/Model/WebhookTestRequestTests.cs
 src/ScrapeBadger.Test/Model/WebhookTestResponseTests.cs
 src/ScrapeBadger.Test/ScrapeBadger.Test.csproj
@@ -270,6 +282,7 @@ src/ScrapeBadger/Api/AmazonApi.cs
 src/ScrapeBadger/Api/ApartmentsApi.cs
 src/ScrapeBadger/Api/AppStoreApi.cs
 src/ScrapeBadger/Api/BaiduApi.cs
+src/ScrapeBadger/Api/BatchApi.cs
 src/ScrapeBadger/Api/BestBuyApi.cs
 src/ScrapeBadger/Api/BingApi.cs
 src/ScrapeBadger/Api/BookingApi.cs
@@ -329,6 +342,10 @@ src/ScrapeBadger/Client/WebRequestPathBuilder.cs
 src/ScrapeBadger/Model/AbstractOpenAPISchema.cs
 src/ScrapeBadger/Model/AccountInfo.cs
 src/ScrapeBadger/Model/AgentTrialInfo.cs
+src/ScrapeBadger/Model/BatchItem.cs
+src/ScrapeBadger/Model/BatchItemQueryValue.cs
+src/ScrapeBadger/Model/BatchItemQueryValueAnyOfInner.cs
+src/ScrapeBadger/Model/BatchRequest.cs
 src/ScrapeBadger/Model/BillingLogListResponse.cs
 src/ScrapeBadger/Model/BillingLogResponse.cs
 src/ScrapeBadger/Model/Brandid.cs
@@ -406,6 +423,7 @@ src/ScrapeBadger/Model/WebhookCreate.cs
 src/ScrapeBadger/Model/WebhookListItem.cs
 src/ScrapeBadger/Model/WebhookListResponse.cs
 src/ScrapeBadger/Model/WebhookResponse.cs
+src/ScrapeBadger/Model/WebhookSecret.cs
 src/ScrapeBadger/Model/WebhookTestRequest.cs
 src/ScrapeBadger/Model/WebhookTestResponse.cs
 src/ScrapeBadger/ScrapeBadger.csproj

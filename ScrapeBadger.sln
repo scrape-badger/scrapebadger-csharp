@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrapeBadger", "src\ScrapeBadger\ScrapeBadger.csproj", "{9CE07849-83C0-47E2-8095-05BCA95F74BA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrapeBadger", "src\ScrapeBadger\ScrapeBadger.csproj", "{88380835-5900-4B95-B5E2-6FB3ECA596D3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrapeBadger.Test", "src\ScrapeBadger.Test\ScrapeBadger.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
@@ -12,10 +12,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9CE07849-83C0-47E2-8095-05BCA95F74BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9CE07849-83C0-47E2-8095-05BCA95F74BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9CE07849-83C0-47E2-8095-05BCA95F74BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9CE07849-83C0-47E2-8095-05BCA95F74BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88380835-5900-4B95-B5E2-6FB3ECA596D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88380835-5900-4B95-B5E2-6FB3ECA596D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88380835-5900-4B95-B5E2-6FB3ECA596D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88380835-5900-4B95-B5E2-6FB3ECA596D3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
