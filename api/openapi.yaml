@@ -16532,6 +16532,19 @@ paths:
           nullable: true
           type: string
         style: form
+      - description: "Answer only from an exit in `country`, never another one; 503\
+          \ `country_unavailable` (not billed) when none answers. Requires `country`."
+        explode: true
+        in: query
+        name: strict_country
+        required: false
+        schema:
+          default: false
+          description: "Answer only from an exit in `country`, never another one;\
+            \ 503 `country_unavailable` (not billed) when none answers. Requires `country`."
+          title: Strict Country
+          type: boolean
+        style: form
       responses:
         "200":
           content:
@@ -16624,6 +16637,19 @@ paths:
         schema:
           nullable: true
           type: string
+        style: form
+      - description: "Answer only from an exit in `country`, never another one; 503\
+          \ `country_unavailable` (not billed) when none answers. Requires `country`."
+        explode: true
+        in: query
+        name: strict_country
+        required: false
+        schema:
+          default: false
+          description: "Answer only from an exit in `country`, never another one;\
+            \ 503 `country_unavailable` (not billed) when none answers. Requires `country`."
+          title: Strict Country
+          type: boolean
         style: form
       responses:
         "200":

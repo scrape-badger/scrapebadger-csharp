@@ -36,8 +36,9 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="prompt">The prompt to send to Perplexity (max 4096 characters).</param>
         /// <param name="country">ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)</param>
+        /// <param name="strictCountry">Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)</param>
         /// <returns>Object</returns>
-        Object PerplexityAskPerplexityAQuestion(string prompt, string country = default(string));
+        Object PerplexityAskPerplexityAQuestion(string prompt, string country = default(string), bool? strictCountry = default(bool?));
 
         /// <summary>
         /// Ask Perplexity a question
@@ -48,8 +49,9 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="prompt">The prompt to send to Perplexity (max 4096 characters).</param>
         /// <param name="country">ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)</param>
+        /// <param name="strictCountry">Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> PerplexityAskPerplexityAQuestionWithHttpInfo(string prompt, string country = default(string));
+        ApiResponse<Object> PerplexityAskPerplexityAQuestionWithHttpInfo(string prompt, string country = default(string), bool? strictCountry = default(bool?));
         /// <summary>
         /// Ask Perplexity a question (POST)
         /// </summary>
@@ -82,8 +84,9 @@ namespace ScrapeBadger.Api
         /// <param name="aliases">Comma-separated alternative names. (optional)</param>
         /// <param name="competitors">Comma-separated competitor names. (optional)</param>
         /// <param name="country">ISO-3166 alpha-2 egress country. (optional)</param>
+        /// <param name="strictCountry">Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)</param>
         /// <returns>Object</returns>
-        Object PerplexityMeasureABrandSVisibilityInAPerplexityAnswer(string prompt, string brand, string domain = default(string), string aliases = default(string), string competitors = default(string), string country = default(string));
+        Object PerplexityMeasureABrandSVisibilityInAPerplexityAnswer(string prompt, string brand, string domain = default(string), string aliases = default(string), string competitors = default(string), string country = default(string), bool? strictCountry = default(bool?));
 
         /// <summary>
         /// Measure a brand&#39;s visibility in a Perplexity answer
@@ -98,8 +101,9 @@ namespace ScrapeBadger.Api
         /// <param name="aliases">Comma-separated alternative names. (optional)</param>
         /// <param name="competitors">Comma-separated competitor names. (optional)</param>
         /// <param name="country">ISO-3166 alpha-2 egress country. (optional)</param>
+        /// <param name="strictCountry">Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> PerplexityMeasureABrandSVisibilityInAPerplexityAnswerWithHttpInfo(string prompt, string brand, string domain = default(string), string aliases = default(string), string competitors = default(string), string country = default(string));
+        ApiResponse<Object> PerplexityMeasureABrandSVisibilityInAPerplexityAnswerWithHttpInfo(string prompt, string brand, string domain = default(string), string aliases = default(string), string competitors = default(string), string country = default(string), bool? strictCountry = default(bool?));
         /// <summary>
         /// Measure a brand&#39;s visibility in a Perplexity answer (POST)
         /// </summary>
@@ -175,9 +179,10 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="prompt">The prompt to send to Perplexity (max 4096 characters).</param>
         /// <param name="country">ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)</param>
+        /// <param name="strictCountry">Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> PerplexityAskPerplexityAQuestionAsync(string prompt, string country = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> PerplexityAskPerplexityAQuestionAsync(string prompt, string country = default(string), bool? strictCountry = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Ask Perplexity a question
@@ -188,9 +193,10 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="prompt">The prompt to send to Perplexity (max 4096 characters).</param>
         /// <param name="country">ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)</param>
+        /// <param name="strictCountry">Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> PerplexityAskPerplexityAQuestionWithHttpInfoAsync(string prompt, string country = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> PerplexityAskPerplexityAQuestionWithHttpInfoAsync(string prompt, string country = default(string), bool? strictCountry = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Ask Perplexity a question (POST)
         /// </summary>
@@ -225,9 +231,10 @@ namespace ScrapeBadger.Api
         /// <param name="aliases">Comma-separated alternative names. (optional)</param>
         /// <param name="competitors">Comma-separated competitor names. (optional)</param>
         /// <param name="country">ISO-3166 alpha-2 egress country. (optional)</param>
+        /// <param name="strictCountry">Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> PerplexityMeasureABrandSVisibilityInAPerplexityAnswerAsync(string prompt, string brand, string domain = default(string), string aliases = default(string), string competitors = default(string), string country = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> PerplexityMeasureABrandSVisibilityInAPerplexityAnswerAsync(string prompt, string brand, string domain = default(string), string aliases = default(string), string competitors = default(string), string country = default(string), bool? strictCountry = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Measure a brand&#39;s visibility in a Perplexity answer
@@ -242,9 +249,10 @@ namespace ScrapeBadger.Api
         /// <param name="aliases">Comma-separated alternative names. (optional)</param>
         /// <param name="competitors">Comma-separated competitor names. (optional)</param>
         /// <param name="country">ISO-3166 alpha-2 egress country. (optional)</param>
+        /// <param name="strictCountry">Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> PerplexityMeasureABrandSVisibilityInAPerplexityAnswerWithHttpInfoAsync(string prompt, string brand, string domain = default(string), string aliases = default(string), string competitors = default(string), string country = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> PerplexityMeasureABrandSVisibilityInAPerplexityAnswerWithHttpInfoAsync(string prompt, string brand, string domain = default(string), string aliases = default(string), string competitors = default(string), string country = default(string), bool? strictCountry = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Measure a brand&#39;s visibility in a Perplexity answer (POST)
         /// </summary>
@@ -527,10 +535,11 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="prompt">The prompt to send to Perplexity (max 4096 characters).</param>
         /// <param name="country">ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)</param>
+        /// <param name="strictCountry">Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)</param>
         /// <returns>Object</returns>
-        public Object PerplexityAskPerplexityAQuestion(string prompt, string country = default(string))
+        public Object PerplexityAskPerplexityAQuestion(string prompt, string country = default(string), bool? strictCountry = default(bool?))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = PerplexityAskPerplexityAQuestionWithHttpInfo(prompt, country);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = PerplexityAskPerplexityAQuestionWithHttpInfo(prompt, country, strictCountry);
             return localVarResponse.Data;
         }
 
@@ -540,8 +549,9 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="prompt">The prompt to send to Perplexity (max 4096 characters).</param>
         /// <param name="country">ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)</param>
+        /// <param name="strictCountry">Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> PerplexityAskPerplexityAQuestionWithHttpInfo(string prompt, string country = default(string))
+        public ScrapeBadger.Client.ApiResponse<Object> PerplexityAskPerplexityAQuestionWithHttpInfo(string prompt, string country = default(string), bool? strictCountry = default(bool?))
         {
             // verify the required parameter 'prompt' is set
             if (prompt == null)
@@ -567,6 +577,10 @@ namespace ScrapeBadger.Api
             if (country != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "country", country));
+            }
+            if (strictCountry != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "strict_country", strictCountry));
             }
 
             // authentication (ApiKeyAuth) required
@@ -593,11 +607,12 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="prompt">The prompt to send to Perplexity (max 4096 characters).</param>
         /// <param name="country">ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)</param>
+        /// <param name="strictCountry">Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> PerplexityAskPerplexityAQuestionAsync(string prompt, string country = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> PerplexityAskPerplexityAQuestionAsync(string prompt, string country = default(string), bool? strictCountry = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await PerplexityAskPerplexityAQuestionWithHttpInfoAsync(prompt, country, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await PerplexityAskPerplexityAQuestionWithHttpInfoAsync(prompt, country, strictCountry, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -607,9 +622,10 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="prompt">The prompt to send to Perplexity (max 4096 characters).</param>
         /// <param name="country">ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)</param>
+        /// <param name="strictCountry">Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> PerplexityAskPerplexityAQuestionWithHttpInfoAsync(string prompt, string country = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> PerplexityAskPerplexityAQuestionWithHttpInfoAsync(string prompt, string country = default(string), bool? strictCountry = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'prompt' is set
             if (prompt == null)
@@ -637,6 +653,10 @@ namespace ScrapeBadger.Api
             if (country != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "country", country));
+            }
+            if (strictCountry != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "strict_country", strictCountry));
             }
 
             // authentication (ApiKeyAuth) required
@@ -779,10 +799,11 @@ namespace ScrapeBadger.Api
         /// <param name="aliases">Comma-separated alternative names. (optional)</param>
         /// <param name="competitors">Comma-separated competitor names. (optional)</param>
         /// <param name="country">ISO-3166 alpha-2 egress country. (optional)</param>
+        /// <param name="strictCountry">Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)</param>
         /// <returns>Object</returns>
-        public Object PerplexityMeasureABrandSVisibilityInAPerplexityAnswer(string prompt, string brand, string domain = default(string), string aliases = default(string), string competitors = default(string), string country = default(string))
+        public Object PerplexityMeasureABrandSVisibilityInAPerplexityAnswer(string prompt, string brand, string domain = default(string), string aliases = default(string), string competitors = default(string), string country = default(string), bool? strictCountry = default(bool?))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = PerplexityMeasureABrandSVisibilityInAPerplexityAnswerWithHttpInfo(prompt, brand, domain, aliases, competitors, country);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = PerplexityMeasureABrandSVisibilityInAPerplexityAnswerWithHttpInfo(prompt, brand, domain, aliases, competitors, country, strictCountry);
             return localVarResponse.Data;
         }
 
@@ -796,8 +817,9 @@ namespace ScrapeBadger.Api
         /// <param name="aliases">Comma-separated alternative names. (optional)</param>
         /// <param name="competitors">Comma-separated competitor names. (optional)</param>
         /// <param name="country">ISO-3166 alpha-2 egress country. (optional)</param>
+        /// <param name="strictCountry">Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> PerplexityMeasureABrandSVisibilityInAPerplexityAnswerWithHttpInfo(string prompt, string brand, string domain = default(string), string aliases = default(string), string competitors = default(string), string country = default(string))
+        public ScrapeBadger.Client.ApiResponse<Object> PerplexityMeasureABrandSVisibilityInAPerplexityAnswerWithHttpInfo(string prompt, string brand, string domain = default(string), string aliases = default(string), string competitors = default(string), string country = default(string), bool? strictCountry = default(bool?))
         {
             // verify the required parameter 'prompt' is set
             if (prompt == null)
@@ -840,6 +862,10 @@ namespace ScrapeBadger.Api
             if (country != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "country", country));
+            }
+            if (strictCountry != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "strict_country", strictCountry));
             }
 
             // authentication (ApiKeyAuth) required
@@ -870,11 +896,12 @@ namespace ScrapeBadger.Api
         /// <param name="aliases">Comma-separated alternative names. (optional)</param>
         /// <param name="competitors">Comma-separated competitor names. (optional)</param>
         /// <param name="country">ISO-3166 alpha-2 egress country. (optional)</param>
+        /// <param name="strictCountry">Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> PerplexityMeasureABrandSVisibilityInAPerplexityAnswerAsync(string prompt, string brand, string domain = default(string), string aliases = default(string), string competitors = default(string), string country = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> PerplexityMeasureABrandSVisibilityInAPerplexityAnswerAsync(string prompt, string brand, string domain = default(string), string aliases = default(string), string competitors = default(string), string country = default(string), bool? strictCountry = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await PerplexityMeasureABrandSVisibilityInAPerplexityAnswerWithHttpInfoAsync(prompt, brand, domain, aliases, competitors, country, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await PerplexityMeasureABrandSVisibilityInAPerplexityAnswerWithHttpInfoAsync(prompt, brand, domain, aliases, competitors, country, strictCountry, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -888,9 +915,10 @@ namespace ScrapeBadger.Api
         /// <param name="aliases">Comma-separated alternative names. (optional)</param>
         /// <param name="competitors">Comma-separated competitor names. (optional)</param>
         /// <param name="country">ISO-3166 alpha-2 egress country. (optional)</param>
+        /// <param name="strictCountry">Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> PerplexityMeasureABrandSVisibilityInAPerplexityAnswerWithHttpInfoAsync(string prompt, string brand, string domain = default(string), string aliases = default(string), string competitors = default(string), string country = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> PerplexityMeasureABrandSVisibilityInAPerplexityAnswerWithHttpInfoAsync(string prompt, string brand, string domain = default(string), string aliases = default(string), string competitors = default(string), string country = default(string), bool? strictCountry = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'prompt' is set
             if (prompt == null)
@@ -935,6 +963,10 @@ namespace ScrapeBadger.Api
             if (country != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "country", country));
+            }
+            if (strictCountry != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "strict_country", strictCountry));
             }
 
             // authentication (ApiKeyAuth) required

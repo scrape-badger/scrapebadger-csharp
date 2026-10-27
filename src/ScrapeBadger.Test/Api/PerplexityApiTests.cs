@@ -62,7 +62,8 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string prompt = null;
             //string country = null;
-            //var response = instance.PerplexityAskPerplexityAQuestion(prompt, country);
+            //bool? strictCountry = null;
+            //var response = instance.PerplexityAskPerplexityAQuestion(prompt, country, strictCountry);
             //Assert.IsType<Object>(response);
         }
 
@@ -90,7 +91,8 @@ namespace ScrapeBadger.Test.Api
             //string aliases = null;
             //string competitors = null;
             //string country = null;
-            //var response = instance.PerplexityMeasureABrandSVisibilityInAPerplexityAnswer(prompt, brand, domain, aliases, competitors, country);
+            //bool? strictCountry = null;
+            //var response = instance.PerplexityMeasureABrandSVisibilityInAPerplexityAnswer(prompt, brand, domain, aliases, competitors, country, strictCountry);
             //Assert.IsType<Object>(response);
         }
 
