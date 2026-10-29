@@ -32,6 +32,7 @@ docs/ChatGPTApi.md
 docs/ColorsResponse.md
 docs/Colour.md
 docs/Colourwayid.md
+docs/CopilotApi.md
 docs/DepopApi.md
 docs/Description.md
 docs/DuckDuckGoApi.md
@@ -152,6 +153,7 @@ src/ScrapeBadger.Test/Api/BestBuyApiTests.cs
 src/ScrapeBadger.Test/Api/BingApiTests.cs
 src/ScrapeBadger.Test/Api/BookingApiTests.cs
 src/ScrapeBadger.Test/Api/ChatGPTApiTests.cs
+src/ScrapeBadger.Test/Api/CopilotApiTests.cs
 src/ScrapeBadger.Test/Api/DepopApiTests.cs
 src/ScrapeBadger.Test/Api/DuckDuckGoApiTests.cs
 src/ScrapeBadger.Test/Api/EBayApiTests.cs
@@ -287,6 +289,7 @@ src/ScrapeBadger/Api/BestBuyApi.cs
 src/ScrapeBadger/Api/BingApi.cs
 src/ScrapeBadger/Api/BookingApi.cs
 src/ScrapeBadger/Api/ChatGPTApi.cs
+src/ScrapeBadger/Api/CopilotApi.cs
 src/ScrapeBadger/Api/DepopApi.cs
 src/ScrapeBadger/Api/DuckDuckGoApi.cs
 src/ScrapeBadger/Api/EBayApi.cs

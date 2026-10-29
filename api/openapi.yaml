@@ -21,6 +21,7 @@ tags:
 - name: Bing
 - name: Booking
 - name: ChatGPT
+- name: Copilot
 - name: Depop
 - name: DuckDuckGo
 - name: eBay
@@ -4961,6 +4962,247 @@ paths:
       summary: List ChatGPT models
       tags:
       - ChatGPT
+  /v1/copilot/ask:
+    get:
+      description: Ask Microsoft Copilot (Copilot Search in Bing) and get the answer
+        plus its cited sources.
+      operationId: copilot_ask_copilot_a_question
+      parameters:
+      - description: The prompt to send to Copilot (max 2000 characters).
+        explode: true
+        in: query
+        name: prompt
+        required: true
+        schema:
+          description: The prompt to send to Copilot (max 2000 characters).
+          title: Prompt
+          type: string
+        style: form
+      - description: "ISO-3166 alpha-2 country to ask from, e.g. 'JP', 'US', 'GB'.\
+          \ Unless `market` is set, Copilot also answers in that country's market."
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "Bing market (language-COUNTRY), e.g. 'ja-JP', 'en-GB'. Defaults\
+          \ to the country's."
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "Answer only from an exit in `country`, never another one; 503\
+          \ `country_unavailable` (not billed) when none answers. Requires `country`."
+        explode: true
+        in: query
+        name: strict_country
+        required: false
+        schema:
+          default: false
+          description: "Answer only from an exit in `country`, never another one;\
+            \ 503 `country_unavailable` (not billed) when none answers. Requires `country`."
+          title: Strict Country
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Ask Copilot a question
+      tags:
+      - Copilot
+    post:
+      description: "POST form of `/ask`, for prompts too long for a query string."
+      operationId: copilot_ask_copilot_a_question_post
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Ask Copilot a question (POST)
+      tags:
+      - Copilot
+  /v1/copilot/brand-visibility:
+    get:
+      description: "Ask Copilot, then report whether the brand is mentioned, cited\
+        \ and how prominently."
+      operationId: copilot_measure_a_brand_s_visibility_in_a_copilot_answer
+      parameters:
+      - description: The prompt to ask Copilot.
+        explode: true
+        in: query
+        name: prompt
+        required: true
+        schema:
+          description: The prompt to ask Copilot.
+          title: Prompt
+          type: string
+        style: form
+      - description: Brand name to look for in the answer.
+        explode: true
+        in: query
+        name: brand
+        required: true
+        schema:
+          description: Brand name to look for in the answer.
+          title: Brand
+          type: string
+        style: form
+      - description: "Brand domain, for citation matching."
+        explode: true
+        in: query
+        name: domain
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Comma-separated alternative names.
+        explode: true
+        in: query
+        name: aliases
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Comma-separated competitor names.
+        explode: true
+        in: query
+        name: competitors
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "ISO-3166 alpha-2 country to ask from, e.g. 'JP', 'US', 'GB'.\
+          \ Unless `market` is set, Copilot also answers in that country's market."
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "Bing market (language-COUNTRY), e.g. 'ja-JP', 'en-GB'. Defaults\
+          \ to the country's."
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "Answer only from an exit in `country`, never another one; 503\
+          \ `country_unavailable` (not billed) when none answers. Requires `country`."
+        explode: true
+        in: query
+        name: strict_country
+        required: false
+        schema:
+          default: false
+          description: "Answer only from an exit in `country`, never another one;\
+            \ 503 `country_unavailable` (not billed) when none answers. Requires `country`."
+          title: Strict Country
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Measure a brand's visibility in a Copilot answer
+      tags:
+      - Copilot
+    post:
+      description: "POST form, for longer prompts and larger competitor sets."
+      operationId: copilot_measure_a_brand_s_visibility_in_a_copilot_answer_post
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Measure a brand's visibility in a Copilot answer (POST)
+      tags:
+      - Copilot
+  /v1/copilot/health:
+    get:
+      description: Check health of the Copilot scraper service (accepts HEAD).
+      operationId: copilot_copilot_scraper_health_check
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Copilot scraper health check
+      tags:
+      - Copilot
+    head:
+      description: Check health of the Copilot scraper service (accepts HEAD).
+      operationId: copilot_copilot_scraper_health_check_head
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Copilot scraper health check
+      tags:
+      - Copilot
+  /v1/copilot/markets:
+    get:
+      description: The Bing markets Copilot can be asked in.
+      operationId: copilot_list_copilot_markets
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: List Copilot markets
+      tags:
+      - Copilot
   /v1/depop/health:
     get:
       description: Check health of the Depop scraper service (accepts HEAD).
