@@ -148,7 +148,12 @@ namespace ScrapeBadger.Test.Api
             //string star = null;
             //bool? verifiedOnly = null;
             //bool? mediaOnly = null;
-            //var response = instance.AmazonGetProductReviews(asin, domain, page, sortBy, star, verifiedOnly, mediaOnly);
+            //string mode = null;
+            //int? maxPages = null;
+            //bool? perStar = null;
+            //int? limit = null;
+            //string wootOffer = null;
+            //var response = instance.AmazonGetProductReviews(asin, domain, page, sortBy, star, verifiedOnly, mediaOnly, mode, maxPages, perStar, limit, wootOffer);
             //Assert.IsType<Object>(response);
         }
 

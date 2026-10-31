@@ -639,11 +639,11 @@ catch (ApiException e)
 
 <a id="amazongetproductreviews"></a>
 # **AmazonGetProductReviews**
-> Object AmazonGetProductReviews (string asin, string domain = null, int? page = null, string sortBy = null, string star = null, bool? verifiedOnly = null, bool? mediaOnly = null)
+> Object AmazonGetProductReviews (string asin, string domain = null, int? page = null, string sortBy = null, string star = null, bool? verifiedOnly = null, bool? mediaOnly = null, string mode = null, int? maxPages = null, bool? perStar = null, int? limit = null, string wootOffer = null)
 
 Get product reviews
 
-Customer reviews for an ASIN, filtered, sorted and paginated.  Reviews come from the product page's public featured block, which is the only review surface Amazon serves anonymously — a subset of the full history (``ratings_total`` reports the true total). ``pagination`` gives the filtered count and the last page, so paging past it returns an empty list. An unrecognised ``star`` or ``sort_by`` is rejected with 422 rather than silently answered with unfiltered reviews.
+Customer reviews for an ASIN, filtered, sorted and paginated.  Reviews come from the product page's public featured block, which is the only review surface Amazon serves anonymously — a subset of the full history (``ratings_total`` reports the true total). ``pagination`` gives the filtered count and the last page, so paging past it returns an empty list. An unrecognised ``star`` or ``sort_by`` is rejected with 422 rather than silently answered with unfiltered reviews.  ``mode=full`` serves the rest, pool first and woot second: one pool account is leased and the authenticated review pages are walked until Amazon stops returning new rows (a gate, the review-limit banner or an expired session rotates the lease), then — when ``woot_offer`` names a current woot.com offer page carrying the ASIN (.com only) — Amazon-owned woot.com's anonymous reviews endpoint is fanned out as a bonus and merged in, deduped by review id. The same filter / sort / pagination contract applies to the collected set. When no source produced rows the answer is 503 (``pool_exhausted``, or ``reviews_unavailable`` when both paths ran) — never an empty 200 that reads as \"no reviews\". Auth, rate limits, credits and usage logging are the gateway's, exactly as for every other mode of this endpoint.
 
 ### Example
 ```csharp
@@ -678,11 +678,16 @@ namespace Example
             var star = "star_example";  // string | 1-5 | one_star..five_star | positive | critical | all_stars (optional) 
             var verifiedOnly = false;  // bool? |  (optional)  (default to false)
             var mediaOnly = false;  // bool? |  (optional)  (default to false)
+            var mode = "\"public\"";  // string | public (anonymous featured block) | full (authenticated account pool) (optional)  (default to "public")
+            var maxPages = 10;  // int? | full mode: pages to walk per star sweep (optional)  (default to 10)
+            var perStar = false;  // bool? | full mode: sweep each star filter and merge + dedupe (optional)  (default to false)
+            var limit = 56;  // int? | full mode: stop at this many distinct reviews (optional) 
+            var wootOffer = "wootOffer_example";  // string | full mode + .com: URL (or slug) of a CURRENT woot.com offer page carrying the ASIN — unlocks the anonymous woot reviews endpoint as a bonus transport after the account pool (optional) 
 
             try
             {
                 // Get product reviews
-                Object result = apiInstance.AmazonGetProductReviews(asin, domain, page, sortBy, star, verifiedOnly, mediaOnly);
+                Object result = apiInstance.AmazonGetProductReviews(asin, domain, page, sortBy, star, verifiedOnly, mediaOnly, mode, maxPages, perStar, limit, wootOffer);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -703,7 +708,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Get product reviews
-    ApiResponse<Object> response = apiInstance.AmazonGetProductReviewsWithHttpInfo(asin, domain, page, sortBy, star, verifiedOnly, mediaOnly);
+    ApiResponse<Object> response = apiInstance.AmazonGetProductReviewsWithHttpInfo(asin, domain, page, sortBy, star, verifiedOnly, mediaOnly, mode, maxPages, perStar, limit, wootOffer);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -727,6 +732,11 @@ catch (ApiException e)
 | **star** | **string** | 1-5 | one_star..five_star | positive | critical | all_stars | [optional]  |
 | **verifiedOnly** | **bool?** |  | [optional] [default to false] |
 | **mediaOnly** | **bool?** |  | [optional] [default to false] |
+| **mode** | **string** | public (anonymous featured block) | full (authenticated account pool) | [optional] [default to &quot;public&quot;] |
+| **maxPages** | **int?** | full mode: pages to walk per star sweep | [optional] [default to 10] |
+| **perStar** | **bool?** | full mode: sweep each star filter and merge + dedupe | [optional] [default to false] |
+| **limit** | **int?** | full mode: stop at this many distinct reviews | [optional]  |
+| **wootOffer** | **string** | full mode + .com: URL (or slug) of a CURRENT woot.com offer page carrying the ASIN — unlocks the anonymous woot reviews endpoint as a bonus transport after the account pool | [optional]  |
 
 ### Return type
 

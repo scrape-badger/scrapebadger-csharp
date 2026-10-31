@@ -1670,6 +1670,19 @@ paths:
         the filtered count and the last page, so paging past it returns an empty
         list. An unrecognised ``star`` or ``sort_by`` is rejected with 422 rather
         than silently answered with unfiltered reviews.
+
+        ``mode=full`` serves the rest, pool first and woot second: one pool
+        account is leased and the authenticated review pages are walked until
+        Amazon stops returning new rows (a gate, the review-limit banner or an
+        expired session rotates the lease), then — when ``woot_offer`` names a
+        current woot.com offer page carrying the ASIN (.com only) — Amazon-owned
+        woot.com's anonymous reviews endpoint is fanned out as a bonus and merged
+        in, deduped by review id. The same filter / sort / pagination contract
+        applies to the collected set. When no source produced rows the answer is
+        503 (``pool_exhausted``, or ``reviews_unavailable`` when both paths ran)
+        — never an empty 200 that reads as "no reviews". Auth, rate limits,
+        credits and usage logging are the gateway's, exactly as for every other
+        mode of this endpoint.
       operationId: amazon_get_product_reviews
       parameters:
       - explode: false
@@ -1739,6 +1752,65 @@ paths:
           default: false
           title: Media Only
           type: boolean
+        style: form
+      - description: public (anonymous featured block) | full (authenticated account
+          pool)
+        explode: true
+        in: query
+        name: mode
+        required: false
+        schema:
+          default: public
+          description: public (anonymous featured block) | full (authenticated account
+            pool)
+          title: Mode
+          type: string
+        style: form
+      - description: "full mode: pages to walk per star sweep"
+        explode: true
+        in: query
+        name: max_pages
+        required: false
+        schema:
+          default: 10
+          description: "full mode: pages to walk per star sweep"
+          maximum: 50
+          minimum: 1
+          title: Max Pages
+          type: integer
+        style: form
+      - description: "full mode: sweep each star filter and merge + dedupe"
+        explode: true
+        in: query
+        name: per_star
+        required: false
+        schema:
+          default: false
+          description: "full mode: sweep each star filter and merge + dedupe"
+          title: Per Star
+          type: boolean
+        style: form
+      - description: "full mode: stop at this many distinct reviews"
+        explode: true
+        in: query
+        name: limit
+        required: false
+        schema:
+          maximum: 1000
+          minimum: 1
+          nullable: true
+          type: integer
+        style: form
+      - description: "full mode + .com: URL (or slug) of a CURRENT woot.com offer\
+          \ page carrying the ASIN — unlocks the anonymous woot reviews endpoint as\
+          \ a bonus transport after the account pool"
+        explode: true
+        in: query
+        name: woot_offer
+        required: false
+        schema:
+          nullable: true
+          type: string
         style: form
       responses:
         "200":
