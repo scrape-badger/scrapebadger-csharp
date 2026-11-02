@@ -17750,24 +17750,29 @@ paths:
   /v1/reddit/search/posts:
     get:
       description: |-
-        Search Reddit's current web UI globally or within a subreddit.
+        Search Reddit's current web UI globally or within one or more subreddits.
 
         Pass pagination.after unchanged with the same query, scope, sort and time
         filter. Search cursors expire after 30 minutes. Reddit's native page may
         contain fewer rows than limit; continue while after is present.
+
+        Reddit reads only the first 256 UTF-8 bytes of a search query and ignores
+        the rest, so a longer query returns 422. Several subreddits are searched as
+        (q) (subreddit:a OR subreddit:b ...), and that whole string counts toward
+        the limit: split long subreddit lists across requests.
       operationId: reddit_search_reddit_posts
       parameters:
-      - description: Search query
+      - description: "Search query (Reddit search syntax), at most 256 UTF-8 bytes"
         explode: true
         in: query
         name: q
         required: true
         schema:
-          description: Search query
+          description: "Search query (Reddit search syntax), at most 256 UTF-8 bytes"
           title: Q
           type: string
         style: form
-      - description: Restrict to subreddit
+      - description: "Restrict to a subreddit, or several joined with + (sales+startups)"
         explode: true
         in: query
         name: subreddit
@@ -17841,16 +17846,17 @@ paths:
 
         Pass pagination.after unchanged with the same query. Search cursors expire
         after 30 minutes. weekly_visitors and weekly_contributions are activity
-        counters, separate from the subscriber count.
+        counters, separate from the subscriber count. A query over 256 UTF-8 bytes
+        returns 422, because Reddit would silently drop the rest.
       operationId: reddit_search_subreddits
       parameters:
-      - description: Search query
+      - description: "Search query, at most 256 UTF-8 bytes"
         explode: true
         in: query
         name: q
         required: true
         schema:
-          description: Search query
+          description: "Search query, at most 256 UTF-8 bytes"
           title: Q
           type: string
         style: form
@@ -17896,16 +17902,17 @@ paths:
         Search profiles using Reddit's current web UI ranking and pagination.
 
         Pass pagination.after unchanged with the same query. Search cursors expire
-        after 30 minutes. The native page may contain fewer rows than limit.
+        after 30 minutes. The native page may contain fewer rows than limit. A query
+        over 256 UTF-8 bytes returns 422, because Reddit would silently drop the rest.
       operationId: reddit_search_users
       parameters:
-      - description: Search query
+      - description: "Search query, at most 256 UTF-8 bytes"
         explode: true
         in: query
         name: q
         required: true
         schema:
-          description: Search query
+          description: "Search query, at most 256 UTF-8 bytes"
           title: Q
           type: string
         style: form

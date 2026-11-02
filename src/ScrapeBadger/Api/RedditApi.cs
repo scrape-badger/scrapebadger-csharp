@@ -474,11 +474,11 @@ namespace ScrapeBadger.Api
         /// Search Reddit posts
         /// </summary>
         /// <remarks>
-        /// Search Reddit&#39;s current web UI globally or within a subreddit.  Pass pagination.after unchanged with the same query, scope, sort and time filter. Search cursors expire after 30 minutes. Reddit&#39;s native page may contain fewer rows than limit; continue while after is present.
+        /// Search Reddit&#39;s current web UI globally or within one or more subreddits.  Pass pagination.after unchanged with the same query, scope, sort and time filter. Search cursors expire after 30 minutes. Reddit&#39;s native page may contain fewer rows than limit; continue while after is present.  Reddit reads only the first 256 UTF-8 bytes of a search query and ignores the rest, so a longer query returns 422. Several subreddits are searched as (q) (subreddit:a OR subreddit:b ...), and that whole string counts toward the limit: split long subreddit lists across requests.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q">Search query</param>
-        /// <param name="subreddit">Restrict to subreddit (optional)</param>
+        /// <param name="q">Search query (Reddit search syntax), at most 256 UTF-8 bytes</param>
+        /// <param name="subreddit">Restrict to a subreddit, or several joined with + (sales+startups) (optional)</param>
         /// <param name="sort">Sort: relevance, hot, top, new, comments (optional, default to &quot;relevance&quot;)</param>
         /// <param name="t">Time: hour, day, week, month, year, all (optional, default to &quot;all&quot;)</param>
         /// <param name="limit"> (optional, default to 25)</param>
@@ -490,11 +490,11 @@ namespace ScrapeBadger.Api
         /// Search Reddit posts
         /// </summary>
         /// <remarks>
-        /// Search Reddit&#39;s current web UI globally or within a subreddit.  Pass pagination.after unchanged with the same query, scope, sort and time filter. Search cursors expire after 30 minutes. Reddit&#39;s native page may contain fewer rows than limit; continue while after is present.
+        /// Search Reddit&#39;s current web UI globally or within one or more subreddits.  Pass pagination.after unchanged with the same query, scope, sort and time filter. Search cursors expire after 30 minutes. Reddit&#39;s native page may contain fewer rows than limit; continue while after is present.  Reddit reads only the first 256 UTF-8 bytes of a search query and ignores the rest, so a longer query returns 422. Several subreddits are searched as (q) (subreddit:a OR subreddit:b ...), and that whole string counts toward the limit: split long subreddit lists across requests.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q">Search query</param>
-        /// <param name="subreddit">Restrict to subreddit (optional)</param>
+        /// <param name="q">Search query (Reddit search syntax), at most 256 UTF-8 bytes</param>
+        /// <param name="subreddit">Restrict to a subreddit, or several joined with + (sales+startups) (optional)</param>
         /// <param name="sort">Sort: relevance, hot, top, new, comments (optional, default to &quot;relevance&quot;)</param>
         /// <param name="t">Time: hour, day, week, month, year, all (optional, default to &quot;all&quot;)</param>
         /// <param name="limit"> (optional, default to 25)</param>
@@ -505,10 +505,10 @@ namespace ScrapeBadger.Api
         /// Search subreddits
         /// </summary>
         /// <remarks>
-        /// Search communities using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. weekly_visitors and weekly_contributions are activity counters, separate from the subscriber count.
+        /// Search communities using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. weekly_visitors and weekly_contributions are activity counters, separate from the subscriber count. A query over 256 UTF-8 bytes returns 422, because Reddit would silently drop the rest.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q">Search query</param>
+        /// <param name="q">Search query, at most 256 UTF-8 bytes</param>
         /// <param name="limit"> (optional, default to 25)</param>
         /// <param name="after"> (optional)</param>
         /// <returns>Object</returns>
@@ -518,10 +518,10 @@ namespace ScrapeBadger.Api
         /// Search subreddits
         /// </summary>
         /// <remarks>
-        /// Search communities using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. weekly_visitors and weekly_contributions are activity counters, separate from the subscriber count.
+        /// Search communities using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. weekly_visitors and weekly_contributions are activity counters, separate from the subscriber count. A query over 256 UTF-8 bytes returns 422, because Reddit would silently drop the rest.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q">Search query</param>
+        /// <param name="q">Search query, at most 256 UTF-8 bytes</param>
         /// <param name="limit"> (optional, default to 25)</param>
         /// <param name="after"> (optional)</param>
         /// <returns>ApiResponse of Object</returns>
@@ -530,10 +530,10 @@ namespace ScrapeBadger.Api
         /// Search users
         /// </summary>
         /// <remarks>
-        /// Search profiles using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. The native page may contain fewer rows than limit.
+        /// Search profiles using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. The native page may contain fewer rows than limit. A query over 256 UTF-8 bytes returns 422, because Reddit would silently drop the rest.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q">Search query</param>
+        /// <param name="q">Search query, at most 256 UTF-8 bytes</param>
         /// <param name="limit"> (optional, default to 25)</param>
         /// <param name="after"> (optional)</param>
         /// <returns>Object</returns>
@@ -543,10 +543,10 @@ namespace ScrapeBadger.Api
         /// Search users
         /// </summary>
         /// <remarks>
-        /// Search profiles using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. The native page may contain fewer rows than limit.
+        /// Search profiles using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. The native page may contain fewer rows than limit. A query over 256 UTF-8 bytes returns 422, because Reddit would silently drop the rest.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q">Search query</param>
+        /// <param name="q">Search query, at most 256 UTF-8 bytes</param>
         /// <param name="limit"> (optional, default to 25)</param>
         /// <param name="after"> (optional)</param>
         /// <returns>ApiResponse of Object</returns>
@@ -1051,11 +1051,11 @@ namespace ScrapeBadger.Api
         /// Search Reddit posts
         /// </summary>
         /// <remarks>
-        /// Search Reddit&#39;s current web UI globally or within a subreddit.  Pass pagination.after unchanged with the same query, scope, sort and time filter. Search cursors expire after 30 minutes. Reddit&#39;s native page may contain fewer rows than limit; continue while after is present.
+        /// Search Reddit&#39;s current web UI globally or within one or more subreddits.  Pass pagination.after unchanged with the same query, scope, sort and time filter. Search cursors expire after 30 minutes. Reddit&#39;s native page may contain fewer rows than limit; continue while after is present.  Reddit reads only the first 256 UTF-8 bytes of a search query and ignores the rest, so a longer query returns 422. Several subreddits are searched as (q) (subreddit:a OR subreddit:b ...), and that whole string counts toward the limit: split long subreddit lists across requests.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q">Search query</param>
-        /// <param name="subreddit">Restrict to subreddit (optional)</param>
+        /// <param name="q">Search query (Reddit search syntax), at most 256 UTF-8 bytes</param>
+        /// <param name="subreddit">Restrict to a subreddit, or several joined with + (sales+startups) (optional)</param>
         /// <param name="sort">Sort: relevance, hot, top, new, comments (optional, default to &quot;relevance&quot;)</param>
         /// <param name="t">Time: hour, day, week, month, year, all (optional, default to &quot;all&quot;)</param>
         /// <param name="limit"> (optional, default to 25)</param>
@@ -1068,11 +1068,11 @@ namespace ScrapeBadger.Api
         /// Search Reddit posts
         /// </summary>
         /// <remarks>
-        /// Search Reddit&#39;s current web UI globally or within a subreddit.  Pass pagination.after unchanged with the same query, scope, sort and time filter. Search cursors expire after 30 minutes. Reddit&#39;s native page may contain fewer rows than limit; continue while after is present.
+        /// Search Reddit&#39;s current web UI globally or within one or more subreddits.  Pass pagination.after unchanged with the same query, scope, sort and time filter. Search cursors expire after 30 minutes. Reddit&#39;s native page may contain fewer rows than limit; continue while after is present.  Reddit reads only the first 256 UTF-8 bytes of a search query and ignores the rest, so a longer query returns 422. Several subreddits are searched as (q) (subreddit:a OR subreddit:b ...), and that whole string counts toward the limit: split long subreddit lists across requests.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q">Search query</param>
-        /// <param name="subreddit">Restrict to subreddit (optional)</param>
+        /// <param name="q">Search query (Reddit search syntax), at most 256 UTF-8 bytes</param>
+        /// <param name="subreddit">Restrict to a subreddit, or several joined with + (sales+startups) (optional)</param>
         /// <param name="sort">Sort: relevance, hot, top, new, comments (optional, default to &quot;relevance&quot;)</param>
         /// <param name="t">Time: hour, day, week, month, year, all (optional, default to &quot;all&quot;)</param>
         /// <param name="limit"> (optional, default to 25)</param>
@@ -1084,10 +1084,10 @@ namespace ScrapeBadger.Api
         /// Search subreddits
         /// </summary>
         /// <remarks>
-        /// Search communities using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. weekly_visitors and weekly_contributions are activity counters, separate from the subscriber count.
+        /// Search communities using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. weekly_visitors and weekly_contributions are activity counters, separate from the subscriber count. A query over 256 UTF-8 bytes returns 422, because Reddit would silently drop the rest.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q">Search query</param>
+        /// <param name="q">Search query, at most 256 UTF-8 bytes</param>
         /// <param name="limit"> (optional, default to 25)</param>
         /// <param name="after"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1098,10 +1098,10 @@ namespace ScrapeBadger.Api
         /// Search subreddits
         /// </summary>
         /// <remarks>
-        /// Search communities using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. weekly_visitors and weekly_contributions are activity counters, separate from the subscriber count.
+        /// Search communities using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. weekly_visitors and weekly_contributions are activity counters, separate from the subscriber count. A query over 256 UTF-8 bytes returns 422, because Reddit would silently drop the rest.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q">Search query</param>
+        /// <param name="q">Search query, at most 256 UTF-8 bytes</param>
         /// <param name="limit"> (optional, default to 25)</param>
         /// <param name="after"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1111,10 +1111,10 @@ namespace ScrapeBadger.Api
         /// Search users
         /// </summary>
         /// <remarks>
-        /// Search profiles using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. The native page may contain fewer rows than limit.
+        /// Search profiles using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. The native page may contain fewer rows than limit. A query over 256 UTF-8 bytes returns 422, because Reddit would silently drop the rest.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q">Search query</param>
+        /// <param name="q">Search query, at most 256 UTF-8 bytes</param>
         /// <param name="limit"> (optional, default to 25)</param>
         /// <param name="after"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1125,10 +1125,10 @@ namespace ScrapeBadger.Api
         /// Search users
         /// </summary>
         /// <remarks>
-        /// Search profiles using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. The native page may contain fewer rows than limit.
+        /// Search profiles using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. The native page may contain fewer rows than limit. A query over 256 UTF-8 bytes returns 422, because Reddit would silently drop the rest.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q">Search query</param>
+        /// <param name="q">Search query, at most 256 UTF-8 bytes</param>
         /// <param name="limit"> (optional, default to 25)</param>
         /// <param name="after"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4015,11 +4015,11 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search Reddit posts Search Reddit&#39;s current web UI globally or within a subreddit.  Pass pagination.after unchanged with the same query, scope, sort and time filter. Search cursors expire after 30 minutes. Reddit&#39;s native page may contain fewer rows than limit; continue while after is present.
+        /// Search Reddit posts Search Reddit&#39;s current web UI globally or within one or more subreddits.  Pass pagination.after unchanged with the same query, scope, sort and time filter. Search cursors expire after 30 minutes. Reddit&#39;s native page may contain fewer rows than limit; continue while after is present.  Reddit reads only the first 256 UTF-8 bytes of a search query and ignores the rest, so a longer query returns 422. Several subreddits are searched as (q) (subreddit:a OR subreddit:b ...), and that whole string counts toward the limit: split long subreddit lists across requests.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q">Search query</param>
-        /// <param name="subreddit">Restrict to subreddit (optional)</param>
+        /// <param name="q">Search query (Reddit search syntax), at most 256 UTF-8 bytes</param>
+        /// <param name="subreddit">Restrict to a subreddit, or several joined with + (sales+startups) (optional)</param>
         /// <param name="sort">Sort: relevance, hot, top, new, comments (optional, default to &quot;relevance&quot;)</param>
         /// <param name="t">Time: hour, day, week, month, year, all (optional, default to &quot;all&quot;)</param>
         /// <param name="limit"> (optional, default to 25)</param>
@@ -4032,11 +4032,11 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search Reddit posts Search Reddit&#39;s current web UI globally or within a subreddit.  Pass pagination.after unchanged with the same query, scope, sort and time filter. Search cursors expire after 30 minutes. Reddit&#39;s native page may contain fewer rows than limit; continue while after is present.
+        /// Search Reddit posts Search Reddit&#39;s current web UI globally or within one or more subreddits.  Pass pagination.after unchanged with the same query, scope, sort and time filter. Search cursors expire after 30 minutes. Reddit&#39;s native page may contain fewer rows than limit; continue while after is present.  Reddit reads only the first 256 UTF-8 bytes of a search query and ignores the rest, so a longer query returns 422. Several subreddits are searched as (q) (subreddit:a OR subreddit:b ...), and that whole string counts toward the limit: split long subreddit lists across requests.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q">Search query</param>
-        /// <param name="subreddit">Restrict to subreddit (optional)</param>
+        /// <param name="q">Search query (Reddit search syntax), at most 256 UTF-8 bytes</param>
+        /// <param name="subreddit">Restrict to a subreddit, or several joined with + (sales+startups) (optional)</param>
         /// <param name="sort">Sort: relevance, hot, top, new, comments (optional, default to &quot;relevance&quot;)</param>
         /// <param name="t">Time: hour, day, week, month, year, all (optional, default to &quot;all&quot;)</param>
         /// <param name="limit"> (optional, default to 25)</param>
@@ -4105,11 +4105,11 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search Reddit posts Search Reddit&#39;s current web UI globally or within a subreddit.  Pass pagination.after unchanged with the same query, scope, sort and time filter. Search cursors expire after 30 minutes. Reddit&#39;s native page may contain fewer rows than limit; continue while after is present.
+        /// Search Reddit posts Search Reddit&#39;s current web UI globally or within one or more subreddits.  Pass pagination.after unchanged with the same query, scope, sort and time filter. Search cursors expire after 30 minutes. Reddit&#39;s native page may contain fewer rows than limit; continue while after is present.  Reddit reads only the first 256 UTF-8 bytes of a search query and ignores the rest, so a longer query returns 422. Several subreddits are searched as (q) (subreddit:a OR subreddit:b ...), and that whole string counts toward the limit: split long subreddit lists across requests.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q">Search query</param>
-        /// <param name="subreddit">Restrict to subreddit (optional)</param>
+        /// <param name="q">Search query (Reddit search syntax), at most 256 UTF-8 bytes</param>
+        /// <param name="subreddit">Restrict to a subreddit, or several joined with + (sales+startups) (optional)</param>
         /// <param name="sort">Sort: relevance, hot, top, new, comments (optional, default to &quot;relevance&quot;)</param>
         /// <param name="t">Time: hour, day, week, month, year, all (optional, default to &quot;all&quot;)</param>
         /// <param name="limit"> (optional, default to 25)</param>
@@ -4123,11 +4123,11 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search Reddit posts Search Reddit&#39;s current web UI globally or within a subreddit.  Pass pagination.after unchanged with the same query, scope, sort and time filter. Search cursors expire after 30 minutes. Reddit&#39;s native page may contain fewer rows than limit; continue while after is present.
+        /// Search Reddit posts Search Reddit&#39;s current web UI globally or within one or more subreddits.  Pass pagination.after unchanged with the same query, scope, sort and time filter. Search cursors expire after 30 minutes. Reddit&#39;s native page may contain fewer rows than limit; continue while after is present.  Reddit reads only the first 256 UTF-8 bytes of a search query and ignores the rest, so a longer query returns 422. Several subreddits are searched as (q) (subreddit:a OR subreddit:b ...), and that whole string counts toward the limit: split long subreddit lists across requests.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q">Search query</param>
-        /// <param name="subreddit">Restrict to subreddit (optional)</param>
+        /// <param name="q">Search query (Reddit search syntax), at most 256 UTF-8 bytes</param>
+        /// <param name="subreddit">Restrict to a subreddit, or several joined with + (sales+startups) (optional)</param>
         /// <param name="sort">Sort: relevance, hot, top, new, comments (optional, default to &quot;relevance&quot;)</param>
         /// <param name="t">Time: hour, day, week, month, year, all (optional, default to &quot;all&quot;)</param>
         /// <param name="limit"> (optional, default to 25)</param>
@@ -4200,10 +4200,10 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search subreddits Search communities using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. weekly_visitors and weekly_contributions are activity counters, separate from the subscriber count.
+        /// Search subreddits Search communities using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. weekly_visitors and weekly_contributions are activity counters, separate from the subscriber count. A query over 256 UTF-8 bytes returns 422, because Reddit would silently drop the rest.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q">Search query</param>
+        /// <param name="q">Search query, at most 256 UTF-8 bytes</param>
         /// <param name="limit"> (optional, default to 25)</param>
         /// <param name="after"> (optional)</param>
         /// <returns>Object</returns>
@@ -4214,10 +4214,10 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search subreddits Search communities using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. weekly_visitors and weekly_contributions are activity counters, separate from the subscriber count.
+        /// Search subreddits Search communities using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. weekly_visitors and weekly_contributions are activity counters, separate from the subscriber count. A query over 256 UTF-8 bytes returns 422, because Reddit would silently drop the rest.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q">Search query</param>
+        /// <param name="q">Search query, at most 256 UTF-8 bytes</param>
         /// <param name="limit"> (optional, default to 25)</param>
         /// <param name="after"> (optional)</param>
         /// <returns>ApiResponse of Object</returns>
@@ -4272,10 +4272,10 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search subreddits Search communities using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. weekly_visitors and weekly_contributions are activity counters, separate from the subscriber count.
+        /// Search subreddits Search communities using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. weekly_visitors and weekly_contributions are activity counters, separate from the subscriber count. A query over 256 UTF-8 bytes returns 422, because Reddit would silently drop the rest.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q">Search query</param>
+        /// <param name="q">Search query, at most 256 UTF-8 bytes</param>
         /// <param name="limit"> (optional, default to 25)</param>
         /// <param name="after"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4287,10 +4287,10 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search subreddits Search communities using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. weekly_visitors and weekly_contributions are activity counters, separate from the subscriber count.
+        /// Search subreddits Search communities using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. weekly_visitors and weekly_contributions are activity counters, separate from the subscriber count. A query over 256 UTF-8 bytes returns 422, because Reddit would silently drop the rest.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q">Search query</param>
+        /// <param name="q">Search query, at most 256 UTF-8 bytes</param>
         /// <param name="limit"> (optional, default to 25)</param>
         /// <param name="after"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4349,10 +4349,10 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search users Search profiles using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. The native page may contain fewer rows than limit.
+        /// Search users Search profiles using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. The native page may contain fewer rows than limit. A query over 256 UTF-8 bytes returns 422, because Reddit would silently drop the rest.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q">Search query</param>
+        /// <param name="q">Search query, at most 256 UTF-8 bytes</param>
         /// <param name="limit"> (optional, default to 25)</param>
         /// <param name="after"> (optional)</param>
         /// <returns>Object</returns>
@@ -4363,10 +4363,10 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search users Search profiles using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. The native page may contain fewer rows than limit.
+        /// Search users Search profiles using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. The native page may contain fewer rows than limit. A query over 256 UTF-8 bytes returns 422, because Reddit would silently drop the rest.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q">Search query</param>
+        /// <param name="q">Search query, at most 256 UTF-8 bytes</param>
         /// <param name="limit"> (optional, default to 25)</param>
         /// <param name="after"> (optional)</param>
         /// <returns>ApiResponse of Object</returns>
@@ -4421,10 +4421,10 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search users Search profiles using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. The native page may contain fewer rows than limit.
+        /// Search users Search profiles using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. The native page may contain fewer rows than limit. A query over 256 UTF-8 bytes returns 422, because Reddit would silently drop the rest.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q">Search query</param>
+        /// <param name="q">Search query, at most 256 UTF-8 bytes</param>
         /// <param name="limit"> (optional, default to 25)</param>
         /// <param name="after"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4436,10 +4436,10 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search users Search profiles using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. The native page may contain fewer rows than limit.
+        /// Search users Search profiles using Reddit&#39;s current web UI ranking and pagination.  Pass pagination.after unchanged with the same query. Search cursors expire after 30 minutes. The native page may contain fewer rows than limit. A query over 256 UTF-8 bytes returns 422, because Reddit would silently drop the rest.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="q">Search query</param>
+        /// <param name="q">Search query, at most 256 UTF-8 bytes</param>
         /// <param name="limit"> (optional, default to 25)</param>
         /// <param name="after"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
