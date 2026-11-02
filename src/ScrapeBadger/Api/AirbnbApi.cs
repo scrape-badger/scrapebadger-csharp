@@ -74,7 +74,7 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId"></param>
         /// <param name="month">Start month (1-12) (optional, default to 1)</param>
-        /// <param name="year">Start year (optional, default to 2026)</param>
+        /// <param name="year">Start year (current UTC year when omitted) (optional)</param>
         /// <param name="months">Number of months (max 12) (optional, default to 12)</param>
         /// <param name="currency"> (optional)</param>
         /// <param name="locale"> (optional)</param>
@@ -90,7 +90,7 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId"></param>
         /// <param name="month">Start month (1-12) (optional, default to 1)</param>
-        /// <param name="year">Start year (optional, default to 2026)</param>
+        /// <param name="year">Start year (current UTC year when omitted) (optional)</param>
         /// <param name="months">Number of months (max 12) (optional, default to 12)</param>
         /// <param name="currency"> (optional)</param>
         /// <param name="locale"> (optional)</param>
@@ -333,7 +333,7 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId"></param>
         /// <param name="month">Start month (1-12) (optional, default to 1)</param>
-        /// <param name="year">Start year (optional, default to 2026)</param>
+        /// <param name="year">Start year (current UTC year when omitted) (optional)</param>
         /// <param name="months">Number of months (max 12) (optional, default to 12)</param>
         /// <param name="currency"> (optional)</param>
         /// <param name="locale"> (optional)</param>
@@ -350,7 +350,7 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId"></param>
         /// <param name="month">Start month (1-12) (optional, default to 1)</param>
-        /// <param name="year">Start year (optional, default to 2026)</param>
+        /// <param name="year">Start year (current UTC year when omitted) (optional)</param>
         /// <param name="months">Number of months (max 12) (optional, default to 12)</param>
         /// <param name="currency"> (optional)</param>
         /// <param name="locale"> (optional)</param>
@@ -985,7 +985,7 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId"></param>
         /// <param name="month">Start month (1-12) (optional, default to 1)</param>
-        /// <param name="year">Start year (optional, default to 2026)</param>
+        /// <param name="year">Start year (current UTC year when omitted) (optional)</param>
         /// <param name="months">Number of months (max 12) (optional, default to 12)</param>
         /// <param name="currency"> (optional)</param>
         /// <param name="locale"> (optional)</param>
@@ -1002,7 +1002,7 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId"></param>
         /// <param name="month">Start month (1-12) (optional, default to 1)</param>
-        /// <param name="year">Start year (optional, default to 2026)</param>
+        /// <param name="year">Start year (current UTC year when omitted) (optional)</param>
         /// <param name="months">Number of months (max 12) (optional, default to 12)</param>
         /// <param name="currency"> (optional)</param>
         /// <param name="locale"> (optional)</param>
@@ -1075,7 +1075,7 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId"></param>
         /// <param name="month">Start month (1-12) (optional, default to 1)</param>
-        /// <param name="year">Start year (optional, default to 2026)</param>
+        /// <param name="year">Start year (current UTC year when omitted) (optional)</param>
         /// <param name="months">Number of months (max 12) (optional, default to 12)</param>
         /// <param name="currency"> (optional)</param>
         /// <param name="locale"> (optional)</param>
@@ -1093,7 +1093,7 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roomId"></param>
         /// <param name="month">Start month (1-12) (optional, default to 1)</param>
-        /// <param name="year">Start year (optional, default to 2026)</param>
+        /// <param name="year">Start year (current UTC year when omitted) (optional)</param>
         /// <param name="months">Number of months (max 12) (optional, default to 12)</param>
         /// <param name="currency"> (optional)</param>
         /// <param name="locale"> (optional)</param>

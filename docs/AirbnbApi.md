@@ -239,7 +239,7 @@ namespace Example
             var apiInstance = new AirbnbApi(httpClient, config, httpClientHandler);
             var roomId = "roomId_example";  // string | 
             var month = 1;  // int? | Start month (1-12) (optional)  (default to 1)
-            var year = 2026;  // int? | Start year (optional)  (default to 2026)
+            var year = 56;  // int? | Start year (current UTC year when omitted) (optional) 
             var months = 12;  // int? | Number of months (max 12) (optional)  (default to 12)
             var currency = "currency_example";  // string |  (optional) 
             var locale = "locale_example";  // string |  (optional) 
@@ -287,7 +287,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **roomId** | **string** |  |  |
 | **month** | **int?** | Start month (1-12) | [optional] [default to 1] |
-| **year** | **int?** | Start year | [optional] [default to 2026] |
+| **year** | **int?** | Start year (current UTC year when omitted) | [optional]  |
 | **months** | **int?** | Number of months (max 12) | [optional] [default to 12] |
 | **currency** | **string** |  | [optional]  |
 | **locale** | **string** |  | [optional]  |

@@ -365,17 +365,15 @@ paths:
           title: Month
           type: integer
         style: form
-      - description: Start year
+      - description: Start year (current UTC year when omitted)
         explode: true
         in: query
         name: year
         required: false
         schema:
-          default: 2026
-          description: Start year
           maximum: 2100
           minimum: 2020
-          title: Year
+          nullable: true
           type: integer
         style: form
       - description: Number of months (max 12)
