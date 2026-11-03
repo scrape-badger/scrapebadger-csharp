@@ -63,7 +63,8 @@ namespace ScrapeBadger.Test.Api
             //string prompt = null;
             //string country = null;
             //bool? strictCountry = null;
-            //var response = instance.PerplexityAskPerplexityAQuestion(prompt, country, strictCountry);
+            //string location = null;
+            //var response = instance.PerplexityAskPerplexityAQuestion(prompt, country, strictCountry, location);
             //Assert.IsType<Object>(response);
         }
 
@@ -92,7 +93,8 @@ namespace ScrapeBadger.Test.Api
             //string competitors = null;
             //string country = null;
             //bool? strictCountry = null;
-            //var response = instance.PerplexityMeasureABrandSVisibilityInAPerplexityAnswer(prompt, brand, domain, aliases, competitors, country, strictCountry);
+            //string location = null;
+            //var response = instance.PerplexityMeasureABrandSVisibilityInAPerplexityAnswer(prompt, brand, domain, aliases, competitors, country, strictCountry, location);
             //Assert.IsType<Object>(response);
         }
 

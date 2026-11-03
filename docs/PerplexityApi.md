@@ -13,7 +13,7 @@ All URIs are relative to *https://scrapebadger.com*
 
 <a id="perplexityaskperplexityaquestion"></a>
 # **PerplexityAskPerplexityAQuestion**
-> Object PerplexityAskPerplexityAQuestion (string prompt, string country = null, bool? strictCountry = null)
+> Object PerplexityAskPerplexityAQuestion (string prompt, string country = null, bool? strictCountry = null, string location = null)
 
 Ask Perplexity a question
 
@@ -48,11 +48,12 @@ namespace Example
             var prompt = "prompt_example";  // string | The prompt to send to Perplexity (max 4096 characters).
             var country = "country_example";  // string | ISO-3166 alpha-2 egress country, e.g. 'US', 'GB', 'DE'. (optional) 
             var strictCountry = false;  // bool? | Answer only from an exit in `country`, never another one; 503 `country_unavailable` (not billed) when none answers. Requires `country`. (optional)  (default to false)
+            var location = "location_example";  // string | Where the asker is: a city (tokyo, osaka, seoul, new-york, london, ...) or 'lat,lng' in decimal degrees. Perplexity answers a local-sounding question for it instead of the exit IP's city. It does not pick the egress: `country` does. (optional) 
 
             try
             {
                 // Ask Perplexity a question
-                Object result = apiInstance.PerplexityAskPerplexityAQuestion(prompt, country, strictCountry);
+                Object result = apiInstance.PerplexityAskPerplexityAQuestion(prompt, country, strictCountry, location);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -73,7 +74,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Ask Perplexity a question
-    ApiResponse<Object> response = apiInstance.PerplexityAskPerplexityAQuestionWithHttpInfo(prompt, country, strictCountry);
+    ApiResponse<Object> response = apiInstance.PerplexityAskPerplexityAQuestionWithHttpInfo(prompt, country, strictCountry, location);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -93,6 +94,7 @@ catch (ApiException e)
 | **prompt** | **string** | The prompt to send to Perplexity (max 4096 characters). |  |
 | **country** | **string** | ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. | [optional]  |
 | **strictCountry** | **bool?** | Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. | [optional] [default to false] |
+| **location** | **string** | Where the asker is: a city (tokyo, osaka, seoul, new-york, london, ...) or &#39;lat,lng&#39; in decimal degrees. Perplexity answers a local-sounding question for it instead of the exit IP&#39;s city. It does not pick the egress: &#x60;country&#x60; does. | [optional]  |
 
 ### Return type
 
@@ -213,7 +215,7 @@ This endpoint does not need any parameter.
 
 <a id="perplexitymeasureabrandsvisibilityinaperplexityanswer"></a>
 # **PerplexityMeasureABrandSVisibilityInAPerplexityAnswer**
-> Object PerplexityMeasureABrandSVisibilityInAPerplexityAnswer (string prompt, string brand, string domain = null, string aliases = null, string competitors = null, string country = null, bool? strictCountry = null)
+> Object PerplexityMeasureABrandSVisibilityInAPerplexityAnswer (string prompt, string brand, string domain = null, string aliases = null, string competitors = null, string country = null, bool? strictCountry = null, string location = null)
 
 Measure a brand's visibility in a Perplexity answer
 
@@ -252,11 +254,12 @@ namespace Example
             var competitors = "competitors_example";  // string | Comma-separated competitor names. (optional) 
             var country = "country_example";  // string | ISO-3166 alpha-2 egress country. (optional) 
             var strictCountry = false;  // bool? | Answer only from an exit in `country`, never another one; 503 `country_unavailable` (not billed) when none answers. Requires `country`. (optional)  (default to false)
+            var location = "location_example";  // string | Where the asker is: a city (tokyo, osaka, seoul, new-york, london, ...) or 'lat,lng' in decimal degrees. Perplexity answers a local-sounding question for it instead of the exit IP's city. It does not pick the egress: `country` does. (optional) 
 
             try
             {
                 // Measure a brand's visibility in a Perplexity answer
-                Object result = apiInstance.PerplexityMeasureABrandSVisibilityInAPerplexityAnswer(prompt, brand, domain, aliases, competitors, country, strictCountry);
+                Object result = apiInstance.PerplexityMeasureABrandSVisibilityInAPerplexityAnswer(prompt, brand, domain, aliases, competitors, country, strictCountry, location);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -277,7 +280,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Measure a brand's visibility in a Perplexity answer
-    ApiResponse<Object> response = apiInstance.PerplexityMeasureABrandSVisibilityInAPerplexityAnswerWithHttpInfo(prompt, brand, domain, aliases, competitors, country, strictCountry);
+    ApiResponse<Object> response = apiInstance.PerplexityMeasureABrandSVisibilityInAPerplexityAnswerWithHttpInfo(prompt, brand, domain, aliases, competitors, country, strictCountry, location);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -301,6 +304,7 @@ catch (ApiException e)
 | **competitors** | **string** | Comma-separated competitor names. | [optional]  |
 | **country** | **string** | ISO-3166 alpha-2 egress country. | [optional]  |
 | **strictCountry** | **bool?** | Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. | [optional] [default to false] |
+| **location** | **string** | Where the asker is: a city (tokyo, osaka, seoul, new-york, london, ...) or &#39;lat,lng&#39; in decimal degrees. Perplexity answers a local-sounding question for it instead of the exit IP&#39;s city. It does not pick the egress: &#x60;country&#x60; does. | [optional]  |
 
 ### Return type
 

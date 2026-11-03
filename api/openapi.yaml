@@ -16929,6 +16929,18 @@ paths:
           title: Strict Country
           type: boolean
         style: form
+      - description: "Where the asker is: a city (tokyo, osaka, seoul, new-york, london,\
+          \ ...) or 'lat,lng' in decimal degrees. Perplexity answers a local-sounding\
+          \ question for it instead of the exit IP's city. It does not pick the egress:\
+          \ `country` does."
+        explode: true
+        in: query
+        name: location
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -17034,6 +17046,18 @@ paths:
             \ 503 `country_unavailable` (not billed) when none answers. Requires `country`."
           title: Strict Country
           type: boolean
+        style: form
+      - description: "Where the asker is: a city (tokyo, osaka, seoul, new-york, london,\
+          \ ...) or 'lat,lng' in decimal degrees. Perplexity answers a local-sounding\
+          \ question for it instead of the exit IP's city. It does not pick the egress:\
+          \ `country` does."
+        explode: true
+        in: query
+        name: location
+        required: false
+        schema:
+          nullable: true
+          type: string
         style: form
       responses:
         "200":
