@@ -58,6 +58,7 @@ tags:
 - name: Web
 - name: Yahoo
 - name: Yandex
+- name: Yelp
 - name: YouTube
 - name: Zillow
 paths:
@@ -27459,6 +27460,144 @@ paths:
       summary: Web search
       tags:
       - Yandex
+  /v1/yelp/markets:
+    get:
+      description: Yelp sites this API verifiably searches. Free.
+      operationId: yelp_list_markets
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/YelpMarketsResponse'
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: List markets
+      tags:
+      - Yelp
+  /v1/yelp/search:
+    get:
+      description: |-
+        Ranked Yelp businesses for a location, with ads kept separate. 15 credits; empty results free.
+
+        Ten businesses per page, pages 1-11. Narrow the location, category or filters to reach
+        more businesses. Business detail and reviews are not part of this API.
+      operationId: yelp_search_businesses
+      parameters:
+      - description: "Where to search, as typed into Yelp: city, neighbourhood, address\
+          \ or postcode."
+        explode: true
+        in: query
+        name: location
+        required: true
+        schema:
+          description: "Where to search, as typed into Yelp: city, neighbourhood,\
+            \ address or postcode."
+          maxLength: 128
+          minLength: 1
+          title: Location
+          type: string
+        style: form
+      - description: "What to search for (e.g. pizza, plumbers). Optional when category\
+          \ is set."
+        explode: true
+        in: query
+        name: query
+        required: false
+        schema:
+          maxLength: 128
+          nullable: true
+          type: string
+        style: form
+      - description: Yelp site to search; see /markets.
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          default: us
+          description: Yelp site to search; see /markets.
+          enum:
+          - us
+          - ca
+          title: Market
+          type: string
+        style: form
+      - description: "Yelp category alias, e.g. pizza, coffee, plumbing."
+        explode: true
+        in: query
+        name: category
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[a-z0-9_-]{1,64}$"
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: sort_by
+        required: false
+        schema:
+          default: recommended
+          enum:
+          - recommended
+          - rating
+          - review_count
+          title: Sort By
+          type: string
+        style: form
+      - description: Comma-separated price levels 1-4 ($ to $$$$).
+        explode: true
+        in: query
+        name: price
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[1-4](,[1-4]){0,3}$"
+          type: string
+        style: form
+      - description: "Comma-separated refinements: delivery, takeout, reservations,\
+          \ outdoor_seating, good_for_kids, dogs_allowed, free_wifi, wheelchair_accessible."
+        explode: true
+        in: query
+        name: features
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "1-based page, ten businesses each; pages 1-11."
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          description: "1-based page, ten businesses each; pages 1-11."
+          maximum: 11
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/YelpSearchResponse'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Search businesses
+      tags:
+      - Yelp
   /v1/youtube/autocomplete:
     get:
       description: Return YouTube keyword autocomplete suggestions.
@@ -37782,6 +37921,651 @@ components:
       - response_time_ms
       - success
       title: WebhookTestResponse
+    YelpBusiness:
+      additionalProperties: true
+      description: A business card as ranked on the search page; nullable fields are
+        absent from some cards.
+      example:
+        snippet: snippet
+        snippet_type: snippet_type
+        city: city
+        timezone: timezone
+        rating: 3.616076749251911
+        review_count: 2
+        photos:
+        - photos
+        - photos
+        ad_placement: ad_placement
+        is_service_area_business: true
+        price: price
+        alias: alias
+        is_yelp_guaranteed: true
+        id: id
+        categories:
+        - alias: alias
+          title: title
+        - alias: alias
+          title: title
+        neighborhoods:
+        - neighborhoods
+        - neighborhoods
+        address: address
+        is_ad: true
+        url: url
+        tags:
+        - tags
+        - tags
+        alternate_names:
+        - alternate_names
+        - alternate_names
+        highlights:
+        - highlights
+        - highlights
+        price_level: 4
+        phone: phone
+        has_verified_license: true
+        name: name
+        opening_hours:
+        - day: day
+          close: close
+          open: open
+        - day: day
+          close: close
+          open: open
+        position: 9
+      properties:
+        position:
+          description: "1-based place in Yelp's organic order across pages (page 2\
+            \ starts at 11): Yelp's own number where it numbers the results; services\
+            \ searches are unnumbered and keep Yelp's order. For ads, the slot order."
+          title: Position
+          type: integer
+        is_ad:
+          title: Is Ad
+          type: boolean
+        id:
+          description: Yelp encrypted business ID.
+          title: Id
+          type: string
+        alias:
+          description: Business slug used in /biz/<alias>.
+          title: Alias
+          type: string
+        name:
+          title: Name
+          type: string
+        url:
+          title: Url
+          type: string
+        rating:
+          nullable: true
+          type: number
+        review_count:
+          nullable: true
+          type: integer
+        price:
+          nullable: true
+          type: string
+        price_level:
+          nullable: true
+          type: integer
+        categories:
+          items:
+            $ref: '#/components/schemas/YelpCategory'
+          type: array
+        neighborhoods:
+          items:
+            type: string
+          type: array
+        address:
+          nullable: true
+          type: string
+        city:
+          nullable: true
+          type: string
+        phone:
+          nullable: true
+          type: string
+        timezone:
+          nullable: true
+          type: string
+        opening_hours:
+          items:
+            $ref: '#/components/schemas/YelpHours'
+          type: array
+        snippet:
+          nullable: true
+          type: string
+        snippet_type:
+          nullable: true
+          type: string
+        highlights:
+          items:
+            type: string
+          type: array
+        tags:
+          items:
+            type: string
+          type: array
+        photos:
+          items:
+            type: string
+          type: array
+        alternate_names:
+          items:
+            type: string
+          type: array
+        is_service_area_business:
+          nullable: true
+          type: boolean
+        is_yelp_guaranteed:
+          nullable: true
+          type: boolean
+        has_verified_license:
+          nullable: true
+          type: boolean
+        ad_placement:
+          nullable: true
+          type: string
+      required:
+      - alias
+      - id
+      - is_ad
+      - name
+      - position
+      - url
+      title: YelpBusiness
+    YelpCategory:
+      additionalProperties: true
+      example:
+        alias: alias
+        title: title
+      properties:
+        title:
+          title: Title
+          type: string
+        alias:
+          nullable: true
+          type: string
+      required:
+      - title
+      title: YelpCategory
+    YelpFilterGroup:
+      additionalProperties: true
+      example:
+        options:
+        - text: text
+          value: value
+          selected: true
+        - text: text
+          value: value
+          selected: true
+        title: title
+        type: type
+      properties:
+        title:
+          title: Title
+          type: string
+        type:
+          title: Type
+          type: string
+        options:
+          items:
+            $ref: '#/components/schemas/YelpFilterOption'
+          type: array
+      required:
+      - options
+      - title
+      - type
+      title: YelpFilterGroup
+    YelpFilterOption:
+      additionalProperties: true
+      example:
+        text: text
+        value: value
+        selected: true
+      properties:
+        value:
+          title: Value
+          type: string
+        text:
+          title: Text
+          type: string
+        selected:
+          title: Selected
+          type: boolean
+      required:
+      - selected
+      - text
+      - value
+      title: YelpFilterOption
+    YelpHours:
+      additionalProperties: true
+      example:
+        day: day
+        close: close
+        open: open
+      properties:
+        day:
+          title: Day
+          type: string
+        open:
+          description: Local wall time HH:MM.
+          title: Open
+          type: string
+        close:
+          description: Local wall time HH:MM; may be past midnight.
+          title: Close
+          type: string
+      required:
+      - close
+      - day
+      - open
+      title: YelpHours
+    YelpLink:
+      additionalProperties: true
+      example:
+        name: name
+        url: url
+      properties:
+        name:
+          title: Name
+          type: string
+        url:
+          title: Url
+          type: string
+      required:
+      - name
+      - url
+      title: YelpLink
+    YelpMarket:
+      example:
+        code: code
+        domain: domain
+        name: name
+        language: language
+        currency: currency
+      properties:
+        code:
+          title: Code
+          type: string
+        name:
+          title: Name
+          type: string
+        domain:
+          title: Domain
+          type: string
+        language:
+          title: Language
+          type: string
+        currency:
+          title: Currency
+          type: string
+      required:
+      - code
+      - currency
+      - domain
+      - language
+      - name
+      title: YelpMarket
+    YelpMarketsResponse:
+      example:
+        markets:
+        - code: code
+          domain: domain
+          name: name
+          language: language
+          currency: currency
+        - code: code
+          domain: domain
+          name: name
+          language: language
+          currency: currency
+      properties:
+        markets:
+          items:
+            $ref: '#/components/schemas/YelpMarket'
+          type: array
+      required:
+      - markets
+      title: YelpMarketsResponse
+    YelpResolvedLocation:
+      additionalProperties: true
+      example:
+        country: country
+        city: city
+        latitude: 0.8008281904610115
+        state: state
+        longitude: 6.027456183070403
+      properties:
+        city:
+          nullable: true
+          type: string
+        state:
+          nullable: true
+          type: string
+        country:
+          nullable: true
+          type: string
+        latitude:
+          nullable: true
+          type: number
+        longitude:
+          nullable: true
+          type: number
+      title: YelpResolvedLocation
+    YelpSearchResponse:
+      additionalProperties: true
+      example:
+        fetched_utc: 7.386281948385884
+        has_next_page: true
+        query: query
+        related_searches:
+        - name: name
+          url: url
+        - name: name
+          url: url
+        total_pages: 2
+        filters:
+          key:
+            options:
+            - text: text
+              value: value
+              selected: true
+            - text: text
+              value: value
+              selected: true
+            title: title
+            type: type
+        source_url: source_url
+        location_resolved:
+          country: country
+          city: city
+          latitude: 0.8008281904610115
+          state: state
+          longitude: 6.027456183070403
+        total_results: 1
+        market: market
+        next_page: 7
+        query_matched: true
+        ads:
+        - snippet: snippet
+          snippet_type: snippet_type
+          city: city
+          timezone: timezone
+          rating: 3.616076749251911
+          review_count: 2
+          photos:
+          - photos
+          - photos
+          ad_placement: ad_placement
+          is_service_area_business: true
+          price: price
+          alias: alias
+          is_yelp_guaranteed: true
+          id: id
+          categories:
+          - alias: alias
+            title: title
+          - alias: alias
+            title: title
+          neighborhoods:
+          - neighborhoods
+          - neighborhoods
+          address: address
+          is_ad: true
+          url: url
+          tags:
+          - tags
+          - tags
+          alternate_names:
+          - alternate_names
+          - alternate_names
+          highlights:
+          - highlights
+          - highlights
+          price_level: 4
+          phone: phone
+          has_verified_license: true
+          name: name
+          opening_hours:
+          - day: day
+            close: close
+            open: open
+          - day: day
+            close: close
+            open: open
+          position: 9
+        - snippet: snippet
+          snippet_type: snippet_type
+          city: city
+          timezone: timezone
+          rating: 3.616076749251911
+          review_count: 2
+          photos:
+          - photos
+          - photos
+          ad_placement: ad_placement
+          is_service_area_business: true
+          price: price
+          alias: alias
+          is_yelp_guaranteed: true
+          id: id
+          categories:
+          - alias: alias
+            title: title
+          - alias: alias
+            title: title
+          neighborhoods:
+          - neighborhoods
+          - neighborhoods
+          address: address
+          is_ad: true
+          url: url
+          tags:
+          - tags
+          - tags
+          alternate_names:
+          - alternate_names
+          - alternate_names
+          highlights:
+          - highlights
+          - highlights
+          price_level: 4
+          phone: phone
+          has_verified_license: true
+          name: name
+          opening_hours:
+          - day: day
+            close: close
+            open: open
+          - day: day
+            close: close
+            open: open
+          position: 9
+        fetched_at: fetched_at
+        did_you_mean: did_you_mean
+        location: location
+        page: 5
+        results:
+        - snippet: snippet
+          snippet_type: snippet_type
+          city: city
+          timezone: timezone
+          rating: 3.616076749251911
+          review_count: 2
+          photos:
+          - photos
+          - photos
+          ad_placement: ad_placement
+          is_service_area_business: true
+          price: price
+          alias: alias
+          is_yelp_guaranteed: true
+          id: id
+          categories:
+          - alias: alias
+            title: title
+          - alias: alias
+            title: title
+          neighborhoods:
+          - neighborhoods
+          - neighborhoods
+          address: address
+          is_ad: true
+          url: url
+          tags:
+          - tags
+          - tags
+          alternate_names:
+          - alternate_names
+          - alternate_names
+          highlights:
+          - highlights
+          - highlights
+          price_level: 4
+          phone: phone
+          has_verified_license: true
+          name: name
+          opening_hours:
+          - day: day
+            close: close
+            open: open
+          - day: day
+            close: close
+            open: open
+          position: 9
+        - snippet: snippet
+          snippet_type: snippet_type
+          city: city
+          timezone: timezone
+          rating: 3.616076749251911
+          review_count: 2
+          photos:
+          - photos
+          - photos
+          ad_placement: ad_placement
+          is_service_area_business: true
+          price: price
+          alias: alias
+          is_yelp_guaranteed: true
+          id: id
+          categories:
+          - alias: alias
+            title: title
+          - alias: alias
+            title: title
+          neighborhoods:
+          - neighborhoods
+          - neighborhoods
+          address: address
+          is_ad: true
+          url: url
+          tags:
+          - tags
+          - tags
+          alternate_names:
+          - alternate_names
+          - alternate_names
+          highlights:
+          - highlights
+          - highlights
+          price_level: 4
+          phone: phone
+          has_verified_license: true
+          name: name
+          opening_hours:
+          - day: day
+            close: close
+            open: open
+          - day: day
+            close: close
+            open: open
+          position: 9
+        page_size: 5
+      properties:
+        market:
+          title: Market
+          type: string
+        query:
+          nullable: true
+          type: string
+        location:
+          title: Location
+          type: string
+        location_resolved:
+          $ref: '#/components/schemas/YelpResolvedLocation'
+        did_you_mean:
+          nullable: true
+          type: string
+        query_matched:
+          description: "False when Yelp could not place the query; results are then\
+            \ Yelp's broader ranking for the location, as Yelp shows them."
+          title: Query Matched
+          type: boolean
+        total_results:
+          description: Yelp's reported total; at most 110 are browsable.
+          title: Total Results
+          type: integer
+        page:
+          title: Page
+          type: integer
+        page_size:
+          title: Page Size
+          type: integer
+        total_pages:
+          title: Total Pages
+          type: integer
+        has_next_page:
+          title: Has Next Page
+          type: boolean
+        next_page:
+          nullable: true
+          type: integer
+        results:
+          items:
+            $ref: '#/components/schemas/YelpBusiness'
+          type: array
+        ads:
+          items:
+            $ref: '#/components/schemas/YelpBusiness'
+          type: array
+        filters:
+          additionalProperties:
+            $ref: '#/components/schemas/YelpFilterGroup'
+          title: Filters
+        related_searches:
+          items:
+            $ref: '#/components/schemas/YelpLink'
+          type: array
+        source_url:
+          title: Source Url
+          type: string
+        fetched_at:
+          title: Fetched At
+          type: string
+        fetched_utc:
+          title: Fetched Utc
+          type: number
+      required:
+      - ads
+      - fetched_at
+      - fetched_utc
+      - filters
+      - has_next_page
+      - location
+      - location_resolved
+      - market
+      - page
+      - page_size
+      - query
+      - query_matched
+      - related_searches
+      - results
+      - source_url
+      - total_pages
+      - total_results
+      title: YelpSearchResponse
     portal_api__routers___vinted_schemas__SearchResponse:
       description: Envelope returned by search and search_by_image.
       example:
