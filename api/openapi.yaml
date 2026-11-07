@@ -10143,6 +10143,56 @@ paths:
       summary: Get profile
       tags:
       - GitHub
+  /v1/github/repositories/{owner}/{repo}:
+    get:
+      description: |-
+        Public default-branch repository detail, native README, files and latest commit.
+
+        Use owner.login and name from a profile repository summary. Root file and
+        contributor previews are not exhaustive recursive trees or membership lists.
+        No GitHub token, market, ref, search or pagination parameter is accepted.
+      operationId: github_get_repository
+      parameters:
+      - explode: false
+        in: path
+        name: owner
+        required: true
+        schema:
+          maxLength: 39
+          minLength: 1
+          pattern: "^[A-Za-z0-9-]+$"
+          title: Owner
+          type: string
+        style: simple
+      - explode: false
+        in: path
+        name: repo
+        required: true
+        schema:
+          maxLength: 100
+          minLength: 1
+          pattern: "^[A-Za-z0-9_.-]+$"
+          title: Repo
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GitHubRepositoryResponse'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get repository
+      tags:
+      - GitHub
   /v1/google-play/apps/{app_id}:
     get:
       description: |-
@@ -32690,6 +32740,81 @@ components:
       - date
       - level
       title: GitHubCalendarDay
+    GitHubCommitActor:
+      additionalProperties: true
+      example:
+        profile_name: profile_name
+        is_github: true
+        avatar_url: avatar_url
+        name: name
+        link: link
+        id: 3
+        login: login
+      properties:
+        login:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        profile_name:
+          nullable: true
+          type: string
+        link:
+          nullable: true
+          type: string
+        avatar_url:
+          nullable: true
+          type: string
+        id:
+          nullable: true
+          type: integer
+        is_github:
+          nullable: true
+          type: boolean
+      title: GitHubCommitActor
+    GitHubCommitChecks:
+      additionalProperties: true
+      example:
+        state: state
+      properties:
+        state:
+          title: State
+          type: string
+      required:
+      - state
+      title: GitHubCommitChecks
+    GitHubCommunityFile:
+      additionalProperties: true
+      example:
+        path: path
+        ref: ref
+        name: name
+        link: link
+        type: type
+      properties:
+        name:
+          title: Name
+          type: string
+        path:
+          title: Path
+          type: string
+        ref:
+          title: Ref
+          type: string
+        link:
+          title: Link
+          type: string
+        type:
+          title: Type
+          type: string
+      required:
+      - link
+      - name
+      - path
+      - ref
+      - type
+      title: GitHubCommunityFile
     GitHubContributions:
       additionalProperties: true
       example:
@@ -32829,6 +32954,59 @@ components:
       - to
       - total
       title: GitHubContributions
+    GitHubForkComparison:
+      additionalProperties: true
+      example:
+        behind: 5
+        is_tracking_branch: true
+        base_branch: base_branch
+        ahead: 5
+        current_ref: current_ref
+      properties:
+        ahead:
+          title: Ahead
+          type: integer
+        behind:
+          title: Behind
+          type: integer
+        base_branch:
+          title: Base Branch
+          type: string
+        current_ref:
+          title: Current Ref
+          type: string
+        is_tracking_branch:
+          nullable: true
+          type: boolean
+      required:
+      - ahead
+      - base_branch
+      - behind
+      - current_ref
+      title: GitHubForkComparison
+    GitHubFundingLink:
+      additionalProperties: true
+      example:
+        icon_url: icon_url
+        link: link
+        label: label
+        platform: platform
+      properties:
+        link:
+          title: Link
+          type: string
+        label:
+          nullable: true
+          type: string
+        platform:
+          nullable: true
+          type: string
+        icon_url:
+          nullable: true
+          type: string
+      required:
+      - link
+      title: GitHubFundingLink
     GitHubLanguage:
       additionalProperties: true
       example:
@@ -32849,6 +33027,103 @@ components:
       - link
       - name
       title: GitHubLanguage
+    GitHubLatestCommit:
+      additionalProperties: true
+      example:
+        pushed_utc: 6.438423552598547
+        body_html: body_html
+        pusher:
+          profile_name: profile_name
+          is_github: true
+          avatar_url: avatar_url
+          name: name
+          link: link
+          id: 3
+          login: login
+        pushed_at: pushed_at
+        link: link
+        committed_utc: 9.018348186070783
+        message: message
+        body: body
+        sha: sha
+        message_html: message_html
+        checks:
+          state: state
+        committer:
+          profile_name: profile_name
+          is_github: true
+          avatar_url: avatar_url
+          name: name
+          link: link
+          id: 3
+          login: login
+        committed_at: committed_at
+        is_spoofed: true
+        authors:
+        - profile_name: profile_name
+          is_github: true
+          avatar_url: avatar_url
+          name: name
+          link: link
+          id: 3
+          login: login
+        - profile_name: profile_name
+          is_github: true
+          avatar_url: avatar_url
+          name: name
+          link: link
+          id: 3
+          login: login
+      properties:
+        sha:
+          title: Sha
+          type: string
+        link:
+          title: Link
+          type: string
+        message:
+          title: Message
+          type: string
+        message_html:
+          nullable: true
+          type: string
+        body:
+          nullable: true
+          type: string
+        body_html:
+          nullable: true
+          type: string
+        committed_at:
+          nullable: true
+          type: string
+        committed_utc:
+          nullable: true
+          type: number
+        pushed_at:
+          nullable: true
+          type: string
+        pushed_utc:
+          nullable: true
+          type: number
+        authors:
+          items:
+            $ref: '#/components/schemas/GitHubCommitActor'
+          nullable: true
+          type: array
+        committer:
+          $ref: '#/components/schemas/GitHubCommitActor'
+        pusher:
+          $ref: '#/components/schemas/GitHubCommitActor'
+        checks:
+          $ref: '#/components/schemas/GitHubCommitChecks'
+        is_spoofed:
+          nullable: true
+          type: boolean
+      required:
+      - link
+      - message
+      - sha
+      title: GitHubLatestCommit
     GitHubNamedLink:
       additionalProperties: true
       example:
@@ -33732,6 +34007,27 @@ components:
       - html
       - text
       title: GitHubReadme
+    GitHubReadmeHeading:
+      additionalProperties: true
+      example:
+        level: 6
+        anchor: anchor
+        text: text
+      properties:
+        level:
+          title: Level
+          type: integer
+        text:
+          title: Text
+          type: string
+        anchor:
+          title: Anchor
+          type: string
+      required:
+      - anchor
+      - level
+      - text
+      title: GitHubReadmeHeading
     GitHubRepository:
       additionalProperties: true
       example:
@@ -33850,6 +34146,1133 @@ components:
       - owner
       - position
       title: GitHubRepository
+    GitHubRepositoryAccount:
+      additionalProperties: true
+      example:
+        avatar_url: avatar_url
+        link: link
+        name: name
+        id: 0
+        login: login
+        type: type
+        node_id: node_id
+      properties:
+        login:
+          title: Login
+          type: string
+        link:
+          nullable: true
+          type: string
+        id:
+          nullable: true
+          type: integer
+        avatar_url:
+          nullable: true
+          type: string
+        node_id:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+      required:
+      - login
+      title: GitHubRepositoryAccount
+    GitHubRepositoryFile:
+      additionalProperties: true
+      example:
+        path: path
+        name: name
+        link: link
+        latest_commit:
+          pushed_utc: 6.438423552598547
+          body_html: body_html
+          pusher:
+            profile_name: profile_name
+            is_github: true
+            avatar_url: avatar_url
+            name: name
+            link: link
+            id: 3
+            login: login
+          pushed_at: pushed_at
+          link: link
+          committed_utc: 9.018348186070783
+          message: message
+          body: body
+          sha: sha
+          message_html: message_html
+          checks:
+            state: state
+          committer:
+            profile_name: profile_name
+            is_github: true
+            avatar_url: avatar_url
+            name: name
+            link: link
+            id: 3
+            login: login
+          committed_at: committed_at
+          is_spoofed: true
+          authors:
+          - profile_name: profile_name
+            is_github: true
+            avatar_url: avatar_url
+            name: name
+            link: link
+            id: 3
+            login: login
+          - profile_name: profile_name
+            is_github: true
+            avatar_url: avatar_url
+            name: name
+            link: link
+            id: 3
+            login: login
+        has_simplified_path: true
+        type: type
+      properties:
+        name:
+          title: Name
+          type: string
+        path:
+          title: Path
+          type: string
+        type:
+          title: Type
+          type: string
+        link:
+          title: Link
+          type: string
+        has_simplified_path:
+          nullable: true
+          type: boolean
+        latest_commit:
+          $ref: '#/components/schemas/GitHubLatestCommit'
+      required:
+      - link
+      - name
+      - path
+      - type
+      title: GitHubRepositoryFile
+    GitHubRepositoryFunding:
+      additionalProperties: true
+      example:
+        github_sponsors:
+        - avatar_url: avatar_url
+          link: link
+          name: name
+          id: 0
+          login: login
+          type: type
+          node_id: node_id
+        - avatar_url: avatar_url
+          link: link
+          name: name
+          id: 0
+          login: login
+          type: type
+          node_id: node_id
+        links:
+        - icon_url: icon_url
+          link: link
+          label: label
+          platform: platform
+        - icon_url: icon_url
+          link: link
+          label: label
+          platform: platform
+        sponsorable_count: 6
+        sponsors_link: sponsors_link
+      properties:
+        github_sponsors:
+          items:
+            $ref: '#/components/schemas/GitHubRepositoryAccount'
+          nullable: true
+          type: array
+        links:
+          items:
+            $ref: '#/components/schemas/GitHubFundingLink'
+          nullable: true
+          type: array
+        sponsorable_count:
+          nullable: true
+          type: integer
+        sponsors_link:
+          nullable: true
+          type: string
+      title: GitHubRepositoryFunding
+    GitHubRepositoryIdentity:
+      additionalProperties: true
+      example:
+        parent:
+          owner:
+            avatar_url: avatar_url
+            link: link
+            name: name
+            id: 0
+            login: login
+            type: type
+            node_id: node_id
+          full_name: full_name
+          name: name
+          link: link
+          description: description
+          default_branch: default_branch
+          language: language
+          id: 1
+        pushed_utc: 8.762042012749001
+        allow_forking: true
+        contributors_count_approximate: true
+        is_template: true
+        security_advisories_count: 4
+        pushed_at: pushed_at
+        has_contributing_guide: true
+        language: language
+        commits_count_approximate: true
+        source:
+          owner:
+            avatar_url: avatar_url
+            link: link
+            name: name
+            id: 0
+            login: login
+            type: type
+            node_id: node_id
+          full_name: full_name
+          name: name
+          link: link
+          description: description
+          default_branch: default_branch
+          language: language
+          id: 1
+        commits_count: 1
+        has_pull_requests: true
+        current_commit: current_commit
+        open_pull_requests_count: 4
+        contributors_count: 7
+        pull_request_creation_policy: pull_request_creation_policy
+        tags_count: 1
+        svn_url: svn_url
+        id: 6
+        created_utc: 9.369310271410669
+        has_discussions: true
+        fork_comparison:
+          behind: 5
+          is_tracking_branch: true
+          base_branch: base_branch
+          ahead: 5
+          current_ref: current_ref
+        forks: 9
+        is_fork: true
+        used_by_count: 1
+        archive_url: archive_url
+        visibility: visibility
+        network_count: 3
+        is_disabled: true
+        is_open_issues_count_capped: true
+        ssh_url: ssh_url
+        updated_utc: 6.683562403749608
+        license:
+          name: name
+          link: link
+          spdx_id: spdx_id
+          key: key
+        open_issues_and_pull_requests_count: 7
+        full_name: full_name
+        is_archived: true
+        open_issues_display: open_issues_display
+        clone_url: clone_url
+        name: name
+        default_branch: default_branch
+        is_open_pull_requests_count_capped: true
+        forked_from: forked_from
+        has_code_of_conduct: true
+        has_downloads: true
+        open_issues_count_approximate: true
+        open_issues_count: 2
+        open_pull_requests_count_approximate: true
+        link: link
+        description: description
+        watchers: 7
+        created_at: created_at
+        has_security_policy: true
+        open_pull_requests_display: open_pull_requests_display
+        has_projects: true
+        is_mirror: true
+        has_wiki: true
+        updated_at: updated_at
+        size_kb: 9
+        has_citation: true
+        git_url: git_url
+        is_empty: true
+        has_pages: true
+        owner:
+          avatar_url: avatar_url
+          link: link
+          name: name
+          id: 0
+          login: login
+          type: type
+          node_id: node_id
+        website: website
+        files_count: 5
+        files_truncated: true
+        used_by_count_approximate: true
+        topics:
+        - topics
+        - topics
+        releases_count: 6
+        commits_display: commits_display
+        branches_count_approximate: true
+        stars: 2
+        has_issues: true
+        web_commit_signoff_required: true
+        branches_count: 1
+        mirror_url: mirror_url
+        social_image: social_image
+        language_color: language_color
+        node_id: node_id
+      properties:
+        name:
+          title: Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        link:
+          title: Link
+          type: string
+        owner:
+          $ref: '#/components/schemas/GitHubRepositoryAccount'
+        is_empty:
+          title: Is Empty
+          type: boolean
+        id:
+          nullable: true
+          type: integer
+        node_id:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        website:
+          nullable: true
+          type: string
+        social_image:
+          nullable: true
+          type: string
+        default_branch:
+          nullable: true
+          type: string
+        current_commit:
+          nullable: true
+          type: string
+        visibility:
+          nullable: true
+          type: string
+        is_fork:
+          nullable: true
+          type: boolean
+        forked_from:
+          nullable: true
+          type: string
+        parent:
+          $ref: '#/components/schemas/GitHubRepositoryReference'
+        source:
+          $ref: '#/components/schemas/GitHubRepositoryReference'
+        fork_comparison:
+          $ref: '#/components/schemas/GitHubForkComparison'
+        is_archived:
+          nullable: true
+          type: boolean
+        is_template:
+          nullable: true
+          type: boolean
+        is_mirror:
+          nullable: true
+          type: boolean
+        is_disabled:
+          nullable: true
+          type: boolean
+        language:
+          nullable: true
+          type: string
+        language_color:
+          nullable: true
+          type: string
+        license:
+          $ref: '#/components/schemas/GitHubRepositoryLicense'
+        topics:
+          items:
+            type: string
+          nullable: true
+          type: array
+        stars:
+          nullable: true
+          type: integer
+        watchers:
+          nullable: true
+          type: integer
+        forks:
+          nullable: true
+          type: integer
+        network_count:
+          nullable: true
+          type: integer
+        open_issues_count:
+          nullable: true
+          type: integer
+        open_pull_requests_count:
+          nullable: true
+          type: integer
+        open_issues_count_approximate:
+          nullable: true
+          type: boolean
+        open_pull_requests_count_approximate:
+          nullable: true
+          type: boolean
+        open_issues_display:
+          nullable: true
+          type: string
+        open_pull_requests_display:
+          nullable: true
+          type: string
+        is_open_issues_count_capped:
+          nullable: true
+          type: boolean
+        is_open_pull_requests_count_capped:
+          nullable: true
+          type: boolean
+        open_issues_and_pull_requests_count:
+          nullable: true
+          type: integer
+        commits_count:
+          nullable: true
+          type: integer
+        commits_display:
+          nullable: true
+          type: string
+        commits_count_approximate:
+          nullable: true
+          type: boolean
+        branches_count:
+          nullable: true
+          type: integer
+        branches_count_approximate:
+          nullable: true
+          type: boolean
+        tags_count:
+          nullable: true
+          type: integer
+        releases_count:
+          nullable: true
+          type: integer
+        contributors_count:
+          nullable: true
+          type: integer
+        contributors_count_approximate:
+          nullable: true
+          type: boolean
+        used_by_count:
+          nullable: true
+          type: integer
+        used_by_count_approximate:
+          nullable: true
+          type: boolean
+        security_advisories_count:
+          nullable: true
+          type: integer
+        files_count:
+          nullable: true
+          type: integer
+        files_truncated:
+          nullable: true
+          type: boolean
+        has_issues:
+          nullable: true
+          type: boolean
+        has_pull_requests:
+          nullable: true
+          type: boolean
+        has_discussions:
+          nullable: true
+          type: boolean
+        has_projects:
+          nullable: true
+          type: boolean
+        has_wiki:
+          nullable: true
+          type: boolean
+        has_pages:
+          nullable: true
+          type: boolean
+        has_downloads:
+          nullable: true
+          type: boolean
+        has_citation:
+          nullable: true
+          type: boolean
+        has_code_of_conduct:
+          nullable: true
+          type: boolean
+        has_contributing_guide:
+          nullable: true
+          type: boolean
+        has_security_policy:
+          nullable: true
+          type: boolean
+        allow_forking:
+          nullable: true
+          type: boolean
+        web_commit_signoff_required:
+          nullable: true
+          type: boolean
+        pull_request_creation_policy:
+          nullable: true
+          type: string
+        size_kb:
+          nullable: true
+          type: integer
+        clone_url:
+          nullable: true
+          type: string
+        ssh_url:
+          nullable: true
+          type: string
+        git_url:
+          nullable: true
+          type: string
+        svn_url:
+          nullable: true
+          type: string
+        archive_url:
+          nullable: true
+          type: string
+        mirror_url:
+          nullable: true
+          type: string
+        created_at:
+          nullable: true
+          type: string
+        created_utc:
+          nullable: true
+          type: number
+        updated_at:
+          nullable: true
+          type: string
+        updated_utc:
+          nullable: true
+          type: number
+        pushed_at:
+          nullable: true
+          type: string
+        pushed_utc:
+          nullable: true
+          type: number
+      required:
+      - full_name
+      - is_empty
+      - link
+      - name
+      - owner
+      title: GitHubRepositoryIdentity
+    GitHubRepositoryLanguage:
+      additionalProperties: true
+      example:
+        color: color
+        bytes: 2
+        percentage: 1.284659006116532
+        name: name
+      properties:
+        name:
+          title: Name
+          type: string
+        percentage:
+          nullable: true
+          type: number
+        color:
+          nullable: true
+          type: string
+        bytes:
+          nullable: true
+          type: integer
+      required:
+      - name
+      title: GitHubRepositoryLanguage
+    GitHubRepositoryLicense:
+      additionalProperties: true
+      example:
+        name: name
+        link: link
+        spdx_id: spdx_id
+        key: key
+      properties:
+        name:
+          title: Name
+          type: string
+        spdx_id:
+          nullable: true
+          type: string
+        key:
+          nullable: true
+          type: string
+        link:
+          nullable: true
+          type: string
+      required:
+      - name
+      title: GitHubRepositoryLicense
+    GitHubRepositoryReadme:
+      additionalProperties: true
+      example:
+        path: path
+        ref: ref
+        link: link
+        name: name
+        toc:
+        - level: 6
+          anchor: anchor
+          text: text
+        - level: 6
+          anchor: anchor
+          text: text
+        html: html
+        text: text
+      properties:
+        text:
+          title: Text
+          type: string
+        html:
+          title: Html
+          type: string
+        link:
+          nullable: true
+          type: string
+        name:
+          nullable: true
+          type: string
+        path:
+          nullable: true
+          type: string
+        ref:
+          nullable: true
+          type: string
+        toc:
+          items:
+            $ref: '#/components/schemas/GitHubReadmeHeading'
+          nullable: true
+          type: array
+      required:
+      - html
+      - text
+      title: GitHubRepositoryReadme
+    GitHubRepositoryReference:
+      additionalProperties: true
+      example:
+        owner:
+          avatar_url: avatar_url
+          link: link
+          name: name
+          id: 0
+          login: login
+          type: type
+          node_id: node_id
+        full_name: full_name
+        name: name
+        link: link
+        description: description
+        default_branch: default_branch
+        language: language
+        id: 1
+      properties:
+        name:
+          title: Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        link:
+          title: Link
+          type: string
+        id:
+          nullable: true
+          type: integer
+        owner:
+          $ref: '#/components/schemas/GitHubRepositoryAccount'
+        description:
+          nullable: true
+          type: string
+        default_branch:
+          nullable: true
+          type: string
+        language:
+          nullable: true
+          type: string
+      required:
+      - full_name
+      - link
+      - name
+      title: GitHubRepositoryReference
+    GitHubRepositoryRelease:
+      additionalProperties: true
+      example:
+        published_utc: 6.778324963048013
+        name: name
+        link: link
+        tag: tag
+        published_at: published_at
+      properties:
+        name:
+          title: Name
+          type: string
+        link:
+          title: Link
+          type: string
+        tag:
+          nullable: true
+          type: string
+        published_at:
+          nullable: true
+          type: string
+        published_utc:
+          nullable: true
+          type: number
+      required:
+      - link
+      - name
+      title: GitHubRepositoryRelease
+    GitHubRepositoryResponse:
+      additionalProperties: true
+      description: Default-branch repository detail and native website sections.
+      example:
+        funding:
+          github_sponsors:
+          - avatar_url: avatar_url
+            link: link
+            name: name
+            id: 0
+            login: login
+            type: type
+            node_id: node_id
+          - avatar_url: avatar_url
+            link: link
+            name: name
+            id: 0
+            login: login
+            type: type
+            node_id: node_id
+          links:
+          - icon_url: icon_url
+            link: link
+            label: label
+            platform: platform
+          - icon_url: icon_url
+            link: link
+            label: label
+            platform: platform
+          sponsorable_count: 6
+          sponsors_link: sponsors_link
+        languages:
+        - color: color
+          bytes: 2
+          percentage: 1.284659006116532
+          name: name
+        - color: color
+          bytes: 2
+          percentage: 1.284659006116532
+          name: name
+        latest_commit:
+          pushed_utc: 6.438423552598547
+          body_html: body_html
+          pusher:
+            profile_name: profile_name
+            is_github: true
+            avatar_url: avatar_url
+            name: name
+            link: link
+            id: 3
+            login: login
+          pushed_at: pushed_at
+          link: link
+          committed_utc: 9.018348186070783
+          message: message
+          body: body
+          sha: sha
+          message_html: message_html
+          checks:
+            state: state
+          committer:
+            profile_name: profile_name
+            is_github: true
+            avatar_url: avatar_url
+            name: name
+            link: link
+            id: 3
+            login: login
+          committed_at: committed_at
+          is_spoofed: true
+          authors:
+          - profile_name: profile_name
+            is_github: true
+            avatar_url: avatar_url
+            name: name
+            link: link
+            id: 3
+            login: login
+          - profile_name: profile_name
+            is_github: true
+            avatar_url: avatar_url
+            name: name
+            link: link
+            id: 3
+            login: login
+        readme:
+          path: path
+          ref: ref
+          link: link
+          name: name
+          toc:
+          - level: 6
+            anchor: anchor
+            text: text
+          - level: 6
+            anchor: anchor
+            text: text
+          html: html
+          text: text
+        repository:
+          parent:
+            owner:
+              avatar_url: avatar_url
+              link: link
+              name: name
+              id: 0
+              login: login
+              type: type
+              node_id: node_id
+            full_name: full_name
+            name: name
+            link: link
+            description: description
+            default_branch: default_branch
+            language: language
+            id: 1
+          pushed_utc: 8.762042012749001
+          allow_forking: true
+          contributors_count_approximate: true
+          is_template: true
+          security_advisories_count: 4
+          pushed_at: pushed_at
+          has_contributing_guide: true
+          language: language
+          commits_count_approximate: true
+          source:
+            owner:
+              avatar_url: avatar_url
+              link: link
+              name: name
+              id: 0
+              login: login
+              type: type
+              node_id: node_id
+            full_name: full_name
+            name: name
+            link: link
+            description: description
+            default_branch: default_branch
+            language: language
+            id: 1
+          commits_count: 1
+          has_pull_requests: true
+          current_commit: current_commit
+          open_pull_requests_count: 4
+          contributors_count: 7
+          pull_request_creation_policy: pull_request_creation_policy
+          tags_count: 1
+          svn_url: svn_url
+          id: 6
+          created_utc: 9.369310271410669
+          has_discussions: true
+          fork_comparison:
+            behind: 5
+            is_tracking_branch: true
+            base_branch: base_branch
+            ahead: 5
+            current_ref: current_ref
+          forks: 9
+          is_fork: true
+          used_by_count: 1
+          archive_url: archive_url
+          visibility: visibility
+          network_count: 3
+          is_disabled: true
+          is_open_issues_count_capped: true
+          ssh_url: ssh_url
+          updated_utc: 6.683562403749608
+          license:
+            name: name
+            link: link
+            spdx_id: spdx_id
+            key: key
+          open_issues_and_pull_requests_count: 7
+          full_name: full_name
+          is_archived: true
+          open_issues_display: open_issues_display
+          clone_url: clone_url
+          name: name
+          default_branch: default_branch
+          is_open_pull_requests_count_capped: true
+          forked_from: forked_from
+          has_code_of_conduct: true
+          has_downloads: true
+          open_issues_count_approximate: true
+          open_issues_count: 2
+          open_pull_requests_count_approximate: true
+          link: link
+          description: description
+          watchers: 7
+          created_at: created_at
+          has_security_policy: true
+          open_pull_requests_display: open_pull_requests_display
+          has_projects: true
+          is_mirror: true
+          has_wiki: true
+          updated_at: updated_at
+          size_kb: 9
+          has_citation: true
+          git_url: git_url
+          is_empty: true
+          has_pages: true
+          owner:
+            avatar_url: avatar_url
+            link: link
+            name: name
+            id: 0
+            login: login
+            type: type
+            node_id: node_id
+          website: website
+          files_count: 5
+          files_truncated: true
+          used_by_count_approximate: true
+          topics:
+          - topics
+          - topics
+          releases_count: 6
+          commits_display: commits_display
+          branches_count_approximate: true
+          stars: 2
+          has_issues: true
+          web_commit_signoff_required: true
+          branches_count: 1
+          mirror_url: mirror_url
+          social_image: social_image
+          language_color: language_color
+          node_id: node_id
+        latest_release:
+          published_utc: 6.778324963048013
+          name: name
+          link: link
+          tag: tag
+          published_at: published_at
+        metadata_available: true
+        dependents_truncated: true
+        files:
+        - path: path
+          name: name
+          link: link
+          latest_commit:
+            pushed_utc: 6.438423552598547
+            body_html: body_html
+            pusher:
+              profile_name: profile_name
+              is_github: true
+              avatar_url: avatar_url
+              name: name
+              link: link
+              id: 3
+              login: login
+            pushed_at: pushed_at
+            link: link
+            committed_utc: 9.018348186070783
+            message: message
+            body: body
+            sha: sha
+            message_html: message_html
+            checks:
+              state: state
+            committer:
+              profile_name: profile_name
+              is_github: true
+              avatar_url: avatar_url
+              name: name
+              link: link
+              id: 3
+              login: login
+            committed_at: committed_at
+            is_spoofed: true
+            authors:
+            - profile_name: profile_name
+              is_github: true
+              avatar_url: avatar_url
+              name: name
+              link: link
+              id: 3
+              login: login
+            - profile_name: profile_name
+              is_github: true
+              avatar_url: avatar_url
+              name: name
+              link: link
+              id: 3
+              login: login
+          has_simplified_path: true
+          type: type
+        - path: path
+          name: name
+          link: link
+          latest_commit:
+            pushed_utc: 6.438423552598547
+            body_html: body_html
+            pusher:
+              profile_name: profile_name
+              is_github: true
+              avatar_url: avatar_url
+              name: name
+              link: link
+              id: 3
+              login: login
+            pushed_at: pushed_at
+            link: link
+            committed_utc: 9.018348186070783
+            message: message
+            body: body
+            sha: sha
+            message_html: message_html
+            checks:
+              state: state
+            committer:
+              profile_name: profile_name
+              is_github: true
+              avatar_url: avatar_url
+              name: name
+              link: link
+              id: 3
+              login: login
+            committed_at: committed_at
+            is_spoofed: true
+            authors:
+            - profile_name: profile_name
+              is_github: true
+              avatar_url: avatar_url
+              name: name
+              link: link
+              id: 3
+              login: login
+            - profile_name: profile_name
+              is_github: true
+              avatar_url: avatar_url
+              name: name
+              link: link
+              id: 3
+              login: login
+          has_simplified_path: true
+          type: type
+        dependents:
+        - avatar_url: avatar_url
+          link: link
+          name: name
+          id: 0
+          login: login
+          type: type
+          node_id: node_id
+        - avatar_url: avatar_url
+          link: link
+          name: name
+          id: 0
+          login: login
+          type: type
+          node_id: node_id
+        contributors:
+        - avatar_url: avatar_url
+          link: link
+          name: name
+          id: 0
+          login: login
+          type: type
+          node_id: node_id
+        - avatar_url: avatar_url
+          link: link
+          name: name
+          id: 0
+          login: login
+          type: type
+          node_id: node_id
+        community_files:
+        - path: path
+          ref: ref
+          name: name
+          link: link
+          type: type
+        - path: path
+          ref: ref
+          name: name
+          link: link
+          type: type
+        contributors_truncated: true
+      properties:
+        repository:
+          $ref: '#/components/schemas/GitHubRepositoryIdentity'
+        latest_commit:
+          $ref: '#/components/schemas/GitHubLatestCommit'
+        readme:
+          $ref: '#/components/schemas/GitHubRepositoryReadme'
+        files:
+          items:
+            $ref: '#/components/schemas/GitHubRepositoryFile'
+          nullable: true
+          type: array
+        languages:
+          items:
+            $ref: '#/components/schemas/GitHubRepositoryLanguage'
+          nullable: true
+          type: array
+        latest_release:
+          $ref: '#/components/schemas/GitHubRepositoryRelease'
+        contributors:
+          items:
+            $ref: '#/components/schemas/GitHubRepositoryAccount'
+          nullable: true
+          type: array
+        contributors_truncated:
+          nullable: true
+          type: boolean
+        dependents:
+          items:
+            $ref: '#/components/schemas/GitHubRepositoryAccount'
+          nullable: true
+          type: array
+        dependents_truncated:
+          nullable: true
+          type: boolean
+        funding:
+          $ref: '#/components/schemas/GitHubRepositoryFunding'
+        community_files:
+          items:
+            $ref: '#/components/schemas/GitHubCommunityFile'
+          nullable: true
+          type: array
+        metadata_available:
+          nullable: true
+          type: boolean
+      required:
+      - repository
+      title: GitHubRepositoryResponse
     GitHubSocialAccount:
       additionalProperties: true
       example:

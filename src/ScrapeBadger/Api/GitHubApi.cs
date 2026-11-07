@@ -56,6 +56,29 @@ namespace ScrapeBadger.Api
         /// <param name="nextPageToken">Stars only: previous pagination.next_page_token (optional)</param>
         /// <returns>ApiResponse of GitHubProfileResponse</returns>
         ApiResponse<GitHubProfileResponse> GithubGetProfileWithHttpInfo(string username, string tab = default(string), int? year = default(int?), int? page = default(int?), string nextPageToken = default(string));
+        /// <summary>
+        /// Get repository
+        /// </summary>
+        /// <remarks>
+        /// Public default-branch repository detail, native README, files and latest commit.  Use owner.login and name from a profile repository summary. Root file and contributor previews are not exhaustive recursive trees or membership lists. No GitHub token, market, ref, search or pagination parameter is accepted.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="owner"></param>
+        /// <param name="repo"></param>
+        /// <returns>GitHubRepositoryResponse</returns>
+        GitHubRepositoryResponse GithubGetRepository(string owner, string repo);
+
+        /// <summary>
+        /// Get repository
+        /// </summary>
+        /// <remarks>
+        /// Public default-branch repository detail, native README, files and latest commit.  Use owner.login and name from a profile repository summary. Root file and contributor previews are not exhaustive recursive trees or membership lists. No GitHub token, market, ref, search or pagination parameter is accepted.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="owner"></param>
+        /// <param name="repo"></param>
+        /// <returns>ApiResponse of GitHubRepositoryResponse</returns>
+        ApiResponse<GitHubRepositoryResponse> GithubGetRepositoryWithHttpInfo(string owner, string repo);
         #endregion Synchronous Operations
     }
 
@@ -96,6 +119,31 @@ namespace ScrapeBadger.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (GitHubProfileResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<GitHubProfileResponse>> GithubGetProfileWithHttpInfoAsync(string username, string tab = default(string), int? year = default(int?), int? page = default(int?), string nextPageToken = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Get repository
+        /// </summary>
+        /// <remarks>
+        /// Public default-branch repository detail, native README, files and latest commit.  Use owner.login and name from a profile repository summary. Root file and contributor previews are not exhaustive recursive trees or membership lists. No GitHub token, market, ref, search or pagination parameter is accepted.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="owner"></param>
+        /// <param name="repo"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GitHubRepositoryResponse</returns>
+        System.Threading.Tasks.Task<GitHubRepositoryResponse> GithubGetRepositoryAsync(string owner, string repo, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get repository
+        /// </summary>
+        /// <remarks>
+        /// Public default-branch repository detail, native README, files and latest commit.  Use owner.login and name from a profile repository summary. Root file and contributor previews are not exhaustive recursive trees or membership lists. No GitHub token, market, ref, search or pagination parameter is accepted.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="owner"></param>
+        /// <param name="repo"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GitHubRepositoryResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GitHubRepositoryResponse>> GithubGetRepositoryWithHttpInfoAsync(string owner, string repo, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -476,6 +524,145 @@ namespace ScrapeBadger.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GithubGetProfile", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get repository Public default-branch repository detail, native README, files and latest commit.  Use owner.login and name from a profile repository summary. Root file and contributor previews are not exhaustive recursive trees or membership lists. No GitHub token, market, ref, search or pagination parameter is accepted.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="owner"></param>
+        /// <param name="repo"></param>
+        /// <returns>GitHubRepositoryResponse</returns>
+        public GitHubRepositoryResponse GithubGetRepository(string owner, string repo)
+        {
+            ScrapeBadger.Client.ApiResponse<GitHubRepositoryResponse> localVarResponse = GithubGetRepositoryWithHttpInfo(owner, repo);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get repository Public default-branch repository detail, native README, files and latest commit.  Use owner.login and name from a profile repository summary. Root file and contributor previews are not exhaustive recursive trees or membership lists. No GitHub token, market, ref, search or pagination parameter is accepted.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="owner"></param>
+        /// <param name="repo"></param>
+        /// <returns>ApiResponse of GitHubRepositoryResponse</returns>
+        public ScrapeBadger.Client.ApiResponse<GitHubRepositoryResponse> GithubGetRepositoryWithHttpInfo(string owner, string repo)
+        {
+            // verify the required parameter 'owner' is set
+            if (owner == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'owner' when calling GitHubApi->GithubGetRepository");
+
+            // verify the required parameter 'repo' is set
+            if (repo == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'repo' when calling GitHubApi->GithubGetRepository");
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("owner", ScrapeBadger.Client.ClientUtils.ParameterToString(owner)); // path parameter
+            localVarRequestOptions.PathParameters.Add("repo", ScrapeBadger.Client.ClientUtils.ParameterToString(repo)); // path parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<GitHubRepositoryResponse>("/v1/github/repositories/{owner}/{repo}", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GithubGetRepository", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get repository Public default-branch repository detail, native README, files and latest commit.  Use owner.login and name from a profile repository summary. Root file and contributor previews are not exhaustive recursive trees or membership lists. No GitHub token, market, ref, search or pagination parameter is accepted.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="owner"></param>
+        /// <param name="repo"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GitHubRepositoryResponse</returns>
+        public async System.Threading.Tasks.Task<GitHubRepositoryResponse> GithubGetRepositoryAsync(string owner, string repo, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ScrapeBadger.Client.ApiResponse<GitHubRepositoryResponse> localVarResponse = await GithubGetRepositoryWithHttpInfoAsync(owner, repo, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get repository Public default-branch repository detail, native README, files and latest commit.  Use owner.login and name from a profile repository summary. Root file and contributor previews are not exhaustive recursive trees or membership lists. No GitHub token, market, ref, search or pagination parameter is accepted.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="owner"></param>
+        /// <param name="repo"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GitHubRepositoryResponse)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<GitHubRepositoryResponse>> GithubGetRepositoryWithHttpInfoAsync(string owner, string repo, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'owner' is set
+            if (owner == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'owner' when calling GitHubApi->GithubGetRepository");
+
+            // verify the required parameter 'repo' is set
+            if (repo == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'repo' when calling GitHubApi->GithubGetRepository");
+
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("owner", ScrapeBadger.Client.ClientUtils.ParameterToString(owner)); // path parameter
+            localVarRequestOptions.PathParameters.Add("repo", ScrapeBadger.Client.ClientUtils.ParameterToString(repo)); // path parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<GitHubRepositoryResponse>("/v1/github/repositories/{owner}/{repo}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GithubGetRepository", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

@@ -68,5 +68,18 @@ namespace ScrapeBadger.Test.Api
             //var response = instance.GithubGetProfile(username, tab, year, page, nextPageToken);
             //Assert.IsType<GitHubProfileResponse>(response);
         }
+
+        /// <summary>
+        /// Test GithubGetRepository
+        /// </summary>
+        [Fact]
+        public void GithubGetRepositoryTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string owner = null;
+            //string repo = null;
+            //var response = instance.GithubGetRepository(owner, repo);
+            //Assert.IsType<GitHubRepositoryResponse>(response);
+        }
     }
 }
