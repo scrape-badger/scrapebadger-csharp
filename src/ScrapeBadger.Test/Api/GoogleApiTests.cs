@@ -289,7 +289,35 @@ namespace ScrapeBadger.Test.Api
             //int? filter = null;
             //int? nfpr = null;
             //string output = null;
-            //var response = instance.GoogleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output);
+            //string googleDomain = null;
+            //decimal? lat = null;
+            //decimal? lon = null;
+            //decimal? radius = null;
+            //string colorScheme = null;
+            //string tbm = null;
+            //string udm = null;
+            //bool? noCache = null;
+            //string asDt = null;
+            //string asEpq = null;
+            //string asEq = null;
+            //string asLq = null;
+            //string asNlo = null;
+            //string asNhi = null;
+            //string asOq = null;
+            //string asQ = null;
+            //string asQdr = null;
+            //string asRq = null;
+            //string asSitesearch = null;
+            //string device = null;
+            //string userAgent = null;
+            //string cr = null;
+            //string ludocid = null;
+            //string lsig = null;
+            //string kgmid = null;
+            //string si = null;
+            //string ibp = null;
+            //string uds = null;
+            //var response = instance.GoogleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds);
             //Assert.IsType<Object>(response);
         }
 
@@ -377,7 +405,28 @@ namespace ScrapeBadger.Test.Api
             //string ibp = null;
             //string uds = null;
             //bool? aiOverview = null;
-            //var response = instance.GoogleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview);
+            //string mode = null;
+            //string expandRelatedQuestions = null;
+            //string googleDomain = null;
+            //decimal? lat = null;
+            //decimal? lon = null;
+            //decimal? radius = null;
+            //string colorScheme = null;
+            //string tbm = null;
+            //string udm = null;
+            //bool? noCache = null;
+            //string asDt = null;
+            //string asEpq = null;
+            //string asEq = null;
+            //string asLq = null;
+            //string asNlo = null;
+            //string asNhi = null;
+            //string asOq = null;
+            //string asQ = null;
+            //string asQdr = null;
+            //string asRq = null;
+            //string asSitesearch = null;
+            //var response = instance.GoogleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch);
             //Assert.IsType<Object>(response);
         }
 

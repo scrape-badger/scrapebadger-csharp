@@ -1470,7 +1470,7 @@ catch (ApiException e)
 
 <a id="googlegooglelightwebsearch"></a>
 # **GoogleGoogleLightWebSearch**
-> Object GoogleGoogleLightWebSearch (string q, string gl = null, string hl = null, int? num = null, int? start = null, string domain = null, string location = null, string uule = null, string lr = null, string tbs = null, string safe = null, int? filter = null, int? nfpr = null, string output = null)
+> Object GoogleGoogleLightWebSearch (string q, string gl = null, string hl = null, int? num = null, int? start = null, string domain = null, string location = null, string uule = null, string lr = null, string tbs = null, string safe = null, int? filter = null, int? nfpr = null, string output = null, string googleDomain = null, decimal? lat = null, decimal? lon = null, decimal? radius = null, string colorScheme = null, string tbm = null, string udm = null, bool? noCache = null, string asDt = null, string asEpq = null, string asEq = null, string asLq = null, string asNlo = null, string asNhi = null, string asOq = null, string asQ = null, string asQdr = null, string asRq = null, string asSitesearch = null, string device = null, string userAgent = null, string cr = null, string ludocid = null, string lsig = null, string kgmid = null, string si = null, string ibp = null, string uds = null)
 
 Google Light web search
 
@@ -1516,11 +1516,39 @@ namespace Example
             var filter = 56;  // int? |  (optional) 
             var nfpr = 0;  // int? | Disable auto-correction (optional)  (default to 0)
             var output = "json";  // string |  (optional)  (default to json)
+            var googleDomain = "googleDomain_example";  // string | Alias for domain; Google requests use google.com with country targeting. (optional) 
+            var lat = 8.14D;  // decimal? | Latitude; supply together with lon instead of location or uule. (optional) 
+            var lon = 8.14D;  // decimal? | Longitude; supply together with lat. (optional) 
+            var radius = 8.14D;  // decimal? | Location accuracy in meters; requires lat/lon or a named city with a known center. (optional) 
+            var colorScheme = "light";  // string | Google color scheme. (optional) 
+            var tbm = "isch";  // string | Google search type. Use output=html for verticals; dedicated APIs provide parsed vertical results. (optional) 
+            var udm = "udm_example";  // string | Google result filter: 14 web, 18 forums. Other verticals require output=html. (optional) 
+            var noCache = false;  // bool? | Bypass result caches and request a fresh Google fetch. (optional)  (default to false)
+            var asDt = "asDt_example";  // string | Site restriction mode: i includes, e excludes as_sitesearch. (optional) 
+            var asEpq = "asEpq_example";  // string | Exact phrase. (optional) 
+            var asEq = "asEq_example";  // string | Words to exclude. (optional) 
+            var asLq = "asLq_example";  // string | Find pages linking to this URL; availability depends on Google. (optional) 
+            var asNlo = "asNlo_example";  // string | Numeric range minimum. (optional) 
+            var asNhi = "asNhi_example";  // string | Numeric range maximum. (optional) 
+            var asOq = "asOq_example";  // string | Match any of these words. (optional) 
+            var asQ = "asQ_example";  // string | Additional query words. (optional) 
+            var asQdr = "asQdr_example";  // string | Time range, such as d, w, m or y1. (optional) 
+            var asRq = "asRq_example";  // string | Related URL; availability depends on Google. (optional) 
+            var asSitesearch = "asSitesearch_example";  // string | Restrict results to a site. (optional) 
+            var device = "device_example";  // string | Device target. (optional) 
+            var userAgent = "userAgent_example";  // string | Custom User-Agent. (optional) 
+            var cr = "cr_example";  // string | Country restrict. (optional) 
+            var ludocid = "ludocid_example";  // string | Place CID. (optional) 
+            var lsig = "lsig_example";  // string | Map view ID. (optional) 
+            var kgmid = "kgmid_example";  // string | Knowledge Graph entity ID. (optional) 
+            var si = "si_example";  // string | Cached Google parameters. (optional) 
+            var ibp = "ibp_example";  // string | Layout control. (optional) 
+            var uds = "uds_example";  // string | Google filter string. (optional) 
 
             try
             {
                 // Google Light web search
-                Object result = apiInstance.GoogleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output);
+                Object result = apiInstance.GoogleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1541,7 +1569,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Google Light web search
-    ApiResponse<Object> response = apiInstance.GoogleGoogleLightWebSearchWithHttpInfo(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output);
+    ApiResponse<Object> response = apiInstance.GoogleGoogleLightWebSearchWithHttpInfo(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1572,6 +1600,34 @@ catch (ApiException e)
 | **filter** | **int?** |  | [optional]  |
 | **nfpr** | **int?** | Disable auto-correction | [optional] [default to 0] |
 | **output** | **string** |  | [optional] [default to json] |
+| **googleDomain** | **string** | Alias for domain; Google requests use google.com with country targeting. | [optional]  |
+| **lat** | **decimal?** | Latitude; supply together with lon instead of location or uule. | [optional]  |
+| **lon** | **decimal?** | Longitude; supply together with lat. | [optional]  |
+| **radius** | **decimal?** | Location accuracy in meters; requires lat/lon or a named city with a known center. | [optional]  |
+| **colorScheme** | **string** | Google color scheme. | [optional]  |
+| **tbm** | **string** | Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. | [optional]  |
+| **udm** | **string** | Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. | [optional]  |
+| **noCache** | **bool?** | Bypass result caches and request a fresh Google fetch. | [optional] [default to false] |
+| **asDt** | **string** | Site restriction mode: i includes, e excludes as_sitesearch. | [optional]  |
+| **asEpq** | **string** | Exact phrase. | [optional]  |
+| **asEq** | **string** | Words to exclude. | [optional]  |
+| **asLq** | **string** | Find pages linking to this URL; availability depends on Google. | [optional]  |
+| **asNlo** | **string** | Numeric range minimum. | [optional]  |
+| **asNhi** | **string** | Numeric range maximum. | [optional]  |
+| **asOq** | **string** | Match any of these words. | [optional]  |
+| **asQ** | **string** | Additional query words. | [optional]  |
+| **asQdr** | **string** | Time range, such as d, w, m or y1. | [optional]  |
+| **asRq** | **string** | Related URL; availability depends on Google. | [optional]  |
+| **asSitesearch** | **string** | Restrict results to a site. | [optional]  |
+| **device** | **string** | Device target. | [optional]  |
+| **userAgent** | **string** | Custom User-Agent. | [optional]  |
+| **cr** | **string** | Country restrict. | [optional]  |
+| **ludocid** | **string** | Place CID. | [optional]  |
+| **lsig** | **string** | Map view ID. | [optional]  |
+| **kgmid** | **string** | Knowledge Graph entity ID. | [optional]  |
+| **si** | **string** | Cached Google parameters. | [optional]  |
+| **ibp** | **string** | Layout control. | [optional]  |
+| **uds** | **string** | Google filter string. | [optional]  |
 
 ### Return type
 
@@ -2003,7 +2059,7 @@ catch (ApiException e)
 
 <a id="googlegooglewebsearch"></a>
 # **GoogleGoogleWebSearch**
-> Object GoogleGoogleWebSearch (string q, string gl = null, string hl = null, int? num = null, int? start = null, string domain = null, string device = null, string userAgent = null, string output = null, string location = null, string lr = null, string tbs = null, string safe = null, string uule = null, int? filter = null, int? nfpr = null, string cr = null, string ludocid = null, string lsig = null, string kgmid = null, string si = null, string ibp = null, string uds = null, bool? aiOverview = null)
+> Object GoogleGoogleWebSearch (string q, string gl = null, string hl = null, int? num = null, int? start = null, string domain = null, string device = null, string userAgent = null, string output = null, string location = null, string lr = null, string tbs = null, string safe = null, string uule = null, int? filter = null, int? nfpr = null, string cr = null, string ludocid = null, string lsig = null, string kgmid = null, string si = null, string ibp = null, string uds = null, bool? aiOverview = null, string mode = null, string expandRelatedQuestions = null, string googleDomain = null, decimal? lat = null, decimal? lon = null, decimal? radius = null, string colorScheme = null, string tbm = null, string udm = null, bool? noCache = null, string asDt = null, string asEpq = null, string asEq = null, string asLq = null, string asNlo = null, string asNhi = null, string asOq = null, string asQ = null, string asQdr = null, string asRq = null, string asSitesearch = null)
 
 Google web search
 
@@ -2059,11 +2115,32 @@ namespace Example
             var ibp = "ibp_example";  // string | Layout control (optional) 
             var uds = "uds_example";  // string | Google filter string (optional) 
             var aiOverview = false;  // bool? | Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional)  (default to false)
+            var mode = "full";  // string |  (optional)  (default to full)
+            var expandRelatedQuestions = "expandRelatedQuestions_example";  // string | Open all People Also Ask answers (true) or the first N (0-99). (optional) 
+            var googleDomain = "googleDomain_example";  // string | Alias for domain; Google requests use google.com with country targeting. (optional) 
+            var lat = 8.14D;  // decimal? | Latitude; supply together with lon instead of location or uule. (optional) 
+            var lon = 8.14D;  // decimal? | Longitude; supply together with lat. (optional) 
+            var radius = 8.14D;  // decimal? | Location accuracy in meters; requires lat/lon or a named city with a known center. (optional) 
+            var colorScheme = "light";  // string | Google color scheme. (optional) 
+            var tbm = "isch";  // string | Google search type. Use output=html for verticals; dedicated APIs provide parsed vertical results. (optional) 
+            var udm = "udm_example";  // string | Google result filter: 14 web, 18 forums. Other verticals require output=html. (optional) 
+            var noCache = false;  // bool? | Bypass result caches and request a fresh Google fetch. (optional)  (default to false)
+            var asDt = "asDt_example";  // string | Site restriction mode: i includes, e excludes as_sitesearch. (optional) 
+            var asEpq = "asEpq_example";  // string | Exact phrase. (optional) 
+            var asEq = "asEq_example";  // string | Words to exclude. (optional) 
+            var asLq = "asLq_example";  // string | Find pages linking to this URL; availability depends on Google. (optional) 
+            var asNlo = "asNlo_example";  // string | Numeric range minimum. (optional) 
+            var asNhi = "asNhi_example";  // string | Numeric range maximum. (optional) 
+            var asOq = "asOq_example";  // string | Match any of these words. (optional) 
+            var asQ = "asQ_example";  // string | Additional query words. (optional) 
+            var asQdr = "asQdr_example";  // string | Time range, such as d, w, m or y1. (optional) 
+            var asRq = "asRq_example";  // string | Related URL; availability depends on Google. (optional) 
+            var asSitesearch = "asSitesearch_example";  // string | Restrict results to a site. (optional) 
 
             try
             {
                 // Google web search
-                Object result = apiInstance.GoogleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview);
+                Object result = apiInstance.GoogleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2084,7 +2161,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Google web search
-    ApiResponse<Object> response = apiInstance.GoogleGoogleWebSearchWithHttpInfo(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview);
+    ApiResponse<Object> response = apiInstance.GoogleGoogleWebSearchWithHttpInfo(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2125,6 +2202,27 @@ catch (ApiException e)
 | **ibp** | **string** | Layout control | [optional]  |
 | **uds** | **string** | Google filter string | [optional]  |
 | **aiOverview** | **bool?** | Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. | [optional] [default to false] |
+| **mode** | **string** |  | [optional] [default to full] |
+| **expandRelatedQuestions** | **string** | Open all People Also Ask answers (true) or the first N (0-99). | [optional]  |
+| **googleDomain** | **string** | Alias for domain; Google requests use google.com with country targeting. | [optional]  |
+| **lat** | **decimal?** | Latitude; supply together with lon instead of location or uule. | [optional]  |
+| **lon** | **decimal?** | Longitude; supply together with lat. | [optional]  |
+| **radius** | **decimal?** | Location accuracy in meters; requires lat/lon or a named city with a known center. | [optional]  |
+| **colorScheme** | **string** | Google color scheme. | [optional]  |
+| **tbm** | **string** | Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. | [optional]  |
+| **udm** | **string** | Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. | [optional]  |
+| **noCache** | **bool?** | Bypass result caches and request a fresh Google fetch. | [optional] [default to false] |
+| **asDt** | **string** | Site restriction mode: i includes, e excludes as_sitesearch. | [optional]  |
+| **asEpq** | **string** | Exact phrase. | [optional]  |
+| **asEq** | **string** | Words to exclude. | [optional]  |
+| **asLq** | **string** | Find pages linking to this URL; availability depends on Google. | [optional]  |
+| **asNlo** | **string** | Numeric range minimum. | [optional]  |
+| **asNhi** | **string** | Numeric range maximum. | [optional]  |
+| **asOq** | **string** | Match any of these words. | [optional]  |
+| **asQ** | **string** | Additional query words. | [optional]  |
+| **asQdr** | **string** | Time range, such as d, w, m or y1. | [optional]  |
+| **asRq** | **string** | Related URL; availability depends on Google. | [optional]  |
+| **asSitesearch** | **string** | Restrict results to a site. | [optional]  |
 
 ### Return type
 

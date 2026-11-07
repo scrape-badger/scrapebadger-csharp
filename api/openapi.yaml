@@ -11975,6 +11975,283 @@ paths:
           title: Output
           type: string
         style: form
+      - description: Alias for domain; Google requests use google.com with country
+          targeting.
+        explode: true
+        in: query
+        name: google_domain
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Latitude; supply together with lon instead of location or uule.
+        explode: true
+        in: query
+        name: lat
+        required: false
+        schema:
+          maximum: 90
+          minimum: -90
+          nullable: true
+          type: number
+        style: form
+      - description: Longitude; supply together with lat.
+        explode: true
+        in: query
+        name: lon
+        required: false
+        schema:
+          maximum: 180
+          minimum: -180
+          nullable: true
+          type: number
+        style: form
+      - description: Location accuracy in meters; requires lat/lon or a named city
+          with a known center.
+        explode: true
+        in: query
+        name: radius
+        required: false
+        schema:
+          maximum: 1000
+          minimum: 1
+          nullable: true
+          type: number
+        style: form
+      - description: Google color scheme.
+        explode: true
+        in: query
+        name: color_scheme
+        required: false
+        schema:
+          enum:
+          - light
+          - dark
+          nullable: true
+          type: string
+        style: form
+      - description: Google search type. Use output=html for verticals; dedicated
+          APIs provide parsed vertical results.
+        explode: true
+        in: query
+        name: tbm
+        required: false
+        schema:
+          enum:
+          - isch
+          - lcl
+          - vid
+          - nws
+          - shop
+          - pts
+          - bks
+          nullable: true
+          type: string
+        style: form
+      - description: "Google result filter: 14 web, 18 forums. Other verticals require\
+          \ output=html."
+        explode: true
+        in: query
+        name: udm
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[0-9]{1,3}$"
+          type: string
+        style: form
+      - description: Bypass result caches and request a fresh Google fetch.
+        explode: true
+        in: query
+        name: no_cache
+        required: false
+        schema:
+          default: false
+          description: Bypass result caches and request a fresh Google fetch.
+          title: No Cache
+          type: boolean
+        style: form
+      - description: "Site restriction mode: i includes, e excludes as_sitesearch."
+        explode: true
+        in: query
+        name: as_dt
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[ie]$"
+          type: string
+        style: form
+      - description: Exact phrase.
+        explode: true
+        in: query
+        name: as_epq
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Words to exclude.
+        explode: true
+        in: query
+        name: as_eq
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Find pages linking to this URL; availability depends on Google.
+        explode: true
+        in: query
+        name: as_lq
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Numeric range minimum.
+        explode: true
+        in: query
+        name: as_nlo
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Numeric range maximum.
+        explode: true
+        in: query
+        name: as_nhi
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Match any of these words.
+        explode: true
+        in: query
+        name: as_oq
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Additional query words.
+        explode: true
+        in: query
+        name: as_q
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "Time range, such as d, w, m or y1."
+        explode: true
+        in: query
+        name: as_qdr
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Related URL; availability depends on Google.
+        explode: true
+        in: query
+        name: as_rq
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Restrict results to a site.
+        explode: true
+        in: query
+        name: as_sitesearch
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Device target.
+        explode: true
+        in: query
+        name: device
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Custom User-Agent.
+        explode: true
+        in: query
+        name: user_agent
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Country restrict.
+        explode: true
+        in: query
+        name: cr
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Place CID.
+        explode: true
+        in: query
+        name: ludocid
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Map view ID.
+        explode: true
+        in: query
+        name: lsig
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Knowledge Graph entity ID.
+        explode: true
+        in: query
+        name: kgmid
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Cached Google parameters.
+        explode: true
+        in: query
+        name: si
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Layout control.
+        explode: true
+        in: query
+        name: ibp
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Google filter string.
+        explode: true
+        in: query
+        name: uds
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
       responses:
         "200":
           content:
@@ -13317,6 +13594,224 @@ paths:
             request price is unchanged.
           title: Ai Overview
           type: boolean
+        style: form
+      - explode: true
+        in: query
+        name: mode
+        required: false
+        schema:
+          default: full
+          enum:
+          - full
+          - fast
+          title: Mode
+          type: string
+        style: form
+      - description: Open all People Also Ask answers (true) or the first N (0-99).
+        explode: true
+        in: query
+        name: expand_related_questions
+        required: false
+        schema:
+          nullable: true
+          pattern: "^(true|false|[0-9]{1,2})$"
+          type: string
+        style: form
+      - description: Alias for domain; Google requests use google.com with country
+          targeting.
+        explode: true
+        in: query
+        name: google_domain
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Latitude; supply together with lon instead of location or uule.
+        explode: true
+        in: query
+        name: lat
+        required: false
+        schema:
+          maximum: 90
+          minimum: -90
+          nullable: true
+          type: number
+        style: form
+      - description: Longitude; supply together with lat.
+        explode: true
+        in: query
+        name: lon
+        required: false
+        schema:
+          maximum: 180
+          minimum: -180
+          nullable: true
+          type: number
+        style: form
+      - description: Location accuracy in meters; requires lat/lon or a named city
+          with a known center.
+        explode: true
+        in: query
+        name: radius
+        required: false
+        schema:
+          maximum: 1000
+          minimum: 1
+          nullable: true
+          type: number
+        style: form
+      - description: Google color scheme.
+        explode: true
+        in: query
+        name: color_scheme
+        required: false
+        schema:
+          enum:
+          - light
+          - dark
+          nullable: true
+          type: string
+        style: form
+      - description: Google search type. Use output=html for verticals; dedicated
+          APIs provide parsed vertical results.
+        explode: true
+        in: query
+        name: tbm
+        required: false
+        schema:
+          enum:
+          - isch
+          - lcl
+          - vid
+          - nws
+          - shop
+          - pts
+          - bks
+          nullable: true
+          type: string
+        style: form
+      - description: "Google result filter: 14 web, 18 forums. Other verticals require\
+          \ output=html."
+        explode: true
+        in: query
+        name: udm
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[0-9]{1,3}$"
+          type: string
+        style: form
+      - description: Bypass result caches and request a fresh Google fetch.
+        explode: true
+        in: query
+        name: no_cache
+        required: false
+        schema:
+          default: false
+          description: Bypass result caches and request a fresh Google fetch.
+          title: No Cache
+          type: boolean
+        style: form
+      - description: "Site restriction mode: i includes, e excludes as_sitesearch."
+        explode: true
+        in: query
+        name: as_dt
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[ie]$"
+          type: string
+        style: form
+      - description: Exact phrase.
+        explode: true
+        in: query
+        name: as_epq
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Words to exclude.
+        explode: true
+        in: query
+        name: as_eq
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Find pages linking to this URL; availability depends on Google.
+        explode: true
+        in: query
+        name: as_lq
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Numeric range minimum.
+        explode: true
+        in: query
+        name: as_nlo
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Numeric range maximum.
+        explode: true
+        in: query
+        name: as_nhi
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Match any of these words.
+        explode: true
+        in: query
+        name: as_oq
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Additional query words.
+        explode: true
+        in: query
+        name: as_q
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "Time range, such as d, w, m or y1."
+        explode: true
+        in: query
+        name: as_qdr
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Related URL; availability depends on Google.
+        explode: true
+        in: query
+        name: as_rq
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Restrict results to a site.
+        explode: true
+        in: query
+        name: as_sitesearch
+        required: false
+        schema:
+          nullable: true
+          type: string
         style: form
       responses:
         "200":
