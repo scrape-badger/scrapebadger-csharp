@@ -11975,6 +11975,36 @@ paths:
           title: Output
           type: string
         style: form
+      - description: Original query sent to Google. Defaults to q; an empty string
+          omits it.
+        explode: true
+        in: query
+        name: oq
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Google source identifier. Defaults to chrome; an empty string
+          omits it.
+        explode: true
+        in: query
+        name: sourceid
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Google input encoding hint. Defaults to UTF-8; an empty string
+          omits it.
+        explode: true
+        in: query
+        name: ie
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
       - description: Alias for domain; Google requests use google.com with country
           targeting.
         explode: true
@@ -12049,15 +12079,15 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: "Google result filter: 14 web, 18 forums. Other verticals require\
-          \ output=html."
+      - description: "Google result filter: web or 14 for web, 18 for forums. Other\
+          \ verticals require output=html."
         explode: true
         in: query
         name: udm
         required: false
         schema:
           nullable: true
-          pattern: "^[0-9]{1,3}$"
+          pattern: "^(web|[0-9]{1,3})$"
           type: string
         style: form
       - description: Bypass result caches and request a fresh Google fetch.
@@ -13617,6 +13647,36 @@ paths:
           pattern: "^(true|false|[0-9]{1,2})$"
           type: string
         style: form
+      - description: Original query sent to Google. Defaults to q; an empty string
+          omits it.
+        explode: true
+        in: query
+        name: oq
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Google source identifier. Defaults to chrome; an empty string
+          omits it.
+        explode: true
+        in: query
+        name: sourceid
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Google input encoding hint. Defaults to UTF-8; an empty string
+          omits it.
+        explode: true
+        in: query
+        name: ie
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
       - description: Alias for domain; Google requests use google.com with country
           targeting.
         explode: true
@@ -13691,15 +13751,15 @@ paths:
           nullable: true
           type: string
         style: form
-      - description: "Google result filter: 14 web, 18 forums. Other verticals require\
-          \ output=html."
+      - description: "Google result filter: web or 14 for web, 18 for forums. Other\
+          \ verticals require output=html."
         explode: true
         in: query
         name: udm
         required: false
         schema:
           nullable: true
-          pattern: "^[0-9]{1,3}$"
+          pattern: "^(web|[0-9]{1,3})$"
           type: string
         style: form
       - description: Bypass result caches and request a fresh Google fetch.

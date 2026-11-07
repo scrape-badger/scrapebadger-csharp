@@ -1470,7 +1470,7 @@ catch (ApiException e)
 
 <a id="googlegooglelightwebsearch"></a>
 # **GoogleGoogleLightWebSearch**
-> Object GoogleGoogleLightWebSearch (string q, string gl = null, string hl = null, int? num = null, int? start = null, string domain = null, string location = null, string uule = null, string lr = null, string tbs = null, string safe = null, int? filter = null, int? nfpr = null, string output = null, string googleDomain = null, decimal? lat = null, decimal? lon = null, decimal? radius = null, string colorScheme = null, string tbm = null, string udm = null, bool? noCache = null, string asDt = null, string asEpq = null, string asEq = null, string asLq = null, string asNlo = null, string asNhi = null, string asOq = null, string asQ = null, string asQdr = null, string asRq = null, string asSitesearch = null, string device = null, string userAgent = null, string cr = null, string ludocid = null, string lsig = null, string kgmid = null, string si = null, string ibp = null, string uds = null)
+> Object GoogleGoogleLightWebSearch (string q, string gl = null, string hl = null, int? num = null, int? start = null, string domain = null, string location = null, string uule = null, string lr = null, string tbs = null, string safe = null, int? filter = null, int? nfpr = null, string output = null, string oq = null, string sourceid = null, string ie = null, string googleDomain = null, decimal? lat = null, decimal? lon = null, decimal? radius = null, string colorScheme = null, string tbm = null, string udm = null, bool? noCache = null, string asDt = null, string asEpq = null, string asEq = null, string asLq = null, string asNlo = null, string asNhi = null, string asOq = null, string asQ = null, string asQdr = null, string asRq = null, string asSitesearch = null, string device = null, string userAgent = null, string cr = null, string ludocid = null, string lsig = null, string kgmid = null, string si = null, string ibp = null, string uds = null)
 
 Google Light web search
 
@@ -1516,13 +1516,16 @@ namespace Example
             var filter = 56;  // int? |  (optional) 
             var nfpr = 0;  // int? | Disable auto-correction (optional)  (default to 0)
             var output = "json";  // string |  (optional)  (default to json)
+            var oq = "oq_example";  // string | Original query sent to Google. Defaults to q; an empty string omits it. (optional) 
+            var sourceid = "sourceid_example";  // string | Google source identifier. Defaults to chrome; an empty string omits it. (optional) 
+            var ie = "ie_example";  // string | Google input encoding hint. Defaults to UTF-8; an empty string omits it. (optional) 
             var googleDomain = "googleDomain_example";  // string | Alias for domain; Google requests use google.com with country targeting. (optional) 
             var lat = 8.14D;  // decimal? | Latitude; supply together with lon instead of location or uule. (optional) 
             var lon = 8.14D;  // decimal? | Longitude; supply together with lat. (optional) 
             var radius = 8.14D;  // decimal? | Location accuracy in meters; requires lat/lon or a named city with a known center. (optional) 
             var colorScheme = "light";  // string | Google color scheme. (optional) 
             var tbm = "isch";  // string | Google search type. Use output=html for verticals; dedicated APIs provide parsed vertical results. (optional) 
-            var udm = "udm_example";  // string | Google result filter: 14 web, 18 forums. Other verticals require output=html. (optional) 
+            var udm = "udm_example";  // string | Google result filter: web or 14 for web, 18 for forums. Other verticals require output=html. (optional) 
             var noCache = false;  // bool? | Bypass result caches and request a fresh Google fetch. (optional)  (default to false)
             var asDt = "asDt_example";  // string | Site restriction mode: i includes, e excludes as_sitesearch. (optional) 
             var asEpq = "asEpq_example";  // string | Exact phrase. (optional) 
@@ -1548,7 +1551,7 @@ namespace Example
             try
             {
                 // Google Light web search
-                Object result = apiInstance.GoogleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds);
+                Object result = apiInstance.GoogleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1569,7 +1572,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Google Light web search
-    ApiResponse<Object> response = apiInstance.GoogleGoogleLightWebSearchWithHttpInfo(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds);
+    ApiResponse<Object> response = apiInstance.GoogleGoogleLightWebSearchWithHttpInfo(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1600,13 +1603,16 @@ catch (ApiException e)
 | **filter** | **int?** |  | [optional]  |
 | **nfpr** | **int?** | Disable auto-correction | [optional] [default to 0] |
 | **output** | **string** |  | [optional] [default to json] |
+| **oq** | **string** | Original query sent to Google. Defaults to q; an empty string omits it. | [optional]  |
+| **sourceid** | **string** | Google source identifier. Defaults to chrome; an empty string omits it. | [optional]  |
+| **ie** | **string** | Google input encoding hint. Defaults to UTF-8; an empty string omits it. | [optional]  |
 | **googleDomain** | **string** | Alias for domain; Google requests use google.com with country targeting. | [optional]  |
 | **lat** | **decimal?** | Latitude; supply together with lon instead of location or uule. | [optional]  |
 | **lon** | **decimal?** | Longitude; supply together with lat. | [optional]  |
 | **radius** | **decimal?** | Location accuracy in meters; requires lat/lon or a named city with a known center. | [optional]  |
 | **colorScheme** | **string** | Google color scheme. | [optional]  |
 | **tbm** | **string** | Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. | [optional]  |
-| **udm** | **string** | Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. | [optional]  |
+| **udm** | **string** | Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. | [optional]  |
 | **noCache** | **bool?** | Bypass result caches and request a fresh Google fetch. | [optional] [default to false] |
 | **asDt** | **string** | Site restriction mode: i includes, e excludes as_sitesearch. | [optional]  |
 | **asEpq** | **string** | Exact phrase. | [optional]  |
@@ -2059,7 +2065,7 @@ catch (ApiException e)
 
 <a id="googlegooglewebsearch"></a>
 # **GoogleGoogleWebSearch**
-> Object GoogleGoogleWebSearch (string q, string gl = null, string hl = null, int? num = null, int? start = null, string domain = null, string device = null, string userAgent = null, string output = null, string location = null, string lr = null, string tbs = null, string safe = null, string uule = null, int? filter = null, int? nfpr = null, string cr = null, string ludocid = null, string lsig = null, string kgmid = null, string si = null, string ibp = null, string uds = null, bool? aiOverview = null, string mode = null, string expandRelatedQuestions = null, string googleDomain = null, decimal? lat = null, decimal? lon = null, decimal? radius = null, string colorScheme = null, string tbm = null, string udm = null, bool? noCache = null, string asDt = null, string asEpq = null, string asEq = null, string asLq = null, string asNlo = null, string asNhi = null, string asOq = null, string asQ = null, string asQdr = null, string asRq = null, string asSitesearch = null)
+> Object GoogleGoogleWebSearch (string q, string gl = null, string hl = null, int? num = null, int? start = null, string domain = null, string device = null, string userAgent = null, string output = null, string location = null, string lr = null, string tbs = null, string safe = null, string uule = null, int? filter = null, int? nfpr = null, string cr = null, string ludocid = null, string lsig = null, string kgmid = null, string si = null, string ibp = null, string uds = null, bool? aiOverview = null, string mode = null, string expandRelatedQuestions = null, string oq = null, string sourceid = null, string ie = null, string googleDomain = null, decimal? lat = null, decimal? lon = null, decimal? radius = null, string colorScheme = null, string tbm = null, string udm = null, bool? noCache = null, string asDt = null, string asEpq = null, string asEq = null, string asLq = null, string asNlo = null, string asNhi = null, string asOq = null, string asQ = null, string asQdr = null, string asRq = null, string asSitesearch = null)
 
 Google web search
 
@@ -2117,13 +2123,16 @@ namespace Example
             var aiOverview = false;  // bool? | Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional)  (default to false)
             var mode = "full";  // string |  (optional)  (default to full)
             var expandRelatedQuestions = "expandRelatedQuestions_example";  // string | Open all People Also Ask answers (true) or the first N (0-99). (optional) 
+            var oq = "oq_example";  // string | Original query sent to Google. Defaults to q; an empty string omits it. (optional) 
+            var sourceid = "sourceid_example";  // string | Google source identifier. Defaults to chrome; an empty string omits it. (optional) 
+            var ie = "ie_example";  // string | Google input encoding hint. Defaults to UTF-8; an empty string omits it. (optional) 
             var googleDomain = "googleDomain_example";  // string | Alias for domain; Google requests use google.com with country targeting. (optional) 
             var lat = 8.14D;  // decimal? | Latitude; supply together with lon instead of location or uule. (optional) 
             var lon = 8.14D;  // decimal? | Longitude; supply together with lat. (optional) 
             var radius = 8.14D;  // decimal? | Location accuracy in meters; requires lat/lon or a named city with a known center. (optional) 
             var colorScheme = "light";  // string | Google color scheme. (optional) 
             var tbm = "isch";  // string | Google search type. Use output=html for verticals; dedicated APIs provide parsed vertical results. (optional) 
-            var udm = "udm_example";  // string | Google result filter: 14 web, 18 forums. Other verticals require output=html. (optional) 
+            var udm = "udm_example";  // string | Google result filter: web or 14 for web, 18 for forums. Other verticals require output=html. (optional) 
             var noCache = false;  // bool? | Bypass result caches and request a fresh Google fetch. (optional)  (default to false)
             var asDt = "asDt_example";  // string | Site restriction mode: i includes, e excludes as_sitesearch. (optional) 
             var asEpq = "asEpq_example";  // string | Exact phrase. (optional) 
@@ -2140,7 +2149,7 @@ namespace Example
             try
             {
                 // Google web search
-                Object result = apiInstance.GoogleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch);
+                Object result = apiInstance.GoogleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2161,7 +2170,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Google web search
-    ApiResponse<Object> response = apiInstance.GoogleGoogleWebSearchWithHttpInfo(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch);
+    ApiResponse<Object> response = apiInstance.GoogleGoogleWebSearchWithHttpInfo(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2204,13 +2213,16 @@ catch (ApiException e)
 | **aiOverview** | **bool?** | Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. | [optional] [default to false] |
 | **mode** | **string** |  | [optional] [default to full] |
 | **expandRelatedQuestions** | **string** | Open all People Also Ask answers (true) or the first N (0-99). | [optional]  |
+| **oq** | **string** | Original query sent to Google. Defaults to q; an empty string omits it. | [optional]  |
+| **sourceid** | **string** | Google source identifier. Defaults to chrome; an empty string omits it. | [optional]  |
+| **ie** | **string** | Google input encoding hint. Defaults to UTF-8; an empty string omits it. | [optional]  |
 | **googleDomain** | **string** | Alias for domain; Google requests use google.com with country targeting. | [optional]  |
 | **lat** | **decimal?** | Latitude; supply together with lon instead of location or uule. | [optional]  |
 | **lon** | **decimal?** | Longitude; supply together with lat. | [optional]  |
 | **radius** | **decimal?** | Location accuracy in meters; requires lat/lon or a named city with a known center. | [optional]  |
 | **colorScheme** | **string** | Google color scheme. | [optional]  |
 | **tbm** | **string** | Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. | [optional]  |
-| **udm** | **string** | Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. | [optional]  |
+| **udm** | **string** | Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. | [optional]  |
 | **noCache** | **bool?** | Bypass result caches and request a fresh Google fetch. | [optional] [default to false] |
 | **asDt** | **string** | Site restriction mode: i includes, e excludes as_sitesearch. | [optional]  |
 | **asEpq** | **string** | Exact phrase. | [optional]  |

@@ -427,13 +427,16 @@ namespace ScrapeBadger.Api
         /// <param name="filter"> (optional)</param>
         /// <param name="nfpr">Disable auto-correction (optional, default to 0)</param>
         /// <param name="output"> (optional, default to json)</param>
+        /// <param name="oq">Original query sent to Google. Defaults to q; an empty string omits it. (optional)</param>
+        /// <param name="sourceid">Google source identifier. Defaults to chrome; an empty string omits it. (optional)</param>
+        /// <param name="ie">Google input encoding hint. Defaults to UTF-8; an empty string omits it. (optional)</param>
         /// <param name="googleDomain">Alias for domain; Google requests use google.com with country targeting. (optional)</param>
         /// <param name="lat">Latitude; supply together with lon instead of location or uule. (optional)</param>
         /// <param name="lon">Longitude; supply together with lat. (optional)</param>
         /// <param name="radius">Location accuracy in meters; requires lat/lon or a named city with a known center. (optional)</param>
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
-        /// <param name="udm">Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. (optional)</param>
+        /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
         /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
@@ -456,7 +459,7 @@ namespace ScrapeBadger.Api
         /// <param name="ibp">Layout control. (optional)</param>
         /// <param name="uds">Google filter string. (optional)</param>
         /// <returns>Object</returns>
-        Object GoogleGoogleLightWebSearch(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string location = default(string), string uule = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), int? filter = default(int?), int? nfpr = default(int?), string output = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string), string device = default(string), string userAgent = default(string), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string));
+        Object GoogleGoogleLightWebSearch(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string location = default(string), string uule = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), int? filter = default(int?), int? nfpr = default(int?), string output = default(string), string oq = default(string), string sourceid = default(string), string ie = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string), string device = default(string), string userAgent = default(string), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string));
 
         /// <summary>
         /// Google Light web search
@@ -479,13 +482,16 @@ namespace ScrapeBadger.Api
         /// <param name="filter"> (optional)</param>
         /// <param name="nfpr">Disable auto-correction (optional, default to 0)</param>
         /// <param name="output"> (optional, default to json)</param>
+        /// <param name="oq">Original query sent to Google. Defaults to q; an empty string omits it. (optional)</param>
+        /// <param name="sourceid">Google source identifier. Defaults to chrome; an empty string omits it. (optional)</param>
+        /// <param name="ie">Google input encoding hint. Defaults to UTF-8; an empty string omits it. (optional)</param>
         /// <param name="googleDomain">Alias for domain; Google requests use google.com with country targeting. (optional)</param>
         /// <param name="lat">Latitude; supply together with lon instead of location or uule. (optional)</param>
         /// <param name="lon">Longitude; supply together with lat. (optional)</param>
         /// <param name="radius">Location accuracy in meters; requires lat/lon or a named city with a known center. (optional)</param>
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
-        /// <param name="udm">Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. (optional)</param>
+        /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
         /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
@@ -508,7 +514,7 @@ namespace ScrapeBadger.Api
         /// <param name="ibp">Layout control. (optional)</param>
         /// <param name="uds">Google filter string. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> GoogleGoogleLightWebSearchWithHttpInfo(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string location = default(string), string uule = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), int? filter = default(int?), int? nfpr = default(int?), string output = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string), string device = default(string), string userAgent = default(string), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string));
+        ApiResponse<Object> GoogleGoogleLightWebSearchWithHttpInfo(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string location = default(string), string uule = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), int? filter = default(int?), int? nfpr = default(int?), string output = default(string), string oq = default(string), string sourceid = default(string), string ie = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string), string device = default(string), string userAgent = default(string), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string));
         /// <summary>
         /// Google scraper health check
         /// </summary>
@@ -636,13 +642,16 @@ namespace ScrapeBadger.Api
         /// <param name="aiOverview">Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional, default to false)</param>
         /// <param name="mode"> (optional, default to full)</param>
         /// <param name="expandRelatedQuestions">Open all People Also Ask answers (true) or the first N (0-99). (optional)</param>
+        /// <param name="oq">Original query sent to Google. Defaults to q; an empty string omits it. (optional)</param>
+        /// <param name="sourceid">Google source identifier. Defaults to chrome; an empty string omits it. (optional)</param>
+        /// <param name="ie">Google input encoding hint. Defaults to UTF-8; an empty string omits it. (optional)</param>
         /// <param name="googleDomain">Alias for domain; Google requests use google.com with country targeting. (optional)</param>
         /// <param name="lat">Latitude; supply together with lon instead of location or uule. (optional)</param>
         /// <param name="lon">Longitude; supply together with lat. (optional)</param>
         /// <param name="radius">Location accuracy in meters; requires lat/lon or a named city with a known center. (optional)</param>
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
-        /// <param name="udm">Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. (optional)</param>
+        /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
         /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
@@ -656,7 +665,7 @@ namespace ScrapeBadger.Api
         /// <param name="asRq">Related URL; availability depends on Google. (optional)</param>
         /// <param name="asSitesearch">Restrict results to a site. (optional)</param>
         /// <returns>Object</returns>
-        Object GoogleGoogleWebSearch(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string device = default(string), string userAgent = default(string), string output = default(string), string location = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), string uule = default(string), int? filter = default(int?), int? nfpr = default(int?), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), bool? aiOverview = default(bool?), string mode = default(string), string expandRelatedQuestions = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string));
+        Object GoogleGoogleWebSearch(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string device = default(string), string userAgent = default(string), string output = default(string), string location = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), string uule = default(string), int? filter = default(int?), int? nfpr = default(int?), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), bool? aiOverview = default(bool?), string mode = default(string), string expandRelatedQuestions = default(string), string oq = default(string), string sourceid = default(string), string ie = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string));
 
         /// <summary>
         /// Google web search
@@ -691,13 +700,16 @@ namespace ScrapeBadger.Api
         /// <param name="aiOverview">Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional, default to false)</param>
         /// <param name="mode"> (optional, default to full)</param>
         /// <param name="expandRelatedQuestions">Open all People Also Ask answers (true) or the first N (0-99). (optional)</param>
+        /// <param name="oq">Original query sent to Google. Defaults to q; an empty string omits it. (optional)</param>
+        /// <param name="sourceid">Google source identifier. Defaults to chrome; an empty string omits it. (optional)</param>
+        /// <param name="ie">Google input encoding hint. Defaults to UTF-8; an empty string omits it. (optional)</param>
         /// <param name="googleDomain">Alias for domain; Google requests use google.com with country targeting. (optional)</param>
         /// <param name="lat">Latitude; supply together with lon instead of location or uule. (optional)</param>
         /// <param name="lon">Longitude; supply together with lat. (optional)</param>
         /// <param name="radius">Location accuracy in meters; requires lat/lon or a named city with a known center. (optional)</param>
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
-        /// <param name="udm">Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. (optional)</param>
+        /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
         /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
@@ -711,7 +723,7 @@ namespace ScrapeBadger.Api
         /// <param name="asRq">Related URL; availability depends on Google. (optional)</param>
         /// <param name="asSitesearch">Restrict results to a site. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> GoogleGoogleWebSearchWithHttpInfo(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string device = default(string), string userAgent = default(string), string output = default(string), string location = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), string uule = default(string), int? filter = default(int?), int? nfpr = default(int?), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), bool? aiOverview = default(bool?), string mode = default(string), string expandRelatedQuestions = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string));
+        ApiResponse<Object> GoogleGoogleWebSearchWithHttpInfo(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string device = default(string), string userAgent = default(string), string output = default(string), string location = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), string uule = default(string), int? filter = default(int?), int? nfpr = default(int?), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), bool? aiOverview = default(bool?), string mode = default(string), string expandRelatedQuestions = default(string), string oq = default(string), string sourceid = default(string), string ie = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string));
         /// <summary>
         /// Hotel details
         /// </summary>
@@ -1716,13 +1728,16 @@ namespace ScrapeBadger.Api
         /// <param name="filter"> (optional)</param>
         /// <param name="nfpr">Disable auto-correction (optional, default to 0)</param>
         /// <param name="output"> (optional, default to json)</param>
+        /// <param name="oq">Original query sent to Google. Defaults to q; an empty string omits it. (optional)</param>
+        /// <param name="sourceid">Google source identifier. Defaults to chrome; an empty string omits it. (optional)</param>
+        /// <param name="ie">Google input encoding hint. Defaults to UTF-8; an empty string omits it. (optional)</param>
         /// <param name="googleDomain">Alias for domain; Google requests use google.com with country targeting. (optional)</param>
         /// <param name="lat">Latitude; supply together with lon instead of location or uule. (optional)</param>
         /// <param name="lon">Longitude; supply together with lat. (optional)</param>
         /// <param name="radius">Location accuracy in meters; requires lat/lon or a named city with a known center. (optional)</param>
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
-        /// <param name="udm">Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. (optional)</param>
+        /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
         /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
@@ -1746,7 +1761,7 @@ namespace ScrapeBadger.Api
         /// <param name="uds">Google filter string. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> GoogleGoogleLightWebSearchAsync(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string location = default(string), string uule = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), int? filter = default(int?), int? nfpr = default(int?), string output = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string), string device = default(string), string userAgent = default(string), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> GoogleGoogleLightWebSearchAsync(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string location = default(string), string uule = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), int? filter = default(int?), int? nfpr = default(int?), string output = default(string), string oq = default(string), string sourceid = default(string), string ie = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string), string device = default(string), string userAgent = default(string), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Google Light web search
@@ -1769,13 +1784,16 @@ namespace ScrapeBadger.Api
         /// <param name="filter"> (optional)</param>
         /// <param name="nfpr">Disable auto-correction (optional, default to 0)</param>
         /// <param name="output"> (optional, default to json)</param>
+        /// <param name="oq">Original query sent to Google. Defaults to q; an empty string omits it. (optional)</param>
+        /// <param name="sourceid">Google source identifier. Defaults to chrome; an empty string omits it. (optional)</param>
+        /// <param name="ie">Google input encoding hint. Defaults to UTF-8; an empty string omits it. (optional)</param>
         /// <param name="googleDomain">Alias for domain; Google requests use google.com with country targeting. (optional)</param>
         /// <param name="lat">Latitude; supply together with lon instead of location or uule. (optional)</param>
         /// <param name="lon">Longitude; supply together with lat. (optional)</param>
         /// <param name="radius">Location accuracy in meters; requires lat/lon or a named city with a known center. (optional)</param>
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
-        /// <param name="udm">Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. (optional)</param>
+        /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
         /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
@@ -1799,7 +1817,7 @@ namespace ScrapeBadger.Api
         /// <param name="uds">Google filter string. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GoogleGoogleLightWebSearchWithHttpInfoAsync(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string location = default(string), string uule = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), int? filter = default(int?), int? nfpr = default(int?), string output = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string), string device = default(string), string userAgent = default(string), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> GoogleGoogleLightWebSearchWithHttpInfoAsync(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string location = default(string), string uule = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), int? filter = default(int?), int? nfpr = default(int?), string output = default(string), string oq = default(string), string sourceid = default(string), string ie = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string), string device = default(string), string userAgent = default(string), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Google scraper health check
         /// </summary>
@@ -1935,13 +1953,16 @@ namespace ScrapeBadger.Api
         /// <param name="aiOverview">Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional, default to false)</param>
         /// <param name="mode"> (optional, default to full)</param>
         /// <param name="expandRelatedQuestions">Open all People Also Ask answers (true) or the first N (0-99). (optional)</param>
+        /// <param name="oq">Original query sent to Google. Defaults to q; an empty string omits it. (optional)</param>
+        /// <param name="sourceid">Google source identifier. Defaults to chrome; an empty string omits it. (optional)</param>
+        /// <param name="ie">Google input encoding hint. Defaults to UTF-8; an empty string omits it. (optional)</param>
         /// <param name="googleDomain">Alias for domain; Google requests use google.com with country targeting. (optional)</param>
         /// <param name="lat">Latitude; supply together with lon instead of location or uule. (optional)</param>
         /// <param name="lon">Longitude; supply together with lat. (optional)</param>
         /// <param name="radius">Location accuracy in meters; requires lat/lon or a named city with a known center. (optional)</param>
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
-        /// <param name="udm">Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. (optional)</param>
+        /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
         /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
@@ -1956,7 +1977,7 @@ namespace ScrapeBadger.Api
         /// <param name="asSitesearch">Restrict results to a site. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> GoogleGoogleWebSearchAsync(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string device = default(string), string userAgent = default(string), string output = default(string), string location = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), string uule = default(string), int? filter = default(int?), int? nfpr = default(int?), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), bool? aiOverview = default(bool?), string mode = default(string), string expandRelatedQuestions = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> GoogleGoogleWebSearchAsync(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string device = default(string), string userAgent = default(string), string output = default(string), string location = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), string uule = default(string), int? filter = default(int?), int? nfpr = default(int?), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), bool? aiOverview = default(bool?), string mode = default(string), string expandRelatedQuestions = default(string), string oq = default(string), string sourceid = default(string), string ie = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Google web search
@@ -1991,13 +2012,16 @@ namespace ScrapeBadger.Api
         /// <param name="aiOverview">Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional, default to false)</param>
         /// <param name="mode"> (optional, default to full)</param>
         /// <param name="expandRelatedQuestions">Open all People Also Ask answers (true) or the first N (0-99). (optional)</param>
+        /// <param name="oq">Original query sent to Google. Defaults to q; an empty string omits it. (optional)</param>
+        /// <param name="sourceid">Google source identifier. Defaults to chrome; an empty string omits it. (optional)</param>
+        /// <param name="ie">Google input encoding hint. Defaults to UTF-8; an empty string omits it. (optional)</param>
         /// <param name="googleDomain">Alias for domain; Google requests use google.com with country targeting. (optional)</param>
         /// <param name="lat">Latitude; supply together with lon instead of location or uule. (optional)</param>
         /// <param name="lon">Longitude; supply together with lat. (optional)</param>
         /// <param name="radius">Location accuracy in meters; requires lat/lon or a named city with a known center. (optional)</param>
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
-        /// <param name="udm">Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. (optional)</param>
+        /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
         /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
@@ -2012,7 +2036,7 @@ namespace ScrapeBadger.Api
         /// <param name="asSitesearch">Restrict results to a site. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GoogleGoogleWebSearchWithHttpInfoAsync(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string device = default(string), string userAgent = default(string), string output = default(string), string location = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), string uule = default(string), int? filter = default(int?), int? nfpr = default(int?), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), bool? aiOverview = default(bool?), string mode = default(string), string expandRelatedQuestions = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> GoogleGoogleWebSearchWithHttpInfoAsync(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string device = default(string), string userAgent = default(string), string output = default(string), string location = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), string uule = default(string), int? filter = default(int?), int? nfpr = default(int?), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), bool? aiOverview = default(bool?), string mode = default(string), string expandRelatedQuestions = default(string), string oq = default(string), string sourceid = default(string), string ie = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Hotel details
         /// </summary>
@@ -5226,13 +5250,16 @@ namespace ScrapeBadger.Api
         /// <param name="filter"> (optional)</param>
         /// <param name="nfpr">Disable auto-correction (optional, default to 0)</param>
         /// <param name="output"> (optional, default to json)</param>
+        /// <param name="oq">Original query sent to Google. Defaults to q; an empty string omits it. (optional)</param>
+        /// <param name="sourceid">Google source identifier. Defaults to chrome; an empty string omits it. (optional)</param>
+        /// <param name="ie">Google input encoding hint. Defaults to UTF-8; an empty string omits it. (optional)</param>
         /// <param name="googleDomain">Alias for domain; Google requests use google.com with country targeting. (optional)</param>
         /// <param name="lat">Latitude; supply together with lon instead of location or uule. (optional)</param>
         /// <param name="lon">Longitude; supply together with lat. (optional)</param>
         /// <param name="radius">Location accuracy in meters; requires lat/lon or a named city with a known center. (optional)</param>
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
-        /// <param name="udm">Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. (optional)</param>
+        /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
         /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
@@ -5255,9 +5282,9 @@ namespace ScrapeBadger.Api
         /// <param name="ibp">Layout control. (optional)</param>
         /// <param name="uds">Google filter string. (optional)</param>
         /// <returns>Object</returns>
-        public Object GoogleGoogleLightWebSearch(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string location = default(string), string uule = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), int? filter = default(int?), int? nfpr = default(int?), string output = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string), string device = default(string), string userAgent = default(string), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string))
+        public Object GoogleGoogleLightWebSearch(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string location = default(string), string uule = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), int? filter = default(int?), int? nfpr = default(int?), string output = default(string), string oq = default(string), string sourceid = default(string), string ie = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string), string device = default(string), string userAgent = default(string), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GoogleGoogleLightWebSearchWithHttpInfo(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GoogleGoogleLightWebSearchWithHttpInfo(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds);
             return localVarResponse.Data;
         }
 
@@ -5279,13 +5306,16 @@ namespace ScrapeBadger.Api
         /// <param name="filter"> (optional)</param>
         /// <param name="nfpr">Disable auto-correction (optional, default to 0)</param>
         /// <param name="output"> (optional, default to json)</param>
+        /// <param name="oq">Original query sent to Google. Defaults to q; an empty string omits it. (optional)</param>
+        /// <param name="sourceid">Google source identifier. Defaults to chrome; an empty string omits it. (optional)</param>
+        /// <param name="ie">Google input encoding hint. Defaults to UTF-8; an empty string omits it. (optional)</param>
         /// <param name="googleDomain">Alias for domain; Google requests use google.com with country targeting. (optional)</param>
         /// <param name="lat">Latitude; supply together with lon instead of location or uule. (optional)</param>
         /// <param name="lon">Longitude; supply together with lat. (optional)</param>
         /// <param name="radius">Location accuracy in meters; requires lat/lon or a named city with a known center. (optional)</param>
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
-        /// <param name="udm">Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. (optional)</param>
+        /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
         /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
@@ -5308,7 +5338,7 @@ namespace ScrapeBadger.Api
         /// <param name="ibp">Layout control. (optional)</param>
         /// <param name="uds">Google filter string. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> GoogleGoogleLightWebSearchWithHttpInfo(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string location = default(string), string uule = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), int? filter = default(int?), int? nfpr = default(int?), string output = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string), string device = default(string), string userAgent = default(string), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string))
+        public ScrapeBadger.Client.ApiResponse<Object> GoogleGoogleLightWebSearchWithHttpInfo(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string location = default(string), string uule = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), int? filter = default(int?), int? nfpr = default(int?), string output = default(string), string oq = default(string), string sourceid = default(string), string ie = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string), string device = default(string), string userAgent = default(string), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string))
         {
             // verify the required parameter 'q' is set
             if (q == null)
@@ -5382,6 +5412,18 @@ namespace ScrapeBadger.Api
             if (output != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "output", output));
+            }
+            if (oq != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "oq", oq));
+            }
+            if (sourceid != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "sourceid", sourceid));
+            }
+            if (ie != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "ie", ie));
             }
             if (googleDomain != null)
             {
@@ -5532,13 +5574,16 @@ namespace ScrapeBadger.Api
         /// <param name="filter"> (optional)</param>
         /// <param name="nfpr">Disable auto-correction (optional, default to 0)</param>
         /// <param name="output"> (optional, default to json)</param>
+        /// <param name="oq">Original query sent to Google. Defaults to q; an empty string omits it. (optional)</param>
+        /// <param name="sourceid">Google source identifier. Defaults to chrome; an empty string omits it. (optional)</param>
+        /// <param name="ie">Google input encoding hint. Defaults to UTF-8; an empty string omits it. (optional)</param>
         /// <param name="googleDomain">Alias for domain; Google requests use google.com with country targeting. (optional)</param>
         /// <param name="lat">Latitude; supply together with lon instead of location or uule. (optional)</param>
         /// <param name="lon">Longitude; supply together with lat. (optional)</param>
         /// <param name="radius">Location accuracy in meters; requires lat/lon or a named city with a known center. (optional)</param>
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
-        /// <param name="udm">Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. (optional)</param>
+        /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
         /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
@@ -5562,9 +5607,9 @@ namespace ScrapeBadger.Api
         /// <param name="uds">Google filter string. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> GoogleGoogleLightWebSearchAsync(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string location = default(string), string uule = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), int? filter = default(int?), int? nfpr = default(int?), string output = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string), string device = default(string), string userAgent = default(string), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> GoogleGoogleLightWebSearchAsync(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string location = default(string), string uule = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), int? filter = default(int?), int? nfpr = default(int?), string output = default(string), string oq = default(string), string sourceid = default(string), string ie = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string), string device = default(string), string userAgent = default(string), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GoogleGoogleLightWebSearchWithHttpInfoAsync(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GoogleGoogleLightWebSearchWithHttpInfoAsync(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5586,13 +5631,16 @@ namespace ScrapeBadger.Api
         /// <param name="filter"> (optional)</param>
         /// <param name="nfpr">Disable auto-correction (optional, default to 0)</param>
         /// <param name="output"> (optional, default to json)</param>
+        /// <param name="oq">Original query sent to Google. Defaults to q; an empty string omits it. (optional)</param>
+        /// <param name="sourceid">Google source identifier. Defaults to chrome; an empty string omits it. (optional)</param>
+        /// <param name="ie">Google input encoding hint. Defaults to UTF-8; an empty string omits it. (optional)</param>
         /// <param name="googleDomain">Alias for domain; Google requests use google.com with country targeting. (optional)</param>
         /// <param name="lat">Latitude; supply together with lon instead of location or uule. (optional)</param>
         /// <param name="lon">Longitude; supply together with lat. (optional)</param>
         /// <param name="radius">Location accuracy in meters; requires lat/lon or a named city with a known center. (optional)</param>
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
-        /// <param name="udm">Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. (optional)</param>
+        /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
         /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
@@ -5616,7 +5664,7 @@ namespace ScrapeBadger.Api
         /// <param name="uds">Google filter string. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GoogleGoogleLightWebSearchWithHttpInfoAsync(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string location = default(string), string uule = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), int? filter = default(int?), int? nfpr = default(int?), string output = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string), string device = default(string), string userAgent = default(string), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GoogleGoogleLightWebSearchWithHttpInfoAsync(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string location = default(string), string uule = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), int? filter = default(int?), int? nfpr = default(int?), string output = default(string), string oq = default(string), string sourceid = default(string), string ie = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string), string device = default(string), string userAgent = default(string), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'q' is set
             if (q == null)
@@ -5692,6 +5740,18 @@ namespace ScrapeBadger.Api
             if (output != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "output", output));
+            }
+            if (oq != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "oq", oq));
+            }
+            if (sourceid != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "sourceid", sourceid));
+            }
+            if (ie != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "ie", ie));
             }
             if (googleDomain != null)
             {
@@ -6411,13 +6471,16 @@ namespace ScrapeBadger.Api
         /// <param name="aiOverview">Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional, default to false)</param>
         /// <param name="mode"> (optional, default to full)</param>
         /// <param name="expandRelatedQuestions">Open all People Also Ask answers (true) or the first N (0-99). (optional)</param>
+        /// <param name="oq">Original query sent to Google. Defaults to q; an empty string omits it. (optional)</param>
+        /// <param name="sourceid">Google source identifier. Defaults to chrome; an empty string omits it. (optional)</param>
+        /// <param name="ie">Google input encoding hint. Defaults to UTF-8; an empty string omits it. (optional)</param>
         /// <param name="googleDomain">Alias for domain; Google requests use google.com with country targeting. (optional)</param>
         /// <param name="lat">Latitude; supply together with lon instead of location or uule. (optional)</param>
         /// <param name="lon">Longitude; supply together with lat. (optional)</param>
         /// <param name="radius">Location accuracy in meters; requires lat/lon or a named city with a known center. (optional)</param>
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
-        /// <param name="udm">Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. (optional)</param>
+        /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
         /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
@@ -6431,9 +6494,9 @@ namespace ScrapeBadger.Api
         /// <param name="asRq">Related URL; availability depends on Google. (optional)</param>
         /// <param name="asSitesearch">Restrict results to a site. (optional)</param>
         /// <returns>Object</returns>
-        public Object GoogleGoogleWebSearch(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string device = default(string), string userAgent = default(string), string output = default(string), string location = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), string uule = default(string), int? filter = default(int?), int? nfpr = default(int?), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), bool? aiOverview = default(bool?), string mode = default(string), string expandRelatedQuestions = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string))
+        public Object GoogleGoogleWebSearch(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string device = default(string), string userAgent = default(string), string output = default(string), string location = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), string uule = default(string), int? filter = default(int?), int? nfpr = default(int?), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), bool? aiOverview = default(bool?), string mode = default(string), string expandRelatedQuestions = default(string), string oq = default(string), string sourceid = default(string), string ie = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GoogleGoogleWebSearchWithHttpInfo(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GoogleGoogleWebSearchWithHttpInfo(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch);
             return localVarResponse.Data;
         }
 
@@ -6467,13 +6530,16 @@ namespace ScrapeBadger.Api
         /// <param name="aiOverview">Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional, default to false)</param>
         /// <param name="mode"> (optional, default to full)</param>
         /// <param name="expandRelatedQuestions">Open all People Also Ask answers (true) or the first N (0-99). (optional)</param>
+        /// <param name="oq">Original query sent to Google. Defaults to q; an empty string omits it. (optional)</param>
+        /// <param name="sourceid">Google source identifier. Defaults to chrome; an empty string omits it. (optional)</param>
+        /// <param name="ie">Google input encoding hint. Defaults to UTF-8; an empty string omits it. (optional)</param>
         /// <param name="googleDomain">Alias for domain; Google requests use google.com with country targeting. (optional)</param>
         /// <param name="lat">Latitude; supply together with lon instead of location or uule. (optional)</param>
         /// <param name="lon">Longitude; supply together with lat. (optional)</param>
         /// <param name="radius">Location accuracy in meters; requires lat/lon or a named city with a known center. (optional)</param>
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
-        /// <param name="udm">Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. (optional)</param>
+        /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
         /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
@@ -6487,7 +6553,7 @@ namespace ScrapeBadger.Api
         /// <param name="asRq">Related URL; availability depends on Google. (optional)</param>
         /// <param name="asSitesearch">Restrict results to a site. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> GoogleGoogleWebSearchWithHttpInfo(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string device = default(string), string userAgent = default(string), string output = default(string), string location = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), string uule = default(string), int? filter = default(int?), int? nfpr = default(int?), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), bool? aiOverview = default(bool?), string mode = default(string), string expandRelatedQuestions = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string))
+        public ScrapeBadger.Client.ApiResponse<Object> GoogleGoogleWebSearchWithHttpInfo(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string device = default(string), string userAgent = default(string), string output = default(string), string location = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), string uule = default(string), int? filter = default(int?), int? nfpr = default(int?), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), bool? aiOverview = default(bool?), string mode = default(string), string expandRelatedQuestions = default(string), string oq = default(string), string sourceid = default(string), string ie = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string))
         {
             // verify the required parameter 'q' is set
             if (q == null)
@@ -6609,6 +6675,18 @@ namespace ScrapeBadger.Api
             if (expandRelatedQuestions != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "expand_related_questions", expandRelatedQuestions));
+            }
+            if (oq != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "oq", oq));
+            }
+            if (sourceid != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "sourceid", sourceid));
+            }
+            if (ie != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "ie", ie));
             }
             if (googleDomain != null)
             {
@@ -6735,13 +6813,16 @@ namespace ScrapeBadger.Api
         /// <param name="aiOverview">Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional, default to false)</param>
         /// <param name="mode"> (optional, default to full)</param>
         /// <param name="expandRelatedQuestions">Open all People Also Ask answers (true) or the first N (0-99). (optional)</param>
+        /// <param name="oq">Original query sent to Google. Defaults to q; an empty string omits it. (optional)</param>
+        /// <param name="sourceid">Google source identifier. Defaults to chrome; an empty string omits it. (optional)</param>
+        /// <param name="ie">Google input encoding hint. Defaults to UTF-8; an empty string omits it. (optional)</param>
         /// <param name="googleDomain">Alias for domain; Google requests use google.com with country targeting. (optional)</param>
         /// <param name="lat">Latitude; supply together with lon instead of location or uule. (optional)</param>
         /// <param name="lon">Longitude; supply together with lat. (optional)</param>
         /// <param name="radius">Location accuracy in meters; requires lat/lon or a named city with a known center. (optional)</param>
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
-        /// <param name="udm">Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. (optional)</param>
+        /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
         /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
@@ -6756,9 +6837,9 @@ namespace ScrapeBadger.Api
         /// <param name="asSitesearch">Restrict results to a site. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> GoogleGoogleWebSearchAsync(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string device = default(string), string userAgent = default(string), string output = default(string), string location = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), string uule = default(string), int? filter = default(int?), int? nfpr = default(int?), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), bool? aiOverview = default(bool?), string mode = default(string), string expandRelatedQuestions = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> GoogleGoogleWebSearchAsync(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string device = default(string), string userAgent = default(string), string output = default(string), string location = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), string uule = default(string), int? filter = default(int?), int? nfpr = default(int?), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), bool? aiOverview = default(bool?), string mode = default(string), string expandRelatedQuestions = default(string), string oq = default(string), string sourceid = default(string), string ie = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GoogleGoogleWebSearchWithHttpInfoAsync(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GoogleGoogleWebSearchWithHttpInfoAsync(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6792,13 +6873,16 @@ namespace ScrapeBadger.Api
         /// <param name="aiOverview">Chase deferred AI Overview page_token with a follow-up fetch and merge the result. Adds ~1s when the SERP defers the overview; the request price is unchanged. (optional, default to false)</param>
         /// <param name="mode"> (optional, default to full)</param>
         /// <param name="expandRelatedQuestions">Open all People Also Ask answers (true) or the first N (0-99). (optional)</param>
+        /// <param name="oq">Original query sent to Google. Defaults to q; an empty string omits it. (optional)</param>
+        /// <param name="sourceid">Google source identifier. Defaults to chrome; an empty string omits it. (optional)</param>
+        /// <param name="ie">Google input encoding hint. Defaults to UTF-8; an empty string omits it. (optional)</param>
         /// <param name="googleDomain">Alias for domain; Google requests use google.com with country targeting. (optional)</param>
         /// <param name="lat">Latitude; supply together with lon instead of location or uule. (optional)</param>
         /// <param name="lon">Longitude; supply together with lat. (optional)</param>
         /// <param name="radius">Location accuracy in meters; requires lat/lon or a named city with a known center. (optional)</param>
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
-        /// <param name="udm">Google result filter: 14 web, 18 forums. Other verticals require output&#x3D;html. (optional)</param>
+        /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
         /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
@@ -6813,7 +6897,7 @@ namespace ScrapeBadger.Api
         /// <param name="asSitesearch">Restrict results to a site. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GoogleGoogleWebSearchWithHttpInfoAsync(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string device = default(string), string userAgent = default(string), string output = default(string), string location = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), string uule = default(string), int? filter = default(int?), int? nfpr = default(int?), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), bool? aiOverview = default(bool?), string mode = default(string), string expandRelatedQuestions = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GoogleGoogleWebSearchWithHttpInfoAsync(string q, string gl = default(string), string hl = default(string), int? num = default(int?), int? start = default(int?), string domain = default(string), string device = default(string), string userAgent = default(string), string output = default(string), string location = default(string), string lr = default(string), string tbs = default(string), string safe = default(string), string uule = default(string), int? filter = default(int?), int? nfpr = default(int?), string cr = default(string), string ludocid = default(string), string lsig = default(string), string kgmid = default(string), string si = default(string), string ibp = default(string), string uds = default(string), bool? aiOverview = default(bool?), string mode = default(string), string expandRelatedQuestions = default(string), string oq = default(string), string sourceid = default(string), string ie = default(string), string googleDomain = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), decimal? radius = default(decimal?), string colorScheme = default(string), string tbm = default(string), string udm = default(string), bool? noCache = default(bool?), string asDt = default(string), string asEpq = default(string), string asEq = default(string), string asLq = default(string), string asNlo = default(string), string asNhi = default(string), string asOq = default(string), string asQ = default(string), string asQdr = default(string), string asRq = default(string), string asSitesearch = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'q' is set
             if (q == null)
@@ -6937,6 +7021,18 @@ namespace ScrapeBadger.Api
             if (expandRelatedQuestions != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "expand_related_questions", expandRelatedQuestions));
+            }
+            if (oq != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "oq", oq));
+            }
+            if (sourceid != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "sourceid", sourceid));
+            }
+            if (ie != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "ie", ie));
             }
             if (googleDomain != null)
             {
