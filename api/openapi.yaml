@@ -3294,6 +3294,75 @@ paths:
       summary: Check AutoScout24 health
       tags:
       - AutoScout24
+  /v1/autoscout24/listing:
+    get:
+      description: |-
+        Full public vehicle specifications, equipment, photos, price and seller data.
+
+        Exactly one of url or listing_id is required. Supported markets match
+        /markets. Successful detail costs 10 credits; removed or missing listings
+        return an unbilled 404. Invalid inputs return 422 and source failures 503.
+      operationId: autoscout24_get_listing
+      parameters:
+      - description: "Full HTTPS listing URL from search results. Supply url or listing_id,\
+          \ not both."
+        explode: true
+        in: query
+        name: url
+        required: false
+        schema:
+          maxLength: 2048
+          nullable: true
+          type: string
+        style: form
+      - description: Listing UUID from search results; requires no SEO slug.
+        explode: true
+        in: query
+        name: listing_id
+        required: false
+        schema:
+          maxLength: 36
+          minLength: 36
+          nullable: true
+          type: string
+        style: form
+      - description: "Inferred from URL, otherwise de. Explicit market must match\
+          \ the URL host."
+        explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          enum:
+          - de
+          - at
+          - be
+          - es
+          - fr
+          - it
+          - lu
+          - nl
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AutoScout24ListingResponse'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get listing
+      tags:
+      - AutoScout24
   /v1/autoscout24/markets:
     get:
       description: "Verified marketplaces, domains, languages and currency. Free reference\
@@ -3317,8 +3386,8 @@ paths:
         Search live vehicle cards, seller/location information and current filter taxonomy.
 
         Browsing is capped at 200 pages (normally 20 cards each). Narrow the query
-        to reach more inventory. Empty results cost zero credits. Listing detail
-        is not included in this API.
+        to reach more inventory. Empty results cost zero credits. Pass a result's
+        url or id to /listing for its full specifications and equipment.
       operationId: autoscout24_search_vehicles
       parameters:
       - explode: true
@@ -29474,6 +29543,507 @@ components:
       - title
       - url
       title: AutoScout24Listing
+    AutoScout24ListingDetail:
+      description: |-
+        Full public listing with normalized values and native specifications.
+
+        Native objects preserve optional equipment, energy, history and commercial
+        fields. Missing seller-entered values remain unknown, rather than false.
+      example:
+        has_360_view: true
+        seller:
+          key: ""
+        fuel: fuel
+        available_utc: 1.1730742509559433
+        rating: 1.4894159098541704
+        displacement_cc: 4
+        seats: 7
+        median_price: 5.962133916683182
+        youtube_link: youtube_link
+        transmission: transmission
+        seals:
+        - ""
+        - ""
+        price: 0.8008281904610115
+        variant: variant
+        body_type: body_type
+        warranty: ""
+        model: model
+        vehicle_report: ""
+        id: id
+        has_warranty: true
+        first_registration: first_registration
+        fuel_type: fuel_type
+        created_utc: 4.965218492984954
+        is_vat_deductible: true
+        whatsapp_number: whatsapp_number
+        identifier:
+          key: ""
+        images:
+        - images
+        - images
+        is_new: true
+        equipment:
+          key:
+          - ""
+          - ""
+        net_price: 6.027456183070403
+        is_cover_image_placeholder: true
+        ad_tier: ad_tier
+        version: version
+        image_alt_text: image_alt_text
+        power_hp: 2.027123023002322
+        rating_count: 6
+        doors: 1
+        twinner_url: twinner_url
+        price_evaluation: 5
+        three_sixty: ""
+        partner_integrations:
+        - key: ""
+        - key: ""
+        description_html: description_html
+        status: status
+        super_deal:
+          key: ""
+        has_premium_listing_treatment: true
+        header_image: header_image
+        cover_image_attractiveness: 1.0246457001441578
+        price_details:
+          key: ""
+        description: description
+        created_at: created_at
+        power_kw: 3.616076749251911
+        availability:
+          key: ""
+        leasing_details: ""
+        title: title
+        vehicle:
+          key: ""
+        special_conditions:
+        - ""
+        - ""
+        is_trending: true
+        is_listing_boost: true
+        interaction_statistics:
+          key: ""
+        financing_flags: ""
+        registration_year: 7
+        ratings:
+          key: ""
+        currency: EUR
+        prices:
+          key: ""
+        is_deliverable: true
+        make: make
+        registration_month: 9
+        available_at: available_at
+        vat_rate: 1.4658129805029452
+        article_type: article_type
+        is_negotiable: true
+        applied_ad_tier: applied_ad_tier
+        vehicle_type: vehicle_type
+        financing_and_insurance: ""
+        is_price_on_request: true
+        url: url
+        price_formatted: price_formatted
+        online_purchase: ""
+        search_result_type: search_result_type
+        location:
+          key: ""
+        mileage_km: 2
+        recommend_percentage: 7.457744773683766
+        is_final_price: true
+        statistics:
+          key: ""
+      properties:
+        id:
+          title: Id
+          type: string
+        title:
+          title: Title
+          type: string
+        url:
+          title: Url
+          type: string
+        description:
+          nullable: true
+          type: string
+        description_html:
+          nullable: true
+          type: string
+        status:
+          nullable: true
+          type: string
+        currency:
+          default: EUR
+          title: Currency
+          type: string
+        price:
+          nullable: true
+          type: number
+        price_formatted:
+          nullable: true
+          type: string
+        net_price:
+          nullable: true
+          type: number
+        vat_rate:
+          nullable: true
+          type: number
+        is_vat_deductible:
+          nullable: true
+          type: boolean
+        is_negotiable:
+          nullable: true
+          type: boolean
+        is_price_on_request:
+          nullable: true
+          type: boolean
+        is_final_price:
+          nullable: true
+          type: boolean
+        median_price:
+          nullable: true
+          type: number
+        price_evaluation:
+          nullable: true
+          type: integer
+        price_details:
+          additionalProperties: true
+          title: Price Details
+          type: object
+        prices:
+          additionalProperties: true
+          title: Prices
+          type: object
+        super_deal:
+          additionalProperties: true
+          title: Super Deal
+          type: object
+        make:
+          nullable: true
+          type: string
+        model:
+          nullable: true
+          type: string
+        variant:
+          nullable: true
+          type: string
+        version:
+          nullable: true
+          type: string
+        mileage_km:
+          nullable: true
+          type: integer
+        first_registration:
+          nullable: true
+          type: string
+        registration_year:
+          nullable: true
+          type: integer
+        registration_month:
+          nullable: true
+          type: integer
+        power_kw:
+          nullable: true
+          type: number
+        power_hp:
+          nullable: true
+          type: number
+        displacement_cc:
+          nullable: true
+          type: integer
+        transmission:
+          nullable: true
+          type: string
+        body_type:
+          nullable: true
+          type: string
+        fuel:
+          nullable: true
+          type: string
+        fuel_type:
+          nullable: true
+          type: string
+        seats:
+          nullable: true
+          type: integer
+        doors:
+          nullable: true
+          type: integer
+        vehicle:
+          additionalProperties: true
+          description: "Complete useful native specifications, including rawData,\
+            \ energy and history."
+          title: Vehicle
+          type: object
+        equipment:
+          additionalProperties:
+            items: {}
+          title: Equipment
+        images:
+          items:
+            type: string
+          type: array
+        header_image:
+          nullable: true
+          type: string
+        image_alt_text:
+          nullable: true
+          type: string
+        is_cover_image_placeholder:
+          nullable: true
+          type: boolean
+        cover_image_attractiveness:
+          nullable: true
+          type: number
+        youtube_link:
+          nullable: true
+          type: string
+        twinner_url:
+          nullable: true
+          type: string
+        has_360_view:
+          nullable: true
+          type: boolean
+        three_sixty: {}
+        vehicle_report: {}
+        partner_integrations:
+          items:
+            additionalProperties: true
+            nullable: true
+            type: object
+          type: array
+        seller:
+          additionalProperties: true
+          title: Seller
+          type: object
+        location:
+          additionalProperties: true
+          title: Location
+          type: object
+        ratings:
+          additionalProperties: true
+          title: Ratings
+          type: object
+        rating:
+          nullable: true
+          type: number
+        rating_count:
+          nullable: true
+          type: integer
+        recommend_percentage:
+          nullable: true
+          type: number
+        whatsapp_number:
+          nullable: true
+          type: string
+        identifier:
+          additionalProperties: true
+          title: Identifier
+          type: object
+        article_type:
+          nullable: true
+          type: string
+        vehicle_type:
+          nullable: true
+          type: string
+        is_new:
+          nullable: true
+          type: boolean
+        is_deliverable:
+          nullable: true
+          type: boolean
+        availability:
+          additionalProperties: true
+          title: Availability
+          type: object
+        available_at:
+          nullable: true
+          type: string
+        available_utc:
+          nullable: true
+          type: number
+        created_at:
+          nullable: true
+          type: string
+        created_utc:
+          nullable: true
+          type: number
+        leasing_details: {}
+        warranty: {}
+        has_warranty:
+          nullable: true
+          type: boolean
+        financing_flags: {}
+        financing_and_insurance: {}
+        online_purchase: {}
+        seals:
+          items: {}
+          type: array
+        special_conditions:
+          items: {}
+          type: array
+        search_result_type:
+          nullable: true
+          type: string
+        ad_tier:
+          nullable: true
+          type: string
+        applied_ad_tier:
+          nullable: true
+          type: string
+        has_premium_listing_treatment:
+          nullable: true
+          type: boolean
+        is_trending:
+          nullable: true
+          type: boolean
+        is_listing_boost:
+          nullable: true
+          type: boolean
+        statistics:
+          additionalProperties: true
+          title: Statistics
+          type: object
+        interaction_statistics:
+          additionalProperties: true
+          title: Interaction Statistics
+          type: object
+      required:
+      - id
+      - title
+      - url
+      title: AutoScout24ListingDetail
+    AutoScout24ListingResponse:
+      example:
+        market: market
+        listing:
+          has_360_view: true
+          seller:
+            key: ""
+          fuel: fuel
+          available_utc: 1.1730742509559433
+          rating: 1.4894159098541704
+          displacement_cc: 4
+          seats: 7
+          median_price: 5.962133916683182
+          youtube_link: youtube_link
+          transmission: transmission
+          seals:
+          - ""
+          - ""
+          price: 0.8008281904610115
+          variant: variant
+          body_type: body_type
+          warranty: ""
+          model: model
+          vehicle_report: ""
+          id: id
+          has_warranty: true
+          first_registration: first_registration
+          fuel_type: fuel_type
+          created_utc: 4.965218492984954
+          is_vat_deductible: true
+          whatsapp_number: whatsapp_number
+          identifier:
+            key: ""
+          images:
+          - images
+          - images
+          is_new: true
+          equipment:
+            key:
+            - ""
+            - ""
+          net_price: 6.027456183070403
+          is_cover_image_placeholder: true
+          ad_tier: ad_tier
+          version: version
+          image_alt_text: image_alt_text
+          power_hp: 2.027123023002322
+          rating_count: 6
+          doors: 1
+          twinner_url: twinner_url
+          price_evaluation: 5
+          three_sixty: ""
+          partner_integrations:
+          - key: ""
+          - key: ""
+          description_html: description_html
+          status: status
+          super_deal:
+            key: ""
+          has_premium_listing_treatment: true
+          header_image: header_image
+          cover_image_attractiveness: 1.0246457001441578
+          price_details:
+            key: ""
+          description: description
+          created_at: created_at
+          power_kw: 3.616076749251911
+          availability:
+            key: ""
+          leasing_details: ""
+          title: title
+          vehicle:
+            key: ""
+          special_conditions:
+          - ""
+          - ""
+          is_trending: true
+          is_listing_boost: true
+          interaction_statistics:
+            key: ""
+          financing_flags: ""
+          registration_year: 7
+          ratings:
+            key: ""
+          currency: EUR
+          prices:
+            key: ""
+          is_deliverable: true
+          make: make
+          registration_month: 9
+          available_at: available_at
+          vat_rate: 1.4658129805029452
+          article_type: article_type
+          is_negotiable: true
+          applied_ad_tier: applied_ad_tier
+          vehicle_type: vehicle_type
+          financing_and_insurance: ""
+          is_price_on_request: true
+          url: url
+          price_formatted: price_formatted
+          online_purchase: ""
+          search_result_type: search_result_type
+          location:
+            key: ""
+          mileage_km: 2
+          recommend_percentage: 7.457744773683766
+          is_final_price: true
+          statistics:
+            key: ""
+        source_url: source_url
+        latency_ms: 5
+      properties:
+        market:
+          title: Market
+          type: string
+        source_url:
+          title: Source Url
+          type: string
+        listing:
+          $ref: '#/components/schemas/AutoScout24ListingDetail'
+        latency_ms:
+          title: Latency Ms
+          type: integer
+      required:
+      - latency_ms
+      - listing
+      - market
+      - source_url
+      title: AutoScout24ListingResponse
     AutoScout24Market:
       example:
         country_code: country_code
@@ -36195,8 +36765,9 @@ components:
       title: Snippet
     Description:
       anyOf:
-      - {}
-      - {}
+      - nullable: true
+        type: string
+      nullable: true
       title: Description
     Display_Url:
       anyOf:

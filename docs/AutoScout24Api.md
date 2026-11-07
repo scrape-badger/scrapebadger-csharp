@@ -5,6 +5,7 @@ All URIs are relative to *https://scrapebadger.com*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**Autoscout24CheckAutoscout24Health**](AutoScout24Api.md#autoscout24checkautoscout24health) | **GET** /v1/autoscout24/health | Check AutoScout24 health |
+| [**Autoscout24GetListing**](AutoScout24Api.md#autoscout24getlisting) | **GET** /v1/autoscout24/listing | Get listing |
 | [**Autoscout24ListMarkets**](AutoScout24Api.md#autoscout24listmarkets) | **GET** /v1/autoscout24/markets | List markets |
 | [**Autoscout24ListSearchFilters**](AutoScout24Api.md#autoscout24listsearchfilters) | **GET** /v1/autoscout24/filters | List search filters |
 | [**Autoscout24SearchVehicles**](AutoScout24Api.md#autoscout24searchvehicles) | **GET** /v1/autoscout24/search | Search vehicles |
@@ -99,6 +100,111 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="autoscout24getlisting"></a>
+# **Autoscout24GetListing**
+> AutoScout24ListingResponse Autoscout24GetListing (string url = null, string listingId = null, string market = null)
+
+Get listing
+
+Full public vehicle specifications, equipment, photos, price and seller data.  Exactly one of url or listing_id is required. Supported markets match /markets. Successful detail costs 10 credits; removed or missing listings return an unbilled 404. Invalid inputs return 422 and source failures 503.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using ScrapeBadger.Api;
+using ScrapeBadger.Client;
+using ScrapeBadger.Model;
+
+namespace Example
+{
+    public class Autoscout24GetListingExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://scrapebadger.com";
+            // Configure API key authorization: ApiKeyAuth
+            config.AddApiKey("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("X-API-Key", "Bearer");
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AutoScout24Api(httpClient, config, httpClientHandler);
+            var url = "url_example";  // string | Full HTTPS listing URL from search results. Supply url or listing_id, not both. (optional) 
+            var listingId = "listingId_example";  // string | Listing UUID from search results; requires no SEO slug. (optional) 
+            var market = "de";  // string | Inferred from URL, otherwise de. Explicit market must match the URL host. (optional) 
+
+            try
+            {
+                // Get listing
+                AutoScout24ListingResponse result = apiInstance.Autoscout24GetListing(url, listingId, market);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AutoScout24Api.Autoscout24GetListing: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the Autoscout24GetListingWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get listing
+    ApiResponse<AutoScout24ListingResponse> response = apiInstance.Autoscout24GetListingWithHttpInfo(url, listingId, market);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AutoScout24Api.Autoscout24GetListingWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **url** | **string** | Full HTTPS listing URL from search results. Supply url or listing_id, not both. | [optional]  |
+| **listingId** | **string** | Listing UUID from search results; requires no SEO slug. | [optional]  |
+| **market** | **string** | Inferred from URL, otherwise de. Explicit market must match the URL host. | [optional]  |
+
+### Return type
+
+[**AutoScout24ListingResponse**](AutoScout24ListingResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -306,7 +412,7 @@ catch (ApiException e)
 
 Search vehicles
 
-Search live vehicle cards, seller/location information and current filter taxonomy.  Browsing is capped at 200 pages (normally 20 cards each). Narrow the query to reach more inventory. Empty results cost zero credits. Listing detail is not included in this API.
+Search live vehicle cards, seller/location information and current filter taxonomy.  Browsing is capped at 200 pages (normally 20 cards each). Narrow the query to reach more inventory. Empty results cost zero credits. Pass a result's url or id to /listing for its full specifications and equipment.
 
 ### Example
 ```csharp

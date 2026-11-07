@@ -65,6 +65,20 @@ namespace ScrapeBadger.Test.Api
         }
 
         /// <summary>
+        /// Test Autoscout24GetListing
+        /// </summary>
+        [Fact]
+        public void Autoscout24GetListingTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string url = null;
+            //string listingId = null;
+            //string market = null;
+            //var response = instance.Autoscout24GetListing(url, listingId, market);
+            //Assert.IsType<AutoScout24ListingResponse>(response);
+        }
+
+        /// <summary>
         /// Test Autoscout24ListMarkets
         /// </summary>
         [Fact]

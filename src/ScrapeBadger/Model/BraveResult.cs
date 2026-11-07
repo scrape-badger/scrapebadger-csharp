@@ -169,7 +169,7 @@ namespace ScrapeBadger.Model
         /// <summary>
         /// Gets or Sets Description
         /// </summary>
-        [DataMember(Name = "description", EmitDefaultValue = false)]
+        [DataMember(Name = "description", EmitDefaultValue = true)]
         public Description Description { get; set; }
 
         /// <summary>

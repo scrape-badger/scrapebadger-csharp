@@ -18,6 +18,8 @@ docs/Article.md
 docs/AutoScout24Api.md
 docs/AutoScout24FiltersResponse.md
 docs/AutoScout24Listing.md
+docs/AutoScout24ListingDetail.md
+docs/AutoScout24ListingResponse.md
 docs/AutoScout24Market.md
 docs/AutoScout24MarketsResponse.md
 docs/AutoScout24SearchResponse.md
@@ -269,6 +271,8 @@ src/ScrapeBadger.Test/Model/AgeTests.cs
 src/ScrapeBadger.Test/Model/AgentTrialInfoTests.cs
 src/ScrapeBadger.Test/Model/ArticleTests.cs
 src/ScrapeBadger.Test/Model/AutoScout24FiltersResponseTests.cs
+src/ScrapeBadger.Test/Model/AutoScout24ListingDetailTests.cs
+src/ScrapeBadger.Test/Model/AutoScout24ListingResponseTests.cs
 src/ScrapeBadger.Test/Model/AutoScout24ListingTests.cs
 src/ScrapeBadger.Test/Model/AutoScout24MarketTests.cs
 src/ScrapeBadger.Test/Model/AutoScout24MarketsResponseTests.cs
@@ -496,6 +500,8 @@ src/ScrapeBadger/Model/AgentTrialInfo.cs
 src/ScrapeBadger/Model/Article.cs
 src/ScrapeBadger/Model/AutoScout24FiltersResponse.cs
 src/ScrapeBadger/Model/AutoScout24Listing.cs
+src/ScrapeBadger/Model/AutoScout24ListingDetail.cs
+src/ScrapeBadger/Model/AutoScout24ListingResponse.cs
 src/ScrapeBadger/Model/AutoScout24Market.cs
 src/ScrapeBadger/Model/AutoScout24MarketsResponse.cs
 src/ScrapeBadger/Model/AutoScout24SearchResponse.cs

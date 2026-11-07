@@ -44,6 +44,31 @@ namespace ScrapeBadger.Api
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> Autoscout24CheckAutoscout24HealthWithHttpInfo();
         /// <summary>
+        /// Get listing
+        /// </summary>
+        /// <remarks>
+        /// Full public vehicle specifications, equipment, photos, price and seller data.  Exactly one of url or listing_id is required. Supported markets match /markets. Successful detail costs 10 credits; removed or missing listings return an unbilled 404. Invalid inputs return 422 and source failures 503.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="url">Full HTTPS listing URL from search results. Supply url or listing_id, not both. (optional)</param>
+        /// <param name="listingId">Listing UUID from search results; requires no SEO slug. (optional)</param>
+        /// <param name="market">Inferred from URL, otherwise de. Explicit market must match the URL host. (optional)</param>
+        /// <returns>AutoScout24ListingResponse</returns>
+        AutoScout24ListingResponse Autoscout24GetListing(string url = default(string), string listingId = default(string), string market = default(string));
+
+        /// <summary>
+        /// Get listing
+        /// </summary>
+        /// <remarks>
+        /// Full public vehicle specifications, equipment, photos, price and seller data.  Exactly one of url or listing_id is required. Supported markets match /markets. Successful detail costs 10 credits; removed or missing listings return an unbilled 404. Invalid inputs return 422 and source failures 503.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="url">Full HTTPS listing URL from search results. Supply url or listing_id, not both. (optional)</param>
+        /// <param name="listingId">Listing UUID from search results; requires no SEO slug. (optional)</param>
+        /// <param name="market">Inferred from URL, otherwise de. Explicit market must match the URL host. (optional)</param>
+        /// <returns>ApiResponse of AutoScout24ListingResponse</returns>
+        ApiResponse<AutoScout24ListingResponse> Autoscout24GetListingWithHttpInfo(string url = default(string), string listingId = default(string), string market = default(string));
+        /// <summary>
         /// List markets
         /// </summary>
         /// <remarks>
@@ -89,7 +114,7 @@ namespace ScrapeBadger.Api
         /// Search vehicles
         /// </summary>
         /// <remarks>
-        /// Search live vehicle cards, seller/location information and current filter taxonomy.  Browsing is capped at 200 pages (normally 20 cards each). Narrow the query to reach more inventory. Empty results cost zero credits. Listing detail is not included in this API.
+        /// Search live vehicle cards, seller/location information and current filter taxonomy.  Browsing is capped at 200 pages (normally 20 cards each). Narrow the query to reach more inventory. Empty results cost zero credits. Pass a result&#39;s url or id to /listing for its full specifications and equipment.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market"> (optional, default to de)</param>
@@ -119,7 +144,7 @@ namespace ScrapeBadger.Api
         /// Search vehicles
         /// </summary>
         /// <remarks>
-        /// Search live vehicle cards, seller/location information and current filter taxonomy.  Browsing is capped at 200 pages (normally 20 cards each). Narrow the query to reach more inventory. Empty results cost zero credits. Listing detail is not included in this API.
+        /// Search live vehicle cards, seller/location information and current filter taxonomy.  Browsing is capped at 200 pages (normally 20 cards each). Narrow the query to reach more inventory. Empty results cost zero credits. Pass a result&#39;s url or id to /listing for its full specifications and equipment.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market"> (optional, default to de)</param>
@@ -175,6 +200,33 @@ namespace ScrapeBadger.Api
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> Autoscout24CheckAutoscout24HealthWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
+        /// Get listing
+        /// </summary>
+        /// <remarks>
+        /// Full public vehicle specifications, equipment, photos, price and seller data.  Exactly one of url or listing_id is required. Supported markets match /markets. Successful detail costs 10 credits; removed or missing listings return an unbilled 404. Invalid inputs return 422 and source failures 503.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="url">Full HTTPS listing URL from search results. Supply url or listing_id, not both. (optional)</param>
+        /// <param name="listingId">Listing UUID from search results; requires no SEO slug. (optional)</param>
+        /// <param name="market">Inferred from URL, otherwise de. Explicit market must match the URL host. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AutoScout24ListingResponse</returns>
+        System.Threading.Tasks.Task<AutoScout24ListingResponse> Autoscout24GetListingAsync(string url = default(string), string listingId = default(string), string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Get listing
+        /// </summary>
+        /// <remarks>
+        /// Full public vehicle specifications, equipment, photos, price and seller data.  Exactly one of url or listing_id is required. Supported markets match /markets. Successful detail costs 10 credits; removed or missing listings return an unbilled 404. Invalid inputs return 422 and source failures 503.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="url">Full HTTPS listing URL from search results. Supply url or listing_id, not both. (optional)</param>
+        /// <param name="listingId">Listing UUID from search results; requires no SEO slug. (optional)</param>
+        /// <param name="market">Inferred from URL, otherwise de. Explicit market must match the URL host. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AutoScout24ListingResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AutoScout24ListingResponse>> Autoscout24GetListingWithHttpInfoAsync(string url = default(string), string listingId = default(string), string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
         /// List markets
         /// </summary>
         /// <remarks>
@@ -224,7 +276,7 @@ namespace ScrapeBadger.Api
         /// Search vehicles
         /// </summary>
         /// <remarks>
-        /// Search live vehicle cards, seller/location information and current filter taxonomy.  Browsing is capped at 200 pages (normally 20 cards each). Narrow the query to reach more inventory. Empty results cost zero credits. Listing detail is not included in this API.
+        /// Search live vehicle cards, seller/location information and current filter taxonomy.  Browsing is capped at 200 pages (normally 20 cards each). Narrow the query to reach more inventory. Empty results cost zero credits. Pass a result&#39;s url or id to /listing for its full specifications and equipment.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market"> (optional, default to de)</param>
@@ -255,7 +307,7 @@ namespace ScrapeBadger.Api
         /// Search vehicles
         /// </summary>
         /// <remarks>
-        /// Search live vehicle cards, seller/location information and current filter taxonomy.  Browsing is capped at 200 pages (normally 20 cards each). Narrow the query to reach more inventory. Empty results cost zero credits. Listing detail is not included in this API.
+        /// Search live vehicle cards, seller/location information and current filter taxonomy.  Browsing is capped at 200 pages (normally 20 cards each). Narrow the query to reach more inventory. Empty results cost zero credits. Pass a result&#39;s url or id to /listing for its full specifications and equipment.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market"> (optional, default to de)</param>
@@ -606,6 +658,153 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
+        /// Get listing Full public vehicle specifications, equipment, photos, price and seller data.  Exactly one of url or listing_id is required. Supported markets match /markets. Successful detail costs 10 credits; removed or missing listings return an unbilled 404. Invalid inputs return 422 and source failures 503.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="url">Full HTTPS listing URL from search results. Supply url or listing_id, not both. (optional)</param>
+        /// <param name="listingId">Listing UUID from search results; requires no SEO slug. (optional)</param>
+        /// <param name="market">Inferred from URL, otherwise de. Explicit market must match the URL host. (optional)</param>
+        /// <returns>AutoScout24ListingResponse</returns>
+        public AutoScout24ListingResponse Autoscout24GetListing(string url = default(string), string listingId = default(string), string market = default(string))
+        {
+            ScrapeBadger.Client.ApiResponse<AutoScout24ListingResponse> localVarResponse = Autoscout24GetListingWithHttpInfo(url, listingId, market);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get listing Full public vehicle specifications, equipment, photos, price and seller data.  Exactly one of url or listing_id is required. Supported markets match /markets. Successful detail costs 10 credits; removed or missing listings return an unbilled 404. Invalid inputs return 422 and source failures 503.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="url">Full HTTPS listing URL from search results. Supply url or listing_id, not both. (optional)</param>
+        /// <param name="listingId">Listing UUID from search results; requires no SEO slug. (optional)</param>
+        /// <param name="market">Inferred from URL, otherwise de. Explicit market must match the URL host. (optional)</param>
+        /// <returns>ApiResponse of AutoScout24ListingResponse</returns>
+        public ScrapeBadger.Client.ApiResponse<AutoScout24ListingResponse> Autoscout24GetListingWithHttpInfo(string url = default(string), string listingId = default(string), string market = default(string))
+        {
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (url != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "url", url));
+            }
+            if (listingId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "listing_id", listingId));
+            }
+            if (market != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "market", market));
+            }
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<AutoScout24ListingResponse>("/v1/autoscout24/listing", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("Autoscout24GetListing", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Get listing Full public vehicle specifications, equipment, photos, price and seller data.  Exactly one of url or listing_id is required. Supported markets match /markets. Successful detail costs 10 credits; removed or missing listings return an unbilled 404. Invalid inputs return 422 and source failures 503.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="url">Full HTTPS listing URL from search results. Supply url or listing_id, not both. (optional)</param>
+        /// <param name="listingId">Listing UUID from search results; requires no SEO slug. (optional)</param>
+        /// <param name="market">Inferred from URL, otherwise de. Explicit market must match the URL host. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AutoScout24ListingResponse</returns>
+        public async System.Threading.Tasks.Task<AutoScout24ListingResponse> Autoscout24GetListingAsync(string url = default(string), string listingId = default(string), string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ScrapeBadger.Client.ApiResponse<AutoScout24ListingResponse> localVarResponse = await Autoscout24GetListingWithHttpInfoAsync(url, listingId, market, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get listing Full public vehicle specifications, equipment, photos, price and seller data.  Exactly one of url or listing_id is required. Supported markets match /markets. Successful detail costs 10 credits; removed or missing listings return an unbilled 404. Invalid inputs return 422 and source failures 503.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="url">Full HTTPS listing URL from search results. Supply url or listing_id, not both. (optional)</param>
+        /// <param name="listingId">Listing UUID from search results; requires no SEO slug. (optional)</param>
+        /// <param name="market">Inferred from URL, otherwise de. Explicit market must match the URL host. (optional)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AutoScout24ListingResponse)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<AutoScout24ListingResponse>> Autoscout24GetListingWithHttpInfoAsync(string url = default(string), string listingId = default(string), string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (url != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "url", url));
+            }
+            if (listingId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "listing_id", listingId));
+            }
+            if (market != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "market", market));
+            }
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<AutoScout24ListingResponse>("/v1/autoscout24/listing", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("Autoscout24GetListing", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// List markets Verified marketplaces, domains, languages and currency. Free reference endpoint.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
@@ -852,7 +1051,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search vehicles Search live vehicle cards, seller/location information and current filter taxonomy.  Browsing is capped at 200 pages (normally 20 cards each). Narrow the query to reach more inventory. Empty results cost zero credits. Listing detail is not included in this API.
+        /// Search vehicles Search live vehicle cards, seller/location information and current filter taxonomy.  Browsing is capped at 200 pages (normally 20 cards each). Narrow the query to reach more inventory. Empty results cost zero credits. Pass a result&#39;s url or id to /listing for its full specifications and equipment.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market"> (optional, default to de)</param>
@@ -883,7 +1082,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search vehicles Search live vehicle cards, seller/location information and current filter taxonomy.  Browsing is capped at 200 pages (normally 20 cards each). Narrow the query to reach more inventory. Empty results cost zero credits. Listing detail is not included in this API.
+        /// Search vehicles Search live vehicle cards, seller/location information and current filter taxonomy.  Browsing is capped at 200 pages (normally 20 cards each). Narrow the query to reach more inventory. Empty results cost zero credits. Pass a result&#39;s url or id to /listing for its full specifications and equipment.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market"> (optional, default to de)</param>
@@ -1025,7 +1224,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search vehicles Search live vehicle cards, seller/location information and current filter taxonomy.  Browsing is capped at 200 pages (normally 20 cards each). Narrow the query to reach more inventory. Empty results cost zero credits. Listing detail is not included in this API.
+        /// Search vehicles Search live vehicle cards, seller/location information and current filter taxonomy.  Browsing is capped at 200 pages (normally 20 cards each). Narrow the query to reach more inventory. Empty results cost zero credits. Pass a result&#39;s url or id to /listing for its full specifications and equipment.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market"> (optional, default to de)</param>
@@ -1057,7 +1256,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search vehicles Search live vehicle cards, seller/location information and current filter taxonomy.  Browsing is capped at 200 pages (normally 20 cards each). Narrow the query to reach more inventory. Empty results cost zero credits. Listing detail is not included in this API.
+        /// Search vehicles Search live vehicle cards, seller/location information and current filter taxonomy.  Browsing is capped at 200 pages (normally 20 cards each). Narrow the query to reach more inventory. Empty results cost zero credits. Pass a result&#39;s url or id to /listing for its full specifications and equipment.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market"> (optional, default to de)</param>
