@@ -15,11 +15,13 @@ tags:
 - name: Apartments
 - name: App-Store
 - name: ASOS
+- name: AutoScout24
 - name: Baidu
 - name: Batch
 - name: BestBuy
 - name: Bing
 - name: Booking
+- name: Brave
 - name: ChatGPT
 - name: Copilot
 - name: Depop
@@ -29,6 +31,7 @@ tags:
 - name: Facebook
 - name: Feedback
 - name: Gemini
+- name: GitHub
 - name: Google-Play
 - name: Google
 - name: Gumtree
@@ -3227,6 +3230,354 @@ paths:
       summary: Get stock and prices
       tags:
       - ASOS
+  /v1/autoscout24/filters:
+    get:
+      description: "Current native make, model and vehicle filter options. Set make\
+        \ for its models."
+      operationId: autoscout24_list_search_filters
+      parameters:
+      - explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          default: de
+          enum:
+          - de
+          - at
+          - be
+          - es
+          - fr
+          - it
+          - lu
+          - nl
+          title: Market
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: make
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AutoScout24FiltersResponse'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: List search filters
+      tags:
+      - AutoScout24
+  /v1/autoscout24/health:
+    get:
+      operationId: autoscout24_check_autoscout24_health
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Check AutoScout24 health
+      tags:
+      - AutoScout24
+  /v1/autoscout24/markets:
+    get:
+      description: "Verified marketplaces, domains, languages and currency. Free reference\
+        \ endpoint."
+      operationId: autoscout24_list_markets
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AutoScout24MarketsResponse'
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: List markets
+      tags:
+      - AutoScout24
+  /v1/autoscout24/search:
+    get:
+      description: |-
+        Search live vehicle cards, seller/location information and current filter taxonomy.
+
+        Browsing is capped at 200 pages (normally 20 cards each). Narrow the query
+        to reach more inventory. Empty results cost zero credits. Listing detail
+        is not included in this API.
+      operationId: autoscout24_search_vehicles
+      parameters:
+      - explode: true
+        in: query
+        name: market
+        required: false
+        schema:
+          default: de
+          enum:
+          - de
+          - at
+          - be
+          - es
+          - fr
+          - it
+          - lu
+          - nl
+          title: Market
+          type: string
+        style: form
+      - description: "Native make slug, e.g. volkswagen or bmw."
+        explode: true
+        in: query
+        name: make
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "Native model slug, e.g. golf. Requires make."
+        explode: true
+        in: query
+        name: model
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: price_min
+        required: false
+        schema:
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: price_max
+        required: false
+        schema:
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - description: Kilometres.
+        explode: true
+        in: query
+        name: mileage_min
+        required: false
+        schema:
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: mileage_max
+        required: false
+        schema:
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: year_min
+        required: false
+        schema:
+          maximum: 2100
+          minimum: 1900
+          nullable: true
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: year_max
+        required: false
+        schema:
+          maximum: 2100
+          minimum: 1900
+          nullable: true
+          type: integer
+        style: form
+      - description: Engine power in kW.
+        explode: true
+        in: query
+        name: power_min
+        required: false
+        schema:
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: power_max
+        required: false
+        schema:
+          minimum: 0
+          nullable: true
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: fuel_type
+        required: false
+        schema:
+          enum:
+          - petrol
+          - diesel
+          - electric
+          - hybrid_petrol
+          - hybrid_diesel
+          - cng
+          - hydrogen
+          - lpg
+          - ethanol
+          - other
+          nullable: true
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: transmission
+        required: false
+        schema:
+          enum:
+          - automatic
+          - manual
+          - semi_automatic
+          nullable: true
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: body_type
+        required: false
+        schema:
+          enum:
+          - compact
+          - convertible
+          - coupe
+          - suv
+          - station_wagon
+          - sedan
+          - van
+          - transporter
+          - other
+          nullable: true
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: seller_type
+        required: false
+        schema:
+          enum:
+          - dealer
+          - private
+          nullable: true
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: condition
+        required: false
+        schema:
+          enum:
+          - new
+          - used
+          - annual
+          - classic
+          - demo
+          - day_registration
+          nullable: true
+          type: string
+        style: form
+      - description: Postal code in the requested market.
+        explode: true
+        in: query
+        name: zip
+        required: false
+        schema:
+          maxLength: 10
+          nullable: true
+          type: string
+        style: form
+      - description: Kilometres; requires zip.
+        explode: true
+        in: query
+        name: radius
+        required: false
+        schema:
+          maximum: 400
+          minimum: 1
+          nullable: true
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: sort_by
+        required: false
+        schema:
+          default: best_match
+          enum:
+          - best_match
+          - price_asc
+          - price_desc
+          - mileage_asc
+          - mileage_desc
+          - registration_asc
+          - registration_desc
+          - power_asc
+          - power_desc
+          - newest
+          title: Sort By
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          maximum: 200
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AutoScout24SearchResponse'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Search vehicles
+      tags:
+      - AutoScout24
   /v1/baidu/autocomplete:
     get:
       description: Baidu search-box suggestions.
@@ -4786,6 +5137,851 @@ paths:
       summary: Search properties
       tags:
       - Booking
+  /v1/brave/autocomplete:
+    get:
+      description: Native search-box suggestions with entity descriptions and images.
+        Two credits.
+      operationId: brave_autocomplete
+      parameters:
+      - explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          maxLength: 2048
+          minLength: 1
+          title: Query
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: us
+          enum:
+          - us
+          - all
+          - ar
+          - au
+          - at
+          - be
+          - br
+          - ca
+          - cl
+          - cn
+          - dk
+          - fi
+          - fr
+          - de
+          - gr
+          - hk
+          - in
+          - id
+          - it
+          - jp
+          - kr
+          - my
+          - mx
+          - nl
+          - nz
+          - "no"
+          - ph
+          - pl
+          - pt
+          - ru
+          - sa
+          - sg
+          - za
+          - es
+          - se
+          - ch
+          - tw
+          - tr
+          - gb
+          title: Country
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BraveAutocompleteResponse'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Autocomplete
+      tags:
+      - Brave
+  /v1/brave/images:
+    get:
+      description: "Native image batch with original URLs, source pages, thumbnails\
+        \ and dimensions."
+      operationId: brave_image_search
+      parameters:
+      - description: Native Brave search query
+        explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          description: Native Brave search query
+          maxLength: 2048
+          minLength: 1
+          title: Query
+          type: string
+        style: form
+      - description: Native result region; see /locales
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: us
+          description: Native result region; see /locales
+          enum:
+          - us
+          - all
+          - ar
+          - au
+          - at
+          - be
+          - br
+          - ca
+          - cl
+          - cn
+          - dk
+          - fi
+          - fr
+          - de
+          - gr
+          - hk
+          - in
+          - id
+          - it
+          - jp
+          - kr
+          - my
+          - mx
+          - nl
+          - nz
+          - "no"
+          - ph
+          - pl
+          - pt
+          - ru
+          - sa
+          - sg
+          - za
+          - es
+          - se
+          - ch
+          - tw
+          - tr
+          - gb
+          title: Country
+          type: string
+        style: form
+      - description: UI labels/date language; does not restrict result language
+        explode: true
+        in: query
+        name: ui_language
+        required: false
+        schema:
+          default: en-us
+          description: UI labels/date language; does not restrict result language
+          enum:
+          - en-us
+          - az
+          - id
+          - ms
+          - br
+          - ca
+          - cs
+          - cy
+          - da
+          - de-de
+          - et
+          - en-ca
+          - en-in
+          - en-gb
+          - es
+          - eu
+          - fr-ca
+          - fr-fr
+          - gl
+          - hr
+          - it
+          - sw-ke
+          - lv
+          - lt
+          - hu
+          - nl
+          - nb
+          - pl
+          - pt-br
+          - ro
+          - sq-al
+          - sk
+          - sl
+          - sr-latn
+          - fi-fi
+          - sv
+          - vi
+          - tr
+          - el
+          - bg
+          - ru
+          - sr
+          - uk
+          - ka
+          - th
+          - ko
+          - zh
+          - zh-tw
+          - ja-jp
+          title: Ui Language
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: safe_search
+        required: false
+        schema:
+          default: moderate
+          enum:
+          - "off"
+          - moderate
+          - strict
+          title: Safe Search
+          type: string
+        style: form
+      - description: Slice the initial native image batch
+        explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          default: 50
+          description: Slice the initial native image batch
+          maximum: 200
+          minimum: 1
+          title: Count
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BraveResponse'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Image search
+      tags:
+      - Brave
+  /v1/brave/locales:
+    get:
+      description: Native country and UI-language choices. Free; result language is
+        a separate preference.
+      operationId: brave_list_supported_locales
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BraveLocalesResponse'
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: List supported locales
+      tags:
+      - Brave
+  /v1/brave/news:
+    get:
+      description: Native news batch; relative source dates stay display strings.
+      operationId: brave_news_search
+      parameters:
+      - description: Native Brave search query
+        explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          description: Native Brave search query
+          maxLength: 2048
+          minLength: 1
+          title: Query
+          type: string
+        style: form
+      - description: Native result region; see /locales
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: us
+          description: Native result region; see /locales
+          enum:
+          - us
+          - all
+          - ar
+          - au
+          - at
+          - be
+          - br
+          - ca
+          - cl
+          - cn
+          - dk
+          - fi
+          - fr
+          - de
+          - gr
+          - hk
+          - in
+          - id
+          - it
+          - jp
+          - kr
+          - my
+          - mx
+          - nl
+          - nz
+          - "no"
+          - ph
+          - pl
+          - pt
+          - ru
+          - sa
+          - sg
+          - za
+          - es
+          - se
+          - ch
+          - tw
+          - tr
+          - gb
+          title: Country
+          type: string
+        style: form
+      - description: UI labels/date language; does not restrict result language
+        explode: true
+        in: query
+        name: ui_language
+        required: false
+        schema:
+          default: en-us
+          description: UI labels/date language; does not restrict result language
+          enum:
+          - en-us
+          - az
+          - id
+          - ms
+          - br
+          - ca
+          - cs
+          - cy
+          - da
+          - de-de
+          - et
+          - en-ca
+          - en-in
+          - en-gb
+          - es
+          - eu
+          - fr-ca
+          - fr-fr
+          - gl
+          - hr
+          - it
+          - sw-ke
+          - lv
+          - lt
+          - hu
+          - nl
+          - nb
+          - pl
+          - pt-br
+          - ro
+          - sq-al
+          - sk
+          - sl
+          - sr-latn
+          - fi-fi
+          - sv
+          - vi
+          - tr
+          - el
+          - bg
+          - ru
+          - sr
+          - uk
+          - ka
+          - th
+          - ko
+          - zh
+          - zh-tw
+          - ja-jp
+          title: Ui Language
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: safe_search
+        required: false
+        schema:
+          default: moderate
+          enum:
+          - "off"
+          - moderate
+          - strict
+          title: Safe Search
+          type: string
+        style: form
+      - description: Slice the initial native news batch
+        explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          default: 35
+          description: Slice the initial native news batch
+          maximum: 50
+          minimum: 1
+          title: Count
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BraveResponse'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: News search
+      tags:
+      - Brave
+  /v1/brave/search:
+    get:
+      description: "Native Brave organic results, rich source blocks and page metadata.\
+        \ Seven credits."
+      operationId: brave_web_search
+      parameters:
+      - description: Native Brave search query
+        explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          description: Native Brave search query
+          maxLength: 2048
+          minLength: 1
+          title: Query
+          type: string
+        style: form
+      - description: Native result region; see /locales
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: us
+          description: Native result region; see /locales
+          enum:
+          - us
+          - all
+          - ar
+          - au
+          - at
+          - be
+          - br
+          - ca
+          - cl
+          - cn
+          - dk
+          - fi
+          - fr
+          - de
+          - gr
+          - hk
+          - in
+          - id
+          - it
+          - jp
+          - kr
+          - my
+          - mx
+          - nl
+          - nz
+          - "no"
+          - ph
+          - pl
+          - pt
+          - ru
+          - sa
+          - sg
+          - za
+          - es
+          - se
+          - ch
+          - tw
+          - tr
+          - gb
+          title: Country
+          type: string
+        style: form
+      - description: UI labels/date language; does not restrict result language
+        explode: true
+        in: query
+        name: ui_language
+        required: false
+        schema:
+          default: en-us
+          description: UI labels/date language; does not restrict result language
+          enum:
+          - en-us
+          - az
+          - id
+          - ms
+          - br
+          - ca
+          - cs
+          - cy
+          - da
+          - de-de
+          - et
+          - en-ca
+          - en-in
+          - en-gb
+          - es
+          - eu
+          - fr-ca
+          - fr-fr
+          - gl
+          - hr
+          - it
+          - sw-ke
+          - lv
+          - lt
+          - hu
+          - nl
+          - nb
+          - pl
+          - pt-br
+          - ro
+          - sq-al
+          - sk
+          - sl
+          - sr-latn
+          - fi-fi
+          - sv
+          - vi
+          - tr
+          - el
+          - bg
+          - ru
+          - sr
+          - uk
+          - ka
+          - th
+          - ko
+          - zh
+          - zh-tw
+          - ja-jp
+          title: Ui Language
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: safe_search
+        required: false
+        schema:
+          default: moderate
+          enum:
+          - "off"
+          - moderate
+          - strict
+          title: Safe Search
+          type: string
+        style: form
+      - description: 1-based native page ordinal
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          description: 1-based native page ordinal
+          maximum: 10
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - description: Slice one native page; does not change native page boundaries
+        explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          default: 20
+          description: Slice one native page; does not change native page boundaries
+          maximum: 20
+          minimum: 1
+          title: Count
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: freshness
+        required: false
+        schema:
+          default: any
+          enum:
+          - any
+          - day
+          - week
+          - month
+          - year
+          title: Freshness
+          type: string
+        style: form
+      - description: Allow native spelling correction
+        explode: true
+        in: query
+        name: spellcheck
+        required: false
+        schema:
+          default: false
+          description: Allow native spelling correction
+          title: Spellcheck
+          type: boolean
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BraveSearchResponse'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Web search
+      tags:
+      - Brave
+  /v1/brave/videos:
+    get:
+      description: "Native video results with duration, creator, publisher and verified\
+        \ page ordinals."
+      operationId: brave_video_search
+      parameters:
+      - description: Native Brave search query
+        explode: true
+        in: query
+        name: query
+        required: true
+        schema:
+          description: Native Brave search query
+          maxLength: 2048
+          minLength: 1
+          title: Query
+          type: string
+        style: form
+      - description: Native result region; see /locales
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: us
+          description: Native result region; see /locales
+          enum:
+          - us
+          - all
+          - ar
+          - au
+          - at
+          - be
+          - br
+          - ca
+          - cl
+          - cn
+          - dk
+          - fi
+          - fr
+          - de
+          - gr
+          - hk
+          - in
+          - id
+          - it
+          - jp
+          - kr
+          - my
+          - mx
+          - nl
+          - nz
+          - "no"
+          - ph
+          - pl
+          - pt
+          - ru
+          - sa
+          - sg
+          - za
+          - es
+          - se
+          - ch
+          - tw
+          - tr
+          - gb
+          title: Country
+          type: string
+        style: form
+      - description: UI labels/date language; does not restrict result language
+        explode: true
+        in: query
+        name: ui_language
+        required: false
+        schema:
+          default: en-us
+          description: UI labels/date language; does not restrict result language
+          enum:
+          - en-us
+          - az
+          - id
+          - ms
+          - br
+          - ca
+          - cs
+          - cy
+          - da
+          - de-de
+          - et
+          - en-ca
+          - en-in
+          - en-gb
+          - es
+          - eu
+          - fr-ca
+          - fr-fr
+          - gl
+          - hr
+          - it
+          - sw-ke
+          - lv
+          - lt
+          - hu
+          - nl
+          - nb
+          - pl
+          - pt-br
+          - ro
+          - sq-al
+          - sk
+          - sl
+          - sr-latn
+          - fi-fi
+          - sv
+          - vi
+          - tr
+          - el
+          - bg
+          - ru
+          - sr
+          - uk
+          - ka
+          - th
+          - ko
+          - zh
+          - zh-tw
+          - ja-jp
+          title: Ui Language
+          type: string
+        style: form
+      - explode: true
+        in: query
+        name: safe_search
+        required: false
+        schema:
+          default: moderate
+          enum:
+          - "off"
+          - moderate
+          - strict
+          title: Safe Search
+          type: string
+        style: form
+      - description: 1-based native page ordinal
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          description: 1-based native page ordinal
+          maximum: 10
+          minimum: 1
+          title: Page
+          type: integer
+        style: form
+      - explode: true
+        in: query
+        name: count
+        required: false
+        schema:
+          default: 50
+          maximum: 50
+          minimum: 1
+          title: Count
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BravePagedResponse'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Video search
+      tags:
+      - Brave
   /v1/chatgpt/ask:
     get:
       description: Send a prompt to ChatGPT and get the answer plus the web sources
@@ -8796,6 +9992,88 @@ paths:
       summary: Gemini scraper health check
       tags:
       - Gemini
+  /v1/github/profiles/{username}:
+    get:
+      description: |-
+        Public user or organization profile, pins/popular repositories, README and contributions.
+
+        The overview preserves GitHub's public website sections, including organization-specific
+        metadata. Compact displayed counts are approximate and marked with *_approximate.
+        Unavailable or blocked data is an unbilled error, never an empty success.
+      operationId: github_get_profile
+      parameters:
+      - explode: false
+        in: path
+        name: username
+        required: true
+        schema:
+          title: Username
+          type: string
+        style: simple
+      - description: Profile section; stars is available for users only
+        explode: true
+        in: query
+        name: tab
+        required: false
+        schema:
+          default: overview
+          description: Profile section; stars is available for users only
+          enum:
+          - overview
+          - repositories
+          - stars
+          title: Tab
+          type: string
+        style: form
+      - description: "Overview only: 1970 through the current UTC year; activity is\
+          \ December or current month"
+        explode: true
+        in: query
+        name: year
+        required: false
+        schema:
+          minimum: 1970
+          nullable: true
+          type: integer
+        style: form
+      - description: "Repositories only: page number, 30 rows per page"
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          minimum: 1
+          nullable: true
+          type: integer
+        style: form
+      - description: "Stars only: previous pagination.next_page_token"
+        explode: true
+        in: query
+        name: next_page_token
+        required: false
+        schema:
+          maxLength: 1024
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GitHubProfileResponse'
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get profile
+      tags:
+      - GitHub
   /v1/google-play/apps/{app_id}:
     get:
       description: |-
@@ -27868,6 +29146,631 @@ components:
       - claim_url
       - credits_remaining
       title: AgentTrialInfo
+    AutoScout24FiltersResponse:
+      example:
+        market: market
+        filters:
+          key: ""
+        source_url: source_url
+        latency_ms: 0
+      properties:
+        market:
+          title: Market
+          type: string
+        source_url:
+          title: Source Url
+          type: string
+        filters:
+          additionalProperties: true
+          title: Filters
+          type: object
+        latency_ms:
+          title: Latency Ms
+          type: integer
+      required:
+      - filters
+      - latency_ms
+      - market
+      - source_url
+      title: AutoScout24FiltersResponse
+    AutoScout24Listing:
+      description: Public data on a search card; nullable fields are absent from some
+        cards.
+      example:
+        seller:
+          key: ""
+        model_group: model_group
+        cross_reference_id: cross_reference_id
+        motor_type: motor_type
+        fuel: fuel
+        result_section: result_section
+        available_utc: 7.457744773683766
+        rating: 4.965218492984954
+        displacement_cc: 6
+        has_360_image: true
+        leasing:
+          key: ""
+        transmission: transmission
+        seals:
+        - key: ""
+        - key: ""
+        price: 9.301444243932576
+        variant: variant
+        model: model
+        id: id
+        is_super_deal: true
+        fuel_type: fuel_type
+        first_registration: first_registration
+        offer_type: offer_type
+        images:
+        - images
+        - images
+        ad_tier: ad_tier
+        version: version
+        power_hp: 1.4894159098541704
+        rating_count: 5
+        wltp_values:
+        - wltp_values
+        - wltp_values
+        subtitle: subtitle
+        price_evaluation: 3
+        position: 7
+        online_purchase_images:
+        - online_purchase_images
+        - online_purchase_images
+        old_price_formatted: old_price_formatted
+        vehicle_details:
+        - key: ""
+        - key: ""
+        price_evaluation_enabled: true
+        interest_level: interest_level
+        price_details:
+          key: ""
+        available_now: true
+        power_kw: 1.0246457001441578
+        title: title
+        electric_vehicle_banner:
+          key: ""
+        has_video: true
+        is_damaged: true
+        is_trending: true
+        special_conditions:
+        - ""
+        - ""
+        vehicle:
+          key: ""
+        ratings_enabled: true
+        registration_year: 7
+        availability_in_days: 1
+        currency: EUR
+        is_conditional_price: true
+        is_deliverable: true
+        make: make
+        registration_month: 1
+        available_at: available_at
+        result_type: result_type
+        article_type: article_type
+        vat_label_required: true
+        model_id: 2
+        url: url
+        price_formatted: price_formatted
+        online_purchase:
+          key: ""
+        location:
+          key: ""
+        mileage_km: 4
+      properties:
+        id:
+          title: Id
+          type: string
+        cross_reference_id:
+          nullable: true
+          type: string
+        position:
+          title: Position
+          type: integer
+        title:
+          title: Title
+          type: string
+        url:
+          title: Url
+          type: string
+        images:
+          items:
+            type: string
+          type: array
+        online_purchase_images:
+          items:
+            type: string
+          type: array
+        price:
+          nullable: true
+          type: number
+        currency:
+          default: EUR
+          title: Currency
+          type: string
+        price_formatted:
+          nullable: true
+          type: string
+        price_evaluation:
+          nullable: true
+          type: integer
+        price_evaluation_enabled:
+          nullable: true
+          type: boolean
+        price_details:
+          additionalProperties: true
+          title: Price Details
+          type: object
+        old_price_formatted:
+          nullable: true
+          type: string
+        is_super_deal:
+          nullable: true
+          type: boolean
+        is_conditional_price:
+          nullable: true
+          type: boolean
+        vat_label_required:
+          nullable: true
+          type: boolean
+        make:
+          nullable: true
+          type: string
+        model:
+          nullable: true
+          type: string
+        model_id:
+          nullable: true
+          type: integer
+        model_group:
+          nullable: true
+          type: string
+        variant:
+          nullable: true
+          type: string
+        motor_type:
+          nullable: true
+          type: string
+        version:
+          nullable: true
+          type: string
+        subtitle:
+          nullable: true
+          type: string
+        article_type:
+          nullable: true
+          type: string
+        offer_type:
+          nullable: true
+          type: string
+        fuel:
+          nullable: true
+          type: string
+        fuel_type:
+          nullable: true
+          type: string
+        transmission:
+          nullable: true
+          type: string
+        mileage_km:
+          nullable: true
+          type: integer
+        first_registration:
+          nullable: true
+          type: string
+        registration_year:
+          nullable: true
+          type: integer
+        registration_month:
+          nullable: true
+          type: integer
+        power_kw:
+          nullable: true
+          type: number
+        power_hp:
+          nullable: true
+          type: number
+        displacement_cc:
+          nullable: true
+          type: integer
+        is_damaged:
+          nullable: true
+          type: boolean
+        available_now:
+          nullable: true
+          type: boolean
+        available_at:
+          nullable: true
+          type: string
+        available_utc:
+          nullable: true
+          type: number
+        availability_in_days:
+          nullable: true
+          type: integer
+        location:
+          additionalProperties: true
+          title: Location
+          type: object
+        seller:
+          additionalProperties: true
+          title: Seller
+          type: object
+        rating:
+          nullable: true
+          type: number
+        rating_count:
+          nullable: true
+          type: integer
+        ratings_enabled:
+          nullable: true
+          type: boolean
+        leasing:
+          additionalProperties: true
+          nullable: true
+          type: object
+        seals:
+          items:
+            additionalProperties: true
+            nullable: true
+            type: object
+          type: array
+        online_purchase:
+          additionalProperties: true
+          nullable: true
+          type: object
+        electric_vehicle_banner:
+          additionalProperties: true
+          nullable: true
+          type: object
+        is_deliverable:
+          nullable: true
+          type: boolean
+        has_video:
+          nullable: true
+          type: boolean
+        has_360_image:
+          nullable: true
+          type: boolean
+        interest_level:
+          nullable: true
+          type: string
+        is_trending:
+          nullable: true
+          type: boolean
+        ad_tier:
+          nullable: true
+          type: string
+        result_type:
+          nullable: true
+          type: string
+        result_section:
+          nullable: true
+          type: string
+        special_conditions:
+          items: {}
+          type: array
+        vehicle_details:
+          items:
+            additionalProperties: true
+            nullable: true
+            type: object
+          type: array
+        wltp_values:
+          items:
+            type: string
+          type: array
+        vehicle:
+          additionalProperties: true
+          description: "Additional native vehicle attributes, including localized\
+            \ labels."
+          title: Vehicle
+          type: object
+      required:
+      - id
+      - position
+      - title
+      - url
+      title: AutoScout24Listing
+    AutoScout24Market:
+      example:
+        country_code: country_code
+        code: code
+        domain: domain
+        name: name
+        language: language
+        currency: currency
+      properties:
+        code:
+          title: Code
+          type: string
+        name:
+          title: Name
+          type: string
+        domain:
+          title: Domain
+          type: string
+        country_code:
+          title: Country Code
+          type: string
+        language:
+          title: Language
+          type: string
+        currency:
+          title: Currency
+          type: string
+      required:
+      - code
+      - country_code
+      - currency
+      - domain
+      - language
+      - name
+      title: AutoScout24Market
+    AutoScout24MarketsResponse:
+      example:
+        markets:
+        - country_code: country_code
+          code: code
+          domain: domain
+          name: name
+          language: language
+          currency: currency
+        - country_code: country_code
+          code: code
+          domain: domain
+          name: name
+          language: language
+          currency: currency
+      properties:
+        markets:
+          items:
+            $ref: '#/components/schemas/AutoScout24Market'
+          type: array
+      required:
+      - markets
+      title: AutoScout24MarketsResponse
+    AutoScout24SearchResponse:
+      example:
+        pagination_cap: 2
+        has_next_page: true
+        total_pages: 6
+        filters:
+          key: ""
+        applied_filters:
+          key: ""
+        source_url: source_url
+        total_results: 0
+        latency_ms: 9
+        market: market
+        next_page: 5
+        page: 1
+        results:
+        - seller:
+            key: ""
+          model_group: model_group
+          cross_reference_id: cross_reference_id
+          motor_type: motor_type
+          fuel: fuel
+          result_section: result_section
+          available_utc: 7.457744773683766
+          rating: 4.965218492984954
+          displacement_cc: 6
+          has_360_image: true
+          leasing:
+            key: ""
+          transmission: transmission
+          seals:
+          - key: ""
+          - key: ""
+          price: 9.301444243932576
+          variant: variant
+          model: model
+          id: id
+          is_super_deal: true
+          fuel_type: fuel_type
+          first_registration: first_registration
+          offer_type: offer_type
+          images:
+          - images
+          - images
+          ad_tier: ad_tier
+          version: version
+          power_hp: 1.4894159098541704
+          rating_count: 5
+          wltp_values:
+          - wltp_values
+          - wltp_values
+          subtitle: subtitle
+          price_evaluation: 3
+          position: 7
+          online_purchase_images:
+          - online_purchase_images
+          - online_purchase_images
+          old_price_formatted: old_price_formatted
+          vehicle_details:
+          - key: ""
+          - key: ""
+          price_evaluation_enabled: true
+          interest_level: interest_level
+          price_details:
+            key: ""
+          available_now: true
+          power_kw: 1.0246457001441578
+          title: title
+          electric_vehicle_banner:
+            key: ""
+          has_video: true
+          is_damaged: true
+          is_trending: true
+          special_conditions:
+          - ""
+          - ""
+          vehicle:
+            key: ""
+          ratings_enabled: true
+          registration_year: 7
+          availability_in_days: 1
+          currency: EUR
+          is_conditional_price: true
+          is_deliverable: true
+          make: make
+          registration_month: 1
+          available_at: available_at
+          result_type: result_type
+          article_type: article_type
+          vat_label_required: true
+          model_id: 2
+          url: url
+          price_formatted: price_formatted
+          online_purchase:
+            key: ""
+          location:
+            key: ""
+          mileage_km: 4
+        - seller:
+            key: ""
+          model_group: model_group
+          cross_reference_id: cross_reference_id
+          motor_type: motor_type
+          fuel: fuel
+          result_section: result_section
+          available_utc: 7.457744773683766
+          rating: 4.965218492984954
+          displacement_cc: 6
+          has_360_image: true
+          leasing:
+            key: ""
+          transmission: transmission
+          seals:
+          - key: ""
+          - key: ""
+          price: 9.301444243932576
+          variant: variant
+          model: model
+          id: id
+          is_super_deal: true
+          fuel_type: fuel_type
+          first_registration: first_registration
+          offer_type: offer_type
+          images:
+          - images
+          - images
+          ad_tier: ad_tier
+          version: version
+          power_hp: 1.4894159098541704
+          rating_count: 5
+          wltp_values:
+          - wltp_values
+          - wltp_values
+          subtitle: subtitle
+          price_evaluation: 3
+          position: 7
+          online_purchase_images:
+          - online_purchase_images
+          - online_purchase_images
+          old_price_formatted: old_price_formatted
+          vehicle_details:
+          - key: ""
+          - key: ""
+          price_evaluation_enabled: true
+          interest_level: interest_level
+          price_details:
+            key: ""
+          available_now: true
+          power_kw: 1.0246457001441578
+          title: title
+          electric_vehicle_banner:
+            key: ""
+          has_video: true
+          is_damaged: true
+          is_trending: true
+          special_conditions:
+          - ""
+          - ""
+          vehicle:
+            key: ""
+          ratings_enabled: true
+          registration_year: 7
+          availability_in_days: 1
+          currency: EUR
+          is_conditional_price: true
+          is_deliverable: true
+          make: make
+          registration_month: 1
+          available_at: available_at
+          result_type: result_type
+          article_type: article_type
+          vat_label_required: true
+          model_id: 2
+          url: url
+          price_formatted: price_formatted
+          online_purchase:
+            key: ""
+          location:
+            key: ""
+          mileage_km: 4
+        page_size: 5
+      properties:
+        market:
+          title: Market
+          type: string
+        source_url:
+          title: Source Url
+          type: string
+        total_results:
+          title: Total Results
+          type: integer
+        total_pages:
+          title: Total Pages
+          type: integer
+        page:
+          title: Page
+          type: integer
+        page_size:
+          default: 20
+          title: Page Size
+          type: integer
+        has_next_page:
+          title: Has Next Page
+          type: boolean
+        next_page:
+          nullable: true
+          type: integer
+        pagination_cap:
+          default: 200
+          title: Pagination Cap
+          type: integer
+        results:
+          items:
+            $ref: '#/components/schemas/AutoScout24Listing'
+          type: array
+        filters:
+          additionalProperties: true
+          title: Filters
+          type: object
+        applied_filters:
+          additionalProperties: true
+          title: Applied Filters
+          type: object
+        latency_ms:
+          title: Latency Ms
+          type: integer
+      required:
+      - applied_filters
+      - filters
+      - has_next_page
+      - latency_ms
+      - market
+      - next_page
+      - page
+      - results
+      - source_url
+      - total_pages
+      - total_results
+      title: AutoScout24SearchResponse
     BatchItem:
       example:
         path: path
@@ -28041,6 +29944,1455 @@ components:
       required:
       - brands
       title: BrandsResponse
+    BraveAutocompleteResponse:
+      example:
+        country: country
+        fetched_utc: 6.027456183070403
+        fetched_at: fetched_at
+        query: query
+        suggestions:
+        - img: img
+          query: query
+          name: name
+          logo: true
+          type: type
+          category: category
+          is_entity: false
+          desc: desc
+        - img: img
+          query: query
+          name: name
+          logo: true
+          type: type
+          category: category
+          is_entity: false
+          desc: desc
+        result_count: 0
+        source_url: source_url
+      properties:
+        query:
+          title: Query
+          type: string
+        country:
+          title: Country
+          type: string
+        suggestions:
+          items:
+            $ref: '#/components/schemas/BraveSuggestion'
+          type: array
+        result_count:
+          title: Result Count
+          type: integer
+        source_url:
+          title: Source Url
+          type: string
+        fetched_at:
+          title: Fetched At
+          type: string
+        fetched_utc:
+          title: Fetched Utc
+          type: number
+      required:
+      - country
+      - fetched_at
+      - fetched_utc
+      - query
+      - result_count
+      - source_url
+      - suggestions
+      title: BraveAutocompleteResponse
+    BraveLocaleOption:
+      example:
+        code: code
+        name: name
+      properties:
+        code:
+          title: Code
+          type: string
+        name:
+          title: Name
+          type: string
+      required:
+      - code
+      - name
+      title: BraveLocaleOption
+    BraveLocalesResponse:
+      example:
+        countries:
+        - code: code
+          name: name
+        - code: code
+          name: name
+        ui_languages:
+        - code: code
+          name: name
+        - code: code
+          name: name
+      properties:
+        countries:
+          items:
+            $ref: '#/components/schemas/BraveLocaleOption'
+          type: array
+        ui_languages:
+          items:
+            $ref: '#/components/schemas/BraveLocaleOption'
+          type: array
+      required:
+      - countries
+      - ui_languages
+      title: BraveLocalesResponse
+    BravePagedResponse:
+      additionalProperties: {}
+      example:
+        country: country
+        fetched_utc: 6.027456183070403
+        query: query
+        source_url: source_url
+        safe_search: safe_search
+        query_info:
+          key: ""
+        next_page: 5
+        fetched_at: fetched_at
+        has_next: true
+        page: 1
+        result_count: 0
+        results:
+        - snippet: Snippet
+          published_utc: 1.4658129805029452
+          display_url: Display_Url
+          cluster:
+          - key: ""
+          - key: ""
+          page_fetched_utc: 5.962133916683182
+          software:
+            key: ""
+          data:
+            key: ""
+          book:
+            key: ""
+          family_friendly: true
+          rating:
+            key: ""
+          recipe:
+            key: ""
+          description: Description
+          language: Language
+          page_fetched: Page_Fetched
+          video:
+            key: ""
+          source: Source
+          title: title
+          type: Type
+          qa:
+            key: ""
+          subtype: Subtype
+          review:
+            key: ""
+          faq:
+            key: ""
+          product_cluster:
+          - key: ""
+          - key: ""
+          published_at: Published_At
+          meta_url:
+            key: ""
+          thumbnail:
+            key: ""
+          product:
+            key: ""
+          profile:
+            key: ""
+          deep_results:
+            key: ""
+          confidence: Confidence
+          url: url
+          article:
+            key: ""
+          site_name: Site_Name
+          page_age: Page_Age
+          page_fetched_at: Page_Fetched_At
+          organization:
+            key: ""
+          is_live: true
+          sitelinks:
+          - key: ""
+          - key: ""
+          location:
+            key: ""
+          position: 6
+          age: Age
+          properties:
+            key: ""
+        - snippet: Snippet
+          published_utc: 1.4658129805029452
+          display_url: Display_Url
+          cluster:
+          - key: ""
+          - key: ""
+          page_fetched_utc: 5.962133916683182
+          software:
+            key: ""
+          data:
+            key: ""
+          book:
+            key: ""
+          family_friendly: true
+          rating:
+            key: ""
+          recipe:
+            key: ""
+          description: Description
+          language: Language
+          page_fetched: Page_Fetched
+          video:
+            key: ""
+          source: Source
+          title: title
+          type: Type
+          qa:
+            key: ""
+          subtype: Subtype
+          review:
+            key: ""
+          faq:
+            key: ""
+          product_cluster:
+          - key: ""
+          - key: ""
+          published_at: Published_At
+          meta_url:
+            key: ""
+          thumbnail:
+            key: ""
+          product:
+            key: ""
+          profile:
+            key: ""
+          deep_results:
+            key: ""
+          confidence: Confidence
+          url: url
+          article:
+            key: ""
+          site_name: Site_Name
+          page_age: Page_Age
+          page_fetched_at: Page_Fetched_At
+          organization:
+            key: ""
+          is_live: true
+          sitelinks:
+          - key: ""
+          - key: ""
+          location:
+            key: ""
+          position: 6
+          age: Age
+          properties:
+            key: ""
+        ui_language: ui_language
+      properties:
+        query:
+          title: Query
+          type: string
+        country:
+          title: Country
+        ui_language:
+          title: Ui Language
+        safe_search:
+          title: Safe Search
+        result_count:
+          title: Result Count
+        results:
+          items:
+            $ref: '#/components/schemas/BraveResult'
+          title: Results
+        query_info:
+          additionalProperties: true
+          title: Query Info
+        source_url:
+          title: Source Url
+          type: string
+        fetched_at:
+          title: Fetched At
+        fetched_utc:
+          title: Fetched Utc
+        page:
+          title: Page
+          type: integer
+        has_next:
+          title: Has Next
+        next_page:
+          $ref: '#/components/schemas/Next_Page'
+      required:
+      - country
+      - fetched_at
+      - fetched_utc
+      - has_next
+      - page
+      - query
+      - query_info
+      - result_count
+      - results
+      - safe_search
+      - source_url
+      - ui_language
+      title: BravePagedResponse
+    BraveResponse:
+      additionalProperties: {}
+      example:
+        query_info:
+          key: ""
+        country: country
+        fetched_utc: 5.637376656633329
+        fetched_at: fetched_at
+        query: query
+        result_count: 0
+        results:
+        - snippet: Snippet
+          published_utc: 1.4658129805029452
+          display_url: Display_Url
+          cluster:
+          - key: ""
+          - key: ""
+          page_fetched_utc: 5.962133916683182
+          software:
+            key: ""
+          data:
+            key: ""
+          book:
+            key: ""
+          family_friendly: true
+          rating:
+            key: ""
+          recipe:
+            key: ""
+          description: Description
+          language: Language
+          page_fetched: Page_Fetched
+          video:
+            key: ""
+          source: Source
+          title: title
+          type: Type
+          qa:
+            key: ""
+          subtype: Subtype
+          review:
+            key: ""
+          faq:
+            key: ""
+          product_cluster:
+          - key: ""
+          - key: ""
+          published_at: Published_At
+          meta_url:
+            key: ""
+          thumbnail:
+            key: ""
+          product:
+            key: ""
+          profile:
+            key: ""
+          deep_results:
+            key: ""
+          confidence: Confidence
+          url: url
+          article:
+            key: ""
+          site_name: Site_Name
+          page_age: Page_Age
+          page_fetched_at: Page_Fetched_At
+          organization:
+            key: ""
+          is_live: true
+          sitelinks:
+          - key: ""
+          - key: ""
+          location:
+            key: ""
+          position: 6
+          age: Age
+          properties:
+            key: ""
+        - snippet: Snippet
+          published_utc: 1.4658129805029452
+          display_url: Display_Url
+          cluster:
+          - key: ""
+          - key: ""
+          page_fetched_utc: 5.962133916683182
+          software:
+            key: ""
+          data:
+            key: ""
+          book:
+            key: ""
+          family_friendly: true
+          rating:
+            key: ""
+          recipe:
+            key: ""
+          description: Description
+          language: Language
+          page_fetched: Page_Fetched
+          video:
+            key: ""
+          source: Source
+          title: title
+          type: Type
+          qa:
+            key: ""
+          subtype: Subtype
+          review:
+            key: ""
+          faq:
+            key: ""
+          product_cluster:
+          - key: ""
+          - key: ""
+          published_at: Published_At
+          meta_url:
+            key: ""
+          thumbnail:
+            key: ""
+          product:
+            key: ""
+          profile:
+            key: ""
+          deep_results:
+            key: ""
+          confidence: Confidence
+          url: url
+          article:
+            key: ""
+          site_name: Site_Name
+          page_age: Page_Age
+          page_fetched_at: Page_Fetched_At
+          organization:
+            key: ""
+          is_live: true
+          sitelinks:
+          - key: ""
+          - key: ""
+          location:
+            key: ""
+          position: 6
+          age: Age
+          properties:
+            key: ""
+        source_url: source_url
+        ui_language: ui_language
+        safe_search: safe_search
+      properties:
+        query:
+          title: Query
+          type: string
+        country:
+          title: Country
+        ui_language:
+          title: Ui Language
+        safe_search:
+          title: Safe Search
+        result_count:
+          title: Result Count
+        results:
+          items:
+            $ref: '#/components/schemas/BraveResult'
+          title: Results
+        query_info:
+          additionalProperties: true
+          title: Query Info
+        source_url:
+          title: Source Url
+          type: string
+        fetched_at:
+          title: Fetched At
+        fetched_utc:
+          title: Fetched Utc
+      required:
+      - country
+      - fetched_at
+      - fetched_utc
+      - query
+      - query_info
+      - result_count
+      - results
+      - safe_search
+      - source_url
+      - ui_language
+      title: BraveResponse
+    BraveResult:
+      additionalProperties: {}
+      example:
+        snippet: Snippet
+        published_utc: 1.4658129805029452
+        display_url: Display_Url
+        cluster:
+        - key: ""
+        - key: ""
+        page_fetched_utc: 5.962133916683182
+        software:
+          key: ""
+        data:
+          key: ""
+        book:
+          key: ""
+        family_friendly: true
+        rating:
+          key: ""
+        recipe:
+          key: ""
+        description: Description
+        language: Language
+        page_fetched: Page_Fetched
+        video:
+          key: ""
+        source: Source
+        title: title
+        type: Type
+        qa:
+          key: ""
+        subtype: Subtype
+        review:
+          key: ""
+        faq:
+          key: ""
+        product_cluster:
+        - key: ""
+        - key: ""
+        published_at: Published_At
+        meta_url:
+          key: ""
+        thumbnail:
+          key: ""
+        product:
+          key: ""
+        profile:
+          key: ""
+        deep_results:
+          key: ""
+        confidence: Confidence
+        url: url
+        article:
+          key: ""
+        site_name: Site_Name
+        page_age: Page_Age
+        page_fetched_at: Page_Fetched_At
+        organization:
+          key: ""
+        is_live: true
+        sitelinks:
+        - key: ""
+        - key: ""
+        location:
+          key: ""
+        position: 6
+        age: Age
+        properties:
+          key: ""
+      properties:
+        position:
+          title: Position
+          type: integer
+        title:
+          title: Title
+          type: string
+        url:
+          title: Url
+          type: string
+        snippet:
+          $ref: '#/components/schemas/Snippet'
+        description:
+          $ref: '#/components/schemas/Description'
+        display_url:
+          $ref: '#/components/schemas/Display_Url'
+        site_name:
+          $ref: '#/components/schemas/Site_Name'
+        language:
+          $ref: '#/components/schemas/Language'
+        type:
+          $ref: '#/components/schemas/Type'
+        subtype:
+          $ref: '#/components/schemas/Subtype'
+        is_live:
+          $ref: '#/components/schemas/Is_Live'
+        profile:
+          $ref: '#/components/schemas/Profile'
+        meta_url:
+          $ref: '#/components/schemas/Meta_Url'
+        thumbnail:
+          $ref: '#/components/schemas/Thumbnail'
+        age:
+          $ref: '#/components/schemas/Age'
+        page_age:
+          $ref: '#/components/schemas/Page_Age'
+        published_at:
+          $ref: '#/components/schemas/Published_At'
+        published_utc:
+          $ref: '#/components/schemas/Published_Utc'
+        page_fetched:
+          $ref: '#/components/schemas/Page_Fetched'
+        page_fetched_at:
+          $ref: '#/components/schemas/Page_Fetched_At'
+        page_fetched_utc:
+          $ref: '#/components/schemas/Page_Fetched_Utc'
+        sitelinks:
+          items:
+            additionalProperties: true
+            nullable: true
+            type: object
+          title: Sitelinks
+        article:
+          $ref: '#/components/schemas/Article'
+        book:
+          $ref: '#/components/schemas/Book'
+        organization:
+          $ref: '#/components/schemas/Organization'
+        location:
+          $ref: '#/components/schemas/Location'
+        product:
+          $ref: '#/components/schemas/Product_1'
+        product_cluster:
+          $ref: '#/components/schemas/Product_Cluster'
+        rating:
+          $ref: '#/components/schemas/Rating'
+        recipe:
+          $ref: '#/components/schemas/Recipe'
+        review:
+          $ref: '#/components/schemas/Review'
+        software:
+          $ref: '#/components/schemas/Software'
+        faq:
+          $ref: '#/components/schemas/Faq'
+        qa:
+          $ref: '#/components/schemas/Qa'
+        deep_results:
+          $ref: '#/components/schemas/Deep_Results'
+        cluster:
+          $ref: '#/components/schemas/Cluster'
+        video:
+          $ref: '#/components/schemas/Video'
+        properties:
+          $ref: '#/components/schemas/Properties'
+        data:
+          $ref: '#/components/schemas/Data'
+        family_friendly:
+          $ref: '#/components/schemas/Family_Friendly'
+        confidence:
+          $ref: '#/components/schemas/Confidence'
+        source:
+          $ref: '#/components/schemas/Source'
+      required:
+      - position
+      - title
+      - url
+      title: BraveResult
+    BraveSearchResponse:
+      additionalProperties: {}
+      example:
+        news:
+        - snippet: Snippet
+          published_utc: 1.4658129805029452
+          display_url: Display_Url
+          cluster:
+          - key: ""
+          - key: ""
+          page_fetched_utc: 5.962133916683182
+          software:
+            key: ""
+          data:
+            key: ""
+          book:
+            key: ""
+          family_friendly: true
+          rating:
+            key: ""
+          recipe:
+            key: ""
+          description: Description
+          language: Language
+          page_fetched: Page_Fetched
+          video:
+            key: ""
+          source: Source
+          title: title
+          type: Type
+          qa:
+            key: ""
+          subtype: Subtype
+          review:
+            key: ""
+          faq:
+            key: ""
+          product_cluster:
+          - key: ""
+          - key: ""
+          published_at: Published_At
+          meta_url:
+            key: ""
+          thumbnail:
+            key: ""
+          product:
+            key: ""
+          profile:
+            key: ""
+          deep_results:
+            key: ""
+          confidence: Confidence
+          url: url
+          article:
+            key: ""
+          site_name: Site_Name
+          page_age: Page_Age
+          page_fetched_at: Page_Fetched_At
+          organization:
+            key: ""
+          is_live: true
+          sitelinks:
+          - key: ""
+          - key: ""
+          location:
+            key: ""
+          position: 6
+          age: Age
+          properties:
+            key: ""
+        - snippet: Snippet
+          published_utc: 1.4658129805029452
+          display_url: Display_Url
+          cluster:
+          - key: ""
+          - key: ""
+          page_fetched_utc: 5.962133916683182
+          software:
+            key: ""
+          data:
+            key: ""
+          book:
+            key: ""
+          family_friendly: true
+          rating:
+            key: ""
+          recipe:
+            key: ""
+          description: Description
+          language: Language
+          page_fetched: Page_Fetched
+          video:
+            key: ""
+          source: Source
+          title: title
+          type: Type
+          qa:
+            key: ""
+          subtype: Subtype
+          review:
+            key: ""
+          faq:
+            key: ""
+          product_cluster:
+          - key: ""
+          - key: ""
+          published_at: Published_At
+          meta_url:
+            key: ""
+          thumbnail:
+            key: ""
+          product:
+            key: ""
+          profile:
+            key: ""
+          deep_results:
+            key: ""
+          confidence: Confidence
+          url: url
+          article:
+            key: ""
+          site_name: Site_Name
+          page_age: Page_Age
+          page_fetched_at: Page_Fetched_At
+          organization:
+            key: ""
+          is_live: true
+          sitelinks:
+          - key: ""
+          - key: ""
+          location:
+            key: ""
+          position: 6
+          age: Age
+          properties:
+            key: ""
+        country: country
+        fetched_utc: 6.027456183070403
+        images:
+        - snippet: Snippet
+          published_utc: 1.4658129805029452
+          display_url: Display_Url
+          cluster:
+          - key: ""
+          - key: ""
+          page_fetched_utc: 5.962133916683182
+          software:
+            key: ""
+          data:
+            key: ""
+          book:
+            key: ""
+          family_friendly: true
+          rating:
+            key: ""
+          recipe:
+            key: ""
+          description: Description
+          language: Language
+          page_fetched: Page_Fetched
+          video:
+            key: ""
+          source: Source
+          title: title
+          type: Type
+          qa:
+            key: ""
+          subtype: Subtype
+          review:
+            key: ""
+          faq:
+            key: ""
+          product_cluster:
+          - key: ""
+          - key: ""
+          published_at: Published_At
+          meta_url:
+            key: ""
+          thumbnail:
+            key: ""
+          product:
+            key: ""
+          profile:
+            key: ""
+          deep_results:
+            key: ""
+          confidence: Confidence
+          url: url
+          article:
+            key: ""
+          site_name: Site_Name
+          page_age: Page_Age
+          page_fetched_at: Page_Fetched_At
+          organization:
+            key: ""
+          is_live: true
+          sitelinks:
+          - key: ""
+          - key: ""
+          location:
+            key: ""
+          position: 6
+          age: Age
+          properties:
+            key: ""
+        - snippet: Snippet
+          published_utc: 1.4658129805029452
+          display_url: Display_Url
+          cluster:
+          - key: ""
+          - key: ""
+          page_fetched_utc: 5.962133916683182
+          software:
+            key: ""
+          data:
+            key: ""
+          book:
+            key: ""
+          family_friendly: true
+          rating:
+            key: ""
+          recipe:
+            key: ""
+          description: Description
+          language: Language
+          page_fetched: Page_Fetched
+          video:
+            key: ""
+          source: Source
+          title: title
+          type: Type
+          qa:
+            key: ""
+          subtype: Subtype
+          review:
+            key: ""
+          faq:
+            key: ""
+          product_cluster:
+          - key: ""
+          - key: ""
+          published_at: Published_At
+          meta_url:
+            key: ""
+          thumbnail:
+            key: ""
+          product:
+            key: ""
+          profile:
+            key: ""
+          deep_results:
+            key: ""
+          confidence: Confidence
+          url: url
+          article:
+            key: ""
+          site_name: Site_Name
+          page_age: Page_Age
+          page_fetched_at: Page_Fetched_At
+          organization:
+            key: ""
+          is_live: true
+          sitelinks:
+          - key: ""
+          - key: ""
+          location:
+            key: ""
+          position: 6
+          age: Age
+          properties:
+            key: ""
+        query: query
+        discussions:
+        - snippet: Snippet
+          published_utc: 1.4658129805029452
+          display_url: Display_Url
+          cluster:
+          - key: ""
+          - key: ""
+          page_fetched_utc: 5.962133916683182
+          software:
+            key: ""
+          data:
+            key: ""
+          book:
+            key: ""
+          family_friendly: true
+          rating:
+            key: ""
+          recipe:
+            key: ""
+          description: Description
+          language: Language
+          page_fetched: Page_Fetched
+          video:
+            key: ""
+          source: Source
+          title: title
+          type: Type
+          qa:
+            key: ""
+          subtype: Subtype
+          review:
+            key: ""
+          faq:
+            key: ""
+          product_cluster:
+          - key: ""
+          - key: ""
+          published_at: Published_At
+          meta_url:
+            key: ""
+          thumbnail:
+            key: ""
+          product:
+            key: ""
+          profile:
+            key: ""
+          deep_results:
+            key: ""
+          confidence: Confidence
+          url: url
+          article:
+            key: ""
+          site_name: Site_Name
+          page_age: Page_Age
+          page_fetched_at: Page_Fetched_At
+          organization:
+            key: ""
+          is_live: true
+          sitelinks:
+          - key: ""
+          - key: ""
+          location:
+            key: ""
+          position: 6
+          age: Age
+          properties:
+            key: ""
+        - snippet: Snippet
+          published_utc: 1.4658129805029452
+          display_url: Display_Url
+          cluster:
+          - key: ""
+          - key: ""
+          page_fetched_utc: 5.962133916683182
+          software:
+            key: ""
+          data:
+            key: ""
+          book:
+            key: ""
+          family_friendly: true
+          rating:
+            key: ""
+          recipe:
+            key: ""
+          description: Description
+          language: Language
+          page_fetched: Page_Fetched
+          video:
+            key: ""
+          source: Source
+          title: title
+          type: Type
+          qa:
+            key: ""
+          subtype: Subtype
+          review:
+            key: ""
+          faq:
+            key: ""
+          product_cluster:
+          - key: ""
+          - key: ""
+          published_at: Published_At
+          meta_url:
+            key: ""
+          thumbnail:
+            key: ""
+          product:
+            key: ""
+          profile:
+            key: ""
+          deep_results:
+            key: ""
+          confidence: Confidence
+          url: url
+          article:
+            key: ""
+          site_name: Site_Name
+          page_age: Page_Age
+          page_fetched_at: Page_Fetched_At
+          organization:
+            key: ""
+          is_live: true
+          sitelinks:
+          - key: ""
+          - key: ""
+          location:
+            key: ""
+          position: 6
+          age: Age
+          properties:
+            key: ""
+        related_searches:
+        - key: related_searches
+        - key: related_searches
+        videos:
+        - snippet: Snippet
+          published_utc: 1.4658129805029452
+          display_url: Display_Url
+          cluster:
+          - key: ""
+          - key: ""
+          page_fetched_utc: 5.962133916683182
+          software:
+            key: ""
+          data:
+            key: ""
+          book:
+            key: ""
+          family_friendly: true
+          rating:
+            key: ""
+          recipe:
+            key: ""
+          description: Description
+          language: Language
+          page_fetched: Page_Fetched
+          video:
+            key: ""
+          source: Source
+          title: title
+          type: Type
+          qa:
+            key: ""
+          subtype: Subtype
+          review:
+            key: ""
+          faq:
+            key: ""
+          product_cluster:
+          - key: ""
+          - key: ""
+          published_at: Published_At
+          meta_url:
+            key: ""
+          thumbnail:
+            key: ""
+          product:
+            key: ""
+          profile:
+            key: ""
+          deep_results:
+            key: ""
+          confidence: Confidence
+          url: url
+          article:
+            key: ""
+          site_name: Site_Name
+          page_age: Page_Age
+          page_fetched_at: Page_Fetched_At
+          organization:
+            key: ""
+          is_live: true
+          sitelinks:
+          - key: ""
+          - key: ""
+          location:
+            key: ""
+          position: 6
+          age: Age
+          properties:
+            key: ""
+        - snippet: Snippet
+          published_utc: 1.4658129805029452
+          display_url: Display_Url
+          cluster:
+          - key: ""
+          - key: ""
+          page_fetched_utc: 5.962133916683182
+          software:
+            key: ""
+          data:
+            key: ""
+          book:
+            key: ""
+          family_friendly: true
+          rating:
+            key: ""
+          recipe:
+            key: ""
+          description: Description
+          language: Language
+          page_fetched: Page_Fetched
+          video:
+            key: ""
+          source: Source
+          title: title
+          type: Type
+          qa:
+            key: ""
+          subtype: Subtype
+          review:
+            key: ""
+          faq:
+            key: ""
+          product_cluster:
+          - key: ""
+          - key: ""
+          published_at: Published_At
+          meta_url:
+            key: ""
+          thumbnail:
+            key: ""
+          product:
+            key: ""
+          profile:
+            key: ""
+          deep_results:
+            key: ""
+          confidence: Confidence
+          url: url
+          article:
+            key: ""
+          site_name: Site_Name
+          page_age: Page_Age
+          page_fetched_at: Page_Fetched_At
+          organization:
+            key: ""
+          is_live: true
+          sitelinks:
+          - key: ""
+          - key: ""
+          location:
+            key: ""
+          position: 6
+          age: Age
+          properties:
+            key: ""
+        source_url: source_url
+        safe_search: safe_search
+        query_info:
+          key: ""
+        next_page: 5
+        rich_blocks:
+          key: ""
+        fetched_at: fetched_at
+        faq:
+        - key: ""
+        - key: ""
+        has_next: true
+        page: 1
+        result_count: 0
+        results:
+        - snippet: Snippet
+          published_utc: 1.4658129805029452
+          display_url: Display_Url
+          cluster:
+          - key: ""
+          - key: ""
+          page_fetched_utc: 5.962133916683182
+          software:
+            key: ""
+          data:
+            key: ""
+          book:
+            key: ""
+          family_friendly: true
+          rating:
+            key: ""
+          recipe:
+            key: ""
+          description: Description
+          language: Language
+          page_fetched: Page_Fetched
+          video:
+            key: ""
+          source: Source
+          title: title
+          type: Type
+          qa:
+            key: ""
+          subtype: Subtype
+          review:
+            key: ""
+          faq:
+            key: ""
+          product_cluster:
+          - key: ""
+          - key: ""
+          published_at: Published_At
+          meta_url:
+            key: ""
+          thumbnail:
+            key: ""
+          product:
+            key: ""
+          profile:
+            key: ""
+          deep_results:
+            key: ""
+          confidence: Confidence
+          url: url
+          article:
+            key: ""
+          site_name: Site_Name
+          page_age: Page_Age
+          page_fetched_at: Page_Fetched_At
+          organization:
+            key: ""
+          is_live: true
+          sitelinks:
+          - key: ""
+          - key: ""
+          location:
+            key: ""
+          position: 6
+          age: Age
+          properties:
+            key: ""
+        - snippet: Snippet
+          published_utc: 1.4658129805029452
+          display_url: Display_Url
+          cluster:
+          - key: ""
+          - key: ""
+          page_fetched_utc: 5.962133916683182
+          software:
+            key: ""
+          data:
+            key: ""
+          book:
+            key: ""
+          family_friendly: true
+          rating:
+            key: ""
+          recipe:
+            key: ""
+          description: Description
+          language: Language
+          page_fetched: Page_Fetched
+          video:
+            key: ""
+          source: Source
+          title: title
+          type: Type
+          qa:
+            key: ""
+          subtype: Subtype
+          review:
+            key: ""
+          faq:
+            key: ""
+          product_cluster:
+          - key: ""
+          - key: ""
+          published_at: Published_At
+          meta_url:
+            key: ""
+          thumbnail:
+            key: ""
+          product:
+            key: ""
+          profile:
+            key: ""
+          deep_results:
+            key: ""
+          confidence: Confidence
+          url: url
+          article:
+            key: ""
+          site_name: Site_Name
+          page_age: Page_Age
+          page_fetched_at: Page_Fetched_At
+          organization:
+            key: ""
+          is_live: true
+          sitelinks:
+          - key: ""
+          - key: ""
+          location:
+            key: ""
+          position: 6
+          age: Age
+          properties:
+            key: ""
+        ui_language: ui_language
+      properties:
+        query:
+          title: Query
+          type: string
+        country:
+          title: Country
+        ui_language:
+          title: Ui Language
+        safe_search:
+          title: Safe Search
+        result_count:
+          title: Result Count
+        results:
+          items:
+            $ref: '#/components/schemas/BraveResult'
+          title: Results
+        query_info:
+          additionalProperties: true
+          title: Query Info
+        source_url:
+          title: Source Url
+          type: string
+        fetched_at:
+          title: Fetched At
+        fetched_utc:
+          title: Fetched Utc
+        page:
+          title: Page
+          type: integer
+        has_next:
+          title: Has Next
+        next_page:
+          $ref: '#/components/schemas/Next_Page'
+        faq:
+          items:
+            additionalProperties: true
+            nullable: true
+            type: object
+          title: Faq
+        discussions:
+          items:
+            $ref: '#/components/schemas/BraveResult'
+          title: Discussions
+        videos:
+          items:
+            $ref: '#/components/schemas/BraveResult'
+          title: Videos
+        news:
+          items:
+            $ref: '#/components/schemas/BraveResult'
+          title: News
+        images:
+          items:
+            $ref: '#/components/schemas/BraveResult'
+          title: Images
+        related_searches:
+          items:
+            additionalProperties: {}
+          title: Related Searches
+        rich_blocks:
+          additionalProperties: true
+          title: Rich Blocks
+      required:
+      - country
+      - fetched_at
+      - fetched_utc
+      - has_next
+      - page
+      - query
+      - query_info
+      - result_count
+      - results
+      - safe_search
+      - source_url
+      - ui_language
+      title: BraveSearchResponse
+    BraveSuggestion:
+      additionalProperties: true
+      example:
+        img: img
+        query: query
+        name: name
+        logo: true
+        type: type
+        category: category
+        is_entity: false
+        desc: desc
+      properties:
+        query:
+          title: Query
+          type: string
+        type:
+          title: Type
+          type: string
+        is_entity:
+          default: false
+          title: Is Entity
+          type: boolean
+        name:
+          nullable: true
+          type: string
+        desc:
+          nullable: true
+          type: string
+        img:
+          nullable: true
+          type: string
+        category:
+          nullable: true
+          type: string
+        logo:
+          nullable: true
+          type: boolean
+      required:
+      - query
+      - type
+      title: BraveSuggestion
     ColorsResponse:
       description: Envelope returned by the colour reference endpoint.
       example:
@@ -28557,6 +31909,1425 @@ components:
       - query
       - valid
       title: FilterRuleValidateResponse
+    GitHubAccountPreview:
+      additionalProperties: true
+      example:
+        avatar_url: avatar_url
+        link: link
+        id: 4
+        login: login
+      properties:
+        login:
+          title: Login
+          type: string
+        link:
+          nullable: true
+          type: string
+        id:
+          nullable: true
+          type: integer
+        avatar_url:
+          nullable: true
+          type: string
+      required:
+      - login
+      title: GitHubAccountPreview
+    GitHubAchievement:
+      additionalProperties: true
+      example:
+        image: image
+        name: name
+        link: link
+        count: 1
+      properties:
+        name:
+          title: Name
+          type: string
+        image:
+          nullable: true
+          type: string
+        link:
+          nullable: true
+          type: string
+        count:
+          nullable: true
+          type: integer
+      required:
+      - name
+      title: GitHubAchievement
+    GitHubActivityBlock:
+      additionalProperties: true
+      example:
+        summary: summary
+        count: 7
+        type: type
+        rows:
+        - repository_link: repository_link
+          count: 0
+          link: link
+          created_at: created_at
+          links:
+          - link: link
+            text: text
+          - link: link
+            text: text
+          text: text
+          title: title
+          repository: repository
+          created_utc: 7.058770351582356
+        - repository_link: repository_link
+          count: 0
+          link: link
+          created_at: created_at
+          links:
+          - link: link
+            text: text
+          - link: link
+            text: text
+          text: text
+          title: title
+          repository: repository
+          created_utc: 7.058770351582356
+      properties:
+        type:
+          title: Type
+          type: string
+        summary:
+          title: Summary
+          type: string
+        count:
+          nullable: true
+          type: integer
+        rows:
+          items:
+            $ref: '#/components/schemas/GitHubActivityRow'
+          type: array
+      required:
+      - rows
+      - summary
+      - type
+      title: GitHubActivityBlock
+    GitHubActivityOverview:
+      additionalProperties: true
+      example:
+        summary: summary
+        pull_requests_percentage: 3
+        commits_percentage: 5
+        issues_percentage: 3
+        repositories:
+        - name: name
+          link: link
+        - name: name
+          link: link
+        code_review_percentage: 6
+        description: description
+      properties:
+        summary:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        repositories:
+          items:
+            $ref: '#/components/schemas/GitHubNamedLink'
+          nullable: true
+          type: array
+        commits_percentage:
+          nullable: true
+          type: integer
+        code_review_percentage:
+          nullable: true
+          type: integer
+        pull_requests_percentage:
+          nullable: true
+          type: integer
+        issues_percentage:
+          nullable: true
+          type: integer
+      title: GitHubActivityOverview
+    GitHubActivityRow:
+      additionalProperties: true
+      example:
+        repository_link: repository_link
+        count: 0
+        link: link
+        created_at: created_at
+        links:
+        - link: link
+          text: text
+        - link: link
+          text: text
+        text: text
+        title: title
+        repository: repository
+        created_utc: 7.058770351582356
+      properties:
+        text:
+          title: Text
+          type: string
+        count:
+          nullable: true
+          type: integer
+        title:
+          nullable: true
+          type: string
+        link:
+          nullable: true
+          type: string
+        repository:
+          nullable: true
+          type: string
+        repository_link:
+          nullable: true
+          type: string
+        links:
+          items:
+            $ref: '#/components/schemas/GitHubTextLink'
+          nullable: true
+          type: array
+        created_at:
+          nullable: true
+          type: string
+        created_utc:
+          nullable: true
+          type: number
+      required:
+      - text
+      title: GitHubActivityRow
+    GitHubCalendarDay:
+      additionalProperties: true
+      example:
+        date: 2000-01-23
+        level: 2
+        count: 0
+      properties:
+        date:
+          format: date
+          title: Date
+          type: string
+        count:
+          minimum: 0.0
+          title: Count
+          type: integer
+        level:
+          maximum: 4.0
+          minimum: 0.0
+          title: Level
+          type: integer
+      required:
+      - count
+      - date
+      - level
+      title: GitHubCalendarDay
+    GitHubContributions:
+      additionalProperties: true
+      example:
+        calendar:
+        - date: 2000-01-23
+          level: 2
+          count: 0
+        - date: 2000-01-23
+          level: 2
+          count: 0
+        total: 2
+        activity:
+        - summary: summary
+          count: 7
+          type: type
+          rows:
+          - repository_link: repository_link
+            count: 0
+            link: link
+            created_at: created_at
+            links:
+            - link: link
+              text: text
+            - link: link
+              text: text
+            text: text
+            title: title
+            repository: repository
+            created_utc: 7.058770351582356
+          - repository_link: repository_link
+            count: 0
+            link: link
+            created_at: created_at
+            links:
+            - link: link
+              text: text
+            - link: link
+              text: text
+            text: text
+            title: title
+            repository: repository
+            created_utc: 7.058770351582356
+        - summary: summary
+          count: 7
+          type: type
+          rows:
+          - repository_link: repository_link
+            count: 0
+            link: link
+            created_at: created_at
+            links:
+            - link: link
+              text: text
+            - link: link
+              text: text
+            text: text
+            title: title
+            repository: repository
+            created_utc: 7.058770351582356
+          - repository_link: repository_link
+            count: 0
+            link: link
+            created_at: created_at
+            links:
+            - link: link
+              text: text
+            - link: link
+              text: text
+            text: text
+            title: title
+            repository: repository
+            created_utc: 7.058770351582356
+        private_contributions: 6
+        previous_activity_url: previous_activity_url
+        activity_overview:
+          summary: summary
+          pull_requests_percentage: 3
+          commits_percentage: 5
+          issues_percentage: 3
+          repositories:
+          - name: name
+            link: link
+          - name: name
+            link: link
+          code_review_percentage: 6
+          description: description
+        activity_to: activity_to
+        from: 2000-01-23
+        to: 2000-01-23
+        activity_from: activity_from
+        years:
+        - 0
+        - 0
+      properties:
+        total:
+          title: Total
+          type: integer
+        calendar:
+          items:
+            $ref: '#/components/schemas/GitHubCalendarDay'
+          type: array
+        from:
+          format: date
+          title: From
+          type: string
+        to:
+          format: date
+          title: To
+          type: string
+        activity_overview:
+          $ref: '#/components/schemas/GitHubActivityOverview'
+        activity:
+          items:
+            $ref: '#/components/schemas/GitHubActivityBlock'
+          nullable: true
+          type: array
+        private_contributions:
+          nullable: true
+          type: integer
+        activity_from:
+          nullable: true
+          type: string
+        activity_to:
+          nullable: true
+          type: string
+        previous_activity_url:
+          nullable: true
+          type: string
+        years:
+          items:
+            type: integer
+          nullable: true
+          type: array
+      required:
+      - calendar
+      - from
+      - to
+      - total
+      title: GitHubContributions
+    GitHubLanguage:
+      additionalProperties: true
+      example:
+        color: color
+        name: name
+        link: link
+      properties:
+        name:
+          title: Name
+          type: string
+        link:
+          title: Link
+          type: string
+        color:
+          nullable: true
+          type: string
+      required:
+      - link
+      - name
+      title: GitHubLanguage
+    GitHubNamedLink:
+      additionalProperties: true
+      example:
+        name: name
+        link: link
+      properties:
+        name:
+          title: Name
+          type: string
+        link:
+          title: Link
+          type: string
+      required:
+      - link
+      - name
+      title: GitHubNamedLink
+    GitHubPagination:
+      additionalProperties: true
+      example:
+        next_page: 8
+        total: 7
+        next_page_token: next_page_token
+        has_next: true
+        page: 4
+        page_count: 3
+      properties:
+        has_next:
+          title: Has Next
+          type: boolean
+        page:
+          nullable: true
+          type: integer
+        next_page:
+          nullable: true
+          type: integer
+        next_page_token:
+          nullable: true
+          type: string
+        total:
+          nullable: true
+          type: integer
+        page_count:
+          nullable: true
+          type: integer
+      required:
+      - has_next
+      title: GitHubPagination
+    GitHubProfile:
+      additionalProperties: true
+      example:
+        user_view_type: user_view_type
+        bio: bio
+        is_sponsorable: true
+        type: type
+        social_accounts:
+        - provider: provider
+          link: link
+          label: label
+        - provider: provider
+          link: link
+          label: label
+        local_time: local_time
+        sponsoring_count_approximate: true
+        archived_utc: 7.457744773683766
+        id: 0
+        created_utc: 1.4894159098541704
+        repos_approximate: true
+        is_organization: true
+        public_gists: 7
+        updated_utc: 6.84685269835264
+        followers: 1
+        has_organization_projects: true
+        following: 5
+        repos: 5
+        name: name
+        pronouns: pronouns
+        sponsors_link: sponsors_link
+        status:
+          emoji: emoji
+          message: message
+        utc_offset: 6.027456183070403
+        projects_count_approximate: true
+        packages_count_approximate: true
+        has_repository_projects: true
+        sponsoring_count: 1
+        link: link
+        twitter_username: twitter_username
+        description: description
+        projects_count: 7
+        created_at: created_at
+        login: login
+        updated_at: updated_at
+        site_admin: true
+        repos_display_count: 2
+        company: company
+        followers_approximate: true
+        public_repos: 2
+        email: email
+        website: website
+        hireable: true
+        following_approximate: true
+        archived_at: archived_at
+        packages_count: 1
+        followers_display_count: 9
+        is_verified: true
+        starred_count_approximate: true
+        avatar_url: avatar_url
+        starred_count: 4
+        following_display_count: 3
+        location: location
+        node_id: node_id
+      properties:
+        login:
+          title: Login
+          type: string
+        link:
+          title: Link
+          type: string
+        is_organization:
+          title: Is Organization
+          type: boolean
+        id:
+          nullable: true
+          type: integer
+        node_id:
+          nullable: true
+          type: string
+        type:
+          nullable: true
+          type: string
+        user_view_type:
+          nullable: true
+          type: string
+        site_admin:
+          nullable: true
+          type: boolean
+        name:
+          nullable: true
+          type: string
+        avatar_url:
+          nullable: true
+          type: string
+        bio:
+          nullable: true
+          type: string
+        description:
+          nullable: true
+          type: string
+        pronouns:
+          nullable: true
+          type: string
+        local_time:
+          nullable: true
+          type: string
+        utc_offset:
+          nullable: true
+          type: number
+        company:
+          nullable: true
+          type: string
+        location:
+          nullable: true
+          type: string
+        email:
+          nullable: true
+          type: string
+        website:
+          nullable: true
+          type: string
+        twitter_username:
+          nullable: true
+          type: string
+        hireable:
+          nullable: true
+          type: boolean
+        social_accounts:
+          items:
+            $ref: '#/components/schemas/GitHubSocialAccount'
+          nullable: true
+          type: array
+        status:
+          $ref: '#/components/schemas/GitHubStatus'
+        followers:
+          nullable: true
+          type: integer
+        following:
+          nullable: true
+          type: integer
+        repos:
+          nullable: true
+          type: integer
+        public_repos:
+          nullable: true
+          type: integer
+        public_gists:
+          nullable: true
+          type: integer
+        followers_display_count:
+          nullable: true
+          type: integer
+        following_display_count:
+          nullable: true
+          type: integer
+        repos_display_count:
+          nullable: true
+          type: integer
+        followers_approximate:
+          nullable: true
+          type: boolean
+        following_approximate:
+          nullable: true
+          type: boolean
+        repos_approximate:
+          nullable: true
+          type: boolean
+        starred_count:
+          nullable: true
+          type: integer
+        starred_count_approximate:
+          nullable: true
+          type: boolean
+        projects_count:
+          nullable: true
+          type: integer
+        projects_count_approximate:
+          nullable: true
+          type: boolean
+        packages_count:
+          nullable: true
+          type: integer
+        packages_count_approximate:
+          nullable: true
+          type: boolean
+        sponsoring_count:
+          nullable: true
+          type: integer
+        sponsoring_count_approximate:
+          nullable: true
+          type: boolean
+        is_sponsorable:
+          nullable: true
+          type: boolean
+        sponsors_link:
+          nullable: true
+          type: string
+        is_verified:
+          nullable: true
+          type: boolean
+        has_organization_projects:
+          nullable: true
+          type: boolean
+        has_repository_projects:
+          nullable: true
+          type: boolean
+        created_at:
+          nullable: true
+          type: string
+        created_utc:
+          nullable: true
+          type: number
+        updated_at:
+          nullable: true
+          type: string
+        updated_utc:
+          nullable: true
+          type: number
+        archived_at:
+          nullable: true
+          type: string
+        archived_utc:
+          nullable: true
+          type: number
+      required:
+      - is_organization
+      - link
+      - login
+      title: GitHubProfile
+    GitHubProfileResponse:
+      additionalProperties: true
+      description: "Unwrapped profile response, with mode-specific public sections."
+      example:
+        additional_sponsoring_count: 6
+        achievements:
+        - image: image
+          name: name
+          link: link
+          count: 1
+        - image: image
+          name: name
+          link: link
+          count: 1
+        pagination:
+          next_page: 8
+          total: 7
+          next_page_token: next_page_token
+          has_next: true
+          page: 4
+          page_count: 3
+        sponsoring:
+        - avatar_url: avatar_url
+          link: link
+          id: 4
+          login: login
+        - avatar_url: avatar_url
+          link: link
+          id: 4
+          login: login
+        top_languages:
+        - color: color
+          name: name
+          link: link
+        - color: color
+          name: name
+          link: link
+        topics:
+        - topics
+        - topics
+        profile:
+          user_view_type: user_view_type
+          bio: bio
+          is_sponsorable: true
+          type: type
+          social_accounts:
+          - provider: provider
+            link: link
+            label: label
+          - provider: provider
+            link: link
+            label: label
+          local_time: local_time
+          sponsoring_count_approximate: true
+          archived_utc: 7.457744773683766
+          id: 0
+          created_utc: 1.4894159098541704
+          repos_approximate: true
+          is_organization: true
+          public_gists: 7
+          updated_utc: 6.84685269835264
+          followers: 1
+          has_organization_projects: true
+          following: 5
+          repos: 5
+          name: name
+          pronouns: pronouns
+          sponsors_link: sponsors_link
+          status:
+            emoji: emoji
+            message: message
+          utc_offset: 6.027456183070403
+          projects_count_approximate: true
+          packages_count_approximate: true
+          has_repository_projects: true
+          sponsoring_count: 1
+          link: link
+          twitter_username: twitter_username
+          description: description
+          projects_count: 7
+          created_at: created_at
+          login: login
+          updated_at: updated_at
+          site_admin: true
+          repos_display_count: 2
+          company: company
+          followers_approximate: true
+          public_repos: 2
+          email: email
+          website: website
+          hireable: true
+          following_approximate: true
+          archived_at: archived_at
+          packages_count: 1
+          followers_display_count: 9
+          is_verified: true
+          starred_count_approximate: true
+          avatar_url: avatar_url
+          starred_count: 4
+          following_display_count: 3
+          location: location
+          node_id: node_id
+        readme:
+          link: link
+          html: html
+          text: text
+        people:
+        - avatar_url: avatar_url
+          link: link
+          id: 4
+          login: login
+        - avatar_url: avatar_url
+          link: link
+          id: 4
+          login: login
+        starred_repositories:
+        - owner:
+            avatar_url: avatar_url
+            link: link
+            id: 4
+            login: login
+          forks: 9
+          issues_approximate: true
+          participation:
+          - 9
+          - 9
+          is_fork: true
+          visibility: visibility
+          topics:
+          - topics
+          - topics
+          link: link
+          description: description
+          language: language
+          stars: 9
+          issues: 6
+          pull_requests_approximate: true
+          updated_utc: 6.438423552598547
+          pull_requests: 8
+          license: license
+          full_name: full_name
+          forks_approximate: true
+          updated_at: updated_at
+          name: name
+          position: 1
+          id: 5
+          language_color: language_color
+          stars_approximate: true
+        - owner:
+            avatar_url: avatar_url
+            link: link
+            id: 4
+            login: login
+          forks: 9
+          issues_approximate: true
+          participation:
+          - 9
+          - 9
+          is_fork: true
+          visibility: visibility
+          topics:
+          - topics
+          - topics
+          link: link
+          description: description
+          language: language
+          stars: 9
+          issues: 6
+          pull_requests_approximate: true
+          updated_utc: 6.438423552598547
+          pull_requests: 8
+          license: license
+          full_name: full_name
+          forks_approximate: true
+          updated_at: updated_at
+          name: name
+          position: 1
+          id: 5
+          language_color: language_color
+          stars_approximate: true
+        star_lists:
+        - name: name
+          link: link
+        - name: name
+          link: link
+        highlights:
+        - link: link
+          text: text
+        - link: link
+          text: text
+        contributions:
+          calendar:
+          - date: 2000-01-23
+            level: 2
+            count: 0
+          - date: 2000-01-23
+            level: 2
+            count: 0
+          total: 2
+          activity:
+          - summary: summary
+            count: 7
+            type: type
+            rows:
+            - repository_link: repository_link
+              count: 0
+              link: link
+              created_at: created_at
+              links:
+              - link: link
+                text: text
+              - link: link
+                text: text
+              text: text
+              title: title
+              repository: repository
+              created_utc: 7.058770351582356
+            - repository_link: repository_link
+              count: 0
+              link: link
+              created_at: created_at
+              links:
+              - link: link
+                text: text
+              - link: link
+                text: text
+              text: text
+              title: title
+              repository: repository
+              created_utc: 7.058770351582356
+          - summary: summary
+            count: 7
+            type: type
+            rows:
+            - repository_link: repository_link
+              count: 0
+              link: link
+              created_at: created_at
+              links:
+              - link: link
+                text: text
+              - link: link
+                text: text
+              text: text
+              title: title
+              repository: repository
+              created_utc: 7.058770351582356
+            - repository_link: repository_link
+              count: 0
+              link: link
+              created_at: created_at
+              links:
+              - link: link
+                text: text
+              - link: link
+                text: text
+              text: text
+              title: title
+              repository: repository
+              created_utc: 7.058770351582356
+          private_contributions: 6
+          previous_activity_url: previous_activity_url
+          activity_overview:
+            summary: summary
+            pull_requests_percentage: 3
+            commits_percentage: 5
+            issues_percentage: 3
+            repositories:
+            - name: name
+              link: link
+            - name: name
+              link: link
+            code_review_percentage: 6
+            description: description
+          activity_to: activity_to
+          from: 2000-01-23
+          to: 2000-01-23
+          activity_from: activity_from
+          years:
+          - 0
+          - 0
+        pinned_repositories:
+        - owner:
+            avatar_url: avatar_url
+            link: link
+            id: 4
+            login: login
+          forks: 9
+          issues_approximate: true
+          participation:
+          - 9
+          - 9
+          is_fork: true
+          visibility: visibility
+          topics:
+          - topics
+          - topics
+          link: link
+          description: description
+          language: language
+          stars: 9
+          issues: 6
+          pull_requests_approximate: true
+          updated_utc: 6.438423552598547
+          pull_requests: 8
+          license: license
+          full_name: full_name
+          forks_approximate: true
+          updated_at: updated_at
+          name: name
+          position: 1
+          id: 5
+          language_color: language_color
+          stars_approximate: true
+        - owner:
+            avatar_url: avatar_url
+            link: link
+            id: 4
+            login: login
+          forks: 9
+          issues_approximate: true
+          participation:
+          - 9
+          - 9
+          is_fork: true
+          visibility: visibility
+          topics:
+          - topics
+          - topics
+          link: link
+          description: description
+          language: language
+          stars: 9
+          issues: 6
+          pull_requests_approximate: true
+          updated_utc: 6.438423552598547
+          pull_requests: 8
+          license: license
+          full_name: full_name
+          forks_approximate: true
+          updated_at: updated_at
+          name: name
+          position: 1
+          id: 5
+          language_color: language_color
+          stars_approximate: true
+        additional_sponsors_count: 3
+        repositories:
+        - owner:
+            avatar_url: avatar_url
+            link: link
+            id: 4
+            login: login
+          forks: 9
+          issues_approximate: true
+          participation:
+          - 9
+          - 9
+          is_fork: true
+          visibility: visibility
+          topics:
+          - topics
+          - topics
+          link: link
+          description: description
+          language: language
+          stars: 9
+          issues: 6
+          pull_requests_approximate: true
+          updated_utc: 6.438423552598547
+          pull_requests: 8
+          license: license
+          full_name: full_name
+          forks_approximate: true
+          updated_at: updated_at
+          name: name
+          position: 1
+          id: 5
+          language_color: language_color
+          stars_approximate: true
+        - owner:
+            avatar_url: avatar_url
+            link: link
+            id: 4
+            login: login
+          forks: 9
+          issues_approximate: true
+          participation:
+          - 9
+          - 9
+          is_fork: true
+          visibility: visibility
+          topics:
+          - topics
+          - topics
+          link: link
+          description: description
+          language: language
+          stars: 9
+          issues: 6
+          pull_requests_approximate: true
+          updated_utc: 6.438423552598547
+          pull_requests: 8
+          license: license
+          full_name: full_name
+          forks_approximate: true
+          updated_at: updated_at
+          name: name
+          position: 1
+          id: 5
+          language_color: language_color
+          stars_approximate: true
+        sponsors:
+        - avatar_url: avatar_url
+          link: link
+          id: 4
+          login: login
+        - avatar_url: avatar_url
+          link: link
+          id: 4
+          login: login
+        verified_domains:
+        - verified_domains
+        - verified_domains
+        organizations:
+        - avatar_url: avatar_url
+          link: link
+          id: 4
+          login: login
+        - avatar_url: avatar_url
+          link: link
+          id: 4
+          login: login
+        popular_repositories:
+        - owner:
+            avatar_url: avatar_url
+            link: link
+            id: 4
+            login: login
+          forks: 9
+          issues_approximate: true
+          participation:
+          - 9
+          - 9
+          is_fork: true
+          visibility: visibility
+          topics:
+          - topics
+          - topics
+          link: link
+          description: description
+          language: language
+          stars: 9
+          issues: 6
+          pull_requests_approximate: true
+          updated_utc: 6.438423552598547
+          pull_requests: 8
+          license: license
+          full_name: full_name
+          forks_approximate: true
+          updated_at: updated_at
+          name: name
+          position: 1
+          id: 5
+          language_color: language_color
+          stars_approximate: true
+        - owner:
+            avatar_url: avatar_url
+            link: link
+            id: 4
+            login: login
+          forks: 9
+          issues_approximate: true
+          participation:
+          - 9
+          - 9
+          is_fork: true
+          visibility: visibility
+          topics:
+          - topics
+          - topics
+          link: link
+          description: description
+          language: language
+          stars: 9
+          issues: 6
+          pull_requests_approximate: true
+          updated_utc: 6.438423552598547
+          pull_requests: 8
+          license: license
+          full_name: full_name
+          forks_approximate: true
+          updated_at: updated_at
+          name: name
+          position: 1
+          id: 5
+          language_color: language_color
+          stars_approximate: true
+      properties:
+        profile:
+          $ref: '#/components/schemas/GitHubProfile'
+        pinned_repositories:
+          items:
+            $ref: '#/components/schemas/GitHubRepository'
+          nullable: true
+          type: array
+        popular_repositories:
+          items:
+            $ref: '#/components/schemas/GitHubRepository'
+          nullable: true
+          type: array
+        readme:
+          $ref: '#/components/schemas/GitHubReadme'
+        organizations:
+          items:
+            $ref: '#/components/schemas/GitHubAccountPreview'
+          nullable: true
+          type: array
+        sponsors:
+          items:
+            $ref: '#/components/schemas/GitHubAccountPreview'
+          nullable: true
+          type: array
+        sponsoring:
+          items:
+            $ref: '#/components/schemas/GitHubAccountPreview'
+          nullable: true
+          type: array
+        additional_sponsors_count:
+          nullable: true
+          type: integer
+        additional_sponsoring_count:
+          nullable: true
+          type: integer
+        achievements:
+          items:
+            $ref: '#/components/schemas/GitHubAchievement'
+          nullable: true
+          type: array
+        highlights:
+          items:
+            $ref: '#/components/schemas/GitHubTextLink'
+          nullable: true
+          type: array
+        contributions:
+          $ref: '#/components/schemas/GitHubContributions'
+        repositories:
+          items:
+            $ref: '#/components/schemas/GitHubRepository'
+          nullable: true
+          type: array
+        starred_repositories:
+          items:
+            $ref: '#/components/schemas/GitHubRepository'
+          nullable: true
+          type: array
+        star_lists:
+          items:
+            $ref: '#/components/schemas/GitHubNamedLink'
+          nullable: true
+          type: array
+        pagination:
+          $ref: '#/components/schemas/GitHubPagination'
+        top_languages:
+          items:
+            $ref: '#/components/schemas/GitHubLanguage'
+          nullable: true
+          type: array
+        topics:
+          items:
+            type: string
+          nullable: true
+          type: array
+        people:
+          items:
+            $ref: '#/components/schemas/GitHubAccountPreview'
+          nullable: true
+          type: array
+        verified_domains:
+          items:
+            type: string
+          nullable: true
+          type: array
+      required:
+      - profile
+      title: GitHubProfileResponse
+    GitHubReadme:
+      additionalProperties: true
+      example:
+        link: link
+        html: html
+        text: text
+      properties:
+        text:
+          title: Text
+          type: string
+        html:
+          title: Html
+          type: string
+        link:
+          nullable: true
+          type: string
+      required:
+      - html
+      - text
+      title: GitHubReadme
+    GitHubRepository:
+      additionalProperties: true
+      example:
+        owner:
+          avatar_url: avatar_url
+          link: link
+          id: 4
+          login: login
+        forks: 9
+        issues_approximate: true
+        participation:
+        - 9
+        - 9
+        is_fork: true
+        visibility: visibility
+        topics:
+        - topics
+        - topics
+        link: link
+        description: description
+        language: language
+        stars: 9
+        issues: 6
+        pull_requests_approximate: true
+        updated_utc: 6.438423552598547
+        pull_requests: 8
+        license: license
+        full_name: full_name
+        forks_approximate: true
+        updated_at: updated_at
+        name: name
+        position: 1
+        id: 5
+        language_color: language_color
+        stars_approximate: true
+      properties:
+        position:
+          title: Position
+          type: integer
+        name:
+          title: Name
+          type: string
+        full_name:
+          title: Full Name
+          type: string
+        owner:
+          $ref: '#/components/schemas/GitHubAccountPreview'
+        link:
+          title: Link
+          type: string
+        id:
+          nullable: true
+          type: integer
+        description:
+          nullable: true
+          type: string
+        language:
+          nullable: true
+          type: string
+        language_color:
+          nullable: true
+          type: string
+        stars:
+          nullable: true
+          type: integer
+        forks:
+          nullable: true
+          type: integer
+        issues:
+          nullable: true
+          type: integer
+        pull_requests:
+          nullable: true
+          type: integer
+        stars_approximate:
+          nullable: true
+          type: boolean
+        forks_approximate:
+          nullable: true
+          type: boolean
+        issues_approximate:
+          nullable: true
+          type: boolean
+        pull_requests_approximate:
+          nullable: true
+          type: boolean
+        visibility:
+          nullable: true
+          type: string
+        is_fork:
+          nullable: true
+          type: boolean
+        license:
+          nullable: true
+          type: string
+        topics:
+          items:
+            type: string
+          nullable: true
+          type: array
+        participation:
+          items:
+            type: integer
+          nullable: true
+          type: array
+        updated_at:
+          nullable: true
+          type: string
+        updated_utc:
+          nullable: true
+          type: number
+      required:
+      - full_name
+      - link
+      - name
+      - owner
+      - position
+      title: GitHubRepository
+    GitHubSocialAccount:
+      additionalProperties: true
+      example:
+        provider: provider
+        link: link
+        label: label
+      properties:
+        provider:
+          title: Provider
+          type: string
+        link:
+          title: Link
+          type: string
+        label:
+          nullable: true
+          type: string
+      required:
+      - link
+      - provider
+      title: GitHubSocialAccount
+    GitHubStatus:
+      additionalProperties: true
+      example:
+        emoji: emoji
+        message: message
+      properties:
+        emoji:
+          nullable: true
+          type: string
+        message:
+          nullable: true
+          type: string
+      title: GitHubStatus
+    GitHubTextLink:
+      additionalProperties: true
+      example:
+        link: link
+        text: text
+      properties:
+        text:
+          title: Text
+          type: string
+        link:
+          nullable: true
+          type: string
+      required:
+      - text
+      title: GitHubTextLink
     HTTPValidationError:
       example:
         detail:
@@ -28684,6 +33455,7 @@ components:
         markets:
           items:
             additionalProperties: true
+            nullable: true
             type: object
           type: array
       required:
@@ -28881,7 +33653,7 @@ components:
         gender:
           $ref: '#/components/schemas/Gender'
         description:
-          $ref: '#/components/schemas/Description'
+          $ref: '#/components/schemas/Description_1'
         ratings:
           $ref: '#/components/schemas/Ratings'
         breadcrumbs:
@@ -31348,12 +36120,14 @@ components:
       properties:
         market:
           title: Market
+          type: string
         searchTerm:
           $ref: '#/components/schemas/Searchterm'
         categoryName:
           $ref: '#/components/schemas/Categoryname'
         total_results:
           title: Total Results
+          type: integer
         offset:
           title: Offset
         limit:
@@ -31408,6 +36182,244 @@ components:
       - items:
           $ref: '#/components/schemas/BatchItem_query_value_anyOf_inner'
         type: array
+    Next_Page:
+      anyOf:
+      - nullable: true
+        type: integer
+      nullable: true
+      title: Next Page
+    Snippet:
+      anyOf:
+      - {}
+      - {}
+      title: Snippet
+    Description:
+      anyOf:
+      - {}
+      - {}
+      title: Description
+    Display_Url:
+      anyOf:
+      - {}
+      - {}
+      title: Display Url
+    Site_Name:
+      anyOf:
+      - {}
+      - {}
+      title: Site Name
+    Language:
+      anyOf:
+      - {}
+      - {}
+      title: Language
+    Type:
+      anyOf:
+      - {}
+      - {}
+      title: Type
+    Subtype:
+      anyOf:
+      - {}
+      - {}
+      title: Subtype
+    Is_Live:
+      anyOf:
+      - {}
+      - {}
+      title: Is Live
+    Profile:
+      anyOf:
+      - additionalProperties: true
+        nullable: true
+        type: object
+      - nullable: true
+      title: Profile
+    Meta_Url:
+      anyOf:
+      - additionalProperties: true
+        nullable: true
+        type: object
+      - nullable: true
+      title: Meta Url
+    Thumbnail:
+      anyOf:
+      - additionalProperties: true
+        nullable: true
+        type: object
+      - nullable: true
+      title: Thumbnail
+    Age:
+      anyOf:
+      - {}
+      - {}
+      title: Age
+    Page_Age:
+      anyOf:
+      - {}
+      - {}
+      title: Page Age
+    Published_At:
+      anyOf:
+      - {}
+      - {}
+      title: Published At
+    Published_Utc:
+      anyOf:
+      - {}
+      - {}
+      title: Published Utc
+    Page_Fetched:
+      anyOf:
+      - {}
+      - {}
+      title: Page Fetched
+    Page_Fetched_At:
+      anyOf:
+      - {}
+      - {}
+      title: Page Fetched At
+    Page_Fetched_Utc:
+      anyOf:
+      - {}
+      - {}
+      title: Page Fetched Utc
+    Article:
+      anyOf:
+      - additionalProperties: true
+        nullable: true
+        type: object
+      - nullable: true
+      title: Article
+    Book:
+      anyOf:
+      - additionalProperties: true
+        nullable: true
+        type: object
+      - nullable: true
+      title: Book
+    Organization:
+      anyOf:
+      - additionalProperties: true
+        nullable: true
+        type: object
+      - nullable: true
+      title: Organization
+    Location:
+      anyOf:
+      - additionalProperties: true
+        nullable: true
+        type: object
+      - nullable: true
+      title: Location
+    Product_1:
+      anyOf:
+      - additionalProperties: true
+        nullable: true
+        type: object
+      - nullable: true
+      title: Product
+    Product_Cluster:
+      anyOf:
+      - items:
+          additionalProperties: true
+          nullable: true
+          type: object
+      - nullable: true
+      title: Product Cluster
+    Rating:
+      anyOf:
+      - additionalProperties: true
+        nullable: true
+        type: object
+      - nullable: true
+      title: Rating
+    Recipe:
+      anyOf:
+      - additionalProperties: true
+        nullable: true
+        type: object
+      - nullable: true
+      title: Recipe
+    Review:
+      anyOf:
+      - additionalProperties: true
+        nullable: true
+        type: object
+      - nullable: true
+      title: Review
+    Software:
+      anyOf:
+      - additionalProperties: true
+        nullable: true
+        type: object
+      - nullable: true
+      title: Software
+    Faq:
+      anyOf:
+      - additionalProperties: true
+        nullable: true
+        type: object
+      - items:
+          additionalProperties: true
+      - nullable: true
+      title: Faq
+    Qa:
+      anyOf:
+      - additionalProperties: true
+        nullable: true
+        type: object
+      - nullable: true
+      title: Qa
+    Deep_Results:
+      anyOf:
+      - additionalProperties: true
+        nullable: true
+        type: object
+      - nullable: true
+      title: Deep Results
+    Cluster:
+      anyOf:
+      - items:
+          additionalProperties: true
+      - nullable: true
+      title: Cluster
+    Video:
+      anyOf:
+      - additionalProperties: true
+        nullable: true
+        type: object
+      - nullable: true
+      title: Video
+    Properties:
+      anyOf:
+      - additionalProperties: true
+        nullable: true
+        type: object
+      - nullable: true
+      title: Properties
+    Data:
+      anyOf:
+      - additionalProperties: true
+        nullable: true
+        type: object
+      - nullable: true
+      title: Data
+    Family_Friendly:
+      anyOf:
+      - {}
+      - {}
+      title: Family Friendly
+    Confidence:
+      anyOf:
+      - {}
+      - {}
+      title: Confidence
+    Source:
+      anyOf:
+      - {}
+      - {}
+      title: Source
     ExtractRequest_extract_rules_value:
       anyOf:
       - type: string
@@ -31473,7 +36485,7 @@ components:
       - {}
       - {}
       title: Gender
-    Description:
+    Description_1:
       anyOf:
       - additionalProperties: true
         nullable: true

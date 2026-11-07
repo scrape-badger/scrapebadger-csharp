@@ -35,25 +35,22 @@ namespace ScrapeBadger.Model
     public partial class Description : AbstractOpenAPISchema, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Description" /> class
-        /// with the <see cref="Dictionary{string, Object}" /> class
+        /// Initializes a new instance of the <see cref="Description" /> class.
         /// </summary>
-        /// <param name="actualInstance">An instance of Dictionary&lt;string, Object&gt;.</param>
-        public Description(Dictionary<string, Object> actualInstance)
+        public Description()
         {
-            IsNullable = false;
+            IsNullable = true;
             SchemaType= "anyOf";
-            ActualInstance = actualInstance ?? throw new ArgumentException("Invalid instance found. Must not be null.");
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Description" /> class
-        /// with the <see cref="Object" /> class
+        /// with the <see cref="string" /> class
         /// </summary>
-        /// <param name="actualInstance">An instance of Object.</param>
-        public Description(Object actualInstance)
+        /// <param name="actualInstance">An instance of string.</param>
+        public Description(string actualInstance)
         {
-            IsNullable = false;
+            IsNullable = true;
             SchemaType= "anyOf";
             ActualInstance = actualInstance;
         }
@@ -72,39 +69,25 @@ namespace ScrapeBadger.Model
             }
             set
             {
-                if (value.GetType() == typeof(Dictionary<string, Object>))
-                {
-                    _actualInstance = value;
-                }
-                else if (value.GetType() == typeof(Object))
+                if (value.GetType() == typeof(string))
                 {
                     _actualInstance = value;
                 }
                 else
                 {
-                    throw new ArgumentException("Invalid instance found. Must be the following types: Dictionary<string, Object>, Object");
+                    throw new ArgumentException("Invalid instance found. Must be the following types: string");
                 }
             }
         }
 
         /// <summary>
-        /// Get the actual instance of `Dictionary&lt;string, Object&gt;`. If the actual instance is not `Dictionary&lt;string, Object&gt;`,
+        /// Get the actual instance of `string`. If the actual instance is not `string`,
         /// the InvalidClassException will be thrown
         /// </summary>
-        /// <returns>An instance of Dictionary&lt;string, Object&gt;</returns>
-        public Dictionary<string, Object> GetDictionary()
+        /// <returns>An instance of string</returns>
+        public string GetString()
         {
-            return (Dictionary<string, Object>)ActualInstance;
-        }
-
-        /// <summary>
-        /// Get the actual instance of `Object`. If the actual instance is not `Object`,
-        /// the InvalidClassException will be thrown
-        /// </summary>
-        /// <returns>An instance of Object</returns>
-        public Object GetObject()
-        {
-            return (Object)ActualInstance;
+            return (string)ActualInstance;
         }
 
         /// <summary>
@@ -145,26 +128,14 @@ namespace ScrapeBadger.Model
 
             try
             {
-                newDescription = new Description(JsonConvert.DeserializeObject<Dictionary<string, Object>>(jsonString, Description.SerializerSettings));
+                newDescription = new Description(JsonConvert.DeserializeObject<string>(jsonString, Description.SerializerSettings));
                 // deserialization is considered successful at this point if no exception has been thrown.
                 return newDescription;
             }
             catch (Exception exception)
             {
                 // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Dictionary<string, Object>: {1}", jsonString, exception.ToString()));
-            }
-
-            try
-            {
-                newDescription = new Description(JsonConvert.DeserializeObject<Object>(jsonString, Description.SerializerSettings));
-                // deserialization is considered successful at this point if no exception has been thrown.
-                return newDescription;
-            }
-            catch (Exception exception)
-            {
-                // deserialization failed, try the next one
-                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into Object: {1}", jsonString, exception.ToString()));
+                System.Diagnostics.Debug.WriteLine(string.Format("Failed to deserialize `{0}` into string: {1}", jsonString, exception.ToString()));
             }
 
             // no match found, throw an exception
@@ -210,6 +181,8 @@ namespace ScrapeBadger.Model
         {
             switch(reader.TokenType) 
             {
+                case JsonToken.String: 
+                    return new Description(Convert.ToString(reader.Value));
                 case JsonToken.StartObject:
                     return Description.FromJson(JObject.Load(reader).ToString(Formatting.None));
                 case JsonToken.StartArray:

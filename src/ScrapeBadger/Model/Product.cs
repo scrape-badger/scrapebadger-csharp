@@ -63,7 +63,7 @@ namespace ScrapeBadger.Model
         /// <param name="description">description.</param>
         /// <param name="ratings">ratings.</param>
         /// <param name="breadcrumbs">breadcrumbs.</param>
-        public Product(int id = default(int), string name = default(string), Productcode productCode = default(Productcode), Brandname brandName = default(Brandname), Brandid brandId = default(Brandid), Colour colour = default(Colour), Colourwayid colourWayId = default(Colourwayid), ProductPrice price = default(ProductPrice), Url url = default(Url), Imageurl imageUrl = default(Imageurl), List<string> additionalImageUrls = default(List<string>), List<Dictionary<string, Object>> images = default(List<Dictionary<string, Object>>), List<Variant> variants = default(List<Variant>), Issellingfast isSellingFast = default(Issellingfast), Isrestockingsoon isRestockingSoon = default(Isrestockingsoon), Isinstock isInStock = default(Isinstock), Gender gender = default(Gender), Description description = default(Description), Ratings ratings = default(Ratings), List<Dictionary<string, Object>> breadcrumbs = default(List<Dictionary<string, Object>>))
+        public Product(int id = default(int), string name = default(string), Productcode productCode = default(Productcode), Brandname brandName = default(Brandname), Brandid brandId = default(Brandid), Colour colour = default(Colour), Colourwayid colourWayId = default(Colourwayid), ProductPrice price = default(ProductPrice), Url url = default(Url), Imageurl imageUrl = default(Imageurl), List<string> additionalImageUrls = default(List<string>), List<Dictionary<string, Object>> images = default(List<Dictionary<string, Object>>), List<Variant> variants = default(List<Variant>), Issellingfast isSellingFast = default(Issellingfast), Isrestockingsoon isRestockingSoon = default(Isrestockingsoon), Isinstock isInStock = default(Isinstock), Gender gender = default(Gender), Description1 description = default(Description1), Ratings ratings = default(Ratings), List<Dictionary<string, Object>> breadcrumbs = default(List<Dictionary<string, Object>>))
         {
             this.Id = id;
             // to ensure "name" is required (not null)
@@ -199,7 +199,7 @@ namespace ScrapeBadger.Model
         /// Gets or Sets Description
         /// </summary>
         [DataMember(Name = "description", EmitDefaultValue = false)]
-        public Description Description { get; set; }
+        public Description1 Description { get; set; }
 
         /// <summary>
         /// Gets or Sets Ratings

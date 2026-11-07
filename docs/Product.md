@@ -21,7 +21,7 @@ Name | Type | Description | Notes
 **IsRestockingSoon** | [**Isrestockingsoon**](Isrestockingsoon.md) |  | [optional] 
 **IsInStock** | [**Isinstock**](Isinstock.md) |  | [optional] 
 **Gender** | [**Gender**](Gender.md) |  | [optional] 
-**Description** | [**Description**](Description.md) |  | [optional] 
+**Description** | [**Description1**](Description1.md) |  | [optional] 
 **Ratings** | [**Ratings**](Ratings.md) |  | [optional] 
 **Breadcrumbs** | **List&lt;Dictionary&lt;string, Object&gt;&gt;** |  | [optional] 
 
