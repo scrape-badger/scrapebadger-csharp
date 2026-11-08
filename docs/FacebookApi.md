@@ -1985,11 +1985,11 @@ catch (ApiException e)
 
 <a id="facebooksearchmarketplace"></a>
 # **FacebookSearchMarketplace**
-> Object FacebookSearchMarketplace (string query, string location = null, int? minPrice = null, int? maxPrice = null, int? daysSinceListed = null, string sortBy = null, string itemCondition = null, string deliveryMethod = null, int? radius = null, string after = null)
+> Object FacebookSearchMarketplace (string query, string location = null, int? minPrice = null, int? maxPrice = null, int? daysSinceListed = null, string sortBy = null, string itemCondition = null, string deliveryMethod = null, int? radius = null, string after = null, bool? strictFilters = null, bool? includeDetails = null)
 
 Search Marketplace
 
-Search Facebook Marketplace listings by keyword and location.  ``location`` must be a Facebook location slug (``london``, ``newcastleupontyne``) or a numeric Facebook place id — the ``city_page_id`` on any listing is one. Human-readable names such as ``Durham, UK`` are rejected with a 400 rather than silently searching Facebook's San Francisco default.
+Search Facebook Marketplace listings by keyword and location.  ``location`` must be a Facebook location slug (``london``, ``newcastleupontyne``) or a numeric Facebook place id — the ``city_page_id`` on any listing is one. Human-readable names such as ``Durham, UK`` are rejected with a 400 rather than silently searching Facebook's San Francisco default.  Set strict_filters=true for locally enforced radius (always km) and age. Public price-range continuations are bounded to eight pages; sort the full collected set for newest-first monitoring. Coverage and freshness are partial.
 
 ### Example
 ```csharp
@@ -2027,11 +2027,13 @@ namespace Example
             var deliveryMethod = "deliveryMethod_example";  // string |  (optional) 
             var radius = 56;  // int? | Search radius around the location (km, or miles in the US) (optional) 
             var after = "after_example";  // string |  (optional) 
+            var strictFilters = false;  // bool? | Verify radius in km and age locally; use bounded public search continuations with partial-coverage diagnostics (optional)  (default to false)
+            var includeDetails = false;  // bool? | Enrich returned listings with full public descriptions and photos; enables verified search (optional)  (default to false)
 
             try
             {
                 // Search Marketplace
-                Object result = apiInstance.FacebookSearchMarketplace(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after);
+                Object result = apiInstance.FacebookSearchMarketplace(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after, strictFilters, includeDetails);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2052,7 +2054,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search Marketplace
-    ApiResponse<Object> response = apiInstance.FacebookSearchMarketplaceWithHttpInfo(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after);
+    ApiResponse<Object> response = apiInstance.FacebookSearchMarketplaceWithHttpInfo(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after, strictFilters, includeDetails);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2079,6 +2081,8 @@ catch (ApiException e)
 | **deliveryMethod** | **string** |  | [optional]  |
 | **radius** | **int?** | Search radius around the location (km, or miles in the US) | [optional]  |
 | **after** | **string** |  | [optional]  |
+| **strictFilters** | **bool?** | Verify radius in km and age locally; use bounded public search continuations with partial-coverage diagnostics | [optional] [default to false] |
+| **includeDetails** | **bool?** | Enrich returned listings with full public descriptions and photos; enables verified search | [optional] [default to false] |
 
 ### Return type
 

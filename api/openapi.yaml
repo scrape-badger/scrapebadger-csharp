@@ -9201,6 +9201,10 @@ paths:
         or a numeric Facebook place id — the ``city_page_id`` on any listing is one.
         Human-readable names such as ``Durham, UK`` are rejected with a 400 rather than
         silently searching Facebook's San Francisco default.
+
+        Set strict_filters=true for locally enforced radius (always km) and age.
+        Public price-range continuations are bounded to eight pages; sort the full
+        collected set for newest-first monitoring. Coverage and freshness are partial.
       operationId: facebook_search_marketplace
       parameters:
       - description: Search keywords
@@ -9288,6 +9292,32 @@ paths:
         schema:
           nullable: true
           type: string
+        style: form
+      - description: Verify radius in km and age locally; use bounded public search
+          continuations with partial-coverage diagnostics
+        explode: true
+        in: query
+        name: strict_filters
+        required: false
+        schema:
+          default: false
+          description: Verify radius in km and age locally; use bounded public search
+            continuations with partial-coverage diagnostics
+          title: Strict Filters
+          type: boolean
+        style: form
+      - description: Enrich returned listings with full public descriptions and photos;
+          enables verified search
+        explode: true
+        in: query
+        name: include_details
+        required: false
+        schema:
+          default: false
+          description: Enrich returned listings with full public descriptions and
+            photos; enables verified search
+          title: Include Details
+          type: boolean
         style: form
       responses:
         "200":

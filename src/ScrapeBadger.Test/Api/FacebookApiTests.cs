@@ -319,7 +319,9 @@ namespace ScrapeBadger.Test.Api
             //string deliveryMethod = null;
             //int? radius = null;
             //string after = null;
-            //var response = instance.FacebookSearchMarketplace(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after);
+            //bool? strictFilters = null;
+            //bool? includeDetails = null;
+            //var response = instance.FacebookSearchMarketplace(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after, strictFilters, includeDetails);
             //Assert.IsType<Object>(response);
         }
 
