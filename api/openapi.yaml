@@ -24228,7 +24228,11 @@ paths:
       - Twitter
   /v1/twitter/stream/filter-rules/{rule_id}/logs:
     get:
-      description: List tweet delivery logs for a specific filter rule.
+      deprecated: true
+      description: |-
+        Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.
+
+        Always answers ``410 Gone`` with ``error: delivery_logs_removed``.
       operationId: twitter_list_delivery_logs_for_a_filter_rule
       parameters:
       - explode: false
@@ -24239,62 +24243,18 @@ paths:
           title: Rule Id
           type: string
         style: simple
-      - explode: true
-        in: query
-        name: delivery_status
-        required: false
-        schema:
-          nullable: true
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: author_username
-        required: false
-        schema:
-          nullable: true
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: page
-        required: false
-        schema:
-          default: 1
-          minimum: 1
-          title: Page
-          type: integer
-        style: form
-      - explode: true
-        in: query
-        name: page_size
-        required: false
-        schema:
-          default: 20
-          maximum: 100
-          minimum: 1
-          title: Page Size
-          type: integer
-        style: form
-      - explode: true
-        in: query
-        name: sort
-        required: false
-        schema:
-          default: desc
-          enum:
-          - asc
-          - desc
-          title: Sort
-          type: string
-        style: form
       responses:
-        "200":
+        "410":
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/FilterRuleDeliveryLogListResponse'
-          description: Successful Response
+              example:
+                error: delivery_logs_removed
+                detail: "Tweet delivery logs were removed: ScrapeBadger no longer\
+                  \ stores delivered tweets. Each tweet is delivered to your webhook\
+                  \ only; keep your own log there."
+              schema: {}
+          description: Delivery logs were removed; ScrapeBadger no longer stores delivered
+            tweets.
         "422":
           content:
             application/json:
@@ -24308,79 +24268,25 @@ paths:
       - Twitter
   /v1/twitter/stream/logs:
     get:
-      description: List tweet delivery logs for the authenticated API key's monitors.
+      deprecated: true
+      description: |-
+        Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.
+
+        Always answers ``410 Gone`` with ``error: delivery_logs_removed``. Each tweet
+        is delivered to your webhook or WebSocket only; keep your own log there.
       operationId: twitter_list_tweet_delivery_logs
-      parameters:
-      - explode: true
-        in: query
-        name: monitor_id
-        required: false
-        schema:
-          nullable: true
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: author_username
-        required: false
-        schema:
-          nullable: true
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: delivery_status
-        required: false
-        schema:
-          nullable: true
-          type: string
-        style: form
-      - explode: true
-        in: query
-        name: page
-        required: false
-        schema:
-          default: 1
-          minimum: 1
-          title: Page
-          type: integer
-        style: form
-      - explode: true
-        in: query
-        name: page_size
-        required: false
-        schema:
-          default: 20
-          maximum: 100
-          minimum: 1
-          title: Page Size
-          type: integer
-        style: form
-      - explode: true
-        in: query
-        name: sort
-        required: false
-        schema:
-          default: desc
-          enum:
-          - asc
-          - desc
-          title: Sort
-          type: string
-        style: form
       responses:
-        "200":
+        "410":
           content:
             application/json:
-              schema:
-                $ref: '#/components/schemas/TweetDeliveryLogListResponse'
-          description: Successful Response
-        "422":
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-          description: Validation Error
+              example:
+                error: delivery_logs_removed
+                detail: "Tweet delivery logs were removed: ScrapeBadger no longer\
+                  \ stores delivered tweets. Each tweet is delivered to your webhook\
+                  \ only; keep your own log there."
+              schema: {}
+          description: Delivery logs were removed; ScrapeBadger no longer stores delivered
+            tweets.
       security:
       - ApiKeyAuth: []
       summary: List tweet delivery logs
@@ -32922,139 +32828,6 @@ components:
       - query
       - tag
       title: FilterRuleCreate
-    FilterRuleDeliveryLogListResponse:
-      description: Paginated filter rule delivery logs.
-      example:
-        total: 5
-        page: 5
-        logs:
-        - tweet_id: tweet_id
-          tweet_text_preview: tweet_text_preview
-          latency_badge: latency_badge
-          webhook_attempts: 1
-          tweet_url: tweet_url
-          latency_ms: 0
-          rule_id: rule_id
-          webhook_status_code: 6
-          rule_tag: rule_tag
-          detected_at: 2000-01-23T04:56:07.000+00:00
-          tweet_published_at: 2000-01-23T04:56:07.000+00:00
-          id: id
-          author_username: author_username
-          delivery_status: delivery_status
-        - tweet_id: tweet_id
-          tweet_text_preview: tweet_text_preview
-          latency_badge: latency_badge
-          webhook_attempts: 1
-          tweet_url: tweet_url
-          latency_ms: 0
-          rule_id: rule_id
-          webhook_status_code: 6
-          rule_tag: rule_tag
-          detected_at: 2000-01-23T04:56:07.000+00:00
-          tweet_published_at: 2000-01-23T04:56:07.000+00:00
-          id: id
-          author_username: author_username
-          delivery_status: delivery_status
-        page_size: 2
-      properties:
-        logs:
-          items:
-            $ref: '#/components/schemas/FilterRuleDeliveryLogResponse'
-          type: array
-        total:
-          title: Total
-          type: integer
-        page:
-          title: Page
-          type: integer
-        page_size:
-          title: Page Size
-          type: integer
-      required:
-      - logs
-      - page
-      - page_size
-      - total
-      title: FilterRuleDeliveryLogListResponse
-    FilterRuleDeliveryLogResponse:
-      description: Delivery log entry for a filter rule.
-      example:
-        tweet_id: tweet_id
-        tweet_text_preview: tweet_text_preview
-        latency_badge: latency_badge
-        webhook_attempts: 1
-        tweet_url: tweet_url
-        latency_ms: 0
-        rule_id: rule_id
-        webhook_status_code: 6
-        rule_tag: rule_tag
-        detected_at: 2000-01-23T04:56:07.000+00:00
-        tweet_published_at: 2000-01-23T04:56:07.000+00:00
-        id: id
-        author_username: author_username
-        delivery_status: delivery_status
-      properties:
-        id:
-          title: Id
-          type: string
-        rule_id:
-          title: Rule Id
-          type: string
-        rule_tag:
-          title: Rule Tag
-          type: string
-        tweet_id:
-          title: Tweet Id
-          type: string
-        author_username:
-          title: Author Username
-          type: string
-        tweet_text_preview:
-          nullable: true
-          type: string
-        tweet_url:
-          title: Tweet Url
-          type: string
-        tweet_published_at:
-          format: date-time
-          title: Tweet Published At
-          type: string
-        detected_at:
-          format: date-time
-          title: Detected At
-          type: string
-        latency_ms:
-          title: Latency Ms
-          type: integer
-        latency_badge:
-          title: Latency Badge
-          type: string
-        delivery_status:
-          title: Delivery Status
-          type: string
-        webhook_status_code:
-          nullable: true
-          type: integer
-        webhook_attempts:
-          title: Webhook Attempts
-          type: integer
-      required:
-      - author_username
-      - delivery_status
-      - detected_at
-      - id
-      - latency_badge
-      - latency_ms
-      - rule_id
-      - rule_tag
-      - tweet_id
-      - tweet_published_at
-      - tweet_text_preview
-      - tweet_url
-      - webhook_attempts
-      - webhook_status_code
-      title: FilterRuleDeliveryLogResponse
     FilterRuleListResponse:
       description: Paginated list of filter rules.
       example:
@@ -37134,139 +36907,6 @@ components:
       - plan_title
       - status
       title: SubscriptionInfo
-    TweetDeliveryLogListResponse:
-      description: Paginated tweet delivery logs.
-      example:
-        total: 5
-        page: 5
-        logs:
-        - monitor_id: monitor_id
-          tweet_id: tweet_id
-          tweet_text_preview: tweet_text_preview
-          latency_badge: latency_badge
-          webhook_attempts: 1
-          tweet_url: tweet_url
-          monitor_name: monitor_name
-          latency_ms: 0
-          webhook_status_code: 6
-          detected_at: 2000-01-23T04:56:07.000+00:00
-          tweet_published_at: 2000-01-23T04:56:07.000+00:00
-          id: id
-          author_username: author_username
-          delivery_status: delivery_status
-        - monitor_id: monitor_id
-          tweet_id: tweet_id
-          tweet_text_preview: tweet_text_preview
-          latency_badge: latency_badge
-          webhook_attempts: 1
-          tweet_url: tweet_url
-          monitor_name: monitor_name
-          latency_ms: 0
-          webhook_status_code: 6
-          detected_at: 2000-01-23T04:56:07.000+00:00
-          tweet_published_at: 2000-01-23T04:56:07.000+00:00
-          id: id
-          author_username: author_username
-          delivery_status: delivery_status
-        page_size: 2
-      properties:
-        logs:
-          items:
-            $ref: '#/components/schemas/TweetDeliveryLogResponse'
-          type: array
-        total:
-          title: Total
-          type: integer
-        page:
-          title: Page
-          type: integer
-        page_size:
-          title: Page Size
-          type: integer
-      required:
-      - logs
-      - page
-      - page_size
-      - total
-      title: TweetDeliveryLogListResponse
-    TweetDeliveryLogResponse:
-      description: Tweet delivery log entry.
-      example:
-        monitor_id: monitor_id
-        tweet_id: tweet_id
-        tweet_text_preview: tweet_text_preview
-        latency_badge: latency_badge
-        webhook_attempts: 1
-        tweet_url: tweet_url
-        monitor_name: monitor_name
-        latency_ms: 0
-        webhook_status_code: 6
-        detected_at: 2000-01-23T04:56:07.000+00:00
-        tweet_published_at: 2000-01-23T04:56:07.000+00:00
-        id: id
-        author_username: author_username
-        delivery_status: delivery_status
-      properties:
-        id:
-          title: Id
-          type: string
-        monitor_id:
-          title: Monitor Id
-          type: string
-        monitor_name:
-          title: Monitor Name
-          type: string
-        tweet_id:
-          title: Tweet Id
-          type: string
-        author_username:
-          title: Author Username
-          type: string
-        tweet_text_preview:
-          nullable: true
-          type: string
-        tweet_url:
-          title: Tweet Url
-          type: string
-        tweet_published_at:
-          format: date-time
-          title: Tweet Published At
-          type: string
-        detected_at:
-          format: date-time
-          title: Detected At
-          type: string
-        latency_ms:
-          title: Latency Ms
-          type: integer
-        latency_badge:
-          title: Latency Badge
-          type: string
-        delivery_status:
-          title: Delivery Status
-          type: string
-        webhook_status_code:
-          nullable: true
-          type: integer
-        webhook_attempts:
-          title: Webhook Attempts
-          type: integer
-      required:
-      - author_username
-      - delivery_status
-      - detected_at
-      - id
-      - latency_badge
-      - latency_ms
-      - monitor_id
-      - monitor_name
-      - tweet_id
-      - tweet_published_at
-      - tweet_text_preview
-      - tweet_url
-      - webhook_attempts
-      - webhook_status_code
-      title: TweetDeliveryLogResponse
     UserItemsResponse:
       description: Envelope returned by a seller's wardrobe listing.
       example:

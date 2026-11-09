@@ -890,33 +890,25 @@ namespace ScrapeBadger.Api
         /// List delivery logs for a filter rule
         /// </summary>
         /// <remarks>
-        /// List tweet delivery logs for a specific filter rule.
+        /// Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers &#x60;&#x60;410 Gone&#x60;&#x60; with &#x60;&#x60;error: delivery_logs_removed&#x60;&#x60;.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ruleId"></param>
-        /// <param name="deliveryStatus"> (optional)</param>
-        /// <param name="authorUsername"> (optional)</param>
-        /// <param name="page"> (optional, default to 1)</param>
-        /// <param name="pageSize"> (optional, default to 20)</param>
-        /// <param name="sort"> (optional, default to desc)</param>
-        /// <returns>FilterRuleDeliveryLogListResponse</returns>
-        FilterRuleDeliveryLogListResponse TwitterListDeliveryLogsForAFilterRule(string ruleId, string deliveryStatus = default(string), string authorUsername = default(string), int? page = default(int?), int? pageSize = default(int?), string sort = default(string));
+        /// <returns></returns>
+        [Obsolete]
+        void TwitterListDeliveryLogsForAFilterRule(string ruleId);
 
         /// <summary>
         /// List delivery logs for a filter rule
         /// </summary>
         /// <remarks>
-        /// List tweet delivery logs for a specific filter rule.
+        /// Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers &#x60;&#x60;410 Gone&#x60;&#x60; with &#x60;&#x60;error: delivery_logs_removed&#x60;&#x60;.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ruleId"></param>
-        /// <param name="deliveryStatus"> (optional)</param>
-        /// <param name="authorUsername"> (optional)</param>
-        /// <param name="page"> (optional, default to 1)</param>
-        /// <param name="pageSize"> (optional, default to 20)</param>
-        /// <param name="sort"> (optional, default to desc)</param>
-        /// <returns>ApiResponse of FilterRuleDeliveryLogListResponse</returns>
-        ApiResponse<FilterRuleDeliveryLogListResponse> TwitterListDeliveryLogsForAFilterRuleWithHttpInfo(string ruleId, string deliveryStatus = default(string), string authorUsername = default(string), int? page = default(int?), int? pageSize = default(int?), string sort = default(string));
+        /// <returns>ApiResponse of Object(void)</returns>
+        [Obsolete]
+        ApiResponse<Object> TwitterListDeliveryLogsForAFilterRuleWithHttpInfo(string ruleId);
         /// <summary>
         /// List filter rules
         /// </summary>
@@ -971,33 +963,23 @@ namespace ScrapeBadger.Api
         /// List tweet delivery logs
         /// </summary>
         /// <remarks>
-        /// List tweet delivery logs for the authenticated API key&#39;s monitors.
+        /// Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers &#x60;&#x60;410 Gone&#x60;&#x60; with &#x60;&#x60;error: delivery_logs_removed&#x60;&#x60;. Each tweet is delivered to your webhook or WebSocket only; keep your own log there.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="monitorId"> (optional)</param>
-        /// <param name="authorUsername"> (optional)</param>
-        /// <param name="deliveryStatus"> (optional)</param>
-        /// <param name="page"> (optional, default to 1)</param>
-        /// <param name="pageSize"> (optional, default to 20)</param>
-        /// <param name="sort"> (optional, default to desc)</param>
-        /// <returns>TweetDeliveryLogListResponse</returns>
-        TweetDeliveryLogListResponse TwitterListTweetDeliveryLogs(string monitorId = default(string), string authorUsername = default(string), string deliveryStatus = default(string), int? page = default(int?), int? pageSize = default(int?), string sort = default(string));
+        /// <returns></returns>
+        [Obsolete]
+        void TwitterListTweetDeliveryLogs();
 
         /// <summary>
         /// List tweet delivery logs
         /// </summary>
         /// <remarks>
-        /// List tweet delivery logs for the authenticated API key&#39;s monitors.
+        /// Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers &#x60;&#x60;410 Gone&#x60;&#x60; with &#x60;&#x60;error: delivery_logs_removed&#x60;&#x60;. Each tweet is delivered to your webhook or WebSocket only; keep your own log there.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="monitorId"> (optional)</param>
-        /// <param name="authorUsername"> (optional)</param>
-        /// <param name="deliveryStatus"> (optional)</param>
-        /// <param name="page"> (optional, default to 1)</param>
-        /// <param name="pageSize"> (optional, default to 20)</param>
-        /// <param name="sort"> (optional, default to desc)</param>
-        /// <returns>ApiResponse of TweetDeliveryLogListResponse</returns>
-        ApiResponse<TweetDeliveryLogListResponse> TwitterListTweetDeliveryLogsWithHttpInfo(string monitorId = default(string), string authorUsername = default(string), string deliveryStatus = default(string), int? page = default(int?), int? pageSize = default(int?), string sort = default(string));
+        /// <returns>ApiResponse of Object(void)</returns>
+        [Obsolete]
+        ApiResponse<Object> TwitterListTweetDeliveryLogsWithHttpInfo();
         /// <summary>
         /// List webhooks
         /// </summary>
@@ -2212,35 +2194,27 @@ namespace ScrapeBadger.Api
         /// List delivery logs for a filter rule
         /// </summary>
         /// <remarks>
-        /// List tweet delivery logs for a specific filter rule.
+        /// Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers &#x60;&#x60;410 Gone&#x60;&#x60; with &#x60;&#x60;error: delivery_logs_removed&#x60;&#x60;.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ruleId"></param>
-        /// <param name="deliveryStatus"> (optional)</param>
-        /// <param name="authorUsername"> (optional)</param>
-        /// <param name="page"> (optional, default to 1)</param>
-        /// <param name="pageSize"> (optional, default to 20)</param>
-        /// <param name="sort"> (optional, default to desc)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of FilterRuleDeliveryLogListResponse</returns>
-        System.Threading.Tasks.Task<FilterRuleDeliveryLogListResponse> TwitterListDeliveryLogsForAFilterRuleAsync(string ruleId, string deliveryStatus = default(string), string authorUsername = default(string), int? page = default(int?), int? pageSize = default(int?), string sort = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of void</returns>
+        [Obsolete]
+        System.Threading.Tasks.Task TwitterListDeliveryLogsForAFilterRuleAsync(string ruleId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List delivery logs for a filter rule
         /// </summary>
         /// <remarks>
-        /// List tweet delivery logs for a specific filter rule.
+        /// Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers &#x60;&#x60;410 Gone&#x60;&#x60; with &#x60;&#x60;error: delivery_logs_removed&#x60;&#x60;.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ruleId"></param>
-        /// <param name="deliveryStatus"> (optional)</param>
-        /// <param name="authorUsername"> (optional)</param>
-        /// <param name="page"> (optional, default to 1)</param>
-        /// <param name="pageSize"> (optional, default to 20)</param>
-        /// <param name="sort"> (optional, default to desc)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (FilterRuleDeliveryLogListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<FilterRuleDeliveryLogListResponse>> TwitterListDeliveryLogsForAFilterRuleWithHttpInfoAsync(string ruleId, string deliveryStatus = default(string), string authorUsername = default(string), int? page = default(int?), int? pageSize = default(int?), string sort = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse</returns>
+        [Obsolete]
+        System.Threading.Tasks.Task<ApiResponse<Object>> TwitterListDeliveryLogsForAFilterRuleWithHttpInfoAsync(string ruleId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List filter rules
         /// </summary>
@@ -2299,35 +2273,25 @@ namespace ScrapeBadger.Api
         /// List tweet delivery logs
         /// </summary>
         /// <remarks>
-        /// List tweet delivery logs for the authenticated API key&#39;s monitors.
+        /// Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers &#x60;&#x60;410 Gone&#x60;&#x60; with &#x60;&#x60;error: delivery_logs_removed&#x60;&#x60;. Each tweet is delivered to your webhook or WebSocket only; keep your own log there.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="monitorId"> (optional)</param>
-        /// <param name="authorUsername"> (optional)</param>
-        /// <param name="deliveryStatus"> (optional)</param>
-        /// <param name="page"> (optional, default to 1)</param>
-        /// <param name="pageSize"> (optional, default to 20)</param>
-        /// <param name="sort"> (optional, default to desc)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of TweetDeliveryLogListResponse</returns>
-        System.Threading.Tasks.Task<TweetDeliveryLogListResponse> TwitterListTweetDeliveryLogsAsync(string monitorId = default(string), string authorUsername = default(string), string deliveryStatus = default(string), int? page = default(int?), int? pageSize = default(int?), string sort = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of void</returns>
+        [Obsolete]
+        System.Threading.Tasks.Task TwitterListTweetDeliveryLogsAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List tweet delivery logs
         /// </summary>
         /// <remarks>
-        /// List tweet delivery logs for the authenticated API key&#39;s monitors.
+        /// Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers &#x60;&#x60;410 Gone&#x60;&#x60; with &#x60;&#x60;error: delivery_logs_removed&#x60;&#x60;. Each tweet is delivered to your webhook or WebSocket only; keep your own log there.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="monitorId"> (optional)</param>
-        /// <param name="authorUsername"> (optional)</param>
-        /// <param name="deliveryStatus"> (optional)</param>
-        /// <param name="page"> (optional, default to 1)</param>
-        /// <param name="pageSize"> (optional, default to 20)</param>
-        /// <param name="sort"> (optional, default to desc)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (TweetDeliveryLogListResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TweetDeliveryLogListResponse>> TwitterListTweetDeliveryLogsWithHttpInfoAsync(string monitorId = default(string), string authorUsername = default(string), string deliveryStatus = default(string), int? page = default(int?), int? pageSize = default(int?), string sort = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <returns>Task of ApiResponse</returns>
+        [Obsolete]
+        System.Threading.Tasks.Task<ApiResponse<Object>> TwitterListTweetDeliveryLogsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List webhooks
         /// </summary>
@@ -7941,34 +7905,25 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// List delivery logs for a filter rule List tweet delivery logs for a specific filter rule.
+        /// List delivery logs for a filter rule Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers &#x60;&#x60;410 Gone&#x60;&#x60; with &#x60;&#x60;error: delivery_logs_removed&#x60;&#x60;.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ruleId"></param>
-        /// <param name="deliveryStatus"> (optional)</param>
-        /// <param name="authorUsername"> (optional)</param>
-        /// <param name="page"> (optional, default to 1)</param>
-        /// <param name="pageSize"> (optional, default to 20)</param>
-        /// <param name="sort"> (optional, default to desc)</param>
-        /// <returns>FilterRuleDeliveryLogListResponse</returns>
-        public FilterRuleDeliveryLogListResponse TwitterListDeliveryLogsForAFilterRule(string ruleId, string deliveryStatus = default(string), string authorUsername = default(string), int? page = default(int?), int? pageSize = default(int?), string sort = default(string))
+        /// <returns></returns>
+        [Obsolete]
+        public void TwitterListDeliveryLogsForAFilterRule(string ruleId)
         {
-            ScrapeBadger.Client.ApiResponse<FilterRuleDeliveryLogListResponse> localVarResponse = TwitterListDeliveryLogsForAFilterRuleWithHttpInfo(ruleId, deliveryStatus, authorUsername, page, pageSize, sort);
-            return localVarResponse.Data;
+            TwitterListDeliveryLogsForAFilterRuleWithHttpInfo(ruleId);
         }
 
         /// <summary>
-        /// List delivery logs for a filter rule List tweet delivery logs for a specific filter rule.
+        /// List delivery logs for a filter rule Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers &#x60;&#x60;410 Gone&#x60;&#x60; with &#x60;&#x60;error: delivery_logs_removed&#x60;&#x60;.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ruleId"></param>
-        /// <param name="deliveryStatus"> (optional)</param>
-        /// <param name="authorUsername"> (optional)</param>
-        /// <param name="page"> (optional, default to 1)</param>
-        /// <param name="pageSize"> (optional, default to 20)</param>
-        /// <param name="sort"> (optional, default to desc)</param>
-        /// <returns>ApiResponse of FilterRuleDeliveryLogListResponse</returns>
-        public ScrapeBadger.Client.ApiResponse<FilterRuleDeliveryLogListResponse> TwitterListDeliveryLogsForAFilterRuleWithHttpInfo(string ruleId, string deliveryStatus = default(string), string authorUsername = default(string), int? page = default(int?), int? pageSize = default(int?), string sort = default(string))
+        /// <returns>ApiResponse of Object(void)</returns>
+        [Obsolete]
+        public ScrapeBadger.Client.ApiResponse<Object> TwitterListDeliveryLogsForAFilterRuleWithHttpInfo(string ruleId)
         {
             // verify the required parameter 'ruleId' is set
             if (ruleId == null)
@@ -7991,26 +7946,6 @@ namespace ScrapeBadger.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("rule_id", ScrapeBadger.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
-            if (deliveryStatus != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "delivery_status", deliveryStatus));
-            }
-            if (authorUsername != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "author_username", authorUsername));
-            }
-            if (page != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "page", page));
-            }
-            if (pageSize != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize));
-            }
-            if (sort != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
-            }
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
@@ -8019,7 +7954,7 @@ namespace ScrapeBadger.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<FilterRuleDeliveryLogListResponse>("/v1/twitter/stream/filter-rules/{rule_id}/logs", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<Object>("/v1/twitter/stream/filter-rules/{rule_id}/logs", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -8031,36 +7966,27 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// List delivery logs for a filter rule List tweet delivery logs for a specific filter rule.
+        /// List delivery logs for a filter rule Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers &#x60;&#x60;410 Gone&#x60;&#x60; with &#x60;&#x60;error: delivery_logs_removed&#x60;&#x60;.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ruleId"></param>
-        /// <param name="deliveryStatus"> (optional)</param>
-        /// <param name="authorUsername"> (optional)</param>
-        /// <param name="page"> (optional, default to 1)</param>
-        /// <param name="pageSize"> (optional, default to 20)</param>
-        /// <param name="sort"> (optional, default to desc)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of FilterRuleDeliveryLogListResponse</returns>
-        public async System.Threading.Tasks.Task<FilterRuleDeliveryLogListResponse> TwitterListDeliveryLogsForAFilterRuleAsync(string ruleId, string deliveryStatus = default(string), string authorUsername = default(string), int? page = default(int?), int? pageSize = default(int?), string sort = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of void</returns>
+        [Obsolete]
+        public async System.Threading.Tasks.Task TwitterListDeliveryLogsForAFilterRuleAsync(string ruleId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<FilterRuleDeliveryLogListResponse> localVarResponse = await TwitterListDeliveryLogsForAFilterRuleWithHttpInfoAsync(ruleId, deliveryStatus, authorUsername, page, pageSize, sort, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
+            await TwitterListDeliveryLogsForAFilterRuleWithHttpInfoAsync(ruleId, cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// List delivery logs for a filter rule List tweet delivery logs for a specific filter rule.
+        /// List delivery logs for a filter rule Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers &#x60;&#x60;410 Gone&#x60;&#x60; with &#x60;&#x60;error: delivery_logs_removed&#x60;&#x60;.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ruleId"></param>
-        /// <param name="deliveryStatus"> (optional)</param>
-        /// <param name="authorUsername"> (optional)</param>
-        /// <param name="page"> (optional, default to 1)</param>
-        /// <param name="pageSize"> (optional, default to 20)</param>
-        /// <param name="sort"> (optional, default to desc)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (FilterRuleDeliveryLogListResponse)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<FilterRuleDeliveryLogListResponse>> TwitterListDeliveryLogsForAFilterRuleWithHttpInfoAsync(string ruleId, string deliveryStatus = default(string), string authorUsername = default(string), int? page = default(int?), int? pageSize = default(int?), string sort = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse</returns>
+        [Obsolete]
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> TwitterListDeliveryLogsForAFilterRuleWithHttpInfoAsync(string ruleId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'ruleId' is set
             if (ruleId == null)
@@ -8085,26 +8011,6 @@ namespace ScrapeBadger.Api
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
             localVarRequestOptions.PathParameters.Add("rule_id", ScrapeBadger.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
-            if (deliveryStatus != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "delivery_status", deliveryStatus));
-            }
-            if (authorUsername != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "author_username", authorUsername));
-            }
-            if (page != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "page", page));
-            }
-            if (pageSize != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize));
-            }
-            if (sort != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
-            }
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
@@ -8114,7 +8020,7 @@ namespace ScrapeBadger.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<FilterRuleDeliveryLogListResponse>("/v1/twitter/stream/filter-rules/{rule_id}/logs", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/twitter/stream/filter-rules/{rule_id}/logs", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -8420,34 +8326,23 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// List tweet delivery logs List tweet delivery logs for the authenticated API key&#39;s monitors.
+        /// List tweet delivery logs Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers &#x60;&#x60;410 Gone&#x60;&#x60; with &#x60;&#x60;error: delivery_logs_removed&#x60;&#x60;. Each tweet is delivered to your webhook or WebSocket only; keep your own log there.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="monitorId"> (optional)</param>
-        /// <param name="authorUsername"> (optional)</param>
-        /// <param name="deliveryStatus"> (optional)</param>
-        /// <param name="page"> (optional, default to 1)</param>
-        /// <param name="pageSize"> (optional, default to 20)</param>
-        /// <param name="sort"> (optional, default to desc)</param>
-        /// <returns>TweetDeliveryLogListResponse</returns>
-        public TweetDeliveryLogListResponse TwitterListTweetDeliveryLogs(string monitorId = default(string), string authorUsername = default(string), string deliveryStatus = default(string), int? page = default(int?), int? pageSize = default(int?), string sort = default(string))
+        /// <returns></returns>
+        [Obsolete]
+        public void TwitterListTweetDeliveryLogs()
         {
-            ScrapeBadger.Client.ApiResponse<TweetDeliveryLogListResponse> localVarResponse = TwitterListTweetDeliveryLogsWithHttpInfo(monitorId, authorUsername, deliveryStatus, page, pageSize, sort);
-            return localVarResponse.Data;
+            TwitterListTweetDeliveryLogsWithHttpInfo();
         }
 
         /// <summary>
-        /// List tweet delivery logs List tweet delivery logs for the authenticated API key&#39;s monitors.
+        /// List tweet delivery logs Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers &#x60;&#x60;410 Gone&#x60;&#x60; with &#x60;&#x60;error: delivery_logs_removed&#x60;&#x60;. Each tweet is delivered to your webhook or WebSocket only; keep your own log there.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="monitorId"> (optional)</param>
-        /// <param name="authorUsername"> (optional)</param>
-        /// <param name="deliveryStatus"> (optional)</param>
-        /// <param name="page"> (optional, default to 1)</param>
-        /// <param name="pageSize"> (optional, default to 20)</param>
-        /// <param name="sort"> (optional, default to desc)</param>
-        /// <returns>ApiResponse of TweetDeliveryLogListResponse</returns>
-        public ScrapeBadger.Client.ApiResponse<TweetDeliveryLogListResponse> TwitterListTweetDeliveryLogsWithHttpInfo(string monitorId = default(string), string authorUsername = default(string), string deliveryStatus = default(string), int? page = default(int?), int? pageSize = default(int?), string sort = default(string))
+        /// <returns>ApiResponse of Object(void)</returns>
+        [Obsolete]
+        public ScrapeBadger.Client.ApiResponse<Object> TwitterListTweetDeliveryLogsWithHttpInfo()
         {
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
 
@@ -8465,30 +8360,6 @@ namespace ScrapeBadger.Api
             var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (monitorId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "monitor_id", monitorId));
-            }
-            if (authorUsername != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "author_username", authorUsername));
-            }
-            if (deliveryStatus != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "delivery_status", deliveryStatus));
-            }
-            if (page != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "page", page));
-            }
-            if (pageSize != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize));
-            }
-            if (sort != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
-            }
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
@@ -8497,7 +8368,7 @@ namespace ScrapeBadger.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<TweetDeliveryLogListResponse>("/v1/twitter/stream/logs", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<Object>("/v1/twitter/stream/logs", localVarRequestOptions, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {
@@ -8509,36 +8380,25 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// List tweet delivery logs List tweet delivery logs for the authenticated API key&#39;s monitors.
+        /// List tweet delivery logs Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers &#x60;&#x60;410 Gone&#x60;&#x60; with &#x60;&#x60;error: delivery_logs_removed&#x60;&#x60;. Each tweet is delivered to your webhook or WebSocket only; keep your own log there.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="monitorId"> (optional)</param>
-        /// <param name="authorUsername"> (optional)</param>
-        /// <param name="deliveryStatus"> (optional)</param>
-        /// <param name="page"> (optional, default to 1)</param>
-        /// <param name="pageSize"> (optional, default to 20)</param>
-        /// <param name="sort"> (optional, default to desc)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of TweetDeliveryLogListResponse</returns>
-        public async System.Threading.Tasks.Task<TweetDeliveryLogListResponse> TwitterListTweetDeliveryLogsAsync(string monitorId = default(string), string authorUsername = default(string), string deliveryStatus = default(string), int? page = default(int?), int? pageSize = default(int?), string sort = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of void</returns>
+        [Obsolete]
+        public async System.Threading.Tasks.Task TwitterListTweetDeliveryLogsAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<TweetDeliveryLogListResponse> localVarResponse = await TwitterListTweetDeliveryLogsWithHttpInfoAsync(monitorId, authorUsername, deliveryStatus, page, pageSize, sort, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
+            await TwitterListTweetDeliveryLogsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
         }
 
         /// <summary>
-        /// List tweet delivery logs List tweet delivery logs for the authenticated API key&#39;s monitors.
+        /// List tweet delivery logs Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers &#x60;&#x60;410 Gone&#x60;&#x60; with &#x60;&#x60;error: delivery_logs_removed&#x60;&#x60;. Each tweet is delivered to your webhook or WebSocket only; keep your own log there.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="monitorId"> (optional)</param>
-        /// <param name="authorUsername"> (optional)</param>
-        /// <param name="deliveryStatus"> (optional)</param>
-        /// <param name="page"> (optional, default to 1)</param>
-        /// <param name="pageSize"> (optional, default to 20)</param>
-        /// <param name="sort"> (optional, default to desc)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
-        /// <returns>Task of ApiResponse (TweetDeliveryLogListResponse)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<TweetDeliveryLogListResponse>> TwitterListTweetDeliveryLogsWithHttpInfoAsync(string monitorId = default(string), string authorUsername = default(string), string deliveryStatus = default(string), int? page = default(int?), int? pageSize = default(int?), string sort = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        /// <returns>Task of ApiResponse</returns>
+        [Obsolete]
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> TwitterListTweetDeliveryLogsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
@@ -8558,30 +8418,6 @@ namespace ScrapeBadger.Api
             var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
-            if (monitorId != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "monitor_id", monitorId));
-            }
-            if (authorUsername != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "author_username", authorUsername));
-            }
-            if (deliveryStatus != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "delivery_status", deliveryStatus));
-            }
-            if (page != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "page", page));
-            }
-            if (pageSize != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "page_size", pageSize));
-            }
-            if (sort != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "sort", sort));
-            }
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
@@ -8591,7 +8427,7 @@ namespace ScrapeBadger.Api
 
             // make the HTTP request
 
-            var localVarResponse = await this.AsynchronousClient.GetAsync<TweetDeliveryLogListResponse>("/v1/twitter/stream/logs", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Object>("/v1/twitter/stream/logs", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

@@ -4029,11 +4029,11 @@ catch (ApiException e)
 
 <a id="twitterlistdeliverylogsforafilterrule"></a>
 # **TwitterListDeliveryLogsForAFilterRule**
-> FilterRuleDeliveryLogListResponse TwitterListDeliveryLogsForAFilterRule (string ruleId, string deliveryStatus = null, string authorUsername = null, int? page = null, int? pageSize = null, string sort = null)
+> void TwitterListDeliveryLogsForAFilterRule (string ruleId)
 
 List delivery logs for a filter rule
 
-List tweet delivery logs for a specific filter rule.
+Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers ``410 Gone`` with ``error: delivery_logs_removed``.
 
 ### Example
 ```csharp
@@ -4062,17 +4062,11 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new TwitterApi(httpClient, config, httpClientHandler);
             var ruleId = "ruleId_example";  // string | 
-            var deliveryStatus = "deliveryStatus_example";  // string |  (optional) 
-            var authorUsername = "authorUsername_example";  // string |  (optional) 
-            var page = 1;  // int? |  (optional)  (default to 1)
-            var pageSize = 20;  // int? |  (optional)  (default to 20)
-            var sort = "asc";  // string |  (optional)  (default to desc)
 
             try
             {
                 // List delivery logs for a filter rule
-                FilterRuleDeliveryLogListResponse result = apiInstance.TwitterListDeliveryLogsForAFilterRule(ruleId, deliveryStatus, authorUsername, page, pageSize, sort);
-                Debug.WriteLine(result);
+                apiInstance.TwitterListDeliveryLogsForAFilterRule(ruleId);
             }
             catch (ApiException  e)
             {
@@ -4092,10 +4086,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // List delivery logs for a filter rule
-    ApiResponse<FilterRuleDeliveryLogListResponse> response = apiInstance.TwitterListDeliveryLogsForAFilterRuleWithHttpInfo(ruleId, deliveryStatus, authorUsername, page, pageSize, sort);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    apiInstance.TwitterListDeliveryLogsForAFilterRuleWithHttpInfo(ruleId);
 }
 catch (ApiException e)
 {
@@ -4110,15 +4101,10 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **ruleId** | **string** |  |  |
-| **deliveryStatus** | **string** |  | [optional]  |
-| **authorUsername** | **string** |  | [optional]  |
-| **page** | **int?** |  | [optional] [default to 1] |
-| **pageSize** | **int?** |  | [optional] [default to 20] |
-| **sort** | **string** |  | [optional] [default to desc] |
 
 ### Return type
 
-[**FilterRuleDeliveryLogListResponse**](FilterRuleDeliveryLogListResponse.md)
+void (empty response body)
 
 ### Authorization
 
@@ -4133,7 +4119,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful Response |  -  |
+| **410** | Delivery logs were removed; ScrapeBadger no longer stores delivered tweets. |  -  |
 | **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -4350,11 +4336,11 @@ catch (ApiException e)
 
 <a id="twitterlisttweetdeliverylogs"></a>
 # **TwitterListTweetDeliveryLogs**
-> TweetDeliveryLogListResponse TwitterListTweetDeliveryLogs (string monitorId = null, string authorUsername = null, string deliveryStatus = null, int? page = null, int? pageSize = null, string sort = null)
+> void TwitterListTweetDeliveryLogs ()
 
 List tweet delivery logs
 
-List tweet delivery logs for the authenticated API key's monitors.
+Removed on 2026-11-09 (SCR-396): ScrapeBadger no longer stores delivered tweets.  Always answers ``410 Gone`` with ``error: delivery_logs_removed``. Each tweet is delivered to your webhook or WebSocket only; keep your own log there.
 
 ### Example
 ```csharp
@@ -4382,18 +4368,11 @@ namespace Example
             HttpClient httpClient = new HttpClient();
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new TwitterApi(httpClient, config, httpClientHandler);
-            var monitorId = "monitorId_example";  // string |  (optional) 
-            var authorUsername = "authorUsername_example";  // string |  (optional) 
-            var deliveryStatus = "deliveryStatus_example";  // string |  (optional) 
-            var page = 1;  // int? |  (optional)  (default to 1)
-            var pageSize = 20;  // int? |  (optional)  (default to 20)
-            var sort = "asc";  // string |  (optional)  (default to desc)
 
             try
             {
                 // List tweet delivery logs
-                TweetDeliveryLogListResponse result = apiInstance.TwitterListTweetDeliveryLogs(monitorId, authorUsername, deliveryStatus, page, pageSize, sort);
-                Debug.WriteLine(result);
+                apiInstance.TwitterListTweetDeliveryLogs();
             }
             catch (ApiException  e)
             {
@@ -4413,10 +4392,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // List tweet delivery logs
-    ApiResponse<TweetDeliveryLogListResponse> response = apiInstance.TwitterListTweetDeliveryLogsWithHttpInfo(monitorId, authorUsername, deliveryStatus, page, pageSize, sort);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    apiInstance.TwitterListTweetDeliveryLogsWithHttpInfo();
 }
 catch (ApiException e)
 {
@@ -4427,19 +4403,10 @@ catch (ApiException e)
 ```
 
 ### Parameters
-
-| Name | Type | Description | Notes |
-|------|------|-------------|-------|
-| **monitorId** | **string** |  | [optional]  |
-| **authorUsername** | **string** |  | [optional]  |
-| **deliveryStatus** | **string** |  | [optional]  |
-| **page** | **int?** |  | [optional] [default to 1] |
-| **pageSize** | **int?** |  | [optional] [default to 20] |
-| **sort** | **string** |  | [optional] [default to desc] |
-
+This endpoint does not need any parameter.
 ### Return type
 
-[**TweetDeliveryLogListResponse**](TweetDeliveryLogListResponse.md)
+void (empty response body)
 
 ### Authorization
 
@@ -4454,8 +4421,7 @@ catch (ApiException e)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Successful Response |  -  |
-| **422** | Validation Error |  -  |
+| **410** | Delivery logs were removed; ScrapeBadger no longer stores delivered tweets. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

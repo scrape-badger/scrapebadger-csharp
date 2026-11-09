@@ -547,13 +547,7 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string ruleId = null;
-            //string deliveryStatus = null;
-            //string authorUsername = null;
-            //int? page = null;
-            //int? pageSize = null;
-            //string sort = null;
-            //var response = instance.TwitterListDeliveryLogsForAFilterRule(ruleId, deliveryStatus, authorUsername, page, pageSize, sort);
-            //Assert.IsType<FilterRuleDeliveryLogListResponse>(response);
+            //instance.TwitterListDeliveryLogsForAFilterRule(ruleId);
         }
 
         /// <summary>
@@ -591,14 +585,7 @@ namespace ScrapeBadger.Test.Api
         public void TwitterListTweetDeliveryLogsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //string monitorId = null;
-            //string authorUsername = null;
-            //string deliveryStatus = null;
-            //int? page = null;
-            //int? pageSize = null;
-            //string sort = null;
-            //var response = instance.TwitterListTweetDeliveryLogs(monitorId, authorUsername, deliveryStatus, page, pageSize, sort);
-            //Assert.IsType<TweetDeliveryLogListResponse>(response);
+            //instance.TwitterListTweetDeliveryLogs();
         }
 
         /// <summary>

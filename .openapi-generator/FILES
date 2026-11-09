@@ -73,8 +73,6 @@ docs/Faq.md
 docs/FeedbackApi.md
 docs/FeedbackRequest.md
 docs/FilterRuleCreate.md
-docs/FilterRuleDeliveryLogListResponse.md
-docs/FilterRuleDeliveryLogResponse.md
 docs/FilterRuleListResponse.md
 docs/FilterRuleResponse.md
 docs/FilterRuleUpdate.md
@@ -191,8 +189,6 @@ docs/Subtype.md
 docs/TargetApi.md
 docs/Thumbnail.md
 docs/TikTokApi.md
-docs/TweetDeliveryLogListResponse.md
-docs/TweetDeliveryLogResponse.md
 docs/TwitterApi.md
 docs/Type.md
 docs/Url.md
@@ -342,8 +338,6 @@ src/ScrapeBadger.Test/Model/FamilyFriendlyTests.cs
 src/ScrapeBadger.Test/Model/FaqTests.cs
 src/ScrapeBadger.Test/Model/FeedbackRequestTests.cs
 src/ScrapeBadger.Test/Model/FilterRuleCreateTests.cs
-src/ScrapeBadger.Test/Model/FilterRuleDeliveryLogListResponseTests.cs
-src/ScrapeBadger.Test/Model/FilterRuleDeliveryLogResponseTests.cs
 src/ScrapeBadger.Test/Model/FilterRuleListResponseTests.cs
 src/ScrapeBadger.Test/Model/FilterRuleResponseTests.cs
 src/ScrapeBadger.Test/Model/FilterRuleUpdateTests.cs
@@ -439,8 +433,6 @@ src/ScrapeBadger.Test/Model/StreamMonitorUpdateTests.cs
 src/ScrapeBadger.Test/Model/SubscriptionInfoTests.cs
 src/ScrapeBadger.Test/Model/SubtypeTests.cs
 src/ScrapeBadger.Test/Model/ThumbnailTests.cs
-src/ScrapeBadger.Test/Model/TweetDeliveryLogListResponseTests.cs
-src/ScrapeBadger.Test/Model/TweetDeliveryLogResponseTests.cs
 src/ScrapeBadger.Test/Model/TypeTests.cs
 src/ScrapeBadger.Test/Model/UrlTests.cs
 src/ScrapeBadger.Test/Model/UserItemsResponseTests.cs
@@ -598,8 +590,6 @@ src/ScrapeBadger/Model/FamilyFriendly.cs
 src/ScrapeBadger/Model/Faq.cs
 src/ScrapeBadger/Model/FeedbackRequest.cs
 src/ScrapeBadger/Model/FilterRuleCreate.cs
-src/ScrapeBadger/Model/FilterRuleDeliveryLogListResponse.cs
-src/ScrapeBadger/Model/FilterRuleDeliveryLogResponse.cs
 src/ScrapeBadger/Model/FilterRuleListResponse.cs
 src/ScrapeBadger/Model/FilterRuleResponse.cs
 src/ScrapeBadger/Model/FilterRuleUpdate.cs
@@ -695,8 +685,6 @@ src/ScrapeBadger/Model/StreamMonitorUpdate.cs
 src/ScrapeBadger/Model/SubscriptionInfo.cs
 src/ScrapeBadger/Model/Subtype.cs
 src/ScrapeBadger/Model/Thumbnail.cs
-src/ScrapeBadger/Model/TweetDeliveryLogListResponse.cs
-src/ScrapeBadger/Model/TweetDeliveryLogResponse.cs
 src/ScrapeBadger/Model/Type.cs
 src/ScrapeBadger/Model/Url.cs
 src/ScrapeBadger/Model/UserItemsResponse.cs
