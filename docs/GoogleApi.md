@@ -1526,7 +1526,7 @@ namespace Example
             var colorScheme = "light";  // string | Google color scheme. (optional) 
             var tbm = "isch";  // string | Google search type. Use output=html for verticals; dedicated APIs provide parsed vertical results. (optional) 
             var udm = "udm_example";  // string | Google result filter: web or 14 for web, 18 for forums. Other verticals require output=html. (optional) 
-            var noCache = false;  // bool? | Bypass result caches and request a fresh Google fetch. (optional)  (default to false)
+            var noCache = false;  // bool? | Ignored: responses are never cached. (optional)  (default to false)
             var asDt = "asDt_example";  // string | Site restriction mode: i includes, e excludes as_sitesearch. (optional) 
             var asEpq = "asEpq_example";  // string | Exact phrase. (optional) 
             var asEq = "asEq_example";  // string | Words to exclude. (optional) 
@@ -1613,7 +1613,7 @@ catch (ApiException e)
 | **colorScheme** | **string** | Google color scheme. | [optional]  |
 | **tbm** | **string** | Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. | [optional]  |
 | **udm** | **string** | Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. | [optional]  |
-| **noCache** | **bool?** | Bypass result caches and request a fresh Google fetch. | [optional] [default to false] |
+| **noCache** | **bool?** | Ignored: responses are never cached. | [optional] [default to false] |
 | **asDt** | **string** | Site restriction mode: i includes, e excludes as_sitesearch. | [optional]  |
 | **asEpq** | **string** | Exact phrase. | [optional]  |
 | **asEq** | **string** | Words to exclude. | [optional]  |
@@ -2133,7 +2133,7 @@ namespace Example
             var colorScheme = "light";  // string | Google color scheme. (optional) 
             var tbm = "isch";  // string | Google search type. Use output=html for verticals; dedicated APIs provide parsed vertical results. (optional) 
             var udm = "udm_example";  // string | Google result filter: web or 14 for web, 18 for forums. Other verticals require output=html. (optional) 
-            var noCache = false;  // bool? | Bypass result caches and request a fresh Google fetch. (optional)  (default to false)
+            var noCache = false;  // bool? | Ignored: responses are never cached. (optional)  (default to false)
             var asDt = "asDt_example";  // string | Site restriction mode: i includes, e excludes as_sitesearch. (optional) 
             var asEpq = "asEpq_example";  // string | Exact phrase. (optional) 
             var asEq = "asEq_example";  // string | Words to exclude. (optional) 
@@ -2223,7 +2223,7 @@ catch (ApiException e)
 | **colorScheme** | **string** | Google color scheme. | [optional]  |
 | **tbm** | **string** | Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. | [optional]  |
 | **udm** | **string** | Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. | [optional]  |
-| **noCache** | **bool?** | Bypass result caches and request a fresh Google fetch. | [optional] [default to false] |
+| **noCache** | **bool?** | Ignored: responses are never cached. | [optional] [default to false] |
 | **asDt** | **string** | Site restriction mode: i includes, e excludes as_sitesearch. | [optional]  |
 | **asEpq** | **string** | Exact phrase. | [optional]  |
 | **asEq** | **string** | Words to exclude. | [optional]  |

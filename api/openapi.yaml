@@ -12120,14 +12120,14 @@ paths:
           pattern: "^(web|[0-9]{1,3})$"
           type: string
         style: form
-      - description: Bypass result caches and request a fresh Google fetch.
+      - description: "Ignored: responses are never cached."
         explode: true
         in: query
         name: no_cache
         required: false
         schema:
           default: false
-          description: Bypass result caches and request a fresh Google fetch.
+          description: "Ignored: responses are never cached."
           title: No Cache
           type: boolean
         style: form
@@ -13792,14 +13792,14 @@ paths:
           pattern: "^(web|[0-9]{1,3})$"
           type: string
         style: form
-      - description: Bypass result caches and request a fresh Google fetch.
+      - description: "Ignored: responses are never cached."
         explode: true
         in: query
         name: no_cache
         required: false
         schema:
           default: false
-          description: Bypass result caches and request a fresh Google fetch.
+          description: "Ignored: responses are never cached."
           title: No Cache
           type: boolean
         style: form

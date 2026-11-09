@@ -437,7 +437,7 @@ namespace ScrapeBadger.Api
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
         /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
-        /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
+        /// <param name="noCache">Ignored: responses are never cached. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
         /// <param name="asEq">Words to exclude. (optional)</param>
@@ -492,7 +492,7 @@ namespace ScrapeBadger.Api
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
         /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
-        /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
+        /// <param name="noCache">Ignored: responses are never cached. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
         /// <param name="asEq">Words to exclude. (optional)</param>
@@ -652,7 +652,7 @@ namespace ScrapeBadger.Api
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
         /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
-        /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
+        /// <param name="noCache">Ignored: responses are never cached. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
         /// <param name="asEq">Words to exclude. (optional)</param>
@@ -710,7 +710,7 @@ namespace ScrapeBadger.Api
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
         /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
-        /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
+        /// <param name="noCache">Ignored: responses are never cached. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
         /// <param name="asEq">Words to exclude. (optional)</param>
@@ -1738,7 +1738,7 @@ namespace ScrapeBadger.Api
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
         /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
-        /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
+        /// <param name="noCache">Ignored: responses are never cached. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
         /// <param name="asEq">Words to exclude. (optional)</param>
@@ -1794,7 +1794,7 @@ namespace ScrapeBadger.Api
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
         /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
-        /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
+        /// <param name="noCache">Ignored: responses are never cached. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
         /// <param name="asEq">Words to exclude. (optional)</param>
@@ -1963,7 +1963,7 @@ namespace ScrapeBadger.Api
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
         /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
-        /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
+        /// <param name="noCache">Ignored: responses are never cached. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
         /// <param name="asEq">Words to exclude. (optional)</param>
@@ -2022,7 +2022,7 @@ namespace ScrapeBadger.Api
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
         /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
-        /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
+        /// <param name="noCache">Ignored: responses are never cached. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
         /// <param name="asEq">Words to exclude. (optional)</param>
@@ -5260,7 +5260,7 @@ namespace ScrapeBadger.Api
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
         /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
-        /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
+        /// <param name="noCache">Ignored: responses are never cached. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
         /// <param name="asEq">Words to exclude. (optional)</param>
@@ -5316,7 +5316,7 @@ namespace ScrapeBadger.Api
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
         /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
-        /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
+        /// <param name="noCache">Ignored: responses are never cached. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
         /// <param name="asEq">Words to exclude. (optional)</param>
@@ -5584,7 +5584,7 @@ namespace ScrapeBadger.Api
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
         /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
-        /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
+        /// <param name="noCache">Ignored: responses are never cached. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
         /// <param name="asEq">Words to exclude. (optional)</param>
@@ -5641,7 +5641,7 @@ namespace ScrapeBadger.Api
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
         /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
-        /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
+        /// <param name="noCache">Ignored: responses are never cached. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
         /// <param name="asEq">Words to exclude. (optional)</param>
@@ -6481,7 +6481,7 @@ namespace ScrapeBadger.Api
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
         /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
-        /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
+        /// <param name="noCache">Ignored: responses are never cached. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
         /// <param name="asEq">Words to exclude. (optional)</param>
@@ -6540,7 +6540,7 @@ namespace ScrapeBadger.Api
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
         /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
-        /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
+        /// <param name="noCache">Ignored: responses are never cached. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
         /// <param name="asEq">Words to exclude. (optional)</param>
@@ -6823,7 +6823,7 @@ namespace ScrapeBadger.Api
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
         /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
-        /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
+        /// <param name="noCache">Ignored: responses are never cached. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
         /// <param name="asEq">Words to exclude. (optional)</param>
@@ -6883,7 +6883,7 @@ namespace ScrapeBadger.Api
         /// <param name="colorScheme">Google color scheme. (optional)</param>
         /// <param name="tbm">Google search type. Use output&#x3D;html for verticals; dedicated APIs provide parsed vertical results. (optional)</param>
         /// <param name="udm">Google result filter: web or 14 for web, 18 for forums. Other verticals require output&#x3D;html. (optional)</param>
-        /// <param name="noCache">Bypass result caches and request a fresh Google fetch. (optional, default to false)</param>
+        /// <param name="noCache">Ignored: responses are never cached. (optional, default to false)</param>
         /// <param name="asDt">Site restriction mode: i includes, e excludes as_sitesearch. (optional)</param>
         /// <param name="asEpq">Exact phrase. (optional)</param>
         /// <param name="asEq">Words to exclude. (optional)</param>
