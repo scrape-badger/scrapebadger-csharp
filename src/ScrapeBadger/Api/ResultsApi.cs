@@ -28,26 +28,26 @@ namespace ScrapeBadger.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Re-read a result
+        /// Re-read a result (removed)
         /// </summary>
         /// <remarks>
-        /// Replay a billed result (X-Result-ID) for free for ~15 minutes, optionally trimmed with jq / fields / max_items / summary. Never re-run a paid call just to reshape it.
+        /// Removed (SCR-396): ScrapeBadger no longer stores results, so there is nothing to re-read. Always 410. Narrow a call with _jq / _fields / _max_items instead.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resultId"></param>
         /// <returns>Object</returns>
-        Object ResultsReReadAResult(string resultId);
+        Object ResultsReReadAResultRemoved(string resultId);
 
         /// <summary>
-        /// Re-read a result
+        /// Re-read a result (removed)
         /// </summary>
         /// <remarks>
-        /// Replay a billed result (X-Result-ID) for free for ~15 minutes, optionally trimmed with jq / fields / max_items / summary. Never re-run a paid call just to reshape it.
+        /// Removed (SCR-396): ScrapeBadger no longer stores results, so there is nothing to re-read. Always 410. Narrow a call with _jq / _fields / _max_items instead.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resultId"></param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> ResultsReReadAResultWithHttpInfo(string resultId);
+        ApiResponse<Object> ResultsReReadAResultRemovedWithHttpInfo(string resultId);
         #endregion Synchronous Operations
     }
 
@@ -58,28 +58,28 @@ namespace ScrapeBadger.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Re-read a result
+        /// Re-read a result (removed)
         /// </summary>
         /// <remarks>
-        /// Replay a billed result (X-Result-ID) for free for ~15 minutes, optionally trimmed with jq / fields / max_items / summary. Never re-run a paid call just to reshape it.
+        /// Removed (SCR-396): ScrapeBadger no longer stores results, so there is nothing to re-read. Always 410. Narrow a call with _jq / _fields / _max_items instead.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resultId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> ResultsReReadAResultAsync(string resultId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> ResultsReReadAResultRemovedAsync(string resultId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
-        /// Re-read a result
+        /// Re-read a result (removed)
         /// </summary>
         /// <remarks>
-        /// Replay a billed result (X-Result-ID) for free for ~15 minutes, optionally trimmed with jq / fields / max_items / summary. Never re-run a paid call just to reshape it.
+        /// Removed (SCR-396): ScrapeBadger no longer stores results, so there is nothing to re-read. Always 410. Narrow a call with _jq / _fields / _max_items instead.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resultId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> ResultsReReadAResultWithHttpInfoAsync(string resultId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> ResultsReReadAResultRemovedWithHttpInfoAsync(string resultId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -294,28 +294,28 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Re-read a result Replay a billed result (X-Result-ID) for free for ~15 minutes, optionally trimmed with jq / fields / max_items / summary. Never re-run a paid call just to reshape it.
+        /// Re-read a result (removed) Removed (SCR-396): ScrapeBadger no longer stores results, so there is nothing to re-read. Always 410. Narrow a call with _jq / _fields / _max_items instead.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resultId"></param>
         /// <returns>Object</returns>
-        public Object ResultsReReadAResult(string resultId)
+        public Object ResultsReReadAResultRemoved(string resultId)
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = ResultsReReadAResultWithHttpInfo(resultId);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = ResultsReReadAResultRemovedWithHttpInfo(resultId);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Re-read a result Replay a billed result (X-Result-ID) for free for ~15 minutes, optionally trimmed with jq / fields / max_items / summary. Never re-run a paid call just to reshape it.
+        /// Re-read a result (removed) Removed (SCR-396): ScrapeBadger no longer stores results, so there is nothing to re-read. Always 410. Narrow a call with _jq / _fields / _max_items instead.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resultId"></param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> ResultsReReadAResultWithHttpInfo(string resultId)
+        public ScrapeBadger.Client.ApiResponse<Object> ResultsReReadAResultRemovedWithHttpInfo(string resultId)
         {
             // verify the required parameter 'resultId' is set
             if (resultId == null)
-                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'resultId' when calling ResultsApi->ResultsReReadAResult");
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'resultId' when calling ResultsApi->ResultsReReadAResultRemoved");
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
 
@@ -346,7 +346,7 @@ namespace ScrapeBadger.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ResultsReReadAResult", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ResultsReReadAResultRemoved", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
@@ -354,30 +354,30 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Re-read a result Replay a billed result (X-Result-ID) for free for ~15 minutes, optionally trimmed with jq / fields / max_items / summary. Never re-run a paid call just to reshape it.
+        /// Re-read a result (removed) Removed (SCR-396): ScrapeBadger no longer stores results, so there is nothing to re-read. Always 410. Narrow a call with _jq / _fields / _max_items instead.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resultId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> ResultsReReadAResultAsync(string resultId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> ResultsReReadAResultRemovedAsync(string resultId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await ResultsReReadAResultWithHttpInfoAsync(resultId, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await ResultsReReadAResultRemovedWithHttpInfoAsync(resultId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Re-read a result Replay a billed result (X-Result-ID) for free for ~15 minutes, optionally trimmed with jq / fields / max_items / summary. Never re-run a paid call just to reshape it.
+        /// Re-read a result (removed) Removed (SCR-396): ScrapeBadger no longer stores results, so there is nothing to re-read. Always 410. Narrow a call with _jq / _fields / _max_items instead.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="resultId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> ResultsReReadAResultWithHttpInfoAsync(string resultId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> ResultsReReadAResultRemovedWithHttpInfoAsync(string resultId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'resultId' is set
             if (resultId == null)
-                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'resultId' when calling ResultsApi->ResultsReReadAResult");
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'resultId' when calling ResultsApi->ResultsReReadAResultRemoved");
 
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
@@ -411,7 +411,7 @@ namespace ScrapeBadger.Api
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("ResultsReReadAResult", localVarResponse);
+                Exception _exception = this.ExceptionFactory("ResultsReReadAResultRemoved", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

@@ -4,15 +4,15 @@ All URIs are relative to *https://scrapebadger.com*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**ResultsReReadAResult**](ResultsApi.md#resultsrereadaresult) | **GET** /v1/results/{result_id} | Re-read a result |
+| [**ResultsReReadAResultRemoved**](ResultsApi.md#resultsrereadaresultremoved) | **GET** /v1/results/{result_id} | Re-read a result (removed) |
 
-<a id="resultsrereadaresult"></a>
-# **ResultsReReadAResult**
-> Object ResultsReReadAResult (string resultId)
+<a id="resultsrereadaresultremoved"></a>
+# **ResultsReReadAResultRemoved**
+> Object ResultsReReadAResultRemoved (string resultId)
 
-Re-read a result
+Re-read a result (removed)
 
-Replay a billed result (X-Result-ID) for free for ~15 minutes, optionally trimmed with jq / fields / max_items / summary. Never re-run a paid call just to reshape it.
+Removed (SCR-396): ScrapeBadger no longer stores results, so there is nothing to re-read. Always 410. Narrow a call with _jq / _fields / _max_items instead.
 
 ### Example
 ```csharp
@@ -25,7 +25,7 @@ using ScrapeBadger.Model;
 
 namespace Example
 {
-    public class ResultsReReadAResultExample
+    public class ResultsReReadAResultRemovedExample
     {
         public static void Main()
         {
@@ -44,13 +44,13 @@ namespace Example
 
             try
             {
-                // Re-read a result
-                Object result = apiInstance.ResultsReReadAResult(resultId);
+                // Re-read a result (removed)
+                Object result = apiInstance.ResultsReReadAResultRemoved(resultId);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
             {
-                Debug.Print("Exception when calling ResultsApi.ResultsReReadAResult: " + e.Message);
+                Debug.Print("Exception when calling ResultsApi.ResultsReReadAResultRemoved: " + e.Message);
                 Debug.Print("Status Code: " + e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -59,21 +59,21 @@ namespace Example
 }
 ```
 
-#### Using the ResultsReReadAResultWithHttpInfo variant
+#### Using the ResultsReReadAResultRemovedWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // Re-read a result
-    ApiResponse<Object> response = apiInstance.ResultsReReadAResultWithHttpInfo(resultId);
+    // Re-read a result (removed)
+    ApiResponse<Object> response = apiInstance.ResultsReReadAResultRemovedWithHttpInfo(resultId);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ResultsApi.ResultsReReadAResultWithHttpInfo: " + e.Message);
+    Debug.Print("Exception when calling ResultsApi.ResultsReReadAResultRemovedWithHttpInfo: " + e.Message);
     Debug.Print("Status Code: " + e.ErrorCode);
     Debug.Print(e.StackTrace);
 }

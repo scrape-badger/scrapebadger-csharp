@@ -54,14 +54,14 @@ namespace ScrapeBadger.Test.Api
         }
 
         /// <summary>
-        /// Test ResultsReReadAResult
+        /// Test ResultsReReadAResultRemoved
         /// </summary>
         [Fact]
-        public void ResultsReReadAResultTest()
+        public void ResultsReReadAResultRemovedTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string resultId = null;
-            //var response = instance.ResultsReReadAResult(resultId);
+            //var response = instance.ResultsReReadAResultRemoved(resultId);
             //Assert.IsType<Object>(response);
         }
     }

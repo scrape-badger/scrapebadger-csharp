@@ -20872,9 +20872,9 @@ paths:
   /v1/results/{result_id}:
     get:
       description: |-
-        Replay a billed result (X-Result-ID) for free for ~15 minutes, optionally trimmed
-        with jq / fields / max_items / summary. Never re-run a paid call just to reshape it.
-      operationId: results_re_read_a_result
+        Removed (SCR-396): ScrapeBadger no longer stores results, so there is nothing to
+        re-read. Always 410. Narrow a call with _jq / _fields / _max_items instead.
+      operationId: results_re_read_a_result_removed
       parameters:
       - explode: false
         in: path
@@ -20898,7 +20898,7 @@ paths:
           description: Validation Error
       security:
       - ApiKeyAuth: []
-      summary: Re-read a result
+      summary: Re-read a result (removed)
       tags:
       - Results
   /v1/target/autocomplete:
