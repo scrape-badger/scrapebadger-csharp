@@ -176,7 +176,11 @@ namespace ScrapeBadger.Test.Api
             //string gl = null;
             //string hl = null;
             //bool? includeHtml = null;
-            //var response = instance.GoogleGoogleAiModeSearch(q, gl, hl, includeHtml);
+            //string location = null;
+            //string uule = null;
+            //decimal? lat = null;
+            //decimal? lon = null;
+            //var response = instance.GoogleGoogleAiModeSearch(q, gl, hl, includeHtml, location, uule, lat, lon);
             //Assert.IsType<Object>(response);
         }
 

@@ -219,29 +219,37 @@ namespace ScrapeBadger.Api
         /// Google AI Mode search
         /// </summary>
         /// <remarks>
-        /// Get AI-generated search results from Google AI Mode.  Returns the structured &#x60;text_blocks&#x60; (paragraphs, headings, comparison &#x60;table&#x60; blocks and lists), a flat &#x60;references&#x60; source list, a compact &#x60;markdown&#x60; rendering of the whole answer and — unless &#x60;include_html&#x60; is false — the raw &#x60;answer_html&#x60; body.
+        /// Get AI-generated search results from Google AI Mode.  Returns the structured &#x60;text_blocks&#x60; (paragraphs, headings, comparison &#x60;table&#x60; blocks and lists), a flat &#x60;references&#x60; source list, a compact &#x60;markdown&#x60; rendering of the whole answer and — unless &#x60;include_html&#x60; is false — the raw &#x60;answer_html&#x60; body.  &#x60;location&#x60;, &#x60;uule&#x60; or &#x60;lat&#x60;/&#x60;lon&#x60; localise the answer (\&quot;near me\&quot;, local results) to that place, down to the city or district, wherever the request exits from. Located answers echo a &#x60;location&#x60; object.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Search query for AI-generated response</param>
-        /// <param name="gl">Country code (optional, default to &quot;us&quot;)</param>
+        /// <param name="gl">Google country (market) code. It shapes the answer; it does not pick the exit IP&#39;s country. Defaults to the &#x60;location&#x60;&#39;s country when &#x60;location&#x60; is set. (optional, default to &quot;us&quot;)</param>
         /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
         /// <param name="includeHtml">Include the raw &#x60;answer_html&#x60; (full answer body HTML) in the response for maximum parity. It can be 100s of KB — set false when you only need the structured &#x60;text_blocks&#x60; + &#x60;markdown&#x60;. (optional, default to true)</param>
+        /// <param name="location">Answer as if the user were here: a Google canonical location name (e.g. &#x60;Wonju-si,Gangwon-do,South Korea&#x60;), a Google criteria ID, or an unambiguous short name within &#x60;gl&#x60;. Use only one of location, uule, or lat/lon. (optional)</param>
+        /// <param name="uule">A Google UULE value in its &#x60;w+&#x60; (canonical name) or &#x60;j+&#x60; (coordinates) form. (optional)</param>
+        /// <param name="lat">Latitude of the user&#39;s location (with lon). (optional)</param>
+        /// <param name="lon">Longitude of the user&#39;s location (with lat). (optional)</param>
         /// <returns>Object</returns>
-        Object GoogleGoogleAiModeSearch(string q, string gl = default(string), string hl = default(string), bool? includeHtml = default(bool?));
+        Object GoogleGoogleAiModeSearch(string q, string gl = default(string), string hl = default(string), bool? includeHtml = default(bool?), string location = default(string), string uule = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?));
 
         /// <summary>
         /// Google AI Mode search
         /// </summary>
         /// <remarks>
-        /// Get AI-generated search results from Google AI Mode.  Returns the structured &#x60;text_blocks&#x60; (paragraphs, headings, comparison &#x60;table&#x60; blocks and lists), a flat &#x60;references&#x60; source list, a compact &#x60;markdown&#x60; rendering of the whole answer and — unless &#x60;include_html&#x60; is false — the raw &#x60;answer_html&#x60; body.
+        /// Get AI-generated search results from Google AI Mode.  Returns the structured &#x60;text_blocks&#x60; (paragraphs, headings, comparison &#x60;table&#x60; blocks and lists), a flat &#x60;references&#x60; source list, a compact &#x60;markdown&#x60; rendering of the whole answer and — unless &#x60;include_html&#x60; is false — the raw &#x60;answer_html&#x60; body.  &#x60;location&#x60;, &#x60;uule&#x60; or &#x60;lat&#x60;/&#x60;lon&#x60; localise the answer (\&quot;near me\&quot;, local results) to that place, down to the city or district, wherever the request exits from. Located answers echo a &#x60;location&#x60; object.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Search query for AI-generated response</param>
-        /// <param name="gl">Country code (optional, default to &quot;us&quot;)</param>
+        /// <param name="gl">Google country (market) code. It shapes the answer; it does not pick the exit IP&#39;s country. Defaults to the &#x60;location&#x60;&#39;s country when &#x60;location&#x60; is set. (optional, default to &quot;us&quot;)</param>
         /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
         /// <param name="includeHtml">Include the raw &#x60;answer_html&#x60; (full answer body HTML) in the response for maximum parity. It can be 100s of KB — set false when you only need the structured &#x60;text_blocks&#x60; + &#x60;markdown&#x60;. (optional, default to true)</param>
+        /// <param name="location">Answer as if the user were here: a Google canonical location name (e.g. &#x60;Wonju-si,Gangwon-do,South Korea&#x60;), a Google criteria ID, or an unambiguous short name within &#x60;gl&#x60;. Use only one of location, uule, or lat/lon. (optional)</param>
+        /// <param name="uule">A Google UULE value in its &#x60;w+&#x60; (canonical name) or &#x60;j+&#x60; (coordinates) form. (optional)</param>
+        /// <param name="lat">Latitude of the user&#39;s location (with lon). (optional)</param>
+        /// <param name="lon">Longitude of the user&#39;s location (with lat). (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> GoogleGoogleAiModeSearchWithHttpInfo(string q, string gl = default(string), string hl = default(string), bool? includeHtml = default(bool?));
+        ApiResponse<Object> GoogleGoogleAiModeSearchWithHttpInfo(string q, string gl = default(string), string hl = default(string), bool? includeHtml = default(bool?), string location = default(string), string uule = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?));
         /// <summary>
         /// Google AI Overview (inline SERP block)
         /// </summary>
@@ -1510,31 +1518,39 @@ namespace ScrapeBadger.Api
         /// Google AI Mode search
         /// </summary>
         /// <remarks>
-        /// Get AI-generated search results from Google AI Mode.  Returns the structured &#x60;text_blocks&#x60; (paragraphs, headings, comparison &#x60;table&#x60; blocks and lists), a flat &#x60;references&#x60; source list, a compact &#x60;markdown&#x60; rendering of the whole answer and — unless &#x60;include_html&#x60; is false — the raw &#x60;answer_html&#x60; body.
+        /// Get AI-generated search results from Google AI Mode.  Returns the structured &#x60;text_blocks&#x60; (paragraphs, headings, comparison &#x60;table&#x60; blocks and lists), a flat &#x60;references&#x60; source list, a compact &#x60;markdown&#x60; rendering of the whole answer and — unless &#x60;include_html&#x60; is false — the raw &#x60;answer_html&#x60; body.  &#x60;location&#x60;, &#x60;uule&#x60; or &#x60;lat&#x60;/&#x60;lon&#x60; localise the answer (\&quot;near me\&quot;, local results) to that place, down to the city or district, wherever the request exits from. Located answers echo a &#x60;location&#x60; object.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Search query for AI-generated response</param>
-        /// <param name="gl">Country code (optional, default to &quot;us&quot;)</param>
+        /// <param name="gl">Google country (market) code. It shapes the answer; it does not pick the exit IP&#39;s country. Defaults to the &#x60;location&#x60;&#39;s country when &#x60;location&#x60; is set. (optional, default to &quot;us&quot;)</param>
         /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
         /// <param name="includeHtml">Include the raw &#x60;answer_html&#x60; (full answer body HTML) in the response for maximum parity. It can be 100s of KB — set false when you only need the structured &#x60;text_blocks&#x60; + &#x60;markdown&#x60;. (optional, default to true)</param>
+        /// <param name="location">Answer as if the user were here: a Google canonical location name (e.g. &#x60;Wonju-si,Gangwon-do,South Korea&#x60;), a Google criteria ID, or an unambiguous short name within &#x60;gl&#x60;. Use only one of location, uule, or lat/lon. (optional)</param>
+        /// <param name="uule">A Google UULE value in its &#x60;w+&#x60; (canonical name) or &#x60;j+&#x60; (coordinates) form. (optional)</param>
+        /// <param name="lat">Latitude of the user&#39;s location (with lon). (optional)</param>
+        /// <param name="lon">Longitude of the user&#39;s location (with lat). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> GoogleGoogleAiModeSearchAsync(string q, string gl = default(string), string hl = default(string), bool? includeHtml = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> GoogleGoogleAiModeSearchAsync(string q, string gl = default(string), string hl = default(string), bool? includeHtml = default(bool?), string location = default(string), string uule = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Google AI Mode search
         /// </summary>
         /// <remarks>
-        /// Get AI-generated search results from Google AI Mode.  Returns the structured &#x60;text_blocks&#x60; (paragraphs, headings, comparison &#x60;table&#x60; blocks and lists), a flat &#x60;references&#x60; source list, a compact &#x60;markdown&#x60; rendering of the whole answer and — unless &#x60;include_html&#x60; is false — the raw &#x60;answer_html&#x60; body.
+        /// Get AI-generated search results from Google AI Mode.  Returns the structured &#x60;text_blocks&#x60; (paragraphs, headings, comparison &#x60;table&#x60; blocks and lists), a flat &#x60;references&#x60; source list, a compact &#x60;markdown&#x60; rendering of the whole answer and — unless &#x60;include_html&#x60; is false — the raw &#x60;answer_html&#x60; body.  &#x60;location&#x60;, &#x60;uule&#x60; or &#x60;lat&#x60;/&#x60;lon&#x60; localise the answer (\&quot;near me\&quot;, local results) to that place, down to the city or district, wherever the request exits from. Located answers echo a &#x60;location&#x60; object.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Search query for AI-generated response</param>
-        /// <param name="gl">Country code (optional, default to &quot;us&quot;)</param>
+        /// <param name="gl">Google country (market) code. It shapes the answer; it does not pick the exit IP&#39;s country. Defaults to the &#x60;location&#x60;&#39;s country when &#x60;location&#x60; is set. (optional, default to &quot;us&quot;)</param>
         /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
         /// <param name="includeHtml">Include the raw &#x60;answer_html&#x60; (full answer body HTML) in the response for maximum parity. It can be 100s of KB — set false when you only need the structured &#x60;text_blocks&#x60; + &#x60;markdown&#x60;. (optional, default to true)</param>
+        /// <param name="location">Answer as if the user were here: a Google canonical location name (e.g. &#x60;Wonju-si,Gangwon-do,South Korea&#x60;), a Google criteria ID, or an unambiguous short name within &#x60;gl&#x60;. Use only one of location, uule, or lat/lon. (optional)</param>
+        /// <param name="uule">A Google UULE value in its &#x60;w+&#x60; (canonical name) or &#x60;j+&#x60; (coordinates) form. (optional)</param>
+        /// <param name="lat">Latitude of the user&#39;s location (with lon). (optional)</param>
+        /// <param name="lon">Longitude of the user&#39;s location (with lat). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> GoogleGoogleAiModeSearchWithHttpInfoAsync(string q, string gl = default(string), string hl = default(string), bool? includeHtml = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> GoogleGoogleAiModeSearchWithHttpInfoAsync(string q, string gl = default(string), string hl = default(string), bool? includeHtml = default(bool?), string location = default(string), string uule = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Google AI Overview (inline SERP block)
         /// </summary>
@@ -4082,30 +4098,38 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Google AI Mode search Get AI-generated search results from Google AI Mode.  Returns the structured &#x60;text_blocks&#x60; (paragraphs, headings, comparison &#x60;table&#x60; blocks and lists), a flat &#x60;references&#x60; source list, a compact &#x60;markdown&#x60; rendering of the whole answer and — unless &#x60;include_html&#x60; is false — the raw &#x60;answer_html&#x60; body.
+        /// Google AI Mode search Get AI-generated search results from Google AI Mode.  Returns the structured &#x60;text_blocks&#x60; (paragraphs, headings, comparison &#x60;table&#x60; blocks and lists), a flat &#x60;references&#x60; source list, a compact &#x60;markdown&#x60; rendering of the whole answer and — unless &#x60;include_html&#x60; is false — the raw &#x60;answer_html&#x60; body.  &#x60;location&#x60;, &#x60;uule&#x60; or &#x60;lat&#x60;/&#x60;lon&#x60; localise the answer (\&quot;near me\&quot;, local results) to that place, down to the city or district, wherever the request exits from. Located answers echo a &#x60;location&#x60; object.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Search query for AI-generated response</param>
-        /// <param name="gl">Country code (optional, default to &quot;us&quot;)</param>
+        /// <param name="gl">Google country (market) code. It shapes the answer; it does not pick the exit IP&#39;s country. Defaults to the &#x60;location&#x60;&#39;s country when &#x60;location&#x60; is set. (optional, default to &quot;us&quot;)</param>
         /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
         /// <param name="includeHtml">Include the raw &#x60;answer_html&#x60; (full answer body HTML) in the response for maximum parity. It can be 100s of KB — set false when you only need the structured &#x60;text_blocks&#x60; + &#x60;markdown&#x60;. (optional, default to true)</param>
+        /// <param name="location">Answer as if the user were here: a Google canonical location name (e.g. &#x60;Wonju-si,Gangwon-do,South Korea&#x60;), a Google criteria ID, or an unambiguous short name within &#x60;gl&#x60;. Use only one of location, uule, or lat/lon. (optional)</param>
+        /// <param name="uule">A Google UULE value in its &#x60;w+&#x60; (canonical name) or &#x60;j+&#x60; (coordinates) form. (optional)</param>
+        /// <param name="lat">Latitude of the user&#39;s location (with lon). (optional)</param>
+        /// <param name="lon">Longitude of the user&#39;s location (with lat). (optional)</param>
         /// <returns>Object</returns>
-        public Object GoogleGoogleAiModeSearch(string q, string gl = default(string), string hl = default(string), bool? includeHtml = default(bool?))
+        public Object GoogleGoogleAiModeSearch(string q, string gl = default(string), string hl = default(string), bool? includeHtml = default(bool?), string location = default(string), string uule = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GoogleGoogleAiModeSearchWithHttpInfo(q, gl, hl, includeHtml);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = GoogleGoogleAiModeSearchWithHttpInfo(q, gl, hl, includeHtml, location, uule, lat, lon);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Google AI Mode search Get AI-generated search results from Google AI Mode.  Returns the structured &#x60;text_blocks&#x60; (paragraphs, headings, comparison &#x60;table&#x60; blocks and lists), a flat &#x60;references&#x60; source list, a compact &#x60;markdown&#x60; rendering of the whole answer and — unless &#x60;include_html&#x60; is false — the raw &#x60;answer_html&#x60; body.
+        /// Google AI Mode search Get AI-generated search results from Google AI Mode.  Returns the structured &#x60;text_blocks&#x60; (paragraphs, headings, comparison &#x60;table&#x60; blocks and lists), a flat &#x60;references&#x60; source list, a compact &#x60;markdown&#x60; rendering of the whole answer and — unless &#x60;include_html&#x60; is false — the raw &#x60;answer_html&#x60; body.  &#x60;location&#x60;, &#x60;uule&#x60; or &#x60;lat&#x60;/&#x60;lon&#x60; localise the answer (\&quot;near me\&quot;, local results) to that place, down to the city or district, wherever the request exits from. Located answers echo a &#x60;location&#x60; object.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Search query for AI-generated response</param>
-        /// <param name="gl">Country code (optional, default to &quot;us&quot;)</param>
+        /// <param name="gl">Google country (market) code. It shapes the answer; it does not pick the exit IP&#39;s country. Defaults to the &#x60;location&#x60;&#39;s country when &#x60;location&#x60; is set. (optional, default to &quot;us&quot;)</param>
         /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
         /// <param name="includeHtml">Include the raw &#x60;answer_html&#x60; (full answer body HTML) in the response for maximum parity. It can be 100s of KB — set false when you only need the structured &#x60;text_blocks&#x60; + &#x60;markdown&#x60;. (optional, default to true)</param>
+        /// <param name="location">Answer as if the user were here: a Google canonical location name (e.g. &#x60;Wonju-si,Gangwon-do,South Korea&#x60;), a Google criteria ID, or an unambiguous short name within &#x60;gl&#x60;. Use only one of location, uule, or lat/lon. (optional)</param>
+        /// <param name="uule">A Google UULE value in its &#x60;w+&#x60; (canonical name) or &#x60;j+&#x60; (coordinates) form. (optional)</param>
+        /// <param name="lat">Latitude of the user&#39;s location (with lon). (optional)</param>
+        /// <param name="lon">Longitude of the user&#39;s location (with lat). (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> GoogleGoogleAiModeSearchWithHttpInfo(string q, string gl = default(string), string hl = default(string), bool? includeHtml = default(bool?))
+        public ScrapeBadger.Client.ApiResponse<Object> GoogleGoogleAiModeSearchWithHttpInfo(string q, string gl = default(string), string hl = default(string), bool? includeHtml = default(bool?), string location = default(string), string uule = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?))
         {
             // verify the required parameter 'q' is set
             if (q == null)
@@ -4139,6 +4163,22 @@ namespace ScrapeBadger.Api
             if (includeHtml != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "include_html", includeHtml));
+            }
+            if (location != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "location", location));
+            }
+            if (uule != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "uule", uule));
+            }
+            if (lat != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "lat", lat));
+            }
+            if (lon != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "lon", lon));
             }
 
             // authentication (ApiKeyAuth) required
@@ -4160,32 +4200,40 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Google AI Mode search Get AI-generated search results from Google AI Mode.  Returns the structured &#x60;text_blocks&#x60; (paragraphs, headings, comparison &#x60;table&#x60; blocks and lists), a flat &#x60;references&#x60; source list, a compact &#x60;markdown&#x60; rendering of the whole answer and — unless &#x60;include_html&#x60; is false — the raw &#x60;answer_html&#x60; body.
+        /// Google AI Mode search Get AI-generated search results from Google AI Mode.  Returns the structured &#x60;text_blocks&#x60; (paragraphs, headings, comparison &#x60;table&#x60; blocks and lists), a flat &#x60;references&#x60; source list, a compact &#x60;markdown&#x60; rendering of the whole answer and — unless &#x60;include_html&#x60; is false — the raw &#x60;answer_html&#x60; body.  &#x60;location&#x60;, &#x60;uule&#x60; or &#x60;lat&#x60;/&#x60;lon&#x60; localise the answer (\&quot;near me\&quot;, local results) to that place, down to the city or district, wherever the request exits from. Located answers echo a &#x60;location&#x60; object.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Search query for AI-generated response</param>
-        /// <param name="gl">Country code (optional, default to &quot;us&quot;)</param>
+        /// <param name="gl">Google country (market) code. It shapes the answer; it does not pick the exit IP&#39;s country. Defaults to the &#x60;location&#x60;&#39;s country when &#x60;location&#x60; is set. (optional, default to &quot;us&quot;)</param>
         /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
         /// <param name="includeHtml">Include the raw &#x60;answer_html&#x60; (full answer body HTML) in the response for maximum parity. It can be 100s of KB — set false when you only need the structured &#x60;text_blocks&#x60; + &#x60;markdown&#x60;. (optional, default to true)</param>
+        /// <param name="location">Answer as if the user were here: a Google canonical location name (e.g. &#x60;Wonju-si,Gangwon-do,South Korea&#x60;), a Google criteria ID, or an unambiguous short name within &#x60;gl&#x60;. Use only one of location, uule, or lat/lon. (optional)</param>
+        /// <param name="uule">A Google UULE value in its &#x60;w+&#x60; (canonical name) or &#x60;j+&#x60; (coordinates) form. (optional)</param>
+        /// <param name="lat">Latitude of the user&#39;s location (with lon). (optional)</param>
+        /// <param name="lon">Longitude of the user&#39;s location (with lat). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> GoogleGoogleAiModeSearchAsync(string q, string gl = default(string), string hl = default(string), bool? includeHtml = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> GoogleGoogleAiModeSearchAsync(string q, string gl = default(string), string hl = default(string), bool? includeHtml = default(bool?), string location = default(string), string uule = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GoogleGoogleAiModeSearchWithHttpInfoAsync(q, gl, hl, includeHtml, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await GoogleGoogleAiModeSearchWithHttpInfoAsync(q, gl, hl, includeHtml, location, uule, lat, lon, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Google AI Mode search Get AI-generated search results from Google AI Mode.  Returns the structured &#x60;text_blocks&#x60; (paragraphs, headings, comparison &#x60;table&#x60; blocks and lists), a flat &#x60;references&#x60; source list, a compact &#x60;markdown&#x60; rendering of the whole answer and — unless &#x60;include_html&#x60; is false — the raw &#x60;answer_html&#x60; body.
+        /// Google AI Mode search Get AI-generated search results from Google AI Mode.  Returns the structured &#x60;text_blocks&#x60; (paragraphs, headings, comparison &#x60;table&#x60; blocks and lists), a flat &#x60;references&#x60; source list, a compact &#x60;markdown&#x60; rendering of the whole answer and — unless &#x60;include_html&#x60; is false — the raw &#x60;answer_html&#x60; body.  &#x60;location&#x60;, &#x60;uule&#x60; or &#x60;lat&#x60;/&#x60;lon&#x60; localise the answer (\&quot;near me\&quot;, local results) to that place, down to the city or district, wherever the request exits from. Located answers echo a &#x60;location&#x60; object.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Search query for AI-generated response</param>
-        /// <param name="gl">Country code (optional, default to &quot;us&quot;)</param>
+        /// <param name="gl">Google country (market) code. It shapes the answer; it does not pick the exit IP&#39;s country. Defaults to the &#x60;location&#x60;&#39;s country when &#x60;location&#x60; is set. (optional, default to &quot;us&quot;)</param>
         /// <param name="hl">Language code (optional, default to &quot;en&quot;)</param>
         /// <param name="includeHtml">Include the raw &#x60;answer_html&#x60; (full answer body HTML) in the response for maximum parity. It can be 100s of KB — set false when you only need the structured &#x60;text_blocks&#x60; + &#x60;markdown&#x60;. (optional, default to true)</param>
+        /// <param name="location">Answer as if the user were here: a Google canonical location name (e.g. &#x60;Wonju-si,Gangwon-do,South Korea&#x60;), a Google criteria ID, or an unambiguous short name within &#x60;gl&#x60;. Use only one of location, uule, or lat/lon. (optional)</param>
+        /// <param name="uule">A Google UULE value in its &#x60;w+&#x60; (canonical name) or &#x60;j+&#x60; (coordinates) form. (optional)</param>
+        /// <param name="lat">Latitude of the user&#39;s location (with lon). (optional)</param>
+        /// <param name="lon">Longitude of the user&#39;s location (with lat). (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GoogleGoogleAiModeSearchWithHttpInfoAsync(string q, string gl = default(string), string hl = default(string), bool? includeHtml = default(bool?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> GoogleGoogleAiModeSearchWithHttpInfoAsync(string q, string gl = default(string), string hl = default(string), bool? includeHtml = default(bool?), string location = default(string), string uule = default(string), decimal? lat = default(decimal?), decimal? lon = default(decimal?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'q' is set
             if (q == null)
@@ -4221,6 +4269,22 @@ namespace ScrapeBadger.Api
             if (includeHtml != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "include_html", includeHtml));
+            }
+            if (location != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "location", location));
+            }
+            if (uule != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "uule", uule));
+            }
+            if (lat != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "lat", lat));
+            }
+            if (lon != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "lon", lon));
             }
 
             // authentication (ApiKeyAuth) required

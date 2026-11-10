@@ -879,11 +879,11 @@ catch (ApiException e)
 
 <a id="googlegoogleaimodesearch"></a>
 # **GoogleGoogleAiModeSearch**
-> Object GoogleGoogleAiModeSearch (string q, string gl = null, string hl = null, bool? includeHtml = null)
+> Object GoogleGoogleAiModeSearch (string q, string gl = null, string hl = null, bool? includeHtml = null, string location = null, string uule = null, decimal? lat = null, decimal? lon = null)
 
 Google AI Mode search
 
-Get AI-generated search results from Google AI Mode.  Returns the structured `text_blocks` (paragraphs, headings, comparison `table` blocks and lists), a flat `references` source list, a compact `markdown` rendering of the whole answer and — unless `include_html` is false — the raw `answer_html` body.
+Get AI-generated search results from Google AI Mode.  Returns the structured `text_blocks` (paragraphs, headings, comparison `table` blocks and lists), a flat `references` source list, a compact `markdown` rendering of the whole answer and — unless `include_html` is false — the raw `answer_html` body.  `location`, `uule` or `lat`/`lon` localise the answer (\"near me\", local results) to that place, down to the city or district, wherever the request exits from. Located answers echo a `location` object.
 
 ### Example
 ```csharp
@@ -912,14 +912,18 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new GoogleApi(httpClient, config, httpClientHandler);
             var q = "q_example";  // string | Search query for AI-generated response
-            var gl = "\"us\"";  // string | Country code (optional)  (default to "us")
+            var gl = "\"us\"";  // string | Google country (market) code. It shapes the answer; it does not pick the exit IP's country. Defaults to the `location`'s country when `location` is set. (optional)  (default to "us")
             var hl = "\"en\"";  // string | Language code (optional)  (default to "en")
             var includeHtml = true;  // bool? | Include the raw `answer_html` (full answer body HTML) in the response for maximum parity. It can be 100s of KB — set false when you only need the structured `text_blocks` + `markdown`. (optional)  (default to true)
+            var location = "location_example";  // string | Answer as if the user were here: a Google canonical location name (e.g. `Wonju-si,Gangwon-do,South Korea`), a Google criteria ID, or an unambiguous short name within `gl`. Use only one of location, uule, or lat/lon. (optional) 
+            var uule = "uule_example";  // string | A Google UULE value in its `w+` (canonical name) or `j+` (coordinates) form. (optional) 
+            var lat = 8.14D;  // decimal? | Latitude of the user's location (with lon). (optional) 
+            var lon = 8.14D;  // decimal? | Longitude of the user's location (with lat). (optional) 
 
             try
             {
                 // Google AI Mode search
-                Object result = apiInstance.GoogleGoogleAiModeSearch(q, gl, hl, includeHtml);
+                Object result = apiInstance.GoogleGoogleAiModeSearch(q, gl, hl, includeHtml, location, uule, lat, lon);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -940,7 +944,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Google AI Mode search
-    ApiResponse<Object> response = apiInstance.GoogleGoogleAiModeSearchWithHttpInfo(q, gl, hl, includeHtml);
+    ApiResponse<Object> response = apiInstance.GoogleGoogleAiModeSearchWithHttpInfo(q, gl, hl, includeHtml, location, uule, lat, lon);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -958,9 +962,13 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **q** | **string** | Search query for AI-generated response |  |
-| **gl** | **string** | Country code | [optional] [default to &quot;us&quot;] |
+| **gl** | **string** | Google country (market) code. It shapes the answer; it does not pick the exit IP&#39;s country. Defaults to the &#x60;location&#x60;&#39;s country when &#x60;location&#x60; is set. | [optional] [default to &quot;us&quot;] |
 | **hl** | **string** | Language code | [optional] [default to &quot;en&quot;] |
 | **includeHtml** | **bool?** | Include the raw &#x60;answer_html&#x60; (full answer body HTML) in the response for maximum parity. It can be 100s of KB — set false when you only need the structured &#x60;text_blocks&#x60; + &#x60;markdown&#x60;. | [optional] [default to true] |
+| **location** | **string** | Answer as if the user were here: a Google canonical location name (e.g. &#x60;Wonju-si,Gangwon-do,South Korea&#x60;), a Google criteria ID, or an unambiguous short name within &#x60;gl&#x60;. Use only one of location, uule, or lat/lon. | [optional]  |
+| **uule** | **string** | A Google UULE value in its &#x60;w+&#x60; (canonical name) or &#x60;j+&#x60; (coordinates) form. | [optional]  |
+| **lat** | **decimal?** | Latitude of the user&#39;s location (with lon). | [optional]  |
+| **lon** | **decimal?** | Longitude of the user&#39;s location (with lat). | [optional]  |
 
 ### Return type
 

@@ -10769,6 +10769,10 @@ paths:
         `table` blocks and lists), a flat `references` source list, a compact
         `markdown` rendering of the whole answer and — unless `include_html`
         is false — the raw `answer_html` body.
+
+        `location`, `uule` or `lat`/`lon` localise the answer ("near me", local
+        results) to that place, down to the city or district, wherever the
+        request exits from. Located answers echo a `location` object.
       operationId: google_google_ai_mode_search
       parameters:
       - description: Search query for AI-generated response
@@ -10781,14 +10785,18 @@ paths:
           title: Q
           type: string
         style: form
-      - description: Country code
+      - description: Google country (market) code. It shapes the answer; it does not
+          pick the exit IP's country. Defaults to the `location`'s country when `location`
+          is set.
         explode: true
         in: query
         name: gl
         required: false
         schema:
           default: us
-          description: Country code
+          description: Google country (market) code. It shapes the answer; it does
+            not pick the exit IP's country. Defaults to the `location`'s country when
+            `location` is set.
           title: Gl
           type: string
         style: form
@@ -10817,6 +10825,50 @@ paths:
             only need the structured `text_blocks` + `markdown`.
           title: Include Html
           type: boolean
+        style: form
+      - description: "Answer as if the user were here: a Google canonical location\
+          \ name (e.g. `Wonju-si,Gangwon-do,South Korea`), a Google criteria ID, or\
+          \ an unambiguous short name within `gl`. Use only one of location, uule,\
+          \ or lat/lon."
+        explode: true
+        in: query
+        name: location
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: A Google UULE value in its `w+` (canonical name) or `j+` (coordinates)
+          form.
+        explode: true
+        in: query
+        name: uule
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: Latitude of the user's location (with lon).
+        explode: true
+        in: query
+        name: lat
+        required: false
+        schema:
+          maximum: 90
+          minimum: -90
+          nullable: true
+          type: number
+        style: form
+      - description: Longitude of the user's location (with lat).
+        explode: true
+        in: query
+        name: lon
+        required: false
+        schema:
+          maximum: 180
+          minimum: -180
+          nullable: true
+          type: number
         style: form
       responses:
         "200":
