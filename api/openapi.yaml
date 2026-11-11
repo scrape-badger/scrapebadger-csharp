@@ -41,6 +41,7 @@ tags:
 - name: Leboncoin
 - name: LinkedIn
 - name: LoopNet
+- name: Meta-Ai
 - name: Naver
 - name: Perplexity
 - name: Quote
@@ -18420,6 +18421,122 @@ paths:
       summary: Search commercial real estate
       tags:
       - LoopNet
+  /v1/meta-ai/ask:
+    get:
+      description: "Send a prompt to meta.ai and get the answer (anonymous, no Meta\
+        \ account)."
+      operationId: meta-ai_ask_meta_ai_a_question
+      parameters:
+      - description: The prompt to send to Meta AI (max 4000 characters).
+        explode: true
+        in: query
+        name: prompt
+        required: true
+        schema:
+          description: The prompt to send to Meta AI (max 4000 characters).
+          title: Prompt
+          type: string
+        style: form
+      - description: "ISO-3166 alpha-2 egress country, e.g. 'US', 'GB', 'DE'."
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Ask Meta AI a question
+      tags:
+      - Meta-Ai
+    post:
+      description: "POST form of `/ask`, for prompts too long for a query string."
+      operationId: meta-ai_ask_meta_ai_a_question_post
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Ask Meta AI a question (POST)
+      tags:
+      - Meta-Ai
+  /v1/meta-ai/health:
+    get:
+      description: Check health of the Meta AI scraper service (accepts HEAD).
+      operationId: meta-ai_meta_ai_scraper_health_check
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Meta AI scraper health check
+      tags:
+      - Meta-Ai
+    head:
+      description: Check health of the Meta AI scraper service (accepts HEAD).
+      operationId: meta-ai_meta_ai_scraper_health_check_head
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Meta AI scraper health check
+      tags:
+      - Meta-Ai
+  /v1/meta-ai/models:
+    get:
+      description: Assistant modes meta.ai currently serves to an anonymous visitor.
+      operationId: meta-ai_list_meta_ai_assistant_modes
+      parameters:
+      - description: ISO-3166 alpha-2 egress country.
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: List Meta AI assistant modes
+      tags:
+      - Meta-Ai
   /v1/naver/autocomplete:
     get:
       description: Naver search-box suggestions.

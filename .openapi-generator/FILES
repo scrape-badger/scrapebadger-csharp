@@ -134,6 +134,7 @@ docs/LinkedInApi.md
 docs/Location.md
 docs/LoopNetApi.md
 docs/MarketsResponse.md
+docs/MetaAiApi.md
 docs/MetaUrl.md
 docs/NaverApi.md
 docs/NextOffset.md
@@ -271,6 +272,7 @@ src/ScrapeBadger.Test/Api/InstagramApiTests.cs
 src/ScrapeBadger.Test/Api/LeboncoinApiTests.cs
 src/ScrapeBadger.Test/Api/LinkedInApiTests.cs
 src/ScrapeBadger.Test/Api/LoopNetApiTests.cs
+src/ScrapeBadger.Test/Api/MetaAiApiTests.cs
 src/ScrapeBadger.Test/Api/NaverApiTests.cs
 src/ScrapeBadger.Test/Api/PerplexityApiTests.cs
 src/ScrapeBadger.Test/Api/QuoteApiTests.cs
@@ -505,6 +507,7 @@ src/ScrapeBadger/Api/InstagramApi.cs
 src/ScrapeBadger/Api/LeboncoinApi.cs
 src/ScrapeBadger/Api/LinkedInApi.cs
 src/ScrapeBadger/Api/LoopNetApi.cs
+src/ScrapeBadger/Api/MetaAiApi.cs
 src/ScrapeBadger/Api/NaverApi.cs
 src/ScrapeBadger/Api/PerplexityApi.cs
 src/ScrapeBadger/Api/QuoteApi.cs
