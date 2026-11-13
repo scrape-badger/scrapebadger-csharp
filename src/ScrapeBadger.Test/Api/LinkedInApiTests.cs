@@ -120,6 +120,19 @@ namespace ScrapeBadger.Test.Api
         }
 
         /// <summary>
+        /// Test LinkedinGetFullProfileThroughTheAuthenticatedProjection
+        /// </summary>
+        [Fact]
+        public void LinkedinGetFullProfileThroughTheAuthenticatedProjectionTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string publicId = null;
+            //string country = null;
+            //var response = instance.LinkedinGetFullProfileThroughTheAuthenticatedProjection(publicId, country);
+            //Assert.IsType<Object>(response);
+        }
+
+        /// <summary>
         /// Test LinkedinGetJobDetail
         /// </summary>
         [Fact]

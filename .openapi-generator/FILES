@@ -117,6 +117,7 @@ docs/GitHubStatus.md
 docs/GitHubTextLink.md
 docs/GoogleApi.md
 docs/GooglePlayApi.md
+docs/GrokApi.md
 docs/GumtreeApi.md
 docs/HTTPValidationError.md
 docs/IdealistaApi.md
@@ -265,6 +266,7 @@ src/ScrapeBadger.Test/Api/GeminiApiTests.cs
 src/ScrapeBadger.Test/Api/GitHubApiTests.cs
 src/ScrapeBadger.Test/Api/GoogleApiTests.cs
 src/ScrapeBadger.Test/Api/GooglePlayApiTests.cs
+src/ScrapeBadger.Test/Api/GrokApiTests.cs
 src/ScrapeBadger.Test/Api/GumtreeApiTests.cs
 src/ScrapeBadger.Test/Api/IdealistaApiTests.cs
 src/ScrapeBadger.Test/Api/ImmobiliareApiTests.cs
@@ -500,6 +502,7 @@ src/ScrapeBadger/Api/GeminiApi.cs
 src/ScrapeBadger/Api/GitHubApi.cs
 src/ScrapeBadger/Api/GoogleApi.cs
 src/ScrapeBadger/Api/GooglePlayApi.cs
+src/ScrapeBadger/Api/GrokApi.cs
 src/ScrapeBadger/Api/GumtreeApi.cs
 src/ScrapeBadger/Api/IdealistaApi.cs
 src/ScrapeBadger/Api/ImmobiliareApi.cs

@@ -34,6 +34,7 @@ tags:
 - name: GitHub
 - name: Google-Play
 - name: Google
+- name: Grok
 - name: Gumtree
 - name: Idealista
 - name: Immobiliare
@@ -14505,6 +14506,251 @@ paths:
       summary: Search Google Videos
       tags:
       - Google
+  /v1/grok/ask:
+    get:
+      description: "Ask the real Grok assistant and get its answer, web sources, and\
+        \ X post references."
+      operationId: grok_ask_grok_a_question
+      parameters:
+      - description: Prompt to send to Grok (max 4000 characters).
+        explode: true
+        in: query
+        name: prompt
+        required: true
+        schema:
+          description: Prompt to send to Grok (max 4000 characters).
+          title: Prompt
+          type: string
+        style: form
+      - description: Existing Grok conversation to continue.
+        explode: true
+        in: query
+        name: conversation_id
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "Assistant mode: auto, fast, or expert."
+        explode: true
+        in: query
+        name: mode
+        required: false
+        schema:
+          default: auto
+          description: "Assistant mode: auto, fast, or expert."
+          title: Mode
+          type: string
+        style: form
+      - description: "Web and X search: auto, force, or off."
+        explode: true
+        in: query
+        name: web_search
+        required: false
+        schema:
+          default: auto
+          description: "Web and X search: auto, force, or off."
+          title: Web Search
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Ask Grok a question
+      tags:
+      - Grok
+    post:
+      operationId: grok_ask_grok_a_question_post
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Ask Grok a question (POST)
+      tags:
+      - Grok
+  /v1/grok/brand-visibility:
+    get:
+      operationId: grok_measure_brand_visibility_in_grok
+      parameters:
+      - description: Buyer or category prompt to send to Grok.
+        explode: true
+        in: query
+        name: prompt
+        required: true
+        schema:
+          description: Buyer or category prompt to send to Grok.
+          title: Prompt
+          type: string
+        style: form
+      - description: Brand name to measure.
+        explode: true
+        in: query
+        name: brand
+        required: true
+        schema:
+          description: Brand name to measure.
+          title: Brand
+          type: string
+        style: form
+      - description: Competitor brand names.
+        explode: true
+        in: query
+        name: competitors
+        required: false
+        schema:
+          default: []
+          description: Competitor brand names.
+          items:
+            nullable: true
+            type: string
+          type: array
+        style: form
+      - description: Brand domain for citation rank.
+        explode: true
+        in: query
+        name: brand_domain
+        required: false
+        schema:
+          nullable: true
+          type: string
+        style: form
+      - description: "Assistant mode: auto, fast, or expert."
+        explode: true
+        in: query
+        name: mode
+        required: false
+        schema:
+          default: auto
+          description: "Assistant mode: auto, fast, or expert."
+          title: Mode
+          type: string
+        style: form
+      - description: Web and X search mode.
+        explode: true
+        in: query
+        name: web_search
+        required: false
+        schema:
+          default: force
+          description: Web and X search mode.
+          title: Web Search
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Measure brand visibility in Grok
+      tags:
+      - Grok
+    post:
+      operationId: grok_measure_brand_visibility_in_grok_post
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Measure brand visibility in Grok (POST)
+      tags:
+      - Grok
+  /v1/grok/conversations/{conversation_id}:
+    get:
+      operationId: grok_get_a_grok_conversation
+      parameters:
+      - explode: false
+        in: path
+        name: conversation_id
+        required: true
+        schema:
+          title: Conversation Id
+          type: string
+        style: simple
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get a Grok conversation
+      tags:
+      - Grok
+  /v1/grok/health:
+    get:
+      operationId: grok_grok_scraper_health_check
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Grok scraper health check
+      tags:
+      - Grok
+    head:
+      operationId: grok_grok_scraper_health_check_head
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Grok scraper health check
+      tags:
+      - Grok
+  /v1/grok/models:
+    get:
+      operationId: grok_list_grok_assistant_modes
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: List Grok assistant modes
+      tags:
+      - Grok
   /v1/gumtree/autocomplete:
     get:
       description: Gumtree search-box keyword suggestions with their categories.
@@ -18108,6 +18354,47 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: Get public profile
+      tags:
+      - LinkedIn
+  /v1/linkedin/profiles/{public_id}/full:
+    get:
+      description: Full profile using the server-owned authenticated LinkedIn session.
+      operationId: linkedin_get_full_profile_through_the_authenticated_projection
+      parameters:
+      - explode: false
+        in: path
+        name: public_id
+        required: true
+        schema:
+          title: Public Id
+          type: string
+        style: simple
+      - description: Residential proxy country
+        explode: true
+        in: query
+        name: country
+        required: false
+        schema:
+          default: us
+          description: Residential proxy country
+          title: Country
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get full profile through the authenticated projection
       tags:
       - LinkedIn
   /v1/linkedin/schools/{universal_name}:

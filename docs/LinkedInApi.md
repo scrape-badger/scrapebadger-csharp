@@ -9,6 +9,7 @@ All URIs are relative to *https://scrapebadger.com*
 | [**LinkedinGetAPublicArticle**](LinkedInApi.md#linkedingetapublicarticle) | **GET** /v1/linkedin/articles/{article_slug} | Get a public article |
 | [**LinkedinGetAPublicPost**](LinkedInApi.md#linkedingetapublicpost) | **GET** /v1/linkedin/posts/{post_slug} | Get a public post |
 | [**LinkedinGetCompany**](LinkedInApi.md#linkedingetcompany) | **GET** /v1/linkedin/companies/{universal_name} | Get company |
+| [**LinkedinGetFullProfileThroughTheAuthenticatedProjection**](LinkedInApi.md#linkedingetfullprofilethroughtheauthenticatedprojection) | **GET** /v1/linkedin/profiles/{public_id}/full | Get full profile through the authenticated projection |
 | [**LinkedinGetJobDetail**](LinkedInApi.md#linkedingetjobdetail) | **GET** /v1/linkedin/jobs/{job_id} | Get job detail |
 | [**LinkedinGetPublicProfile**](LinkedInApi.md#linkedingetpublicprofile) | **GET** /v1/linkedin/profiles/{public_id} | Get public profile |
 | [**LinkedinGetSchool**](LinkedInApi.md#linkedingetschool) | **GET** /v1/linkedin/schools/{universal_name} | Get school |
@@ -510,6 +511,109 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **universalName** | **string** |  |  |
+| **country** | **string** | Residential proxy country | [optional] [default to &quot;us&quot;] |
+
+### Return type
+
+**Object**
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="linkedingetfullprofilethroughtheauthenticatedprojection"></a>
+# **LinkedinGetFullProfileThroughTheAuthenticatedProjection**
+> Object LinkedinGetFullProfileThroughTheAuthenticatedProjection (string publicId, string country = null)
+
+Get full profile through the authenticated projection
+
+Full profile using the server-owned authenticated LinkedIn session.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using ScrapeBadger.Api;
+using ScrapeBadger.Client;
+using ScrapeBadger.Model;
+
+namespace Example
+{
+    public class LinkedinGetFullProfileThroughTheAuthenticatedProjectionExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://scrapebadger.com";
+            // Configure API key authorization: ApiKeyAuth
+            config.AddApiKey("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("X-API-Key", "Bearer");
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new LinkedInApi(httpClient, config, httpClientHandler);
+            var publicId = "publicId_example";  // string | 
+            var country = "\"us\"";  // string | Residential proxy country (optional)  (default to "us")
+
+            try
+            {
+                // Get full profile through the authenticated projection
+                Object result = apiInstance.LinkedinGetFullProfileThroughTheAuthenticatedProjection(publicId, country);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling LinkedInApi.LinkedinGetFullProfileThroughTheAuthenticatedProjection: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the LinkedinGetFullProfileThroughTheAuthenticatedProjectionWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Get full profile through the authenticated projection
+    ApiResponse<Object> response = apiInstance.LinkedinGetFullProfileThroughTheAuthenticatedProjectionWithHttpInfo(publicId, country);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling LinkedInApi.LinkedinGetFullProfileThroughTheAuthenticatedProjectionWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **publicId** | **string** |  |  |
 | **country** | **string** | Residential proxy country | [optional] [default to &quot;us&quot;] |
 
 ### Return type
