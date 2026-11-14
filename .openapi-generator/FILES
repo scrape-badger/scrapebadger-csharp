@@ -173,6 +173,8 @@ docs/RedfinApi.md
 docs/RequestsApi.md
 docs/ResultsApi.md
 docs/Review.md
+docs/RufusApi.md
+docs/RufusAskRequest.md
 docs/ScreenshotRequest.md
 docs/Searchterm.md
 docs/SiteName.md
@@ -283,6 +285,7 @@ src/ScrapeBadger.Test/Api/RedditApiTests.cs
 src/ScrapeBadger.Test/Api/RedfinApiTests.cs
 src/ScrapeBadger.Test/Api/RequestsApiTests.cs
 src/ScrapeBadger.Test/Api/ResultsApiTests.cs
+src/ScrapeBadger.Test/Api/RufusApiTests.cs
 src/ScrapeBadger.Test/Api/TargetApiTests.cs
 src/ScrapeBadger.Test/Api/TikTokApiTests.cs
 src/ScrapeBadger.Test/Api/TwitterApiTests.cs
@@ -421,6 +424,7 @@ src/ScrapeBadger.Test/Model/RatingTests.cs
 src/ScrapeBadger.Test/Model/RatingsTests.cs
 src/ScrapeBadger.Test/Model/RecipeTests.cs
 src/ScrapeBadger.Test/Model/ReviewTests.cs
+src/ScrapeBadger.Test/Model/RufusAskRequestTests.cs
 src/ScrapeBadger.Test/Model/ScreenshotRequestTests.cs
 src/ScrapeBadger.Test/Model/SearchtermTests.cs
 src/ScrapeBadger.Test/Model/SiteNameTests.cs
@@ -519,6 +523,7 @@ src/ScrapeBadger/Api/RedditApi.cs
 src/ScrapeBadger/Api/RedfinApi.cs
 src/ScrapeBadger/Api/RequestsApi.cs
 src/ScrapeBadger/Api/ResultsApi.cs
+src/ScrapeBadger/Api/RufusApi.cs
 src/ScrapeBadger/Api/TargetApi.cs
 src/ScrapeBadger/Api/TikTokApi.cs
 src/ScrapeBadger/Api/TwitterApi.cs
@@ -675,6 +680,7 @@ src/ScrapeBadger/Model/Rating.cs
 src/ScrapeBadger/Model/Ratings.cs
 src/ScrapeBadger/Model/Recipe.cs
 src/ScrapeBadger/Model/Review.cs
+src/ScrapeBadger/Model/RufusAskRequest.cs
 src/ScrapeBadger/Model/ScreenshotRequest.cs
 src/ScrapeBadger/Model/Searchterm.cs
 src/ScrapeBadger/Model/SiteName.cs

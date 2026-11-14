@@ -51,6 +51,7 @@ tags:
 - name: Redfin
 - name: Requests
 - name: Results
+- name: Rufus
 - name: Target
 - name: TikTok
 - name: Twitter
@@ -21357,6 +21358,120 @@ paths:
       summary: Re-read a result (removed)
       tags:
       - Results
+  /v1/rufus/ask:
+    get:
+      description: Ask Alexa for Shopping (Rufus) and get its answer and product cards.
+      operationId: rufus_ask_amazon_rufus_a_question
+      parameters:
+      - description: The shopping question to ask (max 4000 characters).
+        explode: true
+        in: query
+        name: prompt
+        required: true
+        schema:
+          description: The shopping question to ask (max 4000 characters).
+          title: Prompt
+          type: string
+        style: form
+      - description: Optional product ASIN whose page should provide the shopping
+          context.
+        explode: true
+        in: query
+        name: asin
+        required: false
+        schema:
+          nullable: true
+          pattern: "^[A-Z0-9]{10}$"
+          type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Ask Amazon Rufus a question
+      tags:
+      - Rufus
+    post:
+      description: "POST form of `/ask`, accepting prompt and optional asin in the\
+        \ JSON body."
+      operationId: rufus_ask_amazon_rufus_a_question_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RufusAskRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Ask Amazon Rufus a question (POST)
+      tags:
+      - Rufus
+  /v1/rufus/health:
+    get:
+      description: Check health of the Amazon service that serves Rufus (accepts HEAD).
+      operationId: rufus_amazon_rufus_scraper_health_check
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Amazon Rufus scraper health check
+      tags:
+      - Rufus
+    head:
+      description: Check health of the Amazon service that serves Rufus (accepts HEAD).
+      operationId: rufus_amazon_rufus_scraper_health_check_head
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: Amazon Rufus scraper health check
+      tags:
+      - Rufus
+  /v1/rufus/models:
+    get:
+      description: List the Amazon shopping assistant surface exposed by this API.
+      operationId: rufus_list_amazon_rufus_models
+      responses:
+        "200":
+          content:
+            application/json:
+              schema: {}
+          description: Successful Response
+      security:
+      - ApiKeyAuth: []
+      summary: List Amazon Rufus models
+      tags:
+      - Rufus
   /v1/target/autocomplete:
     get:
       operationId: target_get_search_suggestions
@@ -36751,6 +36866,23 @@ components:
       required:
       - path
       title: QuoteRequest
+    RufusAskRequest:
+      example:
+        asin: asin
+        prompt: prompt
+      properties:
+        prompt:
+          maxLength: 4000
+          minLength: 1
+          title: Prompt
+          type: string
+        asin:
+          nullable: true
+          pattern: "^[A-Z0-9]{10}$"
+          type: string
+      required:
+      - prompt
+      title: RufusAskRequest
     ScreenshotRequest:
       additionalProperties: true
       example:

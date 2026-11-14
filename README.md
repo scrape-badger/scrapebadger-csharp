@@ -580,6 +580,11 @@ Class | Method | HTTP request | Description
 *RedfinApi* | [**RedfinSearchProperties**](docs/RedfinApi.md#redfinsearchproperties) | **GET** /v1/redfin/search | Search properties
 *RequestsApi* | [**RequestsPollAnAsyncRequest**](docs/RequestsApi.md#requestspollanasyncrequest) | **GET** /v1/requests/{request_id} | Poll an async request
 *ResultsApi* | [**ResultsReReadAResultRemoved**](docs/ResultsApi.md#resultsrereadaresultremoved) | **GET** /v1/results/{result_id} | Re-read a result (removed)
+*RufusApi* | [**RufusAmazonRufusScraperHealthCheck**](docs/RufusApi.md#rufusamazonrufusscraperhealthcheck) | **GET** /v1/rufus/health | Amazon Rufus scraper health check
+*RufusApi* | [**RufusAmazonRufusScraperHealthCheckHead**](docs/RufusApi.md#rufusamazonrufusscraperhealthcheckhead) | **HEAD** /v1/rufus/health | Amazon Rufus scraper health check
+*RufusApi* | [**RufusAskAmazonRufusAQuestion**](docs/RufusApi.md#rufusaskamazonrufusaquestion) | **GET** /v1/rufus/ask | Ask Amazon Rufus a question
+*RufusApi* | [**RufusAskAmazonRufusAQuestionPost**](docs/RufusApi.md#rufusaskamazonrufusaquestionpost) | **POST** /v1/rufus/ask | Ask Amazon Rufus a question (POST)
+*RufusApi* | [**RufusListAmazonRufusModels**](docs/RufusApi.md#rufuslistamazonrufusmodels) | **GET** /v1/rufus/models | List Amazon Rufus models
 *TargetApi* | [**TargetBrowseACategory**](docs/TargetApi.md#targetbrowseacategory) | **GET** /v1/target/category | Browse a category
 *TargetApi* | [**TargetFindNearbyStores**](docs/TargetApi.md#targetfindnearbystores) | **GET** /v1/target/stores | Find nearby stores
 *TargetApi* | [**TargetGetCategories**](docs/TargetApi.md#targetgetcategories) | **GET** /v1/target/categories | Get categories
@@ -925,6 +930,7 @@ Class | Method | HTTP request | Description
  - [Model.Ratings](docs/Ratings.md)
  - [Model.Recipe](docs/Recipe.md)
  - [Model.Review](docs/Review.md)
+ - [Model.RufusAskRequest](docs/RufusAskRequest.md)
  - [Model.ScreenshotRequest](docs/ScreenshotRequest.md)
  - [Model.Searchterm](docs/Searchterm.md)
  - [Model.SiteName](docs/SiteName.md)
