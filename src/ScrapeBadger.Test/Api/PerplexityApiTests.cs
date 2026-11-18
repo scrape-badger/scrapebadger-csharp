@@ -64,6 +64,8 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //bool? strictCountry = null;
             //string location = null;
+            //bool? html = null;
+            //bool? raw = null;
             //string prefer = null;
             //string xCallbackURL = null;
             //string idempotencyKey = null;
@@ -71,7 +73,7 @@ namespace ScrapeBadger.Test.Api
             //int? asyncWait = null;
             //string callbackUrl = null;
             //string idempotencyKey2 = null;
-            //var response = instance.PerplexityAskPerplexityAQuestion(prompt, country, strictCountry, location, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+            //var response = instance.PerplexityAskPerplexityAQuestion(prompt, country, strictCountry, location, html, raw, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 

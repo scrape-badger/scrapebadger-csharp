@@ -53465,6 +53465,40 @@ paths:
           nullable: true
           type: string
         style: form
+      - description: "Also return `answer_html`: the answer rendered as an HTML fragment,\
+          \ with each `[n]` citation linked to its source (`<a class=\"citation\"\
+          \ data-ref=\"n\">`). Raw HTML and unsafe links in the answer are dropped.\
+          \ Same price."
+        explode: true
+        in: query
+        name: html
+        required: false
+        schema:
+          default: false
+          description: "Also return `answer_html`: the answer rendered as an HTML\
+            \ fragment, with each `[n]` citation linked to its source (`<a class=\"\
+            citation\" data-ref=\"n\">`). Raw HTML and unsafe links in the answer\
+            \ are dropped. Same price."
+          title: Html
+          type: boolean
+        style: form
+      - description: "Also return `raw`: Perplexity's own final answer object as it\
+          \ sent it (answer blocks, web results, related queries, model and mode metadata),\
+          \ minus its thread write token. Every other field is parsed from it. Same\
+          \ price."
+        explode: true
+        in: query
+        name: raw
+        required: false
+        schema:
+          default: false
+          description: "Also return `raw`: Perplexity's own final answer object as\
+            \ it sent it (answer blocks, web results, related queries, model and mode\
+            \ metadata), minus its thread write token. Every other field is parsed\
+            \ from it. Same price."
+          title: Raw
+          type: boolean
+        style: form
       - description: "`respond-async[, wait=N]` (RFC 7240): run the call async. If\
           \ it has not finished after `wait` seconds (0-120, default 25) the answer\
           \ is `202` with a `request_id`; poll `GET /v1/requests/{request_id}`. Its\
@@ -53599,7 +53633,9 @@ paths:
       tags:
       - Perplexity
     post:
-      description: "POST form of `/ask`, for prompts too long for a query string."
+      description: |-
+        POST form of `/ask`, for prompts too long for a query string. The JSON body takes the
+        same fields as the query (`prompt`, `country`, `strict_country`, `location`, `html`, `raw`).
       operationId: perplexity_ask_perplexity_a_question_post
       parameters:
       - description: "`respond-async[, wait=N]` (RFC 7240): run the call async. If\

@@ -38,6 +38,8 @@ namespace ScrapeBadger.Api
         /// <param name="country">ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)</param>
         /// <param name="strictCountry">Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)</param>
         /// <param name="location">Where the asker is: a city (tokyo, osaka, seoul, new-york, london, ...) or &#39;lat,lng&#39; in decimal degrees. Perplexity answers a local-sounding question for it instead of the exit IP&#39;s city. It does not pick the egress: &#x60;country&#x60; does. (optional)</param>
+        /// <param name="html">Also return &#x60;answer_html&#x60;: the answer rendered as an HTML fragment, with each &#x60;[n]&#x60; citation linked to its source (&#x60;&lt;a class&#x3D;\&quot;citation\&quot; data-ref&#x3D;\&quot;n\&quot;&gt;&#x60;). Raw HTML and unsafe links in the answer are dropped. Same price. (optional, default to false)</param>
+        /// <param name="raw">Also return &#x60;raw&#x60;: Perplexity&#39;s own final answer object as it sent it (answer blocks, web results, related queries, model and mode metadata), minus its thread write token. Every other field is parsed from it. Same price. (optional, default to false)</param>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
         /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
         /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
@@ -46,7 +48,7 @@ namespace ScrapeBadger.Api
         /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>Object</returns>
-        Object PerplexityAskPerplexityAQuestion(string prompt, string country = default(string), bool? strictCountry = default(bool?), string location = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
+        Object PerplexityAskPerplexityAQuestion(string prompt, string country = default(string), bool? strictCountry = default(bool?), string location = default(string), bool? html = default(bool?), bool? raw = default(bool?), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
 
         /// <summary>
         /// Ask Perplexity a question
@@ -59,6 +61,8 @@ namespace ScrapeBadger.Api
         /// <param name="country">ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)</param>
         /// <param name="strictCountry">Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)</param>
         /// <param name="location">Where the asker is: a city (tokyo, osaka, seoul, new-york, london, ...) or &#39;lat,lng&#39; in decimal degrees. Perplexity answers a local-sounding question for it instead of the exit IP&#39;s city. It does not pick the egress: &#x60;country&#x60; does. (optional)</param>
+        /// <param name="html">Also return &#x60;answer_html&#x60;: the answer rendered as an HTML fragment, with each &#x60;[n]&#x60; citation linked to its source (&#x60;&lt;a class&#x3D;\&quot;citation\&quot; data-ref&#x3D;\&quot;n\&quot;&gt;&#x60;). Raw HTML and unsafe links in the answer are dropped. Same price. (optional, default to false)</param>
+        /// <param name="raw">Also return &#x60;raw&#x60;: Perplexity&#39;s own final answer object as it sent it (answer blocks, web results, related queries, model and mode metadata), minus its thread write token. Every other field is parsed from it. Same price. (optional, default to false)</param>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
         /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
         /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
@@ -67,12 +71,12 @@ namespace ScrapeBadger.Api
         /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> PerplexityAskPerplexityAQuestionWithHttpInfo(string prompt, string country = default(string), bool? strictCountry = default(bool?), string location = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
+        ApiResponse<Object> PerplexityAskPerplexityAQuestionWithHttpInfo(string prompt, string country = default(string), bool? strictCountry = default(bool?), string location = default(string), bool? html = default(bool?), bool? raw = default(bool?), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
         /// <summary>
         /// Ask Perplexity a question (POST)
         /// </summary>
         /// <remarks>
-        /// POST form of &#x60;/ask&#x60;, for prompts too long for a query string.
+        /// POST form of &#x60;/ask&#x60;, for prompts too long for a query string. The JSON body takes the same fields as the query (&#x60;prompt&#x60;, &#x60;country&#x60;, &#x60;strict_country&#x60;, &#x60;location&#x60;, &#x60;html&#x60;, &#x60;raw&#x60;).
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
@@ -89,7 +93,7 @@ namespace ScrapeBadger.Api
         /// Ask Perplexity a question (POST)
         /// </summary>
         /// <remarks>
-        /// POST form of &#x60;/ask&#x60;, for prompts too long for a query string.
+        /// POST form of &#x60;/ask&#x60;, for prompts too long for a query string. The JSON body takes the same fields as the query (&#x60;prompt&#x60;, &#x60;country&#x60;, &#x60;strict_country&#x60;, &#x60;location&#x60;, &#x60;html&#x60;, &#x60;raw&#x60;).
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
@@ -241,6 +245,8 @@ namespace ScrapeBadger.Api
         /// <param name="country">ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)</param>
         /// <param name="strictCountry">Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)</param>
         /// <param name="location">Where the asker is: a city (tokyo, osaka, seoul, new-york, london, ...) or &#39;lat,lng&#39; in decimal degrees. Perplexity answers a local-sounding question for it instead of the exit IP&#39;s city. It does not pick the egress: &#x60;country&#x60; does. (optional)</param>
+        /// <param name="html">Also return &#x60;answer_html&#x60;: the answer rendered as an HTML fragment, with each &#x60;[n]&#x60; citation linked to its source (&#x60;&lt;a class&#x3D;\&quot;citation\&quot; data-ref&#x3D;\&quot;n\&quot;&gt;&#x60;). Raw HTML and unsafe links in the answer are dropped. Same price. (optional, default to false)</param>
+        /// <param name="raw">Also return &#x60;raw&#x60;: Perplexity&#39;s own final answer object as it sent it (answer blocks, web results, related queries, model and mode metadata), minus its thread write token. Every other field is parsed from it. Same price. (optional, default to false)</param>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
         /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
         /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
@@ -250,7 +256,7 @@ namespace ScrapeBadger.Api
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> PerplexityAskPerplexityAQuestionAsync(string prompt, string country = default(string), bool? strictCountry = default(bool?), string location = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> PerplexityAskPerplexityAQuestionAsync(string prompt, string country = default(string), bool? strictCountry = default(bool?), string location = default(string), bool? html = default(bool?), bool? raw = default(bool?), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Ask Perplexity a question
@@ -263,6 +269,8 @@ namespace ScrapeBadger.Api
         /// <param name="country">ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)</param>
         /// <param name="strictCountry">Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)</param>
         /// <param name="location">Where the asker is: a city (tokyo, osaka, seoul, new-york, london, ...) or &#39;lat,lng&#39; in decimal degrees. Perplexity answers a local-sounding question for it instead of the exit IP&#39;s city. It does not pick the egress: &#x60;country&#x60; does. (optional)</param>
+        /// <param name="html">Also return &#x60;answer_html&#x60;: the answer rendered as an HTML fragment, with each &#x60;[n]&#x60; citation linked to its source (&#x60;&lt;a class&#x3D;\&quot;citation\&quot; data-ref&#x3D;\&quot;n\&quot;&gt;&#x60;). Raw HTML and unsafe links in the answer are dropped. Same price. (optional, default to false)</param>
+        /// <param name="raw">Also return &#x60;raw&#x60;: Perplexity&#39;s own final answer object as it sent it (answer blocks, web results, related queries, model and mode metadata), minus its thread write token. Every other field is parsed from it. Same price. (optional, default to false)</param>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
         /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
         /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
@@ -272,12 +280,12 @@ namespace ScrapeBadger.Api
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> PerplexityAskPerplexityAQuestionWithHttpInfoAsync(string prompt, string country = default(string), bool? strictCountry = default(bool?), string location = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> PerplexityAskPerplexityAQuestionWithHttpInfoAsync(string prompt, string country = default(string), bool? strictCountry = default(bool?), string location = default(string), bool? html = default(bool?), bool? raw = default(bool?), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Ask Perplexity a question (POST)
         /// </summary>
         /// <remarks>
-        /// POST form of &#x60;/ask&#x60;, for prompts too long for a query string.
+        /// POST form of &#x60;/ask&#x60;, for prompts too long for a query string. The JSON body takes the same fields as the query (&#x60;prompt&#x60;, &#x60;country&#x60;, &#x60;strict_country&#x60;, &#x60;location&#x60;, &#x60;html&#x60;, &#x60;raw&#x60;).
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
@@ -295,7 +303,7 @@ namespace ScrapeBadger.Api
         /// Ask Perplexity a question (POST)
         /// </summary>
         /// <remarks>
-        /// POST form of &#x60;/ask&#x60;, for prompts too long for a query string.
+        /// POST form of &#x60;/ask&#x60;, for prompts too long for a query string. The JSON body takes the same fields as the query (&#x60;prompt&#x60;, &#x60;country&#x60;, &#x60;strict_country&#x60;, &#x60;location&#x60;, &#x60;html&#x60;, &#x60;raw&#x60;).
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
@@ -657,6 +665,8 @@ namespace ScrapeBadger.Api
         /// <param name="country">ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)</param>
         /// <param name="strictCountry">Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)</param>
         /// <param name="location">Where the asker is: a city (tokyo, osaka, seoul, new-york, london, ...) or &#39;lat,lng&#39; in decimal degrees. Perplexity answers a local-sounding question for it instead of the exit IP&#39;s city. It does not pick the egress: &#x60;country&#x60; does. (optional)</param>
+        /// <param name="html">Also return &#x60;answer_html&#x60;: the answer rendered as an HTML fragment, with each &#x60;[n]&#x60; citation linked to its source (&#x60;&lt;a class&#x3D;\&quot;citation\&quot; data-ref&#x3D;\&quot;n\&quot;&gt;&#x60;). Raw HTML and unsafe links in the answer are dropped. Same price. (optional, default to false)</param>
+        /// <param name="raw">Also return &#x60;raw&#x60;: Perplexity&#39;s own final answer object as it sent it (answer blocks, web results, related queries, model and mode metadata), minus its thread write token. Every other field is parsed from it. Same price. (optional, default to false)</param>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
         /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
         /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
@@ -665,9 +675,9 @@ namespace ScrapeBadger.Api
         /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>Object</returns>
-        public Object PerplexityAskPerplexityAQuestion(string prompt, string country = default(string), bool? strictCountry = default(bool?), string location = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
+        public Object PerplexityAskPerplexityAQuestion(string prompt, string country = default(string), bool? strictCountry = default(bool?), string location = default(string), bool? html = default(bool?), bool? raw = default(bool?), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = PerplexityAskPerplexityAQuestionWithHttpInfo(prompt, country, strictCountry, location, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = PerplexityAskPerplexityAQuestionWithHttpInfo(prompt, country, strictCountry, location, html, raw, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             return localVarResponse.Data;
         }
 
@@ -679,6 +689,8 @@ namespace ScrapeBadger.Api
         /// <param name="country">ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)</param>
         /// <param name="strictCountry">Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)</param>
         /// <param name="location">Where the asker is: a city (tokyo, osaka, seoul, new-york, london, ...) or &#39;lat,lng&#39; in decimal degrees. Perplexity answers a local-sounding question for it instead of the exit IP&#39;s city. It does not pick the egress: &#x60;country&#x60; does. (optional)</param>
+        /// <param name="html">Also return &#x60;answer_html&#x60;: the answer rendered as an HTML fragment, with each &#x60;[n]&#x60; citation linked to its source (&#x60;&lt;a class&#x3D;\&quot;citation\&quot; data-ref&#x3D;\&quot;n\&quot;&gt;&#x60;). Raw HTML and unsafe links in the answer are dropped. Same price. (optional, default to false)</param>
+        /// <param name="raw">Also return &#x60;raw&#x60;: Perplexity&#39;s own final answer object as it sent it (answer blocks, web results, related queries, model and mode metadata), minus its thread write token. Every other field is parsed from it. Same price. (optional, default to false)</param>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
         /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
         /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
@@ -687,7 +699,7 @@ namespace ScrapeBadger.Api
         /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> PerplexityAskPerplexityAQuestionWithHttpInfo(string prompt, string country = default(string), bool? strictCountry = default(bool?), string location = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
+        public ScrapeBadger.Client.ApiResponse<Object> PerplexityAskPerplexityAQuestionWithHttpInfo(string prompt, string country = default(string), bool? strictCountry = default(bool?), string location = default(string), bool? html = default(bool?), bool? raw = default(bool?), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
         {
             // verify the required parameter 'prompt' is set
             if (prompt == null)
@@ -721,6 +733,14 @@ namespace ScrapeBadger.Api
             if (location != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "location", location));
+            }
+            if (html != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "html", html));
+            }
+            if (raw != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "raw", raw));
             }
             if (async != null)
             {
@@ -777,6 +797,8 @@ namespace ScrapeBadger.Api
         /// <param name="country">ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)</param>
         /// <param name="strictCountry">Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)</param>
         /// <param name="location">Where the asker is: a city (tokyo, osaka, seoul, new-york, london, ...) or &#39;lat,lng&#39; in decimal degrees. Perplexity answers a local-sounding question for it instead of the exit IP&#39;s city. It does not pick the egress: &#x60;country&#x60; does. (optional)</param>
+        /// <param name="html">Also return &#x60;answer_html&#x60;: the answer rendered as an HTML fragment, with each &#x60;[n]&#x60; citation linked to its source (&#x60;&lt;a class&#x3D;\&quot;citation\&quot; data-ref&#x3D;\&quot;n\&quot;&gt;&#x60;). Raw HTML and unsafe links in the answer are dropped. Same price. (optional, default to false)</param>
+        /// <param name="raw">Also return &#x60;raw&#x60;: Perplexity&#39;s own final answer object as it sent it (answer blocks, web results, related queries, model and mode metadata), minus its thread write token. Every other field is parsed from it. Same price. (optional, default to false)</param>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
         /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
         /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
@@ -786,9 +808,9 @@ namespace ScrapeBadger.Api
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> PerplexityAskPerplexityAQuestionAsync(string prompt, string country = default(string), bool? strictCountry = default(bool?), string location = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> PerplexityAskPerplexityAQuestionAsync(string prompt, string country = default(string), bool? strictCountry = default(bool?), string location = default(string), bool? html = default(bool?), bool? raw = default(bool?), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await PerplexityAskPerplexityAQuestionWithHttpInfoAsync(prompt, country, strictCountry, location, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await PerplexityAskPerplexityAQuestionWithHttpInfoAsync(prompt, country, strictCountry, location, html, raw, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -800,6 +822,8 @@ namespace ScrapeBadger.Api
         /// <param name="country">ISO-3166 alpha-2 egress country, e.g. &#39;US&#39;, &#39;GB&#39;, &#39;DE&#39;. (optional)</param>
         /// <param name="strictCountry">Answer only from an exit in &#x60;country&#x60;, never another one; 503 &#x60;country_unavailable&#x60; (not billed) when none answers. Requires &#x60;country&#x60;. (optional, default to false)</param>
         /// <param name="location">Where the asker is: a city (tokyo, osaka, seoul, new-york, london, ...) or &#39;lat,lng&#39; in decimal degrees. Perplexity answers a local-sounding question for it instead of the exit IP&#39;s city. It does not pick the egress: &#x60;country&#x60; does. (optional)</param>
+        /// <param name="html">Also return &#x60;answer_html&#x60;: the answer rendered as an HTML fragment, with each &#x60;[n]&#x60; citation linked to its source (&#x60;&lt;a class&#x3D;\&quot;citation\&quot; data-ref&#x3D;\&quot;n\&quot;&gt;&#x60;). Raw HTML and unsafe links in the answer are dropped. Same price. (optional, default to false)</param>
+        /// <param name="raw">Also return &#x60;raw&#x60;: Perplexity&#39;s own final answer object as it sent it (answer blocks, web results, related queries, model and mode metadata), minus its thread write token. Every other field is parsed from it. Same price. (optional, default to false)</param>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
         /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
         /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
@@ -809,7 +833,7 @@ namespace ScrapeBadger.Api
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> PerplexityAskPerplexityAQuestionWithHttpInfoAsync(string prompt, string country = default(string), bool? strictCountry = default(bool?), string location = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> PerplexityAskPerplexityAQuestionWithHttpInfoAsync(string prompt, string country = default(string), bool? strictCountry = default(bool?), string location = default(string), bool? html = default(bool?), bool? raw = default(bool?), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'prompt' is set
             if (prompt == null)
@@ -845,6 +869,14 @@ namespace ScrapeBadger.Api
             if (location != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "location", location));
+            }
+            if (html != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "html", html));
+            }
+            if (raw != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "raw", raw));
             }
             if (async != null)
             {
@@ -895,7 +927,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Ask Perplexity a question (POST) POST form of &#x60;/ask&#x60;, for prompts too long for a query string.
+        /// Ask Perplexity a question (POST) POST form of &#x60;/ask&#x60;, for prompts too long for a query string. The JSON body takes the same fields as the query (&#x60;prompt&#x60;, &#x60;country&#x60;, &#x60;strict_country&#x60;, &#x60;location&#x60;, &#x60;html&#x60;, &#x60;raw&#x60;).
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
@@ -913,7 +945,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Ask Perplexity a question (POST) POST form of &#x60;/ask&#x60;, for prompts too long for a query string.
+        /// Ask Perplexity a question (POST) POST form of &#x60;/ask&#x60;, for prompts too long for a query string. The JSON body takes the same fields as the query (&#x60;prompt&#x60;, &#x60;country&#x60;, &#x60;strict_country&#x60;, &#x60;location&#x60;, &#x60;html&#x60;, &#x60;raw&#x60;).
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
@@ -990,7 +1022,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Ask Perplexity a question (POST) POST form of &#x60;/ask&#x60;, for prompts too long for a query string.
+        /// Ask Perplexity a question (POST) POST form of &#x60;/ask&#x60;, for prompts too long for a query string. The JSON body takes the same fields as the query (&#x60;prompt&#x60;, &#x60;country&#x60;, &#x60;strict_country&#x60;, &#x60;location&#x60;, &#x60;html&#x60;, &#x60;raw&#x60;).
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
@@ -1009,7 +1041,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Ask Perplexity a question (POST) POST form of &#x60;/ask&#x60;, for prompts too long for a query string.
+        /// Ask Perplexity a question (POST) POST form of &#x60;/ask&#x60;, for prompts too long for a query string. The JSON body takes the same fields as the query (&#x60;prompt&#x60;, &#x60;country&#x60;, &#x60;strict_country&#x60;, &#x60;location&#x60;, &#x60;html&#x60;, &#x60;raw&#x60;).
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
