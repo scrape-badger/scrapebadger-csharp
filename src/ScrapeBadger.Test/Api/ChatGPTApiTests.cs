@@ -64,7 +64,14 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //string webSearch = null;
             //string imageUrl = null;
-            //var response = instance.ChatgptAskChatgptAQuestion(prompt, country, webSearch, imageUrl);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.ChatgptAskChatgptAQuestion(prompt, country, webSearch, imageUrl, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -75,7 +82,14 @@ namespace ScrapeBadger.Test.Api
         public void ChatgptAskChatgptAQuestionPostTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.ChatgptAskChatgptAQuestionPost();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.ChatgptAskChatgptAQuestionPost(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -109,7 +123,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string country = null;
-            //var response = instance.ChatgptListChatgptModels(country);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.ChatgptListChatgptModels(country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -127,7 +148,14 @@ namespace ScrapeBadger.Test.Api
             //string competitors = null;
             //string country = null;
             //string webSearch = null;
-            //var response = instance.ChatgptMeasureABrandSVisibilityInAChatgptAnswer(prompt, brand, domain, aliases, competitors, country, webSearch);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.ChatgptMeasureABrandSVisibilityInAChatgptAnswer(prompt, brand, domain, aliases, competitors, country, webSearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -138,7 +166,14 @@ namespace ScrapeBadger.Test.Api
         public void ChatgptMeasureABrandSVisibilityInAChatgptAnswerPostTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.ChatgptMeasureABrandSVisibilityInAChatgptAnswerPost();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.ChatgptMeasureABrandSVisibilityInAChatgptAnswerPost(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
     }

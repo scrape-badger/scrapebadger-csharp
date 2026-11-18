@@ -37,8 +37,15 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keywords, e.g. &#39;golden retriever&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
         /// <param name="count">Results to return (optional, default to 30)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>Object</returns>
-        Object YahooImageSearch(string query, string market = default(string), int? count = default(int?));
+        Object YahooImageSearch(string query, string market = default(string), int? count = default(int?), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
 
         /// <summary>
         /// Image search
@@ -50,8 +57,15 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keywords, e.g. &#39;golden retriever&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
         /// <param name="count">Results to return (optional, default to 30)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> YahooImageSearchWithHttpInfo(string query, string market = default(string), int? count = default(int?));
+        ApiResponse<Object> YahooImageSearchWithHttpInfo(string query, string market = default(string), int? count = default(int?), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
         /// <summary>
         /// List supported markets
         /// </summary>
@@ -59,8 +73,15 @@ namespace ScrapeBadger.Api
         /// Supported Yahoo market codes. Free — costs no credits.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>Object</returns>
-        Object YahooListSupportedMarkets();
+        Object YahooListSupportedMarkets(string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
 
         /// <summary>
         /// List supported markets
@@ -69,8 +90,15 @@ namespace ScrapeBadger.Api
         /// Supported Yahoo market codes. Free — costs no credits.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> YahooListSupportedMarketsWithHttpInfo();
+        ApiResponse<Object> YahooListSupportedMarketsWithHttpInfo(string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
         /// <summary>
         /// News search
         /// </summary>
@@ -80,8 +108,15 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;interest rates&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>Object</returns>
-        Object YahooNewsSearch(string query, string market = default(string));
+        Object YahooNewsSearch(string query, string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
 
         /// <summary>
         /// News search
@@ -92,8 +127,15 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;interest rates&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> YahooNewsSearchWithHttpInfo(string query, string market = default(string));
+        ApiResponse<Object> YahooNewsSearchWithHttpInfo(string query, string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
         /// <summary>
         /// Search suggestions
         /// </summary>
@@ -103,8 +145,15 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Partial search term, e.g. &#39;coff&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>Object</returns>
-        Object YahooSearchSuggestions(string query, string market = default(string));
+        Object YahooSearchSuggestions(string query, string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
 
         /// <summary>
         /// Search suggestions
@@ -115,8 +164,15 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Partial search term, e.g. &#39;coff&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> YahooSearchSuggestionsWithHttpInfo(string query, string market = default(string));
+        ApiResponse<Object> YahooSearchSuggestionsWithHttpInfo(string query, string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
         /// <summary>
         /// Video search
         /// </summary>
@@ -127,8 +183,15 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keywords, e.g. &#39;espresso tutorial&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
         /// <param name="count">Results to return (optional, default to 30)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>Object</returns>
-        Object YahooVideoSearch(string query, string market = default(string), int? count = default(int?));
+        Object YahooVideoSearch(string query, string market = default(string), int? count = default(int?), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
 
         /// <summary>
         /// Video search
@@ -140,8 +203,15 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keywords, e.g. &#39;espresso tutorial&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
         /// <param name="count">Results to return (optional, default to 30)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> YahooVideoSearchWithHttpInfo(string query, string market = default(string), int? count = default(int?));
+        ApiResponse<Object> YahooVideoSearchWithHttpInfo(string query, string market = default(string), int? count = default(int?), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
         /// <summary>
         /// Web search
         /// </summary>
@@ -153,8 +223,15 @@ namespace ScrapeBadger.Api
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
         /// <param name="offset">Zero-based result offset for pagination (optional, default to 0)</param>
         /// <param name="safeSearch">off | moderate | strict (default moderate) (optional)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>Object</returns>
-        Object YahooWebSearch(string query, string market = default(string), int? offset = default(int?), string safeSearch = default(string));
+        Object YahooWebSearch(string query, string market = default(string), int? offset = default(int?), string safeSearch = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
 
         /// <summary>
         /// Web search
@@ -167,8 +244,15 @@ namespace ScrapeBadger.Api
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
         /// <param name="offset">Zero-based result offset for pagination (optional, default to 0)</param>
         /// <param name="safeSearch">off | moderate | strict (default moderate) (optional)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> YahooWebSearchWithHttpInfo(string query, string market = default(string), int? offset = default(int?), string safeSearch = default(string));
+        ApiResponse<Object> YahooWebSearchWithHttpInfo(string query, string market = default(string), int? offset = default(int?), string safeSearch = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
         /// <summary>
         /// Yahoo scraper health check
         /// </summary>
@@ -226,9 +310,16 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keywords, e.g. &#39;golden retriever&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
         /// <param name="count">Results to return (optional, default to 30)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> YahooImageSearchAsync(string query, string market = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> YahooImageSearchAsync(string query, string market = default(string), int? count = default(int?), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Image search
@@ -240,9 +331,16 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keywords, e.g. &#39;golden retriever&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
         /// <param name="count">Results to return (optional, default to 30)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> YahooImageSearchWithHttpInfoAsync(string query, string market = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> YahooImageSearchWithHttpInfoAsync(string query, string market = default(string), int? count = default(int?), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List supported markets
         /// </summary>
@@ -250,9 +348,16 @@ namespace ScrapeBadger.Api
         /// Supported Yahoo market codes. Free — costs no credits.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> YahooListSupportedMarketsAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> YahooListSupportedMarketsAsync(string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List supported markets
@@ -261,9 +366,16 @@ namespace ScrapeBadger.Api
         /// Supported Yahoo market codes. Free — costs no credits.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> YahooListSupportedMarketsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> YahooListSupportedMarketsWithHttpInfoAsync(string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// News search
         /// </summary>
@@ -273,9 +385,16 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;interest rates&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> YahooNewsSearchAsync(string query, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> YahooNewsSearchAsync(string query, string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// News search
@@ -286,9 +405,16 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;interest rates&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> YahooNewsSearchWithHttpInfoAsync(string query, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> YahooNewsSearchWithHttpInfoAsync(string query, string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Search suggestions
         /// </summary>
@@ -298,9 +424,16 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Partial search term, e.g. &#39;coff&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> YahooSearchSuggestionsAsync(string query, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> YahooSearchSuggestionsAsync(string query, string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Search suggestions
@@ -311,9 +444,16 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Partial search term, e.g. &#39;coff&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> YahooSearchSuggestionsWithHttpInfoAsync(string query, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> YahooSearchSuggestionsWithHttpInfoAsync(string query, string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Video search
         /// </summary>
@@ -324,9 +464,16 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keywords, e.g. &#39;espresso tutorial&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
         /// <param name="count">Results to return (optional, default to 30)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> YahooVideoSearchAsync(string query, string market = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> YahooVideoSearchAsync(string query, string market = default(string), int? count = default(int?), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Video search
@@ -338,9 +485,16 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keywords, e.g. &#39;espresso tutorial&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
         /// <param name="count">Results to return (optional, default to 30)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> YahooVideoSearchWithHttpInfoAsync(string query, string market = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> YahooVideoSearchWithHttpInfoAsync(string query, string market = default(string), int? count = default(int?), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Web search
         /// </summary>
@@ -352,9 +506,16 @@ namespace ScrapeBadger.Api
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
         /// <param name="offset">Zero-based result offset for pagination (optional, default to 0)</param>
         /// <param name="safeSearch">off | moderate | strict (default moderate) (optional)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> YahooWebSearchAsync(string query, string market = default(string), int? offset = default(int?), string safeSearch = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> YahooWebSearchAsync(string query, string market = default(string), int? offset = default(int?), string safeSearch = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Web search
@@ -367,9 +528,16 @@ namespace ScrapeBadger.Api
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
         /// <param name="offset">Zero-based result offset for pagination (optional, default to 0)</param>
         /// <param name="safeSearch">off | moderate | strict (default moderate) (optional)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> YahooWebSearchWithHttpInfoAsync(string query, string market = default(string), int? offset = default(int?), string safeSearch = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> YahooWebSearchWithHttpInfoAsync(string query, string market = default(string), int? offset = default(int?), string safeSearch = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Yahoo scraper health check
         /// </summary>
@@ -632,10 +800,17 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keywords, e.g. &#39;golden retriever&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
         /// <param name="count">Results to return (optional, default to 30)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>Object</returns>
-        public Object YahooImageSearch(string query, string market = default(string), int? count = default(int?))
+        public Object YahooImageSearch(string query, string market = default(string), int? count = default(int?), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = YahooImageSearchWithHttpInfo(query, market, count);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = YahooImageSearchWithHttpInfo(query, market, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             return localVarResponse.Data;
         }
 
@@ -646,8 +821,15 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keywords, e.g. &#39;golden retriever&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
         /// <param name="count">Results to return (optional, default to 30)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> YahooImageSearchWithHttpInfo(string query, string market = default(string), int? count = default(int?))
+        public ScrapeBadger.Client.ApiResponse<Object> YahooImageSearchWithHttpInfo(string query, string market = default(string), int? count = default(int?), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -677,6 +859,34 @@ namespace ScrapeBadger.Api
             if (count != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (async != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "async", async));
+            }
+            if (asyncWait != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "async_wait", asyncWait));
+            }
+            if (callbackUrl != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "callback_url", callbackUrl));
+            }
+            if (idempotencyKey2 != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "idempotency_key", idempotencyKey2));
+            }
+            if (prefer != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Prefer", ScrapeBadger.Client.ClientUtils.ParameterToString(prefer)); // header parameter
+            }
+            if (xCallbackURL != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Callback-URL", ScrapeBadger.Client.ClientUtils.ParameterToString(xCallbackURL)); // header parameter
+            }
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", ScrapeBadger.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
             }
 
             // authentication (ApiKeyAuth) required
@@ -704,11 +914,18 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keywords, e.g. &#39;golden retriever&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
         /// <param name="count">Results to return (optional, default to 30)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> YahooImageSearchAsync(string query, string market = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> YahooImageSearchAsync(string query, string market = default(string), int? count = default(int?), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await YahooImageSearchWithHttpInfoAsync(query, market, count, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await YahooImageSearchWithHttpInfoAsync(query, market, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -719,9 +936,16 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keywords, e.g. &#39;golden retriever&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
         /// <param name="count">Results to return (optional, default to 30)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> YahooImageSearchWithHttpInfoAsync(string query, string market = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> YahooImageSearchWithHttpInfoAsync(string query, string market = default(string), int? count = default(int?), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -754,6 +978,34 @@ namespace ScrapeBadger.Api
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "count", count));
             }
+            if (async != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "async", async));
+            }
+            if (asyncWait != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "async_wait", asyncWait));
+            }
+            if (callbackUrl != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "callback_url", callbackUrl));
+            }
+            if (idempotencyKey2 != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "idempotency_key", idempotencyKey2));
+            }
+            if (prefer != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Prefer", ScrapeBadger.Client.ClientUtils.ParameterToString(prefer)); // header parameter
+            }
+            if (xCallbackURL != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Callback-URL", ScrapeBadger.Client.ClientUtils.ParameterToString(xCallbackURL)); // header parameter
+            }
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", ScrapeBadger.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
@@ -778,10 +1030,17 @@ namespace ScrapeBadger.Api
         /// List supported markets Supported Yahoo market codes. Free — costs no credits.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>Object</returns>
-        public Object YahooListSupportedMarkets()
+        public Object YahooListSupportedMarkets(string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = YahooListSupportedMarketsWithHttpInfo();
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = YahooListSupportedMarketsWithHttpInfo(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             return localVarResponse.Data;
         }
 
@@ -789,8 +1048,15 @@ namespace ScrapeBadger.Api
         /// List supported markets Supported Yahoo market codes. Free — costs no credits.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> YahooListSupportedMarketsWithHttpInfo()
+        public ScrapeBadger.Client.ApiResponse<Object> YahooListSupportedMarketsWithHttpInfo(string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
         {
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
 
@@ -808,6 +1074,34 @@ namespace ScrapeBadger.Api
             var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (async != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "async", async));
+            }
+            if (asyncWait != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "async_wait", asyncWait));
+            }
+            if (callbackUrl != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "callback_url", callbackUrl));
+            }
+            if (idempotencyKey2 != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "idempotency_key", idempotencyKey2));
+            }
+            if (prefer != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Prefer", ScrapeBadger.Client.ClientUtils.ParameterToString(prefer)); // header parameter
+            }
+            if (xCallbackURL != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Callback-URL", ScrapeBadger.Client.ClientUtils.ParameterToString(xCallbackURL)); // header parameter
+            }
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", ScrapeBadger.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
@@ -831,11 +1125,18 @@ namespace ScrapeBadger.Api
         /// List supported markets Supported Yahoo market codes. Free — costs no credits.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> YahooListSupportedMarketsAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> YahooListSupportedMarketsAsync(string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await YahooListSupportedMarketsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await YahooListSupportedMarketsWithHttpInfoAsync(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -843,9 +1144,16 @@ namespace ScrapeBadger.Api
         /// List supported markets Supported Yahoo market codes. Free — costs no credits.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> YahooListSupportedMarketsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> YahooListSupportedMarketsWithHttpInfoAsync(string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
@@ -865,6 +1173,34 @@ namespace ScrapeBadger.Api
             var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
             if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
 
+            if (async != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "async", async));
+            }
+            if (asyncWait != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "async_wait", asyncWait));
+            }
+            if (callbackUrl != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "callback_url", callbackUrl));
+            }
+            if (idempotencyKey2 != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "idempotency_key", idempotencyKey2));
+            }
+            if (prefer != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Prefer", ScrapeBadger.Client.ClientUtils.ParameterToString(prefer)); // header parameter
+            }
+            if (xCallbackURL != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Callback-URL", ScrapeBadger.Client.ClientUtils.ParameterToString(xCallbackURL)); // header parameter
+            }
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", ScrapeBadger.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
+            }
 
             // authentication (ApiKeyAuth) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
@@ -891,10 +1227,17 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;interest rates&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>Object</returns>
-        public Object YahooNewsSearch(string query, string market = default(string))
+        public Object YahooNewsSearch(string query, string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = YahooNewsSearchWithHttpInfo(query, market);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = YahooNewsSearchWithHttpInfo(query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             return localVarResponse.Data;
         }
 
@@ -904,8 +1247,15 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;interest rates&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> YahooNewsSearchWithHttpInfo(string query, string market = default(string))
+        public ScrapeBadger.Client.ApiResponse<Object> YahooNewsSearchWithHttpInfo(string query, string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -931,6 +1281,34 @@ namespace ScrapeBadger.Api
             if (market != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "market", market));
+            }
+            if (async != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "async", async));
+            }
+            if (asyncWait != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "async_wait", asyncWait));
+            }
+            if (callbackUrl != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "callback_url", callbackUrl));
+            }
+            if (idempotencyKey2 != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "idempotency_key", idempotencyKey2));
+            }
+            if (prefer != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Prefer", ScrapeBadger.Client.ClientUtils.ParameterToString(prefer)); // header parameter
+            }
+            if (xCallbackURL != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Callback-URL", ScrapeBadger.Client.ClientUtils.ParameterToString(xCallbackURL)); // header parameter
+            }
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", ScrapeBadger.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
             }
 
             // authentication (ApiKeyAuth) required
@@ -957,11 +1335,18 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;interest rates&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> YahooNewsSearchAsync(string query, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> YahooNewsSearchAsync(string query, string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await YahooNewsSearchWithHttpInfoAsync(query, market, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await YahooNewsSearchWithHttpInfoAsync(query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -971,9 +1356,16 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search keywords, e.g. &#39;interest rates&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> YahooNewsSearchWithHttpInfoAsync(string query, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> YahooNewsSearchWithHttpInfoAsync(string query, string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1001,6 +1393,34 @@ namespace ScrapeBadger.Api
             if (market != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "market", market));
+            }
+            if (async != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "async", async));
+            }
+            if (asyncWait != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "async_wait", asyncWait));
+            }
+            if (callbackUrl != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "callback_url", callbackUrl));
+            }
+            if (idempotencyKey2 != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "idempotency_key", idempotencyKey2));
+            }
+            if (prefer != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Prefer", ScrapeBadger.Client.ClientUtils.ParameterToString(prefer)); // header parameter
+            }
+            if (xCallbackURL != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Callback-URL", ScrapeBadger.Client.ClientUtils.ParameterToString(xCallbackURL)); // header parameter
+            }
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", ScrapeBadger.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
             }
 
             // authentication (ApiKeyAuth) required
@@ -1028,10 +1448,17 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Partial search term, e.g. &#39;coff&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>Object</returns>
-        public Object YahooSearchSuggestions(string query, string market = default(string))
+        public Object YahooSearchSuggestions(string query, string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = YahooSearchSuggestionsWithHttpInfo(query, market);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = YahooSearchSuggestionsWithHttpInfo(query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             return localVarResponse.Data;
         }
 
@@ -1041,8 +1468,15 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Partial search term, e.g. &#39;coff&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> YahooSearchSuggestionsWithHttpInfo(string query, string market = default(string))
+        public ScrapeBadger.Client.ApiResponse<Object> YahooSearchSuggestionsWithHttpInfo(string query, string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1068,6 +1502,34 @@ namespace ScrapeBadger.Api
             if (market != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "market", market));
+            }
+            if (async != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "async", async));
+            }
+            if (asyncWait != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "async_wait", asyncWait));
+            }
+            if (callbackUrl != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "callback_url", callbackUrl));
+            }
+            if (idempotencyKey2 != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "idempotency_key", idempotencyKey2));
+            }
+            if (prefer != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Prefer", ScrapeBadger.Client.ClientUtils.ParameterToString(prefer)); // header parameter
+            }
+            if (xCallbackURL != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Callback-URL", ScrapeBadger.Client.ClientUtils.ParameterToString(xCallbackURL)); // header parameter
+            }
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", ScrapeBadger.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
             }
 
             // authentication (ApiKeyAuth) required
@@ -1094,11 +1556,18 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Partial search term, e.g. &#39;coff&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> YahooSearchSuggestionsAsync(string query, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> YahooSearchSuggestionsAsync(string query, string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await YahooSearchSuggestionsWithHttpInfoAsync(query, market, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await YahooSearchSuggestionsWithHttpInfoAsync(query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1108,9 +1577,16 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Partial search term, e.g. &#39;coff&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> YahooSearchSuggestionsWithHttpInfoAsync(string query, string market = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> YahooSearchSuggestionsWithHttpInfoAsync(string query, string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1138,6 +1614,34 @@ namespace ScrapeBadger.Api
             if (market != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "market", market));
+            }
+            if (async != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "async", async));
+            }
+            if (asyncWait != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "async_wait", asyncWait));
+            }
+            if (callbackUrl != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "callback_url", callbackUrl));
+            }
+            if (idempotencyKey2 != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "idempotency_key", idempotencyKey2));
+            }
+            if (prefer != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Prefer", ScrapeBadger.Client.ClientUtils.ParameterToString(prefer)); // header parameter
+            }
+            if (xCallbackURL != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Callback-URL", ScrapeBadger.Client.ClientUtils.ParameterToString(xCallbackURL)); // header parameter
+            }
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", ScrapeBadger.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
             }
 
             // authentication (ApiKeyAuth) required
@@ -1166,10 +1670,17 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keywords, e.g. &#39;espresso tutorial&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
         /// <param name="count">Results to return (optional, default to 30)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>Object</returns>
-        public Object YahooVideoSearch(string query, string market = default(string), int? count = default(int?))
+        public Object YahooVideoSearch(string query, string market = default(string), int? count = default(int?), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = YahooVideoSearchWithHttpInfo(query, market, count);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = YahooVideoSearchWithHttpInfo(query, market, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             return localVarResponse.Data;
         }
 
@@ -1180,8 +1691,15 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keywords, e.g. &#39;espresso tutorial&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
         /// <param name="count">Results to return (optional, default to 30)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> YahooVideoSearchWithHttpInfo(string query, string market = default(string), int? count = default(int?))
+        public ScrapeBadger.Client.ApiResponse<Object> YahooVideoSearchWithHttpInfo(string query, string market = default(string), int? count = default(int?), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1211,6 +1729,34 @@ namespace ScrapeBadger.Api
             if (count != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (async != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "async", async));
+            }
+            if (asyncWait != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "async_wait", asyncWait));
+            }
+            if (callbackUrl != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "callback_url", callbackUrl));
+            }
+            if (idempotencyKey2 != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "idempotency_key", idempotencyKey2));
+            }
+            if (prefer != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Prefer", ScrapeBadger.Client.ClientUtils.ParameterToString(prefer)); // header parameter
+            }
+            if (xCallbackURL != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Callback-URL", ScrapeBadger.Client.ClientUtils.ParameterToString(xCallbackURL)); // header parameter
+            }
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", ScrapeBadger.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
             }
 
             // authentication (ApiKeyAuth) required
@@ -1238,11 +1784,18 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keywords, e.g. &#39;espresso tutorial&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
         /// <param name="count">Results to return (optional, default to 30)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> YahooVideoSearchAsync(string query, string market = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> YahooVideoSearchAsync(string query, string market = default(string), int? count = default(int?), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await YahooVideoSearchWithHttpInfoAsync(query, market, count, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await YahooVideoSearchWithHttpInfoAsync(query, market, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1253,9 +1806,16 @@ namespace ScrapeBadger.Api
         /// <param name="query">Search keywords, e.g. &#39;espresso tutorial&#39;</param>
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
         /// <param name="count">Results to return (optional, default to 30)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> YahooVideoSearchWithHttpInfoAsync(string query, string market = default(string), int? count = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> YahooVideoSearchWithHttpInfoAsync(string query, string market = default(string), int? count = default(int?), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1287,6 +1847,34 @@ namespace ScrapeBadger.Api
             if (count != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "count", count));
+            }
+            if (async != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "async", async));
+            }
+            if (asyncWait != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "async_wait", asyncWait));
+            }
+            if (callbackUrl != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "callback_url", callbackUrl));
+            }
+            if (idempotencyKey2 != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "idempotency_key", idempotencyKey2));
+            }
+            if (prefer != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Prefer", ScrapeBadger.Client.ClientUtils.ParameterToString(prefer)); // header parameter
+            }
+            if (xCallbackURL != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Callback-URL", ScrapeBadger.Client.ClientUtils.ParameterToString(xCallbackURL)); // header parameter
+            }
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", ScrapeBadger.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
             }
 
             // authentication (ApiKeyAuth) required
@@ -1316,10 +1904,17 @@ namespace ScrapeBadger.Api
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
         /// <param name="offset">Zero-based result offset for pagination (optional, default to 0)</param>
         /// <param name="safeSearch">off | moderate | strict (default moderate) (optional)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>Object</returns>
-        public Object YahooWebSearch(string query, string market = default(string), int? offset = default(int?), string safeSearch = default(string))
+        public Object YahooWebSearch(string query, string market = default(string), int? offset = default(int?), string safeSearch = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = YahooWebSearchWithHttpInfo(query, market, offset, safeSearch);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = YahooWebSearchWithHttpInfo(query, market, offset, safeSearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             return localVarResponse.Data;
         }
 
@@ -1331,8 +1926,15 @@ namespace ScrapeBadger.Api
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
         /// <param name="offset">Zero-based result offset for pagination (optional, default to 0)</param>
         /// <param name="safeSearch">off | moderate | strict (default moderate) (optional)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> YahooWebSearchWithHttpInfo(string query, string market = default(string), int? offset = default(int?), string safeSearch = default(string))
+        public ScrapeBadger.Client.ApiResponse<Object> YahooWebSearchWithHttpInfo(string query, string market = default(string), int? offset = default(int?), string safeSearch = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1366,6 +1968,34 @@ namespace ScrapeBadger.Api
             if (safeSearch != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "safe_search", safeSearch));
+            }
+            if (async != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "async", async));
+            }
+            if (asyncWait != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "async_wait", asyncWait));
+            }
+            if (callbackUrl != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "callback_url", callbackUrl));
+            }
+            if (idempotencyKey2 != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "idempotency_key", idempotencyKey2));
+            }
+            if (prefer != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Prefer", ScrapeBadger.Client.ClientUtils.ParameterToString(prefer)); // header parameter
+            }
+            if (xCallbackURL != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Callback-URL", ScrapeBadger.Client.ClientUtils.ParameterToString(xCallbackURL)); // header parameter
+            }
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", ScrapeBadger.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
             }
 
             // authentication (ApiKeyAuth) required
@@ -1394,11 +2024,18 @@ namespace ScrapeBadger.Api
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
         /// <param name="offset">Zero-based result offset for pagination (optional, default to 0)</param>
         /// <param name="safeSearch">off | moderate | strict (default moderate) (optional)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> YahooWebSearchAsync(string query, string market = default(string), int? offset = default(int?), string safeSearch = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> YahooWebSearchAsync(string query, string market = default(string), int? offset = default(int?), string safeSearch = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await YahooWebSearchWithHttpInfoAsync(query, market, offset, safeSearch, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await YahooWebSearchWithHttpInfoAsync(query, market, offset, safeSearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1410,9 +2047,16 @@ namespace ScrapeBadger.Api
         /// <param name="market">Yahoo market code, e.g. &#39;us&#39;, &#39;uk&#39;, &#39;fr&#39;, &#39;de&#39;. See /markets. (optional, default to &quot;us&quot;)</param>
         /// <param name="offset">Zero-based result offset for pagination (optional, default to 0)</param>
         /// <param name="safeSearch">off | moderate | strict (default moderate) (optional)</param>
+        /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
+        /// <param name="xCallbackURL">An &#x60;https&#x60; URL that receives the signed &#x60;request.completed&#x60; webhook when the call finishes. Implies async: on its own (no &#x60;Prefer&#x60;, &#x60;async&#x60; or &#x60;async_wait&#x60;) the answer is an immediate &#x60;202&#x60;; with &#x60;Prefer: respond-async&#x60; or &#x60;async&#x3D;true&#x60; the call still waits 25 s unless a wait is given. Wins over &#x60;callback_url&#x60;. (optional)</param>
+        /// <param name="idempotencyKey">1-200 visible ASCII characters, per account, kept as long as the result (about 15 minutes). The same key on the same call returns that call&#39;s current state (&#x60;Idempotent-Replayed: true&#x60;) without running or billing it again; on a different call it is &#x60;409 idempotency_key_reused&#x60;. Applies to async calls only; on a synchronous call it is ignored. Wins over &#x60;idempotency_key&#x60;. (optional)</param>
+        /// <param name="async">Query form of &#x60;Prefer: respond-async&#x60;: &#x60;true&#x60; or &#x60;1&#x60; (also &#x60;yes&#x60;, &#x60;on&#x60;; &#x60;false&#x60;, &#x60;0&#x60;, &#x60;no&#x60;, &#x60;off&#x60; leave the call synchronous). Waits 25 s unless &#x60;async_wait&#x60; is given. Not sent to the scraper. (optional)</param>
+        /// <param name="asyncWait">Seconds (0-120; values outside are clamped) to wait for the result before answering &#x60;202&#x60;. Implies async. Not sent to the scraper. (optional)</param>
+        /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
+        /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> YahooWebSearchWithHttpInfoAsync(string query, string market = default(string), int? offset = default(int?), string safeSearch = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> YahooWebSearchWithHttpInfoAsync(string query, string market = default(string), int? offset = default(int?), string safeSearch = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'query' is set
             if (query == null)
@@ -1448,6 +2092,34 @@ namespace ScrapeBadger.Api
             if (safeSearch != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "safe_search", safeSearch));
+            }
+            if (async != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "async", async));
+            }
+            if (asyncWait != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "async_wait", asyncWait));
+            }
+            if (callbackUrl != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "callback_url", callbackUrl));
+            }
+            if (idempotencyKey2 != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "idempotency_key", idempotencyKey2));
+            }
+            if (prefer != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Prefer", ScrapeBadger.Client.ClientUtils.ParameterToString(prefer)); // header parameter
+            }
+            if (xCallbackURL != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-Callback-URL", ScrapeBadger.Client.ClientUtils.ParameterToString(xCallbackURL)); // header parameter
+            }
+            if (idempotencyKey != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Idempotency-Key", ScrapeBadger.Client.ClientUtils.ParameterToString(idempotencyKey)); // header parameter
             }
 
             // authentication (ApiKeyAuth) required

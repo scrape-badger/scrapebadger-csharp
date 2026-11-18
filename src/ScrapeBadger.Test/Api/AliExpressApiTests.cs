@@ -60,7 +60,14 @@ namespace ScrapeBadger.Test.Api
         public void AliexpressGetCategoryNavigationTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.AliexpressGetCategoryNavigation();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AliexpressGetCategoryNavigation(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -75,7 +82,14 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //string currency = null;
             //string language = null;
-            //var response = instance.AliexpressGetProductDetail(productId, country, currency, language);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AliexpressGetProductDetail(productId, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -90,7 +104,14 @@ namespace ScrapeBadger.Test.Api
             //int? page = null;
             //int? pageSize = null;
             //string sort = null;
-            //var response = instance.AliexpressGetProductReviews(productId, page, pageSize, sort);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AliexpressGetProductReviews(productId, page, pageSize, sort, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -104,7 +125,14 @@ namespace ScrapeBadger.Test.Api
             //string query = null;
             //string country = null;
             //string language = null;
-            //var response = instance.AliexpressGetSearchSuggestions(query, country, language);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AliexpressGetSearchSuggestions(query, country, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -117,7 +145,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string storeId = null;
             //string country = null;
-            //var response = instance.AliexpressGetStoreProductCategories(storeId, country);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AliexpressGetStoreProductCategories(storeId, country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -136,7 +171,14 @@ namespace ScrapeBadger.Test.Api
             //string language = null;
             //string query = null;
             //string sort = null;
-            //var response = instance.AliexpressGetStoreProducts(storeId, page, pageSize, country, currency, language, query, sort);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AliexpressGetStoreProducts(storeId, page, pageSize, country, currency, language, query, sort, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -151,7 +193,14 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //string currency = null;
             //string language = null;
-            //var response = instance.AliexpressGetStoreProfile(storeId, country, currency, language);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AliexpressGetStoreProfile(storeId, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -170,7 +219,14 @@ namespace ScrapeBadger.Test.Api
             //string sort = null;
             //decimal? minPrice = null;
             //decimal? maxPrice = null;
-            //var response = instance.AliexpressSearchProducts(query, page, country, currency, language, sort, minPrice, maxPrice);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AliexpressSearchProducts(query, page, country, currency, language, sort, minPrice, maxPrice, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
     }

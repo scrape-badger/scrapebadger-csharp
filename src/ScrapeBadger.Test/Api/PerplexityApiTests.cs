@@ -64,7 +64,14 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //bool? strictCountry = null;
             //string location = null;
-            //var response = instance.PerplexityAskPerplexityAQuestion(prompt, country, strictCountry, location);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.PerplexityAskPerplexityAQuestion(prompt, country, strictCountry, location, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -75,7 +82,14 @@ namespace ScrapeBadger.Test.Api
         public void PerplexityAskPerplexityAQuestionPostTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.PerplexityAskPerplexityAQuestionPost();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.PerplexityAskPerplexityAQuestionPost(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -94,7 +108,14 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //bool? strictCountry = null;
             //string location = null;
-            //var response = instance.PerplexityMeasureABrandSVisibilityInAPerplexityAnswer(prompt, brand, domain, aliases, competitors, country, strictCountry, location);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.PerplexityMeasureABrandSVisibilityInAPerplexityAnswer(prompt, brand, domain, aliases, competitors, country, strictCountry, location, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -105,7 +126,14 @@ namespace ScrapeBadger.Test.Api
         public void PerplexityMeasureABrandSVisibilityInAPerplexityAnswerPostTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.PerplexityMeasureABrandSVisibilityInAPerplexityAnswerPost();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.PerplexityMeasureABrandSVisibilityInAPerplexityAnswerPost(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 

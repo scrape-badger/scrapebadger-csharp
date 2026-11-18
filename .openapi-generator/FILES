@@ -7,6 +7,7 @@ appveyor.yml
 docs/ASOSApi.md
 docs/AccountApi.md
 docs/AccountInfo.md
+docs/AccountWebhookDeliveries403Response.md
 docs/Age.md
 docs/AgentTrialInfo.md
 docs/AirbnbApi.md
@@ -15,6 +16,9 @@ docs/AmazonApi.md
 docs/ApartmentsApi.md
 docs/AppStoreApi.md
 docs/Article.md
+docs/AsyncAccepted.md
+docs/AsyncAcceptedNextAction.md
+docs/AsyncCallbackStatus.md
 docs/AutoScout24Api.md
 docs/AutoScout24FiltersResponse.md
 docs/AutoScout24Listing.md
@@ -220,6 +224,9 @@ docs/WallapopApi.md
 docs/WalmartApi.md
 docs/WebApi.md
 docs/WebhookCreate.md
+docs/WebhookDeliveries.md
+docs/WebhookDelivery.md
+docs/WebhookEvent.md
 docs/WebhookListItem.md
 docs/WebhookListResponse.md
 docs/WebhookResponse.md
@@ -299,9 +306,13 @@ src/ScrapeBadger.Test/Api/YelpApiTests.cs
 src/ScrapeBadger.Test/Api/YouTubeApiTests.cs
 src/ScrapeBadger.Test/Api/ZillowApiTests.cs
 src/ScrapeBadger.Test/Model/AccountInfoTests.cs
+src/ScrapeBadger.Test/Model/AccountWebhookDeliveries403ResponseTests.cs
 src/ScrapeBadger.Test/Model/AgeTests.cs
 src/ScrapeBadger.Test/Model/AgentTrialInfoTests.cs
 src/ScrapeBadger.Test/Model/ArticleTests.cs
+src/ScrapeBadger.Test/Model/AsyncAcceptedNextActionTests.cs
+src/ScrapeBadger.Test/Model/AsyncAcceptedTests.cs
+src/ScrapeBadger.Test/Model/AsyncCallbackStatusTests.cs
 src/ScrapeBadger.Test/Model/AutoScout24FiltersResponseTests.cs
 src/ScrapeBadger.Test/Model/AutoScout24ListingDetailTests.cs
 src/ScrapeBadger.Test/Model/AutoScout24ListingResponseTests.cs
@@ -463,6 +474,9 @@ src/ScrapeBadger.Test/Model/VintedStatusTests.cs
 src/ScrapeBadger.Test/Model/VintedUserProfileTests.cs
 src/ScrapeBadger.Test/Model/VintedUserSummaryTests.cs
 src/ScrapeBadger.Test/Model/WebhookCreateTests.cs
+src/ScrapeBadger.Test/Model/WebhookDeliveriesTests.cs
+src/ScrapeBadger.Test/Model/WebhookDeliveryTests.cs
+src/ScrapeBadger.Test/Model/WebhookEventTests.cs
 src/ScrapeBadger.Test/Model/WebhookListItemTests.cs
 src/ScrapeBadger.Test/Model/WebhookListResponseTests.cs
 src/ScrapeBadger.Test/Model/WebhookResponseTests.cs
@@ -555,9 +569,13 @@ src/ScrapeBadger/Client/RetryConfiguration.cs
 src/ScrapeBadger/Client/WebRequestPathBuilder.cs
 src/ScrapeBadger/Model/AbstractOpenAPISchema.cs
 src/ScrapeBadger/Model/AccountInfo.cs
+src/ScrapeBadger/Model/AccountWebhookDeliveries403Response.cs
 src/ScrapeBadger/Model/Age.cs
 src/ScrapeBadger/Model/AgentTrialInfo.cs
 src/ScrapeBadger/Model/Article.cs
+src/ScrapeBadger/Model/AsyncAccepted.cs
+src/ScrapeBadger/Model/AsyncAcceptedNextAction.cs
+src/ScrapeBadger/Model/AsyncCallbackStatus.cs
 src/ScrapeBadger/Model/AutoScout24FiltersResponse.cs
 src/ScrapeBadger/Model/AutoScout24Listing.cs
 src/ScrapeBadger/Model/AutoScout24ListingDetail.cs
@@ -719,6 +737,9 @@ src/ScrapeBadger/Model/VintedStatus.cs
 src/ScrapeBadger/Model/VintedUserProfile.cs
 src/ScrapeBadger/Model/VintedUserSummary.cs
 src/ScrapeBadger/Model/WebhookCreate.cs
+src/ScrapeBadger/Model/WebhookDeliveries.cs
+src/ScrapeBadger/Model/WebhookDelivery.cs
+src/ScrapeBadger/Model/WebhookEvent.cs
 src/ScrapeBadger/Model/WebhookListItem.cs
 src/ScrapeBadger/Model/WebhookListResponse.cs
 src/ScrapeBadger/Model/WebhookResponse.cs

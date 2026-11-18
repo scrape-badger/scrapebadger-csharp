@@ -67,7 +67,14 @@ namespace ScrapeBadger.Test.Api
             //string sortBy = null;
             //int? radius = null;
             //string after = null;
-            //var response = instance.FacebookBrowseAMarketplaceCategory(category, location, minPrice, maxPrice, sortBy, radius, after);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.FacebookBrowseAMarketplaceCategory(category, location, minPrice, maxPrice, sortBy, radius, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -79,7 +86,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string itemId = null;
-            //var response = instance.FacebookGetAMarketplaceItem(itemId);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.FacebookGetAMarketplaceItem(itemId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -92,7 +106,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string pageId = null;
             //string country = null;
-            //var response = instance.FacebookGetAdvertiserPageInfo(pageId, country);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.FacebookGetAdvertiserPageInfo(pageId, country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -105,7 +126,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string adArchiveId = null;
             //string country = null;
-            //var response = instance.FacebookGetAnAd(adArchiveId, country);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.FacebookGetAnAd(adArchiveId, country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -117,7 +145,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string groupId = null;
-            //var response = instance.FacebookGetGroupDetail(groupId);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.FacebookGetGroupDetail(groupId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -131,7 +166,14 @@ namespace ScrapeBadger.Test.Api
             //string groupId = null;
             //string after = null;
             //string sort = null;
-            //var response = instance.FacebookGetGroupPosts(groupId, after, sort);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.FacebookGetGroupPosts(groupId, after, sort, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -143,7 +185,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string identifier = null;
-            //var response = instance.FacebookGetPageDetail(identifier);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.FacebookGetPageDetail(identifier, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -156,7 +205,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string identifier = null;
             //string after = null;
-            //var response = instance.FacebookGetPagePosts(identifier, after);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.FacebookGetPagePosts(identifier, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -171,7 +227,14 @@ namespace ScrapeBadger.Test.Api
             //string url = null;
             //string after = null;
             //string sort = null;
-            //var response = instance.FacebookGetPostComments(postId, url, after, sort);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.FacebookGetPostComments(postId, url, after, sort, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -184,7 +247,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string postId = null;
             //string url = null;
-            //var response = instance.FacebookGetPostDetail(postId, url);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.FacebookGetPostDetail(postId, url, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -196,7 +266,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string identifier = null;
-            //var response = instance.FacebookGetProfileDetail(identifier);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.FacebookGetProfileDetail(identifier, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -209,7 +286,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string identifier = null;
             //string after = null;
-            //var response = instance.FacebookGetProfilePosts(identifier, after);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.FacebookGetProfilePosts(identifier, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -220,7 +304,14 @@ namespace ScrapeBadger.Test.Api
         public void FacebookListCategoriesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.FacebookListCategories();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.FacebookListCategories(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -231,7 +322,14 @@ namespace ScrapeBadger.Test.Api
         public void FacebookListLocationsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.FacebookListLocations();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.FacebookListLocations(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -246,7 +344,14 @@ namespace ScrapeBadger.Test.Api
             //decimal? latitude = null;
             //decimal? longitude = null;
             //string country = null;
-            //var response = instance.FacebookResolveATownPostcodeToAMarketplaceLocation(query, latitude, longitude, country);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.FacebookResolveATownPostcodeToAMarketplaceLocation(query, latitude, longitude, country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -259,7 +364,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string query = null;
             //string country = null;
-            //var response = instance.FacebookSearchAdvertiserPages(query, country);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.FacebookSearchAdvertiserPages(query, country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -272,7 +384,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string q = null;
             //string after = null;
-            //var response = instance.FacebookSearchEvents(q, after);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.FacebookSearchEvents(q, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -285,7 +404,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string q = null;
             //string after = null;
-            //var response = instance.FacebookSearchEverything(q, after);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.FacebookSearchEverything(q, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -298,7 +424,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string q = null;
             //string after = null;
-            //var response = instance.FacebookSearchGroups(q, after);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.FacebookSearchGroups(q, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -321,7 +454,14 @@ namespace ScrapeBadger.Test.Api
             //string after = null;
             //bool? strictFilters = null;
             //bool? includeDetails = null;
-            //var response = instance.FacebookSearchMarketplace(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after, strictFilters, includeDetails);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.FacebookSearchMarketplace(query, location, minPrice, maxPrice, daysSinceListed, sortBy, itemCondition, deliveryMethod, radius, after, strictFilters, includeDetails, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -334,7 +474,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string q = null;
             //string after = null;
-            //var response = instance.FacebookSearchPages(q, after);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.FacebookSearchPages(q, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -347,7 +494,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string q = null;
             //string after = null;
-            //var response = instance.FacebookSearchPeople(q, after);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.FacebookSearchPeople(q, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -360,7 +514,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string q = null;
             //string after = null;
-            //var response = instance.FacebookSearchPlaces(q, after);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.FacebookSearchPlaces(q, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -373,7 +534,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string q = null;
             //string after = null;
-            //var response = instance.FacebookSearchPosts(q, after);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.FacebookSearchPosts(q, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -389,7 +557,14 @@ namespace ScrapeBadger.Test.Api
             //string adType = null;
             //string activeStatus = null;
             //string after = null;
-            //var response = instance.FacebookSearchTheAdLibrary(query, country, adType, activeStatus, after);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.FacebookSearchTheAdLibrary(query, country, adType, activeStatus, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
     }

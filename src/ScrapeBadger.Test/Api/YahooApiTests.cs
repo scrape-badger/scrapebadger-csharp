@@ -63,7 +63,14 @@ namespace ScrapeBadger.Test.Api
             //string query = null;
             //string market = null;
             //int? count = null;
-            //var response = instance.YahooImageSearch(query, market, count);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YahooImageSearch(query, market, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -74,7 +81,14 @@ namespace ScrapeBadger.Test.Api
         public void YahooListSupportedMarketsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.YahooListSupportedMarkets();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YahooListSupportedMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -87,7 +101,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string query = null;
             //string market = null;
-            //var response = instance.YahooNewsSearch(query, market);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YahooNewsSearch(query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -100,7 +121,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string query = null;
             //string market = null;
-            //var response = instance.YahooSearchSuggestions(query, market);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YahooSearchSuggestions(query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -114,7 +142,14 @@ namespace ScrapeBadger.Test.Api
             //string query = null;
             //string market = null;
             //int? count = null;
-            //var response = instance.YahooVideoSearch(query, market, count);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YahooVideoSearch(query, market, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -129,7 +164,14 @@ namespace ScrapeBadger.Test.Api
             //string market = null;
             //int? offset = null;
             //string safeSearch = null;
-            //var response = instance.YahooWebSearch(query, market, offset, safeSearch);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YahooWebSearch(query, market, offset, safeSearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 

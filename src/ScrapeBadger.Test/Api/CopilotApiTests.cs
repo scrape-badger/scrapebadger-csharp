@@ -64,7 +64,14 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //string market = null;
             //bool? strictCountry = null;
-            //var response = instance.CopilotAskCopilotAQuestion(prompt, country, market, strictCountry);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.CopilotAskCopilotAQuestion(prompt, country, market, strictCountry, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -75,7 +82,14 @@ namespace ScrapeBadger.Test.Api
         public void CopilotAskCopilotAQuestionPostTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.CopilotAskCopilotAQuestionPost();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.CopilotAskCopilotAQuestionPost(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -108,7 +122,14 @@ namespace ScrapeBadger.Test.Api
         public void CopilotListCopilotMarketsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.CopilotListCopilotMarkets();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.CopilotListCopilotMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -127,7 +148,14 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //string market = null;
             //bool? strictCountry = null;
-            //var response = instance.CopilotMeasureABrandSVisibilityInACopilotAnswer(prompt, brand, domain, aliases, competitors, country, market, strictCountry);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.CopilotMeasureABrandSVisibilityInACopilotAnswer(prompt, brand, domain, aliases, competitors, country, market, strictCountry, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -138,7 +166,14 @@ namespace ScrapeBadger.Test.Api
         public void CopilotMeasureABrandSVisibilityInACopilotAnswerPostTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.CopilotMeasureABrandSVisibilityInACopilotAnswerPost();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.CopilotMeasureABrandSVisibilityInACopilotAnswerPost(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
     }

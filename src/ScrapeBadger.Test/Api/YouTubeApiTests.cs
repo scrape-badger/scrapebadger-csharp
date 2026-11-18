@@ -61,7 +61,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //Dictionary<string, Object> requestBody = null;
-            //var response = instance.YoutubeBatchVideoDetail(requestBody);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeBatchVideoDetail(requestBody, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -73,7 +80,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string channelId = null;
-            //var response = instance.YoutubeChannelAbout(channelId);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeChannelAbout(channelId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -85,7 +99,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string channelId = null;
-            //var response = instance.YoutubeChannelPlaylists(channelId);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeChannelPlaylists(channelId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -97,7 +118,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string channelId = null;
-            //var response = instance.YoutubeChannelShorts(channelId);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeChannelShorts(channelId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -109,7 +137,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string channelId = null;
-            //var response = instance.YoutubeChannelStreams(channelId);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeChannelStreams(channelId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -121,7 +156,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string channelId = null;
-            //var response = instance.YoutubeChannelVideos(channelId);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeChannelVideos(channelId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -135,7 +177,14 @@ namespace ScrapeBadger.Test.Api
             //string videoId = null;
             //string commentId = null;
             //string continuation = null;
-            //var response = instance.YoutubeCommentReplies(videoId, commentId, continuation);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeCommentReplies(videoId, commentId, continuation, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -147,7 +196,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string postId = null;
-            //var response = instance.YoutubeCommunityPostComments(postId);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeCommunityPostComments(postId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -159,7 +215,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string channelId = null;
-            //var response = instance.YoutubeCommunityPosts(channelId);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeCommunityPosts(channelId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -170,7 +233,14 @@ namespace ScrapeBadger.Test.Api
         public void YoutubeContentRegionsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.YoutubeContentRegions();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeContentRegions(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -182,7 +252,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string postId = null;
-            //var response = instance.YoutubeGetACommunityPost(postId);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeGetACommunityPost(postId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -194,7 +271,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string playlistId = null;
-            //var response = instance.YoutubeGetAMixRadioQueue(playlistId);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeGetAMixRadioQueue(playlistId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -206,7 +290,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string videoId = null;
-            //var response = instance.YoutubeGetAShort(videoId);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeGetAShort(videoId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -220,7 +311,14 @@ namespace ScrapeBadger.Test.Api
             //string channelId = null;
             //string gl = null;
             //string hl = null;
-            //var response = instance.YoutubeGetChannelDetail(channelId, gl, hl);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeGetChannelDetail(channelId, gl, hl, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -232,7 +330,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string playlistId = null;
-            //var response = instance.YoutubeGetPlaylistDetail(playlistId);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeGetPlaylistDetail(playlistId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -246,7 +351,14 @@ namespace ScrapeBadger.Test.Api
             //string videoId = null;
             //string gl = null;
             //string hl = null;
-            //var response = instance.YoutubeGetVideoDetail(videoId, gl, hl);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeGetVideoDetail(videoId, gl, hl, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -257,7 +369,14 @@ namespace ScrapeBadger.Test.Api
         public void YoutubeGuestHomeFeedTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.YoutubeGuestHomeFeed();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeGuestHomeFeed(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -271,7 +390,14 @@ namespace ScrapeBadger.Test.Api
             //string query = null;
             //string gl = null;
             //string hl = null;
-            //var response = instance.YoutubeKeywordSuggestions(query, gl, hl);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeKeywordSuggestions(query, gl, hl, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -283,7 +409,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string videoId = null;
-            //var response = instance.YoutubeListCaptionTracks(videoId);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeListCaptionTracks(videoId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -297,7 +430,14 @@ namespace ScrapeBadger.Test.Api
             //string videoId = null;
             //string continuation = null;
             //bool? replay = null;
-            //var response = instance.YoutubeLiveChatMessages(videoId, continuation, replay);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeLiveChatMessages(videoId, continuation, replay, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -309,7 +449,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string url = null;
-            //var response = instance.YoutubeOembedMetadata(url);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeOembedMetadata(url, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -321,7 +468,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string playlistId = null;
-            //var response = instance.YoutubePlaylistItemsPage(playlistId);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubePlaylistItemsPage(playlistId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -333,7 +487,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string videoId = null;
-            //var response = instance.YoutubeRelatedVideos(videoId);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeRelatedVideos(videoId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -346,7 +507,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string handle = null;
             //string url = null;
-            //var response = instance.YoutubeResolveHandleUrlToId(handle, url);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeResolveHandleUrlToId(handle, url, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -359,7 +527,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string channelId = null;
             //string query = null;
-            //var response = instance.YoutubeSearchWithinAChannel(channelId, query);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeSearchWithinAChannel(channelId, query, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -379,7 +554,14 @@ namespace ScrapeBadger.Test.Api
             //string gl = null;
             //string hl = null;
             //string continuation = null;
-            //var response = instance.YoutubeSearchYoutube(query, type, sortBy, uploadDate, duration, features, gl, hl, continuation);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeSearchYoutube(query, type, sortBy, uploadDate, duration, features, gl, hl, continuation, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -391,7 +573,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string query = null;
-            //var response = instance.YoutubeSearchYoutubeMusic(query);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeSearchYoutubeMusic(query, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -403,7 +592,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string soundId = null;
-            //var response = instance.YoutubeShortsBySound(soundId);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeShortsBySound(soundId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -416,7 +612,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string videoId = null;
             //string varClient = null;
-            //var response = instance.YoutubeStreamFormats(videoId, varClient);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeStreamFormats(videoId, varClient, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -428,7 +631,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string channelId = null;
-            //var response = instance.YoutubeSubscriberCountFast(channelId);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeSubscriberCountFast(channelId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -439,7 +649,14 @@ namespace ScrapeBadger.Test.Api
         public void YoutubeSupportedMarketsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.YoutubeSupportedMarkets();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeSupportedMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -450,7 +667,14 @@ namespace ScrapeBadger.Test.Api
         public void YoutubeTrendingShortsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.YoutubeTrendingShorts();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeTrendingShorts(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -463,7 +687,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string gl = null;
             //string type = null;
-            //var response = instance.YoutubeTrendingVideos(gl, type);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeTrendingVideos(gl, type, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -474,7 +705,14 @@ namespace ScrapeBadger.Test.Api
         public void YoutubeUiLanguagesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.YoutubeUiLanguages();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeUiLanguages(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -486,7 +724,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string gl = null;
-            //var response = instance.YoutubeVideoCategories(gl);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeVideoCategories(gl, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -500,7 +745,14 @@ namespace ScrapeBadger.Test.Api
             //string videoId = null;
             //string sortBy = null;
             //string continuation = null;
-            //var response = instance.YoutubeVideoComments(videoId, sortBy, continuation);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeVideoComments(videoId, sortBy, continuation, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -513,7 +765,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string videoId = null;
             //string language = null;
-            //var response = instance.YoutubeVideoTranscript(videoId, language);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeVideoTranscript(videoId, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -525,7 +784,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string tag = null;
-            //var response = instance.YoutubeVideosUnderAHashtag(tag);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YoutubeVideosUnderAHashtag(tag, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 

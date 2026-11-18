@@ -60,7 +60,14 @@ namespace ScrapeBadger.Test.Api
         public void WebDetectAntiBotAndCaptchaSystemsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.WebDetectAntiBotAndCaptchaSystems();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.WebDetectAntiBotAndCaptchaSystems(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -72,7 +79,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //ExtractRequest extractRequest = null;
-            //var response = instance.WebExtractStructuredData(extractRequest);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.WebExtractStructuredData(extractRequest, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -95,7 +109,14 @@ namespace ScrapeBadger.Test.Api
         public void WebScrapeAUrlTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.WebScrapeAUrl();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.WebScrapeAUrl(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -107,7 +128,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //ScreenshotRequest screenshotRequest = null;
-            //var response = instance.WebTakeAScreenshot(screenshotRequest);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.WebTakeAScreenshot(screenshotRequest, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 

@@ -85,5 +85,17 @@ namespace ScrapeBadger.Test.Api
             //var response = instance.AccountRotateTheWebhookSigningSecret();
             //Assert.IsType<WebhookSecret>(response);
         }
+
+        /// <summary>
+        /// Test AccountWebhookDeliveries
+        /// </summary>
+        [Fact]
+        public void AccountWebhookDeliveriesTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //int? limit = null;
+            //var response = instance.AccountWebhookDeliveries(limit);
+            //Assert.IsType<WebhookDeliveries>(response);
+        }
     }
 }

@@ -63,7 +63,14 @@ namespace ScrapeBadger.Test.Api
             //string query = null;
             //string domain = null;
             //int? page = null;
-            //var response = instance.YandexImageSearch(query, domain, page);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YandexImageSearch(query, domain, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -74,7 +81,14 @@ namespace ScrapeBadger.Test.Api
         public void YandexListSupportedMarketsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.YandexListSupportedMarkets();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YandexListSupportedMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -87,7 +101,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string imageUrl = null;
             //string domain = null;
-            //var response = instance.YandexReverseImageSearch(imageUrl, domain);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YandexReverseImageSearch(imageUrl, domain, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -103,7 +124,14 @@ namespace ScrapeBadger.Test.Api
             //int? page = null;
             //int? lr = null;
             //string lang = null;
-            //var response = instance.YandexWebSearch(query, domain, page, lr, lang);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YandexWebSearch(query, domain, page, lr, lang, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 

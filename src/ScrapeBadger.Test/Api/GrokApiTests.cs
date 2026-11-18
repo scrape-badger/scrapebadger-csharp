@@ -64,7 +64,14 @@ namespace ScrapeBadger.Test.Api
             //string conversationId = null;
             //string mode = null;
             //string webSearch = null;
-            //var response = instance.GrokAskGrokAQuestion(prompt, conversationId, mode, webSearch);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GrokAskGrokAQuestion(prompt, conversationId, mode, webSearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -75,7 +82,14 @@ namespace ScrapeBadger.Test.Api
         public void GrokAskGrokAQuestionPostTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GrokAskGrokAQuestionPost();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GrokAskGrokAQuestionPost(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -87,7 +101,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string conversationId = null;
-            //var response = instance.GrokGetAGrokConversation(conversationId);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GrokGetAGrokConversation(conversationId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -120,7 +141,14 @@ namespace ScrapeBadger.Test.Api
         public void GrokListGrokAssistantModesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GrokListGrokAssistantModes();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GrokListGrokAssistantModes(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -137,7 +165,14 @@ namespace ScrapeBadger.Test.Api
             //string brandDomain = null;
             //string mode = null;
             //string webSearch = null;
-            //var response = instance.GrokMeasureBrandVisibilityInGrok(prompt, brand, competitors, brandDomain, mode, webSearch);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GrokMeasureBrandVisibilityInGrok(prompt, brand, competitors, brandDomain, mode, webSearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -148,7 +183,14 @@ namespace ScrapeBadger.Test.Api
         public void GrokMeasureBrandVisibilityInGrokPostTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GrokMeasureBrandVisibilityInGrokPost();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GrokMeasureBrandVisibilityInGrokPost(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
     }

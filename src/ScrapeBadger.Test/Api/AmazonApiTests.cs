@@ -85,7 +85,14 @@ namespace ScrapeBadger.Test.Api
             //string domain = null;
             //string category = null;
             //int? page = null;
-            //var response = instance.AmazonBestsellersByCategory(domain, category, page);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AmazonBestsellersByCategory(domain, category, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -100,7 +107,14 @@ namespace ScrapeBadger.Test.Api
             //string domain = null;
             //int? page = null;
             //string sortBy = null;
-            //var response = instance.AmazonBrowseNodeCategoryListing(node, domain, page, sortBy);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AmazonBrowseNodeCategoryListing(node, domain, page, sortBy, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -115,7 +129,14 @@ namespace ScrapeBadger.Test.Api
             //string domain = null;
             //string zip = null;
             //int? page = null;
-            //var response = instance.AmazonGetAllSellerOffersBuybox(asin, domain, zip, page);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AmazonGetAllSellerOffersBuybox(asin, domain, zip, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -130,7 +151,14 @@ namespace ScrapeBadger.Test.Api
             //string domain = null;
             //string zip = null;
             //string language = null;
-            //var response = instance.AmazonGetProductDetail(asin, domain, zip, language);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AmazonGetProductDetail(asin, domain, zip, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -153,7 +181,14 @@ namespace ScrapeBadger.Test.Api
             //bool? perStar = null;
             //int? limit = null;
             //string wootOffer = null;
-            //var response = instance.AmazonGetProductReviews(asin, domain, page, sortBy, star, verifiedOnly, mediaOnly, mode, maxPages, perStar, limit, wootOffer);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AmazonGetProductReviews(asin, domain, page, sortBy, star, verifiedOnly, mediaOnly, mode, maxPages, perStar, limit, wootOffer, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -167,7 +202,14 @@ namespace ScrapeBadger.Test.Api
             //string sellerId = null;
             //string domain = null;
             //int? page = null;
-            //var response = instance.AmazonGetSellerFeedback(sellerId, domain, page);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AmazonGetSellerFeedback(sellerId, domain, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -180,7 +222,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string sellerId = null;
             //string domain = null;
-            //var response = instance.AmazonGetSellerProfile(sellerId, domain);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AmazonGetSellerProfile(sellerId, domain, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -194,7 +243,14 @@ namespace ScrapeBadger.Test.Api
             //string sellerId = null;
             //string domain = null;
             //int? page = null;
-            //var response = instance.AmazonGetSellerStorefrontProducts(sellerId, domain, page);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AmazonGetSellerStorefrontProducts(sellerId, domain, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -207,7 +263,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string query = null;
             //string domain = null;
-            //var response = instance.AmazonKeywordSuggestions(query, domain);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AmazonKeywordSuggestions(query, domain, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -219,7 +282,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string domain = null;
-            //var response = instance.AmazonListCategoryAliases(domain);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AmazonListCategoryAliases(domain, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -230,7 +300,14 @@ namespace ScrapeBadger.Test.Api
         public void AmazonListMarketplacesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.AmazonListMarketplaces();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AmazonListMarketplaces(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -244,7 +321,14 @@ namespace ScrapeBadger.Test.Api
             //string domain = null;
             //string category = null;
             //int? page = null;
-            //var response = instance.AmazonNewReleasesByCategory(domain, category, page);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AmazonNewReleasesByCategory(domain, category, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -264,7 +348,14 @@ namespace ScrapeBadger.Test.Api
             //decimal? maxPrice = null;
             //string zip = null;
             //string language = null;
-            //var response = instance.AmazonSearchAmazonProducts(query, domain, page, sortBy, category, minPrice, maxPrice, zip, language);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AmazonSearchAmazonProducts(query, domain, page, sortBy, category, minPrice, maxPrice, zip, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -278,7 +369,14 @@ namespace ScrapeBadger.Test.Api
             //string domain = null;
             //string category = null;
             //int? page = null;
-            //var response = instance.AmazonTodaySDeals(domain, category, page);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AmazonTodaySDeals(domain, category, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
     }

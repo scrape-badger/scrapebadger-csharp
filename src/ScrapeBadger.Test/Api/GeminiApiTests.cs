@@ -64,7 +64,14 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //string webSearch = null;
             //string imageUrl = null;
-            //var response = instance.GeminiAskGeminiAQuestion(prompt, country, webSearch, imageUrl);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GeminiAskGeminiAQuestion(prompt, country, webSearch, imageUrl, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -75,7 +82,14 @@ namespace ScrapeBadger.Test.Api
         public void GeminiAskGeminiAQuestionPostTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GeminiAskGeminiAQuestionPost();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GeminiAskGeminiAQuestionPost(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -115,7 +129,14 @@ namespace ScrapeBadger.Test.Api
             //string competitors = null;
             //string country = null;
             //string webSearch = null;
-            //var response = instance.GeminiMeasureABrandSVisibilityInAGeminiAnswer(prompt, brand, domain, aliases, competitors, country, webSearch);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GeminiMeasureABrandSVisibilityInAGeminiAnswer(prompt, brand, domain, aliases, competitors, country, webSearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -126,7 +147,14 @@ namespace ScrapeBadger.Test.Api
         public void GeminiMeasureABrandSVisibilityInAGeminiAnswerPostTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GeminiMeasureABrandSVisibilityInAGeminiAnswerPost();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GeminiMeasureABrandSVisibilityInAGeminiAnswerPost(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
     }

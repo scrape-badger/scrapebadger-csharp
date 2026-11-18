@@ -63,7 +63,14 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //string currency = null;
             //string language = null;
-            //var response = instance.EtsyGetCategories(country, currency, language);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.EtsyGetCategories(country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -78,7 +85,14 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //string currency = null;
             //string language = null;
-            //var response = instance.EtsyGetListingDetail(listingId, country, currency, language);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.EtsyGetListingDetail(listingId, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -95,7 +109,14 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //string currency = null;
             //string language = null;
-            //var response = instance.EtsyGetListingReviews(listingId, page, sort, country, currency, language);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.EtsyGetListingReviews(listingId, page, sort, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -110,7 +131,14 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //string currency = null;
             //string language = null;
-            //var response = instance.EtsyGetSearchSuggestions(query, country, currency, language);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.EtsyGetSearchSuggestions(query, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -126,7 +154,14 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //string currency = null;
             //string language = null;
-            //var response = instance.EtsyGetShopListings(shopName, page, country, currency, language);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.EtsyGetShopListings(shopName, page, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -141,7 +176,14 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //string currency = null;
             //string language = null;
-            //var response = instance.EtsyGetShopProfile(shopName, country, currency, language);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.EtsyGetShopProfile(shopName, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -157,7 +199,14 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //string currency = null;
             //string language = null;
-            //var response = instance.EtsyGetShopReviews(shopName, page, country, currency, language);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.EtsyGetShopReviews(shopName, page, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -176,7 +225,14 @@ namespace ScrapeBadger.Test.Api
             //string sort = null;
             //decimal? minPrice = null;
             //decimal? maxPrice = null;
-            //var response = instance.EtsySearchListings(query, page, country, currency, language, sort, minPrice, maxPrice);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.EtsySearchListings(query, page, country, currency, language, sort, minPrice, maxPrice, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
     }

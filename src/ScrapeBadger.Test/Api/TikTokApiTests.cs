@@ -64,7 +64,14 @@ namespace ScrapeBadger.Test.Api
             //string categoryId = null;
             //int? pages = null;
             //int? limit = null;
-            //var response = instance.TiktokBestSellingTiktokShopProducts(region, categoryId, pages, limit);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokBestSellingTiktokShopProducts(region, categoryId, pages, limit, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -79,7 +86,14 @@ namespace ScrapeBadger.Test.Api
             //string region = null;
             //int? count = null;
             //string cursor = null;
-            //var response = instance.TiktokGeneralSearch(query, region, count, cursor);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokGeneralSearch(query, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -95,7 +109,14 @@ namespace ScrapeBadger.Test.Api
             //string region = null;
             //int? count = null;
             //string cursor = null;
-            //var response = instance.TiktokGetCommentReplies(commentId, videoId, region, count, cursor);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokGetCommentReplies(commentId, videoId, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -110,7 +131,14 @@ namespace ScrapeBadger.Test.Api
             //string region = null;
             //int? count = null;
             //string cursor = null;
-            //var response = instance.TiktokGetComments(videoId, region, count, cursor);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokGetComments(videoId, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -125,7 +153,14 @@ namespace ScrapeBadger.Test.Api
             //string region = null;
             //int? count = null;
             //string cursor = null;
-            //var response = instance.TiktokGetFollowers(username, region, count, cursor);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokGetFollowers(username, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -140,7 +175,14 @@ namespace ScrapeBadger.Test.Api
             //string region = null;
             //int? count = null;
             //string cursor = null;
-            //var response = instance.TiktokGetFollowing(username, region, count, cursor);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokGetFollowing(username, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -153,7 +195,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string name = null;
             //string region = null;
-            //var response = instance.TiktokGetHashtagDetail(name, region);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokGetHashtagDetail(name, region, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -168,7 +217,14 @@ namespace ScrapeBadger.Test.Api
             //string region = null;
             //int? count = null;
             //string cursor = null;
-            //var response = instance.TiktokGetHashtagVideos(name, region, count, cursor);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokGetHashtagVideos(name, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -183,7 +239,14 @@ namespace ScrapeBadger.Test.Api
             //string region = null;
             //int? count = null;
             //string cursor = null;
-            //var response = instance.TiktokGetLikedVideos(username, region, count, cursor);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokGetLikedVideos(username, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -196,7 +259,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string musicId = null;
             //string region = null;
-            //var response = instance.TiktokGetMusicSoundDetail(musicId, region);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokGetMusicSoundDetail(musicId, region, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -211,7 +281,14 @@ namespace ScrapeBadger.Test.Api
             //string region = null;
             //int? count = null;
             //string cursor = null;
-            //var response = instance.TiktokGetMusicVideos(musicId, region, count, cursor);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokGetMusicVideos(musicId, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -224,7 +301,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string url = null;
             //string region = null;
-            //var response = instance.TiktokGetOembedMetadata(url, region);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokGetOembedMetadata(url, region, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -239,7 +323,14 @@ namespace ScrapeBadger.Test.Api
             //string region = null;
             //int? count = null;
             //string cursor = null;
-            //var response = instance.TiktokGetRelatedVideos(videoId, region, count, cursor);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokGetRelatedVideos(videoId, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -254,7 +345,14 @@ namespace ScrapeBadger.Test.Api
             //string region = null;
             //int? count = null;
             //string cursor = null;
-            //var response = instance.TiktokGetReposts(username, region, count, cursor);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokGetReposts(username, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -267,7 +365,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string adId = null;
             //string region = null;
-            //var response = instance.TiktokGetTiktokAdDetail(adId, region);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokGetTiktokAdDetail(adId, region, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -280,7 +385,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string videoId = null;
             //string region = null;
-            //var response = instance.TiktokGetTranscript(videoId, region);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokGetTranscript(videoId, region, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -293,7 +405,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string username = null;
             //string region = null;
-            //var response = instance.TiktokGetUserProfile(username, region);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokGetUserProfile(username, region, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -308,7 +427,14 @@ namespace ScrapeBadger.Test.Api
             //string region = null;
             //int? count = null;
             //string cursor = null;
-            //var response = instance.TiktokGetUserVideos(username, region, count, cursor);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokGetUserVideos(username, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -322,7 +448,14 @@ namespace ScrapeBadger.Test.Api
             //string videoId = null;
             //string region = null;
             //string username = null;
-            //var response = instance.TiktokGetVideoDetail(videoId, region, username);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokGetVideoDetail(videoId, region, username, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -355,7 +488,14 @@ namespace ScrapeBadger.Test.Api
         public void TiktokListRegionsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.TiktokListRegions();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokListRegions(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -370,7 +510,14 @@ namespace ScrapeBadger.Test.Api
             //string region = null;
             //int? count = null;
             //string cursor = null;
-            //var response = instance.TiktokSearchHashtags(query, region, count, cursor);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokSearchHashtags(query, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -389,7 +536,14 @@ namespace ScrapeBadger.Test.Api
             //int? offset = null;
             //string searchId = null;
             //int? count = null;
-            //var response = instance.TiktokSearchTheTiktokAdLibrary(query, advertiserId, region, days, sort, offset, searchId, count);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokSearchTheTiktokAdLibrary(query, advertiserId, region, days, sort, offset, searchId, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -403,7 +557,14 @@ namespace ScrapeBadger.Test.Api
             //string query = null;
             //string region = null;
             //int? count = null;
-            //var response = instance.TiktokSearchTiktokAdvertisers(query, region, count);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokSearchTiktokAdvertisers(query, region, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -418,7 +579,14 @@ namespace ScrapeBadger.Test.Api
             //string region = null;
             //string pageToken = null;
             //int? offset = null;
-            //var response = instance.TiktokSearchTiktokShopProducts(q, region, pageToken, offset);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokSearchTiktokShopProducts(q, region, pageToken, offset, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -433,7 +601,14 @@ namespace ScrapeBadger.Test.Api
             //string region = null;
             //int? count = null;
             //string cursor = null;
-            //var response = instance.TiktokSearchUsers(query, region, count, cursor);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokSearchUsers(query, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -448,7 +623,14 @@ namespace ScrapeBadger.Test.Api
             //string region = null;
             //int? count = null;
             //string cursor = null;
-            //var response = instance.TiktokSearchVideos(query, region, count, cursor);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokSearchVideos(query, region, count, cursor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -463,7 +645,14 @@ namespace ScrapeBadger.Test.Api
             //string region = null;
             //int? count = null;
             //List<string> excludeProductIds = null;
-            //var response = instance.TiktokTiktokShopCategoryProducts(categoryId, region, count, excludeProductIds);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokTiktokShopCategoryProducts(categoryId, region, count, excludeProductIds, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -476,7 +665,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string categoryId = null;
             //string region = null;
-            //var response = instance.TiktokTiktokShopCategorySubcategoriesTopProducts(categoryId, region);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokTiktokShopCategorySubcategoriesTopProducts(categoryId, region, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -489,7 +685,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string productId = null;
             //string region = null;
-            //var response = instance.TiktokTiktokShopProductDetail(productId, region);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokTiktokShopProductDetail(productId, region, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -508,7 +711,14 @@ namespace ScrapeBadger.Test.Api
             //int? rating = null;
             //bool? withMedia = null;
             //bool? verified = null;
-            //var response = instance.TiktokTiktokShopProductReviews(productId, region, page, count, sort, rating, withMedia, verified);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokTiktokShopProductReviews(productId, region, page, count, sort, rating, withMedia, verified, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -522,7 +732,14 @@ namespace ScrapeBadger.Test.Api
             //string region = null;
             //int? tabId = null;
             //string pageToken = null;
-            //var response = instance.TiktokTiktokShopRegionalMallFeed(region, tabId, pageToken);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokTiktokShopRegionalMallFeed(region, tabId, pageToken, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -534,7 +751,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string region = null;
-            //var response = instance.TiktokTiktokShopRootCategories(region);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokTiktokShopRootCategories(region, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -549,7 +773,14 @@ namespace ScrapeBadger.Test.Api
             //string region = null;
             //string cursor = null;
             //int? count = null;
-            //var response = instance.TiktokTiktokShopStoreProducts(sellerId, region, cursor, count);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokTiktokShopStoreProducts(sellerId, region, cursor, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -565,7 +796,14 @@ namespace ScrapeBadger.Test.Api
             //int? rankType = null;
             //int? cursor = null;
             //int? count = null;
-            //var response = instance.TiktokTiktokShopThemeRanking(rankId, region, rankType, cursor, count);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokTiktokShopThemeRanking(rankId, region, rankType, cursor, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -579,7 +817,14 @@ namespace ScrapeBadger.Test.Api
             //string region = null;
             //int? period = null;
             //int? count = null;
-            //var response = instance.TiktokTrendingHashtags(region, period, count);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokTrendingHashtags(region, period, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -593,7 +838,14 @@ namespace ScrapeBadger.Test.Api
             //string region = null;
             //int? period = null;
             //int? count = null;
-            //var response = instance.TiktokTrendingSongs(region, period, count);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokTrendingSongs(region, period, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -606,7 +858,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string region = null;
             //int? count = null;
-            //var response = instance.TiktokTrendingVideos(region, count);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.TiktokTrendingVideos(region, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
     }

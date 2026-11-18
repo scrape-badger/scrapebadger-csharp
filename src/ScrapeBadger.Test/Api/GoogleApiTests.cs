@@ -62,7 +62,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string authorId = null;
             //string hl = null;
-            //var response = instance.GoogleGetAuthorCitationsPerYearChart(authorId, hl);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleGetAuthorCitationsPerYearChart(authorId, hl, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -75,7 +82,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string dataId = null;
             //string nextPageToken = null;
-            //var response = instance.GoogleGetBusinessPosts(dataId, nextPageToken);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleGetBusinessPosts(dataId, nextPageToken, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -88,7 +102,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string q = null;
             //string hl = null;
-            //var response = instance.GoogleGetCitationFormatsForAScholarPaper(q, hl);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleGetCitationFormatsForAScholarPaper(q, hl, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -103,7 +124,14 @@ namespace ScrapeBadger.Test.Api
             //string dataId = null;
             //string hl = null;
             //string gl = null;
-            //var response = instance.GoogleGetPlaceDetails(placeId, dataId, hl, gl);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleGetPlaceDetails(placeId, dataId, hl, gl, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -117,7 +145,14 @@ namespace ScrapeBadger.Test.Api
             //string dataId = null;
             //string hl = null;
             //string nextPageToken = null;
-            //var response = instance.GoogleGetPlacePhotos(dataId, hl, nextPageToken);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleGetPlacePhotos(dataId, hl, nextPageToken, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -133,7 +168,14 @@ namespace ScrapeBadger.Test.Api
             //string hl = null;
             //string nextPageToken = null;
             //int? results = null;
-            //var response = instance.GoogleGetPlaceReviews(dataId, sortBy, hl, nextPageToken, results);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleGetPlaceReviews(dataId, sortBy, hl, nextPageToken, results, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -148,7 +190,14 @@ namespace ScrapeBadger.Test.Api
             //string hl = null;
             //int? cstart = null;
             //int? pagesize = null;
-            //var response = instance.GoogleGetScholarAuthorProfile(authorId, hl, cstart, pagesize);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleGetScholarAuthorProfile(authorId, hl, cstart, pagesize, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -161,7 +210,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string q = null;
             //string hl = null;
-            //var response = instance.GoogleGetStockIndexQuote(q, hl);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleGetStockIndexQuote(q, hl, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -180,7 +236,14 @@ namespace ScrapeBadger.Test.Api
             //string uule = null;
             //decimal? lat = null;
             //decimal? lon = null;
-            //var response = instance.GoogleGoogleAiModeSearch(q, gl, hl, includeHtml, location, uule, lat, lon);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleGoogleAiModeSearch(q, gl, hl, includeHtml, location, uule, lat, lon, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -194,7 +257,14 @@ namespace ScrapeBadger.Test.Api
             //string q = null;
             //string gl = null;
             //string hl = null;
-            //var response = instance.GoogleGoogleAiOverviewInlineSerpBlock(q, gl, hl);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleGoogleAiOverviewInlineSerpBlock(q, gl, hl, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -221,7 +291,14 @@ namespace ScrapeBadger.Test.Api
             //string currency = null;
             //string gl = null;
             //string hl = null;
-            //var response = instance.GoogleGoogleFlightsCalendarCheapestFarePerDate(departureId, arrivalId, outboundDateFrom, outboundDateTo, tripType, tripLengthDays, returnDateFrom, returnDateTo, adults, children, infantsInSeat, infantsOnLap, travelClass, currency, gl, hl);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleGoogleFlightsCalendarCheapestFarePerDate(departureId, arrivalId, outboundDateFrom, outboundDateTo, tripType, tripLengthDays, returnDateFrom, returnDateTo, adults, children, infantsInSeat, infantsOnLap, travelClass, currency, gl, hl, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -248,7 +325,14 @@ namespace ScrapeBadger.Test.Api
             //string stops = null;
             //int? maxPrice = null;
             //string departureToken = null;
-            //var response = instance.GoogleGoogleFlightsSearch(departureId, arrivalId, outboundDate, returnDate, tripType, adults, children, infantsInSeat, infantsOnLap, travelClass, currency, gl, hl, stops, maxPrice, departureToken);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleGoogleFlightsSearch(departureId, arrivalId, outboundDate, returnDate, tripType, adults, children, infantsInSeat, infantsOnLap, travelClass, currency, gl, hl, stops, maxPrice, departureToken, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -268,7 +352,14 @@ namespace ScrapeBadger.Test.Api
             //bool? product = null;
             //bool? visualMatches = null;
             //bool? exactMatches = null;
-            //var response = instance.GoogleGoogleLensVisualSearch(url, query, country, language, gl, hl, product, visualMatches, exactMatches);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleGoogleLensVisualSearch(url, query, country, language, gl, hl, product, visualMatches, exactMatches, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -324,7 +415,14 @@ namespace ScrapeBadger.Test.Api
             //string si = null;
             //string ibp = null;
             //string uds = null;
-            //var response = instance.GoogleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -360,7 +458,14 @@ namespace ScrapeBadger.Test.Api
             //string q = null;
             //string hl = null;
             //string gl = null;
-            //var response = instance.GoogleGoogleSearchSuggestions(q, hl, gl);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleGoogleSearchSuggestions(q, hl, gl, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -377,7 +482,14 @@ namespace ScrapeBadger.Test.Api
             //string domain = null;
             //int? num = null;
             //int? start = null;
-            //var response = instance.GoogleGoogleShortsSearch(q, gl, hl, domain, num, start);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleGoogleShortsSearch(q, gl, hl, domain, num, start, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -436,7 +548,14 @@ namespace ScrapeBadger.Test.Api
             //string asQdr = null;
             //string asRq = null;
             //string asSitesearch = null;
-            //var response = instance.GoogleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -450,7 +569,14 @@ namespace ScrapeBadger.Test.Api
             //string propertyToken = null;
             //string checkIn = null;
             //string checkOut = null;
-            //var response = instance.GoogleHotelDetails(propertyToken, checkIn, checkOut);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleHotelDetails(propertyToken, checkIn, checkOut, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -471,7 +597,14 @@ namespace ScrapeBadger.Test.Api
             //string mid = null;
             //bool? includeOffers = null;
             //bool? includeVariants = null;
-            //var response = instance.GoogleImmersiveProductDetail(productId, q, gl, hl, catalogId, imageDocid, headlineOfferDocid, mid, includeOffers, includeVariants);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleImmersiveProductDetail(productId, q, gl, hl, catalogId, imageDocid, headlineOfferDocid, mid, includeOffers, includeVariants, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -484,7 +617,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string q = null;
             //string geo = null;
-            //var response = instance.GoogleInterestByRegion(q, geo);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleInterestByRegion(q, geo, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -498,7 +638,14 @@ namespace ScrapeBadger.Test.Api
             //string q = null;
             //string geo = null;
             //string date = null;
-            //var response = instance.GoogleInterestOverTime(q, geo, date);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleInterestOverTime(q, geo, date, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -514,7 +661,14 @@ namespace ScrapeBadger.Test.Api
             //string gl = null;
             //string hl = null;
             //string domain = null;
-            //var response = instance.GoogleMultiSellerOffersByBarcode(barcode, catalogId, gl, hl, domain);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleMultiSellerOffersByBarcode(barcode, catalogId, gl, hl, domain, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -529,7 +683,14 @@ namespace ScrapeBadger.Test.Api
             //string hl = null;
             //string gl = null;
             //int? maxResults = null;
-            //var response = instance.GoogleNewsByTopic(topic, hl, gl, maxResults);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleNewsByTopic(topic, hl, gl, maxResults, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -541,7 +702,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string patentId = null;
-            //var response = instance.GooglePatentDetails(patentId);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GooglePatentDetails(patentId, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -554,7 +722,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string q = null;
             //string geo = null;
-            //var response = instance.GoogleRelatedTopicsQueries(q, geo);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleRelatedTopicsQueries(q, geo, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -574,7 +749,14 @@ namespace ScrapeBadger.Test.Api
             //string imgtype = null;
             //string safe = null;
             //int? page = null;
-            //var response = instance.GoogleSearchGoogleImages(q, gl, hl, tbs, imgsz, imgcolor, imgtype, safe, page);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleSearchGoogleImages(q, gl, hl, tbs, imgsz, imgcolor, imgtype, safe, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -590,7 +772,14 @@ namespace ScrapeBadger.Test.Api
             //string gl = null;
             //string jobType = null;
             //string datePosted = null;
-            //var response = instance.GoogleSearchGoogleJobs(q, location, gl, jobType, datePosted);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleSearchGoogleJobs(q, location, gl, jobType, datePosted, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -606,7 +795,14 @@ namespace ScrapeBadger.Test.Api
             //string gl = null;
             //string hl = null;
             //int? start = null;
-            //var response = instance.GoogleSearchGoogleMapsPlaces(q, ll, gl, hl, start);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleSearchGoogleMapsPlaces(q, ll, gl, hl, start, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -621,7 +817,14 @@ namespace ScrapeBadger.Test.Api
             //string hl = null;
             //string gl = null;
             //int? maxResults = null;
-            //var response = instance.GoogleSearchGoogleNews(q, hl, gl, maxResults);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleSearchGoogleNews(q, hl, gl, maxResults, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -639,7 +842,14 @@ namespace ScrapeBadger.Test.Api
             //string asSdt = null;
             //int? page = null;
             //int? num = null;
-            //var response = instance.GoogleSearchGoogleScholar(q, hl, asYlo, asYhi, asSdt, page, num);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleSearchGoogleScholar(q, hl, asYlo, asYhi, asSdt, page, num, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -656,7 +866,14 @@ namespace ScrapeBadger.Test.Api
             //string tbs = null;
             //string safe = null;
             //int? page = null;
-            //var response = instance.GoogleSearchGoogleVideos(q, gl, hl, tbs, safe, page);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleSearchGoogleVideos(q, gl, hl, tbs, safe, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -673,7 +890,14 @@ namespace ScrapeBadger.Test.Api
             //int? adults = null;
             //string currency = null;
             //string gl = null;
-            //var response = instance.GoogleSearchHotels(q, checkIn, checkOut, adults, currency, gl);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleSearchHotels(q, checkIn, checkOut, adults, currency, gl, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -696,7 +920,14 @@ namespace ScrapeBadger.Test.Api
             //string patentType = null;
             //string before = null;
             //string after = null;
-            //var response = instance.GoogleSearchPatents(q, page, num, sort, inventor, assignee, country, language, status, patentType, before, after);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleSearchPatents(q, page, num, sort, inventor, assignee, country, language, status, patentType, before, after, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -712,7 +943,14 @@ namespace ScrapeBadger.Test.Api
             //int? minPrice = null;
             //int? maxPrice = null;
             //string sortBy = null;
-            //var response = instance.GoogleSearchProducts(q, gl, minPrice, maxPrice, sortBy);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleSearchProducts(q, gl, minPrice, maxPrice, sortBy, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -727,7 +965,14 @@ namespace ScrapeBadger.Test.Api
             //string hl = null;
             //string afterAuthor = null;
             //string beforeAuthor = null;
-            //var response = instance.GoogleSearchScholarAuthorProfiles(mauthors, hl, afterAuthor, beforeAuthor);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleSearchScholarAuthorProfiles(mauthors, hl, afterAuthor, beforeAuthor, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -741,7 +986,14 @@ namespace ScrapeBadger.Test.Api
             //string hl = null;
             //string gl = null;
             //int? maxResults = null;
-            //var response = instance.GoogleTrendingNews(hl, gl, maxResults);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleTrendingNews(hl, gl, maxResults, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -753,7 +1005,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string geo = null;
-            //var response = instance.GoogleTrendingSearches(geo);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleTrendingSearches(geo, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -767,7 +1026,14 @@ namespace ScrapeBadger.Test.Api
             //string q = null;
             //string hl = null;
             //string tz = null;
-            //var response = instance.GoogleTrendsTopicAutocomplete(q, hl, tz);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GoogleTrendsTopicAutocomplete(q, hl, tz, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
     }

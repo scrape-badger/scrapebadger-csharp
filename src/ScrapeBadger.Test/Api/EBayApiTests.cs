@@ -67,7 +67,14 @@ namespace ScrapeBadger.Test.Api
             //string sortBy = null;
             //decimal? minPrice = null;
             //decimal? maxPrice = null;
-            //var response = instance.EbayBrowseACategory(categoryId, domain, page, perPage, sortBy, minPrice, maxPrice);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.EbayBrowseACategory(categoryId, domain, page, perPage, sortBy, minPrice, maxPrice, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -90,7 +97,14 @@ namespace ScrapeBadger.Test.Api
             //decimal? maxPrice = null;
             //string location = null;
             //string language = null;
-            //var response = instance.EbayCompletedSoldListings(query, seller, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location, language);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.EbayCompletedSoldListings(query, seller, domain, categoryId, page, perPage, sortBy, condition, minPrice, maxPrice, location, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -125,7 +139,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string itemId = null;
             //string domain = null;
-            //var response = instance.EbayGetItemDetail(itemId, domain);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.EbayGetItemDetail(itemId, domain, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -139,7 +160,14 @@ namespace ScrapeBadger.Test.Api
             //string itemId = null;
             //string domain = null;
             //int? page = null;
-            //var response = instance.EbayGetItemReviews(itemId, domain, page);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.EbayGetItemReviews(itemId, domain, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -153,7 +181,14 @@ namespace ScrapeBadger.Test.Api
             //string username = null;
             //string domain = null;
             //int? page = null;
-            //var response = instance.EbayGetSellerFeedback(username, domain, page);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.EbayGetSellerFeedback(username, domain, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -169,7 +204,14 @@ namespace ScrapeBadger.Test.Api
             //string query = null;
             //int? page = null;
             //int? perPage = null;
-            //var response = instance.EbayGetSellerListings(username, domain, query, page, perPage);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.EbayGetSellerListings(username, domain, query, page, perPage, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -182,7 +224,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string username = null;
             //string domain = null;
-            //var response = instance.EbayGetSellerProfile(username, domain);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.EbayGetSellerProfile(username, domain, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -195,7 +244,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string query = null;
             //string domain = null;
-            //var response = instance.EbayKeywordSuggestions(query, domain);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.EbayKeywordSuggestions(query, domain, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -206,7 +262,14 @@ namespace ScrapeBadger.Test.Api
         public void EbayListCategoriesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.EbayListCategories();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.EbayListCategories(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -217,7 +280,14 @@ namespace ScrapeBadger.Test.Api
         public void EbayListMarketsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.EbayListMarkets();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.EbayListMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -229,7 +299,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //Dictionary<string, Object> requestBody = null;
-            //var response = instance.EbaySearchByImage(requestBody);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.EbaySearchByImage(requestBody, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -253,7 +330,14 @@ namespace ScrapeBadger.Test.Api
             //bool? freeShipping = null;
             //string location = null;
             //string language = null;
-            //var response = instance.EbaySearchListings(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping, location, language);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.EbaySearchListings(query, domain, categoryId, page, perPage, sortBy, condition, buyingFormat, minPrice, maxPrice, freeShipping, location, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
     }

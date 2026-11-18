@@ -63,7 +63,14 @@ namespace ScrapeBadger.Test.Api
             //string slug = null;
             //string brokerId = null;
             //string market = null;
-            //var response = instance.LoopnetGetBrokerProfile(slug, brokerId, market);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.LoopnetGetBrokerProfile(slug, brokerId, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -76,7 +83,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string listingId = null;
             //string market = null;
-            //var response = instance.LoopnetGetListingDetail(listingId, market);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.LoopnetGetListingDetail(listingId, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -87,7 +101,14 @@ namespace ScrapeBadger.Test.Api
         public void LoopnetListCoverageMarketsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.LoopnetListCoverageMarkets();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.LoopnetListCoverageMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -98,7 +119,14 @@ namespace ScrapeBadger.Test.Api
         public void LoopnetListPropertyTypesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.LoopnetListPropertyTypes();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.LoopnetListPropertyTypes(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -141,7 +169,14 @@ namespace ScrapeBadger.Test.Api
             //string priceType = null;
             //int? minSize = null;
             //int? maxSize = null;
-            //var response = instance.LoopnetSearchCommercialRealEstate(location, market, listingType, propertyType, page, minPrice, maxPrice, priceType, minSize, maxSize);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.LoopnetSearchCommercialRealEstate(location, market, listingType, propertyType, page, minPrice, maxPrice, priceType, minSize, maxSize, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
     }

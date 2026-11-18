@@ -28,10 +28,31 @@ namespace ScrapeBadger.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Callback status
+        /// </summary>
+        /// <remarks>
+        /// Webhook delivery state of a call submitted with &#x60;X-Callback-URL&#x60; / &#x60;callback_url&#x60;: kept for 24 h. Free. &#x60;404 callback_not_found&#x60; for a request without a callback, of another account, or older than 24 h.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestId"></param>
+        /// <returns>AsyncCallbackStatus</returns>
+        AsyncCallbackStatus RequestsCallbackStatus(string requestId);
+
+        /// <summary>
+        /// Callback status
+        /// </summary>
+        /// <remarks>
+        /// Webhook delivery state of a call submitted with &#x60;X-Callback-URL&#x60; / &#x60;callback_url&#x60;: kept for 24 h. Free. &#x60;404 callback_not_found&#x60; for a request without a callback, of another account, or older than 24 h.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestId"></param>
+        /// <returns>ApiResponse of AsyncCallbackStatus</returns>
+        ApiResponse<AsyncCallbackStatus> RequestsCallbackStatusWithHttpInfo(string requestId);
+        /// <summary>
         /// Poll an async request
         /// </summary>
         /// <remarks>
-        /// Status or final response of a call made with &#x60;&#x60;Prefer: respond-async&#x60;&#x60;. While it runs: 202. When done: the original status, headers and body.
+        /// Status or final response of a call made with &#x60;&#x60;Prefer: respond-async&#x60;&#x60;. While it runs: 202. When done: the original status, headers and body.  The final response carries &#x60;X-Callback-Status&#x60;, &#x60;X-Callback-Attempts&#x60; and &#x60;X-Callback-Error&#x60; for a call submitted with a callback; while it runs, the &#x60;202&#x60; body has a &#x60;callback&#x60; object. Full delivery state: &#x60;GET /v1/requests/{request_id}/callback&#x60;.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestId"></param>
@@ -42,7 +63,7 @@ namespace ScrapeBadger.Api
         /// Poll an async request
         /// </summary>
         /// <remarks>
-        /// Status or final response of a call made with &#x60;&#x60;Prefer: respond-async&#x60;&#x60;. While it runs: 202. When done: the original status, headers and body.
+        /// Status or final response of a call made with &#x60;&#x60;Prefer: respond-async&#x60;&#x60;. While it runs: 202. When done: the original status, headers and body.  The final response carries &#x60;X-Callback-Status&#x60;, &#x60;X-Callback-Attempts&#x60; and &#x60;X-Callback-Error&#x60; for a call submitted with a callback; while it runs, the &#x60;202&#x60; body has a &#x60;callback&#x60; object. Full delivery state: &#x60;GET /v1/requests/{request_id}/callback&#x60;.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestId"></param>
@@ -58,10 +79,33 @@ namespace ScrapeBadger.Api
     {
         #region Asynchronous Operations
         /// <summary>
+        /// Callback status
+        /// </summary>
+        /// <remarks>
+        /// Webhook delivery state of a call submitted with &#x60;X-Callback-URL&#x60; / &#x60;callback_url&#x60;: kept for 24 h. Free. &#x60;404 callback_not_found&#x60; for a request without a callback, of another account, or older than 24 h.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AsyncCallbackStatus</returns>
+        System.Threading.Tasks.Task<AsyncCallbackStatus> RequestsCallbackStatusAsync(string requestId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Callback status
+        /// </summary>
+        /// <remarks>
+        /// Webhook delivery state of a call submitted with &#x60;X-Callback-URL&#x60; / &#x60;callback_url&#x60;: kept for 24 h. Free. &#x60;404 callback_not_found&#x60; for a request without a callback, of another account, or older than 24 h.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AsyncCallbackStatus)</returns>
+        System.Threading.Tasks.Task<ApiResponse<AsyncCallbackStatus>> RequestsCallbackStatusWithHttpInfoAsync(string requestId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
         /// Poll an async request
         /// </summary>
         /// <remarks>
-        /// Status or final response of a call made with &#x60;&#x60;Prefer: respond-async&#x60;&#x60;. While it runs: 202. When done: the original status, headers and body.
+        /// Status or final response of a call made with &#x60;&#x60;Prefer: respond-async&#x60;&#x60;. While it runs: 202. When done: the original status, headers and body.  The final response carries &#x60;X-Callback-Status&#x60;, &#x60;X-Callback-Attempts&#x60; and &#x60;X-Callback-Error&#x60; for a call submitted with a callback; while it runs, the &#x60;202&#x60; body has a &#x60;callback&#x60; object. Full delivery state: &#x60;GET /v1/requests/{request_id}/callback&#x60;.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestId"></param>
@@ -73,7 +117,7 @@ namespace ScrapeBadger.Api
         /// Poll an async request
         /// </summary>
         /// <remarks>
-        /// Status or final response of a call made with &#x60;&#x60;Prefer: respond-async&#x60;&#x60;. While it runs: 202. When done: the original status, headers and body.
+        /// Status or final response of a call made with &#x60;&#x60;Prefer: respond-async&#x60;&#x60;. While it runs: 202. When done: the original status, headers and body.  The final response carries &#x60;X-Callback-Status&#x60;, &#x60;X-Callback-Attempts&#x60; and &#x60;X-Callback-Error&#x60; for a call submitted with a callback; while it runs, the &#x60;202&#x60; body has a &#x60;callback&#x60; object. Full delivery state: &#x60;GET /v1/requests/{request_id}/callback&#x60;.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestId"></param>
@@ -294,7 +338,132 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Poll an async request Status or final response of a call made with &#x60;&#x60;Prefer: respond-async&#x60;&#x60;. While it runs: 202. When done: the original status, headers and body.
+        /// Callback status Webhook delivery state of a call submitted with &#x60;X-Callback-URL&#x60; / &#x60;callback_url&#x60;: kept for 24 h. Free. &#x60;404 callback_not_found&#x60; for a request without a callback, of another account, or older than 24 h.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestId"></param>
+        /// <returns>AsyncCallbackStatus</returns>
+        public AsyncCallbackStatus RequestsCallbackStatus(string requestId)
+        {
+            ScrapeBadger.Client.ApiResponse<AsyncCallbackStatus> localVarResponse = RequestsCallbackStatusWithHttpInfo(requestId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Callback status Webhook delivery state of a call submitted with &#x60;X-Callback-URL&#x60; / &#x60;callback_url&#x60;: kept for 24 h. Free. &#x60;404 callback_not_found&#x60; for a request without a callback, of another account, or older than 24 h.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestId"></param>
+        /// <returns>ApiResponse of AsyncCallbackStatus</returns>
+        public ScrapeBadger.Client.ApiResponse<AsyncCallbackStatus> RequestsCallbackStatusWithHttpInfo(string requestId)
+        {
+            // verify the required parameter 'requestId' is set
+            if (requestId == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'requestId' when calling RequestsApi->RequestsCallbackStatus");
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("request_id", ScrapeBadger.Client.ClientUtils.ParameterToString(requestId)); // path parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<AsyncCallbackStatus>("/v1/requests/{request_id}/callback", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RequestsCallbackStatus", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Callback status Webhook delivery state of a call submitted with &#x60;X-Callback-URL&#x60; / &#x60;callback_url&#x60;: kept for 24 h. Free. &#x60;404 callback_not_found&#x60; for a request without a callback, of another account, or older than 24 h.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of AsyncCallbackStatus</returns>
+        public async System.Threading.Tasks.Task<AsyncCallbackStatus> RequestsCallbackStatusAsync(string requestId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ScrapeBadger.Client.ApiResponse<AsyncCallbackStatus> localVarResponse = await RequestsCallbackStatusWithHttpInfoAsync(requestId, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Callback status Webhook delivery state of a call submitted with &#x60;X-Callback-URL&#x60; / &#x60;callback_url&#x60;: kept for 24 h. Free. &#x60;404 callback_not_found&#x60; for a request without a callback, of another account, or older than 24 h.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="requestId"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (AsyncCallbackStatus)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<AsyncCallbackStatus>> RequestsCallbackStatusWithHttpInfoAsync(string requestId, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'requestId' is set
+            if (requestId == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'requestId' when calling RequestsApi->RequestsCallbackStatus");
+
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.PathParameters.Add("request_id", ScrapeBadger.Client.ClientUtils.ParameterToString(requestId)); // path parameter
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<AsyncCallbackStatus>("/v1/requests/{request_id}/callback", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("RequestsCallbackStatus", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Poll an async request Status or final response of a call made with &#x60;&#x60;Prefer: respond-async&#x60;&#x60;. While it runs: 202. When done: the original status, headers and body.  The final response carries &#x60;X-Callback-Status&#x60;, &#x60;X-Callback-Attempts&#x60; and &#x60;X-Callback-Error&#x60; for a call submitted with a callback; while it runs, the &#x60;202&#x60; body has a &#x60;callback&#x60; object. Full delivery state: &#x60;GET /v1/requests/{request_id}/callback&#x60;.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestId"></param>
@@ -306,7 +475,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Poll an async request Status or final response of a call made with &#x60;&#x60;Prefer: respond-async&#x60;&#x60;. While it runs: 202. When done: the original status, headers and body.
+        /// Poll an async request Status or final response of a call made with &#x60;&#x60;Prefer: respond-async&#x60;&#x60;. While it runs: 202. When done: the original status, headers and body.  The final response carries &#x60;X-Callback-Status&#x60;, &#x60;X-Callback-Attempts&#x60; and &#x60;X-Callback-Error&#x60; for a call submitted with a callback; while it runs, the &#x60;202&#x60; body has a &#x60;callback&#x60; object. Full delivery state: &#x60;GET /v1/requests/{request_id}/callback&#x60;.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestId"></param>
@@ -354,7 +523,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Poll an async request Status or final response of a call made with &#x60;&#x60;Prefer: respond-async&#x60;&#x60;. While it runs: 202. When done: the original status, headers and body.
+        /// Poll an async request Status or final response of a call made with &#x60;&#x60;Prefer: respond-async&#x60;&#x60;. While it runs: 202. When done: the original status, headers and body.  The final response carries &#x60;X-Callback-Status&#x60;, &#x60;X-Callback-Attempts&#x60; and &#x60;X-Callback-Error&#x60; for a call submitted with a callback; while it runs, the &#x60;202&#x60; body has a &#x60;callback&#x60; object. Full delivery state: &#x60;GET /v1/requests/{request_id}/callback&#x60;.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestId"></param>
@@ -367,7 +536,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Poll an async request Status or final response of a call made with &#x60;&#x60;Prefer: respond-async&#x60;&#x60;. While it runs: 202. When done: the original status, headers and body.
+        /// Poll an async request Status or final response of a call made with &#x60;&#x60;Prefer: respond-async&#x60;&#x60;. While it runs: 202. When done: the original status, headers and body.  The final response carries &#x60;X-Callback-Status&#x60;, &#x60;X-Callback-Attempts&#x60; and &#x60;X-Callback-Error&#x60; for a call submitted with a callback; while it runs, the &#x60;202&#x60; body has a &#x60;callback&#x60; object. Full delivery state: &#x60;GET /v1/requests/{request_id}/callback&#x60;.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="requestId"></param>

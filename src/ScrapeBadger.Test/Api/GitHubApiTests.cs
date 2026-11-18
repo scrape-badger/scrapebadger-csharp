@@ -65,7 +65,14 @@ namespace ScrapeBadger.Test.Api
             //int? year = null;
             //int? page = null;
             //string nextPageToken = null;
-            //var response = instance.GithubGetProfile(username, tab, year, page, nextPageToken);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GithubGetProfile(username, tab, year, page, nextPageToken, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<GitHubProfileResponse>(response);
         }
 
@@ -78,7 +85,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string owner = null;
             //string repo = null;
-            //var response = instance.GithubGetRepository(owner, repo);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GithubGetRepository(owner, repo, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<GitHubRepositoryResponse>(response);
         }
     }

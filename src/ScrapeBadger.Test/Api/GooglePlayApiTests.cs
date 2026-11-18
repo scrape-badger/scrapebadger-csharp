@@ -64,7 +64,14 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //string lang = null;
             //int? num = null;
-            //var response = instance.GooglePlayBrowseACategory(categoryId, country, lang, num);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GooglePlayBrowseACategory(categoryId, country, lang, num, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -78,7 +85,14 @@ namespace ScrapeBadger.Test.Api
             //string appId = null;
             //string country = null;
             //string lang = null;
-            //var response = instance.GooglePlayGetAppDetail(appId, country, lang);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GooglePlayGetAppDetail(appId, country, lang, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -91,7 +105,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string appId = null;
             //string lang = null;
-            //var response = instance.GooglePlayGetAppPermissions(appId, lang);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GooglePlayGetAppPermissions(appId, lang, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -108,7 +129,14 @@ namespace ScrapeBadger.Test.Api
             //string sort = null;
             //int? count = null;
             //string pageToken = null;
-            //var response = instance.GooglePlayGetAppReviews(appId, country, lang, sort, count, pageToken);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GooglePlayGetAppReviews(appId, country, lang, sort, count, pageToken, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -123,7 +151,14 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //string lang = null;
             //int? num = null;
-            //var response = instance.GooglePlayGetDeveloperApps(developer, country, lang, num);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GooglePlayGetDeveloperApps(developer, country, lang, num, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -137,7 +172,14 @@ namespace ScrapeBadger.Test.Api
             //string appId = null;
             //string country = null;
             //string lang = null;
-            //var response = instance.GooglePlayGetSimilarApps(appId, country, lang);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GooglePlayGetSimilarApps(appId, country, lang, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -148,7 +190,14 @@ namespace ScrapeBadger.Test.Api
         public void GooglePlayListCategoriesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GooglePlayListCategories();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GooglePlayListCategories(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -159,7 +208,14 @@ namespace ScrapeBadger.Test.Api
         public void GooglePlayListMarketsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.GooglePlayListMarkets();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GooglePlayListMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -174,7 +230,14 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //string lang = null;
             //string price = null;
-            //var response = instance.GooglePlaySearchApps(query, country, lang, price);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GooglePlaySearchApps(query, country, lang, price, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -189,7 +252,14 @@ namespace ScrapeBadger.Test.Api
             //string category = null;
             //string country = null;
             //string lang = null;
-            //var response = instance.GooglePlayTopCharts(collection, category, country, lang);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.GooglePlayTopCharts(collection, category, country, lang, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
     }

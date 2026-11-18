@@ -60,7 +60,14 @@ namespace ScrapeBadger.Test.Api
         public void YelpListMarketsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.YelpListMarkets();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YelpListMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<YelpMarketsResponse>(response);
         }
 
@@ -79,7 +86,14 @@ namespace ScrapeBadger.Test.Api
             //string price = null;
             //string features = null;
             //int? page = null;
-            //var response = instance.YelpSearchBusinesses(location, query, market, category, sortBy, price, features, page);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.YelpSearchBusinesses(location, query, market, category, sortBy, price, features, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<YelpSearchResponse>(response);
         }
     }

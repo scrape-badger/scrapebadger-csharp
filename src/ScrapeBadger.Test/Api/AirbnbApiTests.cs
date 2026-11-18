@@ -88,7 +88,14 @@ namespace ScrapeBadger.Test.Api
             //int? months = null;
             //string currency = null;
             //string locale = null;
-            //var response = instance.AirbnbGetAvailabilityCalendar(roomId, month, year, months, currency, locale);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AirbnbGetAvailabilityCalendar(roomId, month, year, months, currency, locale, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -105,7 +112,14 @@ namespace ScrapeBadger.Test.Api
             //int? infants = null;
             //string currency = null;
             //string locale = null;
-            //var response = instance.AirbnbGetExperienceDetail(experienceId, adults, children, infants, currency, locale);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AirbnbGetExperienceDetail(experienceId, adults, children, infants, currency, locale, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -120,7 +134,14 @@ namespace ScrapeBadger.Test.Api
             //int? adults = null;
             //string currency = null;
             //string locale = null;
-            //var response = instance.AirbnbGetListingDetail(roomId, adults, currency, locale);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AirbnbGetListingDetail(roomId, adults, currency, locale, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -137,7 +158,14 @@ namespace ScrapeBadger.Test.Api
             //string sort = null;
             //string currency = null;
             //string locale = null;
-            //var response = instance.AirbnbGetListingReviews(roomId, limit, offset, sort, currency, locale);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AirbnbGetListingReviews(roomId, limit, offset, sort, currency, locale, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -152,7 +180,14 @@ namespace ScrapeBadger.Test.Api
             //string cursor = null;
             //string currency = null;
             //string locale = null;
-            //var response = instance.AirbnbSearchExperiences(location, cursor, currency, locale);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AirbnbSearchExperiences(location, cursor, currency, locale, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -184,7 +219,14 @@ namespace ScrapeBadger.Test.Api
             //int? limit = null;
             //string currency = null;
             //string locale = null;
-            //var response = instance.AirbnbSearchStays(location, neLat, neLng, swLat, swLng, checkIn, checkOut, adults, children, infants, pets, priceMin, priceMax, minBedrooms, minBeds, minBathrooms, roomType, cursor, limit, currency, locale);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AirbnbSearchStays(location, neLat, neLng, swLat, swLng, checkIn, checkOut, adults, children, infants, pets, priceMin, priceMax, minBedrooms, minBeds, minBathrooms, roomType, cursor, limit, currency, locale, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
     }

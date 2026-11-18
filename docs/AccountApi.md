@@ -7,6 +7,7 @@ All URIs are relative to *https://scrapebadger.com*
 | [**AccountGetAccountInfo**](AccountApi.md#accountgetaccountinfo) | **GET** /v1/account/me | Get account info |
 | [**AccountGetTheWebhookSigningSecret**](AccountApi.md#accountgetthewebhooksigningsecret) | **GET** /v1/account/webhook-secret | Get the webhook signing secret |
 | [**AccountRotateTheWebhookSigningSecret**](AccountApi.md#accountrotatethewebhooksigningsecret) | **POST** /v1/account/webhook-secret/rotate | Rotate the webhook signing secret |
+| [**AccountWebhookDeliveries**](AccountApi.md#accountwebhookdeliveries) | **GET** /v1/account/webhook-deliveries | Webhook deliveries |
 
 <a id="accountgetaccountinfo"></a>
 # **AccountGetAccountInfo**
@@ -290,6 +291,107 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="accountwebhookdeliveries"></a>
+# **AccountWebhookDeliveries**
+> WebhookDeliveries AccountWebhookDeliveries (int? limit = null)
+
+Webhook deliveries
+
+This account's async-request webhook deliveries of the last 24 h, newest first. Free. Needs a full-access API key, like the webhook secret: a trial key gets `403 trial_not_allowed`, a key restricted to some APIs `403 full_access_required`.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using ScrapeBadger.Api;
+using ScrapeBadger.Client;
+using ScrapeBadger.Model;
+
+namespace Example
+{
+    public class AccountWebhookDeliveriesExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://scrapebadger.com";
+            // Configure API key authorization: ApiKeyAuth
+            config.AddApiKey("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("X-API-Key", "Bearer");
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new AccountApi(httpClient, config, httpClientHandler);
+            var limit = 50;  // int? | How many deliveries to return (1-200). (optional)  (default to 50)
+
+            try
+            {
+                // Webhook deliveries
+                WebhookDeliveries result = apiInstance.AccountWebhookDeliveries(limit);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling AccountApi.AccountWebhookDeliveries: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the AccountWebhookDeliveriesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Webhook deliveries
+    ApiResponse<WebhookDeliveries> response = apiInstance.AccountWebhookDeliveriesWithHttpInfo(limit);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling AccountApi.AccountWebhookDeliveriesWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **limit** | **int?** | How many deliveries to return (1-200). | [optional] [default to 50] |
+
+### Return type
+
+[**WebhookDeliveries**](WebhookDeliveries.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **403** | &#x60;trial_not_allowed&#x60; or &#x60;full_access_required&#x60;. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

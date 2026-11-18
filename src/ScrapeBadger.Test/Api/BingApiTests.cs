@@ -86,7 +86,14 @@ namespace ScrapeBadger.Test.Api
             //string market = null;
             //int? count = null;
             //string safeSearch = null;
-            //var response = instance.BingImageSearch(query, market, count, safeSearch);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.BingImageSearch(query, market, count, safeSearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -97,7 +104,14 @@ namespace ScrapeBadger.Test.Api
         public void BingListSupportedMarketsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.BingListSupportedMarkets();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.BingListSupportedMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -111,7 +125,14 @@ namespace ScrapeBadger.Test.Api
             //string query = null;
             //string market = null;
             //string freshness = null;
-            //var response = instance.BingNewsSearch(query, market, freshness);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.BingNewsSearch(query, market, freshness, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -124,7 +145,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string query = null;
             //string market = null;
-            //var response = instance.BingSearchSuggestions(query, market);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.BingSearchSuggestions(query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -139,7 +167,14 @@ namespace ScrapeBadger.Test.Api
             //string market = null;
             //int? count = null;
             //string safeSearch = null;
-            //var response = instance.BingVideoSearch(query, market, count, safeSearch);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.BingVideoSearch(query, market, count, safeSearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -155,7 +190,14 @@ namespace ScrapeBadger.Test.Api
             //int? count = null;
             //int? offset = null;
             //string safeSearch = null;
-            //var response = instance.BingWebSearch(query, market, count, offset, safeSearch);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.BingWebSearch(query, market, count, offset, safeSearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
     }

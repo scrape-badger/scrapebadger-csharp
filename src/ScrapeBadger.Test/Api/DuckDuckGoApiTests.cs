@@ -91,7 +91,14 @@ namespace ScrapeBadger.Test.Api
             //string imageType = null;
             //string layout = null;
             //string license = null;
-            //var response = instance.DuckduckgoImageSearch(query, region, safesearch, page, size, color, imageType, layout, license);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.DuckduckgoImageSearch(query, region, safesearch, page, size, color, imageType, layout, license, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -103,7 +110,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //string query = null;
-            //var response = instance.DuckduckgoInstantAnswer(query);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.DuckduckgoInstantAnswer(query, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -114,7 +128,14 @@ namespace ScrapeBadger.Test.Api
         public void DuckduckgoListSupportedRegionsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.DuckduckgoListSupportedRegions();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.DuckduckgoListSupportedRegions(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -130,7 +151,14 @@ namespace ScrapeBadger.Test.Api
             //string safesearch = null;
             //string timelimit = null;
             //int? page = null;
-            //var response = instance.DuckduckgoNewsSearch(query, region, safesearch, timelimit, page);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.DuckduckgoNewsSearch(query, region, safesearch, timelimit, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -143,7 +171,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string query = null;
             //string region = null;
-            //var response = instance.DuckduckgoSearchSuggestions(query, region);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.DuckduckgoSearchSuggestions(query, region, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -160,7 +195,14 @@ namespace ScrapeBadger.Test.Api
             //int? page = null;
             //string duration = null;
             //string resolution = null;
-            //var response = instance.DuckduckgoVideoSearch(query, region, safesearch, page, duration, resolution);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.DuckduckgoVideoSearch(query, region, safesearch, page, duration, resolution, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -176,7 +218,14 @@ namespace ScrapeBadger.Test.Api
             //string safesearch = null;
             //string timelimit = null;
             //int? page = null;
-            //var response = instance.DuckduckgoWebSearch(query, region, safesearch, timelimit, page);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.DuckduckgoWebSearch(query, region, safesearch, timelimit, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
     }

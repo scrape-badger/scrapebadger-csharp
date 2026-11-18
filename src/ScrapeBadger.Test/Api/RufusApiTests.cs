@@ -84,7 +84,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string prompt = null;
             //string asin = null;
-            //var response = instance.RufusAskAmazonRufusAQuestion(prompt, asin);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.RufusAskAmazonRufusAQuestion(prompt, asin, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -96,7 +103,14 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //RufusAskRequest rufusAskRequest = null;
-            //var response = instance.RufusAskAmazonRufusAQuestionPost(rufusAskRequest);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.RufusAskAmazonRufusAQuestionPost(rufusAskRequest, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -107,7 +121,14 @@ namespace ScrapeBadger.Test.Api
         public void RufusListAmazonRufusModelsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.RufusListAmazonRufusModels();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.RufusListAmazonRufusModels(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
     }

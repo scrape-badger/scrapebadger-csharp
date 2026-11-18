@@ -74,7 +74,14 @@ namespace ScrapeBadger.Test.Api
             //string url = null;
             //string listingId = null;
             //string market = null;
-            //var response = instance.Autoscout24GetListing(url, listingId, market);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.Autoscout24GetListing(url, listingId, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<AutoScout24ListingResponse>(response);
         }
 
@@ -85,7 +92,14 @@ namespace ScrapeBadger.Test.Api
         public void Autoscout24ListMarketsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.Autoscout24ListMarkets();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.Autoscout24ListMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<AutoScout24MarketsResponse>(response);
         }
 
@@ -98,7 +112,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string market = null;
             //string make = null;
-            //var response = instance.Autoscout24ListSearchFilters(market, make);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.Autoscout24ListSearchFilters(market, make, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<AutoScout24FiltersResponse>(response);
         }
 
@@ -129,7 +150,14 @@ namespace ScrapeBadger.Test.Api
             //int? radius = null;
             //string sortBy = null;
             //int? page = null;
-            //var response = instance.Autoscout24SearchVehicles(market, make, model, priceMin, priceMax, mileageMin, mileageMax, yearMin, yearMax, powerMin, powerMax, fuelType, transmission, bodyType, sellerType, condition, zip, radius, sortBy, page);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.Autoscout24SearchVehicles(market, make, model, priceMin, priceMax, mileageMin, mileageMax, yearMin, yearMax, powerMin, powerMax, fuelType, transmission, bodyType, sellerType, condition, zip, radius, sortBy, page, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<AutoScout24SearchResponse>(response);
         }
     }

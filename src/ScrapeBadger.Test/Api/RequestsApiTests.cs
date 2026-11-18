@@ -54,6 +54,18 @@ namespace ScrapeBadger.Test.Api
         }
 
         /// <summary>
+        /// Test RequestsCallbackStatus
+        /// </summary>
+        [Fact]
+        public void RequestsCallbackStatusTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string requestId = null;
+            //var response = instance.RequestsCallbackStatus(requestId);
+            //Assert.IsType<AsyncCallbackStatus>(response);
+        }
+
+        /// <summary>
         /// Test RequestsPollAnAsyncRequest
         /// </summary>
         [Fact]

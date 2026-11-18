@@ -67,7 +67,14 @@ namespace ScrapeBadger.Test.Api
             //int? page = null;
             //int? maxItems = null;
             //bool? includeListings = null;
-            //var response = instance.IdealistaAgencyByPhone(phone, market, operation, propertyType, page, maxItems, includeListings);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.IdealistaAgencyByPhone(phone, market, operation, propertyType, page, maxItems, includeListings, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -85,7 +92,14 @@ namespace ScrapeBadger.Test.Api
             //int? page = null;
             //int? maxItems = null;
             //bool? includeListings = null;
-            //var response = instance.IdealistaAgencyProfileListings(shortName, market, operation, propertyType, page, maxItems, includeListings);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.IdealistaAgencyProfileListings(shortName, market, operation, propertyType, page, maxItems, includeListings, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -99,7 +113,14 @@ namespace ScrapeBadger.Test.Api
             //string propertyCode = null;
             //string market = null;
             //string locale = null;
-            //var response = instance.IdealistaGetListingEngagementStats(propertyCode, market, locale);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.IdealistaGetListingEngagementStats(propertyCode, market, locale, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -113,7 +134,14 @@ namespace ScrapeBadger.Test.Api
             //string propertyCode = null;
             //string market = null;
             //string locale = null;
-            //var response = instance.IdealistaGetPropertyDetail(propertyCode, market, locale);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.IdealistaGetPropertyDetail(propertyCode, market, locale, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -146,7 +174,14 @@ namespace ScrapeBadger.Test.Api
         public void IdealistaListMarketsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.IdealistaListMarkets();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.IdealistaListMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -162,7 +197,14 @@ namespace ScrapeBadger.Test.Api
             //string propertyType = null;
             //string market = null;
             //string locale = null;
-            //var response = instance.IdealistaResolveLocations(query, operation, propertyType, market, locale);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.IdealistaResolveLocations(query, operation, propertyType, market, locale, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -185,7 +227,14 @@ namespace ScrapeBadger.Test.Api
             //int? minRooms = null;
             //int? maxRooms = null;
             //string locale = null;
-            //var response = instance.IdealistaSearchAllBeatsResultCap(location, operation, propertyType, market, maxResults, minPrice, maxPrice, minSize, maxSize, minRooms, maxRooms, locale);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.IdealistaSearchAllBeatsResultCap(location, operation, propertyType, market, maxResults, minPrice, maxPrice, minSize, maxSize, minRooms, maxRooms, locale, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -211,7 +260,14 @@ namespace ScrapeBadger.Test.Api
             //int? minRooms = null;
             //int? maxRooms = null;
             //string locale = null;
-            //var response = instance.IdealistaSearchListings(location, operation, propertyType, market, page, maxItems, sortBy, sortOrder, minPrice, maxPrice, minSize, maxSize, minRooms, maxRooms, locale);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.IdealistaSearchListings(location, operation, propertyType, market, page, maxItems, sortBy, sortOrder, minPrice, maxPrice, minSize, maxSize, minRooms, maxRooms, locale, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
     }

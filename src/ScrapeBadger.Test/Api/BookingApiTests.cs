@@ -87,7 +87,14 @@ namespace ScrapeBadger.Test.Api
             //int? photos = null;
             //int? questions = null;
             //string language = null;
-            //var response = instance.BookingGetPropertyDetail(countryCode, slug, photos, questions, language);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.BookingGetPropertyDetail(countryCode, slug, photos, questions, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -106,7 +113,14 @@ namespace ScrapeBadger.Test.Api
             //string reviewLanguage = null;
             //string guestType = null;
             //string language = null;
-            //var response = instance.BookingGetPropertyReviews(countryCode, slug, limit, offset, sort, reviewLanguage, guestType, language);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.BookingGetPropertyReviews(countryCode, slug, limit, offset, sort, reviewLanguage, guestType, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -126,7 +140,14 @@ namespace ScrapeBadger.Test.Api
             //int? rooms = null;
             //string currency = null;
             //string language = null;
-            //var response = instance.BookingGetRoomTypesAndLiveRates(countryCode, slug, checkin, checkout, adults, children, rooms, currency, language);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.BookingGetRoomTypesAndLiveRates(countryCode, slug, checkin, checkout, adults, children, rooms, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -140,7 +161,14 @@ namespace ScrapeBadger.Test.Api
             //string query = null;
             //int? limit = null;
             //string language = null;
-            //var response = instance.BookingSearchDestinations(query, limit, language);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.BookingSearchDestinations(query, limit, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -165,7 +193,14 @@ namespace ScrapeBadger.Test.Api
             //string filters = null;
             //string currency = null;
             //string language = null;
-            //var response = instance.BookingSearchProperties(location, destId, destType, checkin, checkout, adults, children, rooms, offset, limit, sort, filters, currency, language);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.BookingSearchProperties(location, destId, destType, checkin, checkout, adults, children, rooms, offset, limit, sort, filters, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
     }

@@ -64,7 +64,14 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //string lang = null;
             //bool? includeExtras = null;
-            //var response = instance.AppStoreGetAppDetail(appId, country, lang, includeExtras);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AppStoreGetAppDetail(appId, country, lang, includeExtras, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -79,7 +86,14 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //int? page = null;
             //string sort = null;
-            //var response = instance.AppStoreGetAppReviews(appId, country, page, sort);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AppStoreGetAppReviews(appId, country, page, sort, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -92,7 +106,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string artistId = null;
             //string country = null;
-            //var response = instance.AppStoreGetDeveloperApps(artistId, country);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AppStoreGetDeveloperApps(artistId, country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -103,7 +124,14 @@ namespace ScrapeBadger.Test.Api
         public void AppStoreListGenresTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.AppStoreListGenres();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AppStoreListGenres(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -114,7 +142,14 @@ namespace ScrapeBadger.Test.Api
         public void AppStoreListMarketsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.AppStoreListMarkets();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AppStoreListMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -131,7 +166,14 @@ namespace ScrapeBadger.Test.Api
             //int? limit = null;
             //int? offset = null;
             //string lang = null;
-            //var response = instance.AppStoreSearchApps(query, country, entity, limit, offset, lang);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AppStoreSearchApps(query, country, entity, limit, offset, lang, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -147,7 +189,14 @@ namespace ScrapeBadger.Test.Api
             //int? genre = null;
             //int? limit = null;
             //string entity = null;
-            //var response = instance.AppStoreTopCharts(country, type, genre, limit, entity);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AppStoreTopCharts(country, type, genre, limit, entity, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
     }

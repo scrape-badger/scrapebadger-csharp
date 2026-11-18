@@ -62,7 +62,14 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string query = null;
             //string country = null;
-            //var response = instance.BraveAutocomplete(query, country);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.BraveAutocomplete(query, country, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<BraveAutocompleteResponse>(response);
         }
 
@@ -78,7 +85,14 @@ namespace ScrapeBadger.Test.Api
             //string uiLanguage = null;
             //string safeSearch = null;
             //int? count = null;
-            //var response = instance.BraveImageSearch(query, country, uiLanguage, safeSearch, count);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.BraveImageSearch(query, country, uiLanguage, safeSearch, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<BraveResponse>(response);
         }
 
@@ -89,7 +103,14 @@ namespace ScrapeBadger.Test.Api
         public void BraveListSupportedLocalesTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.BraveListSupportedLocales();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.BraveListSupportedLocales(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<BraveLocalesResponse>(response);
         }
 
@@ -105,7 +126,14 @@ namespace ScrapeBadger.Test.Api
             //string uiLanguage = null;
             //string safeSearch = null;
             //int? count = null;
-            //var response = instance.BraveNewsSearch(query, country, uiLanguage, safeSearch, count);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.BraveNewsSearch(query, country, uiLanguage, safeSearch, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<BraveResponse>(response);
         }
 
@@ -122,7 +150,14 @@ namespace ScrapeBadger.Test.Api
             //string safeSearch = null;
             //int? page = null;
             //int? count = null;
-            //var response = instance.BraveVideoSearch(query, country, uiLanguage, safeSearch, page, count);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.BraveVideoSearch(query, country, uiLanguage, safeSearch, page, count, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<BravePagedResponse>(response);
         }
 
@@ -141,7 +176,14 @@ namespace ScrapeBadger.Test.Api
             //int? count = null;
             //string freshness = null;
             //bool? spellcheck = null;
-            //var response = instance.BraveWebSearch(query, country, uiLanguage, safeSearch, page, count, freshness, spellcheck);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.BraveWebSearch(query, country, uiLanguage, safeSearch, page, count, freshness, spellcheck, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<BraveSearchResponse>(response);
         }
     }

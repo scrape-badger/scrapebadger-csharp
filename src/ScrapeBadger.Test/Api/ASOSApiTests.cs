@@ -66,7 +66,14 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //string currency = null;
             //string language = null;
-            //var response = instance.AsosGetProductDetail(productId, market, store, country, currency, language);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AsosGetProductDetail(productId, market, store, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<ProductResponse>(response);
         }
 
@@ -83,7 +90,14 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //string currency = null;
             //string language = null;
-            //var response = instance.AsosGetStockAndPrices(productIds, market, store, country, currency, language);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AsosGetStockAndPrices(productIds, market, store, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<StockResponse>(response);
         }
 
@@ -100,7 +114,14 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //string currency = null;
             //string language = null;
-            //var response = instance.AsosListCategories(gender, market, store, country, currency, language);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AsosListCategories(gender, market, store, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -111,7 +132,14 @@ namespace ScrapeBadger.Test.Api
         public void AsosListMarketsTest()
         {
             // TODO uncomment below to test the method and replace null with proper value
-            //var response = instance.AsosListMarkets();
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AsosListMarkets(prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -129,7 +157,14 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //string currency = null;
             //string language = null;
-            //var response = instance.AsosListSearchFilters(query, categoryId, market, store, country, currency, language);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AsosListSearchFilters(query, categoryId, market, store, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -155,7 +190,14 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //string currency = null;
             //string language = null;
-            //var response = instance.AsosSearchProducts(query, categoryId, offset, limit, sort, brand, colour, size, minPrice, maxPrice, market, store, country, currency, language);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AsosSearchProducts(query, categoryId, offset, limit, sort, brand, colour, size, minPrice, maxPrice, market, store, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<PortalApiRoutersV1AsosSearchResponse>(response);
         }
 
@@ -172,7 +214,14 @@ namespace ScrapeBadger.Test.Api
             //string country = null;
             //string currency = null;
             //string language = null;
-            //var response = instance.AsosSearchSuggestions(query, market, store, country, currency, language);
+            //string prefer = null;
+            //string xCallbackURL = null;
+            //string idempotencyKey = null;
+            //bool? async = null;
+            //int? asyncWait = null;
+            //string callbackUrl = null;
+            //string idempotencyKey2 = null;
+            //var response = instance.AsosSearchSuggestions(query, market, store, country, currency, language, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
     }

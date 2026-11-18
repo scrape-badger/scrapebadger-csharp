@@ -84,6 +84,27 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of WebhookSecret</returns>
         ApiResponse<WebhookSecret> AccountRotateTheWebhookSigningSecretWithHttpInfo();
+        /// <summary>
+        /// Webhook deliveries
+        /// </summary>
+        /// <remarks>
+        /// This account&#39;s async-request webhook deliveries of the last 24 h, newest first. Free. Needs a full-access API key, like the webhook secret: a trial key gets &#x60;403 trial_not_allowed&#x60;, a key restricted to some APIs &#x60;403 full_access_required&#x60;.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">How many deliveries to return (1-200). (optional, default to 50)</param>
+        /// <returns>WebhookDeliveries</returns>
+        WebhookDeliveries AccountWebhookDeliveries(int? limit = default(int?));
+
+        /// <summary>
+        /// Webhook deliveries
+        /// </summary>
+        /// <remarks>
+        /// This account&#39;s async-request webhook deliveries of the last 24 h, newest first. Free. Needs a full-access API key, like the webhook secret: a trial key gets &#x60;403 trial_not_allowed&#x60;, a key restricted to some APIs &#x60;403 full_access_required&#x60;.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">How many deliveries to return (1-200). (optional, default to 50)</param>
+        /// <returns>ApiResponse of WebhookDeliveries</returns>
+        ApiResponse<WebhookDeliveries> AccountWebhookDeliveriesWithHttpInfo(int? limit = default(int?));
         #endregion Synchronous Operations
     }
 
@@ -156,6 +177,29 @@ namespace ScrapeBadger.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (WebhookSecret)</returns>
         System.Threading.Tasks.Task<ApiResponse<WebhookSecret>> AccountRotateTheWebhookSigningSecretWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Webhook deliveries
+        /// </summary>
+        /// <remarks>
+        /// This account&#39;s async-request webhook deliveries of the last 24 h, newest first. Free. Needs a full-access API key, like the webhook secret: a trial key gets &#x60;403 trial_not_allowed&#x60;, a key restricted to some APIs &#x60;403 full_access_required&#x60;.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">How many deliveries to return (1-200). (optional, default to 50)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of WebhookDeliveries</returns>
+        System.Threading.Tasks.Task<WebhookDeliveries> AccountWebhookDeliveriesAsync(int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Webhook deliveries
+        /// </summary>
+        /// <remarks>
+        /// This account&#39;s async-request webhook deliveries of the last 24 h, newest first. Free. Needs a full-access API key, like the webhook secret: a trial key gets &#x60;403 trial_not_allowed&#x60;, a key restricted to some APIs &#x60;403 full_access_required&#x60;.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">How many deliveries to return (1-200). (optional, default to 50)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (WebhookDeliveries)</returns>
+        System.Threading.Tasks.Task<ApiResponse<WebhookDeliveries>> AccountWebhookDeliveriesWithHttpInfoAsync(int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -696,6 +740,129 @@ namespace ScrapeBadger.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("AccountRotateTheWebhookSigningSecret", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Webhook deliveries This account&#39;s async-request webhook deliveries of the last 24 h, newest first. Free. Needs a full-access API key, like the webhook secret: a trial key gets &#x60;403 trial_not_allowed&#x60;, a key restricted to some APIs &#x60;403 full_access_required&#x60;.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">How many deliveries to return (1-200). (optional, default to 50)</param>
+        /// <returns>WebhookDeliveries</returns>
+        public WebhookDeliveries AccountWebhookDeliveries(int? limit = default(int?))
+        {
+            ScrapeBadger.Client.ApiResponse<WebhookDeliveries> localVarResponse = AccountWebhookDeliveriesWithHttpInfo(limit);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Webhook deliveries This account&#39;s async-request webhook deliveries of the last 24 h, newest first. Free. Needs a full-access API key, like the webhook secret: a trial key gets &#x60;403 trial_not_allowed&#x60;, a key restricted to some APIs &#x60;403 full_access_required&#x60;.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">How many deliveries to return (1-200). (optional, default to 50)</param>
+        /// <returns>ApiResponse of WebhookDeliveries</returns>
+        public ScrapeBadger.Client.ApiResponse<WebhookDeliveries> AccountWebhookDeliveriesWithHttpInfo(int? limit = default(int?))
+        {
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<WebhookDeliveries>("/v1/account/webhook-deliveries", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AccountWebhookDeliveries", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Webhook deliveries This account&#39;s async-request webhook deliveries of the last 24 h, newest first. Free. Needs a full-access API key, like the webhook secret: a trial key gets &#x60;403 trial_not_allowed&#x60;, a key restricted to some APIs &#x60;403 full_access_required&#x60;.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">How many deliveries to return (1-200). (optional, default to 50)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of WebhookDeliveries</returns>
+        public async System.Threading.Tasks.Task<WebhookDeliveries> AccountWebhookDeliveriesAsync(int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ScrapeBadger.Client.ApiResponse<WebhookDeliveries> localVarResponse = await AccountWebhookDeliveriesWithHttpInfoAsync(limit, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Webhook deliveries This account&#39;s async-request webhook deliveries of the last 24 h, newest first. Free. Needs a full-access API key, like the webhook secret: a trial key gets &#x60;403 trial_not_allowed&#x60;, a key restricted to some APIs &#x60;403 full_access_required&#x60;.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">How many deliveries to return (1-200). (optional, default to 50)</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (WebhookDeliveries)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<WebhookDeliveries>> AccountWebhookDeliveriesWithHttpInfoAsync(int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.GetAsync<WebhookDeliveries>("/v1/account/webhook-deliveries", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("AccountWebhookDeliveries", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 
