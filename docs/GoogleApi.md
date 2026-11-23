@@ -31,6 +31,7 @@ All URIs are relative to *https://scrapebadger.com*
 | [**GoogleNewsByTopic**](GoogleApi.md#googlenewsbytopic) | **GET** /v1/google/news/topics | News by topic |
 | [**GooglePatentDetails**](GoogleApi.md#googlepatentdetails) | **GET** /v1/google/patents/detail | Patent details |
 | [**GoogleRelatedTopicsQueries**](GoogleApi.md#googlerelatedtopicsqueries) | **GET** /v1/google/trends/related | Related topics &amp; queries |
+| [**GoogleResolve**](GoogleApi.md#googleresolve) | **POST** /v1/google/resolve | Resolve |
 | [**GoogleSearchGoogleImages**](GoogleApi.md#googlesearchgoogleimages) | **GET** /v1/google/images/search | Search Google Images |
 | [**GoogleSearchGoogleJobs**](GoogleApi.md#googlesearchgooglejobs) | **GET** /v1/google/jobs/search | Search Google Jobs |
 | [**GoogleSearchGoogleMapsPlaces**](GoogleApi.md#googlesearchgooglemapsplaces) | **GET** /v1/google/maps/search | Search Google Maps places |
@@ -3478,6 +3479,108 @@ catch (ApiException e)
 | **200** | Successful Response |  -  |
 | **422** | Validation Error |  -  |
 | **202** | Accepted: the async call is still running (it outlived its wait, or a callback was given with no wait). Poll &#x60;next_action.url&#x60;. A repeat with the same &#x60;Idempotency-Key&#x60; answers what that poll answers, with &#x60;Idempotent-Replayed: true&#x60;. |  * Location - &#x60;/v1/requests/{request_id}&#x60;. <br>  * Retry-After - Seconds until the next poll. <br>  * Idempotent-Replayed - &#x60;true&#x60; when this answers an earlier call with the same key. <br>  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="googleresolve"></a>
+# **GoogleResolve**
+> GoogleResolveResponse GoogleResolve (GoogleResolveRequest googleResolveRequest)
+
+Resolve
+
+Get the URLs of search results whose `link` is still a Google redirect. Costs 0 credits.  Google hides a result's URL behind a redirect (`https://www.google.com/goto?url=...`) and paces how fast a result page's links can be followed. `GET /v1/google/search` and `GET /v1/google/light/search` give every organic result whose `link` is still such a redirect a `link_token` and `retry_after_seconds` (0 means it can be resolved right away). Both are null on a result whose `link` is already the real URL. Send the results that have a `link_token` here, 1 to 25 per call.  Each row comes back in the order sent, in one of three states:  - Resolved: `link` is the result's own URL and there is no `link_token`. - Not ready: `link_token` is the token to send next time (it can differ from the one   sent) and `retry_after_seconds` is how long to wait, at least 1. - Failed: `link_token` and `error`. Do not send this token again.  The top-level `retry_after_seconds` is the smallest wait among the rows that are not ready, or null. Wait that long, then send the rows that are not ready again. A token sent early is not an error: its row comes back not ready with the wait that is left.  Typical timing: calling again after each `retry_after_seconds`, all ten links of a result page are known 45 to 70 seconds after the search. Once the result page is about 160 seconds old, one call returns every remaining link.  An invalid body answers 422. The async request forms do not apply to this endpoint.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Net.Http;
+using ScrapeBadger.Api;
+using ScrapeBadger.Client;
+using ScrapeBadger.Model;
+
+namespace Example
+{
+    public class GoogleResolveExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://scrapebadger.com";
+            // Configure API key authorization: ApiKeyAuth
+            config.AddApiKey("X-API-Key", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("X-API-Key", "Bearer");
+
+            // create instances of HttpClient, HttpClientHandler to be reused later with different Api classes
+            HttpClient httpClient = new HttpClient();
+            HttpClientHandler httpClientHandler = new HttpClientHandler();
+            var apiInstance = new GoogleApi(httpClient, config, httpClientHandler);
+            var googleResolveRequest = new GoogleResolveRequest(); // GoogleResolveRequest | 
+
+            try
+            {
+                // Resolve
+                GoogleResolveResponse result = apiInstance.GoogleResolve(googleResolveRequest);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling GoogleApi.GoogleResolve: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GoogleResolveWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // Resolve
+    ApiResponse<GoogleResolveResponse> response = apiInstance.GoogleResolveWithHttpInfo(googleResolveRequest);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling GoogleApi.GoogleResolveWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **googleResolveRequest** | [**GoogleResolveRequest**](GoogleResolveRequest.md) |  |  |
+
+### Return type
+
+[**GoogleResolveResponse**](GoogleResolveResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successful Response |  -  |
+| **503** | Link resolution is temporarily unavailable. Retry after the number of seconds in the &#x60;Retry-After&#x60; header. |  -  |
+| **422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

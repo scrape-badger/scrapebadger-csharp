@@ -734,6 +734,18 @@ namespace ScrapeBadger.Test.Api
         }
 
         /// <summary>
+        /// Test GoogleResolve
+        /// </summary>
+        [Fact]
+        public void GoogleResolveTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //GoogleResolveRequest googleResolveRequest = null;
+            //var response = instance.GoogleResolve(googleResolveRequest);
+            //Assert.IsType<GoogleResolveResponse>(response);
+        }
+
+        /// <summary>
         /// Test GoogleSearchGoogleImages
         /// </summary>
         [Fact]

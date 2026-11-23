@@ -34788,6 +34788,62 @@ paths:
       summary: Immersive product detail
       tags:
       - Google
+  /v1/google/resolve:
+    post:
+      description: |-
+        Get the URLs of search results whose `link` is still a Google redirect. Costs 0 credits.
+
+        Google hides a result's URL behind a redirect (`https://www.google.com/goto?url=...`)
+        and paces how fast a result page's links can be followed. `GET /v1/google/search` and
+        `GET /v1/google/light/search` give every organic result whose `link` is still such a
+        redirect a `link_token` and `retry_after_seconds` (0 means it can be resolved right
+        away). Both are null on a result whose `link` is already the real URL. Send the
+        results that have a `link_token` here, 1 to 25 per call.
+
+        Each row comes back in the order sent, in one of three states:
+
+        - Resolved: `link` is the result's own URL and there is no `link_token`.
+        - Not ready: `link_token` is the token to send next time (it can differ from the one
+          sent) and `retry_after_seconds` is how long to wait, at least 1.
+        - Failed: `link_token` and `error`. Do not send this token again.
+
+        The top-level `retry_after_seconds` is the smallest wait among the rows that are not
+        ready, or null. Wait that long, then send the rows that are not ready again. A token
+        sent early is not an error: its row comes back not ready with the wait that is left.
+
+        Typical timing: calling again after each `retry_after_seconds`, all ten links of a
+        result page are known 45 to 70 seconds after the search. Once the result page is
+        about 160 seconds old, one call returns every remaining link.
+
+        An invalid body answers 422. The async request forms do not apply to this endpoint.
+      operationId: google_resolve
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GoogleResolveRequest'
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GoogleResolveResponse'
+          description: Successful Response
+        "503":
+          description: Link resolution is temporarily unavailable. Retry after the
+            number of seconds in the `Retry-After` header.
+        "422":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+          description: Validation Error
+      security:
+      - ApiKeyAuth: []
+      summary: Resolve
+      tags:
+      - Google
   /v1/google/scholar/author:
     get:
       description: "Get detailed Google Scholar author profile including articles,\
@@ -95158,6 +95214,92 @@ components:
       required:
       - text
       title: GitHubTextLink
+    GoogleResolveItem:
+      additionalProperties: true
+      description: "One result to resolve: its `link_token`, plus any fields to get\
+        \ back with it."
+      example:
+        link_token: link_token
+      properties:
+        link_token:
+          description: "The `link_token` of an organic result, from a Google Search\
+            \ or Light Search response or from an earlier resolve response."
+          maxLength: 12000
+          minLength: 1
+          title: Link Token
+          type: string
+      required:
+      - link_token
+      title: GoogleResolveItem
+    GoogleResolveRequest:
+      example:
+        results:
+        - link_token: link_token
+        - link_token: link_token
+        - link_token: link_token
+        - link_token: link_token
+        - link_token: link_token
+      properties:
+        results:
+          description: "The results to resolve, 1 to 25. Each needs a `link_token`.\
+            \ Any other field (`position`, `title`, your own id) is returned unchanged\
+            \ on its row, so the `organic_results` items of a search response can\
+            \ be sent as they are."
+          items:
+            $ref: '#/components/schemas/GoogleResolveItem'
+          maxItems: 25
+          minItems: 1
+          type: array
+      required:
+      - results
+      title: GoogleResolveRequest
+    GoogleResolveResponse:
+      example:
+        retry_after_seconds: 6
+        results:
+        - link: link
+          link_token: link_token
+          retry_after_seconds: 0
+          error: error
+        - link: link
+          link_token: link_token
+          retry_after_seconds: 0
+          error: error
+      properties:
+        results:
+          description: "One row for each result sent, in the order sent."
+          items:
+            $ref: '#/components/schemas/GoogleResolveRow'
+          type: array
+        retry_after_seconds:
+          nullable: true
+          type: integer
+      required:
+      - results
+      title: GoogleResolveResponse
+    GoogleResolveRow:
+      additionalProperties: true
+      description: "One row of the answer: resolved, not ready or failed. Fields sent\
+        \ on the row are returned too."
+      example:
+        link: link
+        link_token: link_token
+        retry_after_seconds: 0
+        error: error
+      properties:
+        link:
+          nullable: true
+          type: string
+        link_token:
+          nullable: true
+          type: string
+        retry_after_seconds:
+          nullable: true
+          type: integer
+        error:
+          nullable: true
+          type: string
+      title: GoogleResolveRow
     HTTPValidationError:
       example:
         detail:

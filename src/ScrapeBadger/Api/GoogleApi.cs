@@ -1277,6 +1277,27 @@ namespace ScrapeBadger.Api
         /// <returns>ApiResponse of Object</returns>
         ApiResponse<Object> GoogleRelatedTopicsQueriesWithHttpInfo(string q, string geo = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
         /// <summary>
+        /// Resolve
+        /// </summary>
+        /// <remarks>
+        /// Get the URLs of search results whose &#x60;link&#x60; is still a Google redirect. Costs 0 credits.  Google hides a result&#39;s URL behind a redirect (&#x60;https://www.google.com/goto?url&#x3D;...&#x60;) and paces how fast a result page&#39;s links can be followed. &#x60;GET /v1/google/search&#x60; and &#x60;GET /v1/google/light/search&#x60; give every organic result whose &#x60;link&#x60; is still such a redirect a &#x60;link_token&#x60; and &#x60;retry_after_seconds&#x60; (0 means it can be resolved right away). Both are null on a result whose &#x60;link&#x60; is already the real URL. Send the results that have a &#x60;link_token&#x60; here, 1 to 25 per call.  Each row comes back in the order sent, in one of three states:  - Resolved: &#x60;link&#x60; is the result&#39;s own URL and there is no &#x60;link_token&#x60;. - Not ready: &#x60;link_token&#x60; is the token to send next time (it can differ from the one   sent) and &#x60;retry_after_seconds&#x60; is how long to wait, at least 1. - Failed: &#x60;link_token&#x60; and &#x60;error&#x60;. Do not send this token again.  The top-level &#x60;retry_after_seconds&#x60; is the smallest wait among the rows that are not ready, or null. Wait that long, then send the rows that are not ready again. A token sent early is not an error: its row comes back not ready with the wait that is left.  Typical timing: calling again after each &#x60;retry_after_seconds&#x60;, all ten links of a result page are known 45 to 70 seconds after the search. Once the result page is about 160 seconds old, one call returns every remaining link.  An invalid body answers 422. The async request forms do not apply to this endpoint.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="googleResolveRequest"></param>
+        /// <returns>GoogleResolveResponse</returns>
+        GoogleResolveResponse GoogleResolve(GoogleResolveRequest googleResolveRequest);
+
+        /// <summary>
+        /// Resolve
+        /// </summary>
+        /// <remarks>
+        /// Get the URLs of search results whose &#x60;link&#x60; is still a Google redirect. Costs 0 credits.  Google hides a result&#39;s URL behind a redirect (&#x60;https://www.google.com/goto?url&#x3D;...&#x60;) and paces how fast a result page&#39;s links can be followed. &#x60;GET /v1/google/search&#x60; and &#x60;GET /v1/google/light/search&#x60; give every organic result whose &#x60;link&#x60; is still such a redirect a &#x60;link_token&#x60; and &#x60;retry_after_seconds&#x60; (0 means it can be resolved right away). Both are null on a result whose &#x60;link&#x60; is already the real URL. Send the results that have a &#x60;link_token&#x60; here, 1 to 25 per call.  Each row comes back in the order sent, in one of three states:  - Resolved: &#x60;link&#x60; is the result&#39;s own URL and there is no &#x60;link_token&#x60;. - Not ready: &#x60;link_token&#x60; is the token to send next time (it can differ from the one   sent) and &#x60;retry_after_seconds&#x60; is how long to wait, at least 1. - Failed: &#x60;link_token&#x60; and &#x60;error&#x60;. Do not send this token again.  The top-level &#x60;retry_after_seconds&#x60; is the smallest wait among the rows that are not ready, or null. Wait that long, then send the rows that are not ready again. A token sent early is not an error: its row comes back not ready with the wait that is left.  Typical timing: calling again after each &#x60;retry_after_seconds&#x60;, all ten links of a result page are known 45 to 70 seconds after the search. Once the result page is about 160 seconds old, one call returns every remaining link.  An invalid body answers 422. The async request forms do not apply to this endpoint.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="googleResolveRequest"></param>
+        /// <returns>ApiResponse of GoogleResolveResponse</returns>
+        ApiResponse<GoogleResolveResponse> GoogleResolveWithHttpInfo(GoogleResolveRequest googleResolveRequest);
+        /// <summary>
         /// Search Google Images
         /// </summary>
         /// <remarks>
@@ -3163,6 +3184,29 @@ namespace ScrapeBadger.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> GoogleRelatedTopicsQueriesWithHttpInfoAsync(string q, string geo = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        /// <summary>
+        /// Resolve
+        /// </summary>
+        /// <remarks>
+        /// Get the URLs of search results whose &#x60;link&#x60; is still a Google redirect. Costs 0 credits.  Google hides a result&#39;s URL behind a redirect (&#x60;https://www.google.com/goto?url&#x3D;...&#x60;) and paces how fast a result page&#39;s links can be followed. &#x60;GET /v1/google/search&#x60; and &#x60;GET /v1/google/light/search&#x60; give every organic result whose &#x60;link&#x60; is still such a redirect a &#x60;link_token&#x60; and &#x60;retry_after_seconds&#x60; (0 means it can be resolved right away). Both are null on a result whose &#x60;link&#x60; is already the real URL. Send the results that have a &#x60;link_token&#x60; here, 1 to 25 per call.  Each row comes back in the order sent, in one of three states:  - Resolved: &#x60;link&#x60; is the result&#39;s own URL and there is no &#x60;link_token&#x60;. - Not ready: &#x60;link_token&#x60; is the token to send next time (it can differ from the one   sent) and &#x60;retry_after_seconds&#x60; is how long to wait, at least 1. - Failed: &#x60;link_token&#x60; and &#x60;error&#x60;. Do not send this token again.  The top-level &#x60;retry_after_seconds&#x60; is the smallest wait among the rows that are not ready, or null. Wait that long, then send the rows that are not ready again. A token sent early is not an error: its row comes back not ready with the wait that is left.  Typical timing: calling again after each &#x60;retry_after_seconds&#x60;, all ten links of a result page are known 45 to 70 seconds after the search. Once the result page is about 160 seconds old, one call returns every remaining link.  An invalid body answers 422. The async request forms do not apply to this endpoint.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="googleResolveRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GoogleResolveResponse</returns>
+        System.Threading.Tasks.Task<GoogleResolveResponse> GoogleResolveAsync(GoogleResolveRequest googleResolveRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+
+        /// <summary>
+        /// Resolve
+        /// </summary>
+        /// <remarks>
+        /// Get the URLs of search results whose &#x60;link&#x60; is still a Google redirect. Costs 0 credits.  Google hides a result&#39;s URL behind a redirect (&#x60;https://www.google.com/goto?url&#x3D;...&#x60;) and paces how fast a result page&#39;s links can be followed. &#x60;GET /v1/google/search&#x60; and &#x60;GET /v1/google/light/search&#x60; give every organic result whose &#x60;link&#x60; is still such a redirect a &#x60;link_token&#x60; and &#x60;retry_after_seconds&#x60; (0 means it can be resolved right away). Both are null on a result whose &#x60;link&#x60; is already the real URL. Send the results that have a &#x60;link_token&#x60; here, 1 to 25 per call.  Each row comes back in the order sent, in one of three states:  - Resolved: &#x60;link&#x60; is the result&#39;s own URL and there is no &#x60;link_token&#x60;. - Not ready: &#x60;link_token&#x60; is the token to send next time (it can differ from the one   sent) and &#x60;retry_after_seconds&#x60; is how long to wait, at least 1. - Failed: &#x60;link_token&#x60; and &#x60;error&#x60;. Do not send this token again.  The top-level &#x60;retry_after_seconds&#x60; is the smallest wait among the rows that are not ready, or null. Wait that long, then send the rows that are not ready again. A token sent early is not an error: its row comes back not ready with the wait that is left.  Typical timing: calling again after each &#x60;retry_after_seconds&#x60;, all ten links of a result page are known 45 to 70 seconds after the search. Once the result page is about 160 seconds old, one call returns every remaining link.  An invalid body answers 422. The async request forms do not apply to this endpoint.
+        /// </remarks>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="googleResolveRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GoogleResolveResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<GoogleResolveResponse>> GoogleResolveWithHttpInfoAsync(GoogleResolveRequest googleResolveRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Search Google Images
         /// </summary>
@@ -11620,6 +11664,133 @@ namespace ScrapeBadger.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GoogleRelatedTopicsQueries", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Resolve Get the URLs of search results whose &#x60;link&#x60; is still a Google redirect. Costs 0 credits.  Google hides a result&#39;s URL behind a redirect (&#x60;https://www.google.com/goto?url&#x3D;...&#x60;) and paces how fast a result page&#39;s links can be followed. &#x60;GET /v1/google/search&#x60; and &#x60;GET /v1/google/light/search&#x60; give every organic result whose &#x60;link&#x60; is still such a redirect a &#x60;link_token&#x60; and &#x60;retry_after_seconds&#x60; (0 means it can be resolved right away). Both are null on a result whose &#x60;link&#x60; is already the real URL. Send the results that have a &#x60;link_token&#x60; here, 1 to 25 per call.  Each row comes back in the order sent, in one of three states:  - Resolved: &#x60;link&#x60; is the result&#39;s own URL and there is no &#x60;link_token&#x60;. - Not ready: &#x60;link_token&#x60; is the token to send next time (it can differ from the one   sent) and &#x60;retry_after_seconds&#x60; is how long to wait, at least 1. - Failed: &#x60;link_token&#x60; and &#x60;error&#x60;. Do not send this token again.  The top-level &#x60;retry_after_seconds&#x60; is the smallest wait among the rows that are not ready, or null. Wait that long, then send the rows that are not ready again. A token sent early is not an error: its row comes back not ready with the wait that is left.  Typical timing: calling again after each &#x60;retry_after_seconds&#x60;, all ten links of a result page are known 45 to 70 seconds after the search. Once the result page is about 160 seconds old, one call returns every remaining link.  An invalid body answers 422. The async request forms do not apply to this endpoint.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="googleResolveRequest"></param>
+        /// <returns>GoogleResolveResponse</returns>
+        public GoogleResolveResponse GoogleResolve(GoogleResolveRequest googleResolveRequest)
+        {
+            ScrapeBadger.Client.ApiResponse<GoogleResolveResponse> localVarResponse = GoogleResolveWithHttpInfo(googleResolveRequest);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Resolve Get the URLs of search results whose &#x60;link&#x60; is still a Google redirect. Costs 0 credits.  Google hides a result&#39;s URL behind a redirect (&#x60;https://www.google.com/goto?url&#x3D;...&#x60;) and paces how fast a result page&#39;s links can be followed. &#x60;GET /v1/google/search&#x60; and &#x60;GET /v1/google/light/search&#x60; give every organic result whose &#x60;link&#x60; is still such a redirect a &#x60;link_token&#x60; and &#x60;retry_after_seconds&#x60; (0 means it can be resolved right away). Both are null on a result whose &#x60;link&#x60; is already the real URL. Send the results that have a &#x60;link_token&#x60; here, 1 to 25 per call.  Each row comes back in the order sent, in one of three states:  - Resolved: &#x60;link&#x60; is the result&#39;s own URL and there is no &#x60;link_token&#x60;. - Not ready: &#x60;link_token&#x60; is the token to send next time (it can differ from the one   sent) and &#x60;retry_after_seconds&#x60; is how long to wait, at least 1. - Failed: &#x60;link_token&#x60; and &#x60;error&#x60;. Do not send this token again.  The top-level &#x60;retry_after_seconds&#x60; is the smallest wait among the rows that are not ready, or null. Wait that long, then send the rows that are not ready again. A token sent early is not an error: its row comes back not ready with the wait that is left.  Typical timing: calling again after each &#x60;retry_after_seconds&#x60;, all ten links of a result page are known 45 to 70 seconds after the search. Once the result page is about 160 seconds old, one call returns every remaining link.  An invalid body answers 422. The async request forms do not apply to this endpoint.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="googleResolveRequest"></param>
+        /// <returns>ApiResponse of GoogleResolveResponse</returns>
+        public ScrapeBadger.Client.ApiResponse<GoogleResolveResponse> GoogleResolveWithHttpInfo(GoogleResolveRequest googleResolveRequest)
+        {
+            // verify the required parameter 'googleResolveRequest' is set
+            if (googleResolveRequest == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'googleResolveRequest' when calling GoogleApi->GoogleResolve");
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = googleResolveRequest;
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<GoogleResolveResponse>("/v1/google/resolve", localVarRequestOptions, this.Configuration);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GoogleResolve", localVarResponse);
+                if (_exception != null) throw _exception;
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// Resolve Get the URLs of search results whose &#x60;link&#x60; is still a Google redirect. Costs 0 credits.  Google hides a result&#39;s URL behind a redirect (&#x60;https://www.google.com/goto?url&#x3D;...&#x60;) and paces how fast a result page&#39;s links can be followed. &#x60;GET /v1/google/search&#x60; and &#x60;GET /v1/google/light/search&#x60; give every organic result whose &#x60;link&#x60; is still such a redirect a &#x60;link_token&#x60; and &#x60;retry_after_seconds&#x60; (0 means it can be resolved right away). Both are null on a result whose &#x60;link&#x60; is already the real URL. Send the results that have a &#x60;link_token&#x60; here, 1 to 25 per call.  Each row comes back in the order sent, in one of three states:  - Resolved: &#x60;link&#x60; is the result&#39;s own URL and there is no &#x60;link_token&#x60;. - Not ready: &#x60;link_token&#x60; is the token to send next time (it can differ from the one   sent) and &#x60;retry_after_seconds&#x60; is how long to wait, at least 1. - Failed: &#x60;link_token&#x60; and &#x60;error&#x60;. Do not send this token again.  The top-level &#x60;retry_after_seconds&#x60; is the smallest wait among the rows that are not ready, or null. Wait that long, then send the rows that are not ready again. A token sent early is not an error: its row comes back not ready with the wait that is left.  Typical timing: calling again after each &#x60;retry_after_seconds&#x60;, all ten links of a result page are known 45 to 70 seconds after the search. Once the result page is about 160 seconds old, one call returns every remaining link.  An invalid body answers 422. The async request forms do not apply to this endpoint.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="googleResolveRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of GoogleResolveResponse</returns>
+        public async System.Threading.Tasks.Task<GoogleResolveResponse> GoogleResolveAsync(GoogleResolveRequest googleResolveRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            ScrapeBadger.Client.ApiResponse<GoogleResolveResponse> localVarResponse = await GoogleResolveWithHttpInfoAsync(googleResolveRequest, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Resolve Get the URLs of search results whose &#x60;link&#x60; is still a Google redirect. Costs 0 credits.  Google hides a result&#39;s URL behind a redirect (&#x60;https://www.google.com/goto?url&#x3D;...&#x60;) and paces how fast a result page&#39;s links can be followed. &#x60;GET /v1/google/search&#x60; and &#x60;GET /v1/google/light/search&#x60; give every organic result whose &#x60;link&#x60; is still such a redirect a &#x60;link_token&#x60; and &#x60;retry_after_seconds&#x60; (0 means it can be resolved right away). Both are null on a result whose &#x60;link&#x60; is already the real URL. Send the results that have a &#x60;link_token&#x60; here, 1 to 25 per call.  Each row comes back in the order sent, in one of three states:  - Resolved: &#x60;link&#x60; is the result&#39;s own URL and there is no &#x60;link_token&#x60;. - Not ready: &#x60;link_token&#x60; is the token to send next time (it can differ from the one   sent) and &#x60;retry_after_seconds&#x60; is how long to wait, at least 1. - Failed: &#x60;link_token&#x60; and &#x60;error&#x60;. Do not send this token again.  The top-level &#x60;retry_after_seconds&#x60; is the smallest wait among the rows that are not ready, or null. Wait that long, then send the rows that are not ready again. A token sent early is not an error: its row comes back not ready with the wait that is left.  Typical timing: calling again after each &#x60;retry_after_seconds&#x60;, all ten links of a result page are known 45 to 70 seconds after the search. Once the result page is about 160 seconds old, one call returns every remaining link.  An invalid body answers 422. The async request forms do not apply to this endpoint.
+        /// </summary>
+        /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="googleResolveRequest"></param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (GoogleResolveResponse)</returns>
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<GoogleResolveResponse>> GoogleResolveWithHttpInfoAsync(GoogleResolveRequest googleResolveRequest, System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'googleResolveRequest' is set
+            if (googleResolveRequest == null)
+                throw new ScrapeBadger.Client.ApiException(400, "Missing required parameter 'googleResolveRequest' when calling GoogleApi->GoogleResolve");
+
+
+            ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+
+            var localVarContentType = ScrapeBadger.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null) localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+
+            var localVarAccept = ScrapeBadger.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null) localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+
+            localVarRequestOptions.Data = googleResolveRequest;
+
+            // authentication (ApiKeyAuth) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("X-API-Key")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("X-API-Key", this.Configuration.GetApiKeyWithPrefix("X-API-Key"));
+            }
+
+            // make the HTTP request
+
+            var localVarResponse = await this.AsynchronousClient.PostAsync<GoogleResolveResponse>("/v1/google/resolve", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GoogleResolve", localVarResponse);
                 if (_exception != null) throw _exception;
             }
 

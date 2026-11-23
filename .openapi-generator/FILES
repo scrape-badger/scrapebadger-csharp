@@ -121,6 +121,10 @@ docs/GitHubStatus.md
 docs/GitHubTextLink.md
 docs/GoogleApi.md
 docs/GooglePlayApi.md
+docs/GoogleResolveItem.md
+docs/GoogleResolveRequest.md
+docs/GoogleResolveResponse.md
+docs/GoogleResolveRow.md
 docs/GrokApi.md
 docs/GumtreeApi.md
 docs/HTTPValidationError.md
@@ -396,6 +400,10 @@ src/ScrapeBadger.Test/Model/GitHubRepositoryTests.cs
 src/ScrapeBadger.Test/Model/GitHubSocialAccountTests.cs
 src/ScrapeBadger.Test/Model/GitHubStatusTests.cs
 src/ScrapeBadger.Test/Model/GitHubTextLinkTests.cs
+src/ScrapeBadger.Test/Model/GoogleResolveItemTests.cs
+src/ScrapeBadger.Test/Model/GoogleResolveRequestTests.cs
+src/ScrapeBadger.Test/Model/GoogleResolveResponseTests.cs
+src/ScrapeBadger.Test/Model/GoogleResolveRowTests.cs
 src/ScrapeBadger.Test/Model/HTTPValidationErrorTests.cs
 src/ScrapeBadger.Test/Model/ImageurlTests.cs
 src/ScrapeBadger.Test/Model/IsLiveTests.cs
@@ -659,6 +667,10 @@ src/ScrapeBadger/Model/GitHubRepositoryResponse.cs
 src/ScrapeBadger/Model/GitHubSocialAccount.cs
 src/ScrapeBadger/Model/GitHubStatus.cs
 src/ScrapeBadger/Model/GitHubTextLink.cs
+src/ScrapeBadger/Model/GoogleResolveItem.cs
+src/ScrapeBadger/Model/GoogleResolveRequest.cs
+src/ScrapeBadger/Model/GoogleResolveResponse.cs
+src/ScrapeBadger/Model/GoogleResolveRow.cs
 src/ScrapeBadger/Model/HTTPValidationError.cs
 src/ScrapeBadger/Model/Imageurl.cs
 src/ScrapeBadger/Model/IsLive.cs
