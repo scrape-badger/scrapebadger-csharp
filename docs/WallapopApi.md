@@ -763,7 +763,7 @@ namespace Example
             var apiInstance = new WallapopApi(httpClient, config, httpClientHandler);
             var filterId = "filterId_example";  // string | 
             var categoryId = 56;  // int? | Category to scope options to (optional) 
-            var subcategoryIds = "subcategoryIds_example";  // string | Comma-separated subcategory ids to scope options to (optional) 
+            var subcategoryIds = "subcategoryIds_example";  // string | Comma-separated subcategory ids (needs their category_id) (optional) 
             var query = "query_example";  // string | Search text to scope options to (optional) 
             var market = "\"es\"";  // string | Market: es (Spain), it (Italy), pt (Portugal) (optional)  (default to "es")
             var prefer = respond-async, wait=25;  // string | `respond-async[, wait=N]` (RFC 7240): run the call async. If it has not finished after `wait` seconds (0-120, default 25) the answer is `202` with a `request_id`; poll `GET /v1/requests/{request_id}`. Its `wait=` wins over `async_wait`; without one, `async_wait` sets the wait. (optional) 
@@ -817,7 +817,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **filterId** | **string** |  |  |
 | **categoryId** | **int?** | Category to scope options to | [optional]  |
-| **subcategoryIds** | **string** | Comma-separated subcategory ids to scope options to | [optional]  |
+| **subcategoryIds** | **string** | Comma-separated subcategory ids (needs their category_id) | [optional]  |
 | **query** | **string** | Search text to scope options to | [optional]  |
 | **market** | **string** | Market: es (Spain), it (Italy), pt (Portugal) | [optional] [default to &quot;es&quot;] |
 | **prefer** | **string** | &#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. | [optional]  |
@@ -999,7 +999,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WallapopApi(httpClient, config, httpClientHandler);
             var categoryId = 56;  // int? | Category the filters apply to (optional) 
-            var subcategoryIds = "subcategoryIds_example";  // string | Comma-separated subcategory ids the filters apply to (optional) 
+            var subcategoryIds = "subcategoryIds_example";  // string | Comma-separated subcategory ids (needs their category_id) (optional) 
             var query = "query_example";  // string | Search text the filters apply to (optional) 
             var market = "\"es\"";  // string | Market: es (Spain), it (Italy), pt (Portugal) (optional)  (default to "es")
             var prefer = respond-async, wait=25;  // string | `respond-async[, wait=N]` (RFC 7240): run the call async. If it has not finished after `wait` seconds (0-120, default 25) the answer is `202` with a `request_id`; poll `GET /v1/requests/{request_id}`. Its `wait=` wins over `async_wait`; without one, `async_wait` sets the wait. (optional) 
@@ -1052,7 +1052,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **categoryId** | **int?** | Category the filters apply to | [optional]  |
-| **subcategoryIds** | **string** | Comma-separated subcategory ids the filters apply to | [optional]  |
+| **subcategoryIds** | **string** | Comma-separated subcategory ids (needs their category_id) | [optional]  |
 | **query** | **string** | Search text the filters apply to | [optional]  |
 | **market** | **string** | Market: es (Spain), it (Italy), pt (Portugal) | [optional] [default to &quot;es&quot;] |
 | **prefer** | **string** | &#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. | [optional]  |
