@@ -617,7 +617,7 @@ catch (ApiException e)
 
 List categories
 
-The full category tree; ids are usable as the search category_id.
+The full category tree; top-level ids are the search category_id, nested subcategory ids go in subcategory_ids.
 
 ### Example
 ```csharp
@@ -729,7 +729,7 @@ catch (ApiException e)
 
 <a id="wallapoplistfilteroptions"></a>
 # **WallapopListFilterOptions**
-> Object WallapopListFilterOptions (string filterId, int? categoryId = null, string query = null, string market = null, string prefer = null, string xCallbackURL = null, string idempotencyKey = null, bool? async = null, int? asyncWait = null, string callbackUrl = null, string idempotencyKey2 = null)
+> Object WallapopListFilterOptions (string filterId, int? categoryId = null, string subcategoryIds = null, string query = null, string market = null, string prefer = null, string xCallbackURL = null, string idempotencyKey = null, bool? async = null, int? asyncWait = null, string callbackUrl = null, string idempotencyKey2 = null)
 
 List filter options
 
@@ -763,6 +763,7 @@ namespace Example
             var apiInstance = new WallapopApi(httpClient, config, httpClientHandler);
             var filterId = "filterId_example";  // string | 
             var categoryId = 56;  // int? | Category to scope options to (optional) 
+            var subcategoryIds = "subcategoryIds_example";  // string | Comma-separated subcategory ids to scope options to (optional) 
             var query = "query_example";  // string | Search text to scope options to (optional) 
             var market = "\"es\"";  // string | Market: es (Spain), it (Italy), pt (Portugal) (optional)  (default to "es")
             var prefer = respond-async, wait=25;  // string | `respond-async[, wait=N]` (RFC 7240): run the call async. If it has not finished after `wait` seconds (0-120, default 25) the answer is `202` with a `request_id`; poll `GET /v1/requests/{request_id}`. Its `wait=` wins over `async_wait`; without one, `async_wait` sets the wait. (optional) 
@@ -776,7 +777,7 @@ namespace Example
             try
             {
                 // List filter options
-                Object result = apiInstance.WallapopListFilterOptions(filterId, categoryId, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+                Object result = apiInstance.WallapopListFilterOptions(filterId, categoryId, subcategoryIds, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -797,7 +798,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // List filter options
-    ApiResponse<Object> response = apiInstance.WallapopListFilterOptionsWithHttpInfo(filterId, categoryId, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+    ApiResponse<Object> response = apiInstance.WallapopListFilterOptionsWithHttpInfo(filterId, categoryId, subcategoryIds, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -816,6 +817,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **filterId** | **string** |  |  |
 | **categoryId** | **int?** | Category to scope options to | [optional]  |
+| **subcategoryIds** | **string** | Comma-separated subcategory ids to scope options to | [optional]  |
 | **query** | **string** | Search text to scope options to | [optional]  |
 | **market** | **string** | Market: es (Spain), it (Italy), pt (Portugal) | [optional] [default to &quot;es&quot;] |
 | **prefer** | **string** | &#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. | [optional]  |
@@ -964,7 +966,7 @@ catch (ApiException e)
 
 <a id="wallapoplistsearchfilters"></a>
 # **WallapopListSearchFilters**
-> Object WallapopListSearchFilters (int? categoryId = null, string query = null, string market = null, string prefer = null, string xCallbackURL = null, string idempotencyKey = null, bool? async = null, int? asyncWait = null, string callbackUrl = null, string idempotencyKey2 = null)
+> Object WallapopListSearchFilters (int? categoryId = null, string subcategoryIds = null, string query = null, string market = null, string prefer = null, string xCallbackURL = null, string idempotencyKey = null, bool? async = null, int? asyncWait = null, string callbackUrl = null, string idempotencyKey2 = null)
 
 List search filters
 
@@ -997,6 +999,7 @@ namespace Example
             HttpClientHandler httpClientHandler = new HttpClientHandler();
             var apiInstance = new WallapopApi(httpClient, config, httpClientHandler);
             var categoryId = 56;  // int? | Category the filters apply to (optional) 
+            var subcategoryIds = "subcategoryIds_example";  // string | Comma-separated subcategory ids the filters apply to (optional) 
             var query = "query_example";  // string | Search text the filters apply to (optional) 
             var market = "\"es\"";  // string | Market: es (Spain), it (Italy), pt (Portugal) (optional)  (default to "es")
             var prefer = respond-async, wait=25;  // string | `respond-async[, wait=N]` (RFC 7240): run the call async. If it has not finished after `wait` seconds (0-120, default 25) the answer is `202` with a `request_id`; poll `GET /v1/requests/{request_id}`. Its `wait=` wins over `async_wait`; without one, `async_wait` sets the wait. (optional) 
@@ -1010,7 +1013,7 @@ namespace Example
             try
             {
                 // List search filters
-                Object result = apiInstance.WallapopListSearchFilters(categoryId, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+                Object result = apiInstance.WallapopListSearchFilters(categoryId, subcategoryIds, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1031,7 +1034,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // List search filters
-    ApiResponse<Object> response = apiInstance.WallapopListSearchFiltersWithHttpInfo(categoryId, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+    ApiResponse<Object> response = apiInstance.WallapopListSearchFiltersWithHttpInfo(categoryId, subcategoryIds, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1049,6 +1052,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **categoryId** | **int?** | Category the filters apply to | [optional]  |
+| **subcategoryIds** | **string** | Comma-separated subcategory ids the filters apply to | [optional]  |
 | **query** | **string** | Search text the filters apply to | [optional]  |
 | **market** | **string** | Market: es (Spain), it (Italy), pt (Portugal) | [optional] [default to &quot;es&quot;] |
 | **prefer** | **string** | &#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. | [optional]  |
@@ -1084,11 +1088,11 @@ catch (ApiException e)
 
 <a id="wallapopsearchlistings"></a>
 # **WallapopSearchListings**
-> Object WallapopSearchListings (string query = null, string market = null, decimal? latitude = null, decimal? longitude = null, int? distanceKm = null, int? categoryId = null, decimal? minPrice = null, decimal? maxPrice = null, string condition = null, string brand = null, string model = null, string color = null, string timeFilter = null, bool? shippable = null, bool? hasWarranty = null, bool? refurbished = null, int? minYear = null, int? maxYear = null, int? minKm = null, int? maxKm = null, string gearbox = null, int? minHorsepower = null, int? maxHorsepower = null, string orderBy = null, string nextPage = null, string prefer = null, string xCallbackURL = null, string idempotencyKey = null, bool? async = null, int? asyncWait = null, string callbackUrl = null, string idempotencyKey2 = null)
+> Object WallapopSearchListings (string query = null, string market = null, decimal? latitude = null, decimal? longitude = null, int? distanceKm = null, int? categoryId = null, string subcategoryIds = null, decimal? minPrice = null, decimal? maxPrice = null, string condition = null, string brand = null, string model = null, string color = null, string timeFilter = null, bool? shippable = null, bool? hasWarranty = null, bool? refurbished = null, int? minYear = null, int? maxYear = null, int? minKm = null, int? maxKm = null, string gearbox = null, int? minHorsepower = null, int? maxHorsepower = null, string orderBy = null, string nextPage = null, string prefer = null, string xCallbackURL = null, string idempotencyKey = null, bool? async = null, int? asyncWait = null, string callbackUrl = null, string idempotencyKey2 = null)
 
 Search listings
 
-Search Wallapop listings (40 per page). Needs a query, a category_id, or both.
+Search Wallapop listings (40 per page). Needs a query, a category_id, subcategory_ids, or a combination.
 
 ### Example
 ```csharp
@@ -1122,6 +1126,7 @@ namespace Example
             var longitude = 8.14D;  // decimal? | Search centre longitude (optional) 
             var distanceKm = 56;  // int? | Search radius (optional) 
             var categoryId = 56;  // int? | Category id from /categories (optional) 
+            var subcategoryIds = "subcategoryIds_example";  // string | Comma-separated subcategory ids from /categories (any level of the tree), e.g. 9447 (Smartphones) or 9447,10310 (optional) 
             var minPrice = 8.14D;  // decimal? | Minimum price (EUR) (optional) 
             var maxPrice = 8.14D;  // decimal? | Maximum price (EUR) (optional) 
             var condition = "condition_example";  // string | Comma-separated: un_opened, in_box, new, as_good_as_new, good, fair, has_given_it_all (optional) 
@@ -1152,7 +1157,7 @@ namespace Example
             try
             {
                 // Search listings
-                Object result = apiInstance.WallapopSearchListings(query, market, latitude, longitude, distanceKm, categoryId, minPrice, maxPrice, condition, brand, model, color, timeFilter, shippable, hasWarranty, refurbished, minYear, maxYear, minKm, maxKm, gearbox, minHorsepower, maxHorsepower, orderBy, nextPage, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+                Object result = apiInstance.WallapopSearchListings(query, market, latitude, longitude, distanceKm, categoryId, subcategoryIds, minPrice, maxPrice, condition, brand, model, color, timeFilter, shippable, hasWarranty, refurbished, minYear, maxYear, minKm, maxKm, gearbox, minHorsepower, maxHorsepower, orderBy, nextPage, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1173,7 +1178,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Search listings
-    ApiResponse<Object> response = apiInstance.WallapopSearchListingsWithHttpInfo(query, market, latitude, longitude, distanceKm, categoryId, minPrice, maxPrice, condition, brand, model, color, timeFilter, shippable, hasWarranty, refurbished, minYear, maxYear, minKm, maxKm, gearbox, minHorsepower, maxHorsepower, orderBy, nextPage, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+    ApiResponse<Object> response = apiInstance.WallapopSearchListingsWithHttpInfo(query, market, latitude, longitude, distanceKm, categoryId, subcategoryIds, minPrice, maxPrice, condition, brand, model, color, timeFilter, shippable, hasWarranty, refurbished, minYear, maxYear, minKm, maxKm, gearbox, minHorsepower, maxHorsepower, orderBy, nextPage, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1196,6 +1201,7 @@ catch (ApiException e)
 | **longitude** | **decimal?** | Search centre longitude | [optional]  |
 | **distanceKm** | **int?** | Search radius | [optional]  |
 | **categoryId** | **int?** | Category id from /categories | [optional]  |
+| **subcategoryIds** | **string** | Comma-separated subcategory ids from /categories (any level of the tree), e.g. 9447 (Smartphones) or 9447,10310 | [optional]  |
 | **minPrice** | **decimal?** | Minimum price (EUR) | [optional]  |
 | **maxPrice** | **decimal?** | Maximum price (EUR) | [optional]  |
 | **condition** | **string** | Comma-separated: un_opened, in_box, new, as_good_as_new, good, fair, has_given_it_all | [optional]  |

@@ -76071,7 +76071,9 @@ paths:
       - Wallapop
   /v1/wallapop/categories:
     get:
-      description: The full category tree; ids are usable as the search category_id.
+      description: |-
+        The full category tree; top-level ids are the search category_id, nested
+        subcategory ids go in subcategory_ids.
       operationId: wallapop_list_categories
       parameters:
       - description: "Market: es (Spain), it (Italy), pt (Portugal)"
@@ -76232,6 +76234,15 @@ paths:
         schema:
           nullable: true
           type: integer
+        style: form
+      - description: Comma-separated subcategory ids the filters apply to
+        explode: true
+        in: query
+        name: subcategory_ids
+        required: false
+        schema:
+          nullable: true
+          type: string
         style: form
       - description: Search text the filters apply to
         explode: true
@@ -76407,6 +76418,15 @@ paths:
         schema:
           nullable: true
           type: integer
+        style: form
+      - description: Comma-separated subcategory ids to scope options to
+        explode: true
+        in: query
+        name: subcategory_ids
+        required: false
+        schema:
+          nullable: true
+          type: string
         style: form
       - description: Search text to scope options to
         explode: true
@@ -76881,8 +76901,9 @@ paths:
       - Wallapop
   /v1/wallapop/search:
     get:
-      description: "Search Wallapop listings (40 per page). Needs a query, a category_id,\
-        \ or both."
+      description: |-
+        Search Wallapop listings (40 per page). Needs a query, a category_id, subcategory_ids,
+        or a combination.
       operationId: wallapop_search_listings
       parameters:
       - description: "Search text, e.g. 'iphone 14'"
@@ -76942,6 +76963,16 @@ paths:
         schema:
           nullable: true
           type: integer
+        style: form
+      - description: "Comma-separated subcategory ids from /categories (any level\
+          \ of the tree), e.g. 9447 (Smartphones) or 9447,10310"
+        explode: true
+        in: query
+        name: subcategory_ids
+        required: false
+        schema:
+          nullable: true
+          type: string
         style: form
       - description: Minimum price (EUR)
         explode: true

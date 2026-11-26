@@ -183,6 +183,7 @@ namespace ScrapeBadger.Test.Api
             // TODO uncomment below to test the method and replace null with proper value
             //string filterId = null;
             //int? categoryId = null;
+            //string subcategoryIds = null;
             //string query = null;
             //string market = null;
             //string prefer = null;
@@ -192,7 +193,7 @@ namespace ScrapeBadger.Test.Api
             //int? asyncWait = null;
             //string callbackUrl = null;
             //string idempotencyKey2 = null;
-            //var response = instance.WallapopListFilterOptions(filterId, categoryId, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+            //var response = instance.WallapopListFilterOptions(filterId, categoryId, subcategoryIds, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -222,6 +223,7 @@ namespace ScrapeBadger.Test.Api
         {
             // TODO uncomment below to test the method and replace null with proper value
             //int? categoryId = null;
+            //string subcategoryIds = null;
             //string query = null;
             //string market = null;
             //string prefer = null;
@@ -231,7 +233,7 @@ namespace ScrapeBadger.Test.Api
             //int? asyncWait = null;
             //string callbackUrl = null;
             //string idempotencyKey2 = null;
-            //var response = instance.WallapopListSearchFilters(categoryId, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+            //var response = instance.WallapopListSearchFilters(categoryId, subcategoryIds, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -248,6 +250,7 @@ namespace ScrapeBadger.Test.Api
             //decimal? longitude = null;
             //int? distanceKm = null;
             //int? categoryId = null;
+            //string subcategoryIds = null;
             //decimal? minPrice = null;
             //decimal? maxPrice = null;
             //string condition = null;
@@ -274,7 +277,7 @@ namespace ScrapeBadger.Test.Api
             //int? asyncWait = null;
             //string callbackUrl = null;
             //string idempotencyKey2 = null;
-            //var response = instance.WallapopSearchListings(query, market, latitude, longitude, distanceKm, categoryId, minPrice, maxPrice, condition, brand, model, color, timeFilter, shippable, hasWarranty, refurbished, minYear, maxYear, minKm, maxKm, gearbox, minHorsepower, maxHorsepower, orderBy, nextPage, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+            //var response = instance.WallapopSearchListings(query, market, latitude, longitude, distanceKm, categoryId, subcategoryIds, minPrice, maxPrice, condition, brand, model, color, timeFilter, shippable, hasWarranty, refurbished, minYear, maxYear, minKm, maxKm, gearbox, minHorsepower, maxHorsepower, orderBy, nextPage, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 

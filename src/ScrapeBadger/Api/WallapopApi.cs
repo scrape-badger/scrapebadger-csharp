@@ -220,7 +220,7 @@ namespace ScrapeBadger.Api
         /// List categories
         /// </summary>
         /// <remarks>
-        /// The full category tree; ids are usable as the search category_id.
+        /// The full category tree; top-level ids are the search category_id, nested subcategory ids go in subcategory_ids.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Market: es (Spain), it (Italy), pt (Portugal) (optional, default to &quot;es&quot;)</param>
@@ -238,7 +238,7 @@ namespace ScrapeBadger.Api
         /// List categories
         /// </summary>
         /// <remarks>
-        /// The full category tree; ids are usable as the search category_id.
+        /// The full category tree; top-level ids are the search category_id, nested subcategory ids go in subcategory_ids.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Market: es (Spain), it (Italy), pt (Portugal) (optional, default to &quot;es&quot;)</param>
@@ -260,6 +260,7 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filterId"></param>
         /// <param name="categoryId">Category to scope options to (optional)</param>
+        /// <param name="subcategoryIds">Comma-separated subcategory ids to scope options to (optional)</param>
         /// <param name="query">Search text to scope options to (optional)</param>
         /// <param name="market">Market: es (Spain), it (Italy), pt (Portugal) (optional, default to &quot;es&quot;)</param>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
@@ -270,7 +271,7 @@ namespace ScrapeBadger.Api
         /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>Object</returns>
-        Object WallapopListFilterOptions(string filterId, int? categoryId = default(int?), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
+        Object WallapopListFilterOptions(string filterId, int? categoryId = default(int?), string subcategoryIds = default(string), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
 
         /// <summary>
         /// List filter options
@@ -281,6 +282,7 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filterId"></param>
         /// <param name="categoryId">Category to scope options to (optional)</param>
+        /// <param name="subcategoryIds">Comma-separated subcategory ids to scope options to (optional)</param>
         /// <param name="query">Search text to scope options to (optional)</param>
         /// <param name="market">Market: es (Spain), it (Italy), pt (Portugal) (optional, default to &quot;es&quot;)</param>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
@@ -291,7 +293,7 @@ namespace ScrapeBadger.Api
         /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> WallapopListFilterOptionsWithHttpInfo(string filterId, int? categoryId = default(int?), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
+        ApiResponse<Object> WallapopListFilterOptionsWithHttpInfo(string filterId, int? categoryId = default(int?), string subcategoryIds = default(string), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
         /// <summary>
         /// List markets
         /// </summary>
@@ -333,6 +335,7 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categoryId">Category the filters apply to (optional)</param>
+        /// <param name="subcategoryIds">Comma-separated subcategory ids the filters apply to (optional)</param>
         /// <param name="query">Search text the filters apply to (optional)</param>
         /// <param name="market">Market: es (Spain), it (Italy), pt (Portugal) (optional, default to &quot;es&quot;)</param>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
@@ -343,7 +346,7 @@ namespace ScrapeBadger.Api
         /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>Object</returns>
-        Object WallapopListSearchFilters(int? categoryId = default(int?), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
+        Object WallapopListSearchFilters(int? categoryId = default(int?), string subcategoryIds = default(string), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
 
         /// <summary>
         /// List search filters
@@ -353,6 +356,7 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categoryId">Category the filters apply to (optional)</param>
+        /// <param name="subcategoryIds">Comma-separated subcategory ids the filters apply to (optional)</param>
         /// <param name="query">Search text the filters apply to (optional)</param>
         /// <param name="market">Market: es (Spain), it (Italy), pt (Portugal) (optional, default to &quot;es&quot;)</param>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
@@ -363,12 +367,12 @@ namespace ScrapeBadger.Api
         /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> WallapopListSearchFiltersWithHttpInfo(int? categoryId = default(int?), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
+        ApiResponse<Object> WallapopListSearchFiltersWithHttpInfo(int? categoryId = default(int?), string subcategoryIds = default(string), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
         /// <summary>
         /// Search listings
         /// </summary>
         /// <remarks>
-        /// Search Wallapop listings (40 per page). Needs a query, a category_id, or both.
+        /// Search Wallapop listings (40 per page). Needs a query, a category_id, subcategory_ids, or a combination.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search text, e.g. &#39;iphone 14&#39; (optional)</param>
@@ -377,6 +381,7 @@ namespace ScrapeBadger.Api
         /// <param name="longitude">Search centre longitude (optional)</param>
         /// <param name="distanceKm">Search radius (optional)</param>
         /// <param name="categoryId">Category id from /categories (optional)</param>
+        /// <param name="subcategoryIds">Comma-separated subcategory ids from /categories (any level of the tree), e.g. 9447 (Smartphones) or 9447,10310 (optional)</param>
         /// <param name="minPrice">Minimum price (EUR) (optional)</param>
         /// <param name="maxPrice">Maximum price (EUR) (optional)</param>
         /// <param name="condition">Comma-separated: un_opened, in_box, new, as_good_as_new, good, fair, has_given_it_all (optional)</param>
@@ -404,13 +409,13 @@ namespace ScrapeBadger.Api
         /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>Object</returns>
-        Object WallapopSearchListings(string query = default(string), string market = default(string), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), int? distanceKm = default(int?), int? categoryId = default(int?), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), string condition = default(string), string brand = default(string), string model = default(string), string color = default(string), string timeFilter = default(string), bool? shippable = default(bool?), bool? hasWarranty = default(bool?), bool? refurbished = default(bool?), int? minYear = default(int?), int? maxYear = default(int?), int? minKm = default(int?), int? maxKm = default(int?), string gearbox = default(string), int? minHorsepower = default(int?), int? maxHorsepower = default(int?), string orderBy = default(string), string nextPage = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
+        Object WallapopSearchListings(string query = default(string), string market = default(string), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), int? distanceKm = default(int?), int? categoryId = default(int?), string subcategoryIds = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), string condition = default(string), string brand = default(string), string model = default(string), string color = default(string), string timeFilter = default(string), bool? shippable = default(bool?), bool? hasWarranty = default(bool?), bool? refurbished = default(bool?), int? minYear = default(int?), int? maxYear = default(int?), int? minKm = default(int?), int? maxKm = default(int?), string gearbox = default(string), int? minHorsepower = default(int?), int? maxHorsepower = default(int?), string orderBy = default(string), string nextPage = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
 
         /// <summary>
         /// Search listings
         /// </summary>
         /// <remarks>
-        /// Search Wallapop listings (40 per page). Needs a query, a category_id, or both.
+        /// Search Wallapop listings (40 per page). Needs a query, a category_id, subcategory_ids, or a combination.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search text, e.g. &#39;iphone 14&#39; (optional)</param>
@@ -419,6 +424,7 @@ namespace ScrapeBadger.Api
         /// <param name="longitude">Search centre longitude (optional)</param>
         /// <param name="distanceKm">Search radius (optional)</param>
         /// <param name="categoryId">Category id from /categories (optional)</param>
+        /// <param name="subcategoryIds">Comma-separated subcategory ids from /categories (any level of the tree), e.g. 9447 (Smartphones) or 9447,10310 (optional)</param>
         /// <param name="minPrice">Minimum price (EUR) (optional)</param>
         /// <param name="maxPrice">Maximum price (EUR) (optional)</param>
         /// <param name="condition">Comma-separated: un_opened, in_box, new, as_good_as_new, good, fair, has_given_it_all (optional)</param>
@@ -446,7 +452,7 @@ namespace ScrapeBadger.Api
         /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        ApiResponse<Object> WallapopSearchListingsWithHttpInfo(string query = default(string), string market = default(string), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), int? distanceKm = default(int?), int? categoryId = default(int?), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), string condition = default(string), string brand = default(string), string model = default(string), string color = default(string), string timeFilter = default(string), bool? shippable = default(bool?), bool? hasWarranty = default(bool?), bool? refurbished = default(bool?), int? minYear = default(int?), int? maxYear = default(int?), int? minKm = default(int?), int? maxKm = default(int?), string gearbox = default(string), int? minHorsepower = default(int?), int? maxHorsepower = default(int?), string orderBy = default(string), string nextPage = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
+        ApiResponse<Object> WallapopSearchListingsWithHttpInfo(string query = default(string), string market = default(string), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), int? distanceKm = default(int?), int? categoryId = default(int?), string subcategoryIds = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), string condition = default(string), string brand = default(string), string model = default(string), string color = default(string), string timeFilter = default(string), bool? shippable = default(bool?), bool? hasWarranty = default(bool?), bool? refurbished = default(bool?), int? minYear = default(int?), int? maxYear = default(int?), int? minKm = default(int?), int? maxKm = default(int?), string gearbox = default(string), int? minHorsepower = default(int?), int? maxHorsepower = default(int?), string orderBy = default(string), string nextPage = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string));
         /// <summary>
         /// Wallapop scraper health check
         /// </summary>
@@ -697,7 +703,7 @@ namespace ScrapeBadger.Api
         /// List categories
         /// </summary>
         /// <remarks>
-        /// The full category tree; ids are usable as the search category_id.
+        /// The full category tree; top-level ids are the search category_id, nested subcategory ids go in subcategory_ids.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Market: es (Spain), it (Italy), pt (Portugal) (optional, default to &quot;es&quot;)</param>
@@ -716,7 +722,7 @@ namespace ScrapeBadger.Api
         /// List categories
         /// </summary>
         /// <remarks>
-        /// The full category tree; ids are usable as the search category_id.
+        /// The full category tree; top-level ids are the search category_id, nested subcategory ids go in subcategory_ids.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Market: es (Spain), it (Italy), pt (Portugal) (optional, default to &quot;es&quot;)</param>
@@ -739,6 +745,7 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filterId"></param>
         /// <param name="categoryId">Category to scope options to (optional)</param>
+        /// <param name="subcategoryIds">Comma-separated subcategory ids to scope options to (optional)</param>
         /// <param name="query">Search text to scope options to (optional)</param>
         /// <param name="market">Market: es (Spain), it (Italy), pt (Portugal) (optional, default to &quot;es&quot;)</param>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
@@ -750,7 +757,7 @@ namespace ScrapeBadger.Api
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> WallapopListFilterOptionsAsync(string filterId, int? categoryId = default(int?), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> WallapopListFilterOptionsAsync(string filterId, int? categoryId = default(int?), string subcategoryIds = default(string), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List filter options
@@ -761,6 +768,7 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filterId"></param>
         /// <param name="categoryId">Category to scope options to (optional)</param>
+        /// <param name="subcategoryIds">Comma-separated subcategory ids to scope options to (optional)</param>
         /// <param name="query">Search text to scope options to (optional)</param>
         /// <param name="market">Market: es (Spain), it (Italy), pt (Portugal) (optional, default to &quot;es&quot;)</param>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
@@ -772,7 +780,7 @@ namespace ScrapeBadger.Api
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> WallapopListFilterOptionsWithHttpInfoAsync(string filterId, int? categoryId = default(int?), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> WallapopListFilterOptionsWithHttpInfoAsync(string filterId, int? categoryId = default(int?), string subcategoryIds = default(string), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// List markets
         /// </summary>
@@ -816,6 +824,7 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categoryId">Category the filters apply to (optional)</param>
+        /// <param name="subcategoryIds">Comma-separated subcategory ids the filters apply to (optional)</param>
         /// <param name="query">Search text the filters apply to (optional)</param>
         /// <param name="market">Market: es (Spain), it (Italy), pt (Portugal) (optional, default to &quot;es&quot;)</param>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
@@ -827,7 +836,7 @@ namespace ScrapeBadger.Api
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> WallapopListSearchFiltersAsync(int? categoryId = default(int?), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> WallapopListSearchFiltersAsync(int? categoryId = default(int?), string subcategoryIds = default(string), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// List search filters
@@ -837,6 +846,7 @@ namespace ScrapeBadger.Api
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categoryId">Category the filters apply to (optional)</param>
+        /// <param name="subcategoryIds">Comma-separated subcategory ids the filters apply to (optional)</param>
         /// <param name="query">Search text the filters apply to (optional)</param>
         /// <param name="market">Market: es (Spain), it (Italy), pt (Portugal) (optional, default to &quot;es&quot;)</param>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
@@ -848,12 +858,12 @@ namespace ScrapeBadger.Api
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> WallapopListSearchFiltersWithHttpInfoAsync(int? categoryId = default(int?), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> WallapopListSearchFiltersWithHttpInfoAsync(int? categoryId = default(int?), string subcategoryIds = default(string), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Search listings
         /// </summary>
         /// <remarks>
-        /// Search Wallapop listings (40 per page). Needs a query, a category_id, or both.
+        /// Search Wallapop listings (40 per page). Needs a query, a category_id, subcategory_ids, or a combination.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search text, e.g. &#39;iphone 14&#39; (optional)</param>
@@ -862,6 +872,7 @@ namespace ScrapeBadger.Api
         /// <param name="longitude">Search centre longitude (optional)</param>
         /// <param name="distanceKm">Search radius (optional)</param>
         /// <param name="categoryId">Category id from /categories (optional)</param>
+        /// <param name="subcategoryIds">Comma-separated subcategory ids from /categories (any level of the tree), e.g. 9447 (Smartphones) or 9447,10310 (optional)</param>
         /// <param name="minPrice">Minimum price (EUR) (optional)</param>
         /// <param name="maxPrice">Maximum price (EUR) (optional)</param>
         /// <param name="condition">Comma-separated: un_opened, in_box, new, as_good_as_new, good, fair, has_given_it_all (optional)</param>
@@ -890,13 +901,13 @@ namespace ScrapeBadger.Api
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> WallapopSearchListingsAsync(string query = default(string), string market = default(string), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), int? distanceKm = default(int?), int? categoryId = default(int?), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), string condition = default(string), string brand = default(string), string model = default(string), string color = default(string), string timeFilter = default(string), bool? shippable = default(bool?), bool? hasWarranty = default(bool?), bool? refurbished = default(bool?), int? minYear = default(int?), int? maxYear = default(int?), int? minKm = default(int?), int? maxKm = default(int?), string gearbox = default(string), int? minHorsepower = default(int?), int? maxHorsepower = default(int?), string orderBy = default(string), string nextPage = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<Object> WallapopSearchListingsAsync(string query = default(string), string market = default(string), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), int? distanceKm = default(int?), int? categoryId = default(int?), string subcategoryIds = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), string condition = default(string), string brand = default(string), string model = default(string), string color = default(string), string timeFilter = default(string), bool? shippable = default(bool?), bool? hasWarranty = default(bool?), bool? refurbished = default(bool?), int? minYear = default(int?), int? maxYear = default(int?), int? minKm = default(int?), int? maxKm = default(int?), string gearbox = default(string), int? minHorsepower = default(int?), int? maxHorsepower = default(int?), string orderBy = default(string), string nextPage = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
 
         /// <summary>
         /// Search listings
         /// </summary>
         /// <remarks>
-        /// Search Wallapop listings (40 per page). Needs a query, a category_id, or both.
+        /// Search Wallapop listings (40 per page). Needs a query, a category_id, subcategory_ids, or a combination.
         /// </remarks>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search text, e.g. &#39;iphone 14&#39; (optional)</param>
@@ -905,6 +916,7 @@ namespace ScrapeBadger.Api
         /// <param name="longitude">Search centre longitude (optional)</param>
         /// <param name="distanceKm">Search radius (optional)</param>
         /// <param name="categoryId">Category id from /categories (optional)</param>
+        /// <param name="subcategoryIds">Comma-separated subcategory ids from /categories (any level of the tree), e.g. 9447 (Smartphones) or 9447,10310 (optional)</param>
         /// <param name="minPrice">Minimum price (EUR) (optional)</param>
         /// <param name="maxPrice">Maximum price (EUR) (optional)</param>
         /// <param name="condition">Comma-separated: un_opened, in_box, new, as_good_as_new, good, fair, has_given_it_all (optional)</param>
@@ -933,7 +945,7 @@ namespace ScrapeBadger.Api
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> WallapopSearchListingsWithHttpInfoAsync(string query = default(string), string market = default(string), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), int? distanceKm = default(int?), int? categoryId = default(int?), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), string condition = default(string), string brand = default(string), string model = default(string), string color = default(string), string timeFilter = default(string), bool? shippable = default(bool?), bool? hasWarranty = default(bool?), bool? refurbished = default(bool?), int? minYear = default(int?), int? maxYear = default(int?), int? minKm = default(int?), int? maxKm = default(int?), string gearbox = default(string), int? minHorsepower = default(int?), int? maxHorsepower = default(int?), string orderBy = default(string), string nextPage = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<Object>> WallapopSearchListingsWithHttpInfoAsync(string query = default(string), string market = default(string), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), int? distanceKm = default(int?), int? categoryId = default(int?), string subcategoryIds = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), string condition = default(string), string brand = default(string), string model = default(string), string color = default(string), string timeFilter = default(string), bool? shippable = default(bool?), bool? hasWarranty = default(bool?), bool? refurbished = default(bool?), int? minYear = default(int?), int? maxYear = default(int?), int? minKm = default(int?), int? maxKm = default(int?), string gearbox = default(string), int? minHorsepower = default(int?), int? maxHorsepower = default(int?), string orderBy = default(string), string nextPage = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken));
         /// <summary>
         /// Wallapop scraper health check
         /// </summary>
@@ -2319,7 +2331,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// List categories The full category tree; ids are usable as the search category_id.
+        /// List categories The full category tree; top-level ids are the search category_id, nested subcategory ids go in subcategory_ids.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Market: es (Spain), it (Italy), pt (Portugal) (optional, default to &quot;es&quot;)</param>
@@ -2338,7 +2350,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// List categories The full category tree; ids are usable as the search category_id.
+        /// List categories The full category tree; top-level ids are the search category_id, nested subcategory ids go in subcategory_ids.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Market: es (Spain), it (Italy), pt (Portugal) (optional, default to &quot;es&quot;)</param>
@@ -2420,7 +2432,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// List categories The full category tree; ids are usable as the search category_id.
+        /// List categories The full category tree; top-level ids are the search category_id, nested subcategory ids go in subcategory_ids.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Market: es (Spain), it (Italy), pt (Portugal) (optional, default to &quot;es&quot;)</param>
@@ -2440,7 +2452,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// List categories The full category tree; ids are usable as the search category_id.
+        /// List categories The full category tree; top-level ids are the search category_id, nested subcategory ids go in subcategory_ids.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="market">Market: es (Spain), it (Italy), pt (Portugal) (optional, default to &quot;es&quot;)</param>
@@ -2531,6 +2543,7 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filterId"></param>
         /// <param name="categoryId">Category to scope options to (optional)</param>
+        /// <param name="subcategoryIds">Comma-separated subcategory ids to scope options to (optional)</param>
         /// <param name="query">Search text to scope options to (optional)</param>
         /// <param name="market">Market: es (Spain), it (Italy), pt (Portugal) (optional, default to &quot;es&quot;)</param>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
@@ -2541,9 +2554,9 @@ namespace ScrapeBadger.Api
         /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>Object</returns>
-        public Object WallapopListFilterOptions(string filterId, int? categoryId = default(int?), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
+        public Object WallapopListFilterOptions(string filterId, int? categoryId = default(int?), string subcategoryIds = default(string), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = WallapopListFilterOptionsWithHttpInfo(filterId, categoryId, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = WallapopListFilterOptionsWithHttpInfo(filterId, categoryId, subcategoryIds, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             return localVarResponse.Data;
         }
 
@@ -2553,6 +2566,7 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filterId"></param>
         /// <param name="categoryId">Category to scope options to (optional)</param>
+        /// <param name="subcategoryIds">Comma-separated subcategory ids to scope options to (optional)</param>
         /// <param name="query">Search text to scope options to (optional)</param>
         /// <param name="market">Market: es (Spain), it (Italy), pt (Portugal) (optional, default to &quot;es&quot;)</param>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
@@ -2563,7 +2577,7 @@ namespace ScrapeBadger.Api
         /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> WallapopListFilterOptionsWithHttpInfo(string filterId, int? categoryId = default(int?), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
+        public ScrapeBadger.Client.ApiResponse<Object> WallapopListFilterOptionsWithHttpInfo(string filterId, int? categoryId = default(int?), string subcategoryIds = default(string), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
         {
             // verify the required parameter 'filterId' is set
             if (filterId == null)
@@ -2589,6 +2603,10 @@ namespace ScrapeBadger.Api
             if (categoryId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "category_id", categoryId));
+            }
+            if (subcategoryIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "subcategory_ids", subcategoryIds));
             }
             if (query != null)
             {
@@ -2651,6 +2669,7 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filterId"></param>
         /// <param name="categoryId">Category to scope options to (optional)</param>
+        /// <param name="subcategoryIds">Comma-separated subcategory ids to scope options to (optional)</param>
         /// <param name="query">Search text to scope options to (optional)</param>
         /// <param name="market">Market: es (Spain), it (Italy), pt (Portugal) (optional, default to &quot;es&quot;)</param>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
@@ -2662,9 +2681,9 @@ namespace ScrapeBadger.Api
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> WallapopListFilterOptionsAsync(string filterId, int? categoryId = default(int?), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> WallapopListFilterOptionsAsync(string filterId, int? categoryId = default(int?), string subcategoryIds = default(string), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await WallapopListFilterOptionsWithHttpInfoAsync(filterId, categoryId, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await WallapopListFilterOptionsWithHttpInfoAsync(filterId, categoryId, subcategoryIds, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2674,6 +2693,7 @@ namespace ScrapeBadger.Api
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filterId"></param>
         /// <param name="categoryId">Category to scope options to (optional)</param>
+        /// <param name="subcategoryIds">Comma-separated subcategory ids to scope options to (optional)</param>
         /// <param name="query">Search text to scope options to (optional)</param>
         /// <param name="market">Market: es (Spain), it (Italy), pt (Portugal) (optional, default to &quot;es&quot;)</param>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
@@ -2685,7 +2705,7 @@ namespace ScrapeBadger.Api
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> WallapopListFilterOptionsWithHttpInfoAsync(string filterId, int? categoryId = default(int?), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> WallapopListFilterOptionsWithHttpInfoAsync(string filterId, int? categoryId = default(int?), string subcategoryIds = default(string), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
             // verify the required parameter 'filterId' is set
             if (filterId == null)
@@ -2713,6 +2733,10 @@ namespace ScrapeBadger.Api
             if (categoryId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "category_id", categoryId));
+            }
+            if (subcategoryIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "subcategory_ids", subcategoryIds));
             }
             if (query != null)
             {
@@ -2970,6 +2994,7 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categoryId">Category the filters apply to (optional)</param>
+        /// <param name="subcategoryIds">Comma-separated subcategory ids the filters apply to (optional)</param>
         /// <param name="query">Search text the filters apply to (optional)</param>
         /// <param name="market">Market: es (Spain), it (Italy), pt (Portugal) (optional, default to &quot;es&quot;)</param>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
@@ -2980,9 +3005,9 @@ namespace ScrapeBadger.Api
         /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>Object</returns>
-        public Object WallapopListSearchFilters(int? categoryId = default(int?), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
+        public Object WallapopListSearchFilters(int? categoryId = default(int?), string subcategoryIds = default(string), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = WallapopListSearchFiltersWithHttpInfo(categoryId, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = WallapopListSearchFiltersWithHttpInfo(categoryId, subcategoryIds, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             return localVarResponse.Data;
         }
 
@@ -2991,6 +3016,7 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categoryId">Category the filters apply to (optional)</param>
+        /// <param name="subcategoryIds">Comma-separated subcategory ids the filters apply to (optional)</param>
         /// <param name="query">Search text the filters apply to (optional)</param>
         /// <param name="market">Market: es (Spain), it (Italy), pt (Portugal) (optional, default to &quot;es&quot;)</param>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
@@ -3001,7 +3027,7 @@ namespace ScrapeBadger.Api
         /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> WallapopListSearchFiltersWithHttpInfo(int? categoryId = default(int?), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
+        public ScrapeBadger.Client.ApiResponse<Object> WallapopListSearchFiltersWithHttpInfo(int? categoryId = default(int?), string subcategoryIds = default(string), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
         {
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
 
@@ -3022,6 +3048,10 @@ namespace ScrapeBadger.Api
             if (categoryId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "category_id", categoryId));
+            }
+            if (subcategoryIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "subcategory_ids", subcategoryIds));
             }
             if (query != null)
             {
@@ -3083,6 +3113,7 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categoryId">Category the filters apply to (optional)</param>
+        /// <param name="subcategoryIds">Comma-separated subcategory ids the filters apply to (optional)</param>
         /// <param name="query">Search text the filters apply to (optional)</param>
         /// <param name="market">Market: es (Spain), it (Italy), pt (Portugal) (optional, default to &quot;es&quot;)</param>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
@@ -3094,9 +3125,9 @@ namespace ScrapeBadger.Api
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> WallapopListSearchFiltersAsync(int? categoryId = default(int?), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> WallapopListSearchFiltersAsync(int? categoryId = default(int?), string subcategoryIds = default(string), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await WallapopListSearchFiltersWithHttpInfoAsync(categoryId, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await WallapopListSearchFiltersWithHttpInfoAsync(categoryId, subcategoryIds, query, market, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3105,6 +3136,7 @@ namespace ScrapeBadger.Api
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="categoryId">Category the filters apply to (optional)</param>
+        /// <param name="subcategoryIds">Comma-separated subcategory ids the filters apply to (optional)</param>
         /// <param name="query">Search text the filters apply to (optional)</param>
         /// <param name="market">Market: es (Spain), it (Italy), pt (Portugal) (optional, default to &quot;es&quot;)</param>
         /// <param name="prefer">&#x60;respond-async[, wait&#x3D;N]&#x60; (RFC 7240): run the call async. If it has not finished after &#x60;wait&#x60; seconds (0-120, default 25) the answer is &#x60;202&#x60; with a &#x60;request_id&#x60;; poll &#x60;GET /v1/requests/{request_id}&#x60;. Its &#x60;wait&#x3D;&#x60; wins over &#x60;async_wait&#x60;; without one, &#x60;async_wait&#x60; sets the wait. (optional)</param>
@@ -3116,7 +3148,7 @@ namespace ScrapeBadger.Api
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> WallapopListSearchFiltersWithHttpInfoAsync(int? categoryId = default(int?), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> WallapopListSearchFiltersWithHttpInfoAsync(int? categoryId = default(int?), string subcategoryIds = default(string), string query = default(string), string market = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
@@ -3139,6 +3171,10 @@ namespace ScrapeBadger.Api
             if (categoryId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "category_id", categoryId));
+            }
+            if (subcategoryIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "subcategory_ids", subcategoryIds));
             }
             if (query != null)
             {
@@ -3197,7 +3233,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search listings Search Wallapop listings (40 per page). Needs a query, a category_id, or both.
+        /// Search listings Search Wallapop listings (40 per page). Needs a query, a category_id, subcategory_ids, or a combination.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search text, e.g. &#39;iphone 14&#39; (optional)</param>
@@ -3206,6 +3242,7 @@ namespace ScrapeBadger.Api
         /// <param name="longitude">Search centre longitude (optional)</param>
         /// <param name="distanceKm">Search radius (optional)</param>
         /// <param name="categoryId">Category id from /categories (optional)</param>
+        /// <param name="subcategoryIds">Comma-separated subcategory ids from /categories (any level of the tree), e.g. 9447 (Smartphones) or 9447,10310 (optional)</param>
         /// <param name="minPrice">Minimum price (EUR) (optional)</param>
         /// <param name="maxPrice">Maximum price (EUR) (optional)</param>
         /// <param name="condition">Comma-separated: un_opened, in_box, new, as_good_as_new, good, fair, has_given_it_all (optional)</param>
@@ -3233,14 +3270,14 @@ namespace ScrapeBadger.Api
         /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>Object</returns>
-        public Object WallapopSearchListings(string query = default(string), string market = default(string), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), int? distanceKm = default(int?), int? categoryId = default(int?), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), string condition = default(string), string brand = default(string), string model = default(string), string color = default(string), string timeFilter = default(string), bool? shippable = default(bool?), bool? hasWarranty = default(bool?), bool? refurbished = default(bool?), int? minYear = default(int?), int? maxYear = default(int?), int? minKm = default(int?), int? maxKm = default(int?), string gearbox = default(string), int? minHorsepower = default(int?), int? maxHorsepower = default(int?), string orderBy = default(string), string nextPage = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
+        public Object WallapopSearchListings(string query = default(string), string market = default(string), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), int? distanceKm = default(int?), int? categoryId = default(int?), string subcategoryIds = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), string condition = default(string), string brand = default(string), string model = default(string), string color = default(string), string timeFilter = default(string), bool? shippable = default(bool?), bool? hasWarranty = default(bool?), bool? refurbished = default(bool?), int? minYear = default(int?), int? maxYear = default(int?), int? minKm = default(int?), int? maxKm = default(int?), string gearbox = default(string), int? minHorsepower = default(int?), int? maxHorsepower = default(int?), string orderBy = default(string), string nextPage = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = WallapopSearchListingsWithHttpInfo(query, market, latitude, longitude, distanceKm, categoryId, minPrice, maxPrice, condition, brand, model, color, timeFilter, shippable, hasWarranty, refurbished, minYear, maxYear, minKm, maxKm, gearbox, minHorsepower, maxHorsepower, orderBy, nextPage, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = WallapopSearchListingsWithHttpInfo(query, market, latitude, longitude, distanceKm, categoryId, subcategoryIds, minPrice, maxPrice, condition, brand, model, color, timeFilter, shippable, hasWarranty, refurbished, minYear, maxYear, minKm, maxKm, gearbox, minHorsepower, maxHorsepower, orderBy, nextPage, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Search listings Search Wallapop listings (40 per page). Needs a query, a category_id, or both.
+        /// Search listings Search Wallapop listings (40 per page). Needs a query, a category_id, subcategory_ids, or a combination.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search text, e.g. &#39;iphone 14&#39; (optional)</param>
@@ -3249,6 +3286,7 @@ namespace ScrapeBadger.Api
         /// <param name="longitude">Search centre longitude (optional)</param>
         /// <param name="distanceKm">Search radius (optional)</param>
         /// <param name="categoryId">Category id from /categories (optional)</param>
+        /// <param name="subcategoryIds">Comma-separated subcategory ids from /categories (any level of the tree), e.g. 9447 (Smartphones) or 9447,10310 (optional)</param>
         /// <param name="minPrice">Minimum price (EUR) (optional)</param>
         /// <param name="maxPrice">Maximum price (EUR) (optional)</param>
         /// <param name="condition">Comma-separated: un_opened, in_box, new, as_good_as_new, good, fair, has_given_it_all (optional)</param>
@@ -3276,7 +3314,7 @@ namespace ScrapeBadger.Api
         /// <param name="callbackUrl">Query form of &#x60;X-Callback-URL&#x60; (URL-encode it). Implies async; on its own the answer is an immediate &#x60;202&#x60; (wait 0). Not sent to the scraper. (optional)</param>
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <returns>ApiResponse of Object</returns>
-        public ScrapeBadger.Client.ApiResponse<Object> WallapopSearchListingsWithHttpInfo(string query = default(string), string market = default(string), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), int? distanceKm = default(int?), int? categoryId = default(int?), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), string condition = default(string), string brand = default(string), string model = default(string), string color = default(string), string timeFilter = default(string), bool? shippable = default(bool?), bool? hasWarranty = default(bool?), bool? refurbished = default(bool?), int? minYear = default(int?), int? maxYear = default(int?), int? minKm = default(int?), int? maxKm = default(int?), string gearbox = default(string), int? minHorsepower = default(int?), int? maxHorsepower = default(int?), string orderBy = default(string), string nextPage = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
+        public ScrapeBadger.Client.ApiResponse<Object> WallapopSearchListingsWithHttpInfo(string query = default(string), string market = default(string), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), int? distanceKm = default(int?), int? categoryId = default(int?), string subcategoryIds = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), string condition = default(string), string brand = default(string), string model = default(string), string color = default(string), string timeFilter = default(string), bool? shippable = default(bool?), bool? hasWarranty = default(bool?), bool? refurbished = default(bool?), int? minYear = default(int?), int? maxYear = default(int?), int? minKm = default(int?), int? maxKm = default(int?), string gearbox = default(string), int? minHorsepower = default(int?), int? maxHorsepower = default(int?), string orderBy = default(string), string nextPage = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string))
         {
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
 
@@ -3317,6 +3355,10 @@ namespace ScrapeBadger.Api
             if (categoryId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "category_id", categoryId));
+            }
+            if (subcategoryIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "subcategory_ids", subcategoryIds));
             }
             if (minPrice != null)
             {
@@ -3442,7 +3484,7 @@ namespace ScrapeBadger.Api
         }
 
         /// <summary>
-        /// Search listings Search Wallapop listings (40 per page). Needs a query, a category_id, or both.
+        /// Search listings Search Wallapop listings (40 per page). Needs a query, a category_id, subcategory_ids, or a combination.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search text, e.g. &#39;iphone 14&#39; (optional)</param>
@@ -3451,6 +3493,7 @@ namespace ScrapeBadger.Api
         /// <param name="longitude">Search centre longitude (optional)</param>
         /// <param name="distanceKm">Search radius (optional)</param>
         /// <param name="categoryId">Category id from /categories (optional)</param>
+        /// <param name="subcategoryIds">Comma-separated subcategory ids from /categories (any level of the tree), e.g. 9447 (Smartphones) or 9447,10310 (optional)</param>
         /// <param name="minPrice">Minimum price (EUR) (optional)</param>
         /// <param name="maxPrice">Maximum price (EUR) (optional)</param>
         /// <param name="condition">Comma-separated: un_opened, in_box, new, as_good_as_new, good, fair, has_given_it_all (optional)</param>
@@ -3479,14 +3522,14 @@ namespace ScrapeBadger.Api
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> WallapopSearchListingsAsync(string query = default(string), string market = default(string), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), int? distanceKm = default(int?), int? categoryId = default(int?), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), string condition = default(string), string brand = default(string), string model = default(string), string color = default(string), string timeFilter = default(string), bool? shippable = default(bool?), bool? hasWarranty = default(bool?), bool? refurbished = default(bool?), int? minYear = default(int?), int? maxYear = default(int?), int? minKm = default(int?), int? maxKm = default(int?), string gearbox = default(string), int? minHorsepower = default(int?), int? maxHorsepower = default(int?), string orderBy = default(string), string nextPage = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Object> WallapopSearchListingsAsync(string query = default(string), string market = default(string), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), int? distanceKm = default(int?), int? categoryId = default(int?), string subcategoryIds = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), string condition = default(string), string brand = default(string), string model = default(string), string color = default(string), string timeFilter = default(string), bool? shippable = default(bool?), bool? hasWarranty = default(bool?), bool? refurbished = default(bool?), int? minYear = default(int?), int? maxYear = default(int?), int? minKm = default(int?), int? maxKm = default(int?), string gearbox = default(string), int? minHorsepower = default(int?), int? maxHorsepower = default(int?), string orderBy = default(string), string nextPage = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
-            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await WallapopSearchListingsWithHttpInfoAsync(query, market, latitude, longitude, distanceKm, categoryId, minPrice, maxPrice, condition, brand, model, color, timeFilter, shippable, hasWarranty, refurbished, minYear, maxYear, minKm, maxKm, gearbox, minHorsepower, maxHorsepower, orderBy, nextPage, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, cancellationToken).ConfigureAwait(false);
+            ScrapeBadger.Client.ApiResponse<Object> localVarResponse = await WallapopSearchListingsWithHttpInfoAsync(query, market, latitude, longitude, distanceKm, categoryId, subcategoryIds, minPrice, maxPrice, condition, brand, model, color, timeFilter, shippable, hasWarranty, refurbished, minYear, maxYear, minKm, maxKm, gearbox, minHorsepower, maxHorsepower, orderBy, nextPage, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Search listings Search Wallapop listings (40 per page). Needs a query, a category_id, or both.
+        /// Search listings Search Wallapop listings (40 per page). Needs a query, a category_id, subcategory_ids, or a combination.
         /// </summary>
         /// <exception cref="ScrapeBadger.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="query">Search text, e.g. &#39;iphone 14&#39; (optional)</param>
@@ -3495,6 +3538,7 @@ namespace ScrapeBadger.Api
         /// <param name="longitude">Search centre longitude (optional)</param>
         /// <param name="distanceKm">Search radius (optional)</param>
         /// <param name="categoryId">Category id from /categories (optional)</param>
+        /// <param name="subcategoryIds">Comma-separated subcategory ids from /categories (any level of the tree), e.g. 9447 (Smartphones) or 9447,10310 (optional)</param>
         /// <param name="minPrice">Minimum price (EUR) (optional)</param>
         /// <param name="maxPrice">Maximum price (EUR) (optional)</param>
         /// <param name="condition">Comma-separated: un_opened, in_box, new, as_good_as_new, good, fair, has_given_it_all (optional)</param>
@@ -3523,7 +3567,7 @@ namespace ScrapeBadger.Api
         /// <param name="idempotencyKey2">Query form of &#x60;Idempotency-Key&#x60;. Not sent to the scraper. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> WallapopSearchListingsWithHttpInfoAsync(string query = default(string), string market = default(string), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), int? distanceKm = default(int?), int? categoryId = default(int?), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), string condition = default(string), string brand = default(string), string model = default(string), string color = default(string), string timeFilter = default(string), bool? shippable = default(bool?), bool? hasWarranty = default(bool?), bool? refurbished = default(bool?), int? minYear = default(int?), int? maxYear = default(int?), int? minKm = default(int?), int? maxKm = default(int?), string gearbox = default(string), int? minHorsepower = default(int?), int? maxHorsepower = default(int?), string orderBy = default(string), string nextPage = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<ScrapeBadger.Client.ApiResponse<Object>> WallapopSearchListingsWithHttpInfoAsync(string query = default(string), string market = default(string), decimal? latitude = default(decimal?), decimal? longitude = default(decimal?), int? distanceKm = default(int?), int? categoryId = default(int?), string subcategoryIds = default(string), decimal? minPrice = default(decimal?), decimal? maxPrice = default(decimal?), string condition = default(string), string brand = default(string), string model = default(string), string color = default(string), string timeFilter = default(string), bool? shippable = default(bool?), bool? hasWarranty = default(bool?), bool? refurbished = default(bool?), int? minYear = default(int?), int? maxYear = default(int?), int? minKm = default(int?), int? maxKm = default(int?), string gearbox = default(string), int? minHorsepower = default(int?), int? maxHorsepower = default(int?), string orderBy = default(string), string nextPage = default(string), string prefer = default(string), string xCallbackURL = default(string), string idempotencyKey = default(string), bool? async = default(bool?), int? asyncWait = default(int?), string callbackUrl = default(string), string idempotencyKey2 = default(string), System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
         {
 
             ScrapeBadger.Client.RequestOptions localVarRequestOptions = new ScrapeBadger.Client.RequestOptions();
@@ -3566,6 +3610,10 @@ namespace ScrapeBadger.Api
             if (categoryId != null)
             {
                 localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "category_id", categoryId));
+            }
+            if (subcategoryIds != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(ScrapeBadger.Client.ClientUtils.ParameterToMultiMap("", "subcategory_ids", subcategoryIds));
             }
             if (minPrice != null)
             {
