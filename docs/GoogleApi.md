@@ -1674,7 +1674,7 @@ catch (ApiException e)
 
 <a id="googlegooglelightwebsearch"></a>
 # **GoogleGoogleLightWebSearch**
-> Object GoogleGoogleLightWebSearch (string q, string gl = null, string hl = null, int? num = null, int? start = null, string domain = null, string location = null, string uule = null, string lr = null, string tbs = null, string safe = null, int? filter = null, int? nfpr = null, string output = null, string oq = null, string sourceid = null, string ie = null, string googleDomain = null, decimal? lat = null, decimal? lon = null, decimal? radius = null, string colorScheme = null, string tbm = null, string udm = null, bool? noCache = null, string asDt = null, string asEpq = null, string asEq = null, string asLq = null, string asNlo = null, string asNhi = null, string asOq = null, string asQ = null, string asQdr = null, string asRq = null, string asSitesearch = null, string device = null, string userAgent = null, string cr = null, string ludocid = null, string lsig = null, string kgmid = null, string si = null, string ibp = null, string uds = null, string prefer = null, string xCallbackURL = null, string idempotencyKey = null, bool? async = null, int? asyncWait = null, string callbackUrl = null, string idempotencyKey2 = null)
+> Object GoogleGoogleLightWebSearch (string q, string gl = null, string hl = null, int? num = null, int? start = null, string domain = null, string location = null, string uule = null, string lr = null, string tbs = null, string safe = null, int? filter = null, int? nfpr = null, bool? requireResolvedLinks = null, string output = null, string oq = null, string sourceid = null, string ie = null, string googleDomain = null, decimal? lat = null, decimal? lon = null, decimal? radius = null, string colorScheme = null, string tbm = null, string udm = null, bool? noCache = null, string asDt = null, string asEpq = null, string asEq = null, string asLq = null, string asNlo = null, string asNhi = null, string asOq = null, string asQ = null, string asQdr = null, string asRq = null, string asSitesearch = null, string device = null, string userAgent = null, string cr = null, string ludocid = null, string lsig = null, string kgmid = null, string si = null, string ibp = null, string uds = null, string prefer = null, string xCallbackURL = null, string idempotencyKey = null, bool? async = null, int? asyncWait = null, string callbackUrl = null, string idempotencyKey2 = null)
 
 Google Light web search
 
@@ -1719,6 +1719,7 @@ namespace Example
             var safe = "\"off\"";  // string | Safe search: off or active (optional)  (default to "off")
             var filter = 56;  // int? |  (optional) 
             var nfpr = 0;  // int? | Disable auto-correction (optional)  (default to 0)
+            var requireResolvedLinks = false;  // bool? | Require direct organic result URLs and resolve Google redirects in returned result links. JSON only. The handler returns HTTP 503 on a budget miss (2 s fast, 2.5 s full). (optional)  (default to false)
             var output = "json";  // string |  (optional)  (default to json)
             var oq = "oq_example";  // string | Original query sent to Google. Defaults to q; an empty string omits it. (optional) 
             var sourceid = "sourceid_example";  // string | Google source identifier. Defaults to chrome; an empty string omits it. (optional) 
@@ -1762,7 +1763,7 @@ namespace Example
             try
             {
                 // Google Light web search
-                Object result = apiInstance.GoogleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+                Object result = apiInstance.GoogleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, requireResolvedLinks, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1783,7 +1784,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Google Light web search
-    ApiResponse<Object> response = apiInstance.GoogleGoogleLightWebSearchWithHttpInfo(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+    ApiResponse<Object> response = apiInstance.GoogleGoogleLightWebSearchWithHttpInfo(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, requireResolvedLinks, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -1813,6 +1814,7 @@ catch (ApiException e)
 | **safe** | **string** | Safe search: off or active | [optional] [default to &quot;off&quot;] |
 | **filter** | **int?** |  | [optional]  |
 | **nfpr** | **int?** | Disable auto-correction | [optional] [default to 0] |
+| **requireResolvedLinks** | **bool?** | Require direct organic result URLs and resolve Google redirects in returned result links. JSON only. The handler returns HTTP 503 on a budget miss (2 s fast, 2.5 s full). | [optional] [default to false] |
 | **output** | **string** |  | [optional] [default to json] |
 | **oq** | **string** | Original query sent to Google. Defaults to q; an empty string omits it. | [optional]  |
 | **sourceid** | **string** | Google source identifier. Defaults to chrome; an empty string omits it. | [optional]  |
@@ -2314,7 +2316,7 @@ catch (ApiException e)
 
 <a id="googlegooglewebsearch"></a>
 # **GoogleGoogleWebSearch**
-> Object GoogleGoogleWebSearch (string q, string gl = null, string hl = null, int? num = null, int? start = null, string domain = null, string device = null, string userAgent = null, string output = null, string location = null, string lr = null, string tbs = null, string safe = null, string uule = null, int? filter = null, int? nfpr = null, string cr = null, string ludocid = null, string lsig = null, string kgmid = null, string si = null, string ibp = null, string uds = null, bool? aiOverview = null, string mode = null, string expandRelatedQuestions = null, string oq = null, string sourceid = null, string ie = null, string googleDomain = null, decimal? lat = null, decimal? lon = null, decimal? radius = null, string colorScheme = null, string tbm = null, string udm = null, bool? noCache = null, string asDt = null, string asEpq = null, string asEq = null, string asLq = null, string asNlo = null, string asNhi = null, string asOq = null, string asQ = null, string asQdr = null, string asRq = null, string asSitesearch = null, string prefer = null, string xCallbackURL = null, string idempotencyKey = null, bool? async = null, int? asyncWait = null, string callbackUrl = null, string idempotencyKey2 = null)
+> Object GoogleGoogleWebSearch (string q, string gl = null, string hl = null, int? num = null, int? start = null, string domain = null, string device = null, string userAgent = null, bool? requireResolvedLinks = null, string output = null, string location = null, string lr = null, string tbs = null, string safe = null, string uule = null, int? filter = null, int? nfpr = null, string cr = null, string ludocid = null, string lsig = null, string kgmid = null, string si = null, string ibp = null, string uds = null, bool? aiOverview = null, string mode = null, string expandRelatedQuestions = null, string oq = null, string sourceid = null, string ie = null, string googleDomain = null, decimal? lat = null, decimal? lon = null, decimal? radius = null, string colorScheme = null, string tbm = null, string udm = null, bool? noCache = null, string asDt = null, string asEpq = null, string asEq = null, string asLq = null, string asNlo = null, string asNhi = null, string asOq = null, string asQ = null, string asQdr = null, string asRq = null, string asSitesearch = null, string prefer = null, string xCallbackURL = null, string idempotencyKey = null, bool? async = null, int? asyncWait = null, string callbackUrl = null, string idempotencyKey2 = null)
 
 Google web search
 
@@ -2354,6 +2356,7 @@ namespace Example
             var domain = "\"google.com\"";  // string | Google domain (optional)  (default to "google.com")
             var device = "desktop";  // string | Device target: desktop, mobile, iphone, android, tablet (optional)  (default to desktop)
             var userAgent = "userAgent_example";  // string | Custom User-Agent (overrides device) (optional) 
+            var requireResolvedLinks = false;  // bool? | Require direct organic result URLs and resolve Google redirects in returned result links. JSON only. The handler returns HTTP 503 on a budget miss (2 s fast, 2.5 s full). (optional)  (default to false)
             var output = "json";  // string | Response format: json (parsed) or html (raw SERP) (optional)  (default to json)
             var location = "location_example";  // string | City-level geo-targeting (optional) 
             var lr = "lr_example";  // string | Language restrict (e.g. lang_en) (optional) 
@@ -2405,7 +2408,7 @@ namespace Example
             try
             {
                 // Google web search
-                Object result = apiInstance.GoogleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+                Object result = apiInstance.GoogleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, requireResolvedLinks, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -2426,7 +2429,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // Google web search
-    ApiResponse<Object> response = apiInstance.GoogleGoogleWebSearchWithHttpInfo(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+    ApiResponse<Object> response = apiInstance.GoogleGoogleWebSearchWithHttpInfo(q, gl, hl, num, start, domain, device, userAgent, requireResolvedLinks, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -2451,6 +2454,7 @@ catch (ApiException e)
 | **domain** | **string** | Google domain | [optional] [default to &quot;google.com&quot;] |
 | **device** | **string** | Device target: desktop, mobile, iphone, android, tablet | [optional] [default to desktop] |
 | **userAgent** | **string** | Custom User-Agent (overrides device) | [optional]  |
+| **requireResolvedLinks** | **bool?** | Require direct organic result URLs and resolve Google redirects in returned result links. JSON only. The handler returns HTTP 503 on a budget miss (2 s fast, 2.5 s full). | [optional] [default to false] |
 | **output** | **string** | Response format: json (parsed) or html (raw SERP) | [optional] [default to json] |
 | **location** | **string** | City-level geo-targeting | [optional]  |
 | **lr** | **string** | Language restrict (e.g. lang_en) | [optional]  |

@@ -32314,6 +32314,21 @@ paths:
           title: Nfpr
           type: integer
         style: form
+      - description: "Require direct organic result URLs and resolve Google redirects\
+          \ in returned result links. JSON only. The handler returns HTTP 503 on a\
+          \ budget miss (2 s fast, 2.5 s full)."
+        explode: true
+        in: query
+        name: require_resolved_links
+        required: false
+        schema:
+          default: false
+          description: "Require direct organic result URLs and resolve Google redirects\
+            \ in returned result links. JSON only. The handler returns HTTP 503 on\
+            \ a budget miss (2 s fast, 2.5 s full)."
+          title: Require Resolved Links
+          type: boolean
+        style: form
       - explode: true
         in: query
         name: output
@@ -35846,6 +35861,21 @@ paths:
           nullable: true
           pattern: "^[^\\r\\n]*$"
           type: string
+        style: form
+      - description: "Require direct organic result URLs and resolve Google redirects\
+          \ in returned result links. JSON only. The handler returns HTTP 503 on a\
+          \ budget miss (2 s fast, 2.5 s full)."
+        explode: true
+        in: query
+        name: require_resolved_links
+        required: false
+        schema:
+          default: false
+          description: "Require direct organic result URLs and resolve Google redirects\
+            \ in returned result links. JSON only. The handler returns HTTP 503 on\
+            \ a budget miss (2 s fast, 2.5 s full)."
+          title: Require Resolved Links
+          type: boolean
         style: form
       - description: "Response format: json (parsed) or html (raw SERP)"
         explode: true

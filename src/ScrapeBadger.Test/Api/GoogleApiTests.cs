@@ -383,6 +383,7 @@ namespace ScrapeBadger.Test.Api
             //string safe = null;
             //int? filter = null;
             //int? nfpr = null;
+            //bool? requireResolvedLinks = null;
             //string output = null;
             //string oq = null;
             //string sourceid = null;
@@ -422,7 +423,7 @@ namespace ScrapeBadger.Test.Api
             //int? asyncWait = null;
             //string callbackUrl = null;
             //string idempotencyKey2 = null;
-            //var response = instance.GoogleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+            //var response = instance.GoogleGoogleLightWebSearch(q, gl, hl, num, start, domain, location, uule, lr, tbs, safe, filter, nfpr, requireResolvedLinks, output, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, device, userAgent, cr, ludocid, lsig, kgmid, si, ibp, uds, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
@@ -508,6 +509,7 @@ namespace ScrapeBadger.Test.Api
             //string domain = null;
             //string device = null;
             //string userAgent = null;
+            //bool? requireResolvedLinks = null;
             //string output = null;
             //string location = null;
             //string lr = null;
@@ -555,7 +557,7 @@ namespace ScrapeBadger.Test.Api
             //int? asyncWait = null;
             //string callbackUrl = null;
             //string idempotencyKey2 = null;
-            //var response = instance.GoogleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
+            //var response = instance.GoogleGoogleWebSearch(q, gl, hl, num, start, domain, device, userAgent, requireResolvedLinks, output, location, lr, tbs, safe, uule, filter, nfpr, cr, ludocid, lsig, kgmid, si, ibp, uds, aiOverview, mode, expandRelatedQuestions, oq, sourceid, ie, googleDomain, lat, lon, radius, colorScheme, tbm, udm, noCache, asDt, asEpq, asEq, asLq, asNlo, asNhi, asOq, asQ, asQdr, asRq, asSitesearch, prefer, xCallbackURL, idempotencyKey, async, asyncWait, callbackUrl, idempotencyKey2);
             //Assert.IsType<Object>(response);
         }
 
